@@ -352,3 +352,6 @@ main { max-width: 720px; margin: 0 auto; padding: 14px 16px 24px; }
 .legend { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
 .legend .cal-cell { width: 14px; height: 14px; aspect-ratio: auto; display: inline-block; cursor: default; }
 .legend .dotc { width: 8px; height: 8px; border-radius: 50%; background: #8a3ffc; display: inline-block; }
+.final-card { flex-wrap: wrap; }
+.final-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.past-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }

@@ -1,9 +1,9 @@
 // Offline support: always try the network first (so updates show up straight away),
 // fall back to the last cached copy when there's no connection.
-const CACHE = 'two-plates-v8';
+const CACHE = 'two-plates-v9';
 const SHELL = [
   './', 'index.html', 'css/styles.css', 'manifest.webmanifest', 'icons/icon.svg',
-  'js/app.js', 'js/data.js', 'js/state.js', 'js/planner.js', 'js/grocery.js', 'js/export.js', 'js/sync.js', 'js/log.js',
+  'js/app.js', 'js/data.js', 'js/state.js', 'js/planner.js', 'js/grocery.js', 'js/export.js', 'js/sync.js', 'js/log.js', 'js/menu.js', 'menu.html',
   'data/ingredients.js', 'data/recipes/indian.js', 'data/recipes/mexican.js', 'data/recipes/italian.js',
   'data/recipes/indo-chinese.js', 'data/recipes/thai.js', 'data/recipes/explore-asian.js',
   'data/recipes/grill-wraps.js', 'data/regulars.js', 'data/shopping-habits.js',

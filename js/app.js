@@ -228,7 +228,11 @@ function renderWeek(s) {
   ${s.plan.finalizedAt ? `<section class="card final-card">
     <div><b>${icon('check')} Week ${s.history.length + 1} · finalized ${fmtDate(s.plan.finalizedAt)}</b>
       <div class="muted">These are this week's dishes. The grocery list and Friday check-in use exactly these.</div></div>
-    <button class="link" data-act="unfinalize">Edit week</button>
+    <div class="final-actions">
+      <button class="btn small primary" data-act="share-menu">${icon('share')} Share menu</button>
+      <a class="btn small" href="${menuUrl(s.history.length + 1, s.plan.weekOf, s.plan.slots.map((x) => x.id))}" target="_blank" rel="noopener">Menu page</a>
+      <button class="link" data-act="unfinalize">Edit week</button>
+    </div>
   </section>` : `<div class="toolbar">
     ${counter('Chicken', 'chickenDishes', s.rules.chickenDishes, 7 - s.rules.vegDishes)}
     ${counter('Veg', 'vegDishes', s.rules.vegDishes, 7 - s.rules.chickenDishes)}
@@ -258,7 +262,8 @@ function pastWeeks(s) {
   return `<details class="card past" ${s.history.length ? '' : 'open'}>
     <summary><b>Saved weeks</b> <span class="muted">(${weeks.length})</span></summary>
     ${weeks.reverse().map((h) => `<div class="past-week">
-      <div class="past-head">Week ${h.no} · ${fmtWeek(h.weekOf)}${h.current ? ' <span class="badge reg">This week</span>' : ''}${h.finalizedAt ? '' : ' <span class="fine">(not finalized)</span>'}</div>
+      <div class="past-head"><span>Week ${h.no} · ${fmtWeek(h.weekOf)}${h.current ? ' <span class="badge reg">This week</span>' : ''}${h.finalizedAt ? '' : ' <span class="fine">(not finalized)</span>'}</span>
+        <a class="link" href="${menuUrl(h.no, h.weekOf, h.ids)}" target="_blank" rel="noopener">Menu page</a></div>
       <ul>${h.ids.map((id) => RECIPE_BY_ID[id]).filter(Boolean).map((r) => {
         const c = h.cooked?.[r.id];
         const avg = ratingOf(s, r.id);
@@ -601,6 +606,31 @@ function setTab(tab) {
   render();
 }
 
+// Public read-only menu page link for a week (dish ids live in the link itself).
+function menuUrl(no, weekOf, ids) {
+  const base = new URL('menu.html', location.href);
+  base.search = `?n=${no}&w=${weekOf || ''}&d=${ids.join(',')}`; // ids are url-safe slugs
+  return base.toString();
+}
+
+function menuMessage(s, no, weekOf, ids) {
+  const recipes = ids.map((id) => RECIPE_BY_ID[id]).filter(Boolean);
+  const line = (r) => `• ${r.name} (${r.cuisine}, ${r.time} min)\n  ${youtubeUrl(r)}`;
+  const chicken = recipes.filter((r) => kindOf(r, s.rules.eggsCountAsVeg) === 'chicken');
+  const veg = recipes.filter((r) => kindOf(r, s.rules.eggsCountAsVeg) === 'veg');
+  return [`🍽️ Week ${no} menu — week of ${fmtWeek(weekOf)}`, '',
+    ...(chicken.length ? ['*Chicken & turkey*', ...chicken.map(line), ''] : []),
+    ...(veg.length ? ['*Veg*', ...veg.map(line), ''] : []),
+    `Full menu: ${menuUrl(no, weekOf, ids)}`].join('\n');
+}
+
+async function shareMenu(no, weekOf, ids) {
+  const s = getState();
+  const text = menuMessage(s, no, weekOf, ids);
+  if (navigator.share) { try { await navigator.share({ text }); } catch { /* cancelled */ } return; }
+  try { await navigator.clipboard.writeText(text); toast('Menu copied — paste it into WhatsApp'); } catch { toast('Couldn’t copy on this browser'); }
+}
+
 function finalizeWeek() {
   update((d) => {
     d.plan.finalizedAt = Date.now();
@@ -729,6 +759,10 @@ const actions = {
   'log-goto': (el) => { ui.logDate = el.dataset.date; ui.logPerson = Number(el.dataset.p); ui.logView = 'day'; window.scrollTo(0, 0); render(); },
   'log-cheatday': (el) => setEntry((e) => { e.cheatDay = el.checked; }),
   'log-uncheat': (el) => setEntry((e) => { e.cheats = (e.cheats || []).filter((_, i) => i !== Number(el.dataset.i)); }),
+  'share-menu': () => {
+    const s = getState();
+    shareMenu(s.history.length + 1, s.plan.weekOf, s.plan.slots.map((x) => x.id));
+  },
   'checkin-open': () => { ui.checkin = true; ui.tab = 'week'; window.scrollTo(0, 0); render(); },
   'checkin-close': () => { ui.checkin = false; render(); },
   cooked: (el) => update((d) => { d.plan.cooked = { ...d.plan.cooked, [el.dataset.id]: el.dataset.v === '1' }; }),
