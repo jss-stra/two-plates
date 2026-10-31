@@ -3,6 +3,7 @@ export default {
   cuisine: 'Mexican',
   recipes: [
     ['Chicken Burrito Bowl', 30, 'chicken_breast 600, black_beans 1, brown_rice 200, corn 200, cos_lettuce 1, tomato 2, red_onion 1, lime 2, coriander 1, greek_yogurt 200, avocado 1, cumin 2, smoked_paprika 1, chilli_powder 1, oil 10', ''],
+    ['Simple Chicken Tacos', 25, 'chicken_breast 600, tortillas 12, cos_lettuce 1, tomato 2, red_onion 1, cheddar 60, greek_yogurt 150, salsa 150, cumin 1.5, smoked_paprika 1, lime 1', 'quick'],
     ['Sheet-pan Chicken Fajitas', 25, 'chicken_breast 650, capsicum 3, red_onion 2, tortillas 12, greek_yogurt 200, salsa 200, lime 1, cumin 1.5, smoked_paprika 1.5, chilli_powder 1, oil 10', 'quick oven'],
     ['Turkey Tacos', 25, 'turkey_mince 600, black_beans 1, onion 1, tomato 2, cos_lettuce 1, tortillas 12, cheddar 60, greek_yogurt 150, salsa 200, cumin 2, smoked_paprika 1, chilli_powder 1, oregano 1', 'quick'],
     ['Chicken Enchiladas (lighter)', 45, 'chicken_breast 500, black_beans 1, tortillas 8, enchilada_sauce 400, onion 1, capsicum 1, mozzarella 100, greek_yogurt 150, cumin 1.5', 'oven'],

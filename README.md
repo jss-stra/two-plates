@@ -10,6 +10,8 @@ There's no build step. It's plain HTML, CSS and JavaScript modules, and everythi
 | --- | --- |
 | `data/ingredients.js` | Ingredient catalog: nutrition per 100 g, grocery section, pantry flag. **Every dish's macros come from here.** |
 | `data/recipes/*.js` | The dish library, one file per cuisine. Each row: `[name, minutes, "ingredient qty, …", "tags"]`, with quantities for 4 standard servings. |
+| `data/regulars.js` | Dishes you already cook often ("Regular" badge, picked more often until rated). |
+| `data/shopping-habits.js` | What you actually buy (learned from receipts), shown on the list instead of rough amounts, plus every-week staples. |
 | `js/planner.js` | Weekly picking rules (veg quota, cuisine weights, variety, time limits) and per-person maths. |
 | `js/grocery.js` | Combines and scales ingredients into the shopping list. |
 | `js/export.js` | Excel export (shopping list, pantry check, menu with YouTube links). |

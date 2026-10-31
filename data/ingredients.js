@@ -97,6 +97,7 @@ export const INGREDIENTS = {
   basil: I('Basil', 'fv', 'bunch', 23, 3.2, 1, 0.6, { g: 40 }),
   thai_basil: I('Thai basil', 'fv', 'bunch', 23, 3.2, 1, 0.6, { g: 40 }),
   parsley: I('Flat-leaf parsley', 'fv', 'bunch', 36, 3, 3, 0.8, { g: 50 }),
+  dill: I('Dill', 'fv', 'bunch', 43, 3.5, 7, 1.1, { g: 30 }),
   lemongrass: I('Lemongrass stalks', 'fv', 'pc', 99, 1.8, 25, 0.5, { g: 20 }),
   lime_leaves: I('Kaffir lime leaves', 'fv', 'pc', 0, 0, 0, 0, { g: 1 }),
   curry_leaves: I('Curry leaves', 'indian', 'sprig', 0, 0, 0, 0, { g: 2 }),
@@ -113,6 +114,8 @@ export const INGREDIENTS = {
   tortillas: I('Small tortillas (corn or wholemeal)', 'bakery', 'pc', 280, 8, 46, 6.5, { g: 40 }),
   bread: I('Wholegrain bread (slices)', 'bakery', 'pc', 245, 10, 40, 4, { g: 40 }),
   buns: I('Wholemeal rolls / buns', 'bakery', 'pc', 260, 9, 45, 4.5, { g: 70 }),
+  lebanese_bread: I('Lebanese / pita bread', 'bakery', 'pc', 270, 9, 52, 2, { g: 80 }),
+  hummus: I('Hummus', 'dairy', 'g', 230, 7, 13, 16),
 
   // Rice, pasta & grains
   basmati: I('Basmati rice', 'grains', 'g', 350, 7.5, 78, 0.6, { pantry: true }),
@@ -150,6 +153,8 @@ export const INGREDIENTS = {
   chana_dal: I('Chana dal', 'indian', 'g', 360, 20, 55, 5, { pantry: true, src: 'legume' }),
   urad_whole: I('Whole urad (black dal)', 'indian', 'g', 340, 25, 52, 1.6, { pantry: true, src: 'legume' }),
   soya_chunks: I('Soya chunks / granules', 'indian', 'g', 345, 52, 33, 0.5, { src: 'soya' }),
+  kala_chana: I('Kala chana (dry)', 'indian', 'g', 360, 19, 50, 6, { pantry: true, src: 'legume' }),
+  lobia: I('Lobia / black-eyed beans (dry)', 'indian', 'g', 336, 23.5, 60, 1.3, { pantry: true, src: 'legume' }),
 
   // Sauces, oils & nuts
   oil: I('Olive / canola oil', 'sauces', 'ml', 820, 0, 0, 92, { pantry: true }),
@@ -194,6 +199,8 @@ export const INGREDIENTS = {
   balsamic: I('Balsamic vinegar', 'sauces', 'ml', 88, 0.5, 17, 0, { pantry: true }),
   vinegar: I('White vinegar', 'sauces', 'ml', 18, 0, 0, 0, { pantry: true }),
   dijon: I('Dijon mustard', 'sauces', 'g', 130, 6, 5, 10),
+  light_mayo: I('Light mayonnaise', 'sauces', 'g', 300, 1, 8, 28),
+  peri_peri: I('Peri-peri sauce', 'sauces', 'g', 80, 1, 8, 5),
   peanut_butter: I('Natural peanut butter', 'sauces', 'g', 600, 25, 12, 50),
   peanuts: I('Roasted peanuts (unsalted)', 'sauces', 'g', 590, 26, 13, 49),
   cashews: I('Raw cashews', 'sauces', 'g', 580, 18, 25, 46),

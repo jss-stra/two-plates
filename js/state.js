@@ -18,24 +18,26 @@ export function defaultState() {
       },
     ],
     rules: {
-      dishes: 5,
-      mealsPerDish: 2, // dinner + next-day lunch
+      chickenDishes: 3,
       vegDishes: 2,
-      indianVeg: 2,
+      indianVeg: 2, // how many of the veg dishes are Indian
+      mealsPerDish: 2, // dinner + next-day lunch
       eggsCountAsVeg: false,
       maxTime: 45,
       longPerWeek: 1, // dishes allowed over maxTime (weekend cooks)
       minProtein: 20,
       maxSameProtein: 3,
       startDay: 0, // 0 = Monday
-      cuisineWeights: { Indian: 1, Mexican: 3, Italian: 3, 'Indo-Chinese': 2, Thai: 2, 'Explore Asian': 2 },
+      cuisineWeights: { Indian: 1, Mexican: 3, Italian: 3, 'Grill & Wraps': 3, 'Indo-Chinese': 2, Thai: 2, 'Explore Asian': 2 },
     },
     plan: { weekOf: null, slots: [] },
-    favourites: [],
+    favourites: [], // replaced by ratings; kept so older saves can be migrated
+    ratings: {}, // recipe id -> { r: [person1 stars, person2 stars], note }
     hidden: [],
     history: [],
     pantry: {}, // ingredient id -> true (always have) / false (always buy)
     checked: {},
+    bought: {}, // grocery item key -> what you actually bought, e.g. "1 kg"
     extras: [],
   };
 }

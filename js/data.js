@@ -6,16 +6,22 @@ import italian from '../data/recipes/italian.js';
 import indoChinese from '../data/recipes/indo-chinese.js';
 import thai from '../data/recipes/thai.js';
 import exploreAsian from '../data/recipes/explore-asian.js';
+import grillWraps from '../data/recipes/grill-wraps.js';
+import { REGULARS } from '../data/regulars.js';
 
 export { INGREDIENTS, AISLES };
 
 // Every recipe row is written for this many standard servings.
 export const BASE_SERVINGS = 4;
 export const MAIN_CUISINES = ['Indian', 'Mexican', 'Italian', 'Indo-Chinese', 'Thai'];
+export const GRILL = 'Grill & Wraps';
 export const EXPLORE = 'Explore Asian';
-export const GROUPS = [...MAIN_CUISINES, EXPLORE];
+export const GROUPS = ['Indian', 'Mexican', 'Italian', GRILL, 'Indo-Chinese', 'Thai', EXPLORE];
 
 export const DIET_LABEL = { veg: 'Veg', egg: 'Egg', nonveg: 'Chicken / turkey' };
+
+// The two kinds of slot in a week: chicken/turkey dishes and veg dishes.
+export const kindOf = (r, eggsCountAsVeg) => (isVeg(r, eggsCountAsVeg) ? 'veg' : 'chicken');
 export const PROTEIN_LABEL = {
   chicken: 'Chicken', turkey: 'Turkey', paneer: 'Paneer', tofu: 'Tofu / soy', soya: 'Soya chunks',
   egg: 'Egg', legume: 'Beans & dal', cheese: 'Cheese',
@@ -66,7 +72,7 @@ function buildRecipe(row, file) {
     id: slug(name),
     name,
     cuisine,
-    group: MAIN_CUISINES.includes(cuisine) ? cuisine : EXPLORE,
+    group: file.group || (MAIN_CUISINES.includes(cuisine) ? cuisine : EXPLORE),
     time,
     tags: tagStr.split(/\s+/).filter(Boolean),
     items,
@@ -77,7 +83,7 @@ function buildRecipe(row, file) {
   };
 }
 
-const FILES = [indian, mexican, italian, indoChinese, thai, exploreAsian];
+const FILES = [indian, mexican, italian, grillWraps, indoChinese, thai, exploreAsian];
 
 export const RECIPES = [];
 export const RECIPE_BY_ID = {};
@@ -88,6 +94,11 @@ for (const file of FILES) {
     RECIPES.push(r);
     RECIPE_BY_ID[r.id] = r;
   }
+}
+for (const name of REGULARS) {
+  const r = RECIPE_BY_ID[slug(name)];
+  if (r) r.regular = true;
+  else DATA_ERRORS.push(`Regular dish not found: ${name}`);
 }
 
 export function youtubeUrl(recipe) {
