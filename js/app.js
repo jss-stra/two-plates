@@ -221,7 +221,7 @@ function renderWeek(s) {
   </section>
 
   ${s.plan.finalizedAt ? `<section class="card final-card">
-    <div><b>${icon('check')} Finalized ${fmtDate(s.plan.finalizedAt)}</b>
+    <div><b>${icon('check')} Week ${s.history.length + 1} · finalized ${fmtDate(s.plan.finalizedAt)}</b>
       <div class="muted">These are this week's dishes. The grocery list and Friday check-in use exactly these.</div></div>
     <button class="link" data-act="unfinalize">Edit week</button>
   </section>` : `<div class="toolbar">
@@ -242,13 +242,18 @@ function renderWeek(s) {
   ${pastWeeks(s)}`;
 }
 
-// Earlier weeks with each dish's recipe link, newest first.
+// Every finalized week (this one included) with each dish's recipe link, newest first.
 function pastWeeks(s) {
-  if (!s.history.length) return '';
-  return `<details class="card past">
-    <summary><b>Past weeks</b> <span class="muted">(${s.history.length})</span></summary>
-    ${[...s.history].reverse().map((h) => `<div class="past-week">
-      <div class="past-head">Week of ${fmtWeek(h.weekOf)}${h.finalizedAt ? '' : ' <span class="fine">(not finalized)</span>'}</div>
+  const weeks = s.history.map((h, i) => ({ ...h, no: i + 1 }));
+  if (s.plan.finalizedAt) {
+    weeks.push({ weekOf: s.plan.weekOf, finalizedAt: s.plan.finalizedAt, ids: s.plan.slots.map((x) => x.id),
+      cooked: s.plan.cooked, no: s.history.length + 1, current: true });
+  }
+  if (!weeks.length) return '';
+  return `<details class="card past" ${s.history.length ? '' : 'open'}>
+    <summary><b>Saved weeks</b> <span class="muted">(${weeks.length})</span></summary>
+    ${weeks.reverse().map((h) => `<div class="past-week">
+      <div class="past-head">Week ${h.no} · ${fmtWeek(h.weekOf)}${h.current ? ' <span class="badge reg">This week</span>' : ''}${h.finalizedAt ? '' : ' <span class="fine">(not finalized)</span>'}</div>
       <ul>${h.ids.map((id) => RECIPE_BY_ID[id]).filter(Boolean).map((r) => {
         const c = h.cooked?.[r.id];
         const avg = ratingOf(s, r.id);
