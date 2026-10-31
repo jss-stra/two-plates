@@ -17,6 +17,8 @@ let status = { state: 'off', message: 'Not connected — this phone only' };
 const statusListeners = new Set();
 
 export const onSyncStatus = (fn) => statusListeners.add(fn);
+// The connected Supabase client (null when this phone isn't synced), for receipts.
+export const syncClient = () => client;
 export const syncStatus = () => status;
 function setStatus(state, message) {
   status = { state, message };

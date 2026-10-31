@@ -4,6 +4,10 @@ import { planRecipes } from './planner.js';
 import { HABITS, WEEKLY_STAPLES } from '../data/shopping-habits.js';
 import { kindOf, youtubeUrl } from './data.js';
 
+// What Claude has learned from your receipts (see receipts.js); overrides the file defaults.
+let learned = { habits: {}, staples: [], prices: {} };
+export function setLearned(l) { learned = { habits: l?.habits || {}, staples: l?.staples || [], prices: l?.prices || {} }; }
+
 // How much to scale each recipe: meals per dish × everyone's portion size.
 export function scaleFactor(state) {
   const portions = state.people.reduce((s, p) => s + p.portion, 0);
@@ -54,14 +58,16 @@ export function buildGrocery(state) {
   const rows = [...totals.values()].map((t) => {
     const ing = INGREDIENTS[t.id];
     const q = formatQty(ing, t.qty);
+    const habit = learned.habits[t.id] || HABITS[t.id];
     return {
       key: t.id, id: t.id, name: ing.name, aisle: ing.aisle, aisleLabel: AISLES[ing.aisle],
-      amount: q.amount, unit: q.unit, text: HABITS[t.id] ? `usually ${HABITS[t.id]}` : qtyText(q), dishes: t.dishes,
+      amount: q.amount, unit: q.unit, text: habit ? `usually ${habit}` : qtyText(q), dishes: t.dishes,
       pantry: isPantry(state, t.id), checked: !!state.checked[t.id], bought: state.bought[t.id] || '',
     };
   });
-  WEEKLY_STAPLES.forEach((name, i) => {
-    const key = `w:${i}`;
+  const staples = [...new Map([...WEEKLY_STAPLES, ...learned.staples].map((n) => [n.toLowerCase(), n])).values()];
+  staples.forEach((name) => {
+    const key = `w:${name.toLowerCase()}`;
     rows.push({
       key, id: null, name, aisle: 'extra', aisleLabel: 'Every week', amount: '', unit: '', text: '', dishes: [],
       pantry: false, checked: !!state.checked[key], bought: state.bought[key] || '', staple: true,
@@ -87,7 +93,10 @@ export function buildGrocery(state) {
   };
   const shop = rows.filter((r) => !r.pantry);
   const pantry = rows.filter((r) => r.pantry);
-  return { factor, shop, pantry, shopGroups: group(shop), pantryGroups: group(pantry) };
+  // Rough cost from the last price you paid for each item (only items seen on receipts).
+  const priced = shop.filter((r) => r.id && learned.prices[r.id]?.price);
+  const cost = priced.reduce((a, r) => a + learned.prices[r.id].price, 0);
+  return { factor, shop, pantry, shopGroups: group(shop), pantryGroups: group(pantry), cost, pricedCount: priced.length };
 }
 
 export function groceryText(state, { amounts = false } = {}) {

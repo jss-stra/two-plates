@@ -4,6 +4,7 @@ import { generateSlots, planRecipes, alternatives, randomSwap, mealFor, perMealG
 import { renderLog, shiftDay, shiftMonth } from './log.js';
 import { buildGrocery, weeklyNoteText, scaleFactor, formatQty, qtyText } from './grocery.js';
 import { exportExcel } from './export.js';
+import { renderBought, loadReceipts, onReceipts, addReceipt, removeReceipt, rereadReceipt, shiftWeek } from './receipts.js';
 import { startSync, connect, disconnect, flushSync, getConfig, newHouseholdCode, onSyncStatus, syncStatus } from './sync.js';
 
 const $ = (sel, el = document) => el.querySelector(sel);
@@ -25,6 +26,8 @@ const ui = {
   logPerson: Number(store.get('twoplates.me', '0')) || 0, // whose phone this is
   logView: 'day',
   logMonth: localISO().slice(0, 7),
+  boughtWeek: null, // null = the week being planned
+  uploading: false,
 };
 
 // ---------- Icons ----------
@@ -45,6 +48,7 @@ const ICONS = {
   cart: '<circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>',
   search: '<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
   clock: '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+  camera: '<path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/>',
   note: '<path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>',
 };
 const icon = (name, cls = '') => `<svg class="icon ${cls}" viewBox="0 0 24 24" aria-hidden="true">${ICONS[name]}</svg>`;
@@ -428,6 +432,7 @@ function renderGroceries(s) {
   <section class="card">
     <h2>Shopping list</h2>
     <div class="muted">${planRecipes(s).length} dishes · ${left} of ${g.shop.length} items left${logged ? ` · ${logged} amount${logged === 1 ? '' : 's'} logged` : ''}</div>
+    ${g.pricedCount ? `<div class="fine">About $${Math.round(g.cost)} for the ${g.pricedCount} items with prices from your receipts</div>` : ''}
     <div class="btnrow">
       <button class="btn primary" data-act="share">${icon('share')} Send to Keep</button>
       <button class="btn" data-act="export">${icon('download')} Excel</button>
@@ -582,7 +587,7 @@ function renderSheetList(s) {
 function render() {
   const s = getState();
   const main = $('#main');
-  const views = { week: renderWeek, today: (st) => renderLog(st, ui, icon), recipes: renderRecipes, groceries: renderGroceries, settings: renderSettings };
+  const views = { week: renderWeek, today: (st) => renderLog(st, ui, icon), recipes: renderRecipes, groceries: renderGroceries, bought: (st) => renderBought(st, ui, icon), settings: renderSettings };
   const scroll = window.scrollY;
   main.innerHTML = (views[ui.tab] || renderWeek)(s);
   if (ui.tab === 'recipes') renderRecipeList(s);
@@ -604,6 +609,7 @@ function setTab(tab) {
   store.set('twoplates.tab', tab);
   window.scrollTo(0, 0);
   render();
+  if (tab === 'bought') loadReceipts();
 }
 
 // Public read-only menu page link for a week (dish ids live in the link itself).
@@ -754,6 +760,16 @@ const actions = {
   }),
   'log-day': (el) => { const next = shiftDay(ui.logDate, Number(el.dataset.d)); if (next <= localISO()) { ui.logDate = next; render(); } },
   'log-person': (el) => { ui.logPerson = Number(el.dataset.p); store.set('twoplates.me', String(ui.logPerson)); render(); },
+  'bought-week': (el) => {
+    const s = getState();
+    const next = shiftWeek(ui.boughtWeek || s.plan.weekOf, Number(el.dataset.d));
+    if (next <= s.plan.weekOf) { ui.boughtWeek = next === s.plan.weekOf ? null : next; render(); }
+  },
+  'receipt-remove': (el) => {
+    if (!confirm('Remove this receipt?')) return;
+    removeReceipt(el.dataset.id).then(() => toast('Receipt removed'), (e) => toast(e.message));
+  },
+  'receipt-reread': (el) => { rereadReceipt(el.dataset.id).then(() => toast('Claude will read it again'), (e) => toast(e.message)); },
   'log-view': (el) => { ui.logView = el.dataset.v; render(); },
   'log-month': (el) => { ui.logMonth = shiftMonth(ui.logMonth, Number(el.dataset.d)); render(); },
   'log-goto': (el) => { ui.logDate = el.dataset.date; ui.logPerson = Number(el.dataset.p); ui.logView = 'day'; window.scrollTo(0, 0); render(); },
@@ -822,6 +838,14 @@ document.addEventListener('click', (e) => {
 document.addEventListener('change', (e) => {
   const el = e.target;
   if (el.dataset.act && actions[el.dataset.act] && el.type === 'checkbox') { actions[el.dataset.act](el); return; }
+  if (el.dataset.receipt !== undefined && el.files?.length) {
+    const files = [...el.files];
+    ui.uploading = true; render();
+    addReceipt(files, { by: ui.logPerson, weekOf: getState().plan.weekOf })
+      .then(() => toast('Receipt saved — Claude will read it'), (err) => toast(`Not saved: ${err.message}`))
+      .finally(() => { ui.uploading = false; render(); });
+    return;
+  }
   if (el.dataset.log) {
     setEntry((e) => { e[el.dataset.log] = el.value.trim(); });
     return;
@@ -885,7 +909,13 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && ui.sheet
 // ---------- Boot ----------
 if (DATA_ERRORS.length) console.warn('Recipe data problems:', DATA_ERRORS);
 onChange(() => render());
-onSyncStatus(() => { renderHeader(); if (ui.tab === 'settings') render(); });
+let receiptsTried = false;
+onSyncStatus((st) => {
+  renderHeader();
+  if (ui.tab === 'settings') render();
+  if (st.state === 'on' && !receiptsTried) { receiptsTried = true; loadReceipts(); }
+});
+onReceipts(() => { if (ui.tab === 'bought' || ui.tab === 'groceries') render(); });
 // Re-check the plan whenever the shared state arrives from the other phone.
 onChange(() => {
   const s = getState();
@@ -896,7 +926,7 @@ function openFromLink() {
   const h = location.hash.slice(1);
   if (h === 'checkin') { ui.tab = 'week'; ui.checkin = true; }
   else if (h === 'today') { ui.tab = 'today'; ui.logView = 'day'; ui.logDate = localISO(); }
-  else if (['week', 'recipes', 'groceries', 'settings'].includes(h)) { ui.tab = h; ui.checkin = false; }
+  else if (['week', 'recipes', 'groceries', 'bought', 'settings'].includes(h)) { ui.tab = h; ui.checkin = false; }
   else return;
   history.replaceState(null, '', location.pathname);
   render();
@@ -904,7 +934,9 @@ function openFromLink() {
 window.addEventListener('hashchange', openFromLink);
 let lastDay = localISO();
 document.addEventListener('visibilitychange', () => {
-  if (document.visibilityState === 'visible' && localISO() !== lastDay) { ui.logDate = lastDay = localISO(); render(); }
+  if (document.visibilityState !== 'visible') return;
+  if (localISO() !== lastDay) { ui.logDate = lastDay = localISO(); render(); }
+  if (ui.tab === 'bought') loadReceipts();
 });
 migrate();
 ensurePlan();

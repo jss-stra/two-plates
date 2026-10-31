@@ -355,3 +355,24 @@ main { max-width: 720px; margin: 0 auto; padding: 14px 16px 24px; }
 .final-card { flex-wrap: wrap; }
 .final-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .past-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+
+/* Bought tab (receipts) */
+.tabbar { grid-template-columns: repeat(6, 1fr); }
+.tabbar button { font-size: .62rem; }
+.tabbar button span { max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+label.btn { cursor: pointer; }
+label.btn.busy { opacity: .6; pointer-events: none; }
+.receipt summary { display: flex; gap: 12px; align-items: center; cursor: pointer; list-style: none; }
+.receipt summary::-webkit-details-marker { display: none; }
+.rthumb { width: 52px; height: 64px; object-fit: cover; border-radius: 8px; background: var(--soft); flex: none; border: 1px solid var(--line); }
+.rhead { display: grid; gap: 3px; justify-items: start; min-width: 0; }
+.receipt h3 { font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin: 14px 0 4px; }
+.ritems { list-style: none; margin: 0; padding: 0; }
+.ritems li { display: flex; justify-content: space-between; gap: 10px; font-size: .88rem; padding: 4px 0; border-top: 1px solid var(--line); }
+.ritems li:first-child { border-top: 0; }
+.catbars { display: grid; gap: 6px; margin: 12px 0; }
+.catbar { display: grid; grid-template-columns: 9.5em 1fr auto; align-items: center; gap: 8px; font-size: .82rem; }
+.catbar i { display: block; height: 8px; width: var(--w); background: var(--accent); border-radius: 99px; }
+.catbar b { font-weight: 600; font-variant-numeric: tabular-nums; }
+.stats.three { grid-template-columns: repeat(3, 1fr); }
+.insights { margin: 6px 0; padding-left: 18px; font-size: .88rem; display: grid; gap: 4px; }
