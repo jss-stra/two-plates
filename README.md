@@ -1,0 +1,69 @@
+# Two Plates
+
+A weekly high-protein meal planner for two people. It picks 5–7 dinners (each one also covers the next day's lunch), shows protein and calories per person, and builds a combined grocery list you can export to Excel.
+
+There's no build step. It's plain HTML, CSS and JavaScript modules, and everything runs in the browser.
+
+## What's where
+
+| Path | What it is |
+| --- | --- |
+| `data/ingredients.js` | Ingredient catalog: nutrition per 100 g, grocery section, pantry flag. **Every dish's macros come from here.** |
+| `data/recipes/*.js` | The dish library, one file per cuisine. Each row: `[name, minutes, "ingredient qty, …", "tags"]`, with quantities for 4 standard servings. |
+| `js/planner.js` | Weekly picking rules (veg quota, cuisine weights, variety, time limits) and per-person maths. |
+| `js/grocery.js` | Combines and scales ingredients into the shopping list. |
+| `js/export.js` | Excel export (shopping list, pantry check, menu with YouTube links). |
+| `js/sync.js` | Optional live sync between phones through Supabase. |
+| `js/app.js` | The screens. |
+| `tools/validate.mjs` | Checks the recipe data: `node tools/validate.mjs` (add `--all` to list every dish's numbers). |
+
+### Adding a dish
+
+Add a row to the right file in `data/recipes/`, using ingredient ids from `data/ingredients.js`, then run `node tools/validate.mjs`. If you need a new ingredient, add it to the catalog first with its nutrition per 100 g.
+
+## Run it on your computer
+
+```bash
+python3 -m http.server 8642
+```
+
+Then open http://localhost:8642.
+
+## Put it on your phones (GitHub Pages)
+
+1. Create a new GitHub repository (e.g. `two-plates`) and push this folder to it.
+2. In the repository, go to **Settings → Pages → Build and deployment**, choose **Deploy from a branch**, then pick `main` and `/ (root)`.
+3. After a minute it's live at `https://<your-username>.github.io/two-plates/`.
+4. On each iPhone, open that link in Safari and tap **Share → Add to Home Screen**.
+
+## Live sync between both phones (Supabase, free)
+
+Without this step, each phone keeps its own plan. With it, a shuffle, swap or ticked grocery item on one phone shows up on the other within a second or two.
+
+1. Sign up at https://supabase.com and create a new project (the free tier is plenty). Pick the Sydney region.
+2. Open **SQL Editor**, paste this and click **Run**:
+
+   ```sql
+   create table public.meal_state (
+     id text primary key,
+     data jsonb not null,
+     updated_at timestamptz not null default now()
+   );
+   alter table public.meal_state enable row level security;
+   create policy "household read/write" on public.meal_state
+     for all to anon using (true) with check (true);
+   alter publication supabase_realtime add table public.meal_state;
+   ```
+
+3. Go to **Project Settings → API** and copy the **Project URL** and the **anon public** key.
+4. In the app, open **Settings → Sync between phones**. Paste the URL and the key, tap **New** to make a household code, then tap **Connect**.
+5. On the second phone, enter the same three values (copy the household code across).
+
+Privacy note: the anon key is designed to be public, and the policy above lets anyone who has both the key and your project URL read or write the table. The only thing stored there is your meal plan and settings, so this is a reasonable trade-off for a personal app. Don't put the key in the code or the repository; enter it in the app on each phone.
+
+## Changing the numbers
+
+- **Targets, shake/breakfast/snacks, portion sizes:** Settings → People. A portion of 1.25× means 1.25 standard servings per meal.
+- **Veg quota, Indian veg count, time limit, cuisine mix:** Settings → Planning rules.
+- **Pantry staples:** Settings → Pantry staples, or tap "Have it" / "Need to buy" on the grocery list.
+- **A dish you don't like:** tap the eye-slash icon on the Recipes tab and it's never suggested again (undo under "Hidden").

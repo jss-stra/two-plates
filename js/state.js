@@ -1,0 +1,89 @@
+// App state: one JSON document, saved to localStorage and (optionally) synced via Supabase.
+const KEY = 'twoplates.state.v1';
+
+export function defaultState() {
+  return {
+    version: 1,
+    updatedAt: 0,
+    // Placeholder people — enter your own names and targets in Settings.
+    // "Outside" = breakfast, shakes and snacks: everything the plan doesn't cover.
+    people: [
+      {
+        name: 'Person 1', proteinMin: 100, proteinMax: 130, kcalMin: 1800, kcalMax: 2100,
+        outsideProtein: 40, outsideKcal: 500, portion: 1.2,
+      },
+      {
+        name: 'Person 2', proteinMin: 70, proteinMax: 90, kcalMin: 1500, kcalMax: 1700,
+        outsideProtein: 30, outsideKcal: 500, portion: 0.9,
+      },
+    ],
+    rules: {
+      dishes: 5,
+      mealsPerDish: 2, // dinner + next-day lunch
+      vegDishes: 2,
+      indianVeg: 2,
+      eggsCountAsVeg: false,
+      maxTime: 45,
+      longPerWeek: 1, // dishes allowed over maxTime (weekend cooks)
+      minProtein: 20,
+      maxSameProtein: 3,
+      startDay: 0, // 0 = Monday
+      cuisineWeights: { Indian: 1, Mexican: 3, Italian: 3, 'Indo-Chinese': 2, Thai: 2, 'Explore Asian': 2 },
+    },
+    plan: { weekOf: null, slots: [] },
+    favourites: [],
+    hidden: [],
+    history: [],
+    pantry: {}, // ingredient id -> true (always have) / false (always buy)
+    checked: {},
+    extras: [],
+  };
+}
+
+function merge(base, saved) {
+  if (Array.isArray(base) || typeof base !== 'object' || base === null) return saved ?? base;
+  const out = { ...base };
+  for (const k of Object.keys(saved || {})) {
+    out[k] = k in base && typeof base[k] === 'object' && base[k] !== null && !Array.isArray(base[k])
+      ? merge(base[k], saved[k]) : saved[k];
+  }
+  return out;
+}
+
+function load() {
+  try {
+    const raw = localStorage.getItem(KEY);
+    if (raw) return merge(defaultState(), JSON.parse(raw));
+  } catch { /* storage unavailable or corrupt — start fresh */ }
+  return defaultState();
+}
+
+let state = load();
+const listeners = new Set();
+let syncHook = null;
+
+export const getState = () => state;
+export const onChange = (fn) => listeners.add(fn);
+export const setSyncHook = (fn) => { syncHook = fn; };
+
+function persist() {
+  try { localStorage.setItem(KEY, JSON.stringify(state)); } catch { /* ignore */ }
+}
+
+// Local change: mutate a copy, save, re-render, push to sync.
+export function update(mutator) {
+  const next = structuredClone(state);
+  mutator(next);
+  next.updatedAt = Date.now();
+  state = next;
+  persist();
+  listeners.forEach((fn) => fn(state));
+  syncHook?.(state);
+}
+
+// Remote change from sync: replace without pushing back.
+export function replaceState(remote) {
+  state = merge(defaultState(), remote);
+  persist();
+  listeners.forEach((fn) => fn(state));
+}

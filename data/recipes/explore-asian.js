@@ -1,0 +1,87 @@
+// "Explore Asian" — cuisines to try. Row: [name, minutes, ingredients, tags, cuisine]
+// Quantities for 4 standard servings.
+export default {
+  cuisine: 'Korean',
+  explore: true,
+  recipes: [
+    // Korean
+    ['Gochujang Chicken Bibimbap', 35, 'chicken_thigh 550, egg 4, jasmine 220, spinach 200, carrot 1, bean_sprouts 200, zucchini 1, gochujang 50, sesame_oil 10, soy_sauce 20, garlic 3, kimchi 200', '', 'Korean'],
+    ['Tofu Bibimbap', 30, 'tofu 600, egg 4, jasmine 220, spinach 200, carrot 1, bean_sprouts 200, mushrooms 150, gochujang 50, sesame_oil 10, soy_sauce 20', '', 'Korean'],
+    ['Air-fryer Korean Fried Chicken (lighter)', 35, 'chicken_thigh 700, cornflour 40, gochujang 40, soy_sauce 20, garlic 4, ginger 10, sesame_seeds 5, jasmine 200, red_cabbage 200, cucumber 1', 'af', 'Korean'],
+    ['Kimchi Fried Rice with Tofu & Egg', 20, 'kimchi 300, jasmine 220, egg 4, tofu 400, spring_onion 1, gochujang 20, soy_sauce 15, sesame_oil 10, oil 10', 'quick', 'Korean'],
+    ['Dakgalbi (Spicy Chicken Stir-fry)', 30, 'chicken_thigh 650, cabbage 300, sweet_potato 300, onion 1, gochujang 50, gochugaru 1, soy_sauce 20, garlic 5, sesame_oil 10, jasmine 160', '', 'Korean'],
+    ['Sundubu Jjigae (Soft Tofu Stew)', 25, 'silken_tofu 600, tofu 300, egg 4, kimchi 200, mushrooms 150, zucchini 1, onion 1, gochugaru 2, soy_sauce 20, veg_stock 800, jasmine 200, spring_onion 1', 'quick', 'Korean'],
+    ['Bulgogi-style Chicken Lettuce Wraps', 25, 'chicken_thigh 650, soy_sauce 40, garlic 5, ginger 10, sesame_oil 10, onion 1, cos_lettuce 1, carrot 1, cucumber 1, jasmine 200, kimchi 150', 'quick', 'Korean'],
+    ['Japchae with Tofu & Egg', 30, 'rice_noodles 200, tofu 400, egg 3, spinach 200, carrot 1, mushrooms 150, onion 1, soy_sauce 40, sesame_oil 15, garlic 3', '', 'Korean'],
+    ['Gochujang Tofu Bowls', 25, 'tofu 700, gochujang 50, soy_sauce 20, jasmine 220, cucumber 1, carrot 1, edamame 150, sesame_seeds 5, spring_onion 1', 'quick af', 'Korean'],
+    ['Kimchi Jjigae with Chicken & Tofu', 30, 'chicken_thigh 400, tofu 400, kimchi 300, onion 1, gochugaru 1, gochujang 20, chicken_stock 800, spring_onion 1, jasmine 200', '', 'Korean'],
+    ['Korean Turkey Rice Bowls', 20, 'turkey_mince 600, soy_sauce 40, garlic 4, ginger 10, sesame_oil 10, gochujang 20, jasmine 220, cucumber 1, carrot 1, kimchi 150, spring_onion 1', 'quick', 'Korean'],
+    ['Chicken Mandu Dumpling Soup', 35, 'chicken_mince 500, dumpling_wrappers 30, egg 2, kimchi 150, spring_onion 1, garlic 4, chicken_stock 1500, soy_sauce 30, bok_choy 200', '', 'Korean'],
+
+    // Japanese
+    ['No-sugar Chicken Teriyaki Bowls', 25, 'chicken_thigh 650, soy_sauce 50, mirin 30, ginger 10, garlic 3, broccoli 300, jasmine 220, sesame_seeds 5, cornflour 10', 'quick', 'Japanese'],
+    ['Air-fryer Chicken Katsu Curry', 40, 'chicken_breast 650, panko 80, egg 1, onion 1, carrot 1, potato 1, curry_powder 3, cornflour 15, chicken_stock 600, soy_sauce 15, jasmine 220', 'af', 'Japanese'],
+    ['Oyakodon (Chicken & Egg Rice Bowl)', 25, 'chicken_thigh 500, egg 6, onion 1, chicken_stock 300, soy_sauce 40, mirin 30, spring_onion 1, jasmine 240', 'quick', 'Japanese'],
+    ['Miso-glazed Tofu with Soba', 25, 'tofu 600, miso 50, soba 240, edamame 200, bok_choy 300, soy_sauce 20, mirin 15, sesame_seeds 5, spring_onion 1', 'quick af', 'Japanese'],
+    ['Chicken Yakitori Rice Bowls', 25, 'chicken_thigh 650, spring_onion 2, soy_sauce 50, mirin 30, jasmine 220, cucumber 1, edamame 150', 'af quick', 'Japanese'],
+    ['Japanese Tofu & Veg Curry', 40, 'tofu 600, potato 2, carrot 2, onion 2, curry_powder 4, cornflour 15, veg_stock 700, soy_sauce 15, jasmine 220, peas 100', 'ip', 'Japanese'],
+    ['Chicken Udon Soup', 25, 'chicken_breast 500, udon 800, chicken_stock 1500, soy_sauce 40, mirin 20, bok_choy 300, mushrooms 150, spring_onion 1, egg 4, ginger 10', 'quick', 'Japanese'],
+    ['Tofu Yaki Udon', 20, 'tofu 500, udon 800, cabbage 200, carrot 1, mushrooms 150, spring_onion 1, soy_sauce 40, mirin 15, oil 15', 'quick', 'Japanese'],
+    ['Okonomiyaki with Chicken', 30, 'cabbage 400, egg 6, plain_flour 150, spring_onion 1, chicken_breast 300, greek_yogurt 100, sriracha 20, oil 15', '', 'Japanese'],
+    ['Miso Ramen with Tofu & Egg', 25, 'tofu 400, egg 4, miso 60, ramen 300, bok_choy 300, mushrooms 150, corn 150, spring_onion 1, veg_stock 1500, sesame_oil 5', 'quick', 'Japanese'],
+    ['Shoyu Chicken Ramen', 35, 'chicken_breast 550, ramen 300, egg 4, chicken_stock 1600, soy_sauce 50, ginger 15, garlic 4, bok_choy 300, spring_onion 1, mushrooms 150', '', 'Japanese'],
+    ['Chicken Poke-style Sushi Bowls', 25, 'chicken_breast 550, jasmine 220, edamame 200, cucumber 1, carrot 1, avocado 1, nori 4, soy_sauce 30, rice_vinegar 20, sesame_seeds 5, sriracha 15', 'quick', 'Japanese'],
+    ['Air-fryer Tofu Katsu & Slaw', 35, 'tofu 700, panko 80, egg 1, cabbage 300, carrot 1, jasmine 200, soy_sauce 15, sriracha 15', 'af', 'Japanese'],
+    ['Chicken Tsukune Skewers & Rice', 30, 'chicken_mince 650, egg 1, panko 30, spring_onion 1, ginger 10, soy_sauce 40, mirin 20, jasmine 220, cucumber 1, edamame 150', 'af', 'Japanese'],
+
+    // Vietnamese
+    ['Chicken Pho', 40, 'chicken_breast 550, rice_noodles 240, chicken_stock 2000, onion 1, ginger 30, cinnamon 1, five_spice 1, fish_sauce 30, bean_sprouts 200, thai_basil 1, lime 2, spring_onion 1', 'ip', 'Vietnamese'],
+    ['Lemongrass Chicken Vermicelli Bowl (Bún Gà)', 30, 'chicken_thigh 650, lemongrass 2, garlic 4, fish_sauce 30, rice_noodles 200, cos_lettuce 1, cucumber 1, carrot 1, mint 1, coriander 1, peanuts 20, lime 2', 'af', 'Vietnamese'],
+    ['Chicken Rice Paper Rolls & Peanut Dip', 30, 'chicken_breast 550, rice_paper 16, rice_noodles 100, cos_lettuce 1, carrot 1, cucumber 1, mint 1, peanut_butter 50, soy_sauce 20, lime 1', '', 'Vietnamese'],
+    ['Tofu Rice Paper Rolls & Peanut Dip', 30, 'tofu 600, rice_paper 16, rice_noodles 100, cos_lettuce 1, carrot 1, cucumber 1, mint 1, peanut_butter 50, soy_sauce 30, lime 1', '', 'Vietnamese'],
+    ['Lemongrass Chicken Bánh Mì', 25, 'chicken_thigh 600, buns 4, carrot 2, cucumber 1, coriander 1, red_chilli 2, rice_vinegar 40, soy_sauce 20, sriracha 20, greek_yogurt 100, lemongrass 1', 'af', 'Vietnamese'],
+    ['Shaking Chicken (Gà Lúc Lắc-style)', 25, 'chicken_breast 650, red_onion 1, capsicum 1, garlic 5, soy_sauce 30, oyster_sauce 20, cos_lettuce 1, cherry_tomatoes 200, jasmine 220, oil 10', 'quick', 'Vietnamese'],
+    ['Gỏi Gà (Vietnamese Chicken Salad)', 20, 'chicken_breast 650, cabbage 300, carrot 1, red_onion 1, mint 1, coriander 1, lime 2, fish_sauce 30, peanuts 30, rice_noodles 120', 'quick', 'Vietnamese'],
+    ['Lemongrass Tofu Stir-fry', 25, 'tofu 700, lemongrass 2, garlic 4, red_chilli 2, onion 1, capsicum 1, soy_sauce 40, turmeric 0.5, jasmine 220, oil 15', 'quick', 'Vietnamese'],
+    ['Phở Chay (Veg Pho with Tofu & Egg)', 35, 'tofu 500, egg 4, rice_noodles 240, veg_stock 2000, mushrooms 200, bok_choy 200, ginger 30, five_spice 1, cinnamon 1, soy_sauce 40, bean_sprouts 150, thai_basil 1, lime 2', 'ip', 'Vietnamese'],
+
+    // Chinese
+    ['Kung Pao Chicken', 25, 'chicken_breast 650, peanuts 40, capsicum 1, spring_onion 1, dried_chilli 6, sichuan_pepper 1, garlic 4, ginger 10, soy_sauce 40, rice_vinegar 15, cornflour 15, oil 15, jasmine 220', 'quick', 'Chinese'],
+    ['Mushroom Mapo Tofu', 25, 'silken_tofu 400, tofu 400, mushrooms 200, chilli_bean_paste 40, sichuan_pepper 1, garlic 4, ginger 10, spring_onion 1, cornflour 10, soy_sauce 20, veg_stock 300, jasmine 220, oil 10', 'quick', 'Chinese'],
+    ['Dry-fried Green Beans with Chicken Mince', 25, 'chicken_mince 600, green_beans 400, garlic 5, ginger 10, chilli_bean_paste 30, soy_sauce 20, sichuan_pepper 1, jasmine 220, oil 15', 'quick', 'Chinese'],
+    ['Tomato & Egg Stir-fry with Tofu', 20, 'egg 8, tomato 6, tofu 300, spring_onion 1, soy_sauce 15, garlic 2, jasmine 220, oil 15', 'quick', 'Chinese'],
+    ['Steamed Ginger-Scallion Chicken', 30, 'chicken_breast 700, ginger 40, spring_onion 2, soy_sauce 30, sesame_oil 10, oil 15, bok_choy 400, jasmine 220', '', 'Chinese'],
+    ['Dan Dan Noodles with Chicken Mince', 25, 'chicken_mince 550, hokkien 500, chilli_crisp 30, peanut_butter 30, soy_sauce 40, rice_vinegar 15, sichuan_pepper 1, bok_choy 300, garlic 3, spring_onion 1', 'quick', 'Chinese'],
+    ['Instant Pot Chicken Congee', 50, 'chicken_breast 500, jasmine 200, chicken_stock 2000, ginger 30, spring_onion 1, egg 4, soy_sauce 20, white_pepper 1, sesame_oil 5', 'ip weekend', 'Chinese'],
+    ['Black Pepper Tofu', 25, 'tofu 700, onion 1, capsicum 1, pepper 2, soy_sauce 40, garlic 5, ginger 10, butter 10, jasmine 220, spring_onion 1', 'quick', 'Chinese'],
+    ['Five-spice Chicken & Bok Choy', 30, 'chicken_thigh 650, five_spice 1.5, soy_sauce 30, garlic 4, ginger 10, bok_choy 400, jasmine 220, oil 10', 'af', 'Chinese'],
+    ['Tofu & Mushroom San Choy Bow', 20, 'tofu 500, mushrooms 300, carrot 1, spring_onion 1, garlic 3, ginger 10, soy_sauce 30, hoisin 30, cos_lettuce 1, jasmine 160, edamame 150', 'quick', 'Chinese'],
+    ['Chicken San Choy Bow', 20, 'chicken_mince 650, carrot 1, mushrooms 150, spring_onion 1, garlic 3, ginger 10, soy_sauce 30, oyster_sauce 20, cos_lettuce 1, jasmine 160', 'quick', 'Chinese'],
+    ['Tomato Egg Noodle Soup with Tofu', 20, 'egg 8, tomato 5, tofu 300, hokkien 400, veg_stock 1200, spring_onion 1, soy_sauce 20, garlic 2', 'quick', 'Chinese'],
+
+    // Malaysian, Singaporean, Indonesian
+    ['Nasi Goreng with Chicken & Egg', 25, 'chicken_breast 450, egg 4, jasmine 240, onion 1, garlic 4, sambal 30, soy_sauce 40, cucumber 1, tomato 2, oil 15', 'quick', 'Indonesian'],
+    ['Mee Goreng with Tofu & Egg', 25, 'tofu 400, egg 4, hokkien 600, cabbage 200, bok_choy 200, tomato 2, sambal 30, soy_sauce 40, oil 15', 'quick', 'Malaysian'],
+    ['Chicken Rendang (lighter)', 60, 'chicken_thigh 650, coconut_milk 1, lemongrass 2, onion 2, garlic 5, ginger 20, red_chilli 4, lime_leaves 4, turmeric 1, cinnamon 1, jasmine 200', 'ip weekend', 'Malaysian'],
+    ['Lighter Chicken & Tofu Laksa', 35, 'chicken_breast 400, tofu 300, laksa_paste 70, coconut_milk 1, chicken_stock 1000, rice_noodles 200, bean_sprouts 200, bok_choy 200, lime 2, coriander 1', '', 'Malaysian'],
+    ['Hainanese Chicken Rice', 50, 'chicken_breast 700, jasmine 280, chicken_stock 600, ginger 40, garlic 6, spring_onion 2, cucumber 2, soy_sauce 30, sesame_oil 10, red_chilli 3, lime 1', 'ip weekend', 'Singaporean'],
+    ['Gado Gado with Tofu, Tempeh & Egg', 30, 'tofu 300, tempeh 300, egg 4, potato 2, green_beans 200, cabbage 200, bean_sprouts 150, cucumber 1, peanut_butter 60, soy_sauce 20, sambal 15, lime 1', '', 'Indonesian'],
+    ['Sambal Tempeh Stir-fry', 25, 'tempeh 500, capsicum 1, onion 1, green_beans 200, sambal 40, soy_sauce 30, garlic 4, jasmine 220, oil 15', 'quick', 'Indonesian'],
+    ['Malaysian Chicken Curry Kapitan', 45, 'chicken_thigh 650, coconut_milk 1, onion 2, lemongrass 2, curry_powder 3, potato 1, garlic 5, ginger 10, lime_leaves 4, jasmine 200', 'ip', 'Malaysian'],
+    ['Singapore Noodles with Chicken & Egg', 25, 'chicken_breast 450, egg 4, rice_noodles 240, capsicum 1, cabbage 200, bean_sprouts 150, spring_onion 1, curry_powder 2, soy_sauce 30, oil 15', 'quick', 'Singaporean'],
+    ['Ayam Bakar (Grilled Chicken) & Sambal', 35, 'chicken_thigh 700, soy_sauce 30, garlic 4, lemongrass 1, sambal 30, lime 1, cucumber 1, tomato 2, jasmine 220', 'af', 'Indonesian'],
+    ['Nasi Lemak Bowl with Chicken & Egg', 40, 'chicken_thigh 600, egg 4, jasmine 220, coconut_milk 0.5, cucumber 1, peanuts 40, sambal 50, onion 1, turmeric 0.5', 'af', 'Malaysian'],
+    ['Soto Ayam (Turmeric Chicken Soup)', 40, 'chicken_breast 550, turmeric 1.5, lemongrass 2, lime_leaves 4, ginger 20, garlic 5, shallot 3, chicken_stock 1800, egg 4, rice_noodles 160, bean_sprouts 150, lime 2', 'ip', 'Indonesian'],
+
+    // Sri Lankan, Filipino, Nepali/Tibetan, Taiwanese
+    ['Sri Lankan Chicken Curry', 45, 'chicken_thigh 650, onion 2, tomato 2, coconut_milk 0.5, curry_leaves 2, garlic 5, ginger 10, curry_powder 3, cinnamon 1, chilli_powder 1, oil 10, basmati 220', 'ip', 'Sri Lankan'],
+    ['Sri Lankan Dhal Curry with Eggs', 30, 'red_lentils 250, coconut_milk 0.5, egg 6, onion 1, tomato 1, curry_leaves 2, turmeric 1, mustard_seeds 1, garlic 4, spinach 150, basmati 200', 'ip quick', 'Sri Lankan'],
+    ['Chicken Kottu Roti', 30, 'chicken_breast 450, egg 4, wraps 4, cabbage 300, carrot 1, onion 1, curry_powder 2, curry_leaves 1, green_chilli 2, oil 15', '', 'Sri Lankan'],
+    ['Lighter Filipino Chicken Adobo', 40, 'chicken_thigh 750, soy_sauce 60, vinegar 60, garlic 10, bay_leaf 3, pepper 1.5, jasmine 220, green_beans 300', 'ip', 'Filipino'],
+    ['Chicken Tinola (Ginger Soup)', 35, 'chicken_thigh 600, ginger 40, onion 1, garlic 4, chicken_stock 1500, zucchini 2, spinach 150, fish_sauce 20, jasmine 200', 'ip', 'Filipino'],
+    ['Chicken Momos & Tomato Achar', 50, 'chicken_mince 600, dumpling_wrappers 40, onion 1, spring_onion 1, ginger 15, garlic 5, coriander 1, tomato 3, red_chilli 2, sesame_seeds 10, soy_sauce 15', 'weekend', 'Nepali'],
+    ['Chicken Thukpa (Noodle Soup)', 30, 'chicken_breast 500, hokkien 400, chicken_stock 1500, onion 1, tomato 2, spinach 150, carrot 1, garlic 4, ginger 10, soy_sauce 20, chilli_flakes 1', '', 'Nepali'],
+    ['Three-Cup Chicken (lighter)', 30, 'chicken_thigh 650, garlic 10, ginger 30, thai_basil 1, soy_sauce 40, sesame_oil 15, mirin 20, jasmine 220, bok_choy 300', '', 'Taiwanese'],
+    ['Lu Rou Fan with Chicken Mince & Egg', 35, 'chicken_mince 600, egg 4, shallot 4, soy_sauce 50, five_spice 1, garlic 4, jasmine 240, bok_choy 300', '', 'Taiwanese'],
+  ],
+};
