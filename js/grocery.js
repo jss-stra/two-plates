@@ -2,7 +2,7 @@
 import { INGREDIENTS, AISLES, BASE_SERVINGS } from './data.js';
 import { planRecipes } from './planner.js';
 import { HABITS, WEEKLY_STAPLES } from '../data/shopping-habits.js';
-import { kindOf } from './data.js';
+import { kindOf, youtubeUrl } from './data.js';
 
 // How much to scale each recipe: meals per dish × everyone's portion size.
 export function scaleFactor(state) {
@@ -100,7 +100,7 @@ export function groceryText(state, { amounts = false } = {}) {
 // One note with the week's dishes and the shopping list — for Google Keep / Notes.
 export function weeklyNoteText(state, { amounts = false } = {}) {
   const recipes = planRecipes(state);
-  const line = (r) => `• ${r.name} (${r.cuisine}, ${r.time} min)`;
+  const line = (r) => `• ${r.name} (${r.cuisine}, ${r.time} min)\n  Recipe: ${youtubeUrl(r)}`;
   const chicken = recipes.filter((r) => kindOf(r, state.rules.eggsCountAsVeg) === 'chicken');
   const veg = recipes.filter((r) => kindOf(r, state.rules.eggsCountAsVeg) === 'veg');
   return [

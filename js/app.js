@@ -3,7 +3,7 @@ import { getState, update, onChange, defaultState, replaceState } from './state.
 import { generateSlots, planRecipes, alternatives, randomSwap, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes } from './planner.js';
 import { buildGrocery, weeklyNoteText, scaleFactor, formatQty, qtyText } from './grocery.js';
 import { exportExcel } from './export.js';
-import { startSync, connect, disconnect, getConfig, newHouseholdCode, onSyncStatus, syncStatus } from './sync.js';
+import { startSync, connect, disconnect, flushSync, getConfig, newHouseholdCode, onSyncStatus, syncStatus } from './sync.js';
 
 const $ = (sel, el = document) => el.querySelector(sel);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -238,7 +238,25 @@ function renderWeek(s) {
       ? `<button class="btn primary wide" data-act="tab" data-tab="groceries">${icon('cart')} Grocery list</button>`
       : `<button class="btn primary wide" data-act="finalize">${icon('check')} Finalize these ${recipes.length} dishes → grocery list</button>`}
     <button class="btn wide" data-act="checkin-open">${icon('check')} Weekly check-in &amp; plan next week</button>
-  </div>`;
+  </div>
+  ${pastWeeks(s)}`;
+}
+
+// Earlier weeks with each dish's recipe link, newest first.
+function pastWeeks(s) {
+  if (!s.history.length) return '';
+  return `<details class="card past">
+    <summary><b>Past weeks</b> <span class="muted">(${s.history.length})</span></summary>
+    ${[...s.history].reverse().map((h) => `<div class="past-week">
+      <div class="past-head">Week of ${fmtWeek(h.weekOf)}${h.finalizedAt ? '' : ' <span class="fine">(not finalized)</span>'}</div>
+      <ul>${h.ids.map((id) => RECIPE_BY_ID[id]).filter(Boolean).map((r) => {
+        const c = h.cooked?.[r.id];
+        const avg = ratingOf(s, r.id);
+        return `<li><span>${c === true ? '✓' : c === false ? '✗' : '·'} ${esc(r.name)}${avg !== null ? ` <span class="badge star-b">★ ${avg.toFixed(1)}</span>` : ''}</span>
+          <a class="link" href="${youtubeUrl(r)}" target="_blank" rel="noopener">Recipe</a></li>`;
+      }).join('')}</ul>
+    </div>`).join('')}
+  </details>`;
 }
 
 // Friday–Sunday nudge until this week's check-in is done.
@@ -573,6 +591,14 @@ function setTab(tab) {
   render();
 }
 
+function finalizeWeek() {
+  update((d) => {
+    d.plan.finalizedAt = Date.now();
+    d.plan.slots = d.plan.slots.map((x) => ({ ...x, locked: true }));
+  });
+  flushSync().catch(() => {});
+}
+
 function replaceSlot(i, id) {
   update((d) => { d.plan.slots[i] = { id, locked: false }; });
 }
@@ -645,6 +671,10 @@ const actions = {
     try { toast('Preparing Excel file…'); await exportExcel(getState()); } catch (e) { toast(e.message); }
   },
   share: async () => {
+    // Sending the list means these are the week's dishes: finalize and save first,
+    // so nothing can change them while the share sheet is open.
+    if (!getState().plan.finalizedAt) { finalizeWeek(); toast('Week finalized'); }
+    await flushSync().catch(() => {});
     const s = getState();
     const title = `Two Plates — week of ${fmtWeek(s.plan.weekOf)}`;
     const text = weeklyNoteText(s, { amounts: ui.showAmounts });
@@ -657,10 +687,7 @@ const actions = {
     try { await navigator.clipboard.writeText(text); toast('Copied — paste it into a new Keep note'); } catch { toast('Couldn’t copy on this browser'); }
   },
   finalize: () => {
-    update((d) => {
-      d.plan.finalizedAt = Date.now();
-      d.plan.slots = d.plan.slots.map((x) => ({ ...x, locked: true }));
-    });
+    finalizeWeek();
     setTab('groceries');
     toast('Week finalized — here’s your grocery list');
   },
@@ -772,7 +799,7 @@ document.addEventListener('submit', (e) => {
   if (form.dataset.form === 'sync') {
     const cfg = { url: form.url.value.trim(), key: form.key.value.trim(), household: form.household.value.trim() };
     if (!cfg.url || !cfg.key || !cfg.household) { toast('Fill in all three fields'); return; }
-    connect(cfg).then(render);
+    connect(cfg, { join: true }).then(render);
   }
 });
 
