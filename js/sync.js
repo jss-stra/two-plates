@@ -68,9 +68,12 @@ export async function connect(cfg) {
     client = createClient(cfg.url.trim(), cfg.key.trim());
     const { data, error } = await client.from(TABLE).select('data').eq('id', cfg.household).maybeSingle();
     if (error) throw error;
-    // Newer copy wins; if the household is new, seed it with this phone's data.
-    if (data?.data && (data.data.updatedAt || 0) > (getState().updatedAt || 0)) applyRemote({ data: { ...data.data, _device: 'remote' } });
-    else await push();
+    // Joining an existing household always takes its plan (so a second phone can't
+    // overwrite the first); a brand-new household is seeded with this phone's data.
+    if (data?.data) {
+      const { _device, ...rest } = data.data;
+      replaceState(rest);
+    } else await push();
     channel = client.channel(`${TABLE}:${cfg.household}`)
       .on('postgres_changes', { event: '*', schema: 'public', table: TABLE, filter: `id=eq.${cfg.household}` },
         (payload) => applyRemote(payload.new))
