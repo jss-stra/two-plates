@@ -152,7 +152,7 @@ function receiptCard(r, s) {
         ${statusPill}</div>
     </summary>
     ${r.status === 'unreadable' ? `<p class="fine">${esc(r.note || 'The photo was too blurry or cut off.')} Try a flatter, closer photo — or several photos of a long receipt picked together.</p>` : ''}
-    ${r.status === 'new' ? '<p class="fine">Claude checks for new receipts every 15 minutes (7am–midnight) while the Claude app is open on the Mac. Pull down or reopen this tab to see the results.</p>' : ''}
+    ${r.status === 'new' ? '<p class="fine">Claude checks for new receipts every 15 minutes (7am–midnight) while the Claude app is open on the Mac. Reopen the app or this tab to see the results.</p>' : ''}
     ${Object.entries(CATEGORIES).filter(([c]) => groups[c]).map(([c, label]) => `<h3>${label}</h3><ul class="ritems">${groups[c].map((i) => `<li><span>${esc(i.name)}${i.size ? ` <span class="fine">${esc(i.size)}</span>` : ''}${i.qty > 1 ? ` <span class="fine">×${i.qty}</span>` : ''}</span><span>${i.price != null ? money(i.price) : ''}</span></li>`).join('')}</ul>`).join('')}
     ${r.status === 'read' && r.note ? `<p class="fine">${esc(r.note)}</p>` : ''}
     <div class="btnrow">
