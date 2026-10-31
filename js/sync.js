@@ -3,7 +3,7 @@
 import { getState, setSyncHook, replaceState } from './state.js';
 
 const CONFIG_KEY = 'twoplates.sync.v1';
-const SUPABASE = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/+esm';
+const SUPABASE = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/+esm';
 const TABLE = 'meal_state';
 const deviceId = Math.random().toString(36).slice(2);
 

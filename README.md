@@ -58,7 +58,7 @@ Without this step, each phone keeps its own plan. With it, a shuffle, swap or ti
    alter publication supabase_realtime add table public.meal_state;
    ```
 
-3. Go to **Project Settings → API** and copy the **Project URL** and the **anon public** key.
+3. Go to **Project Settings → Data API** and copy the **Project URL**, then **Project Settings → API Keys** and copy the **Publishable key** (`sb_publishable_…`; older projects show it as the legacy **anon public** key starting `eyJ`). Never use a secret / service_role key.
 4. In the app, open **Settings → Sync between phones**. Paste the URL and the key, tap **New** to make a household code, then tap **Connect**.
 5. On the second phone, enter the same three values (copy the household code across).
 

@@ -481,7 +481,7 @@ function renderSettings(s) {
     <p class="sync-status ${st.state}"><span class="dot"></span>${esc(st.message)}</p>
     <form data-form="sync" class="stack">
       <label class="field"><span>Supabase project URL</span><input name="url" placeholder="https://xxxx.supabase.co" value="${esc(cfg.url || '')}" autocomplete="off"></label>
-      <label class="field"><span>Supabase anon key</span><input name="key" placeholder="eyJhbGciOi…" value="${esc(cfg.key || '')}" autocomplete="off"></label>
+      <label class="field"><span>Supabase publishable (anon) key</span><input name="key" placeholder="sb_publishable_… or eyJ…" value="${esc(cfg.key || '')}" autocomplete="off"></label>
       <label class="field"><span>Household code (same on both phones)</span>
         <div class="inline"><input name="household" value="${esc(cfg.household || '')}" autocomplete="off"><button class="btn" type="button" data-act="gen-code">New</button></div></label>
       <div class="btnrow"><button class="btn primary" type="submit">Connect</button>${cfg.url ? '<button class="btn ghost" type="button" data-act="disconnect">Disconnect</button>' : ''}</div>
