@@ -52,6 +52,7 @@ Without this step, each phone keeps its own plan. With it, a shuffle, swap or ti
    alter table public.meal_state enable row level security;
    create policy "household read/write" on public.meal_state
      for all to anon using (true) with check (true);
+   grant select, insert, update on public.meal_state to anon;
    alter publication supabase_realtime add table public.meal_state;
    ```
 
