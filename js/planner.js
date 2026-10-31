@@ -198,3 +198,25 @@ export function weekStart(startDay, from = new Date()) {
   const pad = (n) => String(n).padStart(2, '0');
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
+
+// 'YYYY-MM-DD' in local time.
+export function localISO(d = new Date()) {
+  const pad = (n) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+}
+
+// The week's dishes that were planned around a given date (this week, or a saved week).
+export function plannedFor(state, iso) {
+  const inWeek = (weekOf) => {
+    if (!weekOf) return false;
+    const start = new Date(`${weekOf}T00:00:00`);
+    start.setDate(start.getDate() - 2); // weeks are often planned and started the weekend before
+    const end = new Date(`${weekOf}T00:00:00`);
+    end.setDate(end.getDate() + 7);
+    const day = new Date(`${iso}T12:00:00`);
+    return day >= start && day < end;
+  };
+  const past = [...state.history].reverse().find((h) => inWeek(h.weekOf));
+  if (past && !inWeek(state.plan.weekOf)) return past.ids;
+  return state.plan.slots.map((x) => x.id);
+}

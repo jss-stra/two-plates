@@ -31,6 +31,19 @@ function saveConfig(cfg) {
 }
 
 const isDirty = () => { try { return localStorage.getItem(DIRTY_KEY) === '1'; } catch { return false; } };
+// Food-log entries are per person per day; keep whichever side edited each one last,
+// so two people logging the same evening don't overwrite each other.
+function mergeDays(local = {}, remote = {}) {
+  const out = structuredClone(remote || {});
+  for (const [day, people] of Object.entries(local || {})) {
+    out[day] ||= {};
+    for (const [p, e] of Object.entries(people)) {
+      if (!out[day][p] || (e.at || 0) > (out[day][p].at || 0)) out[day][p] = e;
+    }
+  }
+  return out;
+}
+
 function setDirty(v) {
   try { v ? localStorage.setItem(DIRTY_KEY, '1') : localStorage.removeItem(DIRTY_KEY); } catch { /* ignore */ }
 }
@@ -43,6 +56,12 @@ export function newHouseholdCode() {
 async function push() {
   if (!client) return;
   const cfg = getConfig();
+  // Pull in the other phone's newest log entries before overwriting the shared copy.
+  const { data: current } = await client.from(TABLE).select('data').eq('id', cfg.household).maybeSingle();
+  if (current?.data?.days) {
+    const merged = mergeDays(getState().days, current.data.days);
+    if (JSON.stringify(merged) !== JSON.stringify(getState().days)) replaceState({ ...getState(), days: merged });
+  }
   const s = getState();
   const { error } = await client.from(TABLE).upsert({
     id: cfg.household, data: { ...s, _device: deviceId }, updated_at: new Date(s.updatedAt || Date.now()).toISOString(),
@@ -77,7 +96,7 @@ function applyRemote(row) {
   if (!data || data._device === deviceId) return;
   if ((data.updatedAt || 0) <= (getState().updatedAt || 0)) return;
   const { _device, ...rest } = data;
-  replaceState(rest);
+  replaceState({ ...rest, days: mergeDays(getState().days, rest.days) });
   setStatus('on', 'Synced — updated from the other phone');
 }
 

@@ -40,6 +40,10 @@ export function defaultState() {
     checked: {},
     bought: {}, // grocery item key -> what you actually bought, e.g. "1 kg"
     extras: [],
+    // Daily food log: 'YYYY-MM-DD' -> { 0: entry for person 1, 1: entry for person 2 }.
+    // entry: { breakfast: 'usual'|'other', breakfastText, lunch/dinner: recipe id|'other'|'skipped',
+    //          lunchText, dinnerText, snacks, cheats: [], cheatDay, rating 1-5, note }
+    days: {},
   };
 }
 

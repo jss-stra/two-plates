@@ -1,6 +1,7 @@
 import { RECIPES, RECIPE_BY_ID, GROUPS, INGREDIENTS, DIET_LABEL, PROTEIN_LABEL, youtubeUrl, isVeg, kindOf, DATA_ERRORS } from './data.js';
 import { getState, update, onChange, defaultState, replaceState } from './state.js';
-import { generateSlots, planRecipes, alternatives, randomSwap, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes } from './planner.js';
+import { generateSlots, planRecipes, alternatives, randomSwap, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes, localISO } from './planner.js';
+import { renderLog, shiftDay, shiftMonth } from './log.js';
 import { buildGrocery, weeklyNoteText, scaleFactor, formatQty, qtyText } from './grocery.js';
 import { exportExcel } from './export.js';
 import { startSync, connect, disconnect, flushSync, getConfig, newHouseholdCode, onSyncStatus, syncStatus } from './sync.js';
@@ -20,6 +21,10 @@ const ui = {
   showAmounts: store.get('twoplates.amounts', '0') === '1',
   logBought: false,
   checkin: false,
+  logDate: localISO(),
+  logPerson: Number(store.get('twoplates.me', '0')) || 0, // whose phone this is
+  logView: 'day',
+  logMonth: localISO().slice(0, 7),
 };
 
 // ---------- Icons ----------
@@ -572,7 +577,7 @@ function renderSheetList(s) {
 function render() {
   const s = getState();
   const main = $('#main');
-  const views = { week: renderWeek, recipes: renderRecipes, groceries: renderGroceries, settings: renderSettings };
+  const views = { week: renderWeek, today: (st) => renderLog(st, ui, icon), recipes: renderRecipes, groceries: renderGroceries, settings: renderSettings };
   const scroll = window.scrollY;
   main.innerHTML = (views[ui.tab] || renderWeek)(s);
   if (ui.tab === 'recipes') renderRecipeList(s);
@@ -602,6 +607,18 @@ function finalizeWeek() {
     d.plan.slots = d.plan.slots.map((x) => ({ ...x, locked: true }));
   });
   flushSync().catch(() => {});
+}
+
+// Edit one person's log entry for the day being viewed; 'at' lets sync merge
+// both people's evening logs instead of one overwriting the other.
+function setEntry(fn) {
+  update((d) => {
+    d.days ||= {};
+    const day = (d.days[ui.logDate] ||= {});
+    const e = (day[ui.logPerson] ||= {});
+    fn(e);
+    e.at = Date.now();
+  });
 }
 
 function replaceSlot(i, id) {
@@ -700,6 +717,18 @@ const actions = {
     if (!confirm('Edit this week? Changing dishes also changes the grocery list — fine if you haven’t shopped yet.')) return;
     update((d) => { d.plan.finalizedAt = 0; });
   },
+  'log-set': (el) => setEntry((e) => {
+    const f = el.dataset.field;
+    const v = f === 'rating' ? Number(el.dataset.value) : el.dataset.value;
+    e[f] = e[f] === v ? null : v; // tap again to clear
+  }),
+  'log-day': (el) => { const next = shiftDay(ui.logDate, Number(el.dataset.d)); if (next <= localISO()) { ui.logDate = next; render(); } },
+  'log-person': (el) => { ui.logPerson = Number(el.dataset.p); store.set('twoplates.me', String(ui.logPerson)); render(); },
+  'log-view': (el) => { ui.logView = el.dataset.v; render(); },
+  'log-month': (el) => { ui.logMonth = shiftMonth(ui.logMonth, Number(el.dataset.d)); render(); },
+  'log-goto': (el) => { ui.logDate = el.dataset.date; ui.logPerson = Number(el.dataset.p); ui.logView = 'day'; window.scrollTo(0, 0); render(); },
+  'log-cheatday': (el) => setEntry((e) => { e.cheatDay = el.checked; }),
+  'log-uncheat': (el) => setEntry((e) => { e.cheats = (e.cheats || []).filter((_, i) => i !== Number(el.dataset.i)); }),
   'checkin-open': () => { ui.checkin = true; ui.tab = 'week'; window.scrollTo(0, 0); render(); },
   'checkin-close': () => { ui.checkin = false; render(); },
   cooked: (el) => update((d) => { d.plan.cooked = { ...d.plan.cooked, [el.dataset.id]: el.dataset.v === '1' }; }),
@@ -759,6 +788,10 @@ document.addEventListener('click', (e) => {
 document.addEventListener('change', (e) => {
   const el = e.target;
   if (el.dataset.act && actions[el.dataset.act] && el.type === 'checkbox') { actions[el.dataset.act](el); return; }
+  if (el.dataset.log) {
+    setEntry((e) => { e[el.dataset.log] = el.value.trim(); });
+    return;
+  }
   if (el.dataset.bought !== undefined) {
     update((d) => { d.bought[el.dataset.bought] = el.value.trim(); });
     return;
@@ -801,6 +834,11 @@ document.addEventListener('submit', (e) => {
     if (!name) return;
     update((d) => { d.extras.push({ id: Math.random().toString(36).slice(2, 9), name }); });
   }
+  if (form.dataset.form === 'cheat') {
+    const c = form.cheat.value.trim();
+    if (!c) return;
+    setEntry((e) => { e.cheats = [...(e.cheats || []), c]; });
+  }
   if (form.dataset.form === 'sync') {
     const cfg = { url: form.url.value.trim(), key: form.key.value.trim(), household: form.household.value.trim() };
     if (!cfg.url || !cfg.key || !cfg.household) { toast('Fill in all three fields'); return; }
@@ -823,12 +861,17 @@ onChange(() => {
 function openFromLink() {
   const h = location.hash.slice(1);
   if (h === 'checkin') { ui.tab = 'week'; ui.checkin = true; }
+  else if (h === 'today') { ui.tab = 'today'; ui.logView = 'day'; ui.logDate = localISO(); }
   else if (['week', 'recipes', 'groceries', 'settings'].includes(h)) { ui.tab = h; ui.checkin = false; }
   else return;
   history.replaceState(null, '', location.pathname);
   render();
 }
 window.addEventListener('hashchange', openFromLink);
+let lastDay = localISO();
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible' && localISO() !== lastDay) { ui.logDate = lastDay = localISO(); render(); }
+});
 migrate();
 ensurePlan();
 render();
