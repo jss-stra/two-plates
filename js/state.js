@@ -31,7 +31,7 @@ export function defaultState() {
       cuisineWeights: { Indian: 1, Mexican: 3, Italian: 3, 'Grill & Wraps': 3, 'Indo-Chinese': 2, Thai: 2, 'Explore Asian': 2 },
     },
     // cooked: recipe id -> true (cooked) / false (didn't); carry: id -> false to drop an uncooked dish.
-    plan: { weekOf: null, slots: [], cooked: {}, carry: {}, startedAt: 0 },
+    plan: { weekOf: null, slots: [], cooked: {}, carry: {}, startedAt: 0, finalizedAt: 0 },
     favourites: [], // replaced by ratings; kept so older saves can be migrated
     ratings: {}, // recipe id -> { r: [person1 stars, person2 stars], note }
     hidden: [],

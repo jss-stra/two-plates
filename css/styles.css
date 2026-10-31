@@ -302,3 +302,5 @@ main { max-width: 720px; margin: 0 auto; padding: 14px 16px 24px; }
 .yesno button { padding: 8px 14px; }
 .carry { margin-top: 8px; }
 .btn[disabled] { opacity: .45; cursor: default; }
+.final-card { display: flex; align-items: center; justify-content: space-between; gap: 12px; border-color: var(--ok); background: var(--ok-soft); }
+.final-card b { display: inline-flex; align-items: center; gap: 6px; color: var(--ok); }

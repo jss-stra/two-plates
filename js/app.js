@@ -51,6 +51,7 @@ function fmtWeek(iso) {
   const [y, m, d] = iso.split('-').map(Number);
   return new Date(y, m - 1, d).toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short' });
 }
+const fmtDate = (ts) => new Date(ts).toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short' });
 const dietDot = (r) => `<span class="dot diet-${r.diet}" title="${DIET_LABEL[r.diet]}"></span>`;
 
 let toastTimer;
@@ -167,10 +168,11 @@ function personSummary(d, rules) {
 }
 
 function dishCard(r, i, slot, s) {
-  return `<li class="dish ${slot.locked ? 'locked' : ''}">
+  const final = !!s.plan.finalizedAt;
+  return `<li class="dish ${slot.locked && !final ? 'locked' : ''}">
     <div class="dish-top">
       <span class="badges">${ratingBadge(s, r)}</span>
-      ${slot.locked ? `<span class="locked-tag">${icon('lock')} Locked</span>` : ''}
+      ${slot.locked && !final ? `<span class="locked-tag">${icon('lock')} Locked</span>` : ''}
     </div>
     <h3>${esc(r.name)}</h3>
     <div class="meta">${dietDot(r)} ${esc(r.cuisine)} · ${icon('clock', 'sm')} ${r.time} min · ${PROTEIN_LABEL[r.mainProtein] || ''}</div>
@@ -181,9 +183,9 @@ function dishCard(r, i, slot, s) {
       return `<span><b>${esc(p.name)}</b> <span class="st ${cls}">${m.protein} g</span> · ${m.kcal} kcal</span>`;
     }).join('')}</div>
     <div class="actions">
-      <button class="act ${slot.locked ? 'on' : ''}" data-act="lock" data-i="${i}">${icon(slot.locked ? 'lock' : 'unlock')}<span>${slot.locked ? 'Locked' : 'Lock'}</span></button>
+      ${final ? '' : `<button class="act ${slot.locked ? 'on' : ''}" data-act="lock" data-i="${i}">${icon(slot.locked ? 'lock' : 'unlock')}<span>${slot.locked ? 'Locked' : 'Lock'}</span></button>
       <button class="act" data-act="swap-random" data-i="${i}" ${slot.locked ? 'disabled' : ''}>${icon('shuffle')}<span>Swap</span></button>
-      <button class="act" data-act="open-sheet" data-i="${i}">${icon('list')}<span>Pick</span></button>
+      <button class="act" data-act="open-sheet" data-i="${i}">${icon('list')}<span>Pick</span></button>`}
       <a class="act yt" href="${youtubeUrl(r)}" target="_blank" rel="noopener">${icon('play')}<span>YouTube</span></a>
     </div>
     <details class="rate-wrap" ${s.ratings[r.id] ? 'open' : ''}><summary>Cooked it? Rate it</summary>${starsFor(s, r)}</details>
@@ -218,17 +220,23 @@ function renderWeek(s) {
     <p class="fine">Average day: ${s.rules.mealsPerDish === 2 ? 'lunch + dinner from these dishes' : 'dinner from these dishes'}, plus shake, breakfast &amp; snacks from Settings. Cook in any order.</p>
   </section>
 
-  <div class="toolbar">
+  ${s.plan.finalizedAt ? `<section class="card final-card">
+    <div><b>${icon('check')} Finalized ${fmtDate(s.plan.finalizedAt)}</b>
+      <div class="muted">These are this week's dishes. The grocery list and Friday check-in use exactly these.</div></div>
+    <button class="link" data-act="unfinalize">Edit week</button>
+  </section>` : `<div class="toolbar">
     ${counter('Chicken', 'chickenDishes', s.rules.chickenDishes, 7 - s.rules.vegDishes)}
     ${counter('Veg', 'vegDishes', s.rules.vegDishes, 7 - s.rules.chickenDishes)}
   </div>
-  <button class="btn primary wide shuffle" data-act="shuffle">${icon('shuffle')} Shuffle${lockedCount ? ` (keeps ${lockedCount} locked)` : ''}</button>
+  <button class="btn wide shuffle" data-act="shuffle">${icon('shuffle')} Shuffle${lockedCount ? ` (keeps ${lockedCount} locked)` : ''}</button>`}
 
   ${section('chicken', 'Chicken &amp; turkey')}
   ${section('veg', 'Veg')}
 
   <div class="stack">
-    <button class="btn wide" data-act="tab" data-tab="groceries">${icon('cart')} Go to grocery list</button>
+    ${s.plan.finalizedAt
+      ? `<button class="btn primary wide" data-act="tab" data-tab="groceries">${icon('cart')} Grocery list</button>`
+      : `<button class="btn primary wide" data-act="finalize">${icon('check')} Finalize these ${recipes.length} dishes → grocery list</button>`}
     <button class="btn wide" data-act="checkin-open">${icon('check')} Weekly check-in &amp; plan next week</button>
   </div>`;
 }
@@ -380,7 +388,10 @@ function renderGroceries(s) {
   const g = buildGrocery(s);
   const left = g.shop.filter((i) => !i.checked).length;
   const logged = g.shop.filter((i) => i.bought).length;
-  return `
+  const draft = s.plan.finalizedAt ? '' : `<section class="card banner"><div><b>Draft list</b>
+    <div class="muted">Finalize this week's dishes so the list doesn't change after you shop.</div></div>
+    <button class="btn primary" data-act="finalize">Finalize</button></section>`;
+  return `${draft}
   <section class="card">
     <h2>Shopping list</h2>
     <div class="muted">${planRecipes(s).length} dishes · ${left} of ${g.shop.length} items left${logged ? ` · ${logged} amount${logged === 1 ? '' : 's'} logged` : ''}</div>
@@ -568,7 +579,11 @@ function replaceSlot(i, id) {
 
 const actions = {
   tab: (el) => setTab(el.dataset.tab),
-  shuffle: () => { update((d) => { d.plan.slots = generateSlots(d); }); toast('New dishes picked — locked ones kept'); },
+  shuffle: () => {
+    if (getState().plan.finalizedAt) return;
+    update((d) => { d.plan.slots = generateSlots(d); });
+    toast('New dishes picked — locked ones kept');
+  },
   count: (el) => {
     const key = el.dataset.k;
     update((d) => {
@@ -612,6 +627,7 @@ const actions = {
     const r = RECIPE_BY_ID[el.dataset.id];
     const kind = kindOf(r, s.rules.eggsCountAsVeg);
     const key = kind === 'veg' ? 'vegDishes' : 'chickenDishes';
+    if (s.plan.finalizedAt) { toast('This week is finalized — tap “Edit week” on the Week tab first'); return; }
     if (targetDishes(s.rules) >= 7) { toast('Week is full — use “Pick” on a dish in the Week tab to replace it'); return; }
     update((d) => { d.plan.slots.push({ id: r.id, locked: true }); d.rules[key]++; resizePlan(d); });
     toast(`Added to this week as a ${kind === 'veg' ? 'veg' : 'chicken'} dish (locked)`);
@@ -640,6 +656,18 @@ const actions = {
     const text = `Two Plates — week of ${fmtWeek(s.plan.weekOf)}\n\n${weeklyNoteText(s, { amounts: ui.showAmounts })}`;
     try { await navigator.clipboard.writeText(text); toast('Copied — paste it into a new Keep note'); } catch { toast('Couldn’t copy on this browser'); }
   },
+  finalize: () => {
+    update((d) => {
+      d.plan.finalizedAt = Date.now();
+      d.plan.slots = d.plan.slots.map((x) => ({ ...x, locked: true }));
+    });
+    setTab('groceries');
+    toast('Week finalized — here’s your grocery list');
+  },
+  unfinalize: () => {
+    if (!confirm('Edit this week? Changing dishes also changes the grocery list — fine if you haven’t shopped yet.')) return;
+    update((d) => { d.plan.finalizedAt = 0; });
+  },
   'checkin-open': () => { ui.checkin = true; ui.tab = 'week'; window.scrollTo(0, 0); render(); },
   'checkin-close': () => { ui.checkin = false; render(); },
   cooked: (el) => update((d) => { d.plan.cooked = { ...d.plan.cooked, [el.dataset.id]: el.dataset.v === '1' }; }),
@@ -649,12 +677,13 @@ const actions = {
       const cooked = d.plan.cooked || {};
       const carry = d.plan.carry || {};
       d.history = [...d.history, {
-        weekOf: d.plan.weekOf, ids: d.plan.slots.map((x) => x.id), cooked, bought: d.bought,
+        weekOf: d.plan.weekOf, finalizedAt: d.plan.finalizedAt || null,
+        ids: d.plan.slots.map((x) => x.id), cooked, bought: d.bought,
       }].slice(-26);
       // Uncooked dishes you chose to keep start next week locked in place.
       const kept = d.plan.slots.filter((x) => cooked[x.id] === false && carry[x.id] !== false)
         .map((x) => ({ id: x.id, locked: true }));
-      d.plan = { weekOf: weekStart(d.rules.startDay), slots: kept, cooked: {}, carry: {}, startedAt: Date.now() };
+      d.plan = { weekOf: weekStart(d.rules.startDay), slots: kept, cooked: {}, carry: {}, startedAt: Date.now(), finalizedAt: 0 };
       d.plan.slots = generateSlots(d);
       d.checked = {};
       d.bought = {};
@@ -759,9 +788,19 @@ onChange(() => {
   const c = kindCounts(s);
   if (c.chicken !== s.rules.chickenDishes || c.veg !== s.rules.vegDishes) queueMicrotask(ensurePlan);
 });
+function openFromLink() {
+  const h = location.hash.slice(1);
+  if (h === 'checkin') { ui.tab = 'week'; ui.checkin = true; }
+  else if (['week', 'recipes', 'groceries', 'settings'].includes(h)) { ui.tab = h; ui.checkin = false; }
+  else return;
+  history.replaceState(null, '', location.pathname);
+  render();
+}
+window.addEventListener('hashchange', openFromLink);
 migrate();
 ensurePlan();
 render();
+openFromLink();
 startSync();
 
 if ('serviceWorker' in navigator && location.protocol === 'https:') {
