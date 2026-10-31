@@ -19,6 +19,7 @@ const ui = {
   sheet: null, // { index, filter, query }
   showAmounts: store.get('twoplates.amounts', '0') === '1',
   logBought: false,
+  checkin: false,
 };
 
 // ---------- Icons ----------
@@ -207,7 +208,9 @@ function renderWeek(s) {
     return `<h2 class="sec-title">${title} <span class="muted">(${items.length})</span></h2>
       <ol class="dishes">${items.map((x) => dishCard(x.r, x.i, x.slot, s)).join('')}</ol>`;
   };
+  if (ui.checkin) return renderCheckin(s);
   return `
+  ${checkinBanner(s)}
   <section class="card summary">
     <div class="summary-head"><div><h2>This week</h2>
       <div class="muted">${recipes.length} dishes · ${fmtTime(totalTime)} cooking in total</div></div></div>
@@ -226,7 +229,48 @@ function renderWeek(s) {
 
   <div class="stack">
     <button class="btn wide" data-act="tab" data-tab="groceries">${icon('cart')} Go to grocery list</button>
-    <button class="btn ghost wide" data-act="new-week">Start next week (saves this one to history)</button>
+    <button class="btn wide" data-act="checkin-open">${icon('check')} Weekly check-in &amp; plan next week</button>
+  </div>`;
+}
+
+// Friday–Sunday nudge until this week's check-in is done.
+function checkinBanner(s) {
+  const day = new Date().getDay(); // 0 Sun … 5 Fri, 6 Sat
+  // Hidden for a plan you started in the last 3 days (e.g. right after this weekend's check-in).
+  const fresh = s.plan.startedAt && Date.now() - s.plan.startedAt < 3 * 24 * 3600 * 1000;
+  if (fresh || ![5, 6, 0].includes(day)) return '';
+  return `<section class="card banner"><div><b>Weekly check-in</b>
+    <div class="muted">What did you cook, what didn't you, and how much did you each like it?</div></div>
+    <button class="btn primary" data-act="checkin-open">Start</button></section>`;
+}
+
+function renderCheckin(s) {
+  const recipes = planRecipes(s);
+  const cooked = s.plan.cooked || {};
+  const carry = s.plan.carry || {};
+  const answered = recipes.filter((r) => cooked[r.id] !== undefined).length;
+  return `
+  <section class="card">
+    <h2>Weekly check-in</h2>
+    <p class="muted">For each dish: did you cook it, and how much did you each like it? Your stars decide how often it comes back. Anything you didn't cook can move to next week.</p>
+    <div class="fine">${answered} of ${recipes.length} answered</div>
+  </section>
+  <ol class="dishes">${recipes.map((r) => {
+    const c = cooked[r.id];
+    return `<li class="dish">
+      <h3>${esc(r.name)}</h3>
+      <div class="meta">${dietDot(r)} ${esc(r.cuisine)} · ${r.time} min</div>
+      <div class="seg yesno">
+        <button class="${c === true ? 'on' : ''}" data-act="cooked" data-id="${r.id}" data-v="1">Cooked it</button>
+        <button class="${c === false ? 'on' : ''}" data-act="cooked" data-id="${r.id}" data-v="0">Didn't cook</button>
+      </div>
+      ${c === true ? starsFor(s, r) : ''}
+      ${c === false ? `<label class="toggle small carry"><input type="checkbox" data-act="carry" data-id="${r.id}" ${carry[r.id] !== false ? 'checked' : ''}><span>Move it to next week (you may already have the groceries)</span></label>` : ''}
+    </li>`;
+  }).join('')}</ol>
+  <div class="stack">
+    <button class="btn primary wide" data-act="finish-week" ${answered < recipes.length ? 'disabled' : ''}>Finish week &amp; plan next week</button>
+    <button class="btn ghost wide" data-act="checkin-close">Back to this week</button>
   </div>`;
 }
 const daily = (s) => dailyEstimate(s);
@@ -596,18 +640,30 @@ const actions = {
     const text = `Two Plates — week of ${fmtWeek(s.plan.weekOf)}\n\n${weeklyNoteText(s, { amounts: ui.showAmounts })}`;
     try { await navigator.clipboard.writeText(text); toast('Copied — paste it into a new Keep note'); } catch { toast('Couldn’t copy on this browser'); }
   },
-  'new-week': () => {
-    if (!confirm('Save this week to history and plan a fresh one?')) return;
+  'checkin-open': () => { ui.checkin = true; ui.tab = 'week'; window.scrollTo(0, 0); render(); },
+  'checkin-close': () => { ui.checkin = false; render(); },
+  cooked: (el) => update((d) => { d.plan.cooked = { ...d.plan.cooked, [el.dataset.id]: el.dataset.v === '1' }; }),
+  carry: (el) => update((d) => { d.plan.carry = { ...d.plan.carry, [el.dataset.id]: el.checked }; }),
+  'finish-week': () => {
     update((d) => {
-      d.history = [...d.history, { weekOf: d.plan.weekOf, ids: d.plan.slots.map((x) => x.id), bought: d.bought }].slice(-12);
-      d.plan.weekOf = weekStart(d.rules.startDay);
-      d.plan.slots = generateSlots(d, { keepLocked: false });
+      const cooked = d.plan.cooked || {};
+      const carry = d.plan.carry || {};
+      d.history = [...d.history, {
+        weekOf: d.plan.weekOf, ids: d.plan.slots.map((x) => x.id), cooked, bought: d.bought,
+      }].slice(-26);
+      // Uncooked dishes you chose to keep start next week locked in place.
+      const kept = d.plan.slots.filter((x) => cooked[x.id] === false && carry[x.id] !== false)
+        .map((x) => ({ id: x.id, locked: true }));
+      d.plan = { weekOf: weekStart(d.rules.startDay), slots: kept, cooked: {}, carry: {}, startedAt: Date.now() };
+      d.plan.slots = generateSlots(d);
       d.checked = {};
       d.bought = {};
       d.extras = [];
     });
+    ui.checkin = false;
     window.scrollTo(0, 0);
-    toast('Fresh week planned');
+    render();
+    toast('Week saved — here’s next week');
   },
   set: (el) => {
     const path = el.dataset.path;
