@@ -24,19 +24,22 @@ function weekDaysSoFar(startDay) {
   return days;
 }
 
+// A day has a water record only if water was explicitly entered (any number,
+// zero included). A meals-only day is missing water data, not a missed goal.
+const hasWater = (e) => e.water != null || (e.waterTs?.length ?? 0) > 0;
+
 function waterLine(s, p, days) {
   const goal = waterGoal(s.people?.[p]);
-  let atGoal = 0, loggedDays = 0, unlogged = 0;
+  let atGoal = 0, recorded = 0, unrecorded = 0;
   for (const d of days) {
     const e = entryFor(s, d, p);
-    // A day counts as logged for water if anything was logged, water included.
-    if (!isLogged(e) && !(e.water > 0)) { unlogged++; continue; }
-    loggedDays++;
-    if ((e.water || 0) >= goal) atGoal++;
+    if (!hasWater(e)) { unrecorded++; continue; }
+    recorded++;
+    if (e.water >= goal) atGoal++;
   }
-  const notLogged = unlogged ? ` · ${unlogged} day${unlogged === 1 ? '' : 's'} not logged` : '';
-  if (!loggedDays) return `Water: no days logged yet${notLogged}`;
-  return `Water at goal ${atGoal} of ${loggedDays} logged day${loggedDays === 1 ? '' : 's'}${notLogged}`;
+  const notLogged = unrecorded ? ` · ${unrecorded} day${unrecorded === 1 ? '' : 's'} not logged` : '';
+  if (!recorded) return `Water: no days logged yet${notLogged}`;
+  return `Water at goal ${atGoal} of ${recorded} logged day${recorded === 1 ? '' : 's'}${notLogged}`;
 }
 
 function ratingLine(s, p, days) {
@@ -56,15 +59,16 @@ export function renderHome(s) {
     const goal = waterGoal(person);
     const had = e.water || 0;
     const pct = Math.min(100, Math.round((had / goal) * 100));
-    const logged = isLogged(e);
-    const water = logged
+    const mealsLogged = isLogged(e);
+    const waterLogged = hasWater(e);
+    const water = waterLogged
       ? `<b>${had}</b><span class="muted"> / ${goal} glasses</span>${had >= goal ? ' · goal reached' : ''}`
-      : `<span class="muted">Not logged yet</span>`;
+      : `<span class="muted">Water not logged yet</span>`;
     return `<div class="home-row">
       <div class="home-head"><b>${esc(person?.name || `Person ${p + 1}`)}</b>
-        <span class="${logged ? 'home-ok' : 'muted'}">${logged ? 'Day logged ✓' : 'Nothing logged today'}</span></div>
+        <span class="${mealsLogged ? 'home-ok' : 'muted'}">${mealsLogged ? 'Meals logged ✓' : 'No meals logged yet'}</span></div>
       <div class="water-count">${water}</div>
-      ${logged ? `<div class="water-bar"><i style="width:${pct}%"></i></div>` : ''}
+      ${waterLogged ? `<div class="water-bar"><i style="width:${pct}%"></i></div>` : ''}
     </div>`;
   }).join('');
 
