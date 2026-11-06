@@ -36,7 +36,10 @@ export async function enablePush(personIdx) {
     headers: { apikey: cfg.key.trim(), Authorization: `Bearer ${cfg.key.trim()}`, 'Content-Type': 'application/json', Prefer: 'resolution=merge-duplicates' },
     body: JSON.stringify({ id: `${cfg.household}:${personIdx}`, household: cfg.household, person: personIdx, subscription: sub.toJSON(), tz }),
   });
-  if (!res.ok) throw new Error(`Couldn't save this phone (${res.status})`);
+  if (!res.ok) {
+    await sub.unsubscribe().catch(() => {});
+    throw new Error(`Couldn't save this phone (${res.status})`);
+  }
 }
 
 export async function disablePush(personIdx) {
