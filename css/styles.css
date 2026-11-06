@@ -416,3 +416,4 @@ label.btn.busy { opacity: .6; pointer-events: none; }
 .prep-choice input { flex-shrink:0; margin-top:3px; }
 .prep-task ol, .occasion ol { padding-left:20px; }
 .occasion li { margin-bottom:10px; line-height:1.5; }
+.prep-choice { display:flex; }
