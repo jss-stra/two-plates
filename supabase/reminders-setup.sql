@@ -15,9 +15,7 @@ create policy "household subscribe" on public.push_subscriptions
   for insert to anon with check (true);
 create policy "household unsubscribe" on public.push_subscriptions
   for delete to anon using (true);
-create policy "household resubscribe" on public.push_subscriptions
-  for update to anon using (true) with check (true);
-grant insert, update, delete on public.push_subscriptions to anon;
+grant insert, delete on public.push_subscriptions to anon;
 
 -- One row per subscription + reminder kind: when the last one went out.
 create table if not exists public.reminder_log (

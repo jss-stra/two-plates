@@ -31,10 +31,14 @@ export async function enablePush(personIdx) {
   const reg = await navigator.serviceWorker.ready;
   const sub = await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: b64ToBytes(VAPID_PUBLIC) });
   const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'Australia/Sydney';
-  const res = await fetch(`${cfg.url.trim()}/rest/v1/${TABLE}`, {
+  const base = `${cfg.url.trim()}/rest/v1/${TABLE}`;
+  const headers = { apikey: cfg.key.trim(), Authorization: `Bearer ${cfg.key.trim()}`, 'Content-Type': 'application/json' };
+  const id = `${cfg.household}:${personIdx}`;
+  await fetch(`${base}?id=eq.${encodeURIComponent(id)}`, { method: 'DELETE', headers }).catch(() => {});
+  const res = await fetch(base, {
     method: 'POST',
-    headers: { apikey: cfg.key.trim(), Authorization: `Bearer ${cfg.key.trim()}`, 'Content-Type': 'application/json', Prefer: 'resolution=merge-duplicates' },
-    body: JSON.stringify({ id: `${cfg.household}:${personIdx}`, household: cfg.household, person: personIdx, subscription: sub.toJSON(), tz }),
+    headers,
+    body: JSON.stringify({ id, household: cfg.household, person: personIdx, subscription: sub.toJSON(), tz }),
   });
   if (!res.ok) {
     await sub.unsubscribe().catch(() => {});
