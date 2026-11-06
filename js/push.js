@@ -22,6 +22,14 @@ export async function pushStatus() {
   } catch { return 'off'; }
 }
 
+async function deleteRow(cfg, id) {
+  await fetch(`${cfg.url.trim()}/rest/v1/rpc/delete_push_subscription`, {
+    method: 'POST',
+    headers: { apikey: cfg.key.trim(), Authorization: `Bearer ${cfg.key.trim()}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ p_id: id }),
+  }).catch(() => {});
+}
+
 export async function enablePush(personIdx) {
   const cfg = getConfig();
   if (!cfg?.url || !cfg?.key || !cfg?.household) throw new Error('Set up Sync between phones first - reminders are sent through your household');
@@ -34,7 +42,7 @@ export async function enablePush(personIdx) {
   const base = `${cfg.url.trim()}/rest/v1/${TABLE}`;
   const headers = { apikey: cfg.key.trim(), Authorization: `Bearer ${cfg.key.trim()}`, 'Content-Type': 'application/json' };
   const id = `${cfg.household}:${personIdx}`;
-  await fetch(`${base}?id=eq.${encodeURIComponent(id)}`, { method: 'DELETE', headers }).catch(() => {});
+  await deleteRow(cfg, id);
   const res = await fetch(base, {
     method: 'POST',
     headers,
@@ -54,9 +62,6 @@ export async function disablePush(personIdx) {
   } catch { /* ignore */ }
   const cfg = getConfig();
   if (cfg?.url && cfg?.key && cfg?.household) {
-    await fetch(`${cfg.url.trim()}/rest/v1/${TABLE}?id=eq.${encodeURIComponent(`${cfg.household}:${personIdx}`)}`, {
-      method: 'DELETE',
-      headers: { apikey: cfg.key.trim(), Authorization: `Bearer ${cfg.key.trim()}` },
-    }).catch(() => {});
+    await deleteRow(cfg, `${cfg.household}:${personIdx}`);
   }
 }
