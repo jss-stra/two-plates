@@ -1,5 +1,6 @@
 // Builds the combined, scaled shopping list for the week's dishes.
 import { INGREDIENTS, AISLES, BASE_SERVINGS } from './data.js';
+import { occasionTotals, customOccasionRows } from './occasions.js';
 import { planRecipes } from './planner.js';
 import { HABITS, WEEKLY_STAPLES } from '../data/shopping-habits.js';
 import { kindOf, youtubeUrl } from './data.js';
@@ -54,6 +55,10 @@ export function buildGrocery(state) {
       totals.set(id, t);
     }
   }
+  for (const [id, party] of occasionTotals(state)) {
+    const t = totals.get(id) || { id, qty: 0, dishes: [] };
+    t.qty += party.qty; t.dishes.push(...party.dishes); totals.set(id, t);
+  }
   const aisleOrder = Object.keys(AISLES);
   const rows = [...totals.values()].map((t) => {
     const ing = INGREDIENTS[t.id];
@@ -61,7 +66,7 @@ export function buildGrocery(state) {
     const habit = learned.habits[t.id] || HABITS[t.id];
     return {
       key: t.id, id: t.id, name: ing.name, aisle: ing.aisle, aisleLabel: AISLES[ing.aisle],
-      amount: q.amount, unit: q.unit, text: habit ? `usually ${habit}` : qtyText(q), dishes: t.dishes,
+      amount: q.amount, unit: q.unit, text: habit && !t.dishes.some(n => n.includes(' servings)')) ? `usually ${habit}` : qtyText(q), dishes: t.dishes,
       pantry: isPantry(state, t.id), checked: !!state.checked[t.id], bought: state.bought[t.id] || '',
     };
   });
@@ -75,12 +80,13 @@ export function buildGrocery(state) {
   });
   for (const x of state.extras) {
     rows.push({
-      key: `x:${x.id}`, id: null, extraId: x.id, name: x.name, aisle: 'extra', aisleLabel: 'Added by you',
-      amount: '', unit: '', text: '', dishes: [], pantry: false, checked: !!state.checked[`x:${x.id}`], bought: state.bought[`x:${x.id}`] || '',
+      key: `x:${x.id}`, id: null, extraId: x.id, name: x.name, aisle: `extra:${x.category || 'Other'}`, aisleLabel: x.category || 'Added by you',
+      amount: '', unit: '', text: x.amount || '', dishes: [], pantry: false, checked: !!state.checked[`x:${x.id}`], bought: state.bought[`x:${x.id}`] || '',
     });
   }
+  rows.push(...customOccasionRows(state));
   const order = (a) => (a === 'extra' ? -1 : aisleOrder.indexOf(a));
-  rows.sort((a, b) => order(a.aisle) - order(b.aisle) || a.name.localeCompare(b.name));
+  rows.sort((a, b) => order(a.aisle) - order(b.aisle) || a.aisle.localeCompare(b.aisle) || a.name.localeCompare(b.name));
 
   const group = (list) => {
     const out = [];
@@ -103,7 +109,7 @@ export function groceryText(state, { amounts = false } = {}) {
   const { shopGroups } = buildGrocery(state);
   return shopGroups.map((g) => `${g.label.toUpperCase()}\n` + g.items
     .filter((i) => !i.checked)
-    .map((i) => `☐ ${i.name}${amounts && i.text ? ' — ' + i.text : ''}`).join('\n')).join('\n\n');
+    .map((i) => `☐ ${i.name}${(amounts || i.extraId || i.key.startsWith('p:')) && i.text ? ' — ' + i.text : ''}`).join('\n')).join('\n\n');
 }
 
 // One note with the week's dishes and the shopping list — for Google Keep / Notes.

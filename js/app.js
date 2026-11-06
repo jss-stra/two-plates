@@ -1,3 +1,5 @@
+import { renderPrep, setupPrepEvents } from './prep.js';
+import { renderGroceryTools, setupGroceryEvents } from './grocery-ui.js';
 import { RECIPES, RECIPE_BY_ID, GROUPS, INGREDIENTS, DIET_LABEL, PROTEIN_LABEL, youtubeUrl, isVeg, kindOf, DATA_ERRORS } from './data.js';
 import { getState, update, onChange, defaultState, replaceState } from './state.js';
 import { generateSlots, planRecipes, alternatives, randomSwap, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes, localISO } from './planner.js';
@@ -224,7 +226,7 @@ function renderWeek(s) {
       <ol class="dishes">${items.map((x) => dishCard(x.r, x.i, x.slot, s)).join('')}</ol>`;
   };
   if (ui.checkin) return renderCheckin(s);
-  return `
+  return `<section class="card"><h2>Make cooking easier</h2><p class="muted">Fit prep for these dishes around the time you have.</p><button class="btn primary" data-act="tab" data-tab="prep">Plan my prep</button></section>
   ${checkinBanner(s)}
   <section class="card summary">
     <div class="summary-head"><div><h2>This week</h2>
@@ -412,7 +414,7 @@ function renderRecipes(s) {
 // ---------- Groceries ----------
 function gItem(i, pantry) {
   const habit = i.text.startsWith('usually');
-  const qty = (ui.showAmounts || habit) && i.text ? `<span class="qty">${esc(i.text)}</span>` : '';
+  const qty = (ui.showAmounts || habit || i.extraId || i.key.startsWith('p:')) && i.text ? `<span class="qty">${esc(i.text)}</span>` : '';
   return `<div class="gitem ${i.checked ? 'done' : ''}">
     ${pantry ? '' : `<label class="check"><input type="checkbox" data-act="check" data-key="${esc(i.key)}" ${i.checked ? 'checked' : ''}><span class="box">${icon('check')}</span></label>`}
     <div class="gtext">
@@ -421,8 +423,8 @@ function gItem(i, pantry) {
       ${ui.logBought && !pantry ? `<input class="bought" data-bought="${esc(i.key)}" value="${esc(i.bought)}" placeholder="How much did you get? e.g. 1 kg, 2 packs" autocomplete="off">` : ''}
     </div>
     ${i.id ? `<button class="link" data-act="pantry" data-id="${i.id}" data-v="${pantry ? 'false' : 'true'}">${pantry ? 'Need to buy' : 'Have it'}</button>`
-      : i.extraId ? `<button class="act icon-only" data-act="del-extra" data-id="${esc(i.extraId)}" aria-label="Remove">${icon('x')}</button>` : ''}
-  </div>`;
+      : i.extraId ? `<button class="link" data-grocery-action="edit-extra" data-id="${esc(i.extraId)}">Edit</button><button class="act icon-only" data-act="del-extra" data-id="${esc(i.extraId)}" aria-label="Remove">${icon('x')}</button>` : ''}
+  </div>${i.extraId ? `<div data-extra-editor="${esc(i.extraId)}" hidden class="card"></div>` : ''}`;
 }
 
 function renderGroceries(s) {
@@ -449,10 +451,7 @@ function renderGroceries(s) {
     </div>
     ${ui.logBought ? '<p class="fine">Type roughly how much you got of each item. It’s saved with this week, and over time it lets the app suggest amounts that match how you actually shop.</p>' : ''}
   </section>
-  <form class="addform" data-form="extra">
-    <input name="extra" placeholder="Add something else (milk, fruit, whey…)" autocomplete="off">
-    <button class="btn" type="submit" aria-label="Add">${icon('plus')}</button>
-  </form>
+  ${renderGroceryTools(s)}
   ${g.shopGroups.map((grp) => `<section class="gsec"><h3>${esc(grp.label)}</h3>${grp.items.map((i) => gItem(i, false)).join('')}</section>`).join('')}
   ${g.pantry.length ? `<details class="pantry card">
     <summary><b>Pantry check</b> <span class="muted">— ${g.pantry.length} staples you usually have</span></summary>
@@ -609,7 +608,7 @@ function renderSheetList(s) {
 function render() {
   const s = getState();
   const main = $('#main');
-  const views = { home: (st) => renderHome(st), week: renderWeek, today: (st) => renderLog(st, ui, icon), recipes: renderRecipes, groceries: renderGroceries, bought: (st) => renderBought(st, ui, icon), settings: renderSettings };
+  const views = { prep: (st) => renderPrep(st, ui), home: (st) => renderHome(st), week: renderWeek, today: (st) => renderLog(st, ui, icon), recipes: renderRecipes, groceries: renderGroceries, bought: (st) => renderBought(st, ui, icon), settings: renderSettings };
   const scroll = window.scrollY;
   main.innerHTML = (views[ui.tab] || renderWeek)(s);
   if (ui.tab === 'recipes') renderRecipeList(s);
@@ -840,7 +839,7 @@ const actions = {
       d.plan.slots = generateSlots(d);
       d.checked = {};
       d.bought = {};
-      d.extras = [];
+      // Extras and occasions survive a new meal plan. Remove them explicitly in Groceries.
     });
     ui.checkin = false;
     window.scrollTo(0, 0);
@@ -949,6 +948,8 @@ document.addEventListener('submit', (e) => {
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && ui.sheet) actions['close-sheet'](); });
 
 // ---------- Boot ----------
+setupGroceryEvents();
+setupPrepEvents(ui, render, getState);
 if (DATA_ERRORS.length) console.warn('Recipe data problems:', DATA_ERRORS);
 onChange(() => render());
 let receiptsTried = false;
@@ -968,7 +969,7 @@ function openFromLink() {
   const h = location.hash.slice(1);
   if (h === 'checkin') { ui.tab = 'week'; ui.checkin = true; }
   else if (h === 'today') { ui.tab = 'today'; ui.logView = 'day'; ui.logDate = localISO(); }
-  else if (['home', 'week', 'recipes', 'groceries', 'bought', 'settings'].includes(h)) { ui.tab = h; ui.checkin = false; }
+  else if (['home', 'week', 'prep', 'recipes', 'groceries', 'bought', 'settings'].includes(h)) { ui.tab = h; ui.checkin = false; }
   else return;
   history.replaceState(null, '', location.pathname);
   render();

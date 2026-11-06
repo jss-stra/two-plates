@@ -396,3 +396,23 @@ label.btn.busy { opacity: .6; pointer-events: none; }
 .home-row .water-count b { font-size: 1.15rem; }
 .home-row .water-bar { margin-top: 6px; }
 .home-row p.muted { margin: 2px 0 0; font-size: .85rem; line-height: 1.5; }
+
+/* Grocery and prep tools use the same mobile cards as the meal plan. */
+.feature-form { display:grid; gap:10px; margin:12px 0 18px; }
+.feature-form label { display:grid; gap:5px; color:var(--muted); font-size:.86rem; min-width:0; }
+.feature-form input, .feature-form select, .feature-form textarea, .prep-input { width:100%; min-width:0; min-height:44px; padding:10px; border:1px solid var(--line); border-radius:10px; background:var(--bg); color:var(--ink); font:inherit; }
+.feature-form textarea { resize:vertical; }
+.feature-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.occasion { border-top:1px solid var(--line); padding-top:14px; margin-top:16px; }
+.occasion summary { cursor:pointer; min-height:36px; }
+.occasion-row { display:flex; gap:12px; align-items:center; justify-content:space-between; padding:10px 0; border-top:1px solid var(--line); }
+.occasion-row small { display:block; color:var(--muted); }
+.gitem .link { flex-shrink:0; }
+.prep-task { border-top:1px solid var(--line); padding:12px 0; }
+.prep-task.done { opacity:.55; }
+.prep-task .toggle { align-items:flex-start; }
+.prep-task .fine { margin:6px 0; }
+.prep-choice { padding:10px 0; min-height:44px; align-items:flex-start; }
+.prep-choice input { flex-shrink:0; margin-top:3px; }
+.prep-task ol, .occasion ol { padding-left:20px; }
+.occasion li { margin-bottom:10px; line-height:1.5; }

@@ -75,3 +75,19 @@ Privacy note: the anon key is designed to be public, and the policy above lets a
 - **Veg quota, Indian veg count, time limit, cuisine mix:** Settings → Planning rules.
 - **Pantry staples:** Settings → Pantry staples, or tap "Have it" / "Need to buy" on the grocery list.
 - **A dish you don't like:** tap the eye-slash icon on the Recipes tab and it's never suggested again (undo under "Hidden").
+
+## Groceries beyond meals and guests
+
+Groceries now has editable extras with amounts and sections (drinks, snacks/breakfast, food, household, other). These persist across reshuffles and new weeks until explicitly deleted. Existing name-only extras still load.
+
+Guests & parties keeps occasions separate from weekly meals. Add a name/headcount, then library recipes with servings per dish. Ingredients are scaled from the existing four-serving library and merged into groceries with provenance. Changing the headcount does not silently change servings already set for dishes. Edit servings on each dish directly. Changed party quantities untick the affected shopping items so an old tick does not imply a larger amount was bought. Include/exclude an occasion without deleting it. Custom recipes and party extras accept one ingredient per line, with user-entered amounts after `|`; no quantities are generated from an arbitrary dish name.
+
+## Selected-dish prep (first version)
+
+Week → Plan my prep starts with no dishes selected. Tick the dishes to work on, choose a prep date and available active minutes (60 = one hour). Matching prep actions for the same ingredient combine across selected dishes. Editable task estimates are planning defaults, not measured timings. Cook dates default to the prep date. Fresh tasks are offered only on the cook date; dry measuring may be done earlier. Done checks are keyed to the day and plan.
+
+`data/prep-guides.js` contains adapted, sourced outlines for the five dishes planned on 7 November 2026. These are not verified original methods for the lighter library variants; each guide names the ingredient differences and links its source. Other recipes are clearly marked as not reviewed, without invented steps. Sides may still require a separate method. Food safety links point to NSW Food Authority; no multi-day raw meat or cooked-rice batch plan is generated.
+
+New state fields (`occasions`, `prep`) live in the existing shared meal-state JSON, so they use the current phone sync and backups. No database changes or new services are needed. Existing sync is whole-document last-write-wins except for daily logs; simultaneous edits to groceries from two phones are not conflict-free.
+
+Tests: `node test-features.mjs`; `node tools/validate.mjs`.
