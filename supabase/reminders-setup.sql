@@ -29,9 +29,13 @@ alter table public.reminder_log enable row level security; -- no anon policies: 
 create extension if not exists pg_cron;
 create extension if not exists pg_net;
 
--- Every 15 minutes:
+-- Every 5 minutes (cron runs in-database, no billable invocations; the edge
+-- function is only called when a reminder is actually due):
 --  * water: in 9am-9pm local, if no water was logged in the previous 3 hours
---    and no water nudge went out in the previous 3 hours (≈ 9, 12, 3, 6, 9).
+--    and no water nudge went out in the previous 3 hours. Due moments are
+--    9am/noon/3pm/6pm/9pm minus any logged water; 5-minute ticks keep each
+--    nudge within 5 minutes of its due moment (checkpoint times land exactly
+--    on tick marks, so a dry day fires on time).
 --  * evening: at 10pm local, once per day, the beverage check-in.
 create or replace function public.two_plates_reminder_check() returns void language plpgsql as $$
 declare
@@ -90,4 +94,4 @@ begin
 end;
 $$;
 
-select cron.schedule('two-plates-reminders', '*/15 * * * *', $$select public.two_plates_reminder_check()$$);
+select cron.schedule('two-plates-reminders', '*/5 * * * *', $$select public.two_plates_reminder_check()$$);

@@ -100,6 +100,7 @@ main { max-width: 720px; margin: 0 auto; padding: 14px 16px 24px; }
 .btn.wide { width: 100%; }
 .btn.grow { flex: 1; }
 .btn.small { min-height: 34px; font-size: .85rem; }
+.btn.wrap { white-space: normal; text-align: center; line-height: 1.3; padding-top: 8px; padding-bottom: 8px; }
 .btn:active { transform: scale(.98); }
 .btnrow { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
 .btnrow .btn { flex: 1; }

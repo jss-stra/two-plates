@@ -474,7 +474,7 @@ function pushUi(s) {
   if (!getConfig()?.url) return "<p class='fine'>Set up Sync between phones below first — reminders are sent through your household.</p>";
   if (ui.pushStatus === 'on') return `<p class="fine">Reminders are on for ${esc(name)} on this phone — they arrive even when the app is closed.</p>
     <button class="btn ghost" data-act="push-disable">Stop reminders on this phone</button>`;
-  return `<button class="btn" data-act="push-enable">Remind ${esc(name)} on this phone, even when the app is closed</button>
+  return `<button class="btn wide wrap" data-act="push-enable">Remind ${esc(name)} on this phone, even when the app is closed</button>
     <p class="fine">Sends a notification at 9am, noon, 3pm, 6pm and 9pm if no water was logged in the previous 3 hours, plus a 10pm check-in asking how many coffees, teas, milks and shakes you had.</p>`;
 }
 
