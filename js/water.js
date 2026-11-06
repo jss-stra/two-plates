@@ -1,6 +1,7 @@
 // Water tracking helpers and the 9am-9pm reminder check.
-// Rule (Jatin, 6 Nov 2026): nudge every 3 hours, 9am-9pm, when no water was
-// logged in the previous 3 hours. These nudges fire while the app is open;
+// Rule (Jatin, 6 Nov 2026): nudge at 9am, noon, 3pm, 6pm and 9pm when no water
+// was logged in the previous 3 hours (checks run every 15 min while open, so a
+// nudge fires at the first check after a 3-hour dry spell inside 9am-9pm). These nudges fire while the app is open;
 // reminders when the app is closed need web push or texts from Instinct.
 import { localISO } from './planner.js';
 
@@ -22,9 +23,6 @@ export const markWaterReminded = (at = Date.now()) => {
 export function waterReminderDue(state, personIdx, now = new Date()) {
   const h = now.getHours();
   if (h < WATER_START_HOUR || h > WATER_END_HOUR || (h === WATER_END_HOUR && now.getMinutes() > 0)) return false;
-  const windowStart = new Date(now);
-  windowStart.setHours(WATER_START_HOUR, 0, 0, 0);
-  if (now - windowStart < WATER_SPAN_MS) return false; // first nudge not before midday
   const entry = state.days?.[localISO(now)]?.[personIdx] || {};
   const loggedRecently = (entry.waterTs || []).some((t) => now.getTime() - t < WATER_SPAN_MS);
   if (loggedRecently) return false;

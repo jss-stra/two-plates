@@ -7,6 +7,7 @@ import { exportExcel } from './export.js';
 import { renderBought, loadReceipts, onReceipts, addReceipt, removeReceipt, rereadReceipt, shiftWeek } from './receipts.js';
 import { startSync, connect, disconnect, flushSync, getConfig, newHouseholdCode, onSyncStatus, syncStatus } from './sync.js';
 import { waterGoal, waterReminderDue, markWaterReminded } from './water.js';
+import { pushStatus, enablePush, disablePush } from './push.js';
 
 const $ = (sel, el = document) => el.querySelector(sel);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -26,6 +27,7 @@ const ui = {
   logDate: localISO(),
   logPerson: Number(store.get('twoplates.me', '0')) || 0, // whose phone this is
   logView: 'day',
+  pushStatus: 'off',
   logMonth: localISO().slice(0, 7),
   boughtWeek: null, // null = the week being planned
   uploading: false,
@@ -465,6 +467,17 @@ function segSet(path, value, options) {
   return `<div class="seg">${options.map(([v, l]) => `<button class="${value === v ? 'on' : ''}" data-act="set" data-path="${path}" data-value="${v}">${l}</button>`).join('')}</div>`;
 }
 
+function pushUi(s) {
+  const name = s.people[ui.logPerson]?.name || 'this person';
+  if (ui.pushStatus === 'unsupported') return "<p class='fine'>This browser can't do push notifications. On iPhone, use the installed app (Share → Add to Home Screen).</p>";
+  if (ui.pushStatus === 'blocked') return "<p class='fine'>Notifications are blocked for this app in the browser settings.</p>";
+  if (!getConfig()?.url) return "<p class='fine'>Set up Sync between phones below first — reminders are sent through your household.</p>";
+  if (ui.pushStatus === 'on') return `<p class="fine">Reminders are on for ${esc(name)} on this phone — they arrive even when the app is closed.</p>
+    <button class="btn ghost" data-act="push-disable">Stop reminders on this phone</button>`;
+  return `<button class="btn" data-act="push-enable">Remind ${esc(name)} on this phone, even when the app is closed</button>
+    <p class="fine">Sends a notification at 9am, noon, 3pm, 6pm and 9pm if no water was logged in the previous 3 hours, plus a 10pm check-in asking how many coffees, teas, milks and shakes you had.</p>`;
+}
+
 function renderSettings(s) {
   const recipes = planRecipes(s);
   const cfg = getConfig() || {};
@@ -502,14 +515,7 @@ function renderSettings(s) {
   <section class="card">
     <h2>Water reminders</h2>
     <label class="rule toggle"><span>Nudge every 3 hours, 9am–9pm, when no water was logged in the previous 3 hours</span><input type="checkbox" data-set="rules.waterRemind" ${s.rules.waterRemind !== false ? 'checked' : ''}></label>
-    <p class="fine">Nudges fire while the app is open. ${(() => {
-      if (!('Notification' in window)) return "This browser can't show notifications, so they'll appear inside the app.";
-      if (Notification.permission === 'granted') return "Notifications are on, so they reach you even when you are in another app.";
-      if (Notification.permission === 'denied') return "Notifications are blocked in browser settings, so they will appear inside the app.";
-      return 'Allow notifications to see them over other apps too.';
-    })()}</p>
-    ${('Notification' in window && Notification.permission === 'default') ? '<button class="btn" data-act="water-notif">Allow notifications</button>' : ''}
-    <p class="fine">Closed-app reminders need web push (a small server) or texts from Instinct — ask about either.</p>
+    ${pushUi(s)}
   </section>
 
   <section class="card">
@@ -795,10 +801,15 @@ const actions = {
       if (e.waterTs.length > 40) e.waterTs = e.waterTs.slice(-40);
     });
   },
-  'water-notif': async () => {
-    if (!('Notification' in window)) { toast('This browser can’t show notifications'); return; }
-    const p = await Notification.requestPermission();
-    toast(p === 'granted' ? 'Notifications on' : 'Notifications off — reminders will show inside the app');
+  'push-enable': async () => {
+    try { await enablePush(ui.logPerson); ui.pushStatus = 'on'; toast('Water reminders on for this phone'); }
+    catch (err) { toast(err.message || 'Could not turn on reminders'); ui.pushStatus = await pushStatus(); }
+    render();
+  },
+  'push-disable': async () => {
+    await disablePush(ui.logPerson);
+    ui.pushStatus = 'off';
+    toast('Reminders stopped on this phone');
     render();
   },
   'log-month': (el) => { ui.logMonth = shiftMonth(ui.logMonth, Number(el.dataset.d)); render(); },
@@ -989,6 +1000,7 @@ render();
 checkWaterReminder();
 openFromLink();
 startSync();
+pushStatus().then((st) => { const changed = ui.pushStatus !== st; ui.pushStatus = st; if (changed && ui.tab === 'settings') render(); });
 
 if ('serviceWorker' in navigator && location.protocol === 'https:') {
   navigator.serviceWorker.register('sw.js').catch(() => {});
