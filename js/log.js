@@ -1,6 +1,7 @@
 // Daily food log ("Today" tab) and the month report built from it.
 import { RECIPE_BY_ID } from './data.js';
 import { localISO, plannedFor } from './planner.js';
+import { waterGoal } from './water.js';
 
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const MEALS = [['lunch', 'Lunch'], ['dinner', 'Dinner']];
@@ -41,6 +42,9 @@ export function renderToday(s, ui, icon) {
   };
   const other = s.people[1 - p];
   const otherDone = isLogged(entryFor(s, iso, 1 - p));
+  const wGoal = waterGoal(s.people[p]);
+  const wHad = e.water || 0;
+  const wPct = Math.min(100, Math.round((wHad / wGoal) * 100));
   return `
   <section class="card">
     <div class="day-nav">
@@ -51,6 +55,17 @@ export function renderToday(s, ui, icon) {
     <div class="seg full">${s.people.map((pp, i) => `<button class="${p === i ? 'on' : ''}" data-act="log-person" data-p="${i}">${esc(pp.name)}${isLogged(entryFor(s, iso, i)) ? ' ✓' : ''}</button>`).join('')}</div>
     <p class="fine">${isLogged(e) ? 'Saved automatically.' : `What did ${esc(s.people[p].name)} eat${iso === today ? ' today' : ''}? Tap what fits — it takes a minute.`}
       ${otherDone ? '' : ` ${esc(other.name)} hasn't logged this day yet.`}</p>
+  </section>
+
+  <section class="card log">
+    <h3>Water</h3>
+    <div class="water-row">
+      <button data-act="water-add" data-d="-1" ${wHad <= 0 ? 'disabled' : ''} aria-label="Remove a glass">${icon('minus')}</button>
+      <div class="water-count"><b>${wHad}</b><span class="muted"> / ${wGoal} glasses</span></div>
+      <button data-act="water-add" data-d="1" aria-label="Add a glass">${icon('plus')}</button>
+    </div>
+    <div class="water-bar"><i style="width:${wPct}%"></i></div>
+    <p class="fine">${wHad >= wGoal ? 'Goal reached — nice one!' : `${wGoal - wHad} to go · a glass is about 250 ml`}</p>
   </section>
 
   <section class="card log">

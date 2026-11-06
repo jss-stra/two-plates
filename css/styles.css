@@ -376,3 +376,12 @@ label.btn.busy { opacity: .6; pointer-events: none; }
 .catbar b { font-weight: 600; font-variant-numeric: tabular-nums; }
 .stats.three { grid-template-columns: repeat(3, 1fr); }
 .insights { margin: 6px 0; padding-left: 18px; font-size: .88rem; display: grid; gap: 4px; }
+
+/* Water tracker */
+.water-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.water-row > button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--soft); color: var(--ink); display: inline-flex; align-items: center; justify-content: center; }
+.water-row > button:disabled { opacity: .4; }
+.water-count { text-align: center; }
+.water-count b { font-size: 1.7rem; }
+.water-bar { height: 8px; border-radius: 999px; background: var(--line); overflow: hidden; margin-top: 10px; }
+.water-bar i { display: block; height: 100%; background: #4a90d9; border-radius: 999px; transition: width .2s ease; }

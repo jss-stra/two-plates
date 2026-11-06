@@ -6,6 +6,7 @@ import { buildGrocery, weeklyNoteText, scaleFactor, formatQty, qtyText } from '.
 import { exportExcel } from './export.js';
 import { renderBought, loadReceipts, onReceipts, addReceipt, removeReceipt, rereadReceipt, shiftWeek } from './receipts.js';
 import { startSync, connect, disconnect, flushSync, getConfig, newHouseholdCode, onSyncStatus, syncStatus } from './sync.js';
+import { waterGoal, waterReminderDue, markWaterReminded } from './water.js';
 
 const $ = (sel, el = document) => el.querySelector(sel);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -487,6 +488,7 @@ function renderSettings(s) {
           <label class="field"><span>Calories max</span>${num(`people.${i}.kcalMax`, p.kcalMax)}</label>
           <label class="field"><span>Protein outside plan</span>${num(`people.${i}.outsideProtein`, p.outsideProtein)}</label>
           <label class="field"><span>Calories outside plan</span>${num(`people.${i}.outsideKcal`, p.outsideKcal)}</label>
+          <label class="field"><span>Water goal (glasses/day)</span>${num(`people.${i}.waterGlasses`, waterGoal(p))}</label>
         </div>
         <p class="fine">“Outside plan” = shake, breakfast and snacks on a normal day. What's left is split across lunch and dinner: <b>${goal.min}–${goal.max} g protein per meal</b>.</p>
         <label class="field"><span><span>Portion size: <b>${p.portion.toFixed(2)}×</b> a standard serving</span>
@@ -495,6 +497,19 @@ function renderSettings(s) {
         </label>
       </div>`;
     }).join('')}
+  </section>
+
+  <section class="card">
+    <h2>Water reminders</h2>
+    <label class="rule toggle"><span>Nudge every 3 hours, 9am–9pm, when no water was logged in the previous 3 hours</span><input type="checkbox" data-set="rules.waterRemind" ${s.rules.waterRemind !== false ? 'checked' : ''}></label>
+    <p class="fine">Nudges fire while the app is open. ${(() => {
+      if (!('Notification' in window)) return "This browser can't show notifications, so they'll appear inside the app.";
+      if (Notification.permission === 'granted') return "Notifications are on, so they reach you even when you are in another app.";
+      if (Notification.permission === 'denied') return "Notifications are blocked in browser settings, so they will appear inside the app.";
+      return 'Allow notifications to see them over other apps too.';
+    })()}</p>
+    ${('Notification' in window && Notification.permission === 'default') ? '<button class="btn" data-act="water-notif">Allow notifications</button>' : ''}
+    <p class="fine">Closed-app reminders need web push (a small server) or texts from Instinct — ask about either.</p>
   </section>
 
   <section class="card">
@@ -771,6 +786,21 @@ const actions = {
   },
   'receipt-reread': (el) => { rereadReceipt(el.dataset.id).then(() => toast('Claude will read it again'), (e) => toast(e.message)); },
   'log-view': (el) => { ui.logView = el.dataset.v; render(); },
+  'water-add': (el) => {
+    const d = Number(el.dataset.d);
+    setEntry((e) => {
+      e.water = Math.max(0, (e.water || 0) + d);
+      e.waterTs ||= [];
+      if (d > 0) e.waterTs.push(Date.now()); else e.waterTs.pop();
+      if (e.waterTs.length > 40) e.waterTs = e.waterTs.slice(-40);
+    });
+  },
+  'water-notif': async () => {
+    if (!('Notification' in window)) { toast('This browser can’t show notifications'); return; }
+    const p = await Notification.requestPermission();
+    toast(p === 'granted' ? 'Notifications on' : 'Notifications off — reminders will show inside the app');
+    render();
+  },
   'log-month': (el) => { ui.logMonth = shiftMonth(ui.logMonth, Number(el.dataset.d)); render(); },
   'log-goto': (el) => { ui.logDate = el.dataset.date; ui.logPerson = Number(el.dataset.p); ui.logView = 'day'; window.scrollTo(0, 0); render(); },
   'log-cheatday': (el) => setEntry((e) => { e.cheatDay = el.checked; }),
@@ -937,10 +967,26 @@ document.addEventListener('visibilitychange', () => {
   if (document.visibilityState !== 'visible') return;
   if (localISO() !== lastDay) { ui.logDate = lastDay = localISO(); render(); }
   if (ui.tab === 'bought') loadReceipts();
+  checkWaterReminder();
 });
+// Water nudges: while the app is open, check every 15 min and on return.
+function checkWaterReminder() {
+  const s = getState();
+  if (s.rules.waterRemind === false || !waterReminderDue(s, ui.logPerson)) return;
+  const name = s.people[ui.logPerson]?.name || 'there';
+  const msg = `No water logged in the last 3 hours, ${name} — time for a glass`;
+  markWaterReminded();
+  if ('Notification' in window && Notification.permission === 'granted') {
+    try { new Notification('Two Plates — water break', { body: msg, icon: 'icons/icon-192.png' }); return; } catch { /* show in-app instead */ }
+  }
+  toast(msg);
+}
+setInterval(checkWaterReminder, 15 * 60 * 1000);
+
 migrate();
 ensurePlan();
 render();
+checkWaterReminder();
 openFromLink();
 startSync();
 

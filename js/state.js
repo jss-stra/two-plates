@@ -28,6 +28,7 @@ export function defaultState() {
       minProtein: 20,
       maxSameProtein: 3,
       startDay: 0, // 0 = Monday
+      waterRemind: true, // 3-hourly water nudges, 9am-9pm, while the app is open
       cuisineWeights: { Indian: 1, Mexican: 3, Italian: 3, 'Grill & Wraps': 3, 'Indo-Chinese': 2, Thai: 2, 'Explore Asian': 2 },
     },
     // cooked: recipe id -> true (cooked) / false (didn't); carry: id -> false to drop an uncooked dish.
@@ -42,7 +43,8 @@ export function defaultState() {
     extras: [],
     // Daily food log: 'YYYY-MM-DD' -> { 0: entry for person 1, 1: entry for person 2 }.
     // entry: { breakfast: 'usual'|'other', breakfastText, lunch/dinner: recipe id|'other'|'skipped',
-    //          lunchText, dinnerText, snacks, cheats: [], cheatDay, rating 1-5, note }
+    //          lunchText, dinnerText, snacks, cheats: [], cheatDay, rating 1-5, note,
+    //          water: glasses today, waterTs: [ms timestamps of each glass] }
     days: {},
   };
 }
