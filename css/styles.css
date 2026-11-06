@@ -358,7 +358,7 @@ main { max-width: 720px; margin: 0 auto; padding: 14px 16px 24px; }
 .past-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 
 /* Bought tab (receipts) */
-.tabbar { grid-template-columns: repeat(6, 1fr); }
+.tabbar { grid-template-columns: repeat(7, 1fr); }
 .tabbar button { font-size: .62rem; }
 .tabbar button span { max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
 label.btn { cursor: pointer; }
@@ -386,3 +386,13 @@ label.btn.busy { opacity: .6; pointer-events: none; }
 .water-count b { font-size: 1.7rem; }
 .water-bar { height: 8px; border-radius: 999px; background: var(--line); overflow: hidden; margin-top: 10px; }
 .water-bar i { display: block; height: 100%; background: #4a90d9; border-radius: 999px; transition: width .2s ease; }
+
+/* Home tab (day/week overview) */
+.home-row { border-top: 1px solid var(--line); padding: 10px 0 8px; }
+.card .home-row:first-of-type { border-top: 0; padding-top: 4px; }
+.home-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 2px; }
+.home-ok { color: var(--ok); font-size: .82rem; }
+.home-row .water-count { text-align: left; }
+.home-row .water-count b { font-size: 1.15rem; }
+.home-row .water-bar { margin-top: 6px; }
+.home-row p.muted { margin: 2px 0 0; font-size: .85rem; line-height: 1.5; }

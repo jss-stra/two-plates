@@ -7,6 +7,7 @@ import { exportExcel } from './export.js';
 import { renderBought, loadReceipts, onReceipts, addReceipt, removeReceipt, rereadReceipt, shiftWeek } from './receipts.js';
 import { startSync, connect, disconnect, flushSync, getConfig, newHouseholdCode, onSyncStatus, syncStatus } from './sync.js';
 import { waterGoal, waterReminderDue, markWaterReminded } from './water.js';
+import { renderHome } from './home.js';
 import { pushStatus, enablePush, disablePush } from './push.js';
 
 const $ = (sel, el = document) => el.querySelector(sel);
@@ -18,7 +19,7 @@ const store = {
 
 // Per-device view preferences (not synced).
 const ui = {
-  tab: store.get('twoplates.tab', 'week'),
+  tab: 'home', // Home is the default landing screen on every open
   search: '', group: 'All', vegOnly: false, quick: false, sort: 'smart', expanded: null,
   sheet: null, // { index, filter, query }
   showAmounts: store.get('twoplates.amounts', '0') === '1',
@@ -608,7 +609,7 @@ function renderSheetList(s) {
 function render() {
   const s = getState();
   const main = $('#main');
-  const views = { week: renderWeek, today: (st) => renderLog(st, ui, icon), recipes: renderRecipes, groceries: renderGroceries, bought: (st) => renderBought(st, ui, icon), settings: renderSettings };
+  const views = { home: (st) => renderHome(st), week: renderWeek, today: (st) => renderLog(st, ui, icon), recipes: renderRecipes, groceries: renderGroceries, bought: (st) => renderBought(st, ui, icon), settings: renderSettings };
   const scroll = window.scrollY;
   main.innerHTML = (views[ui.tab] || renderWeek)(s);
   if (ui.tab === 'recipes') renderRecipeList(s);
@@ -967,7 +968,7 @@ function openFromLink() {
   const h = location.hash.slice(1);
   if (h === 'checkin') { ui.tab = 'week'; ui.checkin = true; }
   else if (h === 'today') { ui.tab = 'today'; ui.logView = 'day'; ui.logDate = localISO(); }
-  else if (['week', 'recipes', 'groceries', 'bought', 'settings'].includes(h)) { ui.tab = h; ui.checkin = false; }
+  else if (['home', 'week', 'recipes', 'groceries', 'bought', 'settings'].includes(h)) { ui.tab = h; ui.checkin = false; }
   else return;
   history.replaceState(null, '', location.pathname);
   render();
