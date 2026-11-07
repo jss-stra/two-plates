@@ -385,9 +385,8 @@ label.btn.busy { opacity: .6; pointer-events: none; }
 .icon-btn.on { color: var(--accent); }
 
 /* Week: one-glance nutrition rows + details, compact remix row */
-.glance-row { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-top: 1px solid var(--line); font-size: .9rem; flex-wrap: wrap; }
-.glance-row:first-of-type { border-top: 0; }
-.glance-name { font-weight: 700; flex: 1; }
+.glance-chips { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0 2px; }
+.glance-chips .pill { font-size: .78rem; padding: 4px 10px; }
 .nutrition-detail { margin-top: 8px; border-top: 1px solid var(--line); padding-top: 6px; }
 .nutrition-detail summary { cursor: pointer; list-style: none; font-size: .82rem; font-weight: 600; color: var(--muted); padding: 4px 0; }
 .nutrition-detail summary::-webkit-details-marker { display: none; }

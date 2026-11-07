@@ -223,12 +223,10 @@ function counter(label, key, value, max) {
     <button data-act="count" data-k="${key}" data-d="1" ${value >= max ? 'disabled' : ''} aria-label="More ${label}">${icon('plus')}</button></div>`;
 }
 
-function glanceRow(d) {
+function glanceChip(d) {
   const p = d.person;
   const ps = status(d.protein, p.proteinMin, p.proteinMax, 'protein');
-  return `<div class="glance-row"><span class="glance-name">${esc(p.name)}</span>
-    <span><b>${d.protein} g</b> protein · ${d.kcal.toLocaleString()} kcal</span>
-    <span class="pill ${ps.cls}">${ps.text}</span></div>`;
+  return `<span class="pill ${ps.cls}">${esc(p.name)} · ${ps.text}</span>`;
 }
 
 function renderWeek(s) {
@@ -243,12 +241,11 @@ function renderWeek(s) {
       <ol class="dishes">${items.map((x) => dishCard(x.r, x.i, x.slot, s)).join('')}</ol>`;
   };
   if (ui.checkin) return renderCheckin(s);
-  return `${checkinBanner(s)}
-  <section class="card summary">
+  return `<section class="card summary">
     <div class="summary-head"><div><h2>This week</h2>
       <div class="muted">${recipes.length} dishes · ${fmtTime(totalTime)} cooking in total</div></div></div>
-    ${daily(s).map(glanceRow).join('')}
-    <details class="nutrition-detail"><summary>Calories &amp; protein targets per person</summary>
+    <div class="glance-chips">${daily(s).map(glanceChip).join('')}</div>
+    <details class="nutrition-detail"><summary>Nutrition details</summary>
       <div class="people">${daily(s).map((d) => personSummary(d, s.rules)).join('')}</div>
       <p class="fine">Average day: ${s.rules.mealsPerDish === 2 ? 'lunch + dinner from these dishes' : 'dinner from these dishes'}, plus shake, breakfast &amp; snacks from Settings. Cook in any order.</p>
     </details>
@@ -262,7 +259,12 @@ function renderWeek(s) {
       <a class="btn small" href="${menuUrl(s.history.length + 1, s.plan.weekOf, s.plan.slots.map((x) => x.id))}" target="_blank" rel="noopener">Menu page</a>
       <button class="link" data-act="unfinalize">Edit week</button>
     </div>
-  </section>` : `<div class="remix-row">
+  </section>` : ''}
+
+  ${section('chicken', 'Chicken &amp; turkey')}
+  ${section('veg', 'Veg')}
+
+  ${s.plan.finalizedAt ? '' : `<div class="remix-row">
     <span class="mix-count">${s.rules.chickenDishes} chicken · ${s.rules.vegDishes} veg</span>
     <button class="btn small" data-act="shuffle">${icon('shuffle')} Shuffle${lockedCount ? ` (keeps ${lockedCount} locked)` : ''}</button>
     <details class="mix-detail"><summary>Change the mix</summary>
@@ -272,9 +274,6 @@ function renderWeek(s) {
       </div>
     </details>
   </div>`}
-
-  ${section('chicken', 'Chicken &amp; turkey')}
-  ${section('veg', 'Veg')}
 
   <div class="stack">
     ${s.plan.finalizedAt
@@ -307,17 +306,6 @@ function pastWeeks(s) {
       }).join('')}</ul>
     </div>`).join('')}
   </details>`;
-}
-
-// Friday–Sunday nudge until this week's check-in is done.
-function checkinBanner(s) {
-  const day = new Date().getDay(); // 0 Sun … 5 Fri, 6 Sat
-  // Hidden for a plan you started in the last 3 days (e.g. right after this weekend's check-in).
-  const fresh = s.plan.startedAt && Date.now() - s.plan.startedAt < 3 * 24 * 3600 * 1000;
-  if (fresh || ![5, 6, 0].includes(day)) return '';
-  return `<section class="card banner"><div><b>Weekly check-in</b>
-    <div class="muted">What did you cook, what didn't you, and how much did you each like it?</div></div>
-    <button class="btn primary" data-act="checkin-open">Start</button></section>`;
 }
 
 function renderCheckin(s) {
