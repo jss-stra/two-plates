@@ -1,5 +1,5 @@
 import { renderPrep, setupPrepEvents } from './prep.js';
-import { renderGroceryTools, setupGroceryEvents } from './grocery-ui.js';
+import { renderExtrasCard, renderPartiesCard, setupGroceryEvents } from './grocery-ui.js';
 import { RECIPES, RECIPE_BY_ID, GROUPS, INGREDIENTS, DIET_LABEL, PROTEIN_LABEL, youtubeUrl, isVeg, kindOf, DATA_ERRORS } from './data.js';
 import { getState, update, onChange, defaultState, replaceState } from './state.js';
 import { generateSlots, planRecipes, alternatives, randomSwap, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes, localISO } from './planner.js';
@@ -34,6 +34,9 @@ const ui = {
   logMonth: localISO().slice(0, 7),
   boughtWeek: null, // null = the week being planned
   uploading: false,
+  gview: 'tobuy', // groceries filter: tobuy | have | bought
+  gsection: '', // groceries sub-screen: '' | extras | parties
+  showAll: false, // recipes: show every match instead of the first page
 };
 
 // ---------- Icons ----------
@@ -56,6 +59,8 @@ const ICONS = {
   clock: '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
   camera: '<path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/>',
   note: '<path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>',
+  dots: '<circle cx="5" cy="12" r="1.6" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><circle cx="19" cy="12" r="1.6" fill="currentColor" stroke="none"/>',
+  gear: '<circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.2 5.2l1.8 1.8M17 17l1.8 1.8M18.8 5.2 17 7M7 17l-1.8 1.8"/>',
 };
 const icon = (name, cls = '') => `<svg class="icon ${cls}" viewBox="0 0 24 24" aria-hidden="true">${ICONS[name]}</svg>`;
 
@@ -198,10 +203,14 @@ function dishCard(r, i, slot, s) {
       return `<span><b>${esc(p.name)}</b> <span class="st ${cls}">${m.protein} g</span> · ${m.kcal} kcal</span>`;
     }).join('')}</div>
     <div class="actions">
-      ${final ? '' : `<button class="act ${slot.locked ? 'on' : ''}" data-act="lock" data-i="${i}">${icon(slot.locked ? 'lock' : 'unlock')}<span>${slot.locked ? 'Locked' : 'Lock'}</span></button>
-      <button class="act" data-act="swap-random" data-i="${i}" ${slot.locked ? 'disabled' : ''}>${icon('shuffle')}<span>Swap</span></button>
-      <button class="act" data-act="open-sheet" data-i="${i}">${icon('list')}<span>Pick</span></button>`}
-      <a class="act yt" href="${youtubeUrl(r)}" target="_blank" rel="noopener">${icon('play')}<span>YouTube</span></a>
+      ${final ? `<a class="act yt" href="${youtubeUrl(r)}" target="_blank" rel="noopener">${icon('play')}<span>YouTube</span></a>` : `
+      <button class="act primary-act" data-act="swap-random" data-i="${i}" ${slot.locked ? 'disabled' : ''}>${icon('shuffle')}<span>Swap</span></button>
+      <span class="act-spacer"></span>
+      <details class="dish-more"><summary class="act icon-only" aria-label="More actions for ${esc(r.name)}">${icon('dots')}</summary>
+        <button class="act ${slot.locked ? 'on' : ''}" data-act="lock" data-i="${i}">${icon(slot.locked ? 'lock' : 'unlock')}<span>${slot.locked ? 'Unlock' : 'Lock'}</span></button>
+        <button class="act" data-act="open-sheet" data-i="${i}">${icon('list')}<span>Pick…</span></button>
+        <a class="act yt" href="${youtubeUrl(r)}" target="_blank" rel="noopener">${icon('play')}<span>YouTube</span></a>
+      </details>`}
     </div>
     <details class="rate-wrap" ${s.ratings[r.id] ? 'open' : ''}><summary>Cooked it? Rate it</summary>${starsFor(s, r)}</details>
   </li>`;
@@ -212,6 +221,14 @@ function counter(label, key, value, max) {
     <button data-act="count" data-k="${key}" data-d="-1" ${value <= 0 ? 'disabled' : ''} aria-label="Fewer ${label}">${icon('minus')}</button>
     <b>${value}</b>
     <button data-act="count" data-k="${key}" data-d="1" ${value >= max ? 'disabled' : ''} aria-label="More ${label}">${icon('plus')}</button></div>`;
+}
+
+function glanceRow(d) {
+  const p = d.person;
+  const ps = status(d.protein, p.proteinMin, p.proteinMax, 'protein');
+  return `<div class="glance-row"><span class="glance-name">${esc(p.name)}</span>
+    <span><b>${d.protein} g</b> protein · ${d.kcal.toLocaleString()} kcal</span>
+    <span class="pill ${ps.cls}">${ps.text}</span></div>`;
 }
 
 function renderWeek(s) {
@@ -226,13 +243,15 @@ function renderWeek(s) {
       <ol class="dishes">${items.map((x) => dishCard(x.r, x.i, x.slot, s)).join('')}</ol>`;
   };
   if (ui.checkin) return renderCheckin(s);
-  return `<section class="card"><h2>Make cooking easier</h2><p class="muted">Fit prep for these dishes around the time you have.</p><button class="btn primary" data-act="tab" data-tab="prep">Plan my prep</button></section>
-  ${checkinBanner(s)}
+  return `${checkinBanner(s)}
   <section class="card summary">
     <div class="summary-head"><div><h2>This week</h2>
       <div class="muted">${recipes.length} dishes · ${fmtTime(totalTime)} cooking in total</div></div></div>
-    <div class="people">${daily(s).map((d) => personSummary(d, s.rules)).join('')}</div>
-    <p class="fine">Average day: ${s.rules.mealsPerDish === 2 ? 'lunch + dinner from these dishes' : 'dinner from these dishes'}, plus shake, breakfast &amp; snacks from Settings. Cook in any order.</p>
+    ${daily(s).map(glanceRow).join('')}
+    <details class="nutrition-detail"><summary>Calories &amp; protein targets per person</summary>
+      <div class="people">${daily(s).map((d) => personSummary(d, s.rules)).join('')}</div>
+      <p class="fine">Average day: ${s.rules.mealsPerDish === 2 ? 'lunch + dinner from these dishes' : 'dinner from these dishes'}, plus shake, breakfast &amp; snacks from Settings. Cook in any order.</p>
+    </details>
   </section>
 
   ${s.plan.finalizedAt ? `<section class="card final-card">
@@ -243,11 +262,16 @@ function renderWeek(s) {
       <a class="btn small" href="${menuUrl(s.history.length + 1, s.plan.weekOf, s.plan.slots.map((x) => x.id))}" target="_blank" rel="noopener">Menu page</a>
       <button class="link" data-act="unfinalize">Edit week</button>
     </div>
-  </section>` : `<div class="toolbar">
-    ${counter('Chicken', 'chickenDishes', s.rules.chickenDishes, 7 - s.rules.vegDishes)}
-    ${counter('Veg', 'vegDishes', s.rules.vegDishes, 7 - s.rules.chickenDishes)}
-  </div>
-  <button class="btn wide shuffle" data-act="shuffle">${icon('shuffle')} Shuffle${lockedCount ? ` (keeps ${lockedCount} locked)` : ''}</button>`}
+  </section>` : `<div class="remix-row">
+    <span class="mix-count">${s.rules.chickenDishes} chicken · ${s.rules.vegDishes} veg</span>
+    <button class="btn small" data-act="shuffle">${icon('shuffle')} Shuffle${lockedCount ? ` (keeps ${lockedCount} locked)` : ''}</button>
+    <details class="mix-detail"><summary>Change the mix</summary>
+      <div class="toolbar">
+        ${counter('Chicken', 'chickenDishes', s.rules.chickenDishes, 7 - s.rules.vegDishes)}
+        ${counter('Veg', 'vegDishes', s.rules.vegDishes, 7 - s.rules.chickenDishes)}
+      </div>
+    </details>
+  </div>`}
 
   ${section('chicken', 'Chicken &amp; turkey')}
   ${section('veg', 'Veg')}
@@ -256,7 +280,8 @@ function renderWeek(s) {
     ${s.plan.finalizedAt
       ? `<button class="btn primary wide" data-act="tab" data-tab="groceries">${icon('cart')} Grocery list</button>`
       : `<button class="btn primary wide" data-act="finalize">${icon('check')} Finalize these ${recipes.length} dishes → grocery list</button>`}
-    <button class="btn wide" data-act="checkin-open">${icon('check')} Weekly check-in &amp; plan next week</button>
+    <button class="btn wide ghost" data-act="tab" data-tab="prep">${icon('clock')} Plan my prep</button>
+    <button class="btn wide ghost" data-act="checkin-open">${icon('check')} Weekly check-in &amp; plan next week</button>
   </div>
   ${pastWeeks(s)}`;
 }
@@ -387,22 +412,26 @@ function recipeRow(r, s) {
   </div>`;
 }
 
+const RECIPE_PAGE = 30;
 function renderRecipeList(s) {
   const list = filteredRecipes(s);
   const el = $('#recipe-list');
   if (!el) return;
-  el.innerHTML = `<div class="fine count">Showing ${list.length} of ${RECIPES.length} dishes</div>`
-    + (list.length ? list.map((r) => recipeRow(r, s)).join('') : '<p class="empty">Nothing matches — try fewer filters.</p>');
+  const shown = ui.showAll ? list : list.slice(0, RECIPE_PAGE);
+  el.innerHTML = `<div class="fine count">Showing ${shown.length} of ${list.length} dishes</div>`
+    + (list.length ? shown.map((r) => recipeRow(r, s)).join('') : '<p class="empty">Nothing matches — try fewer filters.</p>')
+    + (!ui.showAll && list.length > RECIPE_PAGE
+      ? `<button class="btn wide show-more" data-act="recipes-more">Show all ${list.length} dishes</button>` : '');
 }
 
 function renderRecipes(s) {
   const groups = ['All', 'Our regulars', 'Top rated', 'Rated', ...GROUPS, ...(s.hidden.length ? ['Hidden'] : [])];
   return `
   <div class="searchbar">${icon('search')}<input id="q" type="search" placeholder="Search dishes or ingredients…" value="${esc(ui.search)}" autocomplete="off"></div>
-  <div class="chips">${groups.map((g) => `<button class="chip ${ui.group === g ? 'on' : ''}" data-act="group" data-g="${esc(g)}">${esc(g)}${g === 'Hidden' ? ` (${s.hidden.length})` : ''}</button>`).join('')}</div>
+  <div class="chips">${groups.map((g) => `<button class="chip ${ui.group === g ? 'on' : ''}" data-act="group" data-g="${esc(g)}">${esc(g)}${g === 'Hidden' ? ` (${s.hidden.length})` : ''}</button>`).join('')}
+    <button class="chip ${ui.vegOnly ? 'on' : ''}" data-act="rtoggle" data-k="vegOnly">Veg only</button>
+    <button class="chip ${ui.quick ? 'on' : ''}" data-act="rtoggle" data-k="quick">≤ 30 min</button></div>
   <div class="filters">
-    <label class="toggle"><input type="checkbox" data-ui="vegOnly" ${ui.vegOnly ? 'checked' : ''}><span>Veg only</span></label>
-    <label class="toggle"><input type="checkbox" data-ui="quick" ${ui.quick ? 'checked' : ''}><span>≤ 30 min</span></label>
     <select data-ui="sort" aria-label="Sort">
       ${[['smart', 'Most protein per calorie'], ['rating', 'Highest rated'], ['protein', 'Most protein'], ['kcal', 'Fewest calories'], ['time', 'Quickest'], ['name', 'A–Z']]
         .map(([v, l]) => `<option value="${v}" ${ui.sort === v ? 'selected' : ''}>${l}</option>`).join('')}
@@ -427,38 +456,63 @@ function gItem(i, pantry) {
   </div>${i.extraId ? `<div data-extra-editor="${esc(i.extraId)}" hidden class="card"></div>` : ''}`;
 }
 
+function groceryNavRows(s) {
+  return `<section class="card navrows">
+    <button class="navrow" data-act="gsection" data-v="extras"><span><b>Beyond the recipes</b><small>Drinks, snacks, breakfast, household — kept between weeks</small></span><span class="chev">›</span></button>
+    <button class="navrow" data-act="gsection" data-v="parties"><span><b>Guests &amp; parties</b><small>Extra dishes when people come over${s.occasions?.length ? ` · ${s.occasions.length} planned` : ''}</small></span><span class="chev">›</span></button>
+    <button class="navrow" data-act="tab" data-tab="bought"><span><b>Receipts &amp; spend</b><small>Photos of receipts, prices and shopping habits</small></span><span class="chev">›</span></button>
+  </section>`;
+}
+
 function renderGroceries(s) {
+  if (ui.gsection === 'extras') return renderExtrasCard(s);
+  if (ui.gsection === 'parties') return renderPartiesCard(s);
   const g = buildGrocery(s);
-  const left = g.shop.filter((i) => !i.checked).length;
+  const done = g.shop.filter((i) => i.checked).length;
   const logged = g.shop.filter((i) => i.bought).length;
   const draft = s.plan.finalizedAt ? '' : `<section class="card banner"><div><b>Draft list</b>
     <div class="muted">Finalize this week's dishes so the list doesn't change after you shop.</div></div>
     <button class="btn primary" data-act="finalize">Finalize</button></section>`;
+  const view = ui.gview;
+  const shopGroups = g.shopGroups
+    .map((grp) => ({ ...grp, items: grp.items.filter((i) => view === 'bought' ? i.checked : !i.checked) }))
+    .filter((grp) => grp.items.length);
+  const listBody = view === 'have'
+    ? (g.pantry.length
+      ? `<p class="fine" style="margin:0 4px 10px">Staples you usually have — not on the shopping list. Tap “Need to buy” if you're out.</p>
+        ${g.pantryGroups.map((grp) => `<section class="gsec"><h3>${esc(grp.label)}</h3>${grp.items.map((i) => gItem(i, true)).join('')}</section>`).join('')}`
+      : '<p class="empty">No pantry staples listed.</p>')
+    : (shopGroups.length
+      ? shopGroups.map((grp) => `<section class="gsec"><h3>${esc(grp.label)}</h3>${grp.items.map((i) => gItem(i, false)).join('')}</section>`).join('')
+      : `<p class="empty">${view === 'bought' ? 'Nothing ticked off yet.' : 'Everything is ticked off — nice one.'}</p>`);
   return `${draft}
   <section class="card">
     <h2>Shopping list</h2>
-    <div class="muted">${planRecipes(s).length} dishes · ${left} of ${g.shop.length} items left${logged ? ` · ${logged} amount${logged === 1 ? '' : 's'} logged` : ''}</div>
+    <div class="muted">${planRecipes(s).length} dishes · ${done} of ${g.shop.length} ticked${logged ? ` · ${logged} amount${logged === 1 ? '' : 's'} logged` : ''}</div>
     ${g.pricedCount ? `<div class="fine">About $${Math.round(g.cost)} for the ${g.pricedCount} items with prices from your receipts</div>` : ''}
-    <div class="btnrow">
-      <button class="btn primary" data-act="share">${icon('share')} Send to Keep</button>
-      <button class="btn" data-act="export">${icon('download')} Excel</button>
-      <button class="btn" data-act="copy">${icon('copy')} Copy</button>
+    <div class="chips gview">${[['tobuy', 'To buy'], ['have', 'Already have'], ['bought', `Bought${done ? ` (${done})` : ''}`]]
+      .map(([v, l]) => `<button class="chip ${view === v ? 'on' : ''}" data-act="gview" data-v="${v}">${l}</button>`).join('')}</div>
+    <div class="btnrow share-row">
+      <button class="btn primary" data-act="share">${icon('share')} Share</button>
+      <details class="share-more"><summary class="btn">More</summary>
+        <div class="share-more-body">
+          <div class="btnrow">
+            <button class="btn" data-act="export">${icon('download')} Excel</button>
+            <button class="btn" data-act="copy">${icon('copy')} Copy</button>
+          </div>
+          <p class="fine">“Share” opens your phone's share sheet. Pick Google Keep to get one note with this week's dishes and the shopping list. In Keep, tap ⋮ → Show checkboxes to tick items off.</p>
+          <div class="gtoggles">
+            <label class="toggle"><input type="checkbox" data-act="toggle-amounts" ${ui.showAmounts ? 'checked' : ''}><span>Show rough amounts</span></label>
+            <label class="toggle"><input type="checkbox" data-act="toggle-log" ${ui.logBought ? 'checked' : ''}><span>Log what we bought</span></label>
+          </div>
+          ${ui.logBought ? '<p class="fine">Type roughly how much you got of each item. It’s saved with this week, and over time it lets the app suggest amounts that match how you actually shop.</p>' : ''}
+        </div>
+      </details>
     </div>
-    <p class="fine">“Send to Keep” opens your phone's share sheet. Pick Google Keep to get one note with this week's dishes and the shopping list. In Keep, tap ⋮ → Show checkboxes to tick items off.</p>
-    <div class="gtoggles">
-      <label class="toggle"><input type="checkbox" data-act="toggle-amounts" ${ui.showAmounts ? 'checked' : ''}><span>Show rough amounts</span></label>
-      <label class="toggle"><input type="checkbox" data-act="toggle-log" ${ui.logBought ? 'checked' : ''}><span>Log what we bought</span></label>
-    </div>
-    ${ui.logBought ? '<p class="fine">Type roughly how much you got of each item. It’s saved with this week, and over time it lets the app suggest amounts that match how you actually shop.</p>' : ''}
   </section>
-  ${renderGroceryTools(s)}
-  ${g.shopGroups.map((grp) => `<section class="gsec"><h3>${esc(grp.label)}</h3>${grp.items.map((i) => gItem(i, false)).join('')}</section>`).join('')}
-  ${g.pantry.length ? `<details class="pantry card">
-    <summary><b>Pantry check</b> <span class="muted">— ${g.pantry.length} staples you usually have</span></summary>
-    <p class="fine">Not on the shopping list. Tap “Need to buy” if you're out.</p>
-    ${g.pantryGroups.map((grp) => `<section class="gsec"><h3>${esc(grp.label)}</h3>${grp.items.map((i) => gItem(i, true)).join('')}</section>`).join('')}
-  </details>` : ''}
-  ${g.shop.some((i) => i.checked) ? `<button class="btn ghost wide" data-act="uncheck-all">Untick everything</button>` : ''}`;
+  ${listBody}
+  ${view === 'bought' && done ? `<button class="btn ghost wide" data-act="uncheck-all">Untick everything</button>` : ''}
+  ${groceryNavRows(s)}`;
 }
 
 // ---------- Settings ----------
@@ -612,7 +666,9 @@ function render() {
   const scroll = window.scrollY;
   main.innerHTML = (views[ui.tab] || renderWeek)(s);
   if (ui.tab === 'recipes') renderRecipeList(s);
-  document.querySelectorAll('.tabbar button').forEach((b) => b.classList.toggle('on', b.dataset.tab === ui.tab));
+  const tabAlias = { bought: 'groceries', prep: 'week', settings: '' };
+  const active = tabAlias[ui.tab] ?? ui.tab;
+  document.querySelectorAll('.tabbar button').forEach((b) => b.classList.toggle('on', b.dataset.tab === active));
   renderHeader();
   renderSheet(s);
   window.scrollTo(0, scroll);
@@ -622,11 +678,13 @@ function renderHeader() {
   const st = syncStatus();
   $('#sync-dot').className = `sync-dot ${st.state}`;
   $('#sync-dot').title = st.message;
+  $('#settings-btn')?.classList.toggle('on', ui.tab === 'settings');
 }
 
 // ---------- Actions ----------
 function setTab(tab) {
   ui.tab = tab;
+  if (tab === 'groceries') ui.gsection = '';
   store.set('twoplates.tab', tab);
   window.scrollTo(0, 0);
   render();
@@ -738,7 +796,11 @@ const actions = {
     toast(`Added to this week as a ${kind === 'veg' ? 'veg' : 'chicken'} dish (locked)`);
   },
   expand: (el) => { ui.expanded = ui.expanded === el.dataset.id ? null : el.dataset.id; renderRecipeList(getState()); },
-  group: (el) => { ui.group = el.dataset.g; render(); },
+  rtoggle: (el) => { ui[el.dataset.k] = !ui[el.dataset.k]; ui.showAll = false; render(); },
+  'recipes-more': () => { ui.showAll = true; renderRecipeList(getState()); },
+  gview: (el) => { ui.gview = el.dataset.v; render(); },
+  gsection: (el) => { ui.gsection = el.dataset.v; window.scrollTo(0, 0); render(); },
+  group: (el) => { ui.group = el.dataset.g; ui.showAll = false; render(); },
   check: (el) => update((d) => { d.checked[el.dataset.key] = el.checked; }),
   'toggle-amounts': (el) => { ui.showAmounts = el.checked; store.set('twoplates.amounts', el.checked ? '1' : '0'); render(); },
   'toggle-log': (el) => { ui.logBought = el.checked; render(); },
@@ -904,6 +966,7 @@ document.addEventListener('change', (e) => {
   }
   if (el.dataset.ui) {
     ui[el.dataset.ui] = el.type === 'checkbox' ? el.checked : el.value;
+    ui.showAll = false;
     renderRecipeList(getState());
     return;
   }
@@ -916,7 +979,7 @@ document.addEventListener('change', (e) => {
 });
 
 document.addEventListener('input', (e) => {
-  if (e.target.id === 'q') { ui.search = e.target.value; renderRecipeList(getState()); }
+  if (e.target.id === 'q') { ui.search = e.target.value; ui.showAll = false; renderRecipeList(getState()); }
   if (e.target.id === 'sq' && ui.sheet) { ui.sheet.query = e.target.value; renderSheetList(getState()); }
   // Live label for portion sliders without re-rendering mid-drag.
   if (e.target.type === 'range') {

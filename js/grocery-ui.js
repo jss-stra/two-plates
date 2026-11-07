@@ -9,9 +9,12 @@ export function extrasForm(x) {
   <div class="feature-grid"><label>Amount<input name="amount" maxlength="80" value="${esc(x?.amount || '')}" placeholder="2 L / 1 pack"></label><label>Section<select name="category">${options(x?.category)}</select></label></div>
   <button class="btn" type="submit">${x ? 'Save item' : 'Add item'}</button></form>`;
 }
-export function renderGroceryTools(s) {
- return `<section class="card"><h2>Beyond the recipes</h2><p class="muted">Drinks, snacks, breakfast and anything else. Kept when you change dishes or start a new week, until you remove them.</p>${extrasForm()}</section>
- <section class="card"><h2>Guests & parties</h2><p class="muted">What are you making, and for how many? Party ingredients join the shopping list, not your weekly meal plan.</p>
+const backLink = `<button class="link" data-act="gsection" data-v="">← Shopping list</button>`;
+export function renderExtrasCard(s) {
+ return `<section class="card">${backLink}<h2>Beyond the recipes</h2><p class="muted">Drinks, snacks, breakfast and anything else. Kept when you change dishes or start a new week, until you remove them.</p>${extrasForm()}</section>`;
+}
+export function renderPartiesCard(s) {
+ return `<section class="card">${backLink}<h2>Guests & parties</h2><p class="muted">What are you making, and for how many? Party ingredients join the shopping list, not your weekly meal plan.</p>
  <form class="feature-form" data-grocery-form="party"><label>Occasion<input required name="partyName" maxlength="100" placeholder="Guests for dinner"></label><label>People, including you<input required type="number" name="guests" min="1" max="200" value="4"></label><button class="btn" type="submit">Plan occasion</button></form>
  ${(s.occasions || []).map(p=>`<details class="occasion" open><summary><b>${esc(p.name)}</b> · ${p.guests} people</summary>
  <div class="btnrow"><button class="btn" data-grocery-action="toggle-party" data-id="${p.id}">${p.active?'Exclude from':'Include in'} shopping</button><button class="btn ghost" data-grocery-action="delete-party" data-id="${p.id}">Delete occasion</button></div>
@@ -22,6 +25,9 @@ export function renderGroceryTools(s) {
  <details><summary>Another dish, drinks or party extras</summary><p class="fine">For a dish outside the library, enter its ingredients and amounts from your recipe. A dish name alone cannot give reliable quantities. One ingredient per line; amount after a |, for example: flour | 500 g.</p><form class="feature-form" data-grocery-form="custom" data-party="${p.id}"><label>Dish or group<input required name="dish" placeholder="Cake / drinks" maxlength="160"></label><label>Ingredients and amounts<textarea required name="items" rows="4" placeholder="Flour | 500 g&#10;Sparkling water | 4 bottles"></textarea></label><button class="btn" type="submit">Add to shopping list</button></form></details>
  ${(p.items || []).map(x=>`<div class="occasion-row"><span>${esc(x.name)} · ${esc(x.amount)}<small>${esc(x.dish)}</small></span><button class="link" data-grocery-action="delete-item" data-id="${p.id}" data-child="${x.id}">Remove</button></div>`).join('')}
  </details>`).join('')}</section>`;
+}
+export function renderGroceryTools(s) {
+ return renderExtrasCard(s) + renderPartiesCard(s);
 }
 export function editExtra(id) {
  const x = getState().extras.find(x=>x.id===id); if(!x)return;

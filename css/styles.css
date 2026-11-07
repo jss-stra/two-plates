@@ -178,7 +178,7 @@ main { max-width: 720px; margin: 0 auto; padding: 14px 16px 24px; }
 .searchbar .icon { color: var(--muted); }
 .searchbar input { flex: 1; border: 0; background: transparent; min-height: 44px; outline: none; min-width: 0; }
 .filters { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 8px; }
-.filters select { margin-left: auto; border: 1px solid var(--line); background: var(--card); border-radius: 10px; padding: 7px 8px; font-size: .85rem; max-width: 100%; }
+.filters select { border: 1px solid var(--line); background: var(--card); border-radius: 10px; padding: 7px 8px; font-size: .85rem; max-width: 100%; }
 .toggle { display: inline-flex; align-items: center; gap: 6px; font-size: .88rem; cursor: pointer; }
 .toggle input { width: 18px; height: 18px; accent-color: var(--accent); }
 .count { margin: 4px 0 8px; }
@@ -357,9 +357,9 @@ main { max-width: 720px; margin: 0 auto; padding: 14px 16px 24px; }
 .final-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .past-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 
-/* Bought tab (receipts) */
-.tabbar { grid-template-columns: repeat(7, 1fr); }
-.tabbar button { font-size: .62rem; }
+/* Five tabs: receipts live under Groceries, settings behind the header gear. */
+.tabbar { grid-template-columns: repeat(5, 1fr); }
+.tabbar button { font-size: .68rem; }
 .tabbar button span { max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
 label.btn { cursor: pointer; }
 label.btn.busy { opacity: .6; pointer-events: none; }
@@ -377,6 +377,56 @@ label.btn.busy { opacity: .6; pointer-events: none; }
 .catbar b { font-weight: 600; font-variant-numeric: tabular-nums; }
 .stats.three { grid-template-columns: repeat(3, 1fr); }
 .insights { margin: 6px 0; padding-left: 18px; font-size: .88rem; display: grid; gap: 4px; }
+
+/* Header side actions (sync dot + settings gear) */
+.appbar-side { display: flex; align-items: center; gap: 2px; }
+.icon-btn { border: 0; background: none; width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; color: var(--muted); cursor: pointer; }
+.icon-btn .icon { width: 20px; height: 20px; }
+.icon-btn.on { color: var(--accent); }
+
+/* Week: one-glance nutrition rows + details, compact remix row */
+.glance-row { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-top: 1px solid var(--line); font-size: .9rem; flex-wrap: wrap; }
+.glance-row:first-of-type { border-top: 0; }
+.glance-name { font-weight: 700; flex: 1; }
+.nutrition-detail { margin-top: 8px; border-top: 1px solid var(--line); padding-top: 6px; }
+.nutrition-detail summary { cursor: pointer; list-style: none; font-size: .82rem; font-weight: 600; color: var(--muted); padding: 4px 0; }
+.nutrition-detail summary::-webkit-details-marker { display: none; }
+.nutrition-detail[open] .people { margin: 8px 0; }
+.remix-row { display: flex; align-items: center; gap: 10px; margin: 0 2px 14px; flex-wrap: wrap; }
+.mix-count { font-size: .88rem; color: var(--muted); font-weight: 600; flex: 1; }
+.mix-detail { flex-basis: 100%; }
+.mix-detail summary { cursor: pointer; list-style: none; font-size: .8rem; font-weight: 600; color: var(--accent); padding: 2px; }
+.mix-detail summary::-webkit-details-marker { display: none; }
+.mix-detail .toolbar { margin: 6px 0 0; }
+
+/* Dish card overflow menu: summary and items join the .actions flex row */
+.dish-more { display: contents; }
+.dish-more > summary { list-style: none; }
+.dish-more > summary::-webkit-details-marker { display: none; }
+.act.primary-act { color: var(--accent); }
+
+/* Groceries: filter chips, consolidated share row, nav rows to sub-screens */
+.gview { margin: 10px -16px 0; padding: 2px 16px 8px; }
+.share-row { margin-top: 4px; }
+.share-more { display: contents; }
+.share-more > summary { list-style: none; text-align: center; }
+.share-more > summary::-webkit-details-marker { display: none; }
+.share-more-body { flex-basis: 100%; order: 9; }
+.share-more-body .btnrow { margin-top: 4px; }
+.navrows { padding: 4px 16px; }
+.navrow { display: flex; align-items: center; gap: 10px; width: 100%; border: 0; background: none; text-align: left; padding: 12px 0; border-top: 1px solid var(--line); cursor: pointer; color: var(--ink); font-size: .95rem; }
+.navrow:first-of-type { border-top: 0; }
+.navrow small { display: block; color: var(--muted); font-size: .8rem; font-weight: 400; margin-top: 1px; }
+.navrow .chev { margin-left: auto; color: var(--muted); font-size: 1.2rem; flex: none; }
+
+/* Today: "More about today" disclosure */
+.more-today summary { cursor: pointer; list-style: none; font-weight: 700; font-size: 1.05rem; }
+.more-today summary::-webkit-details-marker { display: none; }
+.more-today summary .muted { font-weight: 400; font-size: .82rem; }
+.more-today[open] summary { margin-bottom: 4px; }
+
+/* Recipes: reveal-the-rest button */
+.show-more { margin: 12px 0 18px; }
 
 /* Water tracker */
 .water-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }

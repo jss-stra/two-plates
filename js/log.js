@@ -73,11 +73,12 @@ export function renderToday(s, ui, icon) {
     ${seg('breakfast', e.breakfast, [['usual', 'As usual'], ['other', 'Something else'], ['skipped', 'Skipped']])}
     ${e.breakfast === 'other' ? text('breakfastText', e.breakfastText, 'What did you have?') : ''}
     ${MEALS.map(([f, label]) => `<h3>${label}</h3>${mealPicker(f)}`).join('')}
-    <h3>Snacks</h3>
-    ${text('snacks', e.snacks, 'e.g. fruit, protein bar, chai')}
   </section>
 
-  <section class="card log">
+  <details class="card log more-today" ${e.snacks || e.note || e.rating || e.cheatDay || e.cheats?.length ? 'open' : ''}>
+    <summary>More about today <span class="muted">· snacks, cheats, rating, note</span></summary>
+    <h3>Snacks</h3>
+    ${text('snacks', e.snacks, 'e.g. fruit, protein bar, chai')}
     <h3>Cheats</h3>
     <label class="toggle"><input type="checkbox" data-act="log-cheatday" ${e.cheatDay ? 'checked' : ''}><span>This was a cheat day</span></label>
     <div class="chips wrapchips">${(e.cheats || []).map((c, i) => `<span class="chip on cheat">${esc(c)} <button class="x" data-act="log-uncheat" data-i="${i}" aria-label="Remove">×</button></span>`).join('')}</div>
@@ -88,7 +89,7 @@ export function renderToday(s, ui, icon) {
       <span class="fine">${['', 'Off track', 'Meh', 'Okay', 'Good', 'Spot on'][e.rating || 0]}</span></div>
     <h3>Note</h3>
     ${text('note', e.note, 'Anything worth remembering (optional)')}
-  </section>`;
+  </details>`;
 }
 
 // ---------- Month report ----------
