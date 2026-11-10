@@ -1,0 +1,22 @@
+{
+ "dish": "Poronkäristys",
+ "steps": [
+  "Take the reindeer from the freezer and shave it into thin curls with a sharp knife.",
+  "Melt the butter in a cast-iron pan and heat it until it just smokes.",
+  "Add the frozen shavings and fry them hard until all the water has gone.",
+  "Add the chopped onion and fry five minutes more, to a good colour.",
+  "Add the beer and water, season, and stew covered for half an hour.",
+  "Boil the potatoes and mash them with hot milk to a smooth purée.",
+  "Serve the meat on the mash with a spoon of lingonberry and pickled cucumbers."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

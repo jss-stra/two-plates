@@ -1,0 +1,21 @@
+{
+ "dish": "Köttbullar",
+ "steps": [
+  "Soak the bread in a hundred millilitres of the cream for ten minutes and mash it to a paste.",
+  "Fry the onion in butter until soft and cool it completely: warm onion starts cooking the meat.",
+  "Mix both minces with the panade, onion, egg, allspice and salt, and work it for five minutes until tacky.",
+  "Roll walnut-sized balls with wet hands and fry them in butter in batches, shaking the pan so they roll and colour evenly.",
+  "In the same pan whisk the flour into the remaining fat, pour in the stock and the rest of the cream, add the soy and cook five minutes to a sauce.",
+  "Return the meatballs to the sauce and warm them through for five minutes. Serve with mashed potato, lingonberry and pickled cucumber."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

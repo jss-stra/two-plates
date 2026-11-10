@@ -1,0 +1,22 @@
+{
+ "dish": "Poulet moambé",
+ "steps": [
+  "Rub the chicken with salt, pepper, garlic and lemon juice and leave it twenty minutes.",
+  "Brown the chicken in oil on all sides and lift it out.",
+  "Fry the onion with the ginger until soft, add the palm pulp and let it down with a cup of water.",
+  "Cook the sauce twenty minutes, stirring, until a layer of red oil rises to the surface.",
+  "Return the chicken, add the aubergine and the whole pili-piri and stew thirty minutes.",
+  "Stir in the spinach for the last five minutes and remove the chilli.",
+  "Serve with rice or with fufu made from cassava."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

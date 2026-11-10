@@ -1,0 +1,22 @@
+{
+ "dish": "Flia",
+ "steps": [
+  "Whisk the flour with the water and salt into a smooth thin batter — thicker than for pancakes, but pourable.",
+  "Let the soured cream down with cold water to the consistency of thin cream and salt it.",
+  "Butter a round tin and pour the batter in stripes from the centre outwards, like the spokes of a wheel.",
+  "Put it under the top grill for four minutes, until the layer sets and spots appear.",
+  "Sprinkle with the thinned cream and pour the next layer into the gaps between the previous stripes.",
+  "Repeat, alternating the direction of the stripes, until the batter runs out — usually twenty to twenty-five layers.",
+  "Pour over melted butter, rest it ten minutes and serve with yoghurt or honey."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

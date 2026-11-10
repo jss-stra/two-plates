@@ -1,0 +1,21 @@
+{
+ "dish": "Jiaozi dumplings",
+ "steps": [
+  "Knead a dough from the flour and warm water for eight minutes and rest it under film for half an hour.",
+  "Salt the shredded cabbage and leave it fifteen minutes, then squeeze it dry by hand.",
+  "Work the pork with the ginger, soy and sesame oil in one direction, trickling in the stock until the mass turns tacky. Fold in the cabbage and spring onion.",
+  "Roll eight-centimetre rounds, thinner at the edge and thicker in the middle. Add filling and pleat one side shut.",
+  "Heat the oil in a pan, set the dumplings in seam up and fry three minutes to a golden base.",
+  "Pour in a hundred millilitres of water and cover at once. After seven minutes take the lid off and let the water go, back to a crisp base."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

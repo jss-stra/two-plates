@@ -1,0 +1,21 @@
+{
+ "dish": "Uzbek plov",
+ "steps": [
+  "Rinse the rice until the water runs clear and cover it with warm salted water for as long as the zirvak takes.",
+  "Render the tail fat in the pot until only crackling is left and lift it out. Brown the meat hard over a high flame.",
+  "Add the onion and fry it gold, then the carrot — and leave it alone for five minutes so it sets. Then stir and fry ten minutes more.",
+  "Pour in boiling water to the level of the contents, add the chickpeas, cumin, barberries, chilli and the whole garlic bulbs. Simmer for forty minutes: this is the zirvak.",
+  "Salt the zirvak noticeably harder than seems right: the rice takes it. Spread the rice over in an even layer with a slotted spoon, without stirring, and pour boiling water two fingers above it.",
+  "Cook uncovered over a high flame until the water drops below the rice. Gather the rice into a mound, pierce it to the base in several places, cover and give it twenty minutes on the lowest heat."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

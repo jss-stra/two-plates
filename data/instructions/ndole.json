@@ -1,0 +1,22 @@
+{
+ "dish": "Ndolé",
+ "steps": [
+  "Boil the leaves in salted water for ten minutes, wring them out and repeat twice more with fresh water.",
+  "Boil the peanuts twenty minutes until soft and blend them with water into a thick paste.",
+  "Brown the beef, then add the onion, garlic, ginger and chilli.",
+  "Add water and the dried shrimp and stew forty minutes, until the meat is tender.",
+  "Stir in the peanut paste and cook fifteen minutes, stirring; it catches easily.",
+  "Add the drained leaves and the fresh prawns and stew ten minutes more.",
+  "Serve with fried plantain or boiled cassava."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

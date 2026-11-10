@@ -1,0 +1,20 @@
+{
+ "dish": "Nasi goreng",
+ "steps": [
+  "Pound the shallot, garlic, chilli and terasi to a paste in a mortar. It smells aggressive; that is correct, frying softens it.",
+  "Heat the wok and fry the paste in the oil for two minutes, until it darkens and the smell turns deep.",
+  "Add the chicken and fry three minutes, then the prawns and cabbage for two more.",
+  "Tip in the cold rice, breaking up the lumps with the spatula, pour in the kecap manis and fry over a high flame for three minutes, tossing constantly.",
+  "Fry the eggs separately until the edges are lacy and the yolks loose. Serve the rice with an egg on top, slices of cucumber and fried shallots."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

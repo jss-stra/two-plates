@@ -1,0 +1,22 @@
+{
+ "dish": "Olla de carne",
+ "steps": [
+  "Cover the shank with cold water, bring it to the boil and skim it thoroughly.",
+  "Add the onion, pepper and salt and simmer two hours, until the meat is tender.",
+  "Cut the cassava into large pieces, removing the woody core, and add it to the broth.",
+  "Twenty minutes later add the corn on the cob and the carrots.",
+  "Twenty minutes after that add the potatoes and squash in large pieces.",
+  "The plantain goes in last and cooks ten minutes, no longer.",
+  "Lift the solids out onto a platter, ladle the broth into cups and serve with rice, coriander and lime."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

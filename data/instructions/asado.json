@@ -1,0 +1,22 @@
+{
+ "dish": "Asado",
+ "steps": [
+  "Light the firewood to one side of the grate and let it burn down to embers, about forty minutes.",
+  "Mix the parsley, garlic, oregano, vinegar, oil and chilli flakes; the chimichurri needs an hour to stand.",
+  "Rake a thin layer of embers under part of the grate and lay on the sausages; they go first.",
+  "Salt the ribs coarsely all over and lay them bone side down over a moderate heat.",
+  "Cook the ribs bone down for two hours, adjusting the embers so a palm can stay above the grate for seven seconds.",
+  "Turn the ribs and give them forty minutes meat side down, for a crust.",
+  "Add the flank for the last twenty minutes, rest the meat ten and serve it with the chimichurri."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

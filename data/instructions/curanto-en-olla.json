@@ -1,0 +1,22 @@
+{
+ "dish": "Curanto en olla",
+ "steps": [
+  "Scrub the shellfish through several changes of water and discard any that are already open.",
+  "Boil half the potatoes, mash them and work them with the flour and lard into firm chapalele cakes.",
+  "Line the bottom of the pot with two layers of cabbage leaves.",
+  "Lay the shellfish in as the first layer, add the wine and cover with more cabbage leaves.",
+  "Arrange the ribs, chicken, sausage and onion as the second layer and cover with leaves again.",
+  "Put the whole potatoes and the cakes on top, cover with leaves and close the lid tightly.",
+  "Cook over medium heat for an hour without opening it. Serve in layers, with the broth from the bottom in separate bowls."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "dish": "Caldo verde",
+ "steps": [
+  "Soften the onion and garlic in half the olive oil for eight minutes.",
+  "Add the diced potato, cover with a litre and a half of water and boil twenty minutes, until completely soft.",
+  "Blend the soup to a smooth purée and season it.",
+  "Fry the chouriço slices in a dry pan until they colour and drain them on paper.",
+  "Roll the kale leaves tightly and cut across them into threads.",
+  "Bring the purée to the boil, add the kale and cook it exactly three minutes.",
+  "Ladle it out, add the sausage slices and pour over raw olive oil."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

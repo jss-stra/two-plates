@@ -1,0 +1,21 @@
+{
+ "dish": "Dal tadka",
+ "steps": [
+  "Cover the lentils with three cups of water, add the turmeric and simmer covered for thirty minutes, until the grains collapse into a soft mass.",
+  "Mash some of the lentils against the side of the pot and season. The consistency should be that of a thick soup.",
+  "Separately fry the onion until golden, add the tomatoes and cook until they break down into a sauce. Stir that into the lentils.",
+  "Heat the ghee in a small pan until it is just short of smoking. Add the mustard seeds; they should crackle within seconds.",
+  "Add the cumin at once, the garlic and chillies ten seconds later, the asafoetida twenty seconds after that. The whole thing takes under a minute and cannot be left alone.",
+  "Pour the sizzling tadka straight into the lentils — it should hiss. Stir once and serve with rice or flatbread."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

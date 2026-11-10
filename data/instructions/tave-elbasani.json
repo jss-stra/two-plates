@@ -1,0 +1,22 @@
+{
+ "dish": "Tavë Elbasani",
+ "steps": [
+  "Rub the lamb with salt, pepper, garlic and oregano and roast it at 190 °C for forty minutes.",
+  "Parboil the rice for seven minutes and drain it.",
+  "Melt the butter, stir in the flour and cook it two minutes, to a nutty smell.",
+  "Whisk the yoghurt with the eggs and salt until completely smooth and add the flour mixture.",
+  "Spread the rice in an even layer in an earthenware dish and lay the meat and its juices on top.",
+  "Pour the yoghurt mixture over so it covers everything by a finger's depth.",
+  "Bake at 180 °C for fifty minutes, until the top browns and the middle still trembles slightly."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

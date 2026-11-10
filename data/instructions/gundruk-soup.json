@@ -1,0 +1,22 @@
+{
+ "dish": "Gundruk soup",
+ "steps": [
+  "Soak the gundruk in warm water for ten minutes and squeeze it out, keeping the water.",
+  "Toast the soybeans in a dry pan until they darken in patches and crack.",
+  "Heat the mustard oil until it smokes, take it off and let it cool a minute; raw mustard oil is acrid.",
+  "Fry the onion, garlic, ginger and turmeric, add the tomatoes and cook five minutes.",
+  "Add the gundruk, soybeans and potato, and pour in the soaking water and a litre of water.",
+  "Cook twenty-five minutes, until the potato and beans are soft, and season.",
+  "Sizzle the dried chillies, fenugreek and timur in a spoon of oil and pour it into the soup."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

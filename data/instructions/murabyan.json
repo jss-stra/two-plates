@@ -1,0 +1,22 @@
+{
+ "dish": "Murabyan",
+ "steps": [
+  "Peel the prawns and keep the shells and heads.",
+  "Fry the shells in a spoon of ghee for five minutes, cover with a litre of water and simmer twenty minutes. Strain.",
+  "Rinse the rice and soak it twenty minutes.",
+  "Fry the onion in ghee until golden, then add the garlic, turmeric and bizar.",
+  "Add the tomatoes, the pierced limes and half the dill, pour in the prawn broth and season.",
+  "Add the rice, cover and cook fifteen minutes on a low heat without opening it.",
+  "Lay the prawns and the rest of the dill on top, cover and give it five minutes. Rest ten and serve."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

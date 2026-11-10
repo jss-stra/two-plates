@@ -1,0 +1,22 @@
+{
+ "dish": "Pork with dumplings and cabbage",
+ "steps": [
+  "Rub the pork with salt, pepper, caraway and garlic and leave it an hour at room temperature.",
+  "Brown the pork in lard on all sides, add the onion and pour in water to half the height of the meat.",
+  "Braise covered at 160 °C for an hour and a half, basting every twenty minutes.",
+  "Knead a dough from the flour, warm milk with yeast, the egg and salt and let it rise forty minutes.",
+  "Fold in the bread cubes, shape two logs and boil them ten minutes on each side.",
+  "Stew the sauerkraut with onion, caraway and sugar for twenty-five minutes.",
+  "Cut the dumplings with thread and the pork into slices, and serve with the cabbage under the pan juices."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

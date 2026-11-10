@@ -1,0 +1,21 @@
+{
+ "dish": "Meat solyanka",
+ "steps": [
+  "Make a stock from the beef and the smoked ribs: an hour and a half at a bare simmer, skimming. Lift the meat out and pull it apart.",
+  "Fry the onion until soft, add the tomato paste and cook three minutes, until it darkens and stops smelling raw.",
+  "Add the cucumbers and cook them with the onion for five minutes, so they do not stay hard in the finished soup.",
+  "Put the fried mixture, the pulled meat, the sausage and the ham into the stock, pour in the brine and simmer for fifteen minutes.",
+  "Add the olives and capers, warm for five minutes and take it off. Check the salt only now: the brine and the smoked meat have already seasoned it.",
+  "In the bowl: a slice of lemon, soured cream and herbs. The lemon goes into the bowl rather than the pot, where boiling would turn it bitter."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

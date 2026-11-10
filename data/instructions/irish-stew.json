@@ -1,0 +1,20 @@
+{
+ "dish": "Irish stew",
+ "steps": [
+  "Put the meat into the pot raw, add the onion, carrot and the first lot of potatoes cut large.",
+  "Pour in the stock, bring it to the boil, skim and cook covered for an hour and a half on the lowest heat.",
+  "Crush the collapsed potato against the side of the pot: the broth thickens and turns milky white.",
+  "Add the second lot of potatoes in large pieces and cook another forty minutes.",
+  "Season, and let it stand fifteen minutes. Scatter parsley over before serving."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

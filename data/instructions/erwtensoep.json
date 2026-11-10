@@ -1,0 +1,22 @@
+{
+ "dish": "Erwtensoep",
+ "steps": [
+  "Rinse the peas and cover them, with the ribs and belly, in two and a half litres of cold water.",
+  "Bring it up, skim and simmer an hour, until the peas start breaking down.",
+  "Add the potato, carrot, celeriac and onion and cook another hour, stirring so nothing catches.",
+  "Lift out the meat, strip it from the bones and return it to the soup in pieces.",
+  "Add the sliced leek and celery leaves and cook twenty minutes.",
+  "Cool it completely and leave it overnight in the fridge; the soup thickens.",
+  "Reheat it, add the sliced sausage for five minutes and serve with rye bread."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

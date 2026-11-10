@@ -1,0 +1,21 @@
+{
+ "dish": "Plokkfiskur",
+ "steps": [
+  "Boil the potatoes in their skins until tender, peel them and cut them into large pieces.",
+  "Poach the cod in salted water for eight minutes, lift it out and flake it by hand, removing bones and skin.",
+  "Fry the onion in butter until soft, stir in the flour and cook it two minutes, stirring.",
+  "Pour in the milk in a thin stream, whisking continuously, and bring the sauce to the thickness of cream.",
+  "Stir in the mustard, salt and pepper, add the fish and potato and warm everything through for five minutes.",
+  "Mash with a fork to a coarse, uneven texture in which the pieces are still recognisable, and scatter with chives."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

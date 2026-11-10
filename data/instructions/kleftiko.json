@@ -1,0 +1,22 @@
+{
+ "dish": "Kleftiko",
+ "steps": [
+  "Cut deep slits into the lamb and push a sliver of garlic into each.",
+  "Rub the meat with salt, pepper, oregano, olive oil and lemon juice.",
+  "Leave the lamb to marinate in the fridge for at least four hours.",
+  "Cut the potatoes into large wedges and lay them in the base of a clay dish.",
+  "Set the meat on the potatoes and add the bay, cinnamon and lemon halves.",
+  "Cover it and seal the join with a strip of dough or a double layer of foil.",
+  "Bake at 160 °C for five hours without opening it and rest it twenty minutes."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

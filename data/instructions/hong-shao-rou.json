@@ -1,0 +1,22 @@
+{
+ "dish": "Hong shao rou",
+ "steps": [
+  "Drop the pork cubes into boiling water for two minutes, drain and rinse them under cold water.",
+  "Dry the meat thoroughly. Wet, it spits in the caramel and cools it.",
+  "Melt the sugar in the oil over medium heat to an amber colour, stirring; it takes three or four minutes.",
+  "Add the meat and turn it for two minutes, until every cube is coated in the caramel.",
+  "Add the wine, both soy sauces, the ginger, spring onion and spices.",
+  "Add hot water level with the meat and braise covered for an hour on a low heat.",
+  "Uncover and reduce the sauce hard to a glaze, spooning it over the meat."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

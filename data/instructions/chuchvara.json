@@ -1,0 +1,22 @@
+{
+ "dish": "Chuchvara",
+ "steps": [
+  "Knead a stiff dough from the flour, egg, water and salt and work it fifteen minutes.",
+  "Cover the dough and rest it forty minutes at room temperature.",
+  "Chop the mutton fine with a knife and mix it with the grated onion, cumin, salt and pepper.",
+  "Roll the dough a millimetre thick and cut it into three-centimetre squares.",
+  "Put a pea of filling on each square, fold it into a triangle and join two corners into a ring.",
+  "Bring the broth to the boil with the tomatoes and the whole chilli and drop the chuchvara in batches.",
+  "Cook five minutes after they surface, divide them between bowls with the broth, and add suzma and coriander."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

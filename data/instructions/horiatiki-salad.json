@@ -1,0 +1,18 @@
+{
+ "dish": "Horiatiki salad",
+ "steps": [
+  "Cut the tomatoes into large wedges and salt them straight in the bowl. Leave them five minutes: the juice they give up becomes the base of the dressing.",
+  "Add the cucumber, pepper and onion. Mix with your hands rather than a spoon — nothing breaks that way.",
+  "Scatter the olives over, lay the slab of feta on top and pour the oil over everything at once. Sprinkle the oregano straight onto the feta, where the oil will open it up."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

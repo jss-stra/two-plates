@@ -1,0 +1,22 @@
+{
+ "dish": "Sabich",
+ "steps": [
+  "Cook the eggs at the barest simmer for an hour, then cool them in cold water and peel them.",
+  "Slice the aubergines a centimetre thick, salt them and press them under a weight for half an hour.",
+  "Pat the slices dry and fry them in oil to a deep gold on both sides.",
+  "Whisk the tahini with lemon juice, water and salt to the thickness of pouring cream.",
+  "Dice the tomatoes and cucumbers small and mix them with the parsley, lemon and salt.",
+  "Warm the pitas, cut them into pockets and spread tahini inside.",
+  "Layer in the aubergine, sliced egg and salad, and spoon over the amba, tahini and zhug."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

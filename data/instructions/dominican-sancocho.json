@@ -1,0 +1,22 @@
+{
+ "dish": "Dominican sancocho",
+ "steps": [
+  "Marinate all the meats in lime juice, crushed garlic, oregano, salt and pepper for an hour.",
+  "Brown the meats in batches in a large pot.",
+  "Add the onion and pepper, cover with three litres of water and simmer an hour.",
+  "Add the cassava and yautía in large pieces and cook twenty minutes.",
+  "Add the sweet potato, plantain and corn and cook twenty minutes more.",
+  "Mash a couple of pieces of cassava in the pot so the soup thickens.",
+  "Stir in the coriander, check the salt and serve with white rice and avocado."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

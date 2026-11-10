@@ -1,0 +1,21 @@
+{
+ "dish": "Tempura",
+ "steps": [
+  "Score the prawns three times on the inner curve and straighten them slightly, so they do not curl into rings in the oil.",
+  "Combine the dashi, soy and mirin, bring them to the boil and take them off: this is tentsuyu. Serve it with grated daikon.",
+  "Heat the oil to 180 °C. Only when it is ready do you mix the batter — not before.",
+  "Beat the cold egg into the iced water, tip in the flour and cornflour and stir with chopsticks for five or six strokes. Leave the lumps.",
+  "Dust the pieces in dry flour, dip them in the batter and lower them in three or four at a time. Fry ninety seconds to two minutes.",
+  "Drain on a rack, never on paper. Between batches skim the floating scraps of batter out of the oil: they burn and taint the flavour."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

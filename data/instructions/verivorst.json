@@ -1,0 +1,22 @@
+{
+ "dish": "Verivorst",
+ "steps": [
+  "Boil the barley in salted water for forty minutes, to half done, and drain it.",
+  "Render the pork fat to crackling, add the onion and fry it golden.",
+  "Cool both the barley and the fat with onion completely, or the blood sets when they meet.",
+  "Strain the blood through a sieve and mix it with the barley, fat, marjoram, allspice and salt.",
+  "Rinse the casings and fill them two-thirds full, leaving room for the barley to swell.",
+  "Tie the sausages every twenty centimetres and prick them in several places with a needle.",
+  "Bake at 180 °C for forty-five minutes, dotted with butter, and serve with lingonberry jam."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

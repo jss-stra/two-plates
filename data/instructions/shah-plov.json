@@ -1,0 +1,22 @@
+{
+ "dish": "Shah plov",
+ "steps": [
+  "Soak the rice in salted water for an hour, then boil it seven minutes in plenty of water and drain.",
+  "Steep the saffron in three spoons of boiling water and leave it; it gives both colour and scent.",
+  "Brown the lamb, add the onion and cook until soft. Add the chestnuts, apricots, raisins and turmeric and stew for twenty minutes.",
+  "Butter a deep dish generously and line it with overlapping lavash, letting the edges hang outside.",
+  "Layer it: rice, filling, rice again. Pour over the saffron infusion and the rest of the butter.",
+  "Fold the lavash edges over the top, cover with foil and bake at 180 °C for forty minutes, then uncover and give it fifteen more to colour.",
+  "Rest ten minutes, cover with a platter and invert. Cut it at the table."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

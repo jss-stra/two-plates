@@ -1,0 +1,22 @@
+{
+ "dish": "Beef Stroganoff",
+ "steps": [
+  "Cut the beef across the grain into centimetre strips, pat them dry and pepper them.",
+  "Heat a pan hard and sear the beef in batches for ninety seconds, without turning it often.",
+  "Lift out the meat and fry the mushrooms over a high flame until their water has gone.",
+  "Add the butter and onion and fry until soft and golden.",
+  "Stir in the flour, cook it a minute and add the stock, stirring until smooth.",
+  "Take the pan off the heat, stir in the soured cream and mustard, and season.",
+  "Return the meat with its juices, warm it a minute without boiling and scatter with parsley."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

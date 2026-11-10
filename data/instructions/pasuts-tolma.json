@@ -1,0 +1,22 @@
+{
+ "dish": "Pasuts tolma",
+ "steps": [
+  "Boil the beans, chickpeas and lentils separately until soft; each takes its own time.",
+  "Parboil the cracked wheat and the rice and drain them.",
+  "Fry the chopped onion in oil until golden and add the tomato paste and paprika.",
+  "Combine all the grains and pulses with the onion, season, and stir in the coriander.",
+  "Rinse the cabbage leaves of excess brine and pare down the thick ribs.",
+  "Roll the filling in the leaves into tight parcels, packing them in layers in a pot.",
+  "Add water to the level of the top layer, cover with a weighted plate and cook an hour on a low heat. Cool it completely."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

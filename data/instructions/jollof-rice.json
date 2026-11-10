@@ -1,0 +1,21 @@
+{
+ "dish": "Jollof rice",
+ "steps": [
+  "Blend the tomatoes, peppers, one onion and the scotch bonnet until smooth.",
+  "Fry the second onion in the oil until soft, add the tomato paste and cook five minutes, until it darkens.",
+  "Pour in the purée and reduce it for twenty-five minutes over medium heat, stirring. It darkens, thickens and the oil begins separating at the edges.",
+  "Add the curry powder, thyme, bay and stock, season and bring it to the boil.",
+  "Stir in the rinsed rice once, cover with foil and a lid, and cook on the lowest heat for twenty-five minutes. Do not lift the lid or stir.",
+  "Take it off and let it stand ten minutes. Fork it through from the bottom up, lifting the lower layer."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

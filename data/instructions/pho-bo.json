@@ -1,0 +1,21 @@
+{
+ "dish": "Phở bò",
+ "steps": [
+  "Cover the bones with cold water, bring to the boil and let them go for ten minutes. Throw the water away, rinse the bones under the tap and wash the pot. This step is what buys you a clear broth.",
+  "Halve the onion and ginger and char the cut faces in a dry pan or straight over the flame until they blacken in patches.",
+  "Toast the spices in a dry pan until they smell, then tie them in muslin. Return the bones to the clean pot with the brisket, onion, ginger and spices, and cover with water three fingers above.",
+  "Simmer for three hours at the barest tremble. Skim for the first half hour. Lift the brisket out after ninety minutes and let it cool.",
+  "Strain the broth through a fine sieve and season with fish sauce and sugar. Taste it: it should be slightly saltier than pleasant to drink on its own, because the noodles will take their share.",
+  "Cook the noodles and divide them between bowls. Lay the sliced brisket and the raw sirloin on top. Ladle boiling broth over so it covers the meat, and serve the herbs, lime and chilli alongside."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

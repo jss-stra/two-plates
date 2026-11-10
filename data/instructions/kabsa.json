@@ -1,0 +1,22 @@
+{
+ "dish": "Kabsa",
+ "steps": [
+  "Rinse the rice until the water runs clear and soak it twenty minutes.",
+  "Fry the onion in ghee until golden, then add the garlic, cardamom and cinnamon.",
+  "Brown the chicken on all sides, then add the tomato paste, tomatoes, carrot and baharat.",
+  "Pierce the dried limes, drop them in, add water and simmer thirty minutes.",
+  "Lift out the chicken, pat it dry and put it under the grill for ten minutes, to a browned skin.",
+  "Add the rice to the broth at one and a half times its volume in liquid, season, and cook twenty minutes covered.",
+  "Fry the almonds and raisins in ghee, mound the rice on a platter, set the chicken on it and scatter the nuts over."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

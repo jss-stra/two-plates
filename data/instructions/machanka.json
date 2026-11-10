@@ -1,0 +1,22 @@
+{
+ "dish": "Machanka",
+ "steps": [
+  "Brown the pork well, add the onion and fry until soft.",
+  "Add the sliced sausage and ribs, pour in a cup of water, add the bay and stew twenty-five minutes.",
+  "Whisk the flour into the soured cream until smooth and stir it into the pot.",
+  "Simmer ten minutes on a low heat, until the gravy thickens to the consistency of pouring cream.",
+  "Whisk a pancake batter from the flour, milk, eggs and salt and let it stand fifteen minutes.",
+  "Cook thin unsweetened pancakes in a dry pan.",
+  "Serve the machanka in a deep bowl with the pancakes stacked beside it. You tear off a piece and dip."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

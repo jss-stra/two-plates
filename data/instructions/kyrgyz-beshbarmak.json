@@ -1,0 +1,22 @@
+{
+ "dish": "Kyrgyz beshbarmak",
+ "steps": [
+  "Cover the meat with cold water, bring it up, skim and simmer two and a half hours with the peppercorns and bay.",
+  "Knead a stiff dough from the flour, eggs, water and salt and rest it forty minutes.",
+  "Roll it a millimetre thick and cut it into diamonds six centimetres across.",
+  "Render the mutton fat and cook the sliced onion in it until soft.",
+  "Add two ladles of broth to the onion and stew ten minutes into a thick gravy; that is the chyk.",
+  "Boil the dough diamonds in the strained broth in batches, four minutes each, and plate them straight away.",
+  "Pull the meat into sheets, lay it over the dough, spoon the chyk over and scatter with coriander. Serve the broth in bowls."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

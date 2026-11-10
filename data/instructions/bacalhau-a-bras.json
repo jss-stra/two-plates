@@ -1,0 +1,20 @@
+{
+ "dish": "Bacalhau à brás",
+ "steps": [
+  "Poach the soaked cod for five minutes, cool it and pull it into flakes by hand, discarding skin and bones. By hand rather than with a fork: that is how small bones are found.",
+  "Deep-fry the potato matchsticks at 180 °C to a crisp gold, in batches. Drain on a rack and salt them.",
+  "In a wide pan sweat the onion in the olive oil for ten minutes until soft and sweet, adding the garlic for the last minute.",
+  "Add the cod and warm it through for three minutes, then tip in the potato and toss.",
+  "Take the pan off the heat, pour in the beaten eggs and stir without stopping for half a minute, until they turn creamy. Scatter over the parsley and olives."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

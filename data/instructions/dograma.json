@@ -1,0 +1,22 @@
+{
+ "dish": "Dograma",
+ "steps": [
+  "Cover the mutton with cold water, bring it up and skim thoroughly.",
+  "Simmer two hours with the bay, until the meat comes away from the bone.",
+  "Lift out the meat, cool it and pull it into threads by hand, discarding bones and sinew.",
+  "Crumble the flatbread by hand into pieces the size of a fingernail. Do not cut it.",
+  "Slice the onion thin and work it with a pinch of salt so it softens.",
+  "Mix the bread, meat and onion dry in a large bowl, and season.",
+  "Divide between bowls and pour over the strained boiling broth immediately before serving."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "dish": "Bibimbap",
+ "steps": [
+  "Marinate the beef in soy, garlic and a spoon of sesame oil for twenty minutes.",
+  "Blanch the spinach for thirty seconds, squeeze it dry and dress with sesame oil and a pinch of salt. Boil the sprouts three minutes and dress them the same way, with garlic.",
+  "Fry the carrot and the mushrooms separately, a couple of minutes each, seasoning each on its own. No need to wash the pan in between.",
+  "Sear the beef over a high flame for two minutes. Fry the eggs separately, leaving the yolks runny.",
+  "Divide the hot rice between bowls, arrange the vegetables and beef in sections, and top with an egg and a spoon of gochujang. Each person does the mixing."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "dish": "Turkish mantı",
+ "steps": [
+  "Knead a stiff dough from the flour, eggs, water and salt and work it fifteen minutes.",
+  "Cover it and rest it forty minutes, or the dough springs back as you roll it.",
+  "Mix the mince with the grated onion, salt and pepper and squeeze out the excess juice.",
+  "Roll the dough a millimetre thick and cut it into two-centimetre squares.",
+  "Put a knife-tip of filling on each square and pinch the four corners up into a knot.",
+  "Boil the mantı in salted water for eight minutes and drain, keeping a ladle of the water.",
+  "Whisk the yoghurt with the garlic, plate the mantı, spoon the yoghurt over and pour on the paprika and mint butter."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

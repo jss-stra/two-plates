@@ -1,0 +1,22 @@
+{
+ "dish": "Panamanian sancocho",
+ "steps": [
+  "Rub the chicken with salt, garlic, oregano and lime juice and leave it twenty minutes.",
+  "Cover the chicken with three litres of cold water, bring it up and skim.",
+  "Add the onion and half the culantro and simmer an hour.",
+  "Peel the ñame, cut it into large pieces and add it to the pot with the corn.",
+  "Cook twenty-five minutes, until the ñame is soft.",
+  "Mash a couple of pieces of ñame in the broth so the soup thickens.",
+  "Stir in the remaining culantro, season and serve with a separate plate of white rice."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "dish": "Conch soup",
+ "steps": [
+  "Pound the conch with a mallet and cut it into small pieces. Squeeze lime over it.",
+  "Fry the onion, garlic and pepper in oil with the achiote until soft.",
+  "Add half the coconut milk let down with water and bring it up.",
+  "Add the conch and simmer forty minutes, until tender.",
+  "Add the cassava, plantain and carrot in large pieces and cook twenty minutes.",
+  "Add the remaining thick coconut milk and warm it five minutes without boiling.",
+  "Scatter with coriander and serve with lime and fried plantain."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

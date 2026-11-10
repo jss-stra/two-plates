@@ -1,0 +1,20 @@
+{
+ "dish": "Pad krapow",
+ "steps": [
+  "Pound the garlic and chillies to a rough paste in a mortar. A mortar gives a different result from a knife: the juices come out and reach the oil.",
+  "Mix the oyster, fish and soy sauces with the sugar in a cup — there will be no time once the pan is hot.",
+  "Heat the wok with two spoons of oil, throw in the paste and fry for twenty seconds, to the smell.",
+  "Add the pork and leave it alone for a minute, then break it up and fry two minutes more. Pour in the sauce and let it coat the meat.",
+  "Off the heat, stir in the basil — the residual heat wilts it in seconds. In the same pan fry the eggs in the rest of the oil until the edges go lacy."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

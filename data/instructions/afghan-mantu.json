@@ -1,0 +1,22 @@
+{
+ "dish": "Afghan mantu",
+ "steps": [
+  "Knead a dough from the flour, water and salt, work it ten minutes and rest it forty under film.",
+  "Mix the mince with the finely chopped onion, salt, pepper and coriander. Add no water.",
+  "Boil the split peas forty minutes until soft, with a spoon of tomato paste and salt.",
+  "Crush the garlic with salt, stir it into the yoghurt and thin it with water to pouring consistency.",
+  "Roll the dough thin and cut it into eight-centimetre squares.",
+  "Add the filling and bring the corners together crosswise, leaving four open corners.",
+  "Steam twenty-five minutes. Set them on a layer of yoghurt, spoon over the pea sauce, more yoghurt, and dust with mint."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

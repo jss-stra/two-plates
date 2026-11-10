@@ -1,0 +1,21 @@
+{
+ "dish": "Miso soup",
+ "steps": [
+  "Cover the kombu with cold water and set it over low heat. Bring it to the edge of a boil over about ten minutes and lift the seaweed out before bubbles appear.",
+  "Bring the water to the boil, add the bonito flakes, take it off the heat at once and let it stand for two minutes until the flakes sink.",
+  "Strain the stock through a sieve without pressing the flakes — pressed flakes turn it bitter.",
+  "Soak the wakame in cold water for five minutes; it swells several times over.",
+  "Warm the dashi, add the tofu and the wakame and hold it at a low heat for a couple of minutes.",
+  "Whisk the miso smooth in a ladle of the hot stock, stir it back in and take the pan off the heat immediately. Scatter over the spring onion."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

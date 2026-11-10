@@ -1,0 +1,22 @@
+{
+ "dish": "Hallaca",
+ "steps": [
+  "Warm the annatto seeds in the lard for five minutes and strain it; the coloured fat goes into both dough and guiso.",
+  "Fry the onion and pepper in the annatto fat, add all three meats and brown them.",
+  "Add the wine and stock and stew an hour, until the meat is tender and the sauce thick.",
+  "Cool the guiso completely, ideally leaving it overnight in the fridge.",
+  "Knead a dough from the masarepa, warm stock, annatto fat and salt until pliable.",
+  "Warm the banana leaves, spread a disc of dough on each and add guiso, olives, raisins and capers.",
+  "Wrap in two leaves, tie them crosswise with string and boil them for an hour and twenty."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

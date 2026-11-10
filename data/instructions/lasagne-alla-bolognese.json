@@ -1,0 +1,22 @@
+{
+ "dish": "Lasagne alla bolognese",
+ "steps": [
+  "Render the pancetta, add the soffritto and sweat it twenty minutes over a low flame until completely soft. There is no hurrying this: the vegetables have to dissolve.",
+  "Add both minces and cook over a high flame, breaking up the lumps, until every drop of water has gone and the meat starts to brown.",
+  "Pour in the milk and let it cook away entirely, about twenty minutes. Then the wine, likewise to dryness.",
+  "Add the tomato paste and the stock, bring it to the boil and simmer three hours on the lowest heat, topping up with water as needed.",
+  "Make the béchamel: melt the butter, whisk in the flour, cook it a minute and pour in warm milk in a thin stream, whisking. Cook to the thickness of cream and season with nutmeg.",
+  "Build the layers: béchamel, pasta, ragù, béchamel, parmesan — six times over. The top layer is béchamel with parmesan.",
+  "Bake at 180 °C for forty minutes, the last ten uncovered. Let it stand twenty minutes before cutting."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

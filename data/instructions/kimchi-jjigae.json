@@ -1,0 +1,20 @@
+{
+ "dish": "Kimchi jjigae",
+ "steps": [
+  "Fry the pork in the sesame oil over medium heat until the fat has rendered and the meat has colour, about five minutes.",
+  "Add the kimchi and fry for five minutes, until the edges darken. This step takes the raw edge off the acidity and rounds the flavour out.",
+  "Stir in the gochugaru, gochujang and garlic, pour in the kimchi liquid and the water, and bring it to the boil.",
+  "Simmer for twenty minutes, add the onion and tofu and give it five more. Do not stir the tofu; it falls apart.",
+  "Off the heat, scatter over the spring onion and serve it in the pot, with a separate bowl of rice."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

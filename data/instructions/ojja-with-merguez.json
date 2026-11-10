@@ -1,0 +1,22 @@
+{
+ "dish": "Ojja with merguez",
+ "steps": [
+  "Fry the merguez in olive oil until browned all over and lift them onto a plate.",
+  "In the same fat fry the sliced pepper and the garlic until soft.",
+  "Stir in the harissa, tomato paste and caraway and cook them two minutes.",
+  "Add the chopped tomatoes, season and cook fifteen minutes to thicken.",
+  "Return the sausages, cut into pieces, and warm them three minutes.",
+  "Drop the heat to its lowest, break in the eggs and stir with a spatula for three minutes into a creamy mass.",
+  "Scatter with parsley and serve straight from the pan with baguette."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

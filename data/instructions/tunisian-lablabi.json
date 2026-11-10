@@ -1,0 +1,21 @@
+{
+ "dish": "Tunisian lablabi",
+ "steps": [
+  "Boil the chickpeas in two litres of water with half the garlic for ninety minutes, until soft but whole.",
+  "Pound the remaining garlic with salt and cumin to a paste and stir it into the broth. Season.",
+  "Soft-boil the eggs, six minutes from the boil, and peel them.",
+  "Tear the bread into large pieces into deep bowls, filling them halfway.",
+  "Ladle the hot broth and chickpeas over the bread until it is thoroughly soaked.",
+  "Top with an egg, a spoon of harissa, olives, capers and tuna, then olive oil and lemon."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

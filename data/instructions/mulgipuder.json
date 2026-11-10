@@ -1,0 +1,21 @@
+{
+ "dish": "Mulgipuder",
+ "steps": [
+  "Rinse the barley and boil it in salted water for an hour, until soft.",
+  "Add the roughly cut potato to the same pot and cook twenty minutes more.",
+  "Render the pork belly to crackling, add the onion and fry until golden.",
+  "Drain most of the water from the barley and potato, keeping half a cup.",
+  "Mash with the butter and milk, leaving the barley grains still visible. Season with salt and pepper.",
+  "Serve into bowls and spoon the crackling, onion and rendered fat over the top."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "dish": "Mchuzi wa samaki",
+ "steps": [
+  "Rub the fish steaks with salt and half the curry powder and leave them fifteen minutes.",
+  "Fry the fish two minutes a side to a crust and lift it onto a plate.",
+  "Soften the onion in the same pan and add the garlic and ginger.",
+  "Add the remaining curry powder and warm it a minute, until the aroma lifts.",
+  "Add the tomatoes and chilli and reduce them to a thick base without loose liquid.",
+  "Pour in the coconut milk with the tamarind and warm it without letting it boil.",
+  "Return the fish to the sauce, let it sit five minutes and serve with rice and coriander."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

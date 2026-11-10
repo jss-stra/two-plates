@@ -1,0 +1,22 @@
+{
+ "dish": "Haleem",
+ "steps": [
+  "Soak the wheat overnight and the chana dal and barley for four hours, then rinse them.",
+  "Fry three onions in ghee until deep brown and set half aside for serving.",
+  "Brown the meat with the remaining onion, the ginger garlic paste and all the spices.",
+  "Cover with water and braise three hours, until the meat starts falling into threads.",
+  "Boil the wheat, barley and both dals in a separate pot for three hours, until completely broken down.",
+  "Remove the bones, combine the two and beat with a wooden masher for forty minutes, until uniform.",
+  "Serve with the fried onion, ginger, chilli, coriander and lemon scattered on top."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

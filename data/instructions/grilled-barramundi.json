@@ -1,0 +1,22 @@
+{
+ "dish": "Grilled barramundi",
+ "steps": [
+  "Cut three slashes on each side of the fish and pat it completely dry.",
+  "Work the garlic with the butter, lemon myrtle, lime zest, salt and pepper.",
+  "Rub the mixture into the slashes and the cavity and tuck slices of lime and fennel inside.",
+  "Wrap the fish in foil with the seams on top so the juices do not run out.",
+  "Light the coals and rake them to the sides; the heat under the fish has to be indirect.",
+  "Cook it in the foil for twenty minutes, turning the parcel once halfway.",
+  "Unwrap it, move the fish onto an oiled grate over the coals and give it a minute a side for the crust."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

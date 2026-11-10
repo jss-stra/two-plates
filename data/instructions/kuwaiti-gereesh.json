@@ -1,0 +1,22 @@
+{
+ "dish": "Kuwaiti gereesh",
+ "steps": [
+  "Rinse the cracked wheat and soak it in cold water for an hour.",
+  "Fry two of the onions in ghee until soft and add the baharat.",
+  "Brown the chicken with the onion and add the tomatoes, tomato paste, cinnamon and pierced dried lime.",
+  "Pour in two litres of water, salt it and cook forty minutes, until the chicken is tender.",
+  "Lift out the chicken, tip the wheat into the broth and cook it an hour over a low heat.",
+  "Mash the porridge until the grain breaks down into a uniform mass.",
+  "Fry the remaining onion to deep brown, plate the porridge with the chicken and pour the onion and its butter over."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

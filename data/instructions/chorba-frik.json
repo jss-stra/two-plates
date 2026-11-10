@@ -1,0 +1,21 @@
+{
+ "dish": "Chorba frik",
+ "steps": [
+  "Brown the meat with the onion and celery in ghee for ten minutes.",
+  "Add the grated tomato, tomato paste, cinnamon, salt and pepper and cook five minutes.",
+  "Pour in two litres of boiling water, add the chickpeas and simmer forty minutes.",
+  "Rinse the freekeh, add it and cook twenty minutes more, stirring; the grain settles and catches.",
+  "Stir in the coriander five minutes before the end and loosen with water if the soup has gone too thick.",
+  "Ladle out, crumble dried mint over each bowl and add lemon juice."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

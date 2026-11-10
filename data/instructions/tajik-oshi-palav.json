@@ -1,0 +1,22 @@
+{
+ "dish": "Tajik oshi palav",
+ "steps": [
+  "Rinse the rice through seven changes of water and soak it an hour in warm salted water.",
+  "Render the mutton fat in the cauldron and lift out the cracklings.",
+  "Brown the meat hard, add the onion and fry it golden.",
+  "Add the carrot and cook ten minutes, leaving it undisturbed for the first five so it heats rather than weeps.",
+  "Add boiling water two fingers above, along with the chickpeas, cumin, barberries and salt, and simmer the zirvak forty minutes.",
+  "Spread the rice in an even layer, press in the garlic heads and add boiling water a centimetre above the rice.",
+  "Cook on a high flame until the water has gone, mound the rice, pierce it to the bottom, cover and hold twenty minutes on the lowest heat."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

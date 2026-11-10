@@ -1,0 +1,22 @@
+{
+ "dish": "Chivito",
+ "steps": [
+  "Pound the beef under film to four millimetres and season it.",
+  "Fry the bacon crisp and drain it on paper.",
+  "Get the pan very hot and sear the steaks forty-five seconds a side.",
+  "Lay the cheese on the meat in the pan and cover it for thirty seconds so it softens.",
+  "Fry the eggs with runny yolks and toast the cut buns in a dry pan.",
+  "Spread mayonnaise on both halves and layer lettuce, tomato, the steak with its cheese, ham, bacon and the egg.",
+  "Close it, spear it with a cocktail stick and an olive, and serve with chips."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

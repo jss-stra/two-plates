@@ -1,0 +1,20 @@
+{
+ "dish": "Swabian potato salad",
+ "steps": [
+  "Boil the potatoes in their skins until done, about twenty minutes from the boil. Test with a knife: it should go in without dropping through.",
+  "While they cook, warm the stock with the onion, vinegar, mustard, salt and pepper, without letting it boil.",
+  "Peel the potatoes while hot, holding them on a fork, and slice them three or four millimetres thick straight into the bowl.",
+  "Pour the hot dressing over and leave it twenty minutes, turning it once. The potato drinks almost all of the liquid.",
+  "Add the oil, turn it again and taste. It should be slightly sharper than feels right; the flavour settles as it stands."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

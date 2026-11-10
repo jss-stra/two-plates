@@ -1,0 +1,22 @@
+{
+ "dish": "Ohrid trout",
+ "steps": [
+  "Rinse the trout, pat them dry and cut two slashes on each side.",
+  "Rub the fish with salt, pepper, paprika and olive oil inside and out.",
+  "Tuck lemon slices, garlic, parsley and thyme into each cavity.",
+  "Slice the potatoes thin and lay them overlapping on an oiled tray.",
+  "Set the fish on the potatoes and pour over the wine and the remaining oil.",
+  "Bake at 200 °C for twenty-five minutes, until the skin colours.",
+  "Test at the spine and serve straight from the tray with a wedge of lemon."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

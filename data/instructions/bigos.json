@@ -1,0 +1,22 @@
+{
+ "dish": "Bigos",
+ "steps": [
+  "Soak the dried mushrooms in a cup of warm water for half an hour and slice them, straining and keeping the water.",
+  "Squeeze the sauerkraut, shred the fresh cabbage and stew each in its own pot for thirty minutes.",
+  "Render the bacon to crackling, brown the pork and beef in its fat, then the onion.",
+  "Combine both cabbages, the meats, sausage, mushrooms with their water, prunes, tomato paste and spices in a large pot.",
+  "Add the wine, bring it up and stew two hours on the lowest heat, stirring occasionally.",
+  "Cool it completely and leave it a day in the cold, then bring it back to the boil and stew an hour.",
+  "Repeat the cycle once more on the third day. Serve with rye bread and a glass of vodka."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

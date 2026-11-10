@@ -1,0 +1,22 @@
+{
+ "dish": "Matoke",
+ "steps": [
+  "Peel the bananas with oiled hands; their sap stains the skin black.",
+  "Pass the banana leaves over a flame for ten seconds so they turn pliable.",
+  "Line the bottom of the pot with the leaf ribs; they keep the parcel off the water.",
+  "Wrap the bananas in the leaves into a tight parcel and set it on that platform.",
+  "Add water two fingers deep, cover and steam for an hour and twenty, topping up with boiling water.",
+  "Without unwrapping, press the parcel through the leaves into an even purée and return it to the steam for ten minutes.",
+  "Serve with peanut sauce or stewed beef, straight onto the leaf."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "dish": "Mansaf",
+ "steps": [
+  "Soak the jameed in warm water for four hours, break it up by hand and pass it through a sieve to an even liquid.",
+  "Simmer the lamb with the cardamom for an hour and twenty minutes, skimming. Keep the broth.",
+  "Pour the jameed liquid in with the meat and bring it up, stirring continuously in one direction.",
+  "Drop the heat to its lowest and hold it forty minutes. The sauce thickens and turns creamy.",
+  "Cook the rice in the meat broth with turmeric and a spoon of ghee.",
+  "Fry the almonds and pine nuts in ghee until golden and set them aside.",
+  "Line a platter with the bread, moisten it with sauce, spread the rice, lay the meat on top, spoon over more sauce and scatter the nuts and parsley."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "dish": "Pepián",
+ "steps": [
+  "Simmer the chicken with an onion and salt for forty minutes. Keep the broth.",
+  "Toast the pumpkin and sesame seeds in a dry pan to a deep gold, stirring.",
+  "In the same pan char the chillies, tomatoes, tomatillos and garlic until blackened in patches.",
+  "Blend everything with two ladles of the broth and the cinnamon to a smooth sauce.",
+  "Pass the sauce through a sieve; the chilli skins left behind would spoil the texture.",
+  "Cook the sauce twenty minutes, stirring, until it thickens and darkens.",
+  "Add the chicken, potato and beans and stew fifteen minutes. Serve with rice and coriander."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

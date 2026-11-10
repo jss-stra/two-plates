@@ -1,0 +1,22 @@
+{
+ "dish": "Pelmeni",
+ "steps": [
+  "Knead a stiff dough from the flour, eggs, iced water and salt and work it fifteen minutes.",
+  "Wrap it in film and refrigerate it forty minutes.",
+  "Chop the meat by hand or put it through a coarse plate, and mix it with the grated onion, salt and pepper.",
+  "Work the crushed ice into the filling and chill it twenty minutes.",
+  "Roll the dough a millimetre thick and cut six-centimetre rounds.",
+  "Put a teaspoon of filling on each round, fold it into a half-moon, seal it and join the ends into a ring.",
+  "Boil them in salted broth with bay for four minutes after they surface, and serve with butter and soured cream."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

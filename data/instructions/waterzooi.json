@@ -1,0 +1,22 @@
+{
+ "dish": "Waterzooi",
+ "steps": [
+  "Simmer the chicken with the onion, bay and thyme for forty minutes and strain the broth.",
+  "Cut the leek, carrot and celeriac into fine julienne of equal length.",
+  "Sweat the vegetables in butter for ten minutes, without letting them colour.",
+  "Add the broth and the potato in batons and cook fifteen minutes.",
+  "Joint the chicken, return it to the pot and take it off the heat.",
+  "Whisk the yolks with the cream and ladle in hot broth, stirring, until the bowl warms up.",
+  "Pour the mixture back into the pot off the heat, warm it through without boiling, and add lemon and parsley."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

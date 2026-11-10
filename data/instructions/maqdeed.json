@@ -1,0 +1,22 @@
+{
+ "dish": "Maqdeed",
+ "steps": [
+  "Cut the lamb into two-finger strips along the grain.",
+  "Rub the strips all over with salt and turmeric, sparing neither.",
+  "Hang the meat in shade with a draught and dry it three to five days, until fully hard.",
+  "Soak the dried meat in cold water for two hours, changing the water once.",
+  "Boil the meat forty minutes, until it softens and starts to come apart in threads.",
+  "Fry the onion with the garlic, cumin and chilli in ghee until golden.",
+  "Add the shredded meat and fry ten minutes more, to browned edges. Serve it with rice."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

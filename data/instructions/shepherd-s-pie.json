@@ -1,0 +1,21 @@
+{
+ "dish": "Shepherd's pie",
+ "steps": [
+  "Fry the mince over a high flame, leaving it alone for the first minute so it takes dark colour. Lift it out, pouring off the excess fat.",
+  "In the same pan fry the onion and carrot for eight minutes, add the flour and tomato paste and cook two minutes.",
+  "Return the meat, pour in the stock and Worcestershire, add the thyme and cook uncovered for twenty minutes, until the gravy is thick.",
+  "Boil the potatoes and mash them with the butter and hot milk until smooth, seasoning generously. The mash should be firm rather than pourable.",
+  "Stir the peas into the meat, put it in a dish, cover with the mash and score the top with a fork.",
+  "Bake at 200 °C for twenty-five minutes until browned. Let it stand ten minutes before cutting."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

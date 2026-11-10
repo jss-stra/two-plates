@@ -1,0 +1,20 @@
+{
+ "dish": "Harira",
+ "steps": [
+  "Fry the lamb with the onion, ginger and cinnamon for five minutes, add the chopped celery and herbs and give it two more.",
+  "Add the grated tomato and the chickpeas, pour in two litres of water and simmer for an hour, until the chickpeas are soft.",
+  "Add the lentils and give it twenty minutes more.",
+  "Whisk the flour into a cup of cold water until completely smooth and pour it in as a thin stream, stirring without stopping. Cook five minutes: the soup thickens and turns matt.",
+  "Add the vermicelli and cook until done. Serve with lemon and dates — that pairing is not accidental: sweet and sour at once."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

@@ -29,7 +29,9 @@ export function defaultState() {
       maxSameProtein: 3,
       startDay: 0, // 0 = Monday
       waterRemind: true, // 3-hourly water nudges, 9am-9pm, while the app is open
-      cuisineWeights: { Indian: 1, Mexican: 3, Italian: 3, 'Grill & Wraps': 3, 'Indo-Chinese': 2, Thai: 2, 'Explore Asian': 2 },
+      cuisineWeights: { Indian: 1, Mexican: 3, Italian: 3, 'Grill & Wraps': 3, 'Indo-Chinese': 2, Thai: 2, 'Explore Asian': 2,
+        'East Asian': 2, 'Middle Eastern': 2, 'European & Mediterranean': 2, 'African': 2,
+        'Americas & Caribbean': 2, 'Central & South Asian': 2, 'Oceania': 2 },
     },
     // cooked: recipe id -> true (cooked) / false (didn't); carry: id -> false to drop an uncooked dish.
     plan: { weekOf: null, slots: [], cooked: {}, carry: {}, startedAt: 0, finalizedAt: 0 },

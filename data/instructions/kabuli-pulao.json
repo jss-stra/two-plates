@@ -1,0 +1,22 @@
+{
+ "dish": "Kabuli pulao",
+ "steps": [
+  "Soak the rice in salted water for two hours and rinse it until the water runs clear.",
+  "Fry the onion in oil until deep gold, add the meat and brown it.",
+  "Add a litre of water, the cardamom and salt and simmer an hour, until the meat is tender. Strain the broth.",
+  "Melt two spoons of sugar in a dry pan to a dark caramel and let it down carefully with a ladle of broth.",
+  "Fry the carrot with the rest of the sugar for five minutes until glossy, add the raisins and nuts and take it off.",
+  "Parboil the rice for five minutes and drain it.",
+  "Layer the rice over the meat in the pot, spoon over the caramel broth, dust with char masala, pierce to the bottom and hold covered thirty minutes on a low heat. Serve with the carrot and raisins on top."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "dish": "Mohinga",
+ "steps": [
+  "Poach the fish with the lemongrass and turmeric for fifteen minutes, lift it out and pick the flesh, discarding bones and skin. Strain the broth.",
+  "Pound the onion, garlic and ginger to a paste and fry it in oil with the paprika until dark and fragrant.",
+  "Mash the fish with a fork and stir it into the paste, frying five minutes; it should break down into threads.",
+  "Transfer everything to the pot with the broth, add the fish sauce and simmer twenty minutes.",
+  "Slake the rice and chickpea flours in cold water to a thin slurry and pour it into the soup in a stream, stirring.",
+  "Cook twenty minutes more, until the broth thickens to the consistency of thin cream.",
+  "Boil the noodles, divide them between bowls, ladle the soup over and serve with egg, split peas, coriander and lime."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "dish": "Azerbaijani dolma",
+ "steps": [
+  "Scald fresh leaves for a minute; soak preserved ones half an hour in cold water.",
+  "Rinse the rice and mix it with the mince, finely chopped onion, salt, pepper and cinnamon.",
+  "Chop all the herbs fine and work them into the filling; their volume should be obvious.",
+  "Put a teaspoon of filling on each leaf, tuck in the sides and roll it into a tight cylinder a finger thick.",
+  "Line the bottom of the pot with torn leaves and pack the dolma in tight layers, seam down.",
+  "Dot the top with ghee, add water level with the top layer and cover with a weighted plate.",
+  "Cook an hour on a low heat and serve with matsoni whisked with crushed garlic and salt."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

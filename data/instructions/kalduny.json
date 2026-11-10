@@ -1,0 +1,22 @@
+{
+ "dish": "Kalduny",
+ "steps": [
+  "Soak the dried mushrooms in warm water for twenty minutes and chop them fine.",
+  "Fry two onions with the mince and mushrooms, add the marjoram, salt and pepper and cool it completely.",
+  "Grate the potatoes and the remaining onion finely into one bowl.",
+  "Let the mass stand three minutes and pour off the water that gathers, leaving the sediment.",
+  "Work in the egg and season the potato mass.",
+  "Put a spoon of the mass on your palm, add filling and cover it with a second spoon, sealing the edges.",
+  "Fry them three minutes a side, move them to a pan, pour over the soured cream and stew fifteen minutes."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

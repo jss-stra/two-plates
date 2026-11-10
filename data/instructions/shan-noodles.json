@@ -1,0 +1,22 @@
+{
+ "dish": "Shan noodles",
+ "steps": [
+  "Fry the sliced shallot in oil until deep gold and set half aside for serving.",
+  "Add the garlic, paprika and turmeric and warm them a minute, until fragrant.",
+  "Add the minced chicken and fry it, breaking up lumps, until it whitens.",
+  "Add the chopped tomatoes and fish sauce and stew twenty-five minutes to a thick paste.",
+  "Grind the peanuts to a coarse crumb, keeping a few whole.",
+  "Boil the rice noodles, rinse them and divide them between bowls.",
+  "Spoon the sauce over the noodles and top with peanuts, fried shallot, pickled greens and coriander."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

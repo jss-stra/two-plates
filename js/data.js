@@ -7,6 +7,17 @@ import indoChinese from '../data/recipes/indo-chinese.js';
 import thai from '../data/recipes/thai.js';
 import exploreAsian from '../data/recipes/explore-asian.js';
 import grillWraps from '../data/recipes/grill-wraps.js';
+import worldEastAsian from '../data/recipes/world-east-asian.js';
+import worldMiddleEastern from '../data/recipes/world-middle-eastern.js';
+import worldEuropean from '../data/recipes/world-european-mediterranean.js';
+import worldAfrican from '../data/recipes/world-african.js';
+import worldAmericas from '../data/recipes/world-americas-caribbean.js';
+import worldCentralSouthAsian from '../data/recipes/world-central-south-asian.js';
+import worldOceania from '../data/recipes/world-oceania.js';
+import indianAdditions from '../data/recipes/indian-additions.js';
+import italianAdditions from '../data/recipes/italian-additions.js';
+import mexicanAdditions from '../data/recipes/mexican-additions.js';
+import thaiAdditions from '../data/recipes/thai-additions.js';
 import { REGULARS } from '../data/regulars.js';
 
 export { INGREDIENTS, AISLES };
@@ -16,15 +27,18 @@ export const BASE_SERVINGS = 4;
 export const MAIN_CUISINES = ['Indian', 'Mexican', 'Italian', 'Indo-Chinese', 'Thai'];
 export const GRILL = 'Grill & Wraps';
 export const EXPLORE = 'Explore Asian';
-export const GROUPS = ['Indian', 'Mexican', 'Italian', GRILL, 'Indo-Chinese', 'Thai', EXPLORE];
+export const WORLD_GROUPS = ['East Asian', 'Middle Eastern', 'European & Mediterranean', 'African', 'Americas & Caribbean', 'Central & South Asian', 'Oceania'];
+export const GROUPS = ['Indian', 'Mexican', 'Italian', GRILL, 'Indo-Chinese', 'Thai', EXPLORE, ...WORLD_GROUPS];
 
-export const DIET_LABEL = { veg: 'Veg', egg: 'Egg', nonveg: 'Chicken / turkey' };
+export const DIET_LABEL = { veg: 'Veg', egg: 'Egg', nonveg: 'Non-veg' };
 
 // The two kinds of slot in a week: chicken/turkey dishes and veg dishes.
 export const kindOf = (r, eggsCountAsVeg) => (isVeg(r, eggsCountAsVeg) ? 'veg' : 'chicken');
 export const PROTEIN_LABEL = {
   chicken: 'Chicken', turkey: 'Turkey', paneer: 'Paneer', tofu: 'Tofu / soy', soya: 'Soya chunks',
   egg: 'Egg', legume: 'Beans & dal', cheese: 'Cheese',
+  beef: 'Beef', lamb: 'Lamb / mutton', pork: 'Pork', fish: 'Fish & seafood',
+  goat: 'Goat', duck: 'Duck', rabbit: 'Rabbit', meat: 'Meat',
 };
 
 export const DATA_ERRORS = [];
@@ -66,7 +80,7 @@ function buildRecipe(row, file) {
     else if (ing.diet === 'egg' && diet === 'veg') diet = 'egg';
     if (ing.src) proteinBySrc[ing.src] = (proteinBySrc[ing.src] || 0) + ing.p * g;
   }
-  const mainProtein = Object.entries(proteinBySrc).sort((a, b) => b[1] - a[1])[0]?.[0] || 'legume';
+  const mainProtein = Object.entries(proteinBySrc).sort((a, b) => b[1] - a[1])[0]?.[0] || null;
   const per = (x) => Math.round(x / BASE_SERVINGS);
   return {
     id: slug(name),
@@ -83,7 +97,9 @@ function buildRecipe(row, file) {
   };
 }
 
-const FILES = [indian, mexican, italian, grillWraps, indoChinese, thai, exploreAsian];
+const FILES = [indian, mexican, italian, grillWraps, indoChinese, thai, exploreAsian,
+  worldEastAsian, worldMiddleEastern, worldEuropean, worldAfrican, worldAmericas, worldCentralSouthAsian, worldOceania,
+  indianAdditions, italianAdditions, mexicanAdditions, thaiAdditions];
 
 export const RECIPES = [];
 export const RECIPE_BY_ID = {};

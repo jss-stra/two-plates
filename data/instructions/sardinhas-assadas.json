@@ -1,0 +1,22 @@
+{
+ "dish": "Sardinhas assadas",
+ "steps": [
+  "Rinse the sardines without gutting them and pat them dry on the outside.",
+  "Bury the fish in coarse salt on all sides and leave it half an hour at room temperature.",
+  "Light the coals and let them ash over; an open flame burns the skin within a minute.",
+  "Char the peppers on the coals, peel them and dress them with oil, garlic and vinegar.",
+  "Shake the excess salt off the fish and lay them on a hot, oiled grate.",
+  "Grill four minutes a side, turning them exactly once.",
+  "Lay the sardines on slices of bread and serve with boiled potatoes and the pepper salad."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

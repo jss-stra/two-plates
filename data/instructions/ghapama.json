@@ -1,0 +1,22 @@
+{
+ "dish": "Ghapama",
+ "steps": [
+  "Cut the top off the pumpkin with its stalk; that is the lid. Scoop out the seeds and loose flesh with a spoon, leaving a wall two fingers thick.",
+  "Boil the rice in salted water for seven minutes, to half done, and drain.",
+  "Cover the dried fruit with boiling water for ten minutes, drain, and chop the apricots and prunes coarsely. Chop the nuts.",
+  "Mix the rice with the fruit, nuts, melted butter, honey and cinnamon. Salt it: a sweet filling without salt tastes flat.",
+  "Fill the pumpkin, without packing it down, put the cut lid back on and set it on a baking tray.",
+  "Bake at 180 °C for an hour and a half. Test at the side with a knife: it should go into the wall without resistance.",
+  "Rest fifteen minutes, carry it out whole and cut it into wedges from the crown to the base."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

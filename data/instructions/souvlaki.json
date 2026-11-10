@@ -1,0 +1,20 @@
+{
+ "dish": "Souvlaki",
+ "steps": [
+  "Mix the oil, lemon juice and zest, oregano, crushed garlic, salt and pepper. Coat the meat and leave it two hours, and no more than four.",
+  "While it marinates, make the tzatziki: yoghurt with the squeezed cucumber, a clove of garlic, a spoon of oil and salt.",
+  "Thread the meat onto skewers loosely — the heat has to get between the pieces. A tightly packed skewer stays raw in the middle.",
+  "Cook on a hot grill or griddle, three minutes on each of the four sides. The meat should darken rather than pale.",
+  "Rest the meat for five minutes, warm the pitas thirty seconds a side, and serve with the tzatziki and lemon."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

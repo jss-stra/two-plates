@@ -1,0 +1,22 @@
+{
+ "dish": "Chilli crab",
+ "steps": [
+  "Joint the crab: lift the shell, cut the body into four and crack the claws with the back of a knife.",
+  "Pound the garlic, ginger and chillies to a paste and fry it in oil for three minutes, until fragrant.",
+  "Add the sambal, ketchup, sugar and vinegar and cook two minutes, until the sauce darkens.",
+  "Pour in the stock, bring it up and add the crab pieces. Cover and cook eight minutes.",
+  "Slake the cornflour in cold water and stir it in to thicken the sauce.",
+  "Turn off the heat and pour in the beaten eggs in a thin stream, stirring once in a circle.",
+  "Scatter with coriander and serve with the fried mantou."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

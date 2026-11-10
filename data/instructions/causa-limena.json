@@ -1,0 +1,22 @@
+{
+ "dish": "Causa limeña",
+ "steps": [
+  "Boil the potatoes in their skins until completely soft, peel them hot and press them through a ricer.",
+  "Work the purée by hand for five minutes, until it is even and elastic.",
+  "Cool the purée to room temperature, then work in the ají paste, lime juice, oil and salt.",
+  "Mix the tuna with the mayonnaise, finely chopped red onion and coriander.",
+  "Press half the purée into a mould in a layer a centimetre and a half thick and level it.",
+  "Spread the filling and the avocado slices and cover with the other half of the purée.",
+  "Chill it two hours, garnish with egg and olives and serve cold."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "dish": "Spanakopita",
+ "steps": [
+  "Chop the spinach, salt it and leave it twenty minutes. Squeeze it dry by the handful — more water comes out than seems possible.",
+  "Fry the spring onion in a spoon of oil until soft and let it cool.",
+  "Mix the spinach with the onion, feta, dill, eggs, nutmeg and pepper. Taste before salting: the feta is salty already.",
+  "Line the tin with seven sheets of filo, brushing each with olive oil and letting the edges overhang.",
+  "Spread the filling, fold the overhanging edges in and cover with six more sheets, brushing each one.",
+  "Score the top into portions without cutting through to the filling, flick water over it and bake at 180 °C for fifty minutes, to a deep gold."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

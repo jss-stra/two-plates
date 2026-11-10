@@ -1,0 +1,22 @@
+{
+ "dish": "Iraqi dolma",
+ "steps": [
+  "Rinse the rice and mix it with the mince, chopped parsley, tomato paste, baharat, oil, salt and pepper.",
+  "Cut lids off the peppers and tomatoes and hollow them. Blanch the onions whole and separate them into layers.",
+  "Roll the filling in vine leaves into tight cylinders — the rice doubles, so leave it room.",
+  "Fill the vegetables two-thirds full and put their lids back on.",
+  "Line the pot with tomato slices, then layer the parcels and stuffed vegetables, the heaviest at the bottom.",
+  "Mix water with the pomegranate molasses, lemon juice and salt and pour it in until it reaches the top layer.",
+  "Cover with a weighted plate and cook on a low heat for an hour and fifteen minutes. Serve by inverting the pot onto a platter."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

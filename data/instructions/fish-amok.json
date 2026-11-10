@@ -1,0 +1,22 @@
+{
+ "dish": "Fish amok",
+ "steps": [
+  "Pound the lemongrass, galangal, turmeric, garlic, shallot and half the lime leaves in a mortar to a smooth paste.",
+  "Warm the paste in a pan with half the coconut milk for five minutes, until it smells right.",
+  "Take it off the heat, cool it to warm and whisk in the eggs, fish sauce, palm sugar and the rest of the milk.",
+  "Fold the fish pieces through and leave them to marinate fifteen minutes.",
+  "Fold cups from the banana leaves, or use ramekins. Line the bottom with spinach leaves.",
+  "Divide the fish and sauce between them without filling to the brim and steam for twenty minutes.",
+  "Spoon over the coconut cream, scatter with shredded lime leaves and serve with rice."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "dish": "Cochinita pibil",
+ "steps": [
+  "Slake the achiote paste with the juice of two oranges, the grapefruit and the lime to a thin slurry.",
+  "Add the crushed garlic, oregano, cumin, salt and pepper and mix it smooth.",
+  "Coat the pork in the marinade, working it in by hand, and refrigerate overnight.",
+  "Pass the banana leaves over a flame and line a deep dish with them, overlapping and with an overhang.",
+  "Put in the pork with its marinade, fold the leaves over and seal the dish with two layers of foil.",
+  "Bake at 150 °C for four hours without opening it.",
+  "Pickle the sliced red onion with the habanero in the juice of the remaining oranges. Shred the meat and serve with tortillas."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

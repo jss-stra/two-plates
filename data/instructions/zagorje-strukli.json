@@ -1,0 +1,21 @@
+{
+ "dish": "Zagorje štrukli",
+ "steps": [
+  "Knead a dough from the flour, warm water, oil, egg and salt for ten minutes to elasticity. Oil it and rest it half an hour.",
+  "Mash the curd with the eggs, soured cream and salt. The filling should be firm rather than pourable.",
+  "Stretch the dough on a cloth by hand until translucent, brush it with melted butter and spread the filling over a third of it.",
+  "Roll it up by lifting the cloth and cut it into eight-centimetre pieces, sealing the ends by pressing with the edge of your hand.",
+  "Boil them in salted water for five minutes after they float and lift them out with a slotted spoon.",
+  "Lay them in a dish, pour the cream over, trickle on melted butter and bake at 200 °C for twenty-five minutes, to a browned top."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

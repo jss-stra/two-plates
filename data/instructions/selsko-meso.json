@@ -1,0 +1,22 @@
+{
+ "dish": "Selsko meso",
+ "steps": [
+  "Brown the diced pork in oil on all sides.",
+  "Add the onion and pepper and fry until soft, seven minutes.",
+  "Add the mushrooms and cook over a high heat for five minutes, until their water has gone.",
+  "Take it off the heat, stir in the paprika, garlic and tomato paste, add the wine and return it to the heat for three minutes.",
+  "Divide between clay pots, top up with water to the level of the meat, season and cover.",
+  "Bake at 180 °C for fifty minutes.",
+  "Take the lids off, cover with grated kashkaval and give it ten more minutes, to a browned cheese crust."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

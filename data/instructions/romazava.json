@@ -1,0 +1,22 @@
+{
+ "dish": "Romazava",
+ "steps": [
+  "Fry the onion, garlic and ginger in oil until soft, five minutes.",
+  "Add both meats and the tomatoes and warm them through, without browning.",
+  "Add a litre and a half of water, season and simmer an hour.",
+  "Wash the greens and chop them coarsely, discarding tough stems.",
+  "Add the mustard greens and spinach and cook ten minutes.",
+  "Add the mafana for the last five minutes; long cooking weakens its effect.",
+  "Serve in deep bowls with a large helping of boiled rice."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "dish": "Coconut rice",
+ "steps": [
+  "Pour the coconut milk into a heavy pot and cook it over medium heat, stirring.",
+  "Keep cooking until the milk separates into oil and brown solids.",
+  "The moment the solids turn deep brown, add the water at once to stop the caramelisation.",
+  "Add the sugar, salt and raisins and bring it to the boil.",
+  "Rinse the rice until the water runs clear and add it to the pot in an even layer.",
+  "Cook uncovered over medium heat until the liquid falls to the level of the rice.",
+  "Cover it, drop the heat to its lowest and hold it twenty minutes without opening it once."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

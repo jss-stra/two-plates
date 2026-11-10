@@ -1,0 +1,22 @@
+{
+ "dish": "Ashak",
+ "steps": [
+  "Knead a dough from the flour, water and salt and rest it forty minutes under film.",
+  "Chop the spring onion very fine, salt it and wring it out in a cloth.",
+  "Fry the onion with the mince, add the tomato paste and stew it twenty minutes.",
+  "Whisk the yoghurt with crushed garlic and salt and leave it at room temperature.",
+  "Roll the dough thin and cut eight-centimetre rounds.",
+  "Add the leek filling, fold each into a half-moon and crimp the edge tight.",
+  "Boil the dumplings five minutes, lay them on the yoghurt, spoon the sauce over and dust with mint and chilli."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

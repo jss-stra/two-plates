@@ -1,0 +1,21 @@
+{
+ "dish": "Bosanski lonac",
+ "steps": [
+  "Cut all the vegetables into large pieces; they have to survive four hours without collapsing.",
+  "Line the bottom of the pot with the diced pork fat, put the meat on it and season.",
+  "Layer on the onion, carrot, parsley root, potato, peppers, cabbage and tomato.",
+  "Tuck in the whole head of garlic and the bay leaves, pour in the wine and add water to half the height of the pot.",
+  "Cover and put it in a 150 °C oven for four hours. Do not open it and do not stir.",
+  "Serve straight from the pot, digging to the bottom so every layer reaches the plate."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

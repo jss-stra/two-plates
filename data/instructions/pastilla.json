@@ -1,0 +1,22 @@
+{
+ "dish": "Pastilla",
+ "steps": [
+  "Braise the chicken with the onion, saffron, ginger, coriander and a little water for an hour, until tender.",
+  "Lift out the meat, shred it, and reduce the sauce with the onion to a thick paste.",
+  "Beat the eggs into the hot paste and stir over a low heat to coarse curds, then cool it.",
+  "Fry the almonds golden, cool them and grind them with half the icing sugar and a spoon of cinnamon.",
+  "Line a tin with overlapping sheets of pastry, buttering each, with a generous overhang.",
+  "Layer in the egg and onion mass, then the meat, then the almond layer, and sprinkle with orange blossom water.",
+  "Fold the edges in, cover with two more sheets, brush with butter and bake at 190 °C for forty minutes. Dust with icing sugar and cinnamon."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

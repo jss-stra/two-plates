@@ -1,0 +1,22 @@
+{
+ "dish": "Bún chả",
+ "steps": [
+  "Marinate the belly slices and the mince separately in fish sauce, sugar, shallot, garlic and pepper for an hour.",
+  "Shape the mince into flat patties a centimetre thick; they cook fast and evenly.",
+  "Slice the papaya and carrot thin and pickle them in vinegar with sugar for twenty minutes.",
+  "Mix the fish sauce, sugar, lime juice, water, garlic and chilli and warm it through; that is the nước chấm.",
+  "Boil the vermicelli two minutes, rinse it in cold water and divide it between plates.",
+  "Grill the belly and the patties over coals, three minutes a side, to caramelised edges.",
+  "Drop the hot meat straight into the warm sauce with the pickles and serve with the noodles, lettuce and herbs."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

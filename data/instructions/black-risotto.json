@@ -1,0 +1,21 @@
+{
+ "dish": "Black risotto",
+ "steps": [
+  "Fry the onion and garlic in olive oil until soft, add the cuttlefish and cook five minutes; it releases water.",
+  "Add half the wine and the tomato paste and stew covered for twenty-five minutes, topping up with stock, until the cuttlefish softens.",
+  "Add the rice and toast it two minutes, until the grains turn translucent at the edges. Pour in the rest of the wine.",
+  "Add hot stock a ladle at a time, stirring, for eighteen minutes. Each addition goes in when the last has nearly been absorbed.",
+  "Five minutes before the end stir in the ink. The risotto turns black within seconds.",
+  "Off the heat, beat in a spoon of olive oil and the parsley, cover for two minutes and serve."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

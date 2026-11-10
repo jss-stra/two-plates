@@ -1,0 +1,22 @@
+{
+ "dish": "Chakhokhbili",
+ "steps": [
+  "Brown the chicken pieces in a dry heavy pot without fat, to a golden crust.",
+  "Lift out the meat, add the butter and soften the onion in the rendered fat.",
+  "Skin the tomatoes, grate them and add them to the onion.",
+  "Return the chicken, season, add the khmeli suneli and the whole chilli and cover the pot.",
+  "Stew thirty minutes on a low heat, never adding water.",
+  "Chop all the herbs and the garlic coarsely, not to a paste.",
+  "Stir in the herbs and garlic, cover the pot, take it off the heat and let it stand ten minutes."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

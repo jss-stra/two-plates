@@ -1,0 +1,22 @@
+{
+ "dish": "Waakye",
+ "steps": [
+  "Rinse the sorghum leaves and boil them in a litre and a half of water for ten minutes; the water turns deep red.",
+  "Take the leaves out, add a pinch of soda and the beans and cook forty-five minutes, until nearly done.",
+  "Rinse the rice until the water runs clear and add it to the pot. The liquid should stand a finger above the rice.",
+  "Salt it, cover and cook twenty minutes on a low heat without stirring.",
+  "Take it off the heat, leave it covered ten minutes, then fluff it with a fork.",
+  "Fry slices of ripe plantain until caramel-coloured.",
+  "Serve with egg, gari, shito and plantain, all on one plate."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

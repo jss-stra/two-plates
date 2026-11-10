@@ -1,0 +1,22 @@
+{
+ "dish": "Schweinshaxe",
+ "steps": [
+  "Score the skin in diamonds every centimetre and a half, down to the fat but not into the meat.",
+  "Rub the knuckles with coarse salt, pepper, caraway and garlic, working it into the cuts.",
+  "Put them in a pot with the onion, carrot, celeriac and bay, and cover with beer and water.",
+  "Simmer for an hour, never letting it boil hard.",
+  "Move the knuckles to a tray, pat the skin dry and roast at 180 °C for an hour and twenty.",
+  "Every twenty minutes baste with beer from the pot and fat from the tray.",
+  "Raise the oven to 240 °C for the last ten minutes, until the crackling blisters."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

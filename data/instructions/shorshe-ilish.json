@@ -1,0 +1,22 @@
+{
+ "dish": "Shorshe ilish",
+ "steps": [
+  "Soak the mustard seeds in warm water for twenty minutes.",
+  "Grind them with two chillies, a pinch of salt and a little water into a smooth paste.",
+  "Rub the fish steaks with turmeric and salt and leave them ten minutes.",
+  "Heat the mustard oil until it smokes, take it off and let it cool a minute; raw mustard oil is acrid.",
+  "Add the nigella, pour in the mustard paste let down with half a cup of water, and cook three minutes.",
+  "Lay the fish in a single layer, add the remaining chillies whole, cover and stew twelve minutes.",
+  "Finish with a spoon of raw mustard oil, take it off the heat and serve with rice."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

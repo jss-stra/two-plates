@@ -1,0 +1,21 @@
+{
+ "dish": "Chicken biryani",
+ "steps": [
+  "Fry the onions in ghee to a deep gold — twenty minutes over medium heat. Set half aside: that is the birista, and the main flavour of the dish.",
+  "Marinate the chicken in the yoghurt with the ginger, garlic, spices, half the fried onion, mint and salt. Give it an hour, better three.",
+  "Boil the rice in plenty of salted water with the whole spices for exactly five minutes and drain. A grain should snap but stay white in the middle.",
+  "Spread the marinated chicken over the bottom of a heavy pot and the rice over it in an even layer. Pour the saffron milk over in patches and scatter the rest of the onion and the herbs.",
+  "Cover as tightly as you can, sealing the rim with foil if you like. Five minutes on a high flame, then forty on the lowest. Do not lift the lid once.",
+  "Let it stand for ten minutes, then fold once from the bottom up, lifting the chicken into the rice rather than stirring everything to a mush."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

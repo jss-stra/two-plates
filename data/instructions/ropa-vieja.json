@@ -1,0 +1,20 @@
+{
+ "dish": "Ropa vieja",
+ "steps": [
+  "Boil the beef whole in salted water with an onion for an hour and a half, until it pulls apart. Keep the broth.",
+  "Cool it and pull it apart along the grain into thin strands by hand.",
+  "Sweat the onion and peppers in the olive oil for twenty minutes to complete softness, then add the garlic, cumin and oregano for a minute.",
+  "Pour in the wine, reduce it by half, add the tomatoes and a cup of the broth. Simmer ten minutes.",
+  "Return the meat, add the olives and capers and cook another twenty minutes over a low flame. Serve with rice and fried plantain."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

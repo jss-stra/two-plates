@@ -1,0 +1,21 @@
+{
+ "dish": "New England clam chowder",
+ "steps": [
+  "Scrub the clams and steam them in a cup of water, covered, for five minutes, until they open. Discard any that stay shut. Strain the liquor through muslin: sand settles in it.",
+  "Take the meat from the shells and chop it coarsely. Set it aside; it returns at the very end.",
+  "Render the bacon in the pot, add the butter, onion and celery, and sweat them for eight minutes until soft.",
+  "Stir in the flour, cook it two minutes, pour in the strained clam liquor and the milk, and add the potato, thyme and bay.",
+  "Simmer for fifteen minutes until the potato is soft. Crush a few pieces against the side: the soup thickens without more flour.",
+  "Pour in the cream, return the clams and warm through for two minutes without boiling. Check the salt and serve with crackers."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

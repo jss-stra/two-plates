@@ -1,0 +1,22 @@
+{
+ "dish": "Nikujaga",
+ "steps": [
+  "Cut the potatoes into large pieces and soak them ten minutes in cold water to lose the surface starch.",
+  "Fry the onion in oil for two minutes, add the thinly sliced beef and cook until it loses its pink.",
+  "Add the potato and carrot and turn them so they take on the fat from the meat.",
+  "Add the dashi, sake and sugar, bring it up and skim.",
+  "Cover with an otoshibuta or a foil disc with a hole in it and simmer ten minutes over medium heat.",
+  "Add the soy and mirin and simmer fifteen minutes more, until only a little liquid is left at the bottom.",
+  "Add the beans for the last three minutes, take it off the heat and let it stand twenty minutes."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

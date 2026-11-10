@@ -1,0 +1,22 @@
+{
+ "dish": "Vigorón",
+ "steps": [
+  "Shred the cabbage finely and mix it with the tomatoes, onion, vinegar, lime juice and salt.",
+  "Leave the curtido to pickle at least an hour, stirring it now and then.",
+  "Cut the pork skin into squares, salt it and leave it twenty minutes.",
+  "Render the skin in its own fat over a low heat for forty minutes.",
+  "Raise the heat and fry ten minutes more, until the crackling puffs and turns crisp.",
+  "Boil the cassava in salted water until tender, having cut out the woody core.",
+  "Lay the cassava on a banana leaf, the curtido over it and the crackling on top, with the chilli."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

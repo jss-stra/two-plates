@@ -1,0 +1,22 @@
+{
+ "dish": "Pique macho",
+ "steps": [
+  "Cut the potatoes into thick batons and soak them in cold water for twenty minutes.",
+  "Dry the potatoes and fry them twice: at 150 °C until soft, then at 190 °C until crisp.",
+  "Sear the diced beef over a high flame in batches for two minutes each and set it aside.",
+  "Fry the sliced sausages until browned and add the onion and pepper for five minutes.",
+  "Return the meat to the pan, add the tomatoes and mustard and warm it three minutes.",
+  "Fry the eggs with runny yolks and cut the locoto into thin rings.",
+  "Pile the chips on a platter, top with the meat and vegetables, the eggs and the locoto rings, and drizzle with mayonnaise and ketchup."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

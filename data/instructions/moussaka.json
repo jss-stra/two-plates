@@ -1,0 +1,21 @@
+{
+ "dish": "Moussaka",
+ "steps": [
+  "Salt the aubergine slices and leave them in a colander for half an hour, then pat them dry. Brush with oil and roast at 200 °C for twenty minutes until soft and golden.",
+  "Fry the onion until soft, add the mince and cook, breaking up the lumps, until every drop of water has gone and the meat starts to brown. Pour in the wine and let it cook away.",
+  "Add the garlic, tomatoes and cinnamon and simmer for twenty minutes. The sauce is right when a spoon drawn across the bottom leaves a track behind it.",
+  "Melt the butter, whisk in the flour and cook for a minute. Pour in warm milk in a thin stream, whisking without stopping, and cook to the thickness of soured cream. Off the heat, add nutmeg, the yolks and half the cheese.",
+  "Layer it up: potato, aubergine, meat sauce, aubergine again. Pour the béchamel over and scatter the rest of the cheese.",
+  "Bake at 180 °C for forty-five minutes until the top is golden. Let it stand for half an hour before cutting: hot moussaka does not slice, it slumps."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

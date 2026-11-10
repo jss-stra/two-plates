@@ -33,7 +33,7 @@ function eligible(state, r) {
   return !state.hidden.includes(r.id)
     && !hasExclusions(r, state.exclusions)
     && r.protein >= rules.minProtein
-    && (rules.cuisineWeights[r.group] ?? 1) > 0;
+    && (rules.cuisineWeights[r.group] ?? 2) > 0;
 }
 
 function recentIds(state) {
@@ -44,7 +44,7 @@ function recentIds(state) {
 // variety within the week, and protein density.
 export function score(state, r, chosen, recent = recentIds(state)) {
   const { rules } = state;
-  let w = rules.cuisineWeights[r.group] ?? 1;
+  let w = rules.cuisineWeights[r.group] ?? 2;
   if (w <= 0) return 0;
   w *= ratingWeight(state, r);
   if (recent.has(r.id)) w *= 0.15;

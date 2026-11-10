@@ -1,0 +1,22 @@
+{
+ "dish": "Cepelinai",
+ "steps": [
+  "Grate the raw potato finely and wring it out in a cloth. Collect the liquid in a bowl.",
+  "Let the liquid stand ten minutes, pour off the water and stir the settled starch back into the grated potato.",
+  "Mash the boiled potato and combine it with the grated, adding the starch and salt. The mass should shape without sticking.",
+  "Mix the mince with half the finely chopped onion, marjoram, salt and pepper and roll four firm balls.",
+  "With wet hands take a lump of dough, flatten it on your palm, set the filling in it and seal it into an elongated oval.",
+  "Lower them into barely simmering salted water and cook twenty-five minutes. Do not stir; just rock the pot once in the first minute.",
+  "Render the pork fat with the remaining onion to crackling, spoon it over the cepelinai and serve with soured cream."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

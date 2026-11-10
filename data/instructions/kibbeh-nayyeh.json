@@ -1,0 +1,20 @@
+{
+ "dish": "Kibbeh nayyeh",
+ "steps": [
+  "Soak the bulgur in cold water for ten minutes, drain and squeeze it dry. Chill the bowl — everything for nayyeh must stay cold.",
+  "Trim the lamb of fat and silverskin down to clean muscle and cube it. Blitz with the onion to a smooth paste without letting the bowl warm up.",
+  "Add the bulgur, spices, mint and salt. Knead, wetting your hands with iced water, until the paste is smooth and glossy.",
+  "Spread the paste over a cold plate about a centimetre and a half thick, press grooves with the back of a spoon and pour the olive oil over generously.",
+  "Serve at once, with mint leaves, white onion wedges and flatbread. Nayyeh is not kept: leftovers are fried as patties the same evening."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

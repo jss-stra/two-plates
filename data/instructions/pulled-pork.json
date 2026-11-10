@@ -1,0 +1,22 @@
+{
+ "dish": "Pulled pork",
+ "steps": [
+  "Mix the paprika, sugar, mustard and garlic powders, cayenne, salt and black pepper.",
+  "Smear the shoulder with mustard as a binder and coat it all over in the dry rub.",
+  "Leave the meat in the fridge overnight, covered with film.",
+  "Bring the smoker or oven to 110 °C and take the meat out an hour ahead so it warms up.",
+  "Smoke it fat side up for six hours, spritzing with the vinegar and apple juice mix every hour.",
+  "When the internal temperature reaches 75 °C and stalls, wrap the meat in foil and return it to the heat.",
+  "Hold it to 95 °C inside, about four hours more, rest it an hour still wrapped, and pull it apart by hand."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

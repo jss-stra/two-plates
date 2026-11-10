@@ -1,0 +1,21 @@
+{
+ "dish": "Risotto alla milanese",
+ "steps": [
+  "Steep the saffron in a ladle of hot stock and set it aside. Keep the rest of the stock at a bare simmer — cold stock stops the cooking.",
+  "Melt half the butter and sweat the onion over low heat until soft and translucent without letting it colour, about eight minutes.",
+  "Add the rice and stir for a couple of minutes until the grains are translucent at the edges and milky in the centre. This is the tostatura, and it keeps the grains intact.",
+  "Pour in the wine and let it evaporate completely — the smell of alcohol has to go.",
+  "Add the stock a ladle at a time, stirring, waiting until the rice has nearly absorbed it before the next. Around eighteen minutes, until the grain is soft outside with a slight bite in the middle.",
+  "Stir in the saffron infusion, take the pan off the heat and beat in the cold butter and parmesan, shaking the pan hard. The risotto should spread slowly across the plate."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

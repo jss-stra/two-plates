@@ -1,0 +1,22 @@
+{
+ "dish": "Mishkak",
+ "steps": [
+  "Mix the tamarind, crushed garlic and ginger, all the spices, oil and salt into a marinade.",
+  "Cut the meat into one-and-a-half-centimetre cubes and coat it in the marinade.",
+  "Refrigerate for at least four hours, ideally overnight.",
+  "Thread the pieces onto skewers packed close, without gaps.",
+  "Get the coals hot — you should not be able to hold a palm above the grate for more than three seconds.",
+  "Grill a minute and a half on each of four sides, basting with the leftover marinade.",
+  "Slide the meat off the skewers into flatbread, add raw onion and serve at once."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

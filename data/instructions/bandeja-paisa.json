@@ -1,0 +1,22 @@
+{
+ "dish": "Bandeja paisa",
+ "steps": [
+  "Boil the beans with the chopped green plantain for an hour and a half, until soft and thick.",
+  "Simmer the pork belly in salted water for forty minutes and dry it thoroughly.",
+  "Fry the belly skin down in deep oil until the skin blisters and crisps.",
+  "Make the hogao: fry the onion with the tomato and cumin, add the mince and cook it through.",
+  "Fry the chorizo, cook the rice and fry slices of ripe plantain to a caramel colour.",
+  "Cook the arepas on a dry pan and fry the eggs with runny yolks.",
+  "Build the tray: beans, rice, mince, chicharrón, chorizo, egg, arepa, plantain and avocado side by side."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

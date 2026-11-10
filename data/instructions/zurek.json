@@ -1,0 +1,20 @@
+{
+ "dish": "Żurek",
+ "steps": [
+  "Render the bacon in a pot, soften the onion in it, add the garlic and marjoram and warm them for half a minute.",
+  "Pour in the stock, lower the sausage in whole and simmer for thirty minutes. Do not pierce it, or its juices leave too early.",
+  "Lift the sausage out, slice it and return it to the pot. Shake the starter in its jar and pour it in, stirring.",
+  "Warm it for five minutes without letting it boil hard, stir in the cream and taste. If it is not sour enough, add more starter; salt at the end.",
+  "Ladle into bowls, add half a boiled egg each and serve with horseradish. In Poland żurek often comes in a hollowed loaf."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

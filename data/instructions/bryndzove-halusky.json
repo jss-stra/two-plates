@@ -1,0 +1,21 @@
+{
+ "dish": "Bryndzové halušky",
+ "steps": [
+  "Grate the potatoes finely and squeeze them lightly; only a little water should go, as a dry mass will not bind.",
+  "Mix in the flour, egg and salt. The mass should slide off a spoon slowly rather than pour.",
+  "Fry the bacon in a dry pan until crisp and lift it out, keeping the fat.",
+  "Push the dough into boiling salted water through a colander with large holes. The dumplings are done when they float, after about three minutes.",
+  "Drain the dumplings, return them to the warm pan and stir in the brynza with a spoon of the cooking water. Keep the heat off.",
+  "Serve into bowls, spoon over the hot fat and scatter the crackling on top."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

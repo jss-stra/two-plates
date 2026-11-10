@@ -1,0 +1,22 @@
+{
+ "dish": "Tigadegena",
+ "steps": [
+  "Brown the meat in oil, add the onion and fry until soft.",
+  "Stir in the tomato paste and cook five minutes, until it darkens.",
+  "Add a litre and a half of water, season and cook forty minutes.",
+  "Slacken the peanut butter with two ladles of the broth until smooth and lump-free.",
+  "Pour the paste into the pot in a thin stream, stirring continuously.",
+  "Add the vegetables in large pieces and the whole chilli and stew thirty minutes, stirring.",
+  "Wait for the peanut oil to rise to the surface, remove the chilli and serve with rice."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

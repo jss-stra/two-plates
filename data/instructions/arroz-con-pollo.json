@@ -1,0 +1,22 @@
+{
+ "dish": "Arroz con pollo",
+ "steps": [
+  "Rub the chicken with salt, pepper, cumin, oregano, garlic and lime juice and leave it half an hour.",
+  "Brown the chicken in olive oil on all sides and lift it out.",
+  "Sweat the onion, pepper and garlic in the same oil for twenty minutes, until completely soft; that is the sofrito.",
+  "Add the tomato sauce and the saffron steeped in a spoon of warm water and cook five minutes.",
+  "Return the chicken, add the beer and stock, bring it up and season.",
+  "Add the rice in an even layer, cover and cook twenty minutes on a low heat without stirring.",
+  "Scatter the peas and olives over the top, cover and let it stand ten minutes before serving."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

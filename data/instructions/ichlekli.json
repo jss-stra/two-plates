@@ -1,0 +1,22 @@
+{
+ "dish": "Ichlekli",
+ "steps": [
+  "Knead a stiff unleavened dough from the flour, water and salt and rest it under a cloth for thirty minutes.",
+  "Dice the mutton and fat small with a knife, and chop the onion as fine as you can.",
+  "Mix the meat, fat, onion, cumin, salt and pepper. Add no water; the onion supplies the juice.",
+  "Divide the dough in two, roll the larger piece into a round and line an oiled tin, leaving an overhang.",
+  "Spread the filling evenly, cover with the second sheet and seal the edges in a firm rope.",
+  "Make a small steam hole in the centre, brush with butter and cover with foil.",
+  "Bake at 180 °C for an hour under the foil, then uncover and give it ten more minutes to colour."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

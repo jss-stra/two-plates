@@ -1,0 +1,22 @@
+{
+ "dish": "Casado",
+ "steps": [
+  "Marinate the chicken in lime juice, garlic, Salsa Lizano, salt and pepper for twenty minutes.",
+  "Cook the rice loose and warm the beans with a spoon of their liquid.",
+  "Dice the chayote and carrot small and stew them with garlic for ten minutes; that is the picadillo.",
+  "Fry the chicken over medium heat, six minutes a side.",
+  "Fry the ripe plantain slices to a caramel colour.",
+  "Toss the shredded cabbage with tomato, coriander, lime juice and salt.",
+  "Build the plate in sectors: rice, beans, chicken, picadillo, salad, plantain — unmixed."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "dish": "Pad thai",
+ "steps": [
+  "Soak the noodles in warm water for twenty minutes. They should bend but still feel firm when you bite one.",
+  "Dissolve the palm sugar in the tamarind and fish sauce, warming them together for a minute. Taste it: sour, salty and sweet should all land equally.",
+  "Get the wok hot, fry the tofu until crisp, add the garlic and shallot, then after half a minute the prawns. Cook until pink and push them to the side.",
+  "Break the eggs into the cleared space, let them set and break them up with the spatula. Add the drained noodles and pour in the sauce.",
+  "Fry, tossing constantly, for two minutes until the noodles drink the sauce and soften. Add the sprouts and chives, toss once and take it off."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "dish": "Mercimek çorbası",
+ "steps": [
+  "Fry the onion and carrot in a spoon of butter until soft, add the tomato paste and give it another minute, until it darkens.",
+  "Add the lentils, potato and water, bring to the boil and simmer for twenty-five minutes, until the lentils have collapsed completely.",
+  "Blend until entirely smooth. The soup should be thick but still pourable; loosen it with boiling water if it is not.",
+  "Melt the rest of the butter, take it off the heat and stir in the mint and paprika. Ladle out the soup, spoon the butter over and serve with a wedge of lemon."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

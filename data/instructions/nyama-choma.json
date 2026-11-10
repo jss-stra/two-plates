@@ -1,0 +1,21 @@
+{
+ "dish": "Nyama choma",
+ "steps": [
+  "Rub the meat with salt, pepper, the juice of two lemons, crushed garlic and oil. Leave it an hour.",
+  "Light the coals and let them ash over. The heat is right when you can hold a palm above the grate for five seconds.",
+  "Lay the meat on in whole pieces and grill, turning every ten minutes, for an hour and twenty.",
+  "Mix the diced tomato, onion, coriander and chilli with lemon juice and salt; that is kachumbari.",
+  "For the ugali bring a litre of water to the boil, rain in the flour, stirring constantly with a wooden spoon, and work it fifteen minutes into a firm mass.",
+  "Rest the meat ten minutes, cut it small across the grain and serve with ugali, kachumbari and salt."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

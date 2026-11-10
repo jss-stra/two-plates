@@ -1,0 +1,22 @@
+{
+ "dish": "Fanesca",
+ "steps": [
+  "Soak the cod for a day with four changes of water and poach it in milk for twenty minutes.",
+  "Boil the beans, lupini, broad beans, lentils and peas separately until soft.",
+  "Grind the peanuts with milk to a smooth mass; it is the soup's thickener.",
+  "Fry the onion in annatto oil, add the pumpkin and courgette and stew twenty minutes.",
+  "Blend the pumpkin and courgette and return them to the pot with the cod's milk.",
+  "Stir in all the cooked pulses, the rice, corn and peanut mass and cook thirty minutes.",
+  "Add the cream, cheese and pieces of cod, and serve with halved eggs and fried plantain."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

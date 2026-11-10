@@ -1,0 +1,22 @@
+{
+ "dish": "Thieboudienne",
+ "steps": [
+  "Pound the parsley, garlic, chilli and salt into the rof paste and press it into slashes cut in the fish.",
+  "Fry the fish three minutes a side and set it aside.",
+  "In the same oil fry the onion until soft, add the tomato paste and cook five minutes, until it darkens.",
+  "Add two litres of water, the tamarind and the vegetables and cook twenty-five minutes.",
+  "Return the fish to the pot for ten minutes, then lift it and the vegetables out and keep them warm.",
+  "Add the rinsed rice to the remaining broth — twice as much liquid as rice — and cook covered for thirty minutes without stirring.",
+  "Turn the rice onto a large platter with the fish and vegetables on top. Share out the caught layer from the bottom separately."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

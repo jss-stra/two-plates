@@ -1,0 +1,22 @@
+{
+ "dish": "Avgolemono",
+ "steps": [
+  "Cover the chicken with two and a half litres of cold water, bring it up and skim.",
+  "Add the onion, carrot and celery and simmer forty-five minutes.",
+  "Lift out the chicken, strain the broth and return it to the heat. Cook the rice in it for fifteen minutes.",
+  "Pull the meat into threads, discarding skin and bones.",
+  "Whisk the eggs with the lemon juice to an even froth in a separate bowl.",
+  "Ladle hot broth into the egg and lemon mixture, whisking without stopping, until the bowl warms up.",
+  "Pour the mixture back into the pot off the heat, return the meat and warm it through without boiling."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

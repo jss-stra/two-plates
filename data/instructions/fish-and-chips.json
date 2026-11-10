@@ -1,0 +1,20 @@
+{
+ "dish": "Fish and chips",
+ "steps": [
+  "Rinse the cut potatoes of their starch, dry them thoroughly and fry at 140 °C for six minutes. They should turn soft but stay pale. Set them aside to cool.",
+  "Mix the flour, cornflour and baking powder. Pour in the ice-cold beer and whisk only a few strokes — lumps are fine, an over-mixed batter turns tough.",
+  "Dry the fish, dust it in plain flour and shake off the excess. Without that the batter slides off in the oil.",
+  "Heat the oil to 190 °C. Dip the fish, let the excess run off and lower it in, holding it for a couple of seconds so it does not stick to the bottom. Fry six minutes.",
+  "Lift the fish out and finish the chips in the same oil for three minutes, until gold. Salt them at once, while hot."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

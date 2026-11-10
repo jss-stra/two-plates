@@ -1,0 +1,20 @@
+{
+ "dish": "Fårikål",
+ "steps": [
+  "Lay a layer of meat fat side down in the pot, season it and scatter peppercorns over.",
+  "Add a layer of cabbage, more salt and pepper, and a dusting of flour if you want body. Alternate the layers until everything is used.",
+  "Pour the water down the side; it should reach halfway up, no higher.",
+  "Bring it to the boil, cover and cook two hours on the lowest heat. Do not stir: the layers are meant to stay layers.",
+  "It is done when the meat comes away from the bone. Serve with boiled potatoes, spooning broth from the pot over."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

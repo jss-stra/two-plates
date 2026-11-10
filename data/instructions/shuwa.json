@@ -1,0 +1,22 @@
+{
+ "dish": "Shuwa",
+ "steps": [
+  "Grind the garlic, all the spices, the crushed dried limes, vinegar, oil and salt into a thick paste.",
+  "Cut deep slashes to the bone and rub the paste inside them and all over the outside.",
+  "Refrigerate overnight, twelve hours at least.",
+  "Wrap the meat in banana leaves, then tightly in two layers of foil. No gap may remain.",
+  "Set the parcel on a tray, pour a cup of water into the tray and bake at 130 °C for eight hours.",
+  "Unwrap it, pour off the juices and cook the rice in them. Pull the meat into threads by hand.",
+  "Serve the meat over the rice, from a shared platter, eaten by hand."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

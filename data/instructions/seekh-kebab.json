@@ -1,0 +1,22 @@
+{
+ "dish": "Seekh kebab",
+ "steps": [
+  "Grate the onions finely and wring them dry in muslin, discarding the juice.",
+  "Toast the chickpea flour in a dry pan until it smells nutty and let it cool.",
+  "Mix the mince with the onion, ginger garlic paste, papaya, spices, coriander and chillies.",
+  "Work the mixture ten minutes, until it turns tacky and pulls back at your hand.",
+  "Fold in the chickpea flour and chill the mixture for at least an hour.",
+  "With wet hands mould the mince onto flat skewers in an even two-centimetre layer.",
+  "Grill over hot coals four minutes a side, basting with oil. Serve with naan."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

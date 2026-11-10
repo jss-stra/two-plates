@@ -1,0 +1,22 @@
+{
+ "dish": "Koki",
+ "steps": [
+  "Soak the beans four hours, then rub them between your hands so the skins come away.",
+  "Rinse the beans several times, pouring off the floating skins, until the grains are clean and white.",
+  "Grind the beans with the onion and chilli into a thick paste, adding water a spoon at a time.",
+  "Beat the mass by hand or with a spatula for ten minutes, until it lightens and turns airy.",
+  "Warm the palm oil and work it into the mass to an even orange.",
+  "Pass the banana leaves over a flame until pliable and spoon the mass onto them with the greens.",
+  "Fold the parcels, tie them and steam them an hour and a half, until firm."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

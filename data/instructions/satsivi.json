@@ -1,0 +1,22 @@
+{
+ "dish": "Satsivi",
+ "steps": [
+  "Simmer the bird in salted water for an hour, lift it out and roast it at 200 °C for twenty minutes to colour.",
+  "Strain the broth, skim the fat and soften the finely chopped onion in it.",
+  "Grind the walnuts twice and press the released oil out by hand into a separate cup.",
+  "Crush the garlic with salt and the spices and work it into the walnut mass.",
+  "Let the walnut mass down with warm broth to the thickness of pouring cream and stir it into the onion.",
+  "Warm the sauce twenty minutes on the lowest heat without letting it boil, and stir in the vinegar.",
+  "Joint the bird, cover it with the sauce and chill it at least six hours. Drizzle the walnut oil over before serving."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

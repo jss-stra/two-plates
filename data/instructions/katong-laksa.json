@@ -1,0 +1,22 @@
+{
+ "dish": "Katong laksa",
+ "steps": [
+  "Peel the prawns, fry the shells and simmer them in a litre of water for twenty minutes, then strain.",
+  "Soak the dried chillies and dried shrimp in boiling water for twenty minutes.",
+  "Blend the chillies, shallot, garlic, lemongrass, galangal, turmeric, candlenuts and belacan into a paste.",
+  "Fry the paste in oil for twenty minutes over medium heat, until the oil breaks out at the edges.",
+  "Add the prawn broth and the laksa leaf and cook fifteen minutes.",
+  "Add the coconut milk, season and warm it five minutes without letting it boil.",
+  "Cut the cooked noodles into short lengths, divide them between bowls with the prawns and sprouts and ladle over the broth."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

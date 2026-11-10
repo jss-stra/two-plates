@@ -1,0 +1,21 @@
+{
+ "dish": "Katsudon",
+ "steps": [
+  "Nick the fat rim of each cutlet in a few places so they do not curl, season them and coat in flour, then egg, then panko.",
+  "Deep-fry at 170 °C for three minutes a side until golden. Drain on a rack rather than paper, so the underside stays crisp.",
+  "Cut the cutlets into strips a centimetre and a half wide without moving them apart — the shape matters when you serve.",
+  "In a small pan bring the dashi, soy, mirin and sugar to the boil, add the onion and cook for three minutes until soft.",
+  "Slide the cutlet into the broth, pour two thirds of the loosely beaten egg around it and cover for a minute. Add the rest, cover for twenty seconds more and take it off — the top layer of egg should stay loose.",
+  "Slide everything in the pan onto the rice in one movement, sauce and all."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

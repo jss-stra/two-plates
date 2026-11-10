@@ -1,0 +1,22 @@
+{
+ "dish": "Moqueca baiana",
+ "steps": [
+  "Rub the fish with salt, pepper, crushed garlic and lime juice and leave it twenty minutes.",
+  "Slice the onion, tomatoes and peppers into rings of the same thickness.",
+  "Line the bottom of the clay pot with half the onion, tomato and pepper rings.",
+  "Lay the fish in a single layer, the prawns and remaining vegetables over it, and season.",
+  "Pour the coconut milk and dendê oil down the side, without dousing the fish from above.",
+  "Cover and cook twenty minutes over medium heat, rocking the pot but never stirring.",
+  "Scatter with coriander and spring onion and serve straight from the pot, with rice and farofa."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

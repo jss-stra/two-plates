@@ -1,0 +1,22 @@
+{
+ "dish": "Australian meat pie",
+ "steps": [
+  "Brown the beef in batches so it does not release its juices, and set it aside.",
+  "Fry the onion until soft, stir in the flour and cook it two minutes.",
+  "Return the meat, add the stock, Worcestershire sauce and tomato paste and stew forty minutes, until thick.",
+  "Cool the filling completely, ideally in the fridge.",
+  "Line the tins with shortcrust, trim the edges and fill them with the cold filling.",
+  "Cover with rounds of puff pastry, seal the edges and cut a vent in the middle.",
+  "Glaze with egg and bake at 200 °C for twenty-five minutes, to a deep golden lid."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

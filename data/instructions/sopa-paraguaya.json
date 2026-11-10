@@ -1,0 +1,22 @@
+{
+ "dish": "Sopa paraguaya",
+ "steps": [
+  "Slice the onion thin and sweat it in the fat over a low heat for twenty minutes, until soft and sweet.",
+  "Pour the milk over the onion, take it off the heat and cool it to lukewarm.",
+  "Crumble the cheese and mix it with the corn flour and the sweetcorn kernels.",
+  "Stir in the onion and milk mixture and the yolks, salting cautiously; the cheese is salty already.",
+  "Whip the whites to firm peaks and fold them in with a spatula in three additions.",
+  "Spread the mixture into a greased tin in a four-centimetre layer.",
+  "Bake at 190 °C for fifty minutes, to a deep golden crust. Rest it twenty minutes before cutting."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "dish": "Halászlé",
+ "steps": [
+  "Cut the carp into steaks, salt them and chill them an hour; the salt firms the flesh.",
+  "Put the small fish, heads, backbones and all the sliced onion into the cauldron and cover with water.",
+  "Cook an hour over medium heat, until the fish and onion have completely broken down.",
+  "Press the broth through a sieve, working the flesh through, and return it to the cauldron. Discard the bones.",
+  "Take the cauldron off the fire and stir in both paprikas until the colour is even.",
+  "Return it to the fire, add the tomato, pepper and the hot chilli and bring it up.",
+  "Lower in the carp steaks and the roe and cook twelve minutes, only rocking the cauldron. Serve with white bread."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

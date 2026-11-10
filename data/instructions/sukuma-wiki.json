@@ -1,0 +1,21 @@
+{
+ "dish": "Sukuma wiki",
+ "steps": [
+  "Strip the tough stems from the leaves, roll the leaves up and shred them fine.",
+  "Fry the onion in oil until soft, add the garlic and cumin and warm them a minute.",
+  "Add the chopped tomatoes and cook seven minutes, until they collapse into a paste.",
+  "Add the greens, salt them and stir. They collapse by half within a minute.",
+  "Add half a cup of water, cover and stew ten minutes; the greens should soften but stay green.",
+  "Finish with lemon juice and serve with ugali or rice."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

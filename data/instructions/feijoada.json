@@ -1,0 +1,21 @@
+{
+ "dish": "Feijoada",
+ "steps": [
+  "Boil the salted meat in fresh water for twenty minutes and drain: the last stage of getting the salt out.",
+  "Cover the beans with water three fingers above, add the bay, the ribs and the salted meat, and simmer for an hour and a half.",
+  "Add the belly and the sausage and give it another hour. The beans should be collapsing and the liquid thickening on its own.",
+  "Fry the onion and garlic until golden, add a ladle of beans, mash them and return it all to the pot. That thickens the stew and deepens it.",
+  "Fry the greens over a high flame for two minutes with garlic — they should stay bright green and crisp.",
+  "Serve the beans and meat with the rice, greens and orange segments alongside. Everyone builds their own plate."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

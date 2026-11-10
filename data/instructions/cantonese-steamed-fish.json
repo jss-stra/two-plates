@@ -1,0 +1,22 @@
+{
+ "dish": "Cantonese steamed fish",
+ "steps": [
+  "Dry the fish, cut two slashes on each side and rub it with salt and wine.",
+  "Lay a few spring onion stalks on a plate and set the fish on them, so steam reaches it from below too.",
+  "Tuck half the ginger into the slashes and the cavity.",
+  "Set the plate into a boiling steamer and cook eight minutes for every centimetre of thickness.",
+  "Pour off all the liquid from the plate and discard it; it is bitter.",
+  "Scatter the remaining ginger, shredded spring onion and coriander over the top.",
+  "Heat the oil until it smokes and pour it over the aromatics, then pour the soy and sugar around the edge of the plate."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

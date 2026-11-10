@@ -1,0 +1,22 @@
+{
+ "dish": "Fabada asturiana",
+ "steps": [
+  "Soak the beans twelve hours in cold water and drain them.",
+  "Put the beans, cured meats, onion, garlic and olive oil in a pot and cover with cold water by three fingers.",
+  "Bring it up, skim, and drop the heat until the surface barely trembles.",
+  "Cook two and a half hours, adding half a cup of cold water every thirty minutes.",
+  "Lift out the onion and garlic, crush them with the saffron and paprika and return them to the pot.",
+  "Salt it at the very end and let it stand half an hour before serving.",
+  "Lift out the meats, slice them and serve them on a separate platter, with the beans in a tureen."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

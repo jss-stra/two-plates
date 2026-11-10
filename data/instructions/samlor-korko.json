@@ -1,0 +1,22 @@
+{
+ "dish": "Samlor korko",
+ "steps": [
+  "Toast the rice in a dry pan to a deep gold and grind it to a fine powder.",
+  "Pound the lemongrass, galangal, turmeric and garlic into a kroeung paste.",
+  "Fry the paste in oil for five minutes, add the prahok and cook two minutes more.",
+  "Add the pork and brown it, then pour in a litre and a half of water.",
+  "Cook twenty minutes, then add the pumpkin, papaya and aubergine.",
+  "Add the rice powder, first stirred into a ladle of the broth, and cook ten minutes.",
+  "Add the beans and moringa leaves for the last five minutes and adjust with fish sauce and palm sugar."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "dish": "Pabellón criollo",
+ "steps": [
+  "Boil the beans with half the onion and some garlic until soft, an hour to ninety minutes. Salt at the end.",
+  "Simmer the beef whole in salted water for an hour and twenty minutes. Lift it out and cool it enough to handle.",
+  "Pull the meat into threads along the grain. Across the grain it shreds into crumbs.",
+  "Fry the remaining onion, pepper and garlic, add the tomatoes and cumin, then the meat, and stew twenty minutes with a ladle of the broth.",
+  "Cook the rice loose, without butter or spice; here it is the neutral part.",
+  "Slice the plantain on the diagonal and fry over medium heat until caramel on both sides.",
+  "Build the plate in sectors: rice, beans, meat and plantain side by side, unmixed."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

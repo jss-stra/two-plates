@@ -1,0 +1,20 @@
+{
+ "dish": "Lomo saltado",
+ "steps": [
+  "Marinate the beef in the soy, vinegar and garlic for fifteen minutes, then pat it dry: a wet surface will not scorch.",
+  "Heat the pan until it smokes and sear the beef in two batches, ninety seconds each, leaving it alone for the first forty seconds. Set it aside.",
+  "In the same pan fry the onion and ají for ninety seconds — the onion should stay crisp inside.",
+  "Return the beef, pour in what is left of the marinade, add the tomatoes and warm through for half a minute. Take it off and stir in the coriander.",
+  "Serve with hot chips — some tossed into the pan so they take up the sauce — and a separate helping of rice."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "dish": "Saltah",
+ "steps": [
+  "Drain the soaked fenugreek, rinse it several times and grind it to a paste.",
+  "Whip the paste with cold water for ten minutes, by whisk or mixer, until it turns into a white froth.",
+  "Fry the onion and garlic, add the meat and brown it.",
+  "Add the tomatoes and potato, cover with water, season and stew an hour, until the meat is tender.",
+  "Heat a stone or cast-iron pot until very hot and transfer the boiling stew into it.",
+  "Break the eggs into the boiling stew and stir; they set into threads.",
+  "Spoon the hulba and a spoon of zhug on top and carry it to the table still bubbling. Serve with bread and rice."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "dish": "İskender kebab",
+ "steps": [
+  "Slice the lamb very thin, season it and leave it twenty minutes.",
+  "Fry the onion and garlic in oil, add the pepper paste and warm it a minute.",
+  "Add the passata and oregano and cook the sauce fifteen minutes to thicken it.",
+  "Cut the pide into cubes and dry them in the oven at 180 °C for eight minutes.",
+  "Sear the lamb slices over a very high flame in batches, a minute and a half each.",
+  "Spread the bread on the plates, spoon over some of the sauce, then the meat and the rest of the sauce.",
+  "Melt the butter until it sizzles and pour it over the meat. Put the yoghurt at the side and serve with fried peppers."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "dish": "Carniolan sausage",
+ "steps": [
+  "Dice the pork and fat and chill them to just above freezing.",
+  "Put the meat through the coarse plate of a mincer and the fat through the medium one.",
+  "Work in the curing salt, crushed garlic, pepper and iced water and knead the mixture until tacky.",
+  "Leave the mixture in the fridge for a day so the salt distributes and the colour sets.",
+  "Fill the casings tightly but without air pockets and tie them in twenty-centimetre pairs.",
+  "Air-dry the sausages two hours and cold-smoke them if you can.",
+  "Lower them into water at 75 °C and hold them twenty-five minutes without letting it boil. Serve with horseradish and mustard."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

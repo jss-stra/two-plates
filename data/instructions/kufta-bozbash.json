@@ -1,0 +1,21 @@
+{
+ "dish": "Kufta bozbash",
+ "steps": [
+  "Cover the bone-in lamb with cold water, bring it up and skim. Add the chickpeas and simmer for an hour.",
+  "Work a grated onion, the rice, salt and pepper into the mince and knead for five minutes, until the mass pulls back at your hand.",
+  "Divide the mince into four. Hide a plum and an apricot in each and shape a tight ball with no cracks.",
+  "Lower the kufta into the barely simmering broth and cook thirty minutes without stirring. For the first five minutes do not touch it at all.",
+  "Add the potatoes whole and the turmeric and cook twenty minutes more, until the potatoes are tender.",
+  "Into each bowl goes one kufta, one potato and some chickpeas; ladle over the broth and crumble dried mint on top."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

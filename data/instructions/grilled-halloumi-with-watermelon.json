@@ -1,0 +1,21 @@
+{
+ "dish": "Grilled halloumi with watermelon",
+ "steps": [
+  "Soak the halloumi in cold water for fifteen minutes, drain it and pat it completely dry.",
+  "Cut the cheese into centimetre slices — thinner and it dries out, thicker and it will not heat through.",
+  "Cut the chilled watermelon into large cubes and keep it in the fridge until serving.",
+  "Heat a dry pan hard and sear the halloumi two minutes a side, to dark stripes.",
+  "Whisk the olive oil with the lemon juice, honey and pepper.",
+  "Arrange the watermelon, rocket and hot cheese, spoon over the dressing and scatter with mint. Serve at once."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

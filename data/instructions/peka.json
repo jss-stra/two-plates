@@ -1,0 +1,22 @@
+{
+ "dish": "Peka",
+ "steps": [
+  "Build a fire of hardwood and let it burn down to substantial embers, about an hour.",
+  "Rub the meat with salt, pepper, garlic and rosemary and leave it half an hour.",
+  "Spread the potatoes, onion, carrot and tomatoes over the tray in one layer.",
+  "Lay the meat over the vegetables, pour on the olive oil and wine and add the bay leaves.",
+  "Cover with the bell and bury it in embers completely, until no metal shows.",
+  "Cook an hour and a half, then lift the bell, turn the potatoes and baste everything with the juices from the tray.",
+  "Replace the bell and embers and give it another hour and twenty. Serve straight from the tray."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "dish": "Bosnian burek",
+ "steps": [
+  "Knead a dough from the flour, warm water, a spoon of oil, the vinegar and salt, and work it fifteen minutes until elastic.",
+  "Divide it into four balls, oil them, cover and leave them forty minutes.",
+  "Mix the raw mince with the onion, salt, pepper and two spoons of water; the water keeps the filling from drying out.",
+  "Stretch a ball by hand on a cloth-covered table into a translucent sheet, working from the centre outwards.",
+  "Sprinkle the sheet with oil, lay the filling in a line along one edge and roll it into a long thin cylinder.",
+  "Coil the cylinders into a round tin from the centre outwards, brush with oil and bake at 200 °C for forty minutes.",
+  "Sprinkle the hot burek with water and cover it with a cloth for five minutes to soften the crust. Serve with yoghurt."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

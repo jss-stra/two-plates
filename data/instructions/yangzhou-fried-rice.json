@@ -1,0 +1,20 @@
+{
+ "dish": "Yangzhou fried rice",
+ "steps": [
+  "Separate two yolks and rub them through the cold rice with your hands until every grain is coated. Beat the remaining eggs separately.",
+  "Heat the wok with a spoon of oil until it smokes, pour in the beaten eggs, let them set and break them into pieces. Set them aside.",
+  "Fry the prawns for ninety seconds, add the ham, carrot and peas and cook a minute more. Add them to the eggs.",
+  "Add the rest of the oil, tip in the rice and fry three minutes at full heat, tossing constantly. The grains should be jumping in the wok, not sitting in it.",
+  "Return everything to the wok, pour the wine down the side and add the soy, season and toss for thirty seconds more. Scatter over the spring onion."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

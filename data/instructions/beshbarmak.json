@@ -1,0 +1,22 @@
+{
+ "dish": "Beshbarmak",
+ "steps": [
+  "Cover the meat with cold water, bring it up, skim, and simmer on the lowest heat for two and a half hours with the peppercorns and bay.",
+  "Knead a stiff dough from the flour, eggs, water and salt and rest it under film for forty minutes.",
+  "Roll the dough a millimetre thick and cut it into squares of about eight centimetres.",
+  "Slice the onion into rings, pour a ladle of hot broth over it and leave it ten minutes; this is the sorpa that dresses the dish.",
+  "Lift out the meat, skim the fat into a separate bowl and boil the dough squares in that broth in batches, three to four minutes each.",
+  "Pull the meat apart into thin sheets across the grain. Lay the dough on a large platter, the meat on top, the onions and their broth over that.",
+  "Serve the remaining broth hot in bowls with herbs; it is drunk before the dish or alongside it."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

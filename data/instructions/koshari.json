@@ -1,0 +1,21 @@
+{
+ "dish": "Koshari",
+ "steps": [
+  "Fry the onion in the oil over medium heat for twenty-five minutes to a deep brown, stirring. Drain it on paper; it crisps as it cools.",
+  "Boil the lentils for twenty minutes to soft but not collapsing, and drain.",
+  "Cook the rice in the onion oil: fry it two minutes, add water at one and a half to one and cook covered for fifteen minutes.",
+  "Boil the pasta and drain it. For the sauce, fry the garlic in a spoon of oil to gold, pour in the vinegar and let it reduce by half.",
+  "Add the tomatoes, cumin and chilli and cook twenty minutes to a thick sauce. Season.",
+  "Build it in the bowl in layers: rice, lentils, pasta, chickpeas, sauce, fried onion. The mixing happens at the table."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "dish": "Khao soi",
+ "steps": [
+  "Set a fifth of the noodles aside, separate the strands and deep-fry them to a golden crisp.",
+  "Heat the thick part of the coconut milk in a pan, without stirring, until the oil separates out.",
+  "Fry the curry paste, curry powder and turmeric in that oil for three minutes, until deeply fragrant.",
+  "Add the chicken and turn it in the paste until it is coated all over.",
+  "Add the rest of the coconut milk and some water, the fish sauce and the sugar, and simmer thirty minutes.",
+  "Boil the remaining noodles and divide them between bowls.",
+  "Ladle over the curry and chicken, top with the fried noodles, shallot, pickled greens, coriander and a wedge of lime."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

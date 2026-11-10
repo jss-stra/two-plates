@@ -1,0 +1,22 @@
+{
+ "dish": "Soto ayam",
+ "steps": [
+  "Simmer the chicken in two litres of water for forty minutes, skimming for the first ten.",
+  "Slice half the shallots into thin rings, deep-fry them crisp and drain them on paper.",
+  "Pound the remaining shallot, garlic, turmeric, ginger and nuts into a bumbu paste.",
+  "Fry the paste in oil for five minutes with the bruised lemongrass and lime leaves.",
+  "Transfer the paste into the broth, season and simmer twenty minutes.",
+  "Lift out the chicken and shred it, soak the noodles and blanch the sprouts and cabbage.",
+  "Divide the noodles, chicken, vegetables and half an egg between bowls, ladle over the broth and top with fried shallot."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "dish": "Jota",
+ "steps": [
+  "Boil the soaked beans in a separate pot until soft, an hour. Keep the water.",
+  "Simmer the smoked ribs in a litre and a half of water for forty minutes with the bay.",
+  "Add the soured turnip or sauerkraut with some of its brine and cook twenty minutes.",
+  "Add the diced potato and sausage and cook twenty minutes more.",
+  "Fry the onion and garlic in oil until golden and stir them into the soup.",
+  "Add the beans with their water, mash some of the potato in the pot and cook five minutes.",
+  "Strip the meat from the bones, return it to the soup and season with salt and pepper."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

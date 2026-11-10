@@ -1,0 +1,22 @@
+{
+ "dish": "Taiwanese beef noodle soup",
+ "steps": [
+  "Cover the meat with cold water, bring it up, boil two minutes and drain; this removes the scum.",
+  "Fry the ginger, garlic and doubanjiang in oil for five minutes, until the oil turns red.",
+  "Add the tomatoes, wine and soy sauce, cook three minutes and return the meat to the pot.",
+  "Add water two fingers above the meat, drop in the star anise, cinnamon and sugar and simmer two hours.",
+  "Lift out the meat, cut it into thick slices and return it to the broth for ten minutes.",
+  "Cook the noodles in a separate pot of clean water and blanch the bok choy.",
+  "Divide the noodles between bowls, add the meat and greens, ladle over the broth and top with pickled mustard greens and spring onion."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

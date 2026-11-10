@@ -1,0 +1,22 @@
+{
+ "dish": "Mole poblano",
+ "steps": [
+  "Simmer the chicken with an onion and garlic for forty minutes. Strain and keep the broth.",
+  "Seed the chillies and toast them on a dry pan ten seconds a side, stopping short of blackening.",
+  "Cover the chillies with boiling water for twenty minutes to soften.",
+  "Fry the almonds, peanuts, sesame, raisins and bread in lard, one at a time and separately.",
+  "Char the tomatoes, tomatillos and garlic on a dry pan until blackened in patches.",
+  "Blend everything with broth in batches and pass it through a sieve twice.",
+  "Cook the sauce for an hour on a low heat, stirring, stir in the chocolate and salt, add the chicken and heat it through."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

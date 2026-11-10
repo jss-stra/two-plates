@@ -1,0 +1,20 @@
+{
+ "dish": "Chicken tagine with preserved lemon",
+ "steps": [
+  "Grind the garlic, ginger, turmeric, saffron, chopped herbs, oil, salt and pepper into a paste. Rub it over the chicken and leave it an hour.",
+  "Spread the onion in an even layer over the base of the tagine or a heavy pan: it keeps the chicken off the bottom and becomes part of the sauce.",
+  "Set the chicken on top skin up, pour the water down the side, cover and cook over a low flame for forty minutes without lifting the lid.",
+  "Add the preserved lemon peel in strips and the olives, cover and give it twenty minutes more.",
+  "Take the lid off and reduce the sauce for five minutes if it is still loose. Check the salt only at the end: the lemon and olives have already provided it."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

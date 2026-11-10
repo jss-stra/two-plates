@@ -1,0 +1,22 @@
+{
+ "dish": "Skābputra",
+ "steps": [
+  "Rinse the barley and soak it in cold water for two hours.",
+  "Boil the barley in a litre and a half of water for an hour, until it collapses entirely.",
+  "Salt the porridge and cool it completely, stirring so no skin forms.",
+  "Work the curdled milk into the cold porridge gradually, to the consistency of a thick soup.",
+  "Leave it four hours somewhere cold so the sourness develops and evens out.",
+  "Boil the potatoes in their skins and serve them hot alongside.",
+  "Ladle it into bowls, add soured cream and scatter with spring onion and dill."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

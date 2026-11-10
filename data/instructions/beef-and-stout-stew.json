@@ -1,0 +1,22 @@
+{
+ "dish": "Beef and stout stew",
+ "steps": [
+  "Pat the beef dry, season it and dust it with flour on all sides.",
+  "Brown the meat in batches in hot oil to a dark crust and lift it out.",
+  "Soften the onion in the same fat, add the tomato paste and cook it three minutes.",
+  "Pour in the stout, bring it up and scrape everything caught on the bottom; that is where the flavour is.",
+  "Return the meat, add the stock, thyme and bay and braise covered at 160 °C for two hours.",
+  "Add the carrot, parsnip and potato and braise forty-five minutes more.",
+  "Stir in the honey, taste for the balance against the bitterness and serve with soda bread."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

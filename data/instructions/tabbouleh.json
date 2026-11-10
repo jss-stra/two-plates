@@ -1,0 +1,19 @@
+{
+ "dish": "Tabbouleh",
+ "steps": [
+  "Rinse the bulgur and pour the juice of one lemon over it. Leave it to swell for fifteen minutes.",
+  "Wash the parsley well in advance and dry it thoroughly — an hour on a cloth is not too much. Strip the thick stems and chop it fine but without pulverising it.",
+  "Dice the tomatoes small and salt them separately: the juice they give up goes into the bulgur.",
+  "Mix everything with the juice of the second lemon, the oil and the allspice. Let it stand ten minutes before serving."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

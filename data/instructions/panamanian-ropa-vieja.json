@@ -1,0 +1,22 @@
+{
+ "dish": "Panamanian ropa vieja",
+ "steps": [
+  "Simmer the beef whole in salted water with bay for an hour and a half. Keep the broth.",
+  "Cool the meat and pull it into long strands along the grain.",
+  "Fry the onion, pepper and garlic in oil until soft, eight minutes.",
+  "Add the tomatoes, tomato paste, cumin and oregano and cook ten minutes to thicken.",
+  "Fold in the meat, olives and capers and stew twenty minutes, adding broth a spoonful at a time.",
+  "Drive off any excess liquid uncovered; the sauce should coat the strands.",
+  "Scatter with culantro and serve with rice and fried plantain."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "dish": "Shopska salad",
+ "steps": [
+  "Char the peppers over a flame until the skin blackens, close them in a covered dish for ten minutes and peel them.",
+  "Cut the tomatoes and cucumbers into two-centimetre dice and the peppers into strips.",
+  "Mix the vegetables with the onion and parsley and dress with the oil, vinegar and salt.",
+  "Mound it on a dish and blanket it with the grated cheese without stirring. Finish with olives."
+ ],
+ "source": {
+  "name": "UniTools World Recipes v2.0",
+  "url": "https://github.com/farcrak/unitools-recipes",
+  "doi": "https://doi.org/10.5281/zenodo.22969098",
+  "author": "UniTools",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": false,
+  "note": "Method text verbatim from dataset. Quantities in the app row are rescaled to 4 servings from the source baseServings."
+ }
+}
