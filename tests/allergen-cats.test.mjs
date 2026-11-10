@@ -8,7 +8,8 @@ const possible = Object.entries(INGREDIENTS).filter(([, i]) => i.possibleCats?.l
 t('possibleCats present on brand-varying items', possible.length >= 8);
 t('definite and possible never overlap on same item+cat', Object.values(INGREDIENTS).every((i) => !(i.allergenCats || []).some((c) => (i.possibleCats || []).includes(c))));
 // every cat used on existing ingredients is in the UI taxonomy
-const UI = new Set(['peanuts','tree_nuts','fish','shellfish','dairy','egg','soy','sesame','gluten','mustard']);
+const { ALLERGEN_CATS } = await import('../js/data.js');
+const UI = new Set(Object.keys(ALLERGEN_CATS));
 t('all tags in UI taxonomy', tagged.every(([, i]) => i.allergenCats.every((c) => UI.has(c))));
 // end-to-end: a real dish with peanut butter is caught by cat:peanuts allergy
 const pbDish = RECIPES.find((r) => r.items.some((it) => it.id === 'peanut_butter'));

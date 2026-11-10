@@ -1,6 +1,6 @@
 import { renderPrep, setupPrepEvents } from './prep.js';
 import { renderExtrasCard, renderPartiesCard, setupGroceryEvents } from './grocery-ui.js';
-import { RECIPES, RECIPE_BY_ID, GROUPS, INGREDIENTS, DIET_LABEL, PROTEIN_LABEL, youtubeUrl, isVeg, kindOf, DATA_ERRORS, exclusionHits } from './data.js';
+import { RECIPES, RECIPE_BY_ID, GROUPS, INGREDIENTS, DIET_LABEL, PROTEIN_LABEL, youtubeUrl, isVeg, kindOf, DATA_ERRORS, exclusionHits, ALLERGEN_CATS } from './data.js';
 import { getState, update, onChange, defaultState, replaceState } from './state.js';
 import { generateSlots, planRecipes, alternatives, randomSwap, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes, localISO } from './planner.js';
 import { renderLog, shiftDay, shiftMonth } from './log.js';
@@ -554,14 +554,7 @@ function pushUi(s) {
 // Quick-add suggestions, filtered to ids that actually exist in the catalog.
 const X_SUGGEST = ['peanuts', 'peanut_butter', 'cashews', 'sesame_seeds', 'sesame_oil', 'egg', 'soy_sauce', 'tofu', 'soya_chunks', 'fish_sauce', 'coconut_milk', 'mushrooms', 'coriander', 'capsicum', 'eggplant', 'okra', 'olives', 'halloumi'];
 
-// Broad allergy categories (allergies only). Excluding one catches every
-// catalog ingredient tagged with that category - including items whose exact
-// species or recipe is unknown - plus made-from forms via derivedFrom.
-const ALLERGEN_CATS = {
-  peanuts: 'Peanuts', tree_nuts: 'Tree nuts', fish: 'Fish', shellfish: 'Shellfish',
-  dairy: 'Dairy', egg: 'Egg', soy: 'Soy', sesame: 'Sesame', gluten: 'Gluten', mustard: 'Mustard',
-  celery: 'Celery',
-};
+// ALLERGEN_CATS lives in data.js (shared with tests).
 const catToken = (c) => `cat:${c}`;
 const exclName = (id) => id.startsWith('cat:') ? (ALLERGEN_CATS[id.slice(4)] || id) : (INGREDIENTS[id]?.name || id);
 

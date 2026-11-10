@@ -18,6 +18,15 @@ export const GRILL = 'Grill & Wraps';
 export const EXPLORE = 'Explore Asian';
 export const GROUPS = ['Indian', 'Mexican', 'Italian', GRILL, 'Indo-Chinese', 'Thai', EXPLORE];
 
+// Broad allergy categories (allergies only). Excluding one catches every
+// catalog ingredient tagged with that category - including items whose exact
+// species or recipe is unknown - plus made-from forms via derivedFrom.
+export const ALLERGEN_CATS = {
+  peanuts: 'Peanuts', tree_nuts: 'Tree nuts', fish: 'Fish', shellfish: 'Shellfish',
+  dairy: 'Dairy', egg: 'Egg', soy: 'Soy', sesame: 'Sesame', gluten: 'Gluten', mustard: 'Mustard',
+  celery: 'Celery',
+};
+
 export const DIET_LABEL = { veg: 'Veg', egg: 'Egg', nonveg: 'Non-veg' };
 
 // The two kinds of slot in a week: chicken/turkey dishes and veg dishes.
