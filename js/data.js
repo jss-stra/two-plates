@@ -116,7 +116,11 @@ export function isVeg(recipe, eggsCountAsVeg) {
 export function exclusionHits(recipe, exclusions) {
   const hits = { allergies: [], dislikes: [] };
   if (!exclusions) return hits;
-  const have = new Set(recipe.items.map((it) => it.id));
+  const have = new Set();
+  for (const it of recipe.items) {
+    have.add(it.id);
+    for (const id of INGREDIENTS[it.id]?.sameAs || []) have.add(id);
+  }
   for (const kind of ['allergies', 'dislikes']) {
     for (const id of exclusions[kind] || []) if (have.has(id)) hits[kind].push(id);
   }

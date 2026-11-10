@@ -565,10 +565,10 @@ function renderExclusions(s) {
   };
   return `<section class="card">
     <h2>Allergies &amp; dislikes</h2>
-    <p class="fine">Dishes containing these ingredients won't be picked when you shuffle, and won't come up as swaps or in the dish picker. Dishes already in this week's plan get a warning badge so you can swap them out.</p>
-    ${section('allergies', 'Allergies', 'never suggested')}
+    <p class="fine">Dishes listing these ingredients are skipped when you shuffle, and don't come up as swaps or in the dish picker. Dishes already in this week's plan get a warning badge so you can swap them out.</p>
+    ${section('allergies', 'Allergies', 'skipped by the planner')}
     ${section('dislikes', 'Dislikes', 'also skipped')}
-    <p class="fine"><b>Worth knowing:</b> Two Plates only checks the ingredients written into its own recipes. It can't see what's inside packaged sauces, pastes or bread, and cross-contact isn't tracked. For a serious allergy, always check labels yourself.</p>
+    <p class="fine"><b>Worth knowing:</b> Two Plates checks the ingredients written into its own recipes, plus direct forms of the same food (e.g. peanut butter counts as peanuts). It can't see what's inside packaged sauces, pastes or bread, and cross-contact isn't tracked. For a serious allergy, always check labels yourself.</p>
   </section>`;
 }
 
@@ -860,7 +860,7 @@ const actions = {
       d.exclusions[kind].push(id);
     });
     const inWeek = planRecipes(getState()).some((r) => r.items.some((it) => it.id === id));
-    toast(`${INGREDIENTS[id].name} added to ${kind}${inWeek ? ' — check this week’s dishes for warnings' : ''}`);
+    toast(`${INGREDIENTS[id].name} added to ${kind === 'allergies' ? 'allergies' : 'dislikes'}${inWeek ? ' — check this week’s dishes for warnings' : ''}`);
   },
   xdel: (el) => update((d) => {
     const kind = el.dataset.k;

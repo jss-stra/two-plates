@@ -30,5 +30,15 @@ console.log('PASS: party quantities, merged provenance, extras, active toggle, c
   assert(!alt.some((r) => r.items.some((it) => it.id === 'cashews' || it.id === 'mushrooms')));
   assert(RECIPE_BY_ID['paneer-butter-masala-lighter'].items.some((it) => it.id === 'cashews'));
   assert(RECIPE_BY_ID['mushroom-paneer-masala'].items.some((it) => it.id === 'mushrooms'));
+  // Same-food forms count too: a peanut exclusion also skips dishes using peanut butter.
+  const sp = defaultState();
+  sp.exclusions = { allergies: ['peanuts'], dislikes: [] };
+  sp.plan.slots = generateSlots(sp);
+  for (const sl of sp.plan.slots) {
+    const rr = RECIPE_BY_ID[sl.id];
+    assert(rr && !rr.items.some((it) => it.id === 'peanut_butter' || it.id === 'peanuts'));
+  }
+  assert(!alternatives(sp, 0, {}).some((r) => r.items.some((it) => it.id === 'peanut_butter' || it.id === 'peanuts')));
+  assert(RECIPE_BY_ID['peanut-chicken-satay-bowls'].items.some((it) => it.id === 'peanut_butter'));
   console.log('PASS: exclusions keep allergens and dislikes out of picks and swaps');
 }

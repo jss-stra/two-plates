@@ -7,6 +7,9 @@
 // diet: 'meat' or 'egg' — decides whether a dish is veg / egg / non-veg.
 // src: protein source label, used to pick a dish's "main protein" and keep the week varied.
 // pantry: true = usually already at home; shown under "Pantry check" instead of the shopping list.
+// sameAs: other catalog ids for the SAME food in another form (peanut butter = peanuts).
+// Used by Allergies & dislikes so excluding a food also excludes its direct forms. Only for
+// definitional matches — never for packaged goods whose contents vary by brand (sauces, pastes).
 
 export const AISLES = {
   fv: 'Fruit & veg',
@@ -35,7 +38,7 @@ export const INGREDIENTS = {
 
   // Dairy, eggs & tofu
   egg: I('Eggs', 'dairy', 'pc', 143, 12.6, 0.7, 9.5, { g: 50, diet: 'egg', src: 'egg' }),
-  egg_whites: I('Liquid egg whites', 'dairy', 'ml', 48, 11, 0.7, 0.2, { diet: 'egg', src: 'egg' }),
+  egg_whites: I('Liquid egg whites', 'dairy', 'ml', 48, 11, 0.7, 0.2, { diet: 'egg', src: 'egg', sameAs: ['egg'] }),
   paneer: I('Paneer', 'dairy', 'g', 300, 18, 3, 24, { src: 'paneer' }),
   greek_yogurt: I('Greek yogurt, plain low-fat', 'dairy', 'g', 60, 10, 4, 0.3),
   light_milk: I('Light milk', 'dairy', 'ml', 42, 3.6, 5, 1),
@@ -106,8 +109,8 @@ export const INGREDIENTS = {
   peas: I('Frozen peas', 'frozen', 'g', 80, 5.4, 9, 0.4),
   corn: I('Frozen corn kernels', 'frozen', 'g', 86, 3.3, 16, 1.4),
   edamame: I('Frozen shelled edamame', 'frozen', 'g', 125, 12, 6, 5, { src: 'tofu' }),
-  frozen_spinach: I('Frozen spinach', 'frozen', 'g', 25, 3, 1.5, 0.5),
-  cauli_rice: I('Frozen cauliflower rice', 'frozen', 'g', 25, 2, 3, 0.3),
+  frozen_spinach: I('Frozen spinach', 'frozen', 'g', 25, 3, 1.5, 0.5, { sameAs: ['spinach'] }),
+  cauli_rice: I('Frozen cauliflower rice', 'frozen', 'g', 25, 2, 3, 0.3, { sameAs: ['cauliflower'] }),
 
   // Bakery & wraps
   wraps: I('Wholemeal wraps (large)', 'bakery', 'pc', 290, 8.5, 46, 6.5, { g: 62 }),
@@ -159,7 +162,7 @@ export const INGREDIENTS = {
   // Sauces, oils & nuts
   oil: I('Olive / canola oil', 'sauces', 'ml', 820, 0, 0, 92, { pantry: true }),
   ghee: I('Ghee', 'sauces', 'g', 900, 0, 0, 100, { pantry: true }),
-  sesame_oil: I('Sesame oil', 'asian', 'ml', 820, 0, 0, 92),
+  sesame_oil: I('Sesame oil', 'asian', 'ml', 820, 0, 0, 92, { sameAs: ['sesame_seeds'] }),
   soy_sauce: I('Salt-reduced soy sauce', 'asian', 'ml', 55, 8, 5, 0.1, { pantry: true }),
   oyster_sauce: I('Oyster sauce', 'asian', 'g', 105, 1.5, 24, 0.3, { diet: 'meat' }),
   fish_sauce: I('Fish sauce', 'asian', 'ml', 35, 5, 4, 0, { diet: 'meat' }),
@@ -191,17 +194,17 @@ export const INGREDIENTS = {
   salsa: I('Tomato salsa (jar)', 'mexican', 'g', 35, 1.5, 6, 0.3),
   enchilada_sauce: I('Enchilada sauce', 'mexican', 'g', 40, 1, 7, 1),
   chipotle: I('Chipotle in adobo (tin)', 'mexican', 'g', 70, 1.5, 10, 3),
-  pickled_jalapenos: I('Pickled jalapeños', 'mexican', 'g', 25, 1, 4, 0.5),
+  pickled_jalapenos: I('Pickled jalapeños', 'mexican', 'g', 25, 1, 4, 0.5, { sameAs: ['jalapeno'] }),
   olives: I('Kalamata olives', 'sauces', 'g', 145, 1, 4, 14),
   capers: I('Capers', 'sauces', 'g', 25, 2, 5, 0.9),
   pesto: I('Basil pesto', 'sauces', 'g', 450, 5, 6, 45),
-  roasted_capsicum: I('Roasted capsicum (jar)', 'sauces', 'g', 30, 1, 6, 0.3),
+  roasted_capsicum: I('Roasted capsicum (jar)', 'sauces', 'g', 30, 1, 6, 0.3, { sameAs: ['capsicum'] }),
   balsamic: I('Balsamic vinegar', 'sauces', 'ml', 88, 0.5, 17, 0, { pantry: true }),
   vinegar: I('White vinegar', 'sauces', 'ml', 18, 0, 0, 0, { pantry: true }),
   dijon: I('Dijon mustard', 'sauces', 'g', 130, 6, 5, 10),
   light_mayo: I('Light mayonnaise', 'sauces', 'g', 300, 1, 8, 28),
   peri_peri: I('Peri-peri sauce', 'sauces', 'g', 80, 1, 8, 5),
-  peanut_butter: I('Natural peanut butter', 'sauces', 'g', 600, 25, 12, 50),
+  peanut_butter: I('Natural peanut butter', 'sauces', 'g', 600, 25, 12, 50, { sameAs: ['peanuts'] }),
   peanuts: I('Roasted peanuts (unsalted)', 'sauces', 'g', 590, 26, 13, 49),
   cashews: I('Raw cashews', 'sauces', 'g', 580, 18, 25, 46),
   sesame_seeds: I('Sesame seeds', 'sauces', 'g', 570, 18, 10, 50, { pantry: true }),

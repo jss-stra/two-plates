@@ -2,7 +2,7 @@
 
 A weekly high-protein meal planner for two people. It picks 5–7 dinners (each one also covers the next day's lunch), shows protein and calories per person, and builds a combined grocery list you can export to Excel. The Today tab also logs water per person, with optional 3-hourly nudges (9am–9pm) when nothing was logged in the previous 3 hours, plus a 10pm check-in asking about coffees, teas, milks and shakes. Nudges arrive as push notifications even when the app is closed (see `supabase/reminders-setup.sql`).
 
-Allergies and dislikes can be excluded in Settings: dishes containing those ingredients are never suggested (shuffle, swaps and the dish picker skip them), and anything already in the week gets a warning badge. The app only checks the ingredients written into its own recipes — it can't see inside packaged goods or track cross-contact.
+Allergies and dislikes can be excluded in Settings: dishes listing those ingredients (or direct forms of the same food, like peanut butter for peanuts) are skipped by shuffle, swaps and the dish picker, and anything already in the week gets a warning badge. The app checks its own recipe ingredient lists — it can't see inside packaged goods or track cross-contact.
 
 There's no build step. It's plain HTML, CSS and JavaScript modules, and everything runs in the browser.
 
