@@ -18,13 +18,15 @@ export const GRILL = 'Grill & Wraps';
 export const EXPLORE = 'Explore Asian';
 export const GROUPS = ['Indian', 'Mexican', 'Italian', GRILL, 'Indo-Chinese', 'Thai', EXPLORE];
 
-export const DIET_LABEL = { veg: 'Veg', egg: 'Egg', nonveg: 'Chicken / turkey' };
+export const DIET_LABEL = { veg: 'Veg', egg: 'Egg', nonveg: 'Non-veg' };
 
 // The two kinds of slot in a week: chicken/turkey dishes and veg dishes.
 export const kindOf = (r, eggsCountAsVeg) => (isVeg(r, eggsCountAsVeg) ? 'veg' : 'chicken');
 export const PROTEIN_LABEL = {
   chicken: 'Chicken', turkey: 'Turkey', paneer: 'Paneer', tofu: 'Tofu / soy', soya: 'Soya chunks',
   egg: 'Egg', legume: 'Beans & dal', cheese: 'Cheese',
+  beef: 'Beef', lamb: 'Lamb', pork: 'Pork', fish: 'Fish', shellfish: 'Shellfish',
+  duck: 'Duck', rabbit: 'Rabbit', game: 'Game',
 };
 
 export const DATA_ERRORS = [];
@@ -55,19 +57,26 @@ function buildRecipe(row, file) {
   const [name, time, ingStr, tagStr = '', cuisineOverride] = row;
   const cuisine = cuisineOverride || file.cuisine;
   const items = parseIngredients(ingStr, name);
-  let kcal = 0, p = 0, c = 0, f = 0;
+  // Unknown macros stay unknown: any item with a null macro makes the dish's
+  // macros null (never silently zero). Approximate items mark the dish approximate.
+  let kcal = 0, p = 0, c = 0, f = 0, unknown = false, approximate = false;
   let diet = 'veg';
   const proteinBySrc = {};
   for (const { id, qty } of items) {
     const ing = INGREDIENTS[id];
     const g = gramsOf(ing, qty) / 100;
-    kcal += ing.kcal * g; p += ing.p * g; c += ing.c * g; f += ing.f * g;
+    if (ing.kcal == null || ing.p == null || ing.c == null || ing.f == null) unknown = true;
+    else { kcal += ing.kcal * g; p += ing.p * g; c += ing.c * g; f += ing.f * g; }
+    if (ing.basis === 'approximate') approximate = true;
     if (ing.diet === 'meat') diet = 'nonveg';
     else if (ing.diet === 'egg' && diet === 'veg') diet = 'egg';
-    if (ing.src) proteinBySrc[ing.src] = (proteinBySrc[ing.src] || 0) + ing.p * g;
+    if (ing.src && ing.p != null) proteinBySrc[ing.src] = (proteinBySrc[ing.src] || 0) + ing.p * g;
   }
-  const mainProtein = Object.entries(proteinBySrc).sort((a, b) => b[1] - a[1])[0]?.[0] || 'legume';
-  const per = (x) => Math.round(x / BASE_SERVINGS);
+  // Label fallback: when macros are unknown there's no protein mass to rank by,
+  // so use the first declared protein source rather than a misleading default.
+  const firstSrc = items.map((it) => INGREDIENTS[it.id].src).find(Boolean);
+  const mainProtein = Object.entries(proteinBySrc).sort((a, b) => b[1] - a[1])[0]?.[0] || firstSrc || 'legume';
+  const per = (x) => (unknown ? null : Math.round(x / BASE_SERVINGS));
   return {
     id: slug(name),
     name,
@@ -78,7 +87,9 @@ function buildRecipe(row, file) {
     items,
     diet,
     mainProtein,
-    // Per standard serving
+    nutritionUnknown: unknown || undefined,
+    nutritionApproximate: (!unknown && approximate) || undefined,
+    // Per standard serving (null when any ingredient's macros are unknown)
     kcal: per(kcal), protein: per(p), carbs: per(c), fat: per(f),
   };
 }
@@ -114,20 +125,49 @@ export function isVeg(recipe, eggsCountAsVeg) {
 // split by list. Only checks the recipe's own ingredient list — it can't see
 // what's inside packaged sauces, pastes or bread, and cross-contact isn't tracked.
 export function exclusionHits(recipe, exclusions) {
-  const hits = { allergies: [], dislikes: [] };
+  const hits = { allergies: [], allergiesPossible: [], dislikes: [] };
   if (!exclusions) return hits;
+  // sameAs (definitional identity) applies to both lists. derivedFrom
+  // (made-from / known-constituent), allergenCats (definite) and possibleCats
+  // (brand-varying, disclosed as "may contain") apply to allergies only.
   const have = new Set();
+  const haveAllergy = new Set();
+  const cats = new Set();
+  const possCats = new Set();
   for (const it of recipe.items) {
     have.add(it.id);
-    for (const id of INGREDIENTS[it.id]?.sameAs || []) have.add(id);
+    haveAllergy.add(it.id);
+    const ing = INGREDIENTS[it.id];
+    for (const id of ing?.sameAs || []) { have.add(id); haveAllergy.add(id); }
+    for (const c of ing?.allergenCats || []) cats.add(c);
+    for (const c of ing?.possibleCats || []) possCats.add(c);
+    // transitive made-from chain (guarded against cycles)
+    const queue = [...(ing?.derivedFrom || [])];
+    const seen = new Set();
+    while (queue.length) {
+      const src = queue.shift();
+      if (seen.has(src)) continue;
+      seen.add(src);
+      haveAllergy.add(src);
+      for (const c2 of INGREDIENTS[src]?.allergenCats || []) cats.add(c2);
+      for (const c2 of INGREDIENTS[src]?.possibleCats || []) possCats.add(c2);
+      queue.push(...(INGREDIENTS[src]?.derivedFrom || []));
+    }
   }
-  for (const kind of ['allergies', 'dislikes']) {
-    for (const id of exclusions[kind] || []) if (have.has(id)) hits[kind].push(id);
+  for (const id of exclusions.dislikes || []) if (have.has(id)) hits.dislikes.push(id);
+  for (const id of exclusions.allergies || []) {
+    if (id.startsWith('cat:')) {
+      const c = id.slice(4);
+      if (cats.has(c)) hits.allergies.push(id);
+      else if (possCats.has(c)) hits.allergiesPossible.push(id);
+    } else if (haveAllergy.has(id)) hits.allergies.push(id);
   }
   return hits;
 }
 
 export const hasExclusions = (recipe, exclusions) => {
   const h = exclusionHits(recipe, exclusions);
-  return h.allergies.length + h.dislikes.length > 0;
+  // Possible constituents exclude conservatively too; the UI discloses them
+  // as "may contain" rather than confirmed.
+  return h.allergies.length + h.allergiesPossible.length + h.dislikes.length > 0;
 };

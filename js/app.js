@@ -157,9 +157,10 @@ function ratingBadge(s, r) {
 // Warning badges for dishes containing excluded ingredients (Settings → Allergies & dislikes).
 function exclBadge(s, r) {
   const h = exclusionHits(r, s.exclusions);
-  const names = (ids) => ids.map((id) => esc(INGREDIENTS[id]?.name || id)).join(', ');
+  const names = (ids) => ids.map((id) => esc(exclName(id))).join(', ');
   return [
     h.allergies.length ? `<span class="badge allerg">⚠ ${names(h.allergies)}</span>` : '',
+    h.allergiesPossible.length ? `<span class="badge allerg">⚠ may contain: ${names(h.allergiesPossible)}</span>` : '',
     h.dislikes.length ? `<span class="badge disl">${names(h.dislikes)}</span>` : '',
   ].join('');
 }
@@ -179,9 +180,17 @@ function status(value, min, max, kind) {
 
 function personSummary(d, rules) {
   const p = d.person;
+  const goal = perMealGoal(p, rules);
+  if (d.protein == null || d.kcal == null) {
+    return `<div class="person">
+    <div class="person-name">${esc(p.name)}</div>
+    <div class="stat"><div class="stat-line">Day estimate unavailable</div>
+      <div class="fine">${d.unknownCount ? d.unknownCount + ' of ' : ''}this week's dishes have unknown nutrition, so no day estimate is shown.</div></div>
+    <div class="goal">Per meal: <b>${goal.min}–${goal.max} g</b> protein</div>
+  </div>`;
+  }
   const ps = status(d.protein, p.proteinMin, p.proteinMax, 'protein');
   const ks = status(d.kcal, p.kcalMin, p.kcalMax, 'kcal');
-  const goal = perMealGoal(p, rules);
   return `<div class="person">
     <div class="person-name">${esc(p.name)}</div>
     <div class="stat">
@@ -209,9 +218,10 @@ function dishCard(r, i, slot, s) {
     <div class="meta">${dietDot(r)} ${esc(r.cuisine)} · ${icon('clock', 'sm')} ${r.time} min · ${PROTEIN_LABEL[r.mainProtein] || ''}</div>
     <div class="macros">${s.people.map((p) => {
       const m = mealFor(r, p);
+      if (m.protein == null) return `<span><b>${esc(p.name)}</b> <span class="fine">nutrition unknown</span></span>`;
       const g = perMealGoal(p, s.rules);
       const cls = m.protein < g.min ? 'warn' : 'ok';
-      return `<span><b>${esc(p.name)}</b> <span class="st ${cls}">${m.protein} g</span> · ${m.kcal} kcal</span>`;
+      return `<span><b>${esc(p.name)}</b> <span class="st ${cls}">${r.nutritionApproximate ? '~' : ''}${m.protein} g</span> · ${r.nutritionApproximate ? '~' : ''}${m.kcal} kcal</span>`;
     }).join('')}</div>
     <div class="actions">
       ${final ? `<a class="act yt" href="${youtubeUrl(r)}" target="_blank" rel="noopener">${icon('play')}<span>YouTube</span></a>` : `
@@ -236,6 +246,7 @@ function counter(label, key, value, max) {
 
 function glanceChip(d) {
   const p = d.person;
+  if (d.protein == null) return `<span class="pill">${esc(p.name)} · day estimate n/a</span>`;
   const ps = status(d.protein, p.proteinMin, p.proteinMax, 'protein');
   return `<span class="pill ${ps.cls}">${esc(p.name)} · ${ps.text}</span>`;
 }
@@ -368,11 +379,14 @@ function filteredRecipes(s) {
       || r.items.some((it) => INGREDIENTS[it.id].name.toLowerCase().includes(q)))) return false;
     return true;
   });
+  // Dishes with unknown nutrition can't be ranked on it - they sort last.
+  const nn = (x) => (x == null ? null : x);
+  const nullLast = (va, vb) => (va == null ? 1 : 0) - (vb == null ? 1 : 0);
   const sorters = {
-    smart: (a, b) => (b.protein * 4) / b.kcal - (a.protein * 4) / a.kcal,
+    smart: (a, b) => nullLast(nn(a.protein) == null || nn(a.kcal) == null ? null : 1, nn(b.protein) == null || nn(b.kcal) == null ? null : 1) || (b.protein * 4) / b.kcal - (a.protein * 4) / a.kcal,
     rating: (a, b) => (ratingOf(s, b.id) ?? (b.regular ? 3.5 : 0)) - (ratingOf(s, a.id) ?? (a.regular ? 3.5 : 0)),
-    protein: (a, b) => b.protein - a.protein,
-    kcal: (a, b) => a.kcal - b.kcal,
+    protein: (a, b) => nullLast(a.protein, b.protein) || b.protein - a.protein,
+    kcal: (a, b) => nullLast(a.kcal, b.kcal) || a.kcal - b.kcal,
     time: (a, b) => a.time - b.time,
     name: (a, b) => a.name.localeCompare(b.name),
   };
@@ -399,7 +413,9 @@ function recipeRow(r, s) {
       <span class="rname">${dietDot(r)} ${esc(r.name)}</span>
       <span class="badges">${ratingBadge(s, r)}${exclBadge(s, r)}</span>
       <span class="meta">${esc(r.cuisine)} · ${r.time} min · ${r.tags.includes('ip') ? 'Instant Pot · ' : ''}${r.tags.includes('af') ? 'air fryer · ' : ''}${PROTEIN_LABEL[r.mainProtein] || ''}</span>
-      <span class="per"><b>${r.protein} g</b> protein · ${r.kcal} kcal <span class="fine">per standard serving</span></span>
+      <span class="per">${r.protein == null
+        ? `<span class="fine">nutrition unknown</span>`
+        : `<b>${r.nutritionApproximate ? '~' : ''}${r.protein} g</b> protein · ${r.nutritionApproximate ? '~' : ''}${r.kcal} kcal${r.nutritionApproximate ? ' <span class="fine">approx.</span>' : ''} <span class="fine">per standard serving</span>`}</span>
     </button>
     <div class="rrow-actions">
       <button class="act icon-only ${hidden ? 'on' : ''}" data-act="hide" data-id="${r.id}" aria-label="${hidden ? 'Unhide' : 'Never suggest'}">${icon('hide')}</button>
@@ -538,6 +554,16 @@ function pushUi(s) {
 // Quick-add suggestions, filtered to ids that actually exist in the catalog.
 const X_SUGGEST = ['peanuts', 'peanut_butter', 'cashews', 'sesame_seeds', 'sesame_oil', 'egg', 'soy_sauce', 'tofu', 'soya_chunks', 'fish_sauce', 'coconut_milk', 'mushrooms', 'coriander', 'capsicum', 'eggplant', 'okra', 'olives', 'halloumi'];
 
+// Broad allergy categories (allergies only). Excluding one catches every
+// catalog ingredient tagged with that category - including items whose exact
+// species or recipe is unknown - plus made-from forms via derivedFrom.
+const ALLERGEN_CATS = {
+  peanuts: 'Peanuts', tree_nuts: 'Tree nuts', fish: 'Fish', shellfish: 'Shellfish',
+  dairy: 'Dairy', egg: 'Egg', soy: 'Soy', sesame: 'Sesame', gluten: 'Gluten', mustard: 'Mustard',
+};
+const catToken = (c) => `cat:${c}`;
+const exclName = (id) => id.startsWith('cat:') ? (ALLERGEN_CATS[id.slice(4)] || id) : (INGREDIENTS[id]?.name || id);
+
 function renderXResults(s, kind) {
   const el = $(`#xres-${kind}`);
   if (!el) return;
@@ -546,8 +572,14 @@ function renderXResults(s, kind) {
   const ids = (q
     ? Object.keys(INGREDIENTS).filter((id) => !taken.has(id) && INGREDIENTS[id].name.toLowerCase().includes(q)).slice(0, 8)
     : X_SUGGEST.filter((id) => INGREDIENTS[id] && !taken.has(id)).slice(0, 8));
-  el.innerHTML = ids.length
-    ? `<div class="chips wrapchips">${ids.map((id) => `<button class="chip" data-act="xadd" data-k="${kind}" data-id="${id}">${esc(INGREDIENTS[id].name)}</button>`).join('')}</div>
+  const catIds = kind === 'allergies'
+    ? Object.keys(ALLERGEN_CATS).filter((c) => !taken.has(catToken(c)) && (!q || ALLERGEN_CATS[c].toLowerCase().includes(q)))
+    : [];
+  const catRow = catIds.length
+    ? `<div class="chips wrapchips">${catIds.map((c) => `<button class="chip" data-act="xadd" data-k="${kind}" data-id="${catToken(c)}">${esc(ALLERGEN_CATS[c])} <span class="fine">(any)</span></button>`).join('')}</div>
+      <p class="fine">Broad categories - match tagged ingredients and known made-from forms like tahini for sesame.</p>` : '';
+  el.innerHTML = (catIds.length || ids.length)
+    ? `${catRow}<div class="chips wrapchips">${ids.map((id) => `<button class="chip" data-act="xadd" data-k="${kind}" data-id="${id}">${esc(INGREDIENTS[id].name)}</button>`).join('')}</div>
       ${q ? '' : '<p class="fine">Suggestions — search above for anything else.</p>'}`
     : '<p class="fine">No matching ingredients.</p>';
 }
@@ -556,7 +588,7 @@ function renderExclusions(s) {
   const section = (kind, title, hint) => {
     const ids = s.exclusions?.[kind] || [];
     const chips = ids.length
-      ? ids.map((id) => `<span class="chip x${kind === 'allergies' ? 'a' : 'd'}">${esc(INGREDIENTS[id]?.name || id)}<button class="x" data-act="xdel" data-k="${kind}" data-id="${id}" aria-label="Remove ${esc(INGREDIENTS[id]?.name || id)}">×</button></span>`).join('')
+      ? ids.map((id) => `<span class="chip x${kind === 'allergies' ? 'a' : 'd'}">${esc(exclName(id))}<button class="x" data-act="xdel" data-k="${kind}" data-id="${id}" aria-label="Remove ${esc(exclName(id))}">×</button></span>`).join('')
       : '<span class="fine">None added.</span>';
     return `<h3 class="xtitle">${title} <span class="fine">${hint}</span></h3>
       <div class="chips wrapchips">${chips}</div>
@@ -568,7 +600,7 @@ function renderExclusions(s) {
     <p class="fine">Dishes listing these ingredients are skipped when you shuffle, and don't come up as swaps or in the dish picker. Dishes already in this week's plan get a warning badge so you can swap them out.</p>
     ${section('allergies', 'Allergies', 'skipped by the planner')}
     ${section('dislikes', 'Dislikes', 'also skipped')}
-    <p class="fine"><b>Worth knowing:</b> Two Plates checks the ingredients written into its own recipes, plus direct forms of the same food (e.g. peanut butter counts as peanuts). It can't see what's inside packaged sauces, pastes or bread, and cross-contact isn't tracked. For a serious allergy, always check labels yourself.</p>
+    <p class="fine"><b>Worth knowing:</b> Two Plates checks the ingredients written into its own recipes, plus direct forms of the same food (e.g. peanut butter counts as peanuts) and, for allergies, things made from an excluded food (e.g. tahini counts as sesame). Broad categories cover items whose exact variety is unknown. Where a packaged sauce or paste traditionally contains an allergen but recipes vary by brand, dishes are conservatively skipped and marked "may contain" rather than treated as confirmed or cleared. Cross-contact isn't tracked and no filter can guarantee safety. For a serious allergy, always check labels yourself.</p>
   </section>`;
 }
 
@@ -583,8 +615,10 @@ function renderSettings(s) {
   <section class="card">
     <h2>People</h2>
     ${s.people.map((p, i) => {
-      const avgP = recipes.length ? recipes.reduce((a, r) => a + r.protein, 0) / recipes.length : 0;
-      const avgK = recipes.length ? recipes.reduce((a, r) => a + r.kcal, 0) / recipes.length : 0;
+      const knownRecipes = recipes.filter((r) => r.protein != null && r.kcal != null);
+      const avgPartial = knownRecipes.length > 0 && knownRecipes.length < recipes.length;
+      const avgP = knownRecipes.length ? knownRecipes.reduce((a, r) => a + r.protein, 0) / knownRecipes.length : (recipes.length ? null : 0);
+      const avgK = knownRecipes.length ? knownRecipes.reduce((a, r) => a + r.kcal, 0) / knownRecipes.length : (recipes.length ? null : 0);
       const goal = perMealGoal(p, s.rules);
       return `<div class="pblock">
         <label class="field"><span>Name</span><input type="text" data-set="people.${i}.name" value="${esc(p.name)}"></label>
@@ -599,7 +633,7 @@ function renderSettings(s) {
         </div>
         <p class="fine">“Outside plan” = shake, breakfast and snacks on a normal day. What's left is split across lunch and dinner: <b>${goal.min}–${goal.max} g protein per meal</b>.</p>
         <label class="field"><span><span>Portion size: <b>${p.portion.toFixed(2)}×</b> a standard serving</span>
-          <span class="fine">≈ ${Math.round(avgP * p.portion)} g protein · ${Math.round(avgK * p.portion)} kcal per meal this week</span></span>
+          <span class="fine">${avgP == null ? 'Meal average unknown - this week includes dishes with unknown nutrition.' : `≈ ${Math.round(avgP * p.portion)} g protein · ${Math.round(avgK * p.portion)} kcal per meal this week${avgPartial ? ' (known dishes only)' : ''}`}</span></span>
           <input type="range" min="0.5" max="2" step="0.05" data-set="people.${i}.portion" value="${p.portion}">
         </label>
       </div>`;
@@ -851,7 +885,9 @@ const actions = {
   'pantry-toggle': (el) => update((d) => { d.pantry[el.dataset.id] = el.checked; }),
   xadd: (el) => {
     const id = el.dataset.id, kind = el.dataset.k;
-    if (!INGREDIENTS[id] || !['allergies', 'dislikes'].includes(kind)) return;
+    const isCat = id.startsWith('cat:') && !!ALLERGEN_CATS[id.slice(4)];
+    if ((!INGREDIENTS[id] && !isCat) || !['allergies', 'dislikes'].includes(kind)) return;
+    if (isCat && kind !== 'allergies') return; // categories are allergy-only
     ui.xq[kind] = '';
     update((d) => {
       d.exclusions ||= { allergies: [], dislikes: [] };
@@ -859,8 +895,11 @@ const actions = {
       d.exclusions.dislikes = (d.exclusions.dislikes || []).filter((x) => x !== id);
       d.exclusions[kind].push(id);
     });
-    const inWeek = planRecipes(getState()).some((r) => r.items.some((it) => it.id === id));
-    toast(`${INGREDIENTS[id].name} added to ${kind === 'allergies' ? 'allergies' : 'dislikes'}${inWeek ? ' — check this week’s dishes for warnings' : ''}`);
+    const inWeek = planRecipes(getState()).some((r) => {
+      const h = exclusionHits(r, { allergies: [], dislikes: [], [kind]: [id] });
+      return h.allergies.length + h.allergiesPossible.length + h.dislikes.length > 0;
+    });
+    toast(`${exclName(id)} added to ${kind === 'allergies' ? 'allergies' : 'dislikes'}${inWeek ? ' — check this week’s dishes for warnings' : ''}`);
   },
   xdel: (el) => update((d) => {
     const kind = el.dataset.k;

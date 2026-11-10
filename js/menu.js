@@ -11,7 +11,7 @@ const when = weekOf ? new Date(`${weekOf}T12:00:00`).toLocaleDateString('en-AU',
 
 const item = (r) => `<div class="menu-item">
   <div><h3><span class="dot diet-${r.diet}"></span> ${esc(r.name)}</h3>
-    <div class="meta">${esc(r.cuisine)} · ${r.time} min · ${r.protein} g protein per serving</div></div>
+    <div class="meta">${esc(r.cuisine)} · ${r.time} min · ${r.protein == null ? 'nutrition unknown' : `${r.nutritionApproximate ? '~' : ''}${r.protein} g protein per serving`}</div></div>
   <a class="btn small" href="${youtubeUrl(r)}" target="_blank" rel="noopener">Recipe</a>
 </div>`;
 

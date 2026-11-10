@@ -32,6 +32,9 @@ function eligible(state, r) {
   const { rules } = state;
   return !state.hidden.includes(r.id)
     && !hasExclusions(r, state.exclusions)
+    // Unknown nutrition can't satisfy a numeric band: null fails minProtein,
+    // so auto-planning never quietly promises protein it can't verify. The dish
+    // stays manually addable from the dish picker, with its unknown marker.
     && r.protein >= rules.minProtein
     && (rules.cuisineWeights[r.group] ?? 1) > 0;
 }
@@ -53,8 +56,10 @@ export function score(state, r, chosen, recent = recentIds(state)) {
   const sameProtein = chosen.filter((c) => c.mainProtein === r.mainProtein).length;
   if (r.mainProtein !== 'chicken' && sameProtein >= rules.maxSameProtein) return 0;
   w *= r.mainProtein === 'chicken' ? 1 : 0.6 ** sameProtein;
-  const proteinShare = (r.protein * 4) / r.kcal; // share of calories from protein
-  w *= Math.min(1.6, Math.max(0.6, proteinShare / 0.28));
+  if (r.protein != null && r.kcal != null && r.kcal > 0) {
+    const proteinShare = (r.protein * 4) / r.kcal; // share of calories from protein
+    w *= Math.min(1.6, Math.max(0.6, proteinShare / 0.28));
+  } // unknown nutrition: no protein-share nudge either way
   return w;
 }
 
@@ -132,7 +137,7 @@ export function alternatives(state, index, { kind = null, group = null, query = 
     .filter((r) => !taken.has(r.id) && !state.hidden.includes(r.id) && !hasExclusions(r, state.exclusions) && ofKind(r)
       && (!group || r.group === group)
       && (!q || r.name.toLowerCase().includes(q) || r.cuisine.toLowerCase().includes(q)))
-    .map((r) => ({ r, w: score(state, r, others) + (r.protein >= state.rules.minProtein ? 0.01 : 0) }))
+    .map((r) => ({ r, w: score(state, r, others) + (r.protein != null && r.protein >= state.rules.minProtein ? 0.01 : 0) }))
     .sort((a, b) => b.w - a.w)
     .map((x) => x.r);
   const queues = new Map();
@@ -160,8 +165,10 @@ export function randomSwap(state, index) {
   return pickOne(withoutCurrent, others, filters, longLeft);
 }
 
-// Per-person nutrition for one meal of a dish.
+// Per-person nutrition for one meal of a dish. Null when the dish's macros are
+// unknown - callers must render "unknown", never a number.
 export function mealFor(recipe, person) {
+  if (recipe.protein == null || recipe.kcal == null) return { protein: null, kcal: null };
   return { protein: Math.round(recipe.protein * person.portion), kcal: Math.round(recipe.kcal * person.portion) };
 }
 
@@ -180,6 +187,10 @@ export function dailyEstimate(state) {
   const meals = state.rules.mealsPerDish;
   return state.people.map((p) => {
     if (!recipes.length) return { person: p, protein: p.outsideProtein, kcal: p.outsideKcal };
+    // No imputation: when any planned dish has unknown nutrition the day
+    // estimate is unavailable - never fabricated from averages of other dishes.
+    const unknownCount = recipes.filter((r) => r.protein == null || r.kcal == null).length;
+    if (unknownCount) return { person: p, protein: null, kcal: null, unavailable: true, unknownCount };
     const avgP = recipes.reduce((s, r) => s + r.protein, 0) / recipes.length;
     const avgK = recipes.reduce((s, r) => s + r.kcal, 0) / recipes.length;
     return {

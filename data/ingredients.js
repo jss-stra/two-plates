@@ -240,3 +240,47 @@ export const INGREDIENTS = {
   bay_leaf: SPICE('Bay leaves', { unit: 'pc', g: 0.2 }),
   dried_chilli: SPICE('Dried red chillies', { unit: 'pc', g: 0.5 }),
 };
+
+// Allergen categories for the existing catalog (the imported batch carries its
+// own tags inline). Two strengths, never merged:
+// - allergenCats: DEFINITE - the food is, or is made from, the allergen by
+//   definition (peanut butter is peanuts; regular soy sauce is brewed from
+//   soybeans and wheat; fish sauce is fermented fish).
+// - possibleCats: POSSIBLE - a standard/traditional recipe contains it but
+//   packaged formulations genuinely vary by brand (Thai curry pastes usually
+//   contain shrimp paste and may contain fish; pesto usually contains nuts).
+// Possible tags still exclude conservatively for allergies, but the UI
+// discloses them as "may contain", never as confirmed. Neither list promises
+// safety: cross-contact and brand reformulation aren't tracked.
+const ALLERGEN_CAT_TAGS = {
+  egg: ['egg', 'egg_whites', 'light_mayo'],
+  dairy: ['paneer', 'greek_yogurt', 'light_milk', 'light_cream', 'cottage_cheese', 'ricotta', 'mozzarella', 'parmesan', 'feta', 'cheddar', 'halloumi', 'butter', 'ghee'],
+  soy: ['tofu', 'silken_tofu', 'tempeh', 'edamame', 'soya_chunks', 'soy_sauce', 'miso', 'hoisin', 'chilli_bean_paste'],
+  fish: ['fish_sauce'],
+  shellfish: ['oyster_sauce'],
+  peanuts: ['peanuts', 'peanut_butter'],
+  tree_nuts: ['cashews'],
+  sesame: ['sesame_seeds', 'sesame_oil', 'hummus'],
+  gluten: ['wraps', 'bread', 'buns', 'lebanese_bread', 'atta', 'plain_flour', 'wm_pasta', 'lasagne', 'orzo', 'gnocchi', 'panko', 'hokkien', 'udon', 'soba', 'ramen', 'dumpling_wrappers', 'soy_sauce', 'chilli_bean_paste'],
+  mustard: ['dijon', 'mustard_seeds'],
+};
+const ALLERGEN_POSSIBLE_TAGS = {
+  soy: ['schezwan'],
+  fish: ['kimchi', 'red_curry', 'green_curry', 'tom_yum_paste', 'laksa_paste'],
+  shellfish: ['kimchi', 'red_curry', 'green_curry', 'tom_yum_paste', 'laksa_paste'],
+  peanuts: ['massaman'],
+  tree_nuts: ['pesto'],
+  gluten: ['tortillas'],
+};
+for (const [cat, ids] of Object.entries(ALLERGEN_CAT_TAGS)) {
+  for (const id of ids) {
+    if (!INGREDIENTS[id]) throw new Error(`allergenCats tag for unknown ingredient: ${id}`);
+    INGREDIENTS[id].allergenCats = [...(INGREDIENTS[id].allergenCats || []), cat];
+  }
+}
+for (const [cat, ids] of Object.entries(ALLERGEN_POSSIBLE_TAGS)) {
+  for (const id of ids) {
+    if (!INGREDIENTS[id]) throw new Error(`possibleCats tag for unknown ingredient: ${id}`);
+    INGREDIENTS[id].possibleCats = [...(INGREDIENTS[id].possibleCats || []), cat];
+  }
+}
