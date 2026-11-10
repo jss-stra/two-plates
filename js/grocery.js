@@ -120,7 +120,7 @@ export function weeklyNoteText(state, { amounts = false } = {}) {
   const veg = recipes.filter((r) => kindOf(r, state.rules.eggsCountAsVeg) === 'veg');
   return [
     'THIS WEEK',
-    ...(chicken.length ? ['Non-veg:', ...chicken.map(line)] : []),
+    ...(chicken.length ? ['Chicken & turkey:', ...chicken.map(line)] : []),
     ...(veg.length ? ['Veg:', ...veg.map(line)] : []),
     '',
     'GROCERIES',

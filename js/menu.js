@@ -23,7 +23,7 @@ document.title = `${no ? `Week ${no} Menu` : 'Weekly Menu'} – Two Plates`;
 document.getElementById('menu').innerHTML = dishes.length ? `
   <div class="menu-hero"><img src="icons/icon.svg" alt="">
     <h1>${title}</h1><div class="muted">${when ? `Week of ${esc(when)} · ` : ''}${dishes.length} dishes, cooked at home</div></div>
-  ${chicken.length ? `<section class="card"><h2>Non-veg</h2>${chicken.map(item).join('')}</section>` : ''}
+  ${chicken.length ? `<section class="card"><h2>Chicken &amp; turkey</h2>${chicken.map(item).join('')}</section>` : ''}
   ${veg.length ? `<section class="card"><h2>Veg</h2>${veg.map(item).join('')}</section>` : ''}
   <p class="fine foot">Planned with Two Plates · each dinner also makes the next day's lunch</p>`
   : '<p class="empty">This menu link looks incomplete.</p>';

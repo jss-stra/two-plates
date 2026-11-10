@@ -93,11 +93,3 @@ Week → Plan my prep starts with no dishes selected. Tick the dishes to work on
 New state fields (`occasions`, `prep`) live in the existing shared meal-state JSON, so they use the current phone sync and backups. No database changes or new services are needed. Existing sync is whole-document last-write-wins except for daily logs; simultaneous edits to groceries from two phones are not conflict-free.
 
 Tests: `node test-features.mjs`; `node tools/validate.mjs`.
-
-## Recipe data attribution
-
-The world-cuisine dishes under `data/recipes/world-*.js` and `data/recipes/*-additions.js` adapt
-[UniTools World Recipes v2.0](https://github.com/farcrak/unitools-recipes) (UniTools, CC BY-SA 4.0).
-See [ATTRIBUTION.md](ATTRIBUTION.md) for the license, the changes made, and per-dish provenance in
-`data/recipes-manifest.json`. New-ingredient nutrition comes from USDA FoodData Central SR Legacy
-(public domain), with the reference quoted per entry in `data/ingredients.js`.

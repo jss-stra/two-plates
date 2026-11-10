@@ -272,15 +272,15 @@ function renderWeek(s) {
     </div>
   </section>` : ''}
 
-  ${section('chicken', 'Non-veg')}
+  ${section('chicken', 'Chicken &amp; turkey')}
   ${section('veg', 'Veg')}
 
   ${s.plan.finalizedAt ? '' : `<div class="remix-row">
-    <span class="mix-count">${s.rules.chickenDishes} non-veg · ${s.rules.vegDishes} veg</span>
+    <span class="mix-count">${s.rules.chickenDishes} chicken · ${s.rules.vegDishes} veg</span>
     <button class="btn small" data-act="shuffle">${icon('shuffle')} Shuffle${lockedCount ? ` (keeps ${lockedCount} locked)` : ''}</button>
     <details class="mix-detail"><summary>Change the mix</summary>
       <div class="toolbar">
-        ${counter('Non-veg', 'chickenDishes', s.rules.chickenDishes, 7 - s.rules.vegDishes)}
+        ${counter('Chicken', 'chickenDishes', s.rules.chickenDishes, 7 - s.rules.vegDishes)}
         ${counter('Veg', 'vegDishes', s.rules.vegDishes, 7 - s.rules.chickenDishes)}
       </div>
     </details>
@@ -390,26 +390,6 @@ function ingredientList(r, s) {
   }).join('')}</ul>`;
 }
 
-// Cooking method for dishes that ship one (world import): lazy-fetched per dish,
-// cached by the service worker after first view. Dishes without a file keep YouTube only.
-const stepsCache = new Map();
-async function loadSteps(id) {
-  const box = document.querySelector(`[data-steps-for="${id}"]`);
-  if (!box) return;
-  if (!stepsCache.has(id)) {
-    try {
-      const res = await fetch(`data/instructions/${id}.json`);
-      stepsCache.set(id, res.ok ? await res.json() : null);
-    } catch { stepsCache.set(id, null); }
-  }
-  const d = stepsCache.get(id);
-  if (!d || !document.querySelector(`[data-steps-for="${id}"]`)) return;
-  const src = d.source || {};
-  box.innerHTML = `<div class="fine">How to cook it:</div>
-    <ol class="steps-list">${(d.steps || []).map((s) => `<li>${esc(s)}</li>`).join('')}</ol>
-    <p class="fine">Method from <a class="link" href="${esc(src.url || 'https://github.com/farcrak/unitools-recipes')}" target="_blank" rel="noopener">${esc(src.name || 'UniTools World Recipes v2.0')}</a>, ${esc(src.license || 'CC BY-SA 4.0')}${src.modified === false ? ', used unmodified' : ''}.</p>`;
-}
-
 function recipeRow(r, s) {
   const inWeek = s.plan.slots.some((x) => x.id === r.id);
   const hidden = s.hidden.includes(r.id);
@@ -429,7 +409,6 @@ function recipeRow(r, s) {
       ${starsFor(s, r)}
       <div class="fine">Rough ingredients for your household (${s.rules.mealsPerDish === 2 ? 'dinner + lunch' : 'dinner'}):</div>
       ${ingredientList(r, s)}
-      <div class="steps" data-steps-for="${r.id}"></div>
       <a class="btn small" href="${youtubeUrl(r)}" target="_blank" rel="noopener">${icon('play')} Find it on YouTube</a>
     </div>` : ''}
   </div>`;
@@ -643,13 +622,13 @@ function renderSettings(s) {
     <div class="rule"><span>Weeknight time limit</span>${segSet('rules.maxTime', s.rules.maxTime, [[30, '30m'], [45, '45m'], [60, '60m'], [90, 'Any']])}</div>
     <div class="rule"><span>Longer dishes allowed / week</span>${segSet('rules.longPerWeek', s.rules.longPerWeek, [[0, '0'], [1, '1'], [2, '2']])}</div>
     <div class="rule"><span>Min protein per serving</span>${segSet('rules.minProtein', s.rules.minProtein, [[15, '15g'], [20, '20g'], [25, '25g'], [30, '30g']])}</div>
-    <p class="fine">Set how many non-veg and veg dishes you want on the Week tab.</p>
+    <p class="fine">Set how many chicken and veg dishes you want on the Week tab.</p>
   </section>
 
   <section class="card">
     <h2>How often each cuisine comes up</h2>
     <p class="fine">Your star ratings matter more than these: 5★ dishes come up about 3× as often, 1★ almost never.</p>
-    ${GROUPS.map((g) => `<div class="rule"><span>${esc(g)}</span>${segSet(`rules.cuisineWeights.${g}`, s.rules.cuisineWeights[g] ?? 2, [[0, 'Never'], [1, 'Rarely'], [2, 'Often'], [3, 'Lots']])}</div>`).join('')}
+    ${GROUPS.map((g) => `<div class="rule"><span>${esc(g)}</span>${segSet(`rules.cuisineWeights.${g}`, s.rules.cuisineWeights[g] ?? 1, [[0, 'Never'], [1, 'Rarely'], [2, 'Often'], [3, 'Lots']])}</div>`).join('')}
   </section>
 
   <section class="card">
@@ -768,7 +747,7 @@ function menuMessage(s, no, weekOf, ids) {
   const chicken = recipes.filter((r) => kindOf(r, s.rules.eggsCountAsVeg) === 'chicken');
   const veg = recipes.filter((r) => kindOf(r, s.rules.eggsCountAsVeg) === 'veg');
   return [`🍽️ Week ${no} menu — week of ${fmtWeek(weekOf)}`, '',
-    ...(chicken.length ? ['*Non-veg*', ...chicken.map(line), ''] : []),
+    ...(chicken.length ? ['*Chicken & turkey*', ...chicken.map(line), ''] : []),
     ...(veg.length ? ['*Veg*', ...veg.map(line), ''] : []),
     `Full menu: ${menuUrl(no, weekOf, ids)}`].join('\n');
 }
@@ -857,13 +836,9 @@ const actions = {
     if (s.plan.finalizedAt) { toast('This week is finalized — tap “Edit week” on the Week tab first'); return; }
     if (targetDishes(s.rules) >= 7) { toast('Week is full — use “Pick” on a dish in the Week tab to replace it'); return; }
     update((d) => { d.plan.slots.push({ id: r.id, locked: true }); d.rules[key]++; resizePlan(d); });
-    toast(`Added to this week as a ${kind === 'veg' ? 'veg' : 'non-veg'} dish (locked)`);
+    toast(`Added to this week as a ${kind === 'veg' ? 'veg' : 'chicken'} dish (locked)`);
   },
-  expand: (el) => {
-    ui.expanded = ui.expanded === el.dataset.id ? null : el.dataset.id;
-    renderRecipeList(getState());
-    if (ui.expanded) loadSteps(ui.expanded);
-  },
+  expand: (el) => { ui.expanded = ui.expanded === el.dataset.id ? null : el.dataset.id; renderRecipeList(getState()); },
   rtoggle: (el) => { ui[el.dataset.k] = !ui[el.dataset.k]; ui.showAll = false; render(); },
   'recipes-more': () => { ui.showAll = true; renderRecipeList(getState()); },
   gview: (el) => { ui.gview = el.dataset.v; render(); },
