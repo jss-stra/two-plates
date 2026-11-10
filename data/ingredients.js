@@ -253,7 +253,7 @@ export const INGREDIENTS = {
 // discloses them as "may contain", never as confirmed. Neither list promises
 // safety: cross-contact and brand reformulation aren't tracked.
 const ALLERGEN_CAT_TAGS = {
-  egg: ['egg', 'egg_whites', 'light_mayo'],
+  egg: ['egg', 'egg_whites'],
   dairy: ['paneer', 'greek_yogurt', 'light_milk', 'light_cream', 'cottage_cheese', 'ricotta', 'mozzarella', 'parmesan', 'feta', 'cheddar', 'halloumi', 'butter', 'ghee'],
   soy: ['tofu', 'silken_tofu', 'tempeh', 'edamame', 'soya_chunks', 'soy_sauce', 'miso', 'hoisin', 'chilli_bean_paste'],
   fish: ['fish_sauce'],
@@ -266,6 +266,10 @@ const ALLERGEN_CAT_TAGS = {
   celery: ['celery'],
 };
 const ALLERGEN_POSSIBLE_TAGS = {
+  // Traditional mayonnaise is egg-based, but packaged 'mayonnaise'
+  // formulations genuinely vary (egg-free products use the name), and no
+  // product naming rule is treated here as composition evidence.
+  egg: ['light_mayo'],
   soy: ['schezwan'],
   fish: ['kimchi', 'red_curry', 'green_curry', 'tom_yum_paste', 'laksa_paste'],
   shellfish: ['kimchi', 'red_curry', 'green_curry', 'tom_yum_paste', 'laksa_paste'],
