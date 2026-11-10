@@ -560,6 +560,7 @@ const X_SUGGEST = ['peanuts', 'peanut_butter', 'cashews', 'sesame_seeds', 'sesam
 const ALLERGEN_CATS = {
   peanuts: 'Peanuts', tree_nuts: 'Tree nuts', fish: 'Fish', shellfish: 'Shellfish',
   dairy: 'Dairy', egg: 'Egg', soy: 'Soy', sesame: 'Sesame', gluten: 'Gluten', mustard: 'Mustard',
+  celery: 'Celery',
 };
 const catToken = (c) => `cat:${c}`;
 const exclName = (id) => id.startsWith('cat:') ? (ALLERGEN_CATS[id.slice(4)] || id) : (INGREDIENTS[id]?.name || id);

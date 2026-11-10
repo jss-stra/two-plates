@@ -263,6 +263,7 @@ const ALLERGEN_CAT_TAGS = {
   sesame: ['sesame_seeds', 'sesame_oil', 'hummus'],
   gluten: ['wraps', 'bread', 'buns', 'lebanese_bread', 'atta', 'plain_flour', 'wm_pasta', 'lasagne', 'orzo', 'gnocchi', 'panko', 'hokkien', 'udon', 'soba', 'ramen', 'dumpling_wrappers', 'soy_sauce', 'chilli_bean_paste'],
   mustard: ['dijon', 'mustard_seeds'],
+  celery: ['celery'],
 };
 const ALLERGEN_POSSIBLE_TAGS = {
   soy: ['schezwan'],
