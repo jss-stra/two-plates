@@ -1,5 +1,5 @@
 // Picks the week's mix of chicken and veg dishes and works out per-person nutrition.
-import { RECIPES, RECIPE_BY_ID, isVeg, kindOf } from './data.js';
+import { RECIPES, RECIPE_BY_ID, isVeg, kindOf, hasExclusions } from './data.js';
 
 const isIndianVeg = (r, rules) => r.group === 'Indian' && isVeg(r, rules.eggsCountAsVeg);
 const kindFilter = (kind, rules) => (kind === 'veg'
@@ -31,6 +31,7 @@ function ratingWeight(state, r) {
 function eligible(state, r) {
   const { rules } = state;
   return !state.hidden.includes(r.id)
+    && !hasExclusions(r, state.exclusions)
     && r.protein >= rules.minProtein
     && (rules.cuisineWeights[r.group] ?? 1) > 0;
 }
@@ -128,7 +129,7 @@ export function alternatives(state, index, { kind = null, group = null, query = 
   const q = query.trim().toLowerCase();
   const ofKind = kind ? kindFilter(kind, state.rules) : () => true;
   const ranked = RECIPES
-    .filter((r) => !taken.has(r.id) && !state.hidden.includes(r.id) && ofKind(r)
+    .filter((r) => !taken.has(r.id) && !state.hidden.includes(r.id) && !hasExclusions(r, state.exclusions) && ofKind(r)
       && (!group || r.group === group)
       && (!q || r.name.toLowerCase().includes(q) || r.cuisine.toLowerCase().includes(q)))
     .map((r) => ({ r, w: score(state, r, others) + (r.protein >= state.rules.minProtein ? 0.01 : 0) }))

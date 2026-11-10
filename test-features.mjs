@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import {defaultState} from './js/state.js';
 import {buildGrocery, groceryText} from './js/grocery.js';
+import {generateSlots, alternatives} from './js/planner.js';
 import {RECIPES,RECIPE_BY_ID,INGREDIENTS} from './js/data.js';
 import {prepTasks,fitTasks} from './js/prep.js';
 const s=defaultState(),r=RECIPES[0];s.plan.slots=[{id:r.id}];
@@ -14,3 +15,20 @@ const tasks=prepTasks(s,'2026-11-07',s.plan.slots.map(x=>x.id));assert(tasks.fin
 s.prep.dates['chicken-pad-thai-lighter']='2026-11-08';assert(!prepTasks(s,'2026-11-07',['chicken-pad-thai-lighter']).some(x=>!x.ahead));
 for(const id of Object.keys((await import('./data/prep-guides.js')).PREP_GUIDES))assert(RECIPE_BY_ID[id]);
 console.log('PASS: party quantities, merged provenance, extras, active toggle, copy amounts, selected prep, shared tasks, budget, date safety');
+
+{
+  const sx = defaultState();
+  sx.exclusions = { allergies: ['cashews'], dislikes: ['mushrooms'] };
+  sx.plan.slots = generateSlots(sx);
+  assert(sx.plan.slots.length === 5);
+  for (const sl of sx.plan.slots) {
+    const rr = RECIPE_BY_ID[sl.id];
+    assert(rr && !rr.items.some((it) => it.id === 'cashews' || it.id === 'mushrooms'));
+  }
+  const alt = alternatives(sx, 0, {});
+  assert(alt.length > 0);
+  assert(!alt.some((r) => r.items.some((it) => it.id === 'cashews' || it.id === 'mushrooms')));
+  assert(RECIPE_BY_ID['paneer-butter-masala-lighter'].items.some((it) => it.id === 'cashews'));
+  assert(RECIPE_BY_ID['mushroom-paneer-masala'].items.some((it) => it.id === 'mushrooms'));
+  console.log('PASS: exclusions keep allergens and dislikes out of picks and swaps');
+}

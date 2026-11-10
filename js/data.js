@@ -109,3 +109,21 @@ export function youtubeUrl(recipe) {
 export function isVeg(recipe, eggsCountAsVeg) {
   return recipe.diet === 'veg' || (eggsCountAsVeg && recipe.diet === 'egg');
 }
+
+// Which excluded ingredients (Settings → Allergies & dislikes) a dish contains,
+// split by list. Only checks the recipe's own ingredient list — it can't see
+// what's inside packaged sauces, pastes or bread, and cross-contact isn't tracked.
+export function exclusionHits(recipe, exclusions) {
+  const hits = { allergies: [], dislikes: [] };
+  if (!exclusions) return hits;
+  const have = new Set(recipe.items.map((it) => it.id));
+  for (const kind of ['allergies', 'dislikes']) {
+    for (const id of exclusions[kind] || []) if (have.has(id)) hits[kind].push(id);
+  }
+  return hits;
+}
+
+export const hasExclusions = (recipe, exclusions) => {
+  const h = exclusionHits(recipe, exclusions);
+  return h.allergies.length + h.dislikes.length > 0;
+};

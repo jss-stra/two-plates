@@ -466,3 +466,15 @@ label.btn.busy { opacity: .6; pointer-events: none; }
 .prep-task ol, .occasion ol { padding-left:20px; }
 .occasion li { margin-bottom:10px; line-height:1.5; }
 .prep-choice { display:flex; }
+
+/* Allergies & dislikes */
+:root { --danger: #a33b2b; --danger-soft: #f6dcd6; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --danger: #e07a68; --danger-soft: #3a1f1a; } }
+:root[data-theme="dark"] { --danger: #e07a68; --danger-soft: #3a1f1a; }
+.badge.allerg { background: var(--danger-soft); color: var(--danger); }
+.badge.disl { background: var(--info-soft); color: var(--info); }
+.chip.xa { display: inline-flex; align-items: center; gap: 6px; background: var(--danger-soft); color: var(--danger); border-color: transparent; }
+.chip.xd { display: inline-flex; align-items: center; gap: 6px; background: var(--info-soft); color: var(--info); border-color: transparent; }
+.ings li.xa > span:first-child { color: var(--danger); font-weight: 600; }
+.ings li.xd > span:first-child { color: var(--info); font-weight: 600; }
+.xtitle { margin: 14px 0 8px; font-size: 1rem; }

@@ -1,6 +1,6 @@
 import { renderPrep, setupPrepEvents } from './prep.js';
 import { renderExtrasCard, renderPartiesCard, setupGroceryEvents } from './grocery-ui.js';
-import { RECIPES, RECIPE_BY_ID, GROUPS, INGREDIENTS, DIET_LABEL, PROTEIN_LABEL, youtubeUrl, isVeg, kindOf, DATA_ERRORS } from './data.js';
+import { RECIPES, RECIPE_BY_ID, GROUPS, INGREDIENTS, DIET_LABEL, PROTEIN_LABEL, youtubeUrl, isVeg, kindOf, DATA_ERRORS, exclusionHits } from './data.js';
 import { getState, update, onChange, defaultState, replaceState } from './state.js';
 import { generateSlots, planRecipes, alternatives, randomSwap, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes, localISO } from './planner.js';
 import { renderLog, shiftDay, shiftMonth } from './log.js';
@@ -37,6 +37,7 @@ const ui = {
   gview: 'tobuy', // groceries filter: tobuy | have | bought
   gsection: '', // groceries sub-screen: '' | extras | parties
   showAll: false, // recipes: show every match instead of the first page
+  xq: { allergies: '', dislikes: '' }, // settings: ingredient search text for exclusions
 };
 
 // ---------- Icons ----------
@@ -153,6 +154,16 @@ function ratingBadge(s, r) {
   ].join('');
 }
 
+// Warning badges for dishes containing excluded ingredients (Settings → Allergies & dislikes).
+function exclBadge(s, r) {
+  const h = exclusionHits(r, s.exclusions);
+  const names = (ids) => ids.map((id) => esc(INGREDIENTS[id]?.name || id)).join(', ');
+  return [
+    h.allergies.length ? `<span class="badge allerg">⚠ ${names(h.allergies)}</span>` : '',
+    h.dislikes.length ? `<span class="badge disl">${names(h.dislikes)}</span>` : '',
+  ].join('');
+}
+
 // ---------- Week ----------
 function meter(value, min, max) {
   const top = Math.max(max * 1.35, value * 1.05);
@@ -191,7 +202,7 @@ function dishCard(r, i, slot, s) {
   const final = !!s.plan.finalizedAt;
   return `<li class="dish ${slot.locked && !final ? 'locked' : ''}">
     <div class="dish-top">
-      <span class="badges">${ratingBadge(s, r)}</span>
+      <span class="badges">${ratingBadge(s, r)}${exclBadge(s, r)}</span>
       ${slot.locked && !final ? `<span class="locked-tag">${icon('lock')} Locked</span>` : ''}
     </div>
     <h3>${esc(r.name)}</h3>
@@ -370,9 +381,12 @@ function filteredRecipes(s) {
 
 function ingredientList(r, s) {
   const factor = scaleFactor(s);
+  const xa = new Set(s.exclusions?.allergies || []);
+  const xd = new Set(s.exclusions?.dislikes || []);
   return `<ul class="ings">${r.items.map(({ id, qty }) => {
     const ing = INGREDIENTS[id];
-    return `<li><span>${esc(ing.name)}</span><span>${esc(qtyText(formatQty(ing, qty * factor)))}</span></li>`;
+    const cls = xa.has(id) ? 'xa' : xd.has(id) ? 'xd' : '';
+    return `<li${cls ? ` class="${cls}"` : ''}><span>${esc(ing.name)}</span><span>${esc(qtyText(formatQty(ing, qty * factor)))}</span></li>`;
   }).join('')}</ul>`;
 }
 
@@ -383,7 +397,7 @@ function recipeRow(r, s) {
   return `<div class="rrow ${open ? 'open' : ''}">
     <button class="rrow-main" data-act="expand" data-id="${r.id}">
       <span class="rname">${dietDot(r)} ${esc(r.name)}</span>
-      <span class="badges">${ratingBadge(s, r)}</span>
+      <span class="badges">${ratingBadge(s, r)}${exclBadge(s, r)}</span>
       <span class="meta">${esc(r.cuisine)} · ${r.time} min · ${r.tags.includes('ip') ? 'Instant Pot · ' : ''}${r.tags.includes('af') ? 'air fryer · ' : ''}${PROTEIN_LABEL[r.mainProtein] || ''}</span>
       <span class="per"><b>${r.protein} g</b> protein · ${r.kcal} kcal <span class="fine">per standard serving</span></span>
     </button>
@@ -520,6 +534,44 @@ function pushUi(s) {
     <p class="fine">Sends a notification at 9am, noon, 3pm, 6pm and 9pm if no water was logged in the previous 3 hours, plus a 10pm check-in asking how many coffees, teas, milks and shakes you had.</p>`;
 }
 
+// ---------- Exclusions (allergies & dislikes) ----------
+// Quick-add suggestions, filtered to ids that actually exist in the catalog.
+const X_SUGGEST = ['peanuts', 'peanut_butter', 'cashews', 'sesame_seeds', 'sesame_oil', 'egg', 'soy_sauce', 'tofu', 'soya_chunks', 'fish_sauce', 'coconut_milk', 'mushrooms', 'coriander', 'capsicum', 'eggplant', 'okra', 'olives', 'halloumi'];
+
+function renderXResults(s, kind) {
+  const el = $(`#xres-${kind}`);
+  if (!el) return;
+  const q = (ui.xq[kind] || '').trim().toLowerCase();
+  const taken = new Set([...(s.exclusions?.allergies || []), ...(s.exclusions?.dislikes || [])]);
+  const ids = (q
+    ? Object.keys(INGREDIENTS).filter((id) => !taken.has(id) && INGREDIENTS[id].name.toLowerCase().includes(q)).slice(0, 8)
+    : X_SUGGEST.filter((id) => INGREDIENTS[id] && !taken.has(id)).slice(0, 8));
+  el.innerHTML = ids.length
+    ? `<div class="chips wrapchips">${ids.map((id) => `<button class="chip" data-act="xadd" data-k="${kind}" data-id="${id}">${esc(INGREDIENTS[id].name)}</button>`).join('')}</div>
+      ${q ? '' : '<p class="fine">Suggestions — search above for anything else.</p>'}`
+    : '<p class="fine">No matching ingredients.</p>';
+}
+
+function renderExclusions(s) {
+  const section = (kind, title, hint) => {
+    const ids = s.exclusions?.[kind] || [];
+    const chips = ids.length
+      ? ids.map((id) => `<span class="chip x${kind === 'allergies' ? 'a' : 'd'}">${esc(INGREDIENTS[id]?.name || id)}<button class="x" data-act="xdel" data-k="${kind}" data-id="${id}" aria-label="Remove ${esc(INGREDIENTS[id]?.name || id)}">×</button></span>`).join('')
+      : '<span class="fine">None added.</span>';
+    return `<h3 class="xtitle">${title} <span class="fine">${hint}</span></h3>
+      <div class="chips wrapchips">${chips}</div>
+      <div class="searchbar">${icon('search')}<input id="xq-${kind}" type="search" placeholder="Add an ingredient…" value="${esc(ui.xq[kind])}" autocomplete="off"></div>
+      <div id="xres-${kind}"></div>`;
+  };
+  return `<section class="card">
+    <h2>Allergies &amp; dislikes</h2>
+    <p class="fine">Dishes containing these ingredients won't be picked when you shuffle, and won't come up as swaps or in the dish picker. Dishes already in this week's plan get a warning badge so you can swap them out.</p>
+    ${section('allergies', 'Allergies', 'never suggested')}
+    ${section('dislikes', 'Dislikes', 'also skipped')}
+    <p class="fine"><b>Worth knowing:</b> Two Plates only checks the ingredients written into its own recipes. It can't see what's inside packaged sauces, pastes or bread, and cross-contact isn't tracked. For a serious allergy, always check labels yourself.</p>
+  </section>`;
+}
+
 function renderSettings(s) {
   const recipes = planRecipes(s);
   const cfg = getConfig() || {};
@@ -553,6 +605,8 @@ function renderSettings(s) {
       </div>`;
     }).join('')}
   </section>
+
+  ${renderExclusions(s)}
 
   <section class="card">
     <h2>Water reminders</h2>
@@ -654,6 +708,7 @@ function render() {
   const scroll = window.scrollY;
   main.innerHTML = (views[ui.tab] || renderWeek)(s);
   if (ui.tab === 'recipes') renderRecipeList(s);
+  if (ui.tab === 'settings') { renderXResults(s, 'allergies'); renderXResults(s, 'dislikes'); }
   const tabAlias = { bought: 'groceries', prep: 'week', settings: '' };
   const active = tabAlias[ui.tab] ?? ui.tab;
   document.querySelectorAll('.tabbar button').forEach((b) => b.classList.toggle('on', b.dataset.tab === active));
@@ -794,6 +849,23 @@ const actions = {
   'toggle-log': (el) => { ui.logBought = el.checked; render(); },
   pantry: (el) => update((d) => { d.pantry[el.dataset.id] = el.dataset.v === 'true'; }),
   'pantry-toggle': (el) => update((d) => { d.pantry[el.dataset.id] = el.checked; }),
+  xadd: (el) => {
+    const id = el.dataset.id, kind = el.dataset.k;
+    if (!INGREDIENTS[id] || !['allergies', 'dislikes'].includes(kind)) return;
+    ui.xq[kind] = '';
+    update((d) => {
+      d.exclusions ||= { allergies: [], dislikes: [] };
+      d.exclusions.allergies = (d.exclusions.allergies || []).filter((x) => x !== id);
+      d.exclusions.dislikes = (d.exclusions.dislikes || []).filter((x) => x !== id);
+      d.exclusions[kind].push(id);
+    });
+    const inWeek = planRecipes(getState()).some((r) => r.items.some((it) => it.id === id));
+    toast(`${INGREDIENTS[id].name} added to ${kind}${inWeek ? ' — check this week’s dishes for warnings' : ''}`);
+  },
+  xdel: (el) => update((d) => {
+    const kind = el.dataset.k;
+    if (d.exclusions?.[kind]) d.exclusions[kind] = d.exclusions[kind].filter((x) => x !== el.dataset.id);
+  }),
   'del-extra': (el) => update((d) => { d.extras = d.extras.filter((x) => x.id !== el.dataset.id); }),
   'uncheck-all': () => update((d) => { d.checked = {}; }),
   export: async () => {
@@ -967,6 +1039,11 @@ document.addEventListener('change', (e) => {
 });
 
 document.addEventListener('input', (e) => {
+  if (e.target.id === 'xq-allergies' || e.target.id === 'xq-dislikes') {
+    const kind = e.target.id.slice(3);
+    ui.xq[kind] = e.target.value;
+    renderXResults(getState(), kind);
+  }
   if (e.target.id === 'q') { ui.search = e.target.value; ui.showAll = false; renderRecipeList(getState()); }
   if (e.target.id === 'sq' && ui.sheet) { ui.sheet.query = e.target.value; renderSheetList(getState()); }
   // Live label for portion sliders without re-rendering mid-drag.
