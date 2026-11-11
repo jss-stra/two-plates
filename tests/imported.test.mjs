@@ -185,4 +185,48 @@ t('Ohrid potato juice contact separately checked',ot.safety.replacements[6].incl
 t('Ohrid shared totals and wine caveats travel to groceries',importedShoppingRows(ot,base).every(x=>x.aisleLabel.includes('shared totals; contains wine')));
 t('Ohrid actual Fish display and fixed four servings',displayKind(ot,true)==='fish' && ot.baseServings===4 && ot.time===null);
 console.log(`Ohrid contract: ${pass} passed, ${fail} failed`);
+// Wikibooks source-native contract (pinned revisions, monolingual source)
+const wb = (id) => IMPORTED.get('wikibooks:' + id);
+const wbIds = ['paprika-chicken', 'vegetarian-soft-tacos', 'adult-mac-and-cheese', 'agnolotti-in-brodo', 'galician-garbanzo-soup', 'pork-and-lima-skillet'];
+for (const id of wbIds) {
+  const r = wb(id);
+  t(`${id} registered`, !!r);
+  t(`${id} attribution pinned`, r.src.rights.credit.includes('Wikibooks') && /wikibooks\.org/.test(r.src.rights.sourceUrl) && Number.isInteger(r.src.sourceRecord.revid));
+  t(`${id} license retained`, r.src.rights.license === 'CC BY-SA 4.0 and GFDL');
+  t(`${id} source label for adaptation headers`, r.src.sourceLabel === 'Wikibooks Cookbook');
+  t(`${id} nutrition unknown despite any source summary`, r.src.nutritionStatus === 'unknown' && r.src.nutrition.kcal === null);
+  t(`${id} fixed base, no time band`, r.time === null && r.src.sourceTimes.guaranteedElapsedTime === false);
+  t(`${id} verbatim source line raws kept`, r.src.lines.every(l => typeof l.source.raw === 'string' && l.source.raw.length > 0));
+}
+const pc = wb('paprika-chicken');
+t('Paprika source serving range kept as range', pc.baseServings === '6–8' && pc.src.sourceRecord.baseServings === '6–8');
+t('Paprika quantity ranges kept, not rounded', pc.src.lines.find(l=>l.name==='Sweet paprika').quantity === '2–4' && pc.src.lines.find(l=>l.name==='Olive oil').quantity === '5–7');
+t('Paprika unquantified salt/parsley visible, not invented', pc.limitation.detail.includes('without quantities') && pc.src.lines.find(l=>l.name==='Salt').unit === 'toTaste');
+t('Paprika process water gap visible', pc.limitation.detail.includes('unquantified process'));
+t('Paprika poultry endpoint replaces time/tenderness cue', pc.safety.replacements[4].includes('75°C') && pc.safety.replacements[4].includes('avoiding bone'));
+t('Paprika reviewed as chicken from explicit source line', pc.diet === 'nonveg' && displayKind(pc, true) === 'chicken');
+const pl = wb('pork-and-lima-skillet');
+t('Pork-lima endpoint measured, not brown/heated-through', pl.safety.replacements[6].includes('71°C') && pl.safety.replacements[6].includes('from the side'));
+t('Pork-lima browning kept colour-only', pl.safety.replacements[2].includes('not a doneness check'));
+t('Pork-lima reviewed pork', pl.diet === 'nonveg' && displayKind(pl, true) === 'pork' && pl.baseServings === '5–6');
+t('Pork-lima lima package deferral visible', pl.limitation.detail.includes('package directions'));
+const tx = wb('vegetarian-soft-tacos');
+t('Tacos can-size gap visible', tx.limitation.detail.includes('without a can size') && tx.src.lines.find(l=>l.name==='Refried beans').quantity === '1');
+t('Tacos sour cream unquantified', tx.src.lines.find(l=>l.name==='Sour cream').unit === 'toTaste');
+t('Tacos unknown diet despite source vegetarian claim', tx.diet === 'unknown' && tx.src.sourceDietClaims.includes('vegetarian'));
+t('Tacos toppings traced to source steps', tx.src.lines.find(l=>l.name==='Refried beans').methodSteps.length >= 1);
+const am = wb('adult-mac-and-cheese');
+t('Mac source nutrition summary provenance only', typeof am.src.sourceRecord.nutritionSummaryRaw === 'string' && am.src.nutrition.kcal === null && am.limitation.detail.includes('nutrition stays unknown'));
+t('Mac butter division kept from source', am.src.lines.find(l=>l.name==='Unsalted butter').note.en.includes('divided') && am.limitation.detail.includes('1 tbsp at a time'));
+t('Mac unknown diet (cheese formulations)', am.diet === 'unknown');
+const ag = wb('agnolotti-in-brodo');
+t('Agnolotti soup only and sherry visible', ag.name.includes('(soup only)') && ag.limitation.detail.includes('sherry') && ag.limitation.detail.includes('no alcohol-free claim'));
+t('Agnolotti broth alternative has method on both branches', ag.src.lines.find(l=>l.name==='Chicken broth').methodTraceStatus === 'alternative_both_with_method');
+t('Agnolotti package deferral visible, diet unclassified', ag.limitation.detail.includes('package directions') && ag.diet === 'unknown');
+const gg = wb('galician-garbanzo-soup');
+t('Garbanzo soup only, broth alternative traced', gg.name.includes('(soup only)') && gg.src.lines.find(l=>l.name==='Vegetable broth').methodTraceStatus === 'alternative_both_with_method');
+t('Garbanzo basil notes-only gap visible, no invented step', gg.src.lines.find(l=>l.name==='Fresh basil').methodSteps.length === 0 && gg.src.lines.find(l=>l.name==='Fresh basil').methodTraceStatus === 'garnish_in_notes_only' && gg.limitation.detail.includes('serving notes'));
+t('Garbanzo unknown diet despite source veg/gf claims', gg.diet === 'unknown' && gg.src.sourceDietClaims.includes('gluten-free'));
+t('Garbanzo can total kept', gg.src.lines.find(l=>l.name==='Garbanzo beans').quantity === '3' && gg.src.lines.find(l=>l.name==='Garbanzo beans').note.en.includes('45 oz'));
+console.log(`wikibooks contract: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

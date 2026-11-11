@@ -737,6 +737,7 @@ function renderImportedSheet(el, s) {
   const src = r.src;
   const gate = importedAddStatus(s, r.id);
   const rights = src.rights || {};
+  const sourceLabel = src.sourceLabel || 'UniTools';
   const tagLine = (src.sourceDietClaims?.length) ? `<p class="fine">Source diet claims (not verified by Two Plates): ${esc(src.sourceDietClaims.join(', '))}</p>` : '';
   const ings = src.lines.map((l) => `<li><span>${esc(l.name)}</span><span>${l.unit === 'toTaste' ? 'to taste' : `${esc(String(l.quantity))} ${esc(l.unit)}`}${l.note?.en ? ` <span class="fine">(${esc(l.note.en)})</span>` : ''}</span></li>`).join('');
   const sourceSteps = src.steps.map(st => `<li>${esc(st.text.en)}${st.minutes ? ` <span class="fine">(~${st.minutes} min)</span>` : ''}</li>`).join('');
@@ -752,8 +753,9 @@ function renderImportedSheet(el, s) {
       <p class="meta">${dietDot(r)} ${esc(r.cuisine)}${r.country ? ` · ${esc(r.country)}` : ''} · fixed ${r.baseServings}-serving batch${r.diet === 'unknown' ? ' · diet not classified' : ''}${r.limitation ? ` · ${esc(r.limitation.summary)}` : ''}</p>
       <p><span class="badge">nutrition unknown</span>${s.exclusions?.allergies?.length || s.exclusions?.dislikes?.length ? ' <span class="badge allerg">⚠ not allergy-checked</span>' : ''}</p>
       ${src.sourceTimes?.prepMinutes != null || src.sourceTimes?.cookMinutes != null ? `<p class="fine">Prep ${src.sourceTimes.prepMinutes ?? '?'} min · cook ${src.sourceTimes.cookMinutes ?? '?'} min (source times, not added to weekly totals)</p>` : ''}
+      ${src.sourceTimes?.totalMinutes != null && src.sourceTimes?.prepMinutes == null && src.sourceTimes?.cookMinutes == null ? `<p class="fine">About ${src.sourceTimes.totalMinutes} min total (source time, not added to weekly totals)</p>` : ''}
       ${tagLine}
-      ${r.safety ? `<section class="safety-note"><div class="fine">Two Plates editorial adaptation, separate from the original UniTools method</div><h3>${esc(r.safety.title)}</h3><p>${esc(r.safety.note)}</p><p class="fine">Sources: ${r.safety.sources.map(([label,url]) => `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(label)}</a>`).join(' · ')}</p><p><b>Use the adapted cooking steps below.</b></p><p class="fine">Cooking adaptation by Two Plates, shared under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>. The original source method is preserved separately below.</p></section>` : ''}
+      ${r.safety ? `<section class="safety-note"><div class="fine">Two Plates editorial adaptation, separate from the original ${esc(sourceLabel)} method</div><h3>${esc(r.safety.title)}</h3><p>${esc(r.safety.note)}</p><p class="fine">Sources: ${r.safety.sources.map(([label,url]) => `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(label)}</a>`).join(' · ')}</p><p><b>Use the adapted cooking steps below.</b></p><p class="fine">Cooking adaptation by Two Plates, shared under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>. The original source method is preserved separately below.</p></section>` : ''}
       ${r.limitation ? `<p class="import-limit fine"><b>Before you start:</b> ${esc(r.limitation.detail)}</p>` : ''}
       ${r.limitation?.handling ? `<p class="import-limit fine">${esc(r.limitation.handling)} <a href="${esc(r.limitation.handlingUrl)}" target="_blank" rel="noopener">${esc(r.limitation.handlingLabel || 'FSANZ handling guidance')}</a>${r.limitation.handlingExtraUrl ? ` · <a href="${esc(r.limitation.handlingExtraUrl)}" target="_blank" rel="noopener">${esc(r.limitation.handlingExtraLabel)}</a>` : ''}</p>` : ''}
       ${gate.allowed ? '' : `<p class="fine">${esc(gate.reason)}</p>`}
@@ -762,7 +764,7 @@ function renderImportedSheet(el, s) {
       <h3>${r.safety ? 'Cooking steps (Two Plates adaptation)' : 'Steps'}</h3>
       <p class="fine">Minute tags are source metadata. They may differ from times in the instructions and are not tested elapsed times.</p>
       <ol class="steps">${steps}</ol>
-      ${r.safety ? `<details class="source-original"><summary>Original UniTools method (reference only, not cooking directions)</summary><p class="fine">This is unchanged source text for attribution. It may contain endpoints superseded by the Two Plates adaptation above. Do not use it in place of the adapted cooking steps.</p><ol class="steps">${sourceSteps}</ol></details>` : ''}
+      ${r.safety ? `<details class="source-original"><summary>Original ${esc(sourceLabel)} method (reference only, not cooking directions)</summary><p class="fine">This is unchanged source text for attribution. It may contain endpoints superseded by the Two Plates adaptation above. Do not use it in place of the adapted cooking steps.</p><ol class="steps">${sourceSteps}</ol></details>` : ''}
       <p class="fine">Recipe: ${esc(rights.credit || 'source')}${rights.landingPage ? ` — <a href="${esc(rights.landingPage)}" target="_blank" rel="noopener">source</a>` : ''}${rights.license ? ` · <a href="${esc(rights.licenseUrl || '#')}" target="_blank" rel="noopener">${esc(rights.license)}</a>` : ''}${rights.changes ? `<br>Source-record changes: ${esc(rights.changes)}` : ''}</p>
     </div>
   </div>`;
