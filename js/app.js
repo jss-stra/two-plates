@@ -11,6 +11,7 @@ import { startSync, connect, disconnect, flushSync, getConfig, newHouseholdCode,
 import { waterGoal, waterReminderDue, markWaterReminded } from './water.js';
 import { renderHome } from './home.js';
 import { pushStatus, enablePush, disablePush } from './push.js';
+import { initAuth, signInWithGoogle, signOut, onAuth, authUser, authReady } from './auth.js';
 
 const $ = (sel, el = document) => el.querySelector(sel);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -598,6 +599,18 @@ function renderExclusions(s) {
   </section>`;
 }
 
+function renderAccount() {
+  if (!authReady()) return `<section class="card"><h2>Account</h2><p class="fine">Checking sign-in…</p></section>`;
+  const u = authUser();
+  if (!u) return `<section class="card"><h2>Account</h2>
+    <p class="fine">Sign in to save dishes to your own cookbook, share with your household, and post to friends. Optional — everything else works without it.</p>
+    <button class="btn primary" data-act="google-signin">Sign in with Google</button></section>`;
+  const name = u.user_metadata?.full_name || u.user_metadata?.name || u.email || 'Signed in';
+  return `<section class="card"><h2>Account</h2>
+    <p><b>${esc(name)}</b><br><span class="fine">${esc(u.email || '')}</span></p>
+    <button class="btn" data-act="signout">Sign out</button></section>`;
+}
+
 function renderSettings(s) {
   const recipes = planRecipes(s);
   const cfg = getConfig() || {};
@@ -606,6 +619,7 @@ function renderSettings(s) {
     .sort((a, b) => INGREDIENTS[a].name.localeCompare(INGREDIENTS[b].name));
   const rated = Object.keys(s.ratings).filter((id) => ratingOf(s, id) !== null).length;
   return `
+  ${renderAccount()}
   <section class="card">
     <h2>People</h2>
     ${s.people.map((p, i) => {
@@ -904,6 +918,12 @@ const actions = {
   export: async () => {
     try { toast('Preparing Excel file…'); await exportExcel(getState()); } catch (e) { toast(e.message); }
   },
+  'google-signin': async () => {
+    try { await signInWithGoogle(); } catch (e) { toast(e.message); }
+  },
+  signout: async () => {
+    try { await signOut(); toast('Signed out'); } catch (e) { toast(e.message); }
+  },
   share: async () => {
     // Sending the list means these are the week's dishes: finalize and save first,
     // so nothing can change them while the share sheet is open.
@@ -1162,6 +1182,8 @@ ensurePlan();
 render();
 checkWaterReminder();
 openFromLink();
+initAuth().then(() => { if (ui.tab === 'settings') render(); });
+onAuth(() => { if (ui.tab === 'settings') render(); });
 startSync();
 pushStatus().then((st) => { const changed = ui.pushStatus !== st; ui.pushStatus = st; if (changed && ui.tab === 'settings') render(); });
 
