@@ -187,7 +187,9 @@ t('Ohrid actual Fish display and fixed four servings',displayKind(ot,true)==='fi
 console.log(`Ohrid contract: ${pass} passed, ${fail} failed`);
 // Wikibooks source-native contract (pinned revisions, monolingual source)
 const wb = (id) => IMPORTED.get('wikibooks:' + id);
-const wbIds = ['paprika-chicken', 'vegetarian-soft-tacos', 'adult-mac-and-cheese', 'agnolotti-in-brodo', 'galician-garbanzo-soup', 'pork-and-lima-skillet', 'spaghetti-bolognese', 'barbecued-spare-ribs', 'poutine', 'penne-meat-sauce', 'jambalaya-i'];
+const wbIds = ['paprika-chicken', 'vegetarian-soft-tacos', 'adult-mac-and-cheese', 'agnolotti-in-brodo', 'galician-garbanzo-soup', 'pork-and-lima-skillet', 'spaghetti-bolognese', 'barbecued-spare-ribs', 'poutine', 'penne-meat-sauce', 'jambalaya-i',
+  'asparagus-soup', 'bean-soup-vegetarian', 'beef-gravy-soup', 'black-peppered-chicken-spaghetti', 'creamy-tomato-bean-soup', 'crock-pot-potato-soup', 'hot-and-sour-soup', 'mushroom-soup', 'pasta-soup-for-kids', 'pepper-soup', 'potato-soup', 'spiced-pumpkin-soup', 'sausage-and-tortellini-soup', 'tom-kha-kai', 'vichyssoise', 'ertesuppe-pea-soup',
+  'lengua-de-res', 'bacon-wrapped-scallops', 'chicken-fried-steak', 'chipsi-mayai', 'chuu-chee-fish', 'cuban-picadillo', 'garlic-pork-chops-black-mushrooms', 'honey-peppered-salmon', 'lemon-rosemary-pork-tenderloin', 'maple-planked-salmon', 'meatloaf-iv', 'mediterranean-green-chicken', 'poppyseed-chicken', 'schweinsbraten', 'shrimp-scampi-angel-hair', 'simple-italian-sausage-spaghetti', 'spicy-chicken-cutlets', 'sweet-italian-sausage-skillet', 'tuna-glop', 'wine-roasted-pork-roast'];
 for (const id of wbIds) {
   const r = wb(id);
   t(`${id} registered`, !!r);
@@ -253,5 +255,42 @@ const ja = wb('jambalaya-i');
 t('Jambalaya cooked-poultry and rice handling visible', ja.limitation.handling.includes('Bacillus cereus') && ja.limitation.handlingExtraUrl.includes('pregnancy'));
 t('Jambalaya small-can mushroom gap kept, not sized', ja.src.lines.find(l=>l.name==='Canned sliced mushrooms').note.en.includes('size not stated') && ja.limitation.grocery.includes('size not stated'));
 t('Jambalaya reviewed chicken, no safety endpoint needed', ja.diet === 'nonveg' && displayKind(ja, true) === 'chicken' && !ja.safety);
+// batch 3 (36 records: 15 soups + black-peppered pasta + 20 mains)
+const b3soups = ['asparagus-soup', 'bean-soup-vegetarian', 'beef-gravy-soup', 'creamy-tomato-bean-soup', 'crock-pot-potato-soup', 'hot-and-sour-soup', 'mushroom-soup', 'pasta-soup-for-kids', 'pepper-soup', 'potato-soup', 'spiced-pumpkin-soup', 'sausage-and-tortellini-soup', 'tom-kha-kai', 'vichyssoise', 'ertesuppe-pea-soup'];
+t('batch3: 15 soups get soup-only suffix, pasta does not', b3soups.every(id => wb(id).name.includes('(soup only)')) && !wb('black-peppered-chicken-spaghetti').name.includes('(soup only)'));
+const spp = wb('spiced-pumpkin-soup');
+t('Pumpkin garlic source gap kept visible, no invented step', spp.src.lines.find(l=>l.name==='Garlic').methodSteps.length === 0 && spp.limitation.detail.includes('never adds'));
+const cu = wb('cuban-picadillo');
+t('Picadillo vinegar source gap kept visible', cu.src.lines.find(l=>l.name==='Red wine vinegar').methodSteps.length === 0 && cu.limitation.grocery.includes('vinegar'));
+const lr = wb('lemon-rosemary-pork-tenderloin');
+t('Tenderloin source 160F endpoint kept verbatim, NSW alignment noted separately', lr.src.steps.some(st=>st.text.en.includes('160')) && lr.limitation.detail.includes('160°F converts to 71.1°C') && !lr.safety);
+const lg = wb('lengua-de-res');
+t('Lengua colour cue replaced with 70C probe', lg.safety.replacements[1].includes('70°C') && lg.safety.replacements[1].includes('no longer pink'));
+const bp = wb('black-peppered-chicken-spaghetti');
+t('Black-peppered chicken colour cue replaced with 75C', bp.safety.replacements[2].includes('75°C') && bp.diet === 'nonveg' && displayKind(bp, true) === 'chicken');
+const hs = wb('hot-and-sour-soup');
+t('Hot-and-sour egg streamed into simmering soup; mixed-species diet', hs.safety.replacements[6].includes('simmer') && hs.diet === 'nonveg' && displayKind(hs, true) === 'nonveg');
+const as2 = wb('asparagus-soup');
+t('Asparagus soup reviewed veg; chilled handling note present', as2.diet === 'veg' && as2.limitation.handling.includes('5°C'));
+const cm = wb('chipsi-mayai');
+t('Chipsi-mayai egg diet; fully-set endpoint and fry fire note', cm.diet === 'egg' && cm.safety.replacements[14].includes('completely set') && cm.safety.replacements[3].includes('unattended'));
+const er = wb('ertesuppe-pea-soup');
+t('Ertsuppe source water wording kept verbatim, smoked-pork probe', er.src.lines[1].source.raw === '12 cup water' && er.safety.replacements[3].includes('70°C') && er.diet === 'nonveg' && displayKind(er, true) === 'pork');
+const sts = wb('sausage-and-tortellini-soup');
+t('Tortellini soup unknown diet (species), 71C endpoint', sts.diet === 'unknown' && sts.safety.replacements[2].includes('71°C'));
+const bw = wb('bacon-wrapped-scallops');
+t('Scallops deep-fry fire citation and 63C endpoint', bw.safety.replacements[5].includes('63°C') && bw.safety.sources.some(x=>x[0].includes('Fire and Rescue NSW')));
+const wr = wb('wine-roasted-pork-roast');
+t('Wine roast 71C endpoint, wine retained, campfire caution', wr.safety.replacements[6].includes('71°C') && wr.limitation.detail.includes('no alcohol-free claim') && wr.limitation.grocery.includes('fire restrictions'));
+const sc = wb('schweinsbraten');
+t('Schweinsbraten no-wash adaptation replaces source wash step', sc.safety.replacements[2].includes('Do not wash') && sc.safety.replacements[8].includes('71°C') && !sc.src.steps[1].text.en.includes('Do not wash'));
+const pk = wb('pepper-soup');
+t('Pepper soup species-aware endpoint', pk.safety.replacements[3].includes('75°C for chicken') && pk.diet === 'nonveg');
+const cf = wb('chicken-fried-steak');
+t('Chicken-fried steak side-probe 63C; coating flour unstated gap visible', cf.safety.replacements[5].includes('from the side') && cf.safety.replacements[5].includes('63°C') && cf.limitation.grocery.includes('not stated'));
+const gp = wb('garlic-pork-chops-black-mushrooms');
+t('Pork-chops broth contradiction kept visible verbatim', gp.limitation.summary.includes('pork broth') && gp.limitation.summary.includes('chicken broth') && gp.safety.replacements[4].includes('71°C'));
+const tg = wb('tuna-glop');
+t('Tuna-glop reviewed fish from explicit line', tg.diet === 'nonveg' && displayKind(tg, true) === 'fish');
 console.log(`wikibooks contract: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

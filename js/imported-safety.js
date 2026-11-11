@@ -139,4 +139,199 @@ export const IMPORTED_SAFETY = {
       2: 'Cook sausage in large skillet over medium heat until browned and crumbled; drain. Browning and crumbling are colour and texture cues, not doneness checks: use a clean food thermometer in the thickest part of the cooking sausage to check at least 71°C, and continue cooking and recheck if below the target.',
     },
   },
+  'wikibooks:beef-gravy-soup': {
+    title: 'Check the beef with a thermometer, not looks',
+    note: 'Two Plates adds a measured endpoint: the source endpoint is that the beef and vegetables "look cooked", and appearance is not a doneness check. Slice thickness is unstated, so take the pan off the heat and use a clean food thermometer inserted from the side into the thickest beef slices; NSW guidance names at least 63°C for whole-cut beef. Continue simmering and recheck any slice below the target. Keep the beef refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw meat and ready-to-eat food, and clean hands and surfaces after handling. Follow product storage, use-by and cooking directions.',
+    sources: [['NSW: whole-cut beef 63°C', NSW_TEMP], ['USDA (US): thin foods from the side, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      3: 'When the beef and vegetables look cooked, add the vegetable broth and salt. Looks are not a doneness check: safely take the pot off the heat and use a clean food thermometer inserted from the side into the thickest beef slices to check at least 63°C, and continue simmering and recheck if below the target.',
+    },
+  },
+  'wikibooks:black-peppered-chicken-spaghetti': {
+    title: 'Cook the chicken through; colour is not the check',
+    note: 'Two Plates replaces the source endpoint "until the color changes" with a clean food thermometer in the thickest chicken pieces: check at least 75°C, following FSANZ poultry guidance, because colour is not a reliable indicator. The pieces are 2 cm, so probe the largest ones. Keep the chicken refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw chicken and ready-to-eat food, wash produce under running water, and clean hands and surfaces after handling raw chicken. Do not wash the raw chicken itself; it spreads bacteria around the sink. Follow product storage, use-by and cooking directions, including the pasta package.',
+    sources: [['FSANZ: poultry 75°C; do not wash raw poultry', FSANZ], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      2: 'Boil the chicken in salted water until the color changes. A colour change is not a doneness check: safely take the pot off the heat and use a clean food thermometer in the thickest pieces to check at least 75°C, and continue cooking and recheck if below the target. Drain the chicken.',
+    },
+  },
+  'wikibooks:hot-and-sour-soup': {
+    title: 'Stream the egg into actively simmering soup',
+    note: 'Two Plates adapts the egg step: the beaten egg must be cooked through, so stream it slowly into soup that is actively simmering, not off the heat, and keep the soup simmering while it sets. This matters most for anyone pregnant, elderly, very young or immunocompromised; no raw-egg cue from the source is relied on. The cooked shredded meat must be hot throughout (at least 60°C if it was refrigerated) when it goes in; see the handling note. Follow product storage, use-by and cooking directions.',
+    sources: [['FSANZ: cook egg dishes thoroughly; 2-hour rule', FSANZ], ['NSW: leftovers 60°C', NSW_TEMP]],
+    replacements: {
+      6: 'Beat egg in a cup until yolk and white are combined. Keep the soup at a gentle simmer and pour the beaten egg slowly, in a fine stream, into the simmering soup. Stir soup several times, then wait 30 seconds, keeping it simmering so the egg sets and cooks through.',
+    },
+  },
+  'wikibooks:sausage-and-tortellini-soup': {
+    title: 'Cook the sausage through; "no longer pink" is not the check',
+    note: 'Two Plates uses at least 71°C for the sausage meat, checked with a clean food thermometer in the thickest part of the cooking sausage: NSW guidance names 71°C for minced meat and sausages because ground sausage carries contamination throughout, and warns that colour (including "no longer pink") is not a reliable doneness indicator. Stir before probing so the reading is not from one hot spot, and continue cooking and recheck if below the target. Keep the sausage refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw sausage and ready-to-eat food, and clean hands and surfaces after handling. The sausage species and tortellini formulation are unverified; follow product storage, use-by and cooking directions, including the tortellini package.',
+    sources: [['NSW: minced meat and sausages 71°C; colour unreliable', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      2: 'Remove sausage from casings and heat over medium heat in stock pot until sausage is crumbled and no longer pink. "No longer pink" is not a doneness check: use a clean food thermometer in the thickest part of the cooking sausage to check at least 71°C, and continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks:tom-kha-kai': {
+    title: 'Cook the chicken through; 4 minutes is not the check',
+    note: 'Two Plates adds a measured endpoint: the source boils the cubed chicken at a rolling boil for 4 minutes, but time alone is not a doneness check. Safely take the pot off the heat and use a clean food thermometer in the thickest chicken cubes to check at least 75°C, following FSANZ poultry guidance; continue cooking and recheck any below the target. Keep the chicken refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw chicken and the fresh garnish, and clean hands and surfaces after handling. Do not wash the raw chicken. Follow product storage, use-by and cooking directions.',
+    sources: [['FSANZ: poultry 75°C; do not wash raw poultry', FSANZ], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      4: 'Keep at a rolling boil for 4 minutes, then safely take the pot off the heat and use a clean food thermometer in the thickest chicken cubes to check at least 75°C. Continue cooking and recheck any below the target before moving on.',
+    },
+  },
+  'wikibooks:ertesuppe-pea-soup': {
+    title: 'Probe the smoked pork; 40 minutes per pound is not the check',
+    note: 'Two Plates adds a measured endpoint: the source boils the smoked pork butt for 40 minutes per pound, but time alone is not a doneness check and whether the product reaches you fully cooked is unstated. Safely take the pot off the heat and use a clean food thermometer in the thickest part, away from any bone, to check at least 70°C, applying FSANZ general centre-temperature guidance; continue boiling and recheck if below the target. Keep the pork refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw or cured meat and ready-to-eat food, and clean hands and surfaces after handling. Follow the product label storage, use-by and cooking directions for the smoked pork.',
+    sources: [['FSANZ: general 70°C centre; follow product directions', FSANZ], ['USDA (US): thickest part, avoid bone, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      3: 'In a separate pot, boil the smoked butt for 40 minutes per pound, then safely take it off the heat and use a clean food thermometer in the thickest part, away from any bone, to check at least 70°C. Continue boiling and recheck if below the target.',
+    },
+  },
+  'wikibooks:lengua-de-res': {
+    title: 'Probe the tongue; "no longer pink" is not the check',
+    note: 'Two Plates replaces the source endpoint "no longer pink" with a clean food thermometer in the thickest part of the tongue: check at least 70°C, applying FSANZ general centre-temperature guidance, because colour is not a reliable indicator. The source timing (about 50 minutes per pound) stays as the process; confirm with the thermometer and continue simmering and recheck if below the target. Keep the tongue refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw meat and ready-to-eat food, wash the produce under running water, and clean hands and surfaces after handling. Follow product storage, use-by and cooking directions.',
+    sources: [['FSANZ: general 70°C centre', FSANZ], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      1: 'Wash tongue and place in a large pot of water to cover. Simmer about 50 minutes per pound of tongue as the source says, then safely take the pot off the heat and use a clean food thermometer in the thickest part to check at least 70°C; "no longer pink" is not a doneness check. Continue simmering and recheck if below the target. Remove from water and let rest until cool enough to handle.',
+    },
+  },
+  'wikibooks:bacon-wrapped-scallops': {
+    title: 'Deep-fry with care; check the scallops and the bacon',
+    note: 'Two Plates adds fire-safety and endpoint checks to the deep-frying. Heat the oil carefully and stay beside the fryer; never leave hot oil unattended. If the oil smokes, it is too hot: turn off the heat and let it cool. If the oil catches fire, turn off the heat and cover with a lid or metal tray; never use water on an oil fire. The endpoint "golden brown" is not a doneness check: the scallops inside should reach at least 63°C (NSW fish guidance) and the bacon wrapping must be cooked through and crisped; check the first batch with a clean food thermometer through the bacon into the centre of a scallop and adjust batch time accordingly. Keep the scallops and bacon refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw seafood and bacon and the ready-to-eat sauce, and clean hands and surfaces after handling. The sauce contacts only cooked food per the source order; do not return used toothpicks or marinade to the sauce. Follow product storage, use-by and cooking directions.',
+    sources: [['NSW: fish 63°C', NSW_TEMP], ['Fire and Rescue NSW: cooking fire safety and never water on oil fires', 'https://www.fire.nsw.gov.au/fire-safety/home-fire-safety/topics/cooking-fire-safety'], ['NFPA (US): smoke means oil too hot; stay in the kitchen', 'https://www.nfpa.org/education-and-research/home-fire-safety/cooking']],
+    replacements: {
+      1: "Heat oil in a deep-fryer or other pot to 350 °F (180 °C), making sure that the pot is large enough that the oil doesn't fill it more than halfway. Stay beside it; never leave hot oil unattended. If the oil smokes, it is too hot: turn off the heat and let it cool before continuing.",
+      5: 'Working in batches so as not to crowd the fryer, fry the scallops until golden brown, about 4 minutes, and check the first batch with a clean food thermometer through the bacon into the centre of a scallop: at least 63°C, with the bacon cooked through. Continue frying and recheck if below the target.',
+    },
+  },
+  'wikibooks:chicken-fried-steak': {
+    title: 'Probe the ½-inch steaks from the side',
+    note: 'Two Plates adds a measured endpoint: "golden brown, about 4 minutes per side" is a colour and time cue, not a doneness check. The steaks are ½ inch thick, so safely take the pan off the heat and use a clean food thermometer inserted from the side into the centre of each steak; NSW guidance names at least 63°C for whole-cut beef. Continue frying and recheck any steak below the target. The source holds the cooked steaks in a 200°F (about 95°C) oven while the gravy cooks; keep that hold short and serve promptly. Keep the steaks refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw meat and the egg mixture, do not reuse flour that contacted raw steak for anything except the gravy (the source uses the separate measured 3 tbsp for the gravy), and clean hands and surfaces after handling. Follow product storage, use-by and cooking directions.',
+    sources: [['NSW: whole-cut beef 63°C', NSW_TEMP], ['USDA (US): thin foods from the side, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      5: 'When the pan is hot enough, put steaks in pan in a triangle formation. Fry until golden brown, about 4 minutes per side, then safely take the pan off the heat and use a clean food thermometer inserted from the side into the centre of each steak to check at least 63°C. Continue frying and recheck any steak below the target.',
+    },
+  },
+  'wikibooks:chipsi-mayai': {
+    title: 'Cook the omelette until fully set; fry with care',
+    note: 'Two Plates adds an egg endpoint and a frying note. The fries are deep-fried: stay beside the pan, never leave hot oil unattended, and if the oil smokes it is too hot (turn off the heat and let it cool); never use water on an oil fire. For the omelette, "golden brown" underneath is not a doneness check: cook until the egg is completely set with no runny centre, checking the middle of the omelette. This matters most for anyone pregnant, elderly, very young or immunocompromised. Follow product storage, use-by and cooking directions.',
+    sources: [['Fire and Rescue NSW: cooking fire safety and never water on oil fires', 'https://www.fire.nsw.gov.au/fire-safety/home-fire-safety/topics/cooking-fire-safety'], ['FSANZ: cook egg dishes thoroughly', FSANZ]],
+    replacements: {
+      3: 'Fry the potatoes until golden brown and crispy. Stay beside the pan; never leave the hot oil unattended, and if the oil smokes it is too hot: turn off the heat and let it cool before continuing.',
+      14: 'Remove from the heat when fully cooked: the egg should be completely set with no runny centre. Check the middle of the omelette; if it is still soft or runny, return it to the heat and cook until set.',
+    },
+  },
+  'wikibooks:chuu-chee-fish': {
+    title: 'Probe the whole fish; golden skin is not the check',
+    note: 'Two Plates replaces the colour endpoint with a clean food thermometer in the thickest flesh beside the backbone: check at least 63°C, following NSW fish guidance; continue frying and recheck if below the target. The frying oil is hot; stay beside the wok and never leave it unattended. Keep the fish refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw fish and the fresh garnish, and clean hands and surfaces after handling. Whole fish still have bones; take care when serving and eating. The curry-paste formulation is unverified (it typically contains shrimp paste); follow product storage, use-by and cooking directions.',
+    sources: [['NSW: fish 63°C', NSW_TEMP], ['USDA (US): thickest part, avoid bones, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      3: 'Turn up heat again and cook until golden, then safely take the wok off the heat and use a clean food thermometer in the thickest flesh beside the backbone to check at least 63°C. Continue cooking and recheck if below the target. Using tongs again, lift fish gently onto a serving plate.',
+    },
+  },
+  'wikibooks:cuban-picadillo': {
+    title: 'Cook the mince through; browning is not the check',
+    note: 'Two Plates uses at least 71°C for the ground beef, checked with a clean food thermometer after stirring: NSW guidance names 71°C for minced meat because mince carries contamination throughout, and warns that browning is not a reliable doneness indicator. Continue cooking and recheck if below the target. Keep the beef refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw mince and ready-to-eat food, and clean hands and surfaces after handling. Follow product storage, use-by and cooking directions.',
+    sources: [['NSW: minced meat 71°C; colour unreliable', NSW_TEMP], ['USDA (US): remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      1: 'In large skillet, brown beef in 2 tablespoons olive oil over high heat; drain and reserve. Browning is not a doneness check for mince: stir, then safely take the skillet off the heat and use a clean food thermometer to check at least 71°C, continuing to cook and rechecking if below the target.',
+    },
+  },
+  'wikibooks:garlic-pork-chops-black-mushrooms': {
+    title: 'Probe the ½-inch chops from the side',
+    note: 'Two Plates adds a measured endpoint: the source browns the chops about 2 minutes per side and simmers briefly, but time and colour are not doneness checks. The chops are ½ inch thick, so safely take the pan off the heat and use a clean food thermometer inserted from the side into the centre of each chop; NSW guidance names 71°C for pork. Continue cooking and recheck any chop below the target. Keep the pork refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw pork and ready-to-eat food, and clean hands and surfaces after handling. Do not wash the raw pork. Follow product storage, use-by and cooking directions.',
+    sources: [['NSW: pork 71°C; do not wash raw meat', NSW_TEMP], ['USDA (US): thin foods from the side, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      4: 'Stir in the soy sauce mixture, and bring to a boil. Reduce the heat to low, and simmer for 5 minutes, uncovered, then safely take the pan off the heat and use a clean food thermometer inserted from the side into the centre of each chop to check at least 71°C. Continue cooking and recheck any below the target.',
+    },
+  },
+  'wikibooks:honey-peppered-salmon': {
+    title: 'Cook the salmon to 63°C, not "desired doneness"',
+    note: 'Two Plates replaces the source endpoint "desired doneness" with a clean food thermometer in the thickest part of each fillet: check at least 63°C, following NSW fish guidance. The source 10–12 minutes stays as the process; confirm with the thermometer and continue baking and recheck if below the target. Keep the salmon refrigerated at 5°C or colder before and during any marinating longer than the source 30 minutes at room temperature. The used marinade contacted raw fish: discard it, do not serve it as a sauce. Use separate boards and utensils for raw fish and ready-to-eat food, and clean hands and surfaces after handling. Follow product storage, use-by and cooking directions.',
+    sources: [['NSW: fish 63°C', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      6: 'Bake for 10–12 minutes, then safely take the dish out and use a clean food thermometer in the thickest part of each fillet to check at least 63°C; "desired doneness" is not a measured check. Continue baking and recheck if below the target.',
+    },
+  },
+  'wikibooks:maple-planked-salmon': {
+    title: 'Cook the salmon to 63°C; mind the plank and the fire',
+    note: 'Two Plates replaces the source endpoint "desired doneness" with a clean food thermometer in the thickest part of each piece: check at least 63°C, following NSW fish guidance. The soaked cedar plank can smoulder or catch: keep the lid closed, keep a spray bottle of water nearby, never leave the lit grill unattended, follow the grill manufacturer directions, and check current local fire restrictions before lighting. The source step to immerse the used plank in water afterwards is kept. The resting marinade contacted raw fish: discard it, do not serve it. Keep the salmon refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw fish and the garnish, and clean hands and surfaces after handling. Follow product storage, use-by and cooking directions.',
+    sources: [['NSW: fish 63°C', NSW_TEMP], ['Fire and Rescue NSW: cooking fire safety', 'https://www.fire.nsw.gov.au/fire-safety/home-fire-safety/topics/cooking-fire-safety']],
+    replacements: {
+      8: 'Grill for roughly 15 minutes without turning or moving salmon, then open the lid and use a clean food thermometer in the thickest part of each piece to check at least 63°C; "desired doneness" and loss of transparency are not measured checks. Continue grilling with the lid closed and recheck if below the target. Watch the plank for smouldering and keep a spray bottle of water nearby.',
+    },
+  },
+  'wikibooks:meatloaf-iv': {
+    title: 'Probe the centre of the loaf; 75 minutes is not the check',
+    note: 'Two Plates uses at least 71°C in the centre of the loaf, checked with a clean food thermometer: NSW guidance names 71°C for minced meat because mince carries contamination throughout, and the source timing ("75 minutes or more, if desired") is not a doneness check. Continue baking and recheck if below the target. The raw eggs are baked into the loaf; the measured centre endpoint covers them. Keep the beef and eggs refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw meat and egg and ready-to-eat food, and clean hands and surfaces after handling. Follow product storage, use-by and cooking directions.',
+    sources: [['NSW: minced meat 71°C', NSW_TEMP], ['USDA (US): meatloaf probe in the centre', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      8: 'Bake 75 minutes or more, if desired, and confirm with a clean food thermometer in the centre of the loaf: at least 71°C. Continue baking and recheck if below the target.',
+    },
+  },
+  'wikibooks:mediterranean-green-chicken': {
+    title: 'Cook the pieces to 75°C; clear juices are not the check',
+    note: 'Two Plates replaces the source endpoint "until juices run clear" with a clean food thermometer in the thickest part of each piece, avoiding bone: check at least 75°C, following FSANZ poultry guidance; continue baking and recheck any piece below the target. The used marinade contacted raw chicken: discard it, do not serve it. Keep the chicken refrigerated at 5°C or colder, including while marinating, use separate boards and utensils for raw chicken and ready-to-eat food, and clean hands and surfaces after handling. Do not wash the raw chicken. Follow product storage, use-by and cooking directions.',
+    sources: [['FSANZ: poultry 75°C; do not wash raw poultry', FSANZ], ['USDA (US): thickest part, avoid bone, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      7: 'Bake about 40 minutes, turning pieces after 20 minutes, then safely take the tray out and use a clean food thermometer in the thickest part of each piece, avoiding bone, to check at least 75°C; juices running clear are not a doneness check. Continue baking and recheck any piece below the target.',
+    },
+  },
+  'wikibooks:poppyseed-chicken': {
+    title: 'Heat the casserole through to steaming hot',
+    note: 'Two Plates adds a measured check: the chicken is already cooked, so the bake must heat the casserole until it is steaming hot throughout, at least 60°C in the centre, per NSW reheating guidance; the source 25 minutes is not a measured check. Continue baking and recheck if below the target. The pre-cooked chicken must be freshly and safely cooked or safely stored leftovers; see the handling note. Keep the chicken, mayonnaise, sour cream and cheese refrigerated at 5°C or colder before assembly, and follow product storage, use-by and cooking directions.',
+    sources: [['NSW: reheat leftovers steaming hot, 60°C', NSW_TEMP], ['FSANZ: 5°C or colder storage', FSANZ]],
+    replacements: {
+      5: 'Bake at 350°F (175°C) for 25 minutes, and confirm the casserole is steaming hot throughout: safely take it out and use a clean food thermometer in the centre to check at least 60°C. Continue baking and recheck if below the target.',
+    },
+  },
+  'wikibooks:schweinsbraten': {
+    title: 'Do not wash the pork; probe the thickest part',
+    note: 'Two Plates replaces two source cues. First, the source wash step is replaced with patting dry: washing raw meat spreads bacteria around the sink and does not make the meat safer (FSANZ guidance). Second, the endpoint "only juice oozes out (no blood)" is a colour cue: safely take the tray out and use a clean food thermometer in the thickest part of the roast to check at least 71°C, following NSW pork guidance; continue roasting and recheck if below the target. The pan juices contact the raw roast during basting: they are safe only once boiled in the deglazed sauce, which the source does. Keep the pork refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw pork and ready-to-eat food, and clean hands and surfaces after handling. Follow product storage, use-by and cooking directions.',
+    sources: [['FSANZ: do not wash raw meat', FSANZ], ['NSW: pork 71°C', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      2: 'Do not wash the meat: washing raw pork spreads bacteria around the sink without making it safer. Pat it dry with a paper towel. For a crispy crunch on top of the meat, cut a diamond pattern (each about 1 inch long) into the fat side.',
+      8: 'The meat is done when a clean food thermometer in the thickest part reads at least 71°C; juice colour ("no blood") is not a doneness check. Continue roasting and recheck if below the target. The crust should be brown and crunchy.',
+    },
+  },
+  'wikibooks:simple-italian-sausage-spaghetti': {
+    title: 'Cook the sausage through; "cooked through" needs a number',
+    note: 'Two Plates uses at least 71°C for the crumbled sausage, checked with a clean food thermometer in the thickest part of the cooking sausage after stirring: NSW guidance names 71°C for minced meat and sausages because ground sausage carries contamination throughout. Continue cooking and recheck if below the target. Keep the sausage refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw sausage and ready-to-eat food, and clean hands and surfaces after handling. The sausage species is unstated; follow product storage, use-by and cooking directions, including the pasta package.',
+    sources: [['NSW: minced meat and sausages 71°C', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      4: 'Remove casings from sausage, if necessary, and crumble sausage into the pan. Stir and cook, breaking up the sausage, until the sausage is cooked through and the onion is tender: confirm with a clean food thermometer in the thickest part of the cooking sausage, at least 71°C, and continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks:spicy-chicken-cutlets': {
+    title: 'Probe the thin cutlets from the side',
+    note: 'Two Plates adds a measured endpoint: the cutlets are thinly sliced, so safely take the skillet off the heat and use a clean food thermometer inserted from the side into the centre of each cutlet to check at least 75°C, following FSANZ poultry guidance; the source 2–3 minutes per side is not a doneness check. Continue cooking and recheck any cutlet below the target. The source holds the cooked cutlets in a 200°F (about 95°C) oven while the sauce cooks; keep that hold short. Dredging flour that contacted raw chicken is discarded, not reused. Keep the chicken refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw chicken and ready-to-eat food, and clean hands and surfaces after handling. Do not wash the raw chicken. Follow product storage, use-by and cooking directions.',
+    sources: [['FSANZ: poultry 75°C; do not wash raw poultry', FSANZ], ['USDA (US): thin foods from the side, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      7: 'Flip and cook another 2–3 minutes, or until cooked through: confirm with a clean food thermometer inserted from the side into the centre of each cutlet, at least 75°C, and continue cooking and recheck any below the target.',
+    },
+  },
+  'wikibooks:sweet-italian-sausage-skillet': {
+    title: 'Cook the sausage through; browning is not the check',
+    note: 'Two Plates uses at least 71°C for the sliced sausage, checked with a clean food thermometer in the thickest slices: NSW guidance names 71°C for sausages and minced meat, and the source 5 minutes of browning is not a doneness check. Continue cooking and recheck if below the target. Keep the sausage refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw sausage and ready-to-eat food, and clean hands and surfaces after handling. The sausage species is unstated; follow product storage, use-by and cooking directions, including the pasta package.',
+    sources: [['NSW: minced meat and sausages 71°C; colour unreliable', NSW_TEMP], ['USDA (US): thin foods from the side, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      2: 'Meanwhile, brown sliced sausage in hot oil in large skillet for 5 minutes, then drain away the fat. Browning is not a doneness check: use a clean food thermometer in the thickest slices to check at least 71°C, and continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks:wine-roasted-pork-roast': {
+    title: 'Probe the roast to 71°C; manage the campfire',
+    note: 'Two Plates adds a measured endpoint: the source cooks "slowly for three hours" over a campfire, but fire heat varies and time is not a doneness check. Use a clean food thermometer in the thickest part of the roast to check at least 71°C, following NSW pork guidance; continue cooking and recheck if below the target. Campfire cooking needs care: check current local fire restrictions before lighting, keep the fire small and managed, never leave it unattended, and have water or a fire blanket ready; no current restriction status is checked by this recipe. Keep the pork refrigerated at 5°C or colder before preparation (a cooler with ice works), use separate boards and utensils for raw pork and ready-to-eat food, and clean hands and surfaces after handling. Follow product storage, use-by and cooking directions.',
+    sources: [['NSW: pork 71°C', NSW_TEMP], ['Fire and Rescue NSW: cooking fire safety', 'https://www.fire.nsw.gov.au/fire-safety/home-fire-safety/topics/cooking-fire-safety'], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      6: 'Cover and cook slowly for three hours over fire, then use a clean food thermometer in the thickest part of the roast to check at least 71°C; three hours is not a doneness check. Continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks:pepper-soup': {
+    title: 'Probe to the species temperature; tenderness is not the check',
+    note: 'Two Plates adds a measured endpoint: "simmer until tender" is a texture cue, not a doneness check. Safely take the pot off the heat and use a clean food thermometer in the thickest pieces: at least 75°C if the meat is chicken (FSANZ poultry guidance), and at least 70°C for goat, catfish or assorted meats (FSANZ general centre-temperature guidance). Continue simmering and recheck any piece below its target. Keep the meat refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw meat or fish and the fresh leaves, wash the leaves under running water, and clean hands and surfaces after handling. Do not wash raw poultry. The seasoning cubes, spice mix and ground crayfish are manufactured products; follow their storage and use-by directions.',
+    sources: [['FSANZ: poultry 75°C; general 70°C centre', FSANZ], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      3: 'Combine the meat and water in a pot, and simmer until tender. Tenderness is not a doneness check: safely take the pot off the heat and use a clean food thermometer in the thickest pieces to check at least 75°C for chicken, or at least 70°C for goat, catfish or assorted meats. Continue simmering and recheck any piece below its target.',
+    },
+  },
 };
