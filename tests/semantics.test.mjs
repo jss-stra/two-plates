@@ -78,5 +78,17 @@ const { RECIPE_BY_ID: R2 } = await import('../js/data.js');
 const bandRespected = slots.every((s) => R2[s.id].protein != null && R2[s.id].protein >= 35);
 console.log('planner smoke:', slots.length, 'slots, all valid:', allFinite, '| unknown dishes excluded from protein band:', bandRespected);
 if (!bandRespected) { console.log('FAIL: unknown/low-protein dish satisfied the protein band'); fail++; }
+
+// Regression: a 0 min-protein band must still exclude unknown nutrition
+// (in JS null >= 0 is true, so the guard must require a finite value).
+// Deterministic: hide every known-protein dish, so any generated slot can
+// only come from the null-protein pool if the guard leaks.
+const { RECIPES: ALL_R } = await import('../js/data.js');
+const hiddenKnown = ALL_R.filter((r) => r.protein != null).map((r) => r.id);
+const zeroBandSlots = generateSlots({ ...bigState, hidden: hiddenKnown, rules: { ...bigState.rules, minProtein: 0 } });
+const leaked = zeroBandSlots.filter((s) => s && R2[s.id] && R2[s.id].protein == null);
+const zeroBandOk = zeroBandSlots.length === 0 && leaked.length === 0;
+console.log('zero-band regression: slots from null-only pool:', zeroBandSlots.length, '| leaked unknown dishes:', leaked.length, '| ok:', zeroBandOk);
+if (!zeroBandOk) { console.log('FAIL: null protein satisfied a 0 protein band'); fail++; }
 process.exit(allFinite ? 0 : 2);
 process.exit(fail || !allFinite ? 1 : 0);

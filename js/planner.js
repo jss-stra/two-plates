@@ -32,10 +32,11 @@ function eligible(state, r) {
   const { rules } = state;
   return !state.hidden.includes(r.id)
     && !hasExclusions(r, state.exclusions)
-    // Unknown nutrition can't satisfy a numeric band: null fails minProtein,
-    // so auto-planning never quietly promises protein it can't verify. The dish
+    // Unknown nutrition can't satisfy a numeric band, including 0: only a
+    // finite protein value may pass minProtein (null >= 0 is true in JS), so
+    // auto-planning never quietly promises protein it can't verify. The dish
     // stays manually addable from the dish picker, with its unknown marker.
-    && r.protein >= rules.minProtein
+    && Number.isFinite(r.protein) && r.protein >= rules.minProtein
     && (rules.cuisineWeights[r.group] ?? 1) > 0;
 }
 
