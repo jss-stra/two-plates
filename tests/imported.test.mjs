@@ -124,4 +124,15 @@ t('lamb names 71C editorial medium scope', IMPORTED.get('unitools:irish-stew').s
 t('mutton not silently renamed lamb', IMPORTED.get('unitools:farikal').safety.note.includes('not a named-mutton standard'));
 t('fish smoking oil replaced explicitly', IMPORTED.get('unitools:qingzheng-yu').safety.replacements[7].includes('do not deliberately'));
 console.log(`safety and grouping contract: ${pass} passed, ${fail} failed`);
+const { importedMatches } = await import('../js/imported.js');
+const lambda = IMPORTED.get('unitools:irish-stew');
+t('Veg-only never shows lamb', !importedMatches(lambda,base,{vegOnly:true}));
+t('Veg-only never shows unknown formulation', !importedMatches(galayet,base,{vegOnly:true}));
+t('Veg-only shows reviewed plant dish', importedMatches(r,base,{vegOnly:true}));
+t('Egg follows eggsCountAsVeg on Veg-only', importedMatches(IMPORTED.get('unitools:tortilla-espanola'),base,{vegOnly:true}) && !importedMatches(IMPORTED.get('unitools:tortilla-espanola'),{...base,rules:{...base.rules,eggsCountAsVeg:false}},{vegOnly:true}));
+t('Quick never matches unknown imported time', importedList().every(x=>!importedMatches(x,base,{quick:true})));
+t('Chicken picker never shows lamb or unknown', !importedMatches(lambda,base,{kind:'chicken'}) && !importedMatches(galayet,base,{kind:'chicken'}));
+t('Anything allows cross-kind manual replacement', importedMatches(lambda,base,{kind:null}) && importedMatches(galayet,base,{kind:null}));
+t('Imported ingredient-name search uses retained source lines', importedMatches(lambda,base,{query:'carrots'}));
+console.log(`imported filters contract: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

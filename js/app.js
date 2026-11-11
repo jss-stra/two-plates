@@ -13,7 +13,7 @@ import { renderHome } from './home.js';
 import { pushStatus, enablePush, disablePush } from './push.js';
 import { initAuth, signInWithGoogle, signOut, onAuth, authUser, authReady } from './auth.js';
 import { cb, bindCookbook, initCookbook, renderCookbook, renderCbSheet, cbActions, cbOnChange, renderFeed, renderPeople, refreshFeed, SHARING_ENABLED } from './cookbook-ui.js';
-import { IMPORTED, importedList, importedAddStatus, isImported } from './imported.js';
+import { IMPORTED, importedList, importedAddStatus, isImported, importedMatches } from './imported.js';
 
 const $ = (sel, el = document) => el.querySelector(sel);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -454,7 +454,7 @@ function renderRecipeList(s) {
     + (!ui.showAll && list.length > RECIPE_PAGE
       ? `<button class="btn wide show-more" data-act="recipes-more">Show all ${list.length} dishes</button>` : '');
   const q = ui.search.toLowerCase();
-  const imp = ui.group === 'All' ? importedList().filter((r) => !q || r.name.toLowerCase().includes(q) || r.cuisine.toLowerCase().includes(q)) : [];
+  const imp = ui.group === 'All' ? importedList().filter(r => importedMatches(r, s, { query: q, vegOnly: ui.vegOnly, quick: ui.quick })) : [];
   if (imp.length) {
     el.innerHTML += `<h3 class="fine count">Imported (not allergy-checked)</h3>` + imp.map((r) => `<div class="rrow">
     <button class="rrow-main" data-act="open-imported" data-id="${r.id}">
@@ -807,7 +807,7 @@ function renderSheetList(s) {
       <span class="meta">${esc(r.cuisine)} · ${r.time} min · <b>${r.protein} g</b> · ${r.kcal} kcal</span>
     </button>`).join('') || '<p class="empty">No matches.</p>';
   const q = (ui.sheet.query || '').toLowerCase();
-  const imp = importedList().filter((r) => !q || r.name.toLowerCase().includes(q) || r.cuisine.toLowerCase().includes(q));
+  const imp = f === 'regulars' ? [] : importedList().filter(r => importedMatches(r, s, { query: q, kind: f === 'any' ? null : kind, group: f === 'same' ? current?.group : null }));
   if (imp.length) {
     el.innerHTML += `<div class="fine count">Imported (not allergy-checked)</div>` + imp.map((r) => {
       const gate = importedAddStatus(s, r.id);

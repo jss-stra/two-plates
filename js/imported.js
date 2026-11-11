@@ -3,7 +3,7 @@
 // so auto-planning, numeric protein/kcal bands and catalog grocery scaling
 // cannot see them. They are browseable, manually addable to the plan as a
 // fixed base batch, and shoppable at exact source quantities.
-import { RECIPE_BY_ID } from './data.js';
+import { RECIPE_BY_ID, isVeg, displayKind } from './data.js';
 import { IMPORTED_SAFETY } from './imported-safety.js';
 import ratatouille from '../data/imported/ratatouille.mjs';
 
@@ -109,4 +109,15 @@ export function importedShoppingRows(recipe, state) {
     checked: !!state.checked[line.lineRef],
     bought: state.bought[line.lineRef] || '',
   }));
+}
+
+// Unknown time/diet is never a positive match for a browse filter.
+export function importedMatches(r, state, { query = '', vegOnly = false, quick = false, kind = null, group = null } = {}) {
+  const q = query.trim().toLowerCase();
+  if (vegOnly && !isVeg(r, state.rules.eggsCountAsVeg)) return false;
+  if (quick && (!Number.isFinite(r.time) || r.time > 30)) return false;
+  if (kind && displayKind(r, state.rules.eggsCountAsVeg) !== kind) return false;
+  if (group && r.group !== group) return false;
+  return !q || r.name.toLowerCase().includes(q) || r.cuisine.toLowerCase().includes(q)
+    || r.src.lines.some(l => l.name.toLowerCase().includes(q));
 }
