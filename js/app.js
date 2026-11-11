@@ -985,7 +985,9 @@ const actions = {
     if (s.plan.finalizedAt) { toast('This week is finalized — tap “Edit week” on the Week tab first'); return; }
     if (targetDishes(s.rules) >= 7) { toast('Week is full — use “Pick” on a dish in the Week tab to replace it'); return; }
     update((d) => { d.plan.slots.push({ id: r.id, locked: true }); d.rules[key]++; resizePlan(d); });
-    toast(`Added to this week as a ${kind === 'veg' ? 'veg' : 'chicken'} dish (locked)`);
+    const dk = displayKind(r, s.rules.eggsCountAsVeg);
+    const dkLabel = dk === 'unknown' ? 'diet not classified' : (DISPLAY_GROUPS.find((g) => g[0] === dk)?.[1]?.toLowerCase() || dk);
+    toast(`Added to this week (${dkLabel}, locked)`);
   },
   expand: (el) => { ui.expanded = ui.expanded === el.dataset.id ? null : el.dataset.id; renderRecipeList(getState()); },
   rtoggle: (el) => { ui[el.dataset.k] = !ui[el.dataset.k]; ui.showAll = false; render(); },
