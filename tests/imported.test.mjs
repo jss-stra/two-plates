@@ -136,4 +136,14 @@ t('Anything allows cross-kind manual replacement', importedMatches(lambda,base,{
 t('Imported ingredient-name search uses retained source lines', importedMatches(lambda,base,{query:'carrots'}));
 t('Veg picker honors eggsCountAsVeg without changing Egg display group', importedMatches(IMPORTED.get('unitools:tortilla-espanola'),base,{kind:'veg'}) && displayKind(IMPORTED.get('unitools:tortilla-espanola'),true)==='egg');
 console.log(`imported filters contract: ${pass} passed, ${fail} failed`);
+for (const id of ['mercimek-corbasi','tarator']) {
+ const soup=IMPORTED.get('unitools:'+id);
+ t(`${id} explicitly soup-only and unknown`,soup.name.includes('(soup only)') && soup.diet==='unknown' && !!soup.limitation.detail);
+}
+const tarator = IMPORTED.get('unitools:tarator');
+t('Tarator coldwater source amount not increased for ice',tarator.src.lines.find(l=>l.name==='Cold water').quantity===200);
+t('Tarator grocery carries separate method ice reminder',importedShoppingRows(tarator,base).every(x=>x.aisleLabel.includes('ice cube per bowl')));
+t('Mercimek missing salt-method is visible, not silently repaired',IMPORTED.get('unitools:mercimek-corbasi').limitation.detail.includes('never explicitly adds'));
+t('Mercimek salt has no fabricated trace',IMPORTED.get('unitools:mercimek-corbasi').src.lines.find(l=>l.name==='Salt').methodSteps.length===0);
+console.log(`soups contract: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

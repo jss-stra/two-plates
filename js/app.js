@@ -755,6 +755,7 @@ function renderImportedSheet(el, s) {
       ${tagLine}
       ${r.safety ? `<section class="safety-note"><div class="fine">Two Plates editorial adaptation, separate from the original UniTools method</div><h3>${esc(r.safety.title)}</h3><p>${esc(r.safety.note)}</p><p class="fine">Sources: ${r.safety.sources.map(([label,url]) => `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(label)}</a>`).join(' · ')}</p><p><b>Use the adapted cooking steps below.</b></p><p class="fine">Cooking adaptation by Two Plates, shared under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>. The original source method is preserved separately below.</p></section>` : ''}
       ${r.limitation ? `<p class="import-limit fine"><b>Before you start:</b> ${esc(r.limitation.detail)}</p>` : ''}
+      ${r.limitation?.handling ? `<p class="import-limit fine">${esc(r.limitation.handling)} <a href="${esc(r.limitation.handlingUrl)}" target="_blank" rel="noopener">FSANZ handling guidance</a></p>` : ''}
       ${gate.allowed ? '' : `<p class="fine">${esc(gate.reason)}</p>`}
       <h3>Ingredients (exact source amounts)</h3>
       <ul class="ings">${ings}</ul>

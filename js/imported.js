@@ -18,8 +18,12 @@ import chicken from '../data/imported/chakhokhbili.mjs';
 import irish from '../data/imported/irish-stew.mjs';
 import farikal from '../data/imported/farikal.mjs';
 import fish from '../data/imported/qingzheng-yu.mjs';
-const SOURCES = [ratatouille, draniki, galayet, kaesespaetzle, melanzane, byrek, misir, tortilla, chicken, irish, farikal, fish];
+import lentilSoup from '../data/imported/mercimek-corbasi.mjs';
+import coldSoup from '../data/imported/tarator.mjs';
+const SOURCES = [ratatouille, draniki, galayet, kaesespaetzle, melanzane, byrek, misir, tortilla, chicken, irish, farikal, fish, lentilSoup, coldSoup];
 const LIMITATIONS = {
+  'unitools:mercimek-corbasi': { summary: 'Soup only; salt has no method step', detail: 'Soup only, not a nutritionally verified full meal; bread or other sides are not included. The source lists salt to taste but never explicitly adds it in the method. That gap is retained rather than inventing a step. Water or stock remains the source choice; stock formulation is unknown. The source splits 40 g butter between a spoon at the start and the rest at the finish, without a gram allocation. Extra boiling water to loosen the soup is an unquantified process instruction, not a fixed shopping quantity.' },
+  'unitools:tarator': { summary: 'Soup only; ice needed separately', detail: 'Cold soup only, not a nutritionally verified full meal; bread or other sides are not included. The source method serves an ice cube in each bowl, but ice is absent from its ingredient list. Prepare ice separately for the bowls you serve; this is not included in the listed 200 ml cold water, which stays unchanged. The grocery heading repeats this reminder. Yoghurt formulation and pasteurisation are not verified.', grocery: 'Source-method reminder: ice cube per bowl, separate from listed 200 ml water', handling: 'Two Plates handling note (not a change to the source method): wash cucumber and herbs under running water, use clean utensils, follow the yoghurt label storage and use-by directions, and keep the soup at 5°C or colder until serving. These steps do not certify the recipe or clear allergies.', handlingUrl: 'https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/food-safety-basics' },
   'unitools:kaesespaetzle': { summary: 'Suggested salad not included', detail: 'The source suggests a green salad with vinegar dressing but supplies no quantities. That optional side is not in the groceries for this dish. Water or milk and Emmental or Bergkäse remain source choices; no formulation or strict vegetarian clearance is implied.' },
   'unitools:byrek-me-spinaq': { summary: 'Filo sheet sizes vary: see recipe', detail: 'The source supplies 500 g of prepared filo but describes layers by sheet count. It does not specify sheet dimensions or weight per sheet, so those counts cannot be converted into a guaranteed packet size. Check your pastry before starting. Cheese and pastry formulations are not reviewed.' },
   'unitools:misir-wat': { summary: 'Stew only: bread not included', detail: 'This is the stew only. The source suggests injera or flatbread to serve, but gives no bread quantity or recipe. Bread is not included in these groceries. Berbere and neutral-oil formulations are unspecified; no verified vegan or allergy-free claim is made.' },
@@ -46,7 +50,7 @@ const REVIEWED_DIET = {
 function adapt(src) {
   return {
     id: src.id,
-    name: src.name + (src.id === 'unitools:misir-wat' ? ' (stew only)' : ''),
+    name: src.name + (src.id === 'unitools:misir-wat' ? ' (stew only)' : ['unitools:mercimek-corbasi', 'unitools:tarator'].includes(src.id) ? ' (soup only)' : ''),
     limitation: LIMITATIONS[src.id] || null,
     cuisine: src.cuisine,
     group: src.cuisine, // picker "same cuisine" chip label only; never scored
@@ -100,7 +104,7 @@ export function importedShoppingRows(recipe, state) {
     id: null,
     name: line.name + (line.note?.en ? ` (${line.note.en})` : ''),
     aisle: `extra:Imported:${recipe.id}`,
-    aisleLabel: `Imported: ${recipe.name} (exact source amounts, ${recipe.baseServings} servings)`,
+    aisleLabel: `Imported: ${recipe.name} (exact source amounts, ${recipe.baseServings} servings)${recipe.limitation?.grocery ? ` · ${recipe.limitation.grocery}` : ''}`,
     amount: '',
     unit: '',
     text: line.unit === 'toTaste' ? 'to taste' : `${line.quantity} ${line.unit}`,
