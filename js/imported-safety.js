@@ -544,4 +544,28 @@ export const IMPORTED_SAFETY = {
       2: 'Add beans, then corn, sugar, butter, and pepper to taste. After corn is added, watch carefully to keep from scorching. Make sure the beans are fully tender and any pork has reached at least 71°C before serving.',
     },
   },
+  'wikibooks:calzone': {
+    title: 'Cook raw meat toppings through before sealing',
+    note: 'The optional topping line is species-open and may include raw sausage. Pre-cook any raw meat topping before filling the calzone: use a clean food thermometer in the thickest part to check at least 75°C for sausage of unstated species or poultry (FSANZ poultry guidance), or at least 71°C for package-confirmed non-poultry mince (NSW guidance). Cured ready-to-eat toppings (ham, salami, pepperoni) only need to heat through in the bake. Follow product storage, use-by and cooking directions.',
+    sources: [['FSANZ: poultry 75°C', 'https://www.foodstandards.gov.au/consumer/safety'], ['NSW: minced meat and sausages 71°C', 'https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers'], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      2: 'Combine ricotta, mozzarella, toppings, and oregano. Pre-cook any raw meat topping first and confirm at least 75°C (species unstated or poultry) or 71°C (package-confirmed non-poultry mince) in the thickest part; cured ready-to-eat toppings can go in as they are.',
+    },
+  },
+  'wikibooks:florida-style-crab-cakes': {
+    title: 'Cook the cakes through; golden is not the check',
+    note: 'Two Plates adds a measured endpoint: the egg binder goes in raw, and the source cues (golden, hot but still moist) are not a measured check that the egg is cooked through. Cook until a clean food thermometer in the centre of a cake reads at least 71°C (an editorial application of FSANZ guidance to cook egg dishes thoroughly, not a tested dish-specific standard). Keep the crab meat refrigerated at 5°C or colder and follow its package storage and use-by directions.',
+    sources: [['FSANZ: cook egg dishes thoroughly', 'https://www.foodstandards.gov.au/consumer/safety'], ['USDA (US): thermometer use', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      8: 'Lower heat to medium and cook until a clean food thermometer in the centre of a cake reads at least 71°C and the cakes are hot throughout. Golden colour and moist texture are not doneness checks; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks:taco-casserole': {
+    title: 'Probe the mince; browning is not the check',
+    note: 'Two Plates adds a measured endpoint: the source browns the ground beef, but browning is not a doneness check for mince. Use a clean food thermometer in the thickest part of the cooking beef to check at least 71°C, following NSW mince guidance; continue cooking and recheck if below the target. Keep the beef refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw meat and ready-to-eat food, and clean hands and surfaces after handling. Follow product storage, use-by and cooking directions.',
+    sources: [['NSW: minced meat and sausages 71°C; colour unreliable', 'https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers'], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      1: 'Brown the ground beef in skillet on medium heat, then use a clean food thermometer in the thickest part of the cooking beef to check at least 71°C. Browning is not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
 };

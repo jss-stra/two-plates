@@ -128,7 +128,13 @@ import tomatoPastaWithBaconOnionsAndCheese from '../data/imported/tomato-pasta-w
 import tuscanSoupMeatless from '../data/imported/tuscan-soup-meatless.mjs';
 import zupaOgorkowaPolishCucumberSoup from '../data/imported/zupa-ogorkowa-polish-cucumber-soup.mjs';
 import zuppaToscana from '../data/imported/zuppa-toscana.mjs';
-const SOURCES = [ratatouille, draniki, galayet, kaesespaetzle, melanzane, byrek, misir, tortilla, chicken, irish, farikal, fish, lentilSoup, coldSoup, fondue, spinachPie, strukli, jollof, souvla, trout, paprikaChicken, softTacos, adultMac, agnolotti, garbanzoSoup, porkLima, spaghettiBolognese, spareRibs, poutine, penneMeatSauce, jambalayaI, asparagusSoup, beanSoupVegetarian, beefGravySoup, blackPepperedChickenSpaghetti, creamyTomatoBeanSoup, crockPotPotatoSoup, hotAndSourSoup, mushroomSoup, pastaSoupForKids, pepperSoup, potatoSoup, spicedPumpkinSoup, sausageAndTortelliniSoup, tomKhaKai, vichyssoise, ertesuppePeaSoup, lenguaDeRes, baconWrappedScallops, chickenFriedSteak, chipsiMayai, chuuCheeFish, cubanPicadillo, garlicPorkChopsBlackMushrooms, honeyPepperedSalmon, lemonRosemaryPorkTenderloin, maplePlankedSalmon, meatloafIv, mediterraneanGreenChicken, poppyseedChicken, schweinsbraten, shrimpScampiAngelHair, simpleItalianSausageSpaghetti, spicyChickenCutlets, sweetItalianSausageSkillet, tunaGlop, wineRoastedPorkRoast, beanAndBaconBake, brownRiceCasserole, cazuelaGallega, chuckWagonBeans, cioppinoItalianSeafoodStew, cornySouffle, crockPotBeefStew, cucumberSproutSandwich, dutchOvenBeans, fabesConAlmejas, keralanVegetableStew, macaroniPie, malvaniChickenCurry, meatlessSloppyJoes, miniThreeCheeseEnglishMuffinPizzas, mozzarellaTunaMelts, parmesanCheeseSouffle, mostaccioli, potatoChickpeaCurry, potatoCurryAlooMasala, radishPie, reubenSandwich, risottoAllaMilanese, sloppyJoes, spaghettiBake, tripesALaModeDeCaen, yetsomShiro, yogurtCurrySoupKadhi, bakedPenne, beanburger, chanterelleGoulash, chickenBaconBroccoliAlfredoSpaghetti, chickenTetrazzini, cornChowderI, gambasAlAjilloGarlicShrimp, garlicParmesanPasta, hutspotDutchMashedVegetables, jambons, manxSmokedSalmon, menemenEggsWithOnionGreenPepperAndTomato, ossobucoAllaMilanese, paellaValenciana, panDeJamon, riceWithTofuAndNuts, salmonSpaghetti, southwestPasta, spaghettiAllaPuttanesca, spinachMushroomPestoSpaghetti, stirFriedSeafoodWithNoodles, succotash, tomatoBasilSausagePasta, tomatoPastaWithBaconOnionsAndCheese, tuscanSoupMeatless, zupaOgorkowaPolishCucumberSoup, zuppaToscana];
+import calzone from '../data/imported/calzone.mjs';
+import fishermanSCasserole from '../data/imported/fisherman-s-casserole.mjs';
+import floridaStyleCrabCakes from '../data/imported/florida-style-crab-cakes.mjs';
+import porkBurritosWithGreenPepperSauce from '../data/imported/pork-burritos-with-green-pepper-sauce.mjs';
+import tacoCasserole from '../data/imported/taco-casserole.mjs';
+import tunaCasserole from '../data/imported/tuna-casserole.mjs';
+const SOURCES = [ratatouille, draniki, galayet, kaesespaetzle, melanzane, byrek, misir, tortilla, chicken, irish, farikal, fish, lentilSoup, coldSoup, fondue, spinachPie, strukli, jollof, souvla, trout, paprikaChicken, softTacos, adultMac, agnolotti, garbanzoSoup, porkLima, spaghettiBolognese, spareRibs, poutine, penneMeatSauce, jambalayaI, asparagusSoup, beanSoupVegetarian, beefGravySoup, blackPepperedChickenSpaghetti, creamyTomatoBeanSoup, crockPotPotatoSoup, hotAndSourSoup, mushroomSoup, pastaSoupForKids, pepperSoup, potatoSoup, spicedPumpkinSoup, sausageAndTortelliniSoup, tomKhaKai, vichyssoise, ertesuppePeaSoup, lenguaDeRes, baconWrappedScallops, chickenFriedSteak, chipsiMayai, chuuCheeFish, cubanPicadillo, garlicPorkChopsBlackMushrooms, honeyPepperedSalmon, lemonRosemaryPorkTenderloin, maplePlankedSalmon, meatloafIv, mediterraneanGreenChicken, poppyseedChicken, schweinsbraten, shrimpScampiAngelHair, simpleItalianSausageSpaghetti, spicyChickenCutlets, sweetItalianSausageSkillet, tunaGlop, wineRoastedPorkRoast, beanAndBaconBake, brownRiceCasserole, cazuelaGallega, chuckWagonBeans, cioppinoItalianSeafoodStew, cornySouffle, crockPotBeefStew, cucumberSproutSandwich, dutchOvenBeans, fabesConAlmejas, keralanVegetableStew, macaroniPie, malvaniChickenCurry, meatlessSloppyJoes, miniThreeCheeseEnglishMuffinPizzas, mozzarellaTunaMelts, parmesanCheeseSouffle, mostaccioli, potatoChickpeaCurry, potatoCurryAlooMasala, radishPie, reubenSandwich, risottoAllaMilanese, sloppyJoes, spaghettiBake, tripesALaModeDeCaen, yetsomShiro, yogurtCurrySoupKadhi, bakedPenne, beanburger, chanterelleGoulash, chickenBaconBroccoliAlfredoSpaghetti, chickenTetrazzini, cornChowderI, gambasAlAjilloGarlicShrimp, garlicParmesanPasta, hutspotDutchMashedVegetables, jambons, manxSmokedSalmon, menemenEggsWithOnionGreenPepperAndTomato, ossobucoAllaMilanese, paellaValenciana, panDeJamon, riceWithTofuAndNuts, salmonSpaghetti, southwestPasta, spaghettiAllaPuttanesca, spinachMushroomPestoSpaghetti, stirFriedSeafoodWithNoodles, succotash, tomatoBasilSausagePasta, tomatoPastaWithBaconOnionsAndCheese, tuscanSoupMeatless, zupaOgorkowaPolishCucumberSoup, zuppaToscana, calzone, fishermanSCasserole, floridaStyleCrabCakes, porkBurritosWithGreenPepperSauce, tacoCasserole, tunaCasserole];
 const LIMITATIONS = {
   'unitools:ohridska-pastrmka': { summary: 'Whole fish; shared oil and lemons; wine retained', detail: 'The source lists four whole gutted trout without weights. No kg, edible yield or exact trout species is inferred, and the regional name does not establish Lake Ohrid origin. The 80 ml olive oil is shared between rubbing, greasing and the remaining pour; the three lemons supply cavity slices and serving wedges. No numeric split or extra amount is invented. The 800 g potatoes are cooked under the raw fish, not an uncooked garnish. Wine remains 150 ml with no alcohol-free claim. Follow the adapted endpoint and raw-fish separation note. Whole gutted fish still have bones; take care when serving and eating. Product formulations and cross-contact remain unreviewed.', grocery: 'Four whole gutted fish, no weight conversion; oil and lemons are shared totals; contains wine' },
   'unitools:souvla': { summary: 'Pork shoulder; charcoal spit and probe needed', detail: 'The actual ingredient is 2.5 kg pork shoulder, not a pork-or-lamb choice despite the broader source summary. The source cuts pieces of about 200 g; no exact piece count is inferred. Pita formulation and cross-contact are unverified. No marinade, oil, dressing or extra side is added. This requires suitable charcoal-spit equipment and a food thermometer, not an ordinary pan. Check current local fire restrictions before lighting; no current restriction status is checked by this recipe. Follow the separately adapted cooking steps and handling note.', grocery: 'Pork shoulder 2.5 kg; separate charcoal-spit equipment and food thermometer required' },
@@ -484,6 +490,40 @@ const LIMITATIONS = {
     grocery: 'Sausage species unstated: fails closed against meat exclusions; broth formulation unverified'
   },
 
+  'wikibooks:calzone': {
+    summary: 'Optional meat toppings species-open; dough package size unstated',
+    detail: 'The optional topping line (ham, bacon, salami, pepperoni, and/or sausage) is a source alternative with species and cured state unstated; diet stays unclassified and the dish fails closed against meat exclusions when a meat topping is used. Raw sausage must be cooked through before sealing (see the adapted note). The store-bought pizza dough package size is not stated. The ricotta and mozzarella formulations (rennet) are unverified. Marinara sauce for serving is an unquantified accompaniment, not in the groceries.',
+    grocery: 'Meat topping species unstated; dough package size not stated; marinara to serve not included'
+  },
+  'wikibooks:fisherman-s-casserole': {
+    summary: 'Canned fish and soup formulations unverified',
+    detail: 'The canned salmon, cream of celery soup, cheddar, milk and bread crumbs are manufactured products whose formulations are unverified; diet rests on the explicit salmon line. All can and package sizes are source quantities, kept verbatim.',
+    grocery: 'Canned-soup formulation unverified; can sizes are source quantities'
+  },
+  'wikibooks:florida-style-crab-cakes': {
+    summary: 'Adapted egg endpoint; mayonnaise formulation unverified',
+    detail: 'The egg binder goes in raw and the cakes are pan-fried; use the adapted egg endpoint below rather than colour and time alone. The Florida Bay seasoning blend is defined in the source note, kept as a reference. Mayonnaise formulation is unverified; diet rests on the explicit crab line. Salt and white pepper are to taste.',
+    grocery: 'Crab cakes must be cooked through; mayonnaise formulation unverified'
+  },
+  'wikibooks:pork-burritos-with-green-pepper-sauce': {
+    summary: 'Eight-to-ten-hour slow cooker; salsa formulations unverified',
+    detail: 'The pork cooks 8–10 hours on low per the source until fork-tender; follow your slow-cooker manufacturer directions. The two salsa jars, tortillas, cheese and lemon pepper seasoning are manufactured products whose formulations are unverified; diet rests on the explicit pork line. The recipe makes 12 burritos at source scale.',
+    grocery: 'Slow-cooker recipe; salsa and seasoning formulations unverified',
+    handling: 'Two Plates handling note (not a change to the source method): cool leftovers promptly in small portions, cover and refrigerate below 5°C within 2 hours, and use within 2 days. Count all time between 5°C and 60°C cumulatively: under 2 hours, use or refrigerate; 2 to 4 hours, use immediately; over 4 hours, discard. Reheat only once, until steaming hot throughout (at least 60°C).',
+    handlingUrl: 'https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers',
+    handlingLabel: 'NSW leftovers guidance'
+  },
+  'wikibooks:taco-casserole': {
+    summary: 'Adapted mince endpoint; seasoning formulation unverified',
+    detail: 'The source browns the ground beef; browning is not a doneness check for mince, so use the adapted measured endpoint below. The taco seasoning packet, tomato sauce and shredded cheese are manufactured products whose formulations are unverified; diet rests on the explicit beef line.',
+    grocery: 'Beef must reach 71°C; taco-seasoning formulation unverified'
+  },
+  'wikibooks:tuna-casserole': {
+    summary: 'Can and bag sizes unstated; soup formulations unverified',
+    detail: 'The tuna cans, the three soup cans, the frozen-vegetable bag, the egg-noodle bag and the topping (onion rings, potato chips or corn flakes, a source alternative) all have sizes unstated in the source, kept that way. The cream soups are manufactured products whose formulations are unverified; diet rests on the explicit tuna line.',
+    grocery: 'Tuna, soup, noodle and topping package sizes not stated'
+  },
+
 };
 export const IMPORTED = new Map();
 
@@ -606,6 +646,13 @@ const REVIEWED_DIET = {
   'wikibooks:tuscan-soup-meatless': { diet: 'nonveg', meatKind: 'chicken', basis: 'Chicken broth explicit in source line 4 despite the meatless title; all ten source lines independently read 2026-11-12. Source vegetarian category displayed as an unverified claim.' },
   'wikibooks:zupa-ogorkowa-polish-cucumber-soup': { diet: 'nonveg', meatKind: 'chicken', basis: 'Chicken wings explicit in source line 1; all fourteen source lines independently read 2026-11-12. Cream formulation not cleared.' },
   'wikibooks:zuppa-toscana': { diet: 'unknown', basis: 'All eleven source lines independently read 2026-11-12: spicy Italian sausage explicit but species not stated (source notes a turkey-sausage substitution); bacon explicit. Fails closed against meat exclusions. Broth formulation not cleared.' },
+
+  'wikibooks:calzone': { diet: 'unknown', basis: 'All five source lines independently read 2026-11-12: optional meat topping is species-open (ham, bacon, salami, pepperoni and/or sausage); cheese rennet unverified. Fails closed against meat exclusions when a meat topping is used.' },
+  'wikibooks:fisherman-s-casserole': { diet: 'nonveg', meatKind: 'fish', basis: 'Canned salmon explicit in source line 8; all eleven source lines independently read 2026-11-12. Canned-soup and cheese formulations not cleared.' },
+  'wikibooks:florida-style-crab-cakes': { diet: 'nonveg', meatKind: 'fish', basis: 'Lump crab meat explicit in source line 13 (2 pounds); all fourteen source lines independently read 2026-11-12. Mayonnaise formulation not cleared.' },
+  'wikibooks:pork-burritos-with-green-pepper-sauce': { diet: 'nonveg', meatKind: 'pork', basis: 'Boneless pork loin roast explicit in source line 14 (4 pounds); all seventeen source lines independently read 2026-11-12. Salsa and cheese formulations not cleared.' },
+  'wikibooks:taco-casserole': { diet: 'nonveg', meatKind: 'beef', basis: 'Ground beef explicit in source line 1 (1 pound / 450 g); all seven source lines independently read 2026-11-12. Taco-seasoning formulation not cleared.' },
+  'wikibooks:tuna-casserole': { diet: 'nonveg', meatKind: 'fish', basis: 'Canned tuna explicit in source line 1 (3 cans); all five source lines independently read 2026-11-12. Cream-soup formulations not cleared.' },
 
 };
 
