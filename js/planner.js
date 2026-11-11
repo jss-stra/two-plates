@@ -6,6 +6,11 @@ const kindFilter = (kind, rules) => (kind === 'veg'
   ? (r) => isVeg(r, rules.eggsCountAsVeg)
   : (r) => r.diet === 'nonveg');
 
+// A manual import occupies the plan position the user replaced. This is
+// quota bookkeeping only, never a dietary classification or filter clearance.
+export const slotKind = (slot, recipe, rules) => recipe?.imported && ['veg', 'chicken'].includes(slot.planKind)
+  ? slot.planKind : kindOf(recipe, rules.eggsCountAsVeg);
+
 export const targetDishes = (rules) => rules.chickenDishes + rules.vegDishes;
 
 export function planRecipes(state) {
@@ -100,7 +105,7 @@ export function generateSlots(state, { keepLocked = true } = {}) {
   for (const s of state.plan.slots) {
     const r = RECIPE_BY_ID[s.id];
     if (!keepLocked || !s.locked || !r) continue;
-    const k = kindOf(r, rules.eggsCountAsVeg);
+    const k = slotKind(s, r, rules);
     const max = k === 'veg' ? rules.vegDishes : rules.chickenDishes;
     if (counts[k] < max) { kept.push(s); counts[k]++; }
   }

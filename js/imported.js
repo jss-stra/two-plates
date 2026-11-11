@@ -6,7 +6,9 @@
 import { RECIPE_BY_ID } from './data.js';
 import ratatouille from '../data/imported/ratatouille.mjs';
 
-const SOURCES = [ratatouille];
+import draniki from '../data/imported/draniki.mjs';
+import galayet from '../data/imported/galayet-bandora.mjs';
+const SOURCES = [ratatouille, draniki, galayet];
 export const IMPORTED = new Map();
 
 // Reviewed per-record diet classifications. A dish gets a diet class ONLY
@@ -15,6 +17,8 @@ export const IMPORTED = new Map();
 // bread, stock, dressings - stays 'unknown' and is never shown as veg or
 // chicken. Keyed by record id; the source modules stay verbatim.
 const REVIEWED_DIET = {
+  'unitools:draniki': { diet: 'veg', basis: '2026-11-11: all six retained lines reviewed: potatoes, onion, vegetable oil, soured cream, dill, salt/pepper. Dairy present; purchased product formulation and cross-contact not cleared.' },
+  // Galayet includes flatbreads of unspecified formulation: leave unknown.
   // All 10 retained lines are plant foods, olive oil and salt/pepper.
   'unitools:ratatouille': { diet: 'veg', basis: 'lines reviewed 2026-11-11: aubergine, courgette, pepper, tomatoes, onion, garlic, olive oil, thyme, basil, salt/pepper - no meat/fish/egg/dairy/grain line' },
 };
@@ -60,7 +64,7 @@ export function importedAddStatus(state, id) {
   if (!r) return { allowed: false, reason: 'Unknown dish.' };
   const x = state.exclusions || {};
   if ((x.allergies?.length || 0) + (x.dislikes?.length || 0) > 0) {
-    return { allowed: false, reason: 'Allergy and dislike checks are not reviewed for imported dishes yet. Clear your exclusions to add it, or pick a checked dish.' };
+    return { allowed: false, reason: 'Allergy and dislike checks are not reviewed for imported dishes yet. Choose a dish with reviewed ingredient checks instead.' };
   }
   return { allowed: true };
 }
@@ -72,7 +76,7 @@ export function importedShoppingRows(recipe, state) {
     key: line.lineRef,
     id: null,
     name: line.name + (line.note?.en ? ` (${line.note.en})` : ''),
-    aisle: 'extra:Imported',
+    aisle: `extra:Imported:${recipe.id}`,
     aisleLabel: `Imported: ${recipe.name} (exact source amounts, ${recipe.baseServings} servings)`,
     amount: '',
     unit: '',

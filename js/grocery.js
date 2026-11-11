@@ -126,10 +126,12 @@ export function weeklyNoteText(state, { amounts = false } = {}) {
     : `• ${r.name} (${r.cuisine}, ${r.time} min)\n  Recipe: ${youtubeUrl(r)}`;
   const chicken = recipes.filter((r) => kindOf(r, state.rules.eggsCountAsVeg) === 'chicken');
   const veg = recipes.filter((r) => kindOf(r, state.rules.eggsCountAsVeg) === 'veg');
+  const unknown = recipes.filter((r) => kindOf(r, state.rules.eggsCountAsVeg) === 'unknown');
   return [
     'THIS WEEK',
     ...(chicken.length ? ['Chicken & turkey:', ...chicken.map(line)] : []),
     ...(veg.length ? ['Veg:', ...veg.map(line)] : []),
+    ...(unknown.length ? ['Diet not classified:', ...unknown.map(line)] : []),
     '',
     'GROCERIES',
     groceryText(state, { amounts }),

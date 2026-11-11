@@ -80,4 +80,23 @@ t("kindOf never files an unclassified dish under chicken or veg", kindOf({ diet:
 t("isVeg never treats unclassified as veg", isVeg({ diet: 'unknown' }, true) === false);
 t("known diets unchanged", kindOf({ diet: 'nonveg' }, false) === 'chicken' && kindOf({ diet: 'veg' }, false) === 'veg' && kindOf({ diet: 'egg' }, true) === 'veg');
 console.log(`imported (with diet-class): ${pass} passed, ${fail} failed`);
+
+
+// Unknown-diet manual replacement survives quota bookkeeping and locking.
+const { slotKind } = await import('../js/planner.js');
+const { weeklyNoteText } = await import('../js/grocery.js');
+const galayet = IMPORTED.get('unitools:galayet-bandora');
+const manualSlot = { id: galayet.id, locked: true, planKind: 'chicken' };
+const manualState = { ...base, rules: { ...base.rules, chickenDishes: 1, vegDishes: 0 }, plan: { slots: [manualSlot] } };
+t('unknown is not a dietary chicken/veg claim', galayet.diet === 'unknown' && kindOf(galayet, true) === 'unknown');
+t('manual replacement tracks the replaced plan position, separately from diet', slotKind(manualSlot, galayet, manualState.rules) === 'chicken');
+t('locked unknown manual replacement survives regenerate', generateSlots(manualState).some(s => s.id === galayet.id && s.planKind === 'chicken'));
+t('unknown appears in weekly text', weeklyNoteText(manualState).includes('Diet not classified:') && weeklyNoteText(manualState).includes(galayet.name));
+const multi = buildGrocery({ ...base, plan: { slots: [{id:r.id}, {id:galayet.id}] } });
+t('each import gets a separate correctly named grocery group', multi.shopGroups.some(g=>g.label.includes('Ratatouille') && g.items.length===10) && multi.shopGroups.some(g=>g.label.includes(galayet.name) && g.items.length===8));
+for (const source of importedList()) {
+ t(`${source.name} never joins RECIPES`, !RECIPES.some(r=>r.id===source.id));
+ t(`${source.name} restriction gate blocks`, !importedAddStatus({...base, exclusions:{allergies:['cat:milk'],dislikes:[]}},source.id).allowed);
+}
+console.log(`imported complete: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

@@ -2,7 +2,7 @@ import { renderPrep, setupPrepEvents } from './prep.js';
 import { renderExtrasCard, renderPartiesCard, setupGroceryEvents } from './grocery-ui.js';
 import { RECIPES, RECIPE_BY_ID, GROUPS, INGREDIENTS, DIET_LABEL, PROTEIN_LABEL, youtubeUrl, isVeg, kindOf, DATA_ERRORS, exclusionHits, ALLERGEN_CATS } from './data.js';
 import { getState, update, onChange, defaultState, replaceState } from './state.js';
-import { generateSlots, planRecipes, alternatives, randomSwap, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes, localISO } from './planner.js';
+import { generateSlots, slotKind, planRecipes, alternatives, randomSwap, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes, localISO } from './planner.js';
 import { renderLog, shiftDay, shiftMonth } from './log.js';
 import { buildGrocery, weeklyNoteText, scaleFactor, formatQty, qtyText } from './grocery.js';
 import { exportExcel } from './export.js';
@@ -97,7 +97,7 @@ function setPath(obj, path, value) {
 
 const kindCounts = (s) => {
   const c = { chicken: 0, veg: 0 };
-  planRecipes(s).forEach((r) => c[kindOf(r, s.rules.eggsCountAsVeg)]++);
+  s.plan.slots.forEach((slot) => { const r = RECIPE_BY_ID[slot.id]; if (r) { const k = slotKind(slot, r, s.rules); c[k] = (c[k] || 0) + 1; } });
   return c;
 };
 
@@ -872,9 +872,11 @@ function menuMessage(s, no, weekOf, ids) {
     : `• ${r.name} (${r.cuisine}, ${r.time} min)\n  ${youtubeUrl(r)}`;
   const chicken = recipes.filter((r) => kindOf(r, s.rules.eggsCountAsVeg) === 'chicken');
   const veg = recipes.filter((r) => kindOf(r, s.rules.eggsCountAsVeg) === 'veg');
+  const unknown = recipes.filter((r) => kindOf(r, s.rules.eggsCountAsVeg) === 'unknown');
   return [`🍽️ Week ${no} menu — week of ${fmtWeek(weekOf)}`, '',
     ...(chicken.length ? ['*Chicken & turkey*', ...chicken.map(line), ''] : []),
     ...(veg.length ? ['*Veg*', ...veg.map(line), ''] : []),
+    ...(unknown.length ? ['*Diet not classified*', ...unknown.map(line), ''] : []),
     `Full menu: ${menuUrl(no, weekOf, ids)}`].join('\n');
 }
 
@@ -906,7 +908,11 @@ function setEntry(fn) {
 }
 
 function replaceSlot(i, id) {
-  update((d) => { d.plan.slots[i] = { id, locked: false }; });
+  update((d) => {
+    const old = d.plan.slots[i];
+    const planKind = slotKind(old, RECIPE_BY_ID[old.id], d.rules);
+    d.plan.slots[i] = { id, locked: false, ...(IMPORTED.has(id) ? { planKind } : {}) };
+  });
 }
 
 const actions = {

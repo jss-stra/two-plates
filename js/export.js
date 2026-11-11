@@ -40,12 +40,12 @@ export async function exportExcel(state) {
     const ma = mealFor(r, a), mb = mealFor(r, b);
     const rating = ratingOf(state, r.id);
     menuRows.push([kindOf(r, state.rules.eggsCountAsVeg) === 'veg' ? 'Veg' : kindOf(r, state.rules.eggsCountAsVeg) === 'chicken' ? 'Chicken' : 'Not classified', r.name, r.cuisine, r.time ?? 'not listed',
-      rating === null ? '' : `${rating.toFixed(1)} ★`, ma.protein, ma.kcal, mb.protein, mb.kcal, 'Watch']);
+      rating === null ? '' : `${rating.toFixed(1)} ★`, ma.protein, ma.kcal, mb.protein, mb.kcal, r.imported ? 'Recipe in app' : 'Watch']);
   });
   const menuSheet = XLSX.utils.aoa_to_sheet(menuRows);
   recipes.forEach((r, i) => {
     const cell = menuSheet[XLSX.utils.encode_cell({ r: i + 1, c: 9 })];
-    cell.l = { Target: youtubeUrl(r) };
+    if (!r.imported) cell.l = { Target: youtubeUrl(r) };
   });
   menuSheet['!cols'] = [{ wch: 9 }, { wch: 44 }, { wch: 13 }, { wch: 8 }, { wch: 16 },
     { wch: 14 }, { wch: 12 }, { wch: 14 }, { wch: 12 }, { wch: 10 }];
