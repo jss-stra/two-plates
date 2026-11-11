@@ -116,7 +116,8 @@ export function importedMatches(r, state, { query = '', vegOnly = false, quick =
   const q = query.trim().toLowerCase();
   if (vegOnly && !isVeg(r, state.rules.eggsCountAsVeg)) return false;
   if (quick && (!Number.isFinite(r.time) || r.time > 30)) return false;
-  if (kind && displayKind(r, state.rules.eggsCountAsVeg) !== kind) return false;
+  if (kind === 'veg' && !isVeg(r, state.rules.eggsCountAsVeg)) return false;
+  if (kind && kind !== 'veg' && displayKind(r, state.rules.eggsCountAsVeg) !== kind) return false;
   if (group && r.group !== group) return false;
   return !q || r.name.toLowerCase().includes(q) || r.cuisine.toLowerCase().includes(q)
     || r.src.lines.some(l => l.name.toLowerCase().includes(q));

@@ -134,5 +134,6 @@ t('Quick never matches unknown imported time', importedList().every(x=>!imported
 t('Chicken picker never shows lamb or unknown', !importedMatches(lambda,base,{kind:'chicken'}) && !importedMatches(galayet,base,{kind:'chicken'}));
 t('Anything allows cross-kind manual replacement', importedMatches(lambda,base,{kind:null}) && importedMatches(galayet,base,{kind:null}));
 t('Imported ingredient-name search uses retained source lines', importedMatches(lambda,base,{query:'carrots'}));
+t('Veg picker honors eggsCountAsVeg without changing Egg display group', importedMatches(IMPORTED.get('unitools:tortilla-espanola'),base,{kind:'veg'}) && displayKind(IMPORTED.get('unitools:tortilla-espanola'),true)==='egg');
 console.log(`imported filters contract: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
