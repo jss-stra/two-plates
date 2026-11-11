@@ -165,4 +165,10 @@ t('Strukli dry curd not converted to another cheese',st.src.lines.find(l=>l.name
 t('Strukli shared fat and process water caveats reach groceries',importedShoppingRows(st,base).every(x=>x.aisleLabel.includes('shared totals')));
 t('Strukli unknown diet and fixed base retained',st.diet==='unknown' && st.baseServings===6 && st.time===null);
 console.log(`strukli contract: ${pass} passed, ${fail} failed`);
+const jr = IMPORTED.get('unitools:jollof-rice');
+t('Jollof stock remains chicken with visible contradiction',jr.src.lines.find(l=>l.name==='Chicken stock').quantity===600 && jr.limitation.detail.includes('contradict') && jr.diet==='unknown');
+t('Jollof rice source amount and rinsed note remain',jr.src.lines.find(l=>l.name==='Long-grain rice').quantity===500 && jr.src.lines.find(l=>l.name==='Long-grain rice').note.en==='rinsed');
+t('Jollof handling distinguishes cumulative 2-4h from refrigerating',jr.limitation.handling.includes('not refrigerate for later') && jr.limitation.handling.includes('only once') && jr.limitation.handling.includes('within 1 day'));
+t('Jollof grocery explicitly chicken stock',importedShoppingRows(jr,base).every(x=>x.aisleLabel.includes('chicken stock')));
+console.log(`jollof contract: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
