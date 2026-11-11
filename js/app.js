@@ -221,7 +221,7 @@ function dishCard(r, i, slot, s) {
       ${slot.locked && !final ? `<span class="locked-tag">${icon('lock')} Locked</span>` : ''}
     </div>
     <h3>${esc(r.name)}</h3>
-    <div class="meta">${dietDot(r)} ${esc(r.cuisine)}${r.imported ? ` · fixed ${r.baseServings}-serving batch${r.diet === 'unknown' ? ' · diet not classified' : ''} · nutrition unknown` : ` · ${icon('clock', 'sm')} ${r.time} min · ${PROTEIN_LABEL[r.mainProtein] || ''}`}</div>
+    <div class="meta">${dietDot(r)} ${esc(r.cuisine)}${r.imported ? ` · fixed ${r.baseServings}-serving batch${r.diet === 'unknown' ? ' · diet not classified' : ''}${r.limitation ? ` · ${esc(r.limitation.summary)}` : ''} · nutrition unknown` : ` · ${icon('clock', 'sm')} ${r.time} min · ${PROTEIN_LABEL[r.mainProtein] || ''}`}</div>
     <div class="macros">${s.people.map((p) => {
       const m = mealFor(r, p);
       if (m.protein == null) return `<span><b>${esc(p.name)}</b> <span class="fine">nutrition unknown</span></span>`;
@@ -462,7 +462,7 @@ function renderRecipeList(s) {
     <button class="rrow-main" data-act="open-imported" data-id="${r.id}">
       <span class="rname">${dietDot(r)} ${esc(r.name)}</span>
       <span class="badges">${exclBadge(s, r)}</span>
-      <span class="meta">${esc(r.cuisine)} · fixed ${r.baseServings}-serving batch${r.diet === 'unknown' ? ' · diet not classified' : ''}</span>
+      <span class="meta">${esc(r.cuisine)} · fixed ${r.baseServings}-serving batch${r.diet === 'unknown' ? ' · diet not classified' : ''}${r.limitation ? ` · ${esc(r.limitation.summary)}` : ''}</span>
       <span class="per"><span class="fine">nutrition unknown</span></span>
     </button>
   </div>`).join('');
@@ -747,14 +747,16 @@ function renderImportedSheet(el, s) {
     <header><div><div class="fine">Imported recipe</div><h2>${esc(r.name)}</h2></div>
       <button class="act icon-only" data-act="close-sheet" aria-label="Close">${icon('x')}</button></header>
     <div class="sheet-body">
-      <p class="meta">${dietDot(r)} ${esc(r.cuisine)}${r.country ? ` · ${esc(r.country)}` : ''} · fixed ${r.baseServings}-serving batch${r.diet === 'unknown' ? ' · diet not classified' : ''}</p>
+      <p class="meta">${dietDot(r)} ${esc(r.cuisine)}${r.country ? ` · ${esc(r.country)}` : ''} · fixed ${r.baseServings}-serving batch${r.diet === 'unknown' ? ' · diet not classified' : ''}${r.limitation ? ` · ${esc(r.limitation.summary)}` : ''}</p>
       <p><span class="badge">nutrition unknown</span>${s.exclusions?.allergies?.length || s.exclusions?.dislikes?.length ? ' <span class="badge allerg">⚠ not allergy-checked</span>' : ''}</p>
       ${src.sourceTimes?.prepMinutes != null || src.sourceTimes?.cookMinutes != null ? `<p class="fine">Prep ${src.sourceTimes.prepMinutes ?? '?'} min · cook ${src.sourceTimes.cookMinutes ?? '?'} min (source times, not added to weekly totals)</p>` : ''}
       ${tagLine}
+      ${r.limitation ? `<p class="import-limit fine"><b>Before you start:</b> ${esc(r.limitation.detail)}</p>` : ''}
       ${gate.allowed ? '' : `<p class="fine">${esc(gate.reason)}</p>`}
       <h3>Ingredients (exact source amounts)</h3>
       <ul class="ings">${ings}</ul>
       <h3>Steps</h3>
+      <p class="fine">Minute tags are source metadata. They may differ from times in the instructions and are not tested elapsed times.</p>
       <ol class="steps">${steps}</ol>
       <p class="fine">Recipe: ${esc(rights.credit || 'source')}${rights.landingPage ? ` — <a href="${esc(rights.landingPage)}" target="_blank" rel="noopener">source</a>` : ''}${rights.license ? ` · <a href="${esc(rights.licenseUrl || '#')}" target="_blank" rel="noopener">${esc(rights.license)}</a>` : ''}${rights.changes ? `<br>Changes: ${esc(rights.changes)}` : ''}</p>
     </div>
@@ -808,7 +810,7 @@ function renderSheetList(s) {
       return `<div class="pick imported-pick">
       <button class="rrow-main" data-act="open-imported" data-id="${r.id}">
         <span class="rname">${dietDot(r)} ${esc(r.name)}</span>
-        <span class="meta">${esc(r.cuisine)} · fixed ${r.baseServings}-serving batch${r.diet === 'unknown' ? ' · diet not classified' : ''} · nutrition unknown</span>
+        <span class="meta">${esc(r.cuisine)} · fixed ${r.baseServings}-serving batch${r.diet === 'unknown' ? ' · diet not classified' : ''}${r.limitation ? ` · ${esc(r.limitation.summary)}` : ''} · nutrition unknown</span>
       </button>
       ${gate.allowed
         ? `<button class="act add" data-act="choose-imported" data-id="${r.id}">${icon('plus')}<span>Add</span></button>`

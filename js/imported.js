@@ -8,7 +8,16 @@ import ratatouille from '../data/imported/ratatouille.mjs';
 
 import draniki from '../data/imported/draniki.mjs';
 import galayet from '../data/imported/galayet-bandora.mjs';
-const SOURCES = [ratatouille, draniki, galayet];
+import kaesespaetzle from '../data/imported/kaesespaetzle.mjs';
+import melanzane from '../data/imported/melanzane-alla-parmigiana.mjs';
+import byrek from '../data/imported/byrek-me-spinaq.mjs';
+import misir from '../data/imported/misir-wat.mjs';
+const SOURCES = [ratatouille, draniki, galayet, kaesespaetzle, melanzane, byrek, misir];
+const LIMITATIONS = {
+  'unitools:kaesespaetzle': { summary: 'Suggested salad not included', detail: 'The source suggests a green salad with vinegar dressing but supplies no quantities. That optional side is not in the groceries for this dish. Water or milk and Emmental or Bergkäse remain source choices; no formulation or strict vegetarian clearance is implied.' },
+  'unitools:byrek-me-spinaq': { summary: 'Filo sheet sizes vary: see recipe', detail: 'The source supplies 500 g of prepared filo but describes layers by sheet count. It does not specify sheet dimensions or weight per sheet, so those counts cannot be converted into a guaranteed packet size. Check your pastry before starting. Cheese and pastry formulations are not reviewed.' },
+  'unitools:misir-wat': { summary: 'Stew only: bread not included', detail: 'This is the stew only. The source suggests injera or flatbread to serve, but gives no bread quantity or recipe. Bread is not included in these groceries. Berbere and neutral-oil formulations are unspecified; no verified vegan or allergy-free claim is made.' },
+};
 export const IMPORTED = new Map();
 
 // Reviewed per-record diet classifications. A dish gets a diet class ONLY
@@ -26,7 +35,8 @@ const REVIEWED_DIET = {
 function adapt(src) {
   return {
     id: src.id,
-    name: src.name,
+    name: src.name + (src.id === 'unitools:misir-wat' ? ' (stew only)' : ''),
+    limitation: LIMITATIONS[src.id] || null,
     cuisine: src.cuisine,
     group: src.cuisine, // picker "same cuisine" chip label only; never scored
     country: src.country,

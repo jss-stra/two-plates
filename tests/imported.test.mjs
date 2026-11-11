@@ -99,4 +99,15 @@ for (const source of importedList()) {
  t(`${source.name} restriction gate blocks`, !importedAddStatus({...base, exclusions:{allergies:['cat:milk'],dislikes:[]}},source.id).allowed);
 }
 console.log(`imported complete: ${pass} passed, ${fail} failed`);
+
+
+for (const r of importedList()) {
+ t(`${r.id}: full line source objects preserved`, JSON.stringify(r.src.lines.map(l=>l.source)) === JSON.stringify(r.src.sourceRecord.ingredients));
+ t(`${r.id}: full bilingual steps preserved`, JSON.stringify(r.src.steps) === JSON.stringify(r.src.sourceRecord.steps));
+ t(`${r.id}: source base preserved`, r.baseServings === r.src.sourceRecord.baseServings);
+}
+t('Misir explicitly stew only in name and limitation', IMPORTED.get('unitools:misir-wat').name.includes('(stew only)') && IMPORTED.get('unitools:misir-wat').limitation.detail.includes('Bread is not included'));
+t('Byrek sheet dimensions gap visible', IMPORTED.get('unitools:byrek-me-spinaq').limitation.detail.includes('sheet dimensions'));
+t('Kasespaetzle optional side not fabricated', IMPORTED.get('unitools:kaesespaetzle').limitation.detail.includes('no quantities'));
+console.log(`full imported contract: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
