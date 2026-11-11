@@ -180,7 +180,9 @@ export default {
       "methodSteps": [
         2,
         3
-      ]
+      ],
+      "methodTraceStatus": "partial_alternative_water_only",
+      "methodTraceNote": "Steps 2 and 3 name water only; no stock method is supplied in either language."
     },
     {
       "lineRef": "src:unitools:mercimek-corbasi:007",
@@ -527,7 +529,7 @@ export default {
     "landingPage": "https://theunitools.com/en/data",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
-    "changes": "Photo omitted; source-local references, method traces and review metadata added; quantities and method unchanged. Two Plates corrected salt methodSteps to empty: the source method never explicitly adds salt. Source ingredients and steps unchanged."
+    "changes": "Photo omitted; source-local references, method traces and review metadata added; quantities and method unchanged. Two Plates corrected salt methodSteps to empty: the source method never explicitly adds salt. Source ingredients and steps unchanged. Water-or-stock trace marked partial-alternative: source steps name water only, with no stock instructions invented."
   },
   "review": {
     "productionApproved": false,
