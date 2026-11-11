@@ -739,7 +739,7 @@ function renderImportedSheet(el, s) {
   const rights = src.rights || {};
   const sourceLabel = src.sourceLabel || 'UniTools';
   const tagLine = (src.sourceDietClaims?.length) ? `<p class="fine">Source diet claims (not verified by Two Plates): ${esc(src.sourceDietClaims.join(', '))}</p>` : '';
-  const ings = src.lines.map((l) => `<li><span>${esc(l.name)}</span><span>${l.unit === 'toTaste' ? 'to taste' : `${esc(String(l.quantity))} ${esc(l.unit)}`}${l.note?.en ? ` <span class="fine">(${esc(l.note.en)})</span>` : ''}</span></li>`).join('');
+  const ings = src.lines.map((l) => `<li><span>${esc(l.name)}</span><span>${l.unit === 'toTaste' ? 'to taste' : l.unit === 'unstated' ? 'quantity not stated' : `${esc(String(l.quantity))} ${esc(l.unit)}`}${l.note?.en ? ` <span class="fine">(${esc(l.note.en)})</span>` : ''}</span></li>`).join('');
   const sourceSteps = src.steps.map(st => `<li>${esc(st.text.en)}${st.minutes ? ` <span class="fine">(~${st.minutes} min)</span>` : ''}</li>`).join('');
   const steps = src.steps.map((st, i) => {
     const adapted = r.safety?.replacements?.[i + 1];

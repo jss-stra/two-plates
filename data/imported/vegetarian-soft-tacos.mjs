@@ -479,7 +479,7 @@ export default {
       "lineRef": "src:wikibooks:vegetarian-soft-tacos:015",
       "name": "Sour cream",
       "quantity": null,
-      "unit": "toTaste",
+      "unit": "unstated",
       "note": {
         "ru": null,
         "en": "suggested topping; quantity not stated"
@@ -495,7 +495,7 @@ export default {
           "en": "Sour cream"
         },
         "quantity": null,
-        "unit": "toTaste",
+        "unit": "unstated",
         "scaling": "fixed",
         "note": {
           "ru": null,
@@ -798,7 +798,7 @@ export default {
           "en": "Sour cream"
         },
         "quantity": null,
-        "unit": "toTaste",
+        "unit": "unstated",
         "scaling": "fixed",
         "note": {
           "ru": null,

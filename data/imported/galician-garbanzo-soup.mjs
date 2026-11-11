@@ -580,7 +580,7 @@ export default {
       "lineRef": "src:wikibooks:galician-garbanzo-soup:018",
       "name": "Fresh basil",
       "quantity": null,
-      "unit": "toTaste",
+      "unit": "unstated",
       "note": {
         "ru": null,
         "en": "minced, for garnish; appears in source serving notes, not the numbered method"
@@ -596,7 +596,7 @@ export default {
           "en": "Fresh basil"
         },
         "quantity": null,
-        "unit": "toTaste",
+        "unit": "unstated",
         "scaling": "fixed",
         "note": {
           "ru": null,
@@ -964,7 +964,7 @@ export default {
           "en": "Fresh basil"
         },
         "quantity": null,
-        "unit": "toTaste",
+        "unit": "unstated",
         "scaling": "fixed",
         "note": {
           "ru": null,

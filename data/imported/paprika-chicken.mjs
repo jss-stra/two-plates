@@ -221,7 +221,7 @@ export default {
       "lineRef": "src:wikibooks:paprika-chicken:007",
       "name": "Salt",
       "quantity": null,
-      "unit": "toTaste",
+      "unit": "unstated",
       "note": {
         "ru": null,
         "en": null
@@ -237,7 +237,7 @@ export default {
           "en": "Salt"
         },
         "quantity": null,
-        "unit": "toTaste",
+        "unit": "unstated",
         "scaling": "fixed",
         "note": {
           "ru": null,
@@ -253,7 +253,7 @@ export default {
       "lineRef": "src:wikibooks:paprika-chicken:008",
       "name": "Fresh parsley",
       "quantity": null,
-      "unit": "toTaste",
+      "unit": "unstated",
       "note": {
         "ru": null,
         "en": "fresh green, chopped; quantity not stated"
@@ -269,7 +269,7 @@ export default {
           "en": "Fresh parsley"
         },
         "quantity": null,
-        "unit": "toTaste",
+        "unit": "unstated",
         "scaling": "fixed",
         "note": {
           "ru": null,
@@ -598,7 +598,7 @@ export default {
           "en": "Salt"
         },
         "quantity": null,
-        "unit": "toTaste",
+        "unit": "unstated",
         "scaling": "fixed",
         "note": {
           "ru": null,
@@ -613,7 +613,7 @@ export default {
           "en": "Fresh parsley"
         },
         "quantity": null,
-        "unit": "toTaste",
+        "unit": "unstated",
         "scaling": "fixed",
         "note": {
           "ru": null,

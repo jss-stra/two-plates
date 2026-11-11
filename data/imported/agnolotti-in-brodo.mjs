@@ -221,7 +221,7 @@ export default {
       "lineRef": "src:wikibooks:agnolotti-in-brodo:007",
       "name": "Parmesan cheese",
       "quantity": null,
-      "unit": "toTaste",
+      "unit": "unstated",
       "note": {
         "ru": null,
         "en": "freshly grated, for garnish"
@@ -237,7 +237,7 @@ export default {
           "en": "Parmesan cheese"
         },
         "quantity": null,
-        "unit": "toTaste",
+        "unit": "unstated",
         "scaling": "fixed",
         "note": {
           "ru": null,
@@ -399,7 +399,7 @@ export default {
           "en": "Parmesan cheese"
         },
         "quantity": null,
-        "unit": "toTaste",
+        "unit": "unstated",
         "scaling": "fixed",
         "note": {
           "ru": null,

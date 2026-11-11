@@ -139,7 +139,7 @@ export function importedShoppingRows(recipe, state) {
     aisleLabel: `Imported: ${recipe.name} (exact source amounts, ${recipe.baseServings} servings)${recipe.limitation?.grocery ? ` · ${recipe.limitation.grocery}` : ''}`,
     amount: '',
     unit: '',
-    text: line.unit === 'toTaste' ? 'to taste' : `${line.quantity} ${line.unit}`,
+    text: line.unit === 'toTaste' ? 'to taste' : line.unit === 'unstated' ? 'quantity not stated' : `${line.quantity} ${line.unit}`,
     dishes: [recipe.name],
     pantry: false,
     checked: !!state.checked[line.lineRef],
