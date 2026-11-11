@@ -69,15 +69,18 @@ a { color: var(--accent); }
 .sync-dot.saving::after { background: var(--warn); opacity: 1; }
 .sync-dot.error::after { background: var(--nonveg); opacity: 1; }
 
+/* Tab bar: single row at every width, columns adapt to the visible tab count
+   (sharing gate can hide the Feed tab). */
 .tabbar {
-  position: fixed; bottom: 0; left: 0; right: 0; z-index: 10; display: grid; grid-template-columns: repeat(4, 1fr);
-  background: var(--card); border-top: 1px solid var(--line); padding: 6px 4px calc(6px + env(safe-area-inset-bottom));
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 10; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
+  background: var(--card); border-top: 1px solid var(--line); padding: 6px 2px calc(6px + env(safe-area-inset-bottom));
 }
 .tabbar button {
-  border: 0; background: none; display: flex; flex-direction: column; align-items: center; gap: 2px;
-  font-size: .72rem; color: var(--muted); padding: 6px 0; cursor: pointer; border-radius: 10px;
+  border: 0; background: none; display: flex; flex-direction: column; align-items: center; gap: 1px;
+  font-size: .66rem; color: var(--muted); padding: 5px 0; cursor: pointer; border-radius: 10px; min-width: 0;
 }
-.tabbar button .icon { width: 22px; height: 22px; }
+.tabbar button .icon { width: 20px; height: 20px; }
+.tabbar button[hidden] { display: none; }
 .tabbar button.on { color: var(--accent); font-weight: 600; }
 
 main { max-width: 720px; margin: 0 auto; padding: 14px 16px 24px; }
@@ -253,6 +256,7 @@ main { max-width: 720px; margin: 0 auto; padding: 14px 16px 24px; }
 .sheet {
   position: absolute; left: 0; right: 0; bottom: 0; max-height: 86vh; background: var(--bg); border-radius: 20px 20px 0 0;
   padding: 14px 16px calc(14px + env(safe-area-inset-bottom)); display: flex; flex-direction: column; gap: 8px; max-width: 720px; margin: 0 auto;
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
 }
 .sheet header { display: flex; justify-content: space-between; align-items: flex-start; }
 .sheet > * { flex: none; }
@@ -313,8 +317,6 @@ main { max-width: 720px; margin: 0 auto; padding: 14px 16px 24px; }
 .past-week li { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: .88rem; padding: 4px 0; }
 
 /* Today / food log */
-.tabbar { grid-template-columns: repeat(5, 1fr); }
-.tabbar button { font-size: .68rem; }
 .seg.full { display: flex; width: 100%; }
 .seg.full button { flex: 1; }
 .seg.wrap { flex-wrap: wrap; }
@@ -357,10 +359,8 @@ main { max-width: 720px; margin: 0 auto; padding: 14px 16px 24px; }
 .final-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .past-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 
-/* Five tabs: receipts live under Groceries, settings behind the header gear. */
-.tabbar { grid-template-columns: repeat(5, 1fr); }
-.tabbar button { font-size: .68rem; }
-.tabbar button span { max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+/* Receipts live under Groceries, settings behind the header gear. */
+.tabbar button span { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 label.btn { cursor: pointer; }
 label.btn.busy { opacity: .6; pointer-events: none; }
 .receipt summary { display: flex; gap: 12px; align-items: center; cursor: pointer; list-style: none; }
@@ -478,3 +478,35 @@ label.btn.busy { opacity: .6; pointer-events: none; }
 .ings li.xa > span:first-child { color: var(--danger); font-weight: 600; }
 .ings li.xd > span:first-child { color: var(--info); font-weight: 600; }
 .xtitle { margin: 14px 0 8px; font-size: 1rem; }
+
+/* Cookbook (private dishes + share composer) */
+.cb-list { display: flex; flex-direction: column; gap: 8px; margin: 10px 0 12px; }
+.cb-row { display: flex; align-items: center; gap: 10px; }
+.cb-thumb { width: 44px; height: 44px; border-radius: 8px; object-fit: cover; background: var(--card2, #f0ebe4); flex: none; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; }
+.cb-main { flex: 1; min-width: 0; }
+.cb-title { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cb-form { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+.cb-preview img { width: 100%; max-height: 220px; object-fit: cover; border-radius: 10px; }
+.cb-aud { display: flex; flex-direction: column; gap: 6px; }
+.cb-aud-row { display: flex; gap: 10px; align-items: flex-start; padding: 8px 10px; border: 1px solid var(--line, #e4ddd3); border-radius: 10px; }
+.cb-aud-row input { margin-top: 4px; }
+
+/* Feed + people (cookbook stage 2) */
+.feed { display: grid; gap: 12px; }
+.feed-post { padding: 0; overflow: hidden; }
+.feed-photo { width: 100%; max-height: 320px; object-fit: cover; display: block; background: var(--paper, #f4f1ea); min-height: 80px; }
+.feed-photo-ph { display: flex; align-items: center; justify-content: center; font-size: 28px; }
+.feed-head { padding: 12px 14px 0; }
+.feed-cap { padding: 4px 14px 0; margin: 0; }
+.feed-ings { padding: 6px 14px 0; }
+.feed-ings ul { margin: 6px 0 0; padding-left: 18px; }
+.feed-acts { padding: 8px 14px 12px; display: flex; gap: 12px; }
+.feed-aud { text-transform: uppercase; font-size: 10px; letter-spacing: .04em; }
+.feed-note { text-align: center; padding: 0 16px; }
+.hh, .friends { margin-top: 10px; }
+.hh h3, .friends h3, .hh-invites h3 { margin: 8px 0 4px; font-size: 15px; }
+.hh-members { list-style: none; padding: 0; margin: 4px 0; display: grid; gap: 6px; }
+.hh-members li { display: flex; align-items: center; gap: 8px; justify-content: space-between; }
+.invite-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 6px 0; }
+.inline { display: flex; gap: 8px; align-items: center; margin: 6px 0; }
+.inline input { flex: 1; min-width: 0; border: 1px solid var(--line); background: var(--bg); border-radius: 10px; padding: 0 10px; min-height: 42px; color: var(--ink); font-size: 1rem; }

@@ -12,6 +12,7 @@ import { waterGoal, waterReminderDue, markWaterReminded } from './water.js';
 import { renderHome } from './home.js';
 import { pushStatus, enablePush, disablePush } from './push.js';
 import { initAuth, signInWithGoogle, signOut, onAuth, authUser, authReady } from './auth.js';
+import { cb, bindCookbook, initCookbook, renderCookbook, renderCbSheet, cbActions, cbOnChange, renderFeed, renderPeople, refreshFeed, SHARING_ENABLED } from './cookbook-ui.js';
 
 const $ = (sel, el = document) => el.querySelector(sel);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -620,6 +621,8 @@ function renderSettings(s) {
   const rated = Object.keys(s.ratings).filter((id) => ratingOf(s, id) !== null).length;
   return `
   ${renderAccount()}
+  ${renderCookbook()}
+  ${renderPeople()}
   <section class="card">
     <h2>People</h2>
     ${s.people.map((p, i) => {
@@ -705,6 +708,7 @@ function renderSettings(s) {
 // ---------- Swap sheet ----------
 function renderSheet(s) {
   const el = $('#sheet');
+  if (cb.sheet) { renderCbSheet(el); return; }
   if (!ui.sheet) { el.innerHTML = ''; el.hidden = true; document.body.classList.remove('sheet-open'); return; }
   el.hidden = false;
   document.body.classList.add('sheet-open');
@@ -746,7 +750,12 @@ function renderSheetList(s) {
 function render() {
   const s = getState();
   const main = $('#main');
-  const views = { prep: (st) => renderPrep(st, ui), home: (st) => renderHome(st), week: renderWeek, today: (st) => renderLog(st, ui, icon), recipes: renderRecipes, groceries: renderGroceries, bought: (st) => renderBought(st, ui, icon), settings: renderSettings };
+  // Ship gate: while sharing is gated off, the Feed tab is hidden and its
+  // route falls back to home.
+  const feedBtn = document.querySelector('.tabbar [data-tab="feed"]');
+  if (feedBtn) feedBtn.hidden = !SHARING_ENABLED;
+  if (!SHARING_ENABLED && ui.tab === 'feed') ui.tab = 'home';
+  const views = { prep: (st) => renderPrep(st, ui), home: (st) => renderHome(st), week: renderWeek, today: (st) => renderLog(st, ui, icon), recipes: renderRecipes, groceries: renderGroceries, bought: (st) => renderBought(st, ui, icon), settings: renderSettings, feed: () => renderFeed() };
   const scroll = window.scrollY;
   main.innerHTML = (views[ui.tab] || renderWeek)(s);
   if (ui.tab === 'recipes') renderRecipeList(s);
@@ -774,6 +783,7 @@ function setTab(tab) {
   window.scrollTo(0, 0);
   render();
   if (tab === 'bought') loadReceipts();
+  if (tab === 'feed' && authUser()) refreshFeed();
 }
 
 // Public read-only menu page link for a week (dish ids live in the link itself).
@@ -849,6 +859,7 @@ const actions = {
   },
   'open-sheet': (el) => { ui.sheet = { index: Number(el.dataset.i), filter: 'kind', query: '' }; renderSheet(getState()); },
   'close-sheet': () => { ui.sheet = null; renderSheet(getState()); },
+  ...cbActions,
   'sheet-filter': (el) => { ui.sheet.filter = el.dataset.v; renderSheet(getState()); },
   choose: (el) => { const i = ui.sheet.index; ui.sheet = null; replaceSlot(i, el.dataset.id); },
   rate: (el) => update((d) => {
@@ -1054,6 +1065,7 @@ document.addEventListener('click', (e) => {
 document.addEventListener('change', (e) => {
   const el = e.target;
   if (el.dataset.act && actions[el.dataset.act] && el.type === 'checkbox') { actions[el.dataset.act](el); return; }
+  if (cbOnChange(el)) return;
   if (el.dataset.receipt !== undefined && el.files?.length) {
     const files = [...el.files];
     ui.uploading = true; render();
@@ -1126,7 +1138,8 @@ document.addEventListener('submit', (e) => {
   }
 });
 
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && ui.sheet) actions['close-sheet'](); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { if (ui.sheet) actions['close-sheet'](); else if (cb.sheet) actions['cb-close'](); } });
+window.addEventListener('cb-toast', (e) => toast(e.detail));
 
 // ---------- Boot ----------
 setupGroceryEvents();
@@ -1182,6 +1195,8 @@ ensurePlan();
 render();
 checkWaterReminder();
 openFromLink();
+bindCookbook(render);
+initCookbook();
 initAuth().then(() => { if (ui.tab === 'settings') render(); });
 onAuth(() => { if (ui.tab === 'settings') render(); });
 startSync();
