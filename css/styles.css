@@ -198,8 +198,8 @@ main { max-width: 720px; margin: 0 auto; padding: 14px 16px 24px; }
 .ings { list-style: none; padding: 0; margin: 8px 0 12px; font-size: .88rem; columns: 1; }
 @media (min-width: 560px) { .ings { columns: 2; column-gap: 24px; } }
 .ings li { display: flex; justify-content: space-between; gap: 12px; padding: 4px 0; border-bottom: 1px solid var(--soft); break-inside: avoid; }
-.ings li span:first-child { min-width: 0; overflow-wrap: break-word; }
-.ings li span:last-child { color: var(--muted); white-space: normal; text-align: right; min-width: 0; overflow-wrap: break-word; }
+.ings li span:first-child { flex: 1 1 auto; min-width: 11ch; overflow-wrap: break-word; }
+.ings li span:last-child { flex: 0 1 58%; color: var(--muted); white-space: normal; text-align: right; min-width: 0; overflow-wrap: break-word; }
 
 /* Groceries */
 .addform { display: flex; gap: 8px; margin-bottom: 14px; }
