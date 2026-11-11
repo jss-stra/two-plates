@@ -187,7 +187,7 @@ t('Ohrid actual Fish display and fixed four servings',displayKind(ot,true)==='fi
 console.log(`Ohrid contract: ${pass} passed, ${fail} failed`);
 // Wikibooks source-native contract (pinned revisions, monolingual source)
 const wb = (id) => IMPORTED.get('wikibooks:' + id);
-const wbIds = ['paprika-chicken', 'vegetarian-soft-tacos', 'adult-mac-and-cheese', 'agnolotti-in-brodo', 'galician-garbanzo-soup', 'pork-and-lima-skillet'];
+const wbIds = ['paprika-chicken', 'vegetarian-soft-tacos', 'adult-mac-and-cheese', 'agnolotti-in-brodo', 'galician-garbanzo-soup', 'pork-and-lima-skillet', 'spaghetti-bolognese', 'barbecued-spare-ribs', 'poutine', 'penne-meat-sauce', 'jambalaya-i'];
 for (const id of wbIds) {
   const r = wb(id);
   t(`${id} registered`, !!r);
@@ -231,5 +231,27 @@ t('Garbanzo basil notes-only gap visible, no invented step', gg.src.lines.find(l
 t('Garbanzo unknown diet despite source veg/gf claims', gg.diet === 'unknown' && gg.src.sourceDietClaims.includes('gluten-free'));
 t('Garbanzo basil unstated; salt genuinely to taste per source', gg.src.lines.find(l=>l.name==='Fresh basil').unit === 'unstated' && gg.src.lines.find(l=>l.name==='Salt').unit === 'toTaste');
 t('Garbanzo can total kept', gg.src.lines.find(l=>l.name==='Garbanzo beans').quantity === '3' && gg.src.lines.find(l=>l.name==='Garbanzo beans').note.en.includes('45 oz'));
+const sb = wb('spaghetti-bolognese');
+t('Bolognese mince endpoint named-standard 71C, not time alone', sb.safety.replacements[5].includes('71°C') && sb.safety.replacements[11].includes('71°C') && sb.safety.note.includes('NSW'));
+t('Bolognese wine retained with no alcohol-free claim', sb.limitation.detail.includes('no alcohol-free claim') && sb.src.lines.find(l=>l.name==='Red wine').quantity === '½');
+t('Bolognese reviewed beef from explicit source line', sb.diet === 'nonveg' && displayKind(sb, true) === 'beef' && sb.baseServings === 4);
+t('Bolognese salt genuinely to taste, water kept unquantified in steps', sb.src.lines.find(l=>l.name==='Salt').unit === 'toTaste' && sb.src.steps[12].text.en.includes('a gallon (4 litres) of water'));
+const br = wb('barbecued-spare-ribs');
+t('Ribs unrefrigerated overnight marinade adapted, not silently kept', br.safety.replacements[1].includes('refrigerator') && br.safety.replacements[1].includes('5°C') && br.src.steps[0].text.en === 'Place spare ribs in a large baking dish in one layer. In a small bowl, combine the remaining ingredients. Pour over spare ribs and coat on both sides. Marinate overnight, basting occasionally.');
+t('Ribs pork endpoint with thin-meat side probing', br.safety.replacements[4].includes('71°C') && br.safety.replacements[4].includes('from the side'));
+t('Ribs source gluten-free claim shown but not accepted', br.src.sourceDietClaims.includes('gluten-free') && br.limitation.detail.includes('not accepted') && br.diet === 'nonveg' && displayKind(br, true) === 'pork');
+t('Ribs cold-serve storage handling visible', br.limitation.handling.includes('cool promptly') && br.safety.note.includes('overnight'));
+const po = wb('poutine');
+t('Poutine deep-fry fire safety with citation, no endpoint invention', po.safety.replacements[3].includes('185°C') && po.safety.note.includes('never leave') && po.safety.sources.some(s=>s[0].includes('NFPA')));
+t('Poutine serving range kept as range', po.baseServings === '2–4' && po.src.sourceRecord.baseServings === '2–4');
+t('Poutine unknown diet, gravy formulation gap visible', po.diet === 'unknown' && po.limitation.detail.includes('unverified'));
+t('Poutine quantities verbatim', po.src.lines.find(l=>l.name==='Poutine sauce or gravy').note.en.includes('290 g') && po.src.lines.find(l=>l.name==='Vegetable oil').quantity === '1');
+const pm = wb('penne-meat-sauce');
+t('Penne sausage endpoint 71C not colour', pm.safety.replacements[2].includes('71°C') && pm.safety.replacements[2].includes('not doneness checks'));
+t('Penne unknown diet: sausage species unstated', pm.diet === 'unknown' && pm.limitation.detail.includes('species'));
+const ja = wb('jambalaya-i');
+t('Jambalaya cooked-poultry and rice handling visible', ja.limitation.handling.includes('Bacillus cereus') && ja.limitation.handlingExtraUrl.includes('pregnancy'));
+t('Jambalaya small-can mushroom gap kept, not sized', ja.src.lines.find(l=>l.name==='Canned sliced mushrooms').note.en.includes('size not stated') && ja.limitation.grocery.includes('size not stated'));
+t('Jambalaya reviewed chicken, no safety endpoint needed', ja.diet === 'nonveg' && displayKind(ja, true) === 'chicken' && !ja.safety);
 console.log(`wikibooks contract: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
