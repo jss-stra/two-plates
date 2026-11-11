@@ -244,7 +244,9 @@ export default {
       "methodSteps": [
         1,
         4
-      ]
+      ],
+      "methodTraceStatus": "partial_composite_salt_only",
+      "methodTraceNote": "Source method explicitly names salt, not pepper; no pepper step invented."
     }
   ],
   "steps": [
@@ -472,7 +474,7 @@ export default {
     "landingPage": "https://theunitools.com/en/data",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
-    "changes": "Photo omitted; source-local references, method traces and review metadata added; quantities and method unchanged."
+    "changes": "Photo omitted; source-local references, method traces and review metadata added; quantities and method unchanged. Two Plates marked partial method coverage: Source method explicitly names salt, not pepper; no pepper step invented."
   },
   "review": {
     "productionApproved": false,

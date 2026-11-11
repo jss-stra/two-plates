@@ -148,4 +148,7 @@ t('Mercimek salt has no fabricated trace',IMPORTED.get('unitools:mercimek-corbas
 t('Mercimek stock alternative gap visible before cooking and shopping',IMPORTED.get('unitools:mercimek-corbasi').limitation.detail.includes('no separate method instructions') && importedShoppingRows(IMPORTED.get('unitools:mercimek-corbasi'),base).every(x=>x.aisleLabel.includes('water-only instructions')));
 t('Mercimek stock trace records partial alternative',IMPORTED.get('unitools:mercimek-corbasi').src.lines.find(l=>l.name==='Water or stock').methodTraceStatus==='partial_alternative_water_only');
 console.log(`soups contract: ${pass} passed, ${fail} failed`);
+t('Kaesespaetzle milk alternative method gap recorded',IMPORTED.get('unitools:kaesespaetzle').src.lines.find(l=>l.name==='Water or milk').methodTraceStatus==='partial_alternative_water_only' && IMPORTED.get('unitools:kaesespaetzle').limitation.detail.includes('no separate milk instructions'));
+t('Melanzane pepper composite gap recorded',IMPORTED.get('unitools:melanzane-alla-parmigiana').src.lines.find(l=>l.name==='Salt and pepper').methodTraceStatus==='partial_composite_salt_only' && IMPORTED.get('unitools:melanzane-alla-parmigiana').limitation.detail.includes('No pepper instruction'));
+console.log(`partial source traces: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

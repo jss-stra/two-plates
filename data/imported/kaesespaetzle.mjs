@@ -112,7 +112,9 @@ export default {
       },
       "methodSteps": [
         1
-      ]
+      ],
+      "methodTraceStatus": "partial_alternative_water_only",
+      "methodTraceNote": "Source dough method names water only, not milk; no milk instructions invented."
     },
     {
       "lineRef": "src:unitools:kaesespaetzle:004",
@@ -457,7 +459,7 @@ export default {
     "landingPage": "https://theunitools.com/en/data",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
-    "changes": "Photo omitted; source-local references, method traces and review metadata added; quantities and method unchanged."
+    "changes": "Photo omitted; source-local references, method traces and review metadata added; quantities and method unchanged. Two Plates marked partial method coverage: Source dough method names water only, not milk; no milk instructions invented."
   },
   "review": {
     "productionApproved": false,
