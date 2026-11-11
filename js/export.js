@@ -1,7 +1,7 @@
 // Excel export (SheetJS is loaded only when you tap Export).
 import { buildGrocery } from './grocery.js';
 import { planRecipes, mealFor, ratingOf } from './planner.js';
-import { youtubeUrl, kindOf } from './data.js';
+import { youtubeUrl, displayKind, DISPLAY_GROUPS } from './data.js';
 
 const SHEETJS = 'https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js';
 
@@ -39,7 +39,7 @@ export async function exportExcel(state) {
   recipes.forEach((r) => {
     const ma = mealFor(r, a), mb = mealFor(r, b);
     const rating = ratingOf(state, r.id);
-    menuRows.push([kindOf(r, state.rules.eggsCountAsVeg) === 'veg' ? 'Veg' : kindOf(r, state.rules.eggsCountAsVeg) === 'chicken' ? 'Chicken' : 'Not classified', r.name, r.cuisine, r.time ?? 'not listed',
+    menuRows.push([DISPLAY_GROUPS.find(([kind]) => kind === displayKind(r, state.rules.eggsCountAsVeg))?.[1] || 'Not classified', r.name, r.cuisine, r.time ?? 'not listed',
       rating === null ? '' : `${rating.toFixed(1)} ★`, ma.protein, ma.kcal, mb.protein, mb.kcal, r.imported ? 'Recipe in app' : 'Watch']);
   });
   const menuSheet = XLSX.utils.aoa_to_sheet(menuRows);

@@ -1,5 +1,5 @@
 // Builds the combined, scaled shopping list for the week's dishes.
-import { INGREDIENTS, AISLES, BASE_SERVINGS } from './data.js';
+import { INGREDIENTS, AISLES, BASE_SERVINGS, DISPLAY_GROUPS, displayKind } from './data.js';
 import { IMPORTED, importedShoppingRows } from './imported.js';
 import { occasionTotals, customOccasionRows } from './occasions.js';
 import { planRecipes } from './planner.js';
@@ -124,14 +124,12 @@ export function weeklyNoteText(state, { amounts = false } = {}) {
   const line = (r) => r.imported
     ? `• ${r.name} (${r.cuisine}, fixed ${r.baseServings}-serving batch, nutrition unknown)\n  Recipe: in the app (Week tab, tap Recipe)`
     : `• ${r.name} (${r.cuisine}, ${r.time} min)\n  Recipe: ${youtubeUrl(r)}`;
-  const chicken = recipes.filter((r) => kindOf(r, state.rules.eggsCountAsVeg) === 'chicken');
-  const veg = recipes.filter((r) => kindOf(r, state.rules.eggsCountAsVeg) === 'veg');
-  const unknown = recipes.filter((r) => kindOf(r, state.rules.eggsCountAsVeg) === 'unknown');
   return [
     'THIS WEEK',
-    ...(chicken.length ? ['Chicken & turkey:', ...chicken.map(line)] : []),
-    ...(veg.length ? ['Veg:', ...veg.map(line)] : []),
-    ...(unknown.length ? ['Diet not classified:', ...unknown.map(line)] : []),
+    ...DISPLAY_GROUPS.flatMap(([kind,label]) => {
+      const dishes = recipes.filter(r => displayKind(r, state.rules.eggsCountAsVeg) === kind);
+      return dishes.length ? [label + ':', ...dishes.map(line)] : [];
+    }),
     '',
     'GROCERIES',
     groceryText(state, { amounts }),

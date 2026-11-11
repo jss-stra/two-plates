@@ -2,7 +2,7 @@
 // Days with no log are called out as "not logged" — never counted as a missed goal.
 import { entryFor, isLogged, shiftDay } from './log.js';
 import { localISO, planRecipes } from './planner.js';
-import { kindOf } from './data.js';
+import { displayKind, DISPLAY_GROUPS } from './data.js';
 import { waterGoal } from './water.js';
 
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -73,8 +73,8 @@ export function renderHome(s) {
   }).join('');
 
   const recipes = planRecipes(s);
-  const kinds = { chicken: 0, veg: 0, unknown: 0 };
-  recipes.forEach((r) => kinds[kindOf(r, s.rules?.eggsCountAsVeg)]++);
+  const kinds = Object.fromEntries(DISPLAY_GROUPS.map(([kind]) => [kind,0]));
+  recipes.forEach((r) => kinds[displayKind(r, s.rules?.eggsCountAsVeg)]++);
   const cooked = s.plan?.cooked || {};
   const yes = recipes.filter((r) => cooked[r.id] === true).length;
   const no = recipes.filter((r) => cooked[r.id] === false).length;
@@ -104,7 +104,7 @@ export function renderHome(s) {
   </section>
   <section class="card">
     <h2>This week</h2>
-    <p>${recipes.length ? `${kinds.chicken} chicken · ${kinds.veg} veg${kinds.unknown ? ` · ${kinds.unknown} diet not classified` : ''} dishes${cookedBits ? ` · ${cookedBits}` : ''}` : 'No dishes planned yet'}</p>
+    <p>${recipes.length ? `${DISPLAY_GROUPS.filter(([kind]) => kinds[kind]).map(([kind,label]) => `${kinds[kind]} ${esc(label.toLowerCase())}`).join(' · ')} dishes${cookedBits ? ` · ${cookedBits}` : ''}` : 'No dishes planned yet'}</p>
     ${weekRows}
     <button class="btn wide" data-act="tab" data-tab="week">See the week</button>
   </section>`;

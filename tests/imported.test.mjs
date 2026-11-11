@@ -110,4 +110,18 @@ t('Misir explicitly stew only in name and limitation', IMPORTED.get('unitools:mi
 t('Byrek sheet dimensions gap visible', IMPORTED.get('unitools:byrek-me-spinaq').limitation.detail.includes('sheet dimensions'));
 t('Kasespaetzle optional side not fabricated', IMPORTED.get('unitools:kaesespaetzle').limitation.detail.includes('no quantities'));
 console.log(`full imported contract: ${pass} passed, ${fail} failed`);
+const { displayKind, DISPLAY_GROUPS } = await import('../js/data.js');
+for (const [id,kind] of [['tortilla-espanola','egg'],['chakhokhbili','chicken'],['irish-stew','lamb'],['farikal','mutton'],['qingzheng-yu','fish']]) {
+ const r = IMPORTED.get('unitools:'+id);
+ t(`${id}: safety note is separate from source`, !!r.safety && !!r.safety.sources.length && !r.src.safety);
+ t(`${id}: actual display class, not chicken fallback`, displayKind(r,true) === kind && DISPLAY_GROUPS.some(([k])=>k===kind));
+ t(`${id}: weekly text uses actual class`, weeklyNoteText({...base,plan:{slots:[{id:r.id,planKind:'chicken'}]}}).includes(DISPLAY_GROUPS.find(([k])=>k===kind)[1]+':'));
+ t(`${id}: replacement indices are real source steps`, Object.keys(r.safety.replacements).every(k=>Number(k)>=1 && Number(k)<=r.src.steps.length));
+}
+t('tortilla adapted endpoint no loose centre', IMPORTED.get('unitools:tortilla-espanola').safety.replacements[5].includes('not runny'));
+t('poultry endpoint before off-heat rest', IMPORTED.get('unitools:chakhokhbili').safety.replacements[5].includes('75°C'));
+t('lamb names 71C editorial medium scope', IMPORTED.get('unitools:irish-stew').safety.note.includes('medium endpoint for lamb'));
+t('mutton not silently renamed lamb', IMPORTED.get('unitools:farikal').safety.note.includes('not a named-mutton standard'));
+t('fish smoking oil replaced explicitly', IMPORTED.get('unitools:qingzheng-yu').safety.replacements[7].includes('do not deliberately'));
+console.log(`safety and grouping contract: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

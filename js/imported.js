@@ -4,6 +4,7 @@
 // cannot see them. They are browseable, manually addable to the plan as a
 // fixed base batch, and shoppable at exact source quantities.
 import { RECIPE_BY_ID } from './data.js';
+import { IMPORTED_SAFETY } from './imported-safety.js';
 import ratatouille from '../data/imported/ratatouille.mjs';
 
 import draniki from '../data/imported/draniki.mjs';
@@ -12,7 +13,12 @@ import kaesespaetzle from '../data/imported/kaesespaetzle.mjs';
 import melanzane from '../data/imported/melanzane-alla-parmigiana.mjs';
 import byrek from '../data/imported/byrek-me-spinaq.mjs';
 import misir from '../data/imported/misir-wat.mjs';
-const SOURCES = [ratatouille, draniki, galayet, kaesespaetzle, melanzane, byrek, misir];
+import tortilla from '../data/imported/tortilla-espanola.mjs';
+import chicken from '../data/imported/chakhokhbili.mjs';
+import irish from '../data/imported/irish-stew.mjs';
+import farikal from '../data/imported/farikal.mjs';
+import fish from '../data/imported/qingzheng-yu.mjs';
+const SOURCES = [ratatouille, draniki, galayet, kaesespaetzle, melanzane, byrek, misir, tortilla, chicken, irish, farikal, fish];
 const LIMITATIONS = {
   'unitools:kaesespaetzle': { summary: 'Suggested salad not included', detail: 'The source suggests a green salad with vinegar dressing but supplies no quantities. That optional side is not in the groceries for this dish. Water or milk and Emmental or Bergkäse remain source choices; no formulation or strict vegetarian clearance is implied.' },
   'unitools:byrek-me-spinaq': { summary: 'Filo sheet sizes vary: see recipe', detail: 'The source supplies 500 g of prepared filo but describes layers by sheet count. It does not specify sheet dimensions or weight per sheet, so those counts cannot be converted into a guaranteed packet size. Check your pastry before starting. Cheese and pastry formulations are not reviewed.' },
@@ -26,6 +32,11 @@ export const IMPORTED = new Map();
 // bread, stock, dressings - stays 'unknown' and is never shown as veg or
 // chicken. Keyed by record id; the source modules stay verbatim.
 const REVIEWED_DIET = {
+  'unitools:qingzheng-yu': { diet: 'nonveg', meatKind: 'fish', basis: 'Whole gutted sea bass or bream explicit in source line1. Sauce and oil formulations not cleared.' },
+  'unitools:tortilla-espanola': { diet: 'egg', basis: 'All five source lines reviewed: potato, onion, eggs, olive oil, salt. Egg present; no meat named.' },
+  'unitools:chakhokhbili': { diet: 'nonveg', meatKind: 'chicken', basis: 'Chicken explicit in source line1; no cut or bone assumption. Blend formulation not cleared.' },
+  'unitools:irish-stew': { diet: 'nonveg', meatKind: 'lamb', basis: 'Bone-in lamb neck or shoulder explicit in source line1. Vegetable stock alternative does not clear lamb.' },
+  'unitools:farikal': { diet: 'nonveg', meatKind: 'mutton', basis: 'Bone-in mutton explicit in source line1. Not renamed lamb. Optional flour retained.' },
   'unitools:draniki': { diet: 'veg', basis: '2026-11-11: all six retained lines reviewed: potatoes, onion, vegetable oil, soured cream, dill, salt/pepper. Dairy present; purchased product formulation and cross-contact not cleared.' },
   // Galayet includes flatbreads of unspecified formulation: leave unknown.
   // All 10 retained lines are plant foods, olive oil and salt/pepper.
@@ -42,6 +53,8 @@ function adapt(src) {
     country: src.country,
     diet: REVIEWED_DIET[src.id]?.diet || 'unknown',
     dietBasis: REVIEWED_DIET[src.id]?.basis || null,
+    meatKind: REVIEWED_DIET[src.id]?.meatKind || null,
+    safety: IMPORTED_SAFETY[src.id] || null,
     mainProtein: null,
     protein: null,
     kcal: null,

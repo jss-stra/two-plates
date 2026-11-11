@@ -180,3 +180,14 @@ export const hasExclusions = (recipe, exclusions) => {
   // as "may contain" rather than confirmed.
   return h.allergies.length + h.allergiesPossible.length + h.dislikes.length > 0;
 };
+
+// Display classification is separate from the plan position replaced by a
+// manual imported dish. Never caption imported egg/lamb/mutton as chicken.
+export const DISPLAY_GROUPS = [
+  ['chicken', 'Chicken & turkey'], ['veg', 'Veg'], ['egg', 'Egg'],
+  ['lamb', 'Lamb'], ['mutton', 'Mutton'], ['pork', 'Pork'], ['beef', 'Beef'],
+  ['fish', 'Fish'], ['nonveg', 'Other non-veg'], ['unknown', 'Diet not classified'],
+];
+export const displayKind = (r, eggsCountAsVeg) => !r.imported ? kindOf(r, eggsCountAsVeg)
+  : r.diet === 'veg' ? 'veg' : r.diet === 'egg' ? 'egg'
+  : r.diet === 'nonveg' ? (r.meatKind || 'nonveg') : 'unknown';

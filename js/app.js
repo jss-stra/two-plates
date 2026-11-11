@@ -1,6 +1,6 @@
 import { renderPrep, setupPrepEvents } from './prep.js';
 import { renderExtrasCard, renderPartiesCard, setupGroceryEvents } from './grocery-ui.js';
-import { RECIPES, RECIPE_BY_ID, GROUPS, INGREDIENTS, DIET_LABEL, PROTEIN_LABEL, youtubeUrl, isVeg, kindOf, DATA_ERRORS, exclusionHits, ALLERGEN_CATS } from './data.js';
+import { RECIPES, RECIPE_BY_ID, GROUPS, INGREDIENTS, DIET_LABEL, PROTEIN_LABEL, youtubeUrl, isVeg, kindOf, DATA_ERRORS, exclusionHits, ALLERGEN_CATS, DISPLAY_GROUPS, displayKind } from './data.js';
 import { getState, update, onChange, defaultState, replaceState } from './state.js';
 import { generateSlots, slotKind, planRecipes, alternatives, randomSwap, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes, localISO } from './planner.js';
 import { renderLog, shiftDay, shiftMonth } from './log.js';
@@ -271,7 +271,7 @@ function renderWeek(s) {
   const lockedCount = s.plan.slots.filter((x) => x.locked).length;
   const section = (kind, title) => {
     const items = s.plan.slots.map((slot, i) => ({ slot, i, r: RECIPE_BY_ID[slot.id] }))
-      .filter((x) => x.r && kindOf(x.r, s.rules.eggsCountAsVeg) === kind);
+      .filter((x) => x.r && displayKind(x.r, s.rules.eggsCountAsVeg) === kind);
     if (!items.length) return '';
     return `<h2 class="sec-title">${title} <span class="muted">(${items.length})</span></h2>
       <ol class="dishes">${items.map((x) => dishCard(x.r, x.i, x.slot, s)).join('')}</ol>`;
@@ -297,9 +297,7 @@ function renderWeek(s) {
     </div>
   </section>` : ''}
 
-  ${section('chicken', 'Chicken &amp; turkey')}
-  ${section('veg', 'Veg')}
-  ${section('unknown', 'Diet not classified')}
+  ${DISPLAY_GROUPS.map(([kind,label]) => section(kind, esc(label))).join('')}
 
   ${s.plan.finalizedAt ? '' : `<div class="remix-row">
     <span class="mix-count">Planner target: ${s.rules.chickenDishes} chicken · ${s.rules.vegDishes} veg</span>
@@ -741,7 +739,11 @@ function renderImportedSheet(el, s) {
   const rights = src.rights || {};
   const tagLine = (src.sourceDietClaims?.length) ? `<p class="fine">Source diet claims (not verified by Two Plates): ${esc(src.sourceDietClaims.join(', '))}</p>` : '';
   const ings = src.lines.map((l) => `<li><span>${esc(l.name)}</span><span>${l.unit === 'toTaste' ? 'to taste' : `${esc(String(l.quantity))} ${esc(l.unit)}`}${l.note?.en ? ` <span class="fine">(${esc(l.note.en)})</span>` : ''}</span></li>`).join('');
-  const steps = src.steps.map((st, i) => `<li>${esc(st.text.en)}${st.minutes ? ` <span class="fine">(~${st.minutes} min)</span>` : ''}</li>`).join('');
+  const sourceSteps = src.steps.map(st => `<li>${esc(st.text.en)}${st.minutes ? ` <span class="fine">(~${st.minutes} min)</span>` : ''}</li>`).join('');
+  const steps = src.steps.map((st, i) => {
+    const adapted = r.safety?.replacements?.[i + 1];
+    return `<li>${adapted ? '<b>Adapted:</b> ' : ''}${esc(adapted || st.text.en)}${!adapted && st.minutes ? ` <span class="fine">(~${st.minutes} min)</span>` : ''}</li>`;
+  }).join('');
   el.innerHTML = `<div class="backdrop" data-act="close-sheet"></div>
   <div class="sheet" role="dialog" aria-label="Imported recipe">
     <header><div><div class="fine">Imported recipe</div><h2>${esc(r.name)}</h2></div>
@@ -751,14 +753,16 @@ function renderImportedSheet(el, s) {
       <p><span class="badge">nutrition unknown</span>${s.exclusions?.allergies?.length || s.exclusions?.dislikes?.length ? ' <span class="badge allerg">⚠ not allergy-checked</span>' : ''}</p>
       ${src.sourceTimes?.prepMinutes != null || src.sourceTimes?.cookMinutes != null ? `<p class="fine">Prep ${src.sourceTimes.prepMinutes ?? '?'} min · cook ${src.sourceTimes.cookMinutes ?? '?'} min (source times, not added to weekly totals)</p>` : ''}
       ${tagLine}
+      ${r.safety ? `<section class="safety-note"><div class="fine">Two Plates editorial adaptation, separate from the original UniTools method</div><h3>${esc(r.safety.title)}</h3><p>${esc(r.safety.note)}</p><p class="fine">Sources: ${r.safety.sources.map(([label,url]) => `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(label)}</a>`).join(' · ')}</p><p><b>Use the adapted cooking steps below.</b></p><p class="fine">Cooking adaptation by Two Plates, shared under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>. The original source method is preserved separately below.</p></section>` : ''}
       ${r.limitation ? `<p class="import-limit fine"><b>Before you start:</b> ${esc(r.limitation.detail)}</p>` : ''}
       ${gate.allowed ? '' : `<p class="fine">${esc(gate.reason)}</p>`}
       <h3>Ingredients (exact source amounts)</h3>
       <ul class="ings">${ings}</ul>
-      <h3>Steps</h3>
+      <h3>${r.safety ? 'Cooking steps (Two Plates adaptation)' : 'Steps'}</h3>
       <p class="fine">Minute tags are source metadata. They may differ from times in the instructions and are not tested elapsed times.</p>
       <ol class="steps">${steps}</ol>
-      <p class="fine">Recipe: ${esc(rights.credit || 'source')}${rights.landingPage ? ` — <a href="${esc(rights.landingPage)}" target="_blank" rel="noopener">source</a>` : ''}${rights.license ? ` · <a href="${esc(rights.licenseUrl || '#')}" target="_blank" rel="noopener">${esc(rights.license)}</a>` : ''}${rights.changes ? `<br>Changes: ${esc(rights.changes)}` : ''}</p>
+      ${r.safety ? `<details class="source-original"><summary>Original UniTools method (reference only, not cooking directions)</summary><p class="fine">This is unchanged source text for attribution. It may contain endpoints superseded by the Two Plates adaptation above. Do not use it in place of the adapted cooking steps.</p><ol class="steps">${sourceSteps}</ol></details>` : ''}
+      <p class="fine">Recipe: ${esc(rights.credit || 'source')}${rights.landingPage ? ` — <a href="${esc(rights.landingPage)}" target="_blank" rel="noopener">source</a>` : ''}${rights.license ? ` · <a href="${esc(rights.licenseUrl || '#')}" target="_blank" rel="noopener">${esc(rights.license)}</a>` : ''}${rights.changes ? `<br>Source-record changes: ${esc(rights.changes)}` : ''}</p>
     </div>
   </div>`;
 }
@@ -771,7 +775,7 @@ function renderSheet(s) {
   el.hidden = false;
   document.body.classList.add('sheet-open');
   const current = RECIPE_BY_ID[s.plan.slots[ui.sheet.index]?.id];
-  const kind = current ? kindOf(current, s.rules.eggsCountAsVeg) : 'chicken';
+  const kind = current ? slotKind(s.plan.slots[ui.sheet.index], current, s.rules) : 'chicken';
   const filters = [['kind', kind === 'veg' ? 'Veg' : 'Chicken & turkey'], ['same', `Same cuisine${current ? ` (${current.group})` : ''}`], ['regulars', 'Our regulars'], ['any', 'Anything']];
   el.innerHTML = `<div class="backdrop" data-act="close-sheet"></div>
   <div class="sheet" role="dialog" aria-label="Choose a dish">
@@ -789,7 +793,7 @@ function renderSheetList(s) {
   const el = $('#sheet-list');
   if (!el || !ui.sheet) return;
   const current = RECIPE_BY_ID[s.plan.slots[ui.sheet.index]?.id];
-  const kind = current ? kindOf(current, s.rules.eggsCountAsVeg) : null;
+  const kind = current ? slotKind(s.plan.slots[ui.sheet.index], current, s.rules) : null;
   const f = ui.sheet.filter;
   let list = alternatives(s, ui.sheet.index, {
     kind: f === 'any' ? null : kind,
@@ -872,13 +876,11 @@ function menuMessage(s, no, weekOf, ids) {
   const line = (r) => r.imported
     ? `• ${r.name} (${r.cuisine}, fixed ${r.baseServings}-serving batch, nutrition unknown)\n  Recipe: in the app`
     : `• ${r.name} (${r.cuisine}, ${r.time} min)\n  ${youtubeUrl(r)}`;
-  const chicken = recipes.filter((r) => kindOf(r, s.rules.eggsCountAsVeg) === 'chicken');
-  const veg = recipes.filter((r) => kindOf(r, s.rules.eggsCountAsVeg) === 'veg');
-  const unknown = recipes.filter((r) => kindOf(r, s.rules.eggsCountAsVeg) === 'unknown');
-  return [`🍽️ Week ${no} menu — week of ${fmtWeek(weekOf)}`, '',
-    ...(chicken.length ? ['*Chicken & turkey*', ...chicken.map(line), ''] : []),
-    ...(veg.length ? ['*Veg*', ...veg.map(line), ''] : []),
-    ...(unknown.length ? ['*Diet not classified*', ...unknown.map(line), ''] : []),
+  return [`🍽️ Week ${no} menu - week of ${fmtWeek(weekOf)}`, '',
+    ...DISPLAY_GROUPS.flatMap(([kind,label]) => {
+      const dishes = recipes.filter(r => displayKind(r, s.rules.eggsCountAsVeg) === kind);
+      return dishes.length ? [`*${label}*`, ...dishes.map(line), ''] : [];
+    }),
     `Full menu: ${menuUrl(no, weekOf, ids)}`].join('\n');
 }
 
