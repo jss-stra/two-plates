@@ -9,6 +9,16 @@ import ratatouille from '../data/imported/ratatouille.mjs';
 const SOURCES = [ratatouille];
 export const IMPORTED = new Map();
 
+// Reviewed per-record diet classifications. A dish gets a diet class ONLY
+// when a reviewer derived it from the actual retained lines (never from
+// source diet tags). Anything unreviewed or uncertain - meat, egg, cheese,
+// bread, stock, dressings - stays 'unknown' and is never shown as veg or
+// chicken. Keyed by record id; the source modules stay verbatim.
+const REVIEWED_DIET = {
+  // All 10 retained lines are plant foods, olive oil and salt/pepper.
+  'unitools:ratatouille': { diet: 'veg', basis: 'lines reviewed 2026-11-11: aubergine, courgette, pepper, tomatoes, onion, garlic, olive oil, thyme, basil, salt/pepper - no meat/fish/egg/dairy/grain line' },
+};
+
 function adapt(src) {
   return {
     id: src.id,
@@ -16,10 +26,8 @@ function adapt(src) {
     cuisine: src.cuisine,
     group: src.cuisine, // picker "same cuisine" chip label only; never scored
     country: src.country,
-    // diet is derived from the explicit retained lines: every line is a plant
-    // food or salt/pepper, no meat/fish/egg/dairy line exists. A content fact
-    // about the listed lines - NOT the unverified source diet tags.
-    diet: 'veg',
+    diet: REVIEWED_DIET[src.id]?.diet || 'unknown',
+    dietBasis: REVIEWED_DIET[src.id]?.basis || null,
     mainProtein: null,
     protein: null,
     kcal: null,

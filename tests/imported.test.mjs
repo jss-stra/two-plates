@@ -70,5 +70,14 @@ t('license and credit travel with the record', rat.rights.license === 'CC BY-SA 
 t('review flags preserved (diet not independently reviewed)', rat.review.dietIndependentlyReviewed === false);
 t('diet shown as veg is derived from lines, not source claims', rat.diet === null && r.diet === 'veg');
 
-console.log(`imported: ${pass} passed, ${fail} failed`);
+console.log(`imported: ${pass} passed, ${fail} failed (pre diet-class)`);
+
+// 7. diet classification is reviewed per-record, never defaulted (Main/worker contract)
+const { kindOf, isVeg, DIET_LABEL } = await import('../js/data.js');
+t('ratatouille veg comes from the reviewed-lines table, with its basis recorded', r.diet === 'veg' && typeof r.dietBasis === 'string' && r.dietBasis.length > 20);
+t("'unknown' diet is a first-class label", DIET_LABEL.unknown === 'Not classified');
+t("kindOf never files an unclassified dish under chicken or veg", kindOf({ diet: 'unknown' }, false) === 'unknown' && kindOf({ diet: undefined }, true) === 'unknown');
+t("isVeg never treats unclassified as veg", isVeg({ diet: 'unknown' }, true) === false);
+t("known diets unchanged", kindOf({ diet: 'nonveg' }, false) === 'chicken' && kindOf({ diet: 'veg' }, false) === 'veg' && kindOf({ diet: 'egg' }, true) === 'veg');
+console.log(`imported (with diet-class): ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

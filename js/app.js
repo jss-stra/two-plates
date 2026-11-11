@@ -264,6 +264,10 @@ function glanceChip(d) {
 function renderWeek(s) {
   const recipes = planRecipes(s);
   const totalTime = recipes.reduce((a, r) => a + (r.time || 0), 0);
+  const noTimeCount = recipes.filter((r) => r.time == null).length;
+  const timeLabel = noTimeCount
+    ? `${fmtTime(totalTime)} cooking for the dishes with listed times · time not listed for ${noTimeCount}`
+    : `${fmtTime(totalTime)} cooking in total`;
   const lockedCount = s.plan.slots.filter((x) => x.locked).length;
   const section = (kind, title) => {
     const items = s.plan.slots.map((slot, i) => ({ slot, i, r: RECIPE_BY_ID[slot.id] }))
@@ -275,7 +279,7 @@ function renderWeek(s) {
   if (ui.checkin) return renderCheckin(s);
   return `<section class="card summary">
     <div class="summary-head"><div><h2>This week</h2>
-      <div class="muted">${recipes.length} dishes · ${fmtTime(totalTime)} cooking in total</div></div></div>
+      <div class="muted">${recipes.length} dishes · ${timeLabel}</div></div></div>
     <div class="glance-chips">${daily(s).map(glanceChip).join('')}</div>
     <details class="nutrition-detail"><summary>Nutrition details</summary>
       <div class="people">${daily(s).map((d) => personSummary(d, s.rules)).join('')}</div>
@@ -295,6 +299,7 @@ function renderWeek(s) {
 
   ${section('chicken', 'Chicken &amp; turkey')}
   ${section('veg', 'Veg')}
+  ${section('unknown', 'Diet not classified')}
 
   ${s.plan.finalizedAt ? '' : `<div class="remix-row">
     <span class="mix-count">${s.rules.chickenDishes} chicken · ${s.rules.vegDishes} veg</span>
@@ -355,7 +360,7 @@ function renderCheckin(s) {
     const c = cooked[r.id];
     return `<li class="dish">
       <h3>${esc(r.name)}</h3>
-      <div class="meta">${dietDot(r)} ${esc(r.cuisine)}${r.time == null ? ' · nutrition unknown' : ` · ${r.time} min`}</div>
+      <div class="meta">${dietDot(r)} ${esc(r.cuisine)}${r.time == null ? ' · time not listed' : ` · ${r.time} min`}</div>
       <div class="seg yesno">
         <button class="${c === true ? 'on' : ''}" data-act="cooked" data-id="${r.id}" data-v="1">Cooked it</button>
         <button class="${c === false ? 'on' : ''}" data-act="cooked" data-id="${r.id}" data-v="0">Didn't cook</button>

@@ -129,6 +129,7 @@ main { max-width: 720px; margin: 0 auto; padding: 14px 16px 24px; }
 .diet-veg { color: var(--veg); }
 .diet-egg { color: var(--egg); }
 .diet-nonveg { color: var(--nonveg); }
+.diet-unknown { color: var(--muted, #8a8a8a); }
 
 /* Week summary */
 .summary-head { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 12px; }

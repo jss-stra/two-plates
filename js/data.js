@@ -27,10 +27,10 @@ export const ALLERGEN_CATS = {
   celery: 'Celery',
 };
 
-export const DIET_LABEL = { veg: 'Veg', egg: 'Egg', nonveg: 'Non-veg' };
+export const DIET_LABEL = { veg: 'Veg', egg: 'Egg', nonveg: 'Non-veg', unknown: 'Not classified' };
 
 // The two kinds of slot in a week: chicken/turkey dishes and veg dishes.
-export const kindOf = (r, eggsCountAsVeg) => (isVeg(r, eggsCountAsVeg) ? 'veg' : 'chicken');
+export const kindOf = (r, eggsCountAsVeg) => (isVeg(r, eggsCountAsVeg) ? 'veg' : (DIET_LABEL[r.diet] && r.diet !== 'unknown' ? 'chicken' : 'unknown'));
 export const PROTEIN_LABEL = {
   chicken: 'Chicken', turkey: 'Turkey', paneer: 'Paneer', tofu: 'Tofu / soy', soya: 'Soya chunks',
   egg: 'Egg', legume: 'Beans & dal', cheese: 'Cheese',

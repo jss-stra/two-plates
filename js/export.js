@@ -39,7 +39,7 @@ export async function exportExcel(state) {
   recipes.forEach((r) => {
     const ma = mealFor(r, a), mb = mealFor(r, b);
     const rating = ratingOf(state, r.id);
-    menuRows.push([kindOf(r, state.rules.eggsCountAsVeg) === 'veg' ? 'Veg' : 'Chicken', r.name, r.cuisine, r.time,
+    menuRows.push([kindOf(r, state.rules.eggsCountAsVeg) === 'veg' ? 'Veg' : kindOf(r, state.rules.eggsCountAsVeg) === 'chicken' ? 'Chicken' : 'Not classified', r.name, r.cuisine, r.time ?? 'not listed',
       rating === null ? '' : `${rating.toFixed(1)} ★`, ma.protein, ma.kcal, mb.protein, mb.kcal, 'Watch']);
   });
   const menuSheet = XLSX.utils.aoa_to_sheet(menuRows);
