@@ -285,12 +285,12 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:keralan-vegetable-stew:009",
-      "name": "Small pieces cinnamon",
+      "name": "Cinnamon",
       "quantity": "2",
       "unit": "piece",
       "note": {
         "ru": null,
-        "en": null
+        "en": "2 small pieces"
       },
       "scaling": "linear",
       "catalogId": null,
@@ -300,14 +300,14 @@ export default {
         "id": "keralan-vegetable-stew-009",
         "name": {
           "ru": null,
-          "en": "Small pieces cinnamon"
+          "en": "Cinnamon"
         },
         "quantity": "2",
         "unit": "piece",
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": null
+          "en": "2 small pieces"
         },
         "raw": "2 small pieces cinnamon"
       },
@@ -317,12 +317,12 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:keralan-vegetable-stew:010",
-      "name": "Pods green cardamom",
+      "name": "Green cardamom",
       "quantity": "2",
       "unit": "piece",
       "note": {
         "ru": null,
-        "en": null
+        "en": "2 pods"
       },
       "scaling": "linear",
       "catalogId": null,
@@ -332,14 +332,14 @@ export default {
         "id": "keralan-vegetable-stew-010",
         "name": {
           "ru": null,
-          "en": "Pods green cardamom"
+          "en": "Green cardamom"
         },
         "quantity": "2",
         "unit": "piece",
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": null
+          "en": "2 pods"
         },
         "raw": "2 pods green cardamom"
       },
@@ -751,14 +751,14 @@ export default {
         "id": "keralan-vegetable-stew-009",
         "name": {
           "ru": null,
-          "en": "Small pieces cinnamon"
+          "en": "Cinnamon"
         },
         "quantity": "2",
         "unit": "piece",
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": null
+          "en": "2 small pieces"
         },
         "raw": "2 small pieces cinnamon"
       },
@@ -766,14 +766,14 @@ export default {
         "id": "keralan-vegetable-stew-010",
         "name": {
           "ru": null,
-          "en": "Pods green cardamom"
+          "en": "Green cardamom"
         },
         "quantity": "2",
         "unit": "piece",
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": null
+          "en": "2 pods"
         },
         "raw": "2 pods green cardamom"
       },
