@@ -178,4 +178,11 @@ t('Souvla fire restrictions active before lighting and no current status claim',
 t('Souvla standalone pork class in weekly text',weeklyNoteText({...base,plan:{slots:[{id:sv.id,planKind:'chicken'}]}}).includes('Pork:'));
 t('Souvla fixed base and grocery equipment caveat',sv.baseServings===6 && importedShoppingRows(sv,base).every(x=>x.aisleLabel.includes('food thermometer required')));
 console.log(`souvla contract: ${pass} passed, ${fail} failed`);
+const ot=IMPORTED.get('unitools:ohridska-pastrmka');
+t('Ohrid retains count of whole gutted trout, not guessed mass',ot.src.lines[0].quantity===4 && ot.src.lines[0].unit==='piece' && ot.src.lines[0].note.en==='whole, gutted');
+t('Ohrid active fish endpoint avoids bones for every fish',ot.safety.replacements[6].includes('63°C in every fish') && ot.safety.replacements[6].includes('avoiding the spine'));
+t('Ohrid potato juice contact separately checked',ot.safety.replacements[6].includes('70°C') && ot.safety.note.includes('not a tested potato-specific standard'));
+t('Ohrid shared totals and wine caveats travel to groceries',importedShoppingRows(ot,base).every(x=>x.aisleLabel.includes('shared totals; contains wine')));
+t('Ohrid actual Fish display and fixed four servings',displayKind(ot,true)==='fish' && ot.baseServings===4 && ot.time===null);
+console.log(`Ohrid contract: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
