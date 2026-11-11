@@ -334,4 +334,117 @@ export const IMPORTED_SAFETY = {
       3: 'Combine the meat and water in a pot, and simmer until tender. Tenderness is not a doneness check: safely take the pot off the heat and use a clean food thermometer in the thickest pieces to check at least 75°C for chicken, or at least 70°C for goat, catfish or assorted meats. Continue simmering and recheck any piece below its target.',
     },
   },
+  'wikibooks:chuck-wagon-beans': {
+    title: 'Cook the mince through; browning is not the check',
+    note: 'Two Plates uses at least 71°C for the crumbled ground chuck, checked with a clean food thermometer in the thickest part of the cooking meat after stirring: NSW guidance names 71°C for minced meat and sausages because ground meat carries contamination throughout, and warns that colour is not a reliable doneness indicator. Continue cooking and recheck if below the target. Keep the meat refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw meat and ready-to-eat food, and clean hands and surfaces after handling. The bacon is cooked in the same step. Follow product storage, use-by and cooking directions.',
+    sources: [['NSW: minced meat and sausages 71°C; colour unreliable', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      1: 'Brown bacon, ground chuck, and onion, then confirm with a clean food thermometer in the thickest part of the cooking beef: at least 71°C. Browning is not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks:dutch-oven-beans': {
+    title: 'Probe the mince; manage the campfire',
+    note: 'Two Plates uses at least 71°C for the crumbled ground beef, checked with a clean food thermometer in the thickest part of the cooking meat after stirring: NSW guidance names 71°C for minced meat and sausages because ground meat carries contamination throughout, and warns that colour is not a reliable doneness indicator. Continue cooking and recheck if below the target. Keep the meat refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw meat and ready-to-eat food, and clean hands and surfaces after handling. Campfire cooking needs care: check current local fire restrictions before lighting, keep the fire small and managed, never leave it unattended, keep children and flammable materials clear, and have water or a fire blanket ready; no current restriction status is checked by this recipe. Follow product storage, use-by and cooking directions.',
+    sources: [['NSW: minced meat and sausages 71°C; colour unreliable', NSW_TEMP], ['Fire and Rescue NSW: cooking fire safety', 'https://www.fire.nsw.gov.au/fire-safety/home-fire-safety/topics/cooking-fire-safety'], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      3: 'When bacon is nearly cooked, crumble ground beef and chopped onion into Dutch oven. Cook until the onion is translucent, then confirm the beef with a clean food thermometer in the thickest part of the cooking meat: at least 71°C. Continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks:mostaccioli': {
+    title: 'Probe the beef and sausage; browning is not the check',
+    note: 'Two Plates uses at least 71°C for the beef-and-sausage mixture, checked with a clean food thermometer in the thickest part of the cooking meat after stirring: NSW guidance names 71°C for minced meat and sausages because ground meat carries contamination throughout, and warns that colour is not a reliable doneness indicator. Continue cooking and recheck if below the target. Keep the meat refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw meat and ready-to-eat food, and clean hands and surfaces after handling. The sausage species is unstated, so the sausage is treated with the same ground-meat caution. Follow product storage, use-by and cooking directions.',
+    sources: [['NSW: minced meat and sausages 71°C; colour unreliable', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      2: 'In skillet, combine meat, sausages, onion, green pepper and garlic. Cook while breaking up meat, until browned, then confirm with a clean food thermometer in the thickest part of the cooking meat: at least 71°C. Browning is not a doneness check; continue cooking and recheck if below the target. Drain off fat.',
+    },
+  },
+  'wikibooks:sloppy-joes': {
+    title: 'Cook the mince through; browning is not the check',
+    note: 'Two Plates uses at least 71°C for the ground beef, checked with a clean food thermometer in the thickest part of the cooking meat after stirring: NSW guidance names 71°C for minced meat and sausages because ground meat carries contamination throughout, and warns that colour is not a reliable doneness indicator. Continue cooking and recheck if below the target. Keep the meat refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw meat and ready-to-eat food, and clean hands and surfaces after handling. Follow product storage, use-by and cooking directions.',
+    sources: [['NSW: minced meat and sausages 71°C; colour unreliable', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      1: 'Brown the ground beef, onions, and peppers in skillet on medium heat, then confirm with a clean food thermometer in the thickest part of the cooking beef: at least 71°C. Browning is not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks:spaghetti-bake': {
+    title: 'Probe to the species temperature',
+    note: 'Two Plates adds a measured endpoint: the source sautés the ground meat "when cooked through", which is not a measured check. Use a clean food thermometer in the thickest part of the cooking meat after stirring: at least 75°C if you chose turkey (FSANZ poultry guidance), or at least 71°C if you chose beef (NSW mince guidance). Continue cooking and recheck if below the target. Keep the meat refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw meat and ready-to-eat food, and clean hands and surfaces after handling. Do not wash raw poultry. Follow product storage, use-by and cooking directions, including the pasta package.',
+    sources: [['FSANZ: poultry 75°C', FSANZ], ['NSW: minced meat 71°C', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      2: 'Sauté ground meat with onion. When cooked through, confirm with a clean food thermometer in the thickest part of the cooking meat: at least 75°C for turkey, or at least 71°C for beef. Continue cooking and recheck if below the target, then mix in spaghetti sauce and seasoning.',
+    },
+  },
+  'wikibooks:malvani-chicken-curry': {
+    title: 'Cook the chicken through; tenderness is not the check',
+    note: 'Two Plates adds a measured endpoint: the source cooks the chicken about 25 minutes "until tender and fully cooked", but time and tenderness are not doneness checks. Safely take the pan off the heat and use a clean food thermometer in the thickest chicken pieces, avoiding bone, to check at least 75°C, following FSANZ poultry guidance; continue cooking and recheck any piece below the target. Keep the chicken refrigerated at 5°C or colder before preparation and during the marinade, use separate boards and utensils for raw chicken and ready-to-eat food, and clean hands and surfaces after handling. Do not wash the raw chicken. The used marinade contacted raw chicken: it goes into the pan and cooks, but do not serve any that stayed out. Follow product storage, use-by and cooking directions.',
+    sources: [['FSANZ: poultry 75°C; do not wash raw poultry', FSANZ], ['USDA (US): thickest part, avoid bones, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      6: 'Add the paste and salt, then mix well. Add water according to the desired level of consistency and bring to a boil. Cover and cook on low level for about 25 minute(s), then safely take the pan off the heat and use a clean food thermometer in the thickest chicken pieces, avoiding bone, to check at least 75°C. Continue cooking and recheck any below the target before serving.',
+    },
+  },
+  'wikibooks:cioppino-italian-seafood-stew': {
+    title: 'Probe the fish; sort the mussels twice',
+    note: 'Two Plates adds a measured endpoint: the source simmers until the fish flakes easily, but flaking is a texture cue. Safely take the pot off the heat and use a clean food thermometer in the thickest fish pieces to check at least 63°C, following NSW fish guidance; continue simmering and recheck if below the target. The mussels go in live: before cooking, discard any with broken shells or that stay open when tapped; after cooking, discard any that stay closed (the source step to check is kept). The crab, scallops and fish all cook in the same broth; keep all seafood refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw seafood and ready-to-eat food, and clean hands and surfaces after handling. Follow product storage, use-by and cooking directions.',
+    sources: [['NSW: fish 63°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      8: 'Add the scallops and fish. Simmer gently until all the mussels are completely open, then safely take the pot off the heat and use a clean food thermometer in the thickest fish pieces to check at least 63°C. Continue simmering and recheck if below the target.',
+    },
+  },
+  'wikibooks:fabes-con-almejas': {
+    title: 'Sort the live clams before and after cooking',
+    note: 'The clams go in live: the source scrub step is kept, and you must discard any clam with a broken shell or that stays open when tapped before cooking. Cook until the shells open, and discard any clam that stays closed after cooking; do not force them open. The beans simmer about 90 minutes per the source. Keep the clams refrigerated at 5°C or colder until cooking, use separate boards and utensils for raw shellfish and ready-to-eat food, and clean hands and surfaces after handling. Follow product storage, use-by and cooking directions.',
+    sources: [['FSANZ: raw separation and temperature control', FSANZ], ['NSW: seafood handling', NSW_TEMP]],
+    replacements: {
+      2: 'Scrub the clams clean and rinse. Discard any with broken shells or that stay open when tapped; they are not safe to cook.',
+      6: 'When the beans are almost done, place the clams in a separate skillet and add about an inch of water. Cover the skillet and cook until the shells open. Discard any clam that stays closed after cooking; do not force it open.',
+    },
+  },
+  'wikibooks:cazuela-gallega': {
+    title: 'The egg must be fully set',
+    note: 'Two Plates adds a measured doneness check: The source 30-minute bake is not a reliable check that the egg is cooked through. Bake until the centre is fully set: a knife or skewer inserted into the centre comes out clean, the centre does not jiggle when the dish is gently shaken, and a clean food thermometer in the centre reads at least 71°C (an editorial application of FSANZ guidance to cook egg dishes thoroughly, not a tested dish-specific standard). This matters most for anyone pregnant, elderly, very young or immunocompromised. The ham is a cured, ready-to-eat product per the source presentation. Follow product storage, use-by and cooking directions.',
+    sources: [['FSANZ: cook egg dishes thoroughly', FSANZ], ['USDA (US): thermometer use', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      7: 'Carefully remove foil with the casserole from the bowl. Top with the cheese and bake in a preheated 400°F (205°C) oven until the eggs are fully set: the whites and yolks are firm, not runny, and a clean food thermometer in the centre of the egg reads at least 71°C (about 30 minutes). Colour and time alone are not the check.',
+    },
+  },
+  'wikibooks:macaroni-pie': {
+    title: 'Bake until the centre is fully set',
+    note: 'Two Plates adds a measured doneness check: The source "fork comes out dry" cue and 30-minute time is not a reliable check that the egg is cooked through. Bake until the centre is fully set: a knife or skewer inserted into the centre comes out clean, the centre does not jiggle when the dish is gently shaken, and a clean food thermometer in the centre reads at least 71°C (an editorial application of FSANZ guidance to cook egg dishes thoroughly, not a tested dish-specific standard). This matters most for anyone pregnant, elderly, very young or immunocompromised. Follow product storage, use-by and cooking directions.',
+    sources: [['FSANZ: cook egg dishes thoroughly', FSANZ], ['USDA (US): thermometer use', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      5: 'Bake at 175°C (350°F) until firm (about 30 minutes), then confirm the egg is cooked through: a fork or metal skewer pressed all the way through the centre comes out clean, the centre does not jiggle, and a clean food thermometer in the centre reads at least 71°C. Continue baking and recheck if needed.',
+    },
+  },
+  'wikibooks:radish-pie': {
+    title: 'The custard must be fully set',
+    note: 'Two Plates adds a measured doneness check: The source timing (20 minutes, then 15–20 with the walnuts) is not a reliable check that the egg is cooked through. Bake until the centre is fully set: a knife or skewer inserted into the centre comes out clean, the centre does not jiggle when the dish is gently shaken, and a clean food thermometer in the centre reads at least 71°C (an editorial application of FSANZ guidance to cook egg dishes thoroughly, not a tested dish-specific standard). This matters most for anyone pregnant, elderly, very young or immunocompromised. Let the pie cool as the source directs, and refrigerate leftovers within 2 hours (see the handling note). Follow product storage, use-by and cooking directions.',
+    sources: [['FSANZ: cook egg dishes thoroughly', FSANZ], ['USDA (US): thermometer use', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      7: 'Add the walnuts and bake for another 15–20 minutes, then confirm the custard is fully set: a knife inserted into the centre comes out clean, the centre does not jiggle when the pan is gently shaken, and a clean food thermometer in the centre reads at least 71°C. Continue baking and recheck if needed.',
+    },
+  },
+  'wikibooks:corny-souffle': {
+    title: 'Bake until the centre is fully set',
+    note: 'Two Plates adds a measured doneness check: The source 70-minute bake is not a reliable check that the egg is cooked through. Bake until the centre is fully set: a knife or skewer inserted into the centre comes out clean, the centre does not jiggle when the dish is gently shaken, and a clean food thermometer in the centre reads at least 71°C (an editorial application of FSANZ guidance to cook egg dishes thoroughly, not a tested dish-specific standard). This matters most for anyone pregnant, elderly, very young or immunocompromised. Follow product storage, use-by and cooking directions.',
+    sources: [['FSANZ: cook egg dishes thoroughly', FSANZ], ['USDA (US): thermometer use', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      6: 'Bake for 70 minutes, then confirm the centre is fully set: a knife inserted into the centre comes out clean, the centre does not jiggle when the dish is gently shaken, and a clean food thermometer in the centre reads at least 71°C. Continue baking and recheck if needed.',
+    },
+  },
+  'wikibooks:parmesan-cheese-souffle': {
+    title: 'Bake until the centre cooks through',
+    note: 'Two Plates adds a measured doneness check: Rise and golden colour alone is not a reliable check that the egg is cooked through. Bake until the centre is fully set: a knife or skewer inserted into the centre comes out clean, the centre does not jiggle when the dish is gently shaken, and a clean food thermometer in the centre reads at least 71°C (an editorial application of FSANZ guidance to cook egg dishes thoroughly, not a tested dish-specific standard). This matters most for anyone pregnant, elderly, very young or immunocompromised. Serve immediately per the source; a souffle falls as it stands. Follow product storage, use-by and cooking directions.',
+    sources: [['FSANZ: cook egg dishes thoroughly', FSANZ], ['USDA (US): thermometer use', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      10: 'Pour the batter into the prepared soufflé dish and bake until the soufflé has risen 2–3 inches above the rim and the top is golden brown (1 to 1½ hours), then confirm it is cooked through: a thin skewer into the centre comes out clean and a clean food thermometer in the centre reads at least 71°C. Continue baking and recheck if needed.',
+    },
+  },
+  'wikibooks:mini-three-cheese-english-muffin-pizzas': {
+    title: 'Heat the frankfurters through',
+    note: 'The frankfurters are a pre-cooked manufactured product; the source bakes until thoroughly heated. Heat them until steaming hot throughout, at least 60°C in the centre of the slices, checked with a clean food thermometer (an editorial application of NSW reheating guidance, not a tested product standard). Follow the product storage, use-by and heating directions on the frankfurter package, and the broiler and oven manufacturer directions; never leave a broiler unattended.',
+    sources: [['NSW: reheat until steaming hot, 60°C', NSW_TEMP], ['Fire and Rescue NSW: cooking fire safety', 'https://www.fire.nsw.gov.au/fire-safety/home-fire-safety/topics/cooking-fire-safety']],
+    replacements: {
+      7: 'Bake 12–15 minutes until thoroughly heated: the frankfurter slices should be steaming hot throughout, at least 60°C in the centre. Continue baking and recheck if below the target.',
+    },
+  },
 };

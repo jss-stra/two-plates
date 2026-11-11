@@ -73,7 +73,35 @@ import spicyChickenCutlets from '../data/imported/spicy-chicken-cutlets.mjs';
 import sweetItalianSausageSkillet from '../data/imported/sweet-italian-sausage-skillet.mjs';
 import tunaGlop from '../data/imported/tuna-glop.mjs';
 import wineRoastedPorkRoast from '../data/imported/wine-roasted-pork-roast.mjs';
-const SOURCES = [ratatouille, draniki, galayet, kaesespaetzle, melanzane, byrek, misir, tortilla, chicken, irish, farikal, fish, lentilSoup, coldSoup, fondue, spinachPie, strukli, jollof, souvla, trout, paprikaChicken, softTacos, adultMac, agnolotti, garbanzoSoup, porkLima, spaghettiBolognese, spareRibs, poutine, penneMeatSauce, jambalayaI, asparagusSoup, beanSoupVegetarian, beefGravySoup, blackPepperedChickenSpaghetti, creamyTomatoBeanSoup, crockPotPotatoSoup, hotAndSourSoup, mushroomSoup, pastaSoupForKids, pepperSoup, potatoSoup, spicedPumpkinSoup, sausageAndTortelliniSoup, tomKhaKai, vichyssoise, ertesuppePeaSoup, lenguaDeRes, baconWrappedScallops, chickenFriedSteak, chipsiMayai, chuuCheeFish, cubanPicadillo, garlicPorkChopsBlackMushrooms, honeyPepperedSalmon, lemonRosemaryPorkTenderloin, maplePlankedSalmon, meatloafIv, mediterraneanGreenChicken, poppyseedChicken, schweinsbraten, shrimpScampiAngelHair, simpleItalianSausageSpaghetti, spicyChickenCutlets, sweetItalianSausageSkillet, tunaGlop, wineRoastedPorkRoast];
+import beanAndBaconBake from '../data/imported/bean-and-bacon-bake.mjs';
+import brownRiceCasserole from '../data/imported/brown-rice-casserole.mjs';
+import cazuelaGallega from '../data/imported/cazuela-gallega.mjs';
+import chuckWagonBeans from '../data/imported/chuck-wagon-beans.mjs';
+import cioppinoItalianSeafoodStew from '../data/imported/cioppino-italian-seafood-stew.mjs';
+import cornySouffle from '../data/imported/corny-souffle.mjs';
+import crockPotBeefStew from '../data/imported/crock-pot-beef-stew.mjs';
+import cucumberSproutSandwich from '../data/imported/cucumber-sprout-sandwich.mjs';
+import dutchOvenBeans from '../data/imported/dutch-oven-beans.mjs';
+import fabesConAlmejas from '../data/imported/fabes-con-almejas.mjs';
+import keralanVegetableStew from '../data/imported/keralan-vegetable-stew.mjs';
+import macaroniPie from '../data/imported/macaroni-pie.mjs';
+import malvaniChickenCurry from '../data/imported/malvani-chicken-curry.mjs';
+import meatlessSloppyJoes from '../data/imported/meatless-sloppy-joes.mjs';
+import miniThreeCheeseEnglishMuffinPizzas from '../data/imported/mini-three-cheese-english-muffin-pizzas.mjs';
+import mozzarellaTunaMelts from '../data/imported/mozzarella-tuna-melts.mjs';
+import parmesanCheeseSouffle from '../data/imported/parmesan-cheese-souffle.mjs';
+import mostaccioli from '../data/imported/mostaccioli.mjs';
+import potatoChickpeaCurry from '../data/imported/potato-chickpea-curry.mjs';
+import potatoCurryAlooMasala from '../data/imported/potato-curry-aloo-masala.mjs';
+import radishPie from '../data/imported/radish-pie.mjs';
+import reubenSandwich from '../data/imported/reuben-sandwich.mjs';
+import risottoAllaMilanese from '../data/imported/risotto-alla-milanese.mjs';
+import sloppyJoes from '../data/imported/sloppy-joes.mjs';
+import spaghettiBake from '../data/imported/spaghetti-bake.mjs';
+import tripesALaModeDeCaen from '../data/imported/tripes-a-la-mode-de-caen.mjs';
+import yetsomShiro from '../data/imported/yetsom-shiro.mjs';
+import yogurtCurrySoupKadhi from '../data/imported/yogurt-curry-soup-kadhi.mjs';
+const SOURCES = [ratatouille, draniki, galayet, kaesespaetzle, melanzane, byrek, misir, tortilla, chicken, irish, farikal, fish, lentilSoup, coldSoup, fondue, spinachPie, strukli, jollof, souvla, trout, paprikaChicken, softTacos, adultMac, agnolotti, garbanzoSoup, porkLima, spaghettiBolognese, spareRibs, poutine, penneMeatSauce, jambalayaI, asparagusSoup, beanSoupVegetarian, beefGravySoup, blackPepperedChickenSpaghetti, creamyTomatoBeanSoup, crockPotPotatoSoup, hotAndSourSoup, mushroomSoup, pastaSoupForKids, pepperSoup, potatoSoup, spicedPumpkinSoup, sausageAndTortelliniSoup, tomKhaKai, vichyssoise, ertesuppePeaSoup, lenguaDeRes, baconWrappedScallops, chickenFriedSteak, chipsiMayai, chuuCheeFish, cubanPicadillo, garlicPorkChopsBlackMushrooms, honeyPepperedSalmon, lemonRosemaryPorkTenderloin, maplePlankedSalmon, meatloafIv, mediterraneanGreenChicken, poppyseedChicken, schweinsbraten, shrimpScampiAngelHair, simpleItalianSausageSpaghetti, spicyChickenCutlets, sweetItalianSausageSkillet, tunaGlop, wineRoastedPorkRoast, beanAndBaconBake, brownRiceCasserole, cazuelaGallega, chuckWagonBeans, cioppinoItalianSeafoodStew, cornySouffle, crockPotBeefStew, cucumberSproutSandwich, dutchOvenBeans, fabesConAlmejas, keralanVegetableStew, macaroniPie, malvaniChickenCurry, meatlessSloppyJoes, miniThreeCheeseEnglishMuffinPizzas, mozzarellaTunaMelts, parmesanCheeseSouffle, mostaccioli, potatoChickpeaCurry, potatoCurryAlooMasala, radishPie, reubenSandwich, risottoAllaMilanese, sloppyJoes, spaghettiBake, tripesALaModeDeCaen, yetsomShiro, yogurtCurrySoupKadhi];
 const LIMITATIONS = {
   'unitools:ohridska-pastrmka': { summary: 'Whole fish; shared oil and lemons; wine retained', detail: 'The source lists four whole gutted trout without weights. No kg, edible yield or exact trout species is inferred, and the regional name does not establish Lake Ohrid origin. The 80 ml olive oil is shared between rubbing, greasing and the remaining pour; the three lemons supply cavity slices and serving wedges. No numeric split or extra amount is invented. The 800 g potatoes are cooked under the raw fish, not an uncooked garnish. Wine remains 150 ml with no alcohol-free claim. Follow the adapted endpoint and raw-fish separation note. Whole gutted fish still have bones; take care when serving and eating. Product formulations and cross-contact remain unreviewed.', grocery: 'Four whole gutted fish, no weight conversion; oil and lemons are shared totals; contains wine' },
   'unitools:souvla': { summary: 'Pork shoulder; charcoal spit and probe needed', detail: 'The actual ingredient is 2.5 kg pork shoulder, not a pork-or-lamb choice despite the broader source summary. The source cuts pieces of about 200 g; no exact piece count is inferred. Pita formulation and cross-contact are unverified. No marinade, oil, dressing or extra side is added. This requires suitable charcoal-spit equipment and a food thermometer, not an ordinary pan. Check current local fire restrictions before lighting; no current restriction status is checked by this recipe. Follow the separately adapted cooking steps and handling note.', grocery: 'Pork shoulder 2.5 kg; separate charcoal-spit equipment and food thermometer required' },
@@ -134,6 +162,159 @@ const LIMITATIONS = {
   'wikibooks:sweet-italian-sausage-skillet': { summary: 'Adapted sausage endpoint; species unstated', detail: 'The source browns the sliced sausage for 5 minutes; time and browning are not a doneness check, so use the adapted measured endpoint below. The sweet Italian sausage species is not stated, so diet stays unclassified. The rotini measure (2 cups) is the dry pasta, cooked per its package. The provolone-or-mozzarella line is a source alternative, both covered by the source method. Broth formulation is unverified.', grocery: 'Sausage species unstated; pasta measure is dry; provolone or mozzarella both work' },
   'wikibooks:tuna-glop': { summary: 'Canned soup and chip formulations unverified', detail: 'The cream of mushroom soup is a manufactured product whose formulation is unverified; the explicit chunk tuna sets the dish non-vegetarian. The 2 cups of macaroni is the dry measure, cooked per its package. The frozen vegetables (peas and carrots suggested) and crushed potato chips are source lines, kept as written.', grocery: 'Soup and chip formulations unverified; macaroni measure is dry' },
   'wikibooks:wine-roasted-pork-roast': { summary: 'Campfire cooking; adapted pork endpoint; contains red wine', detail: 'This is cooked over a campfire in a Dutch oven: check current local fire restrictions before lighting, keep the fire managed, and follow the fire-safety note; no current restriction status is checked by this recipe. The source cooks "slowly for three hours"; fire heat varies and time is not a doneness check, so use the adapted measured endpoint below in the thickest part of the roast. The 1½ cups of red wine stay in the dish; no alcohol-free claim is made. The Montreal steak seasoning is a manufactured blend whose formulation is unverified.', grocery: 'Campfire: check fire restrictions first; contains 1½ cups red wine; no alcohol-free claim' },
+  'wikibooks:bean-and-bacon-bake': {
+    summary: 'Microwave recipe; single potato weight is a source range',
+    detail: 'The whole recipe cooks in a microwave; follow your microwave manufacturer directions, including standing time, and stir for even heating. The potato is one 10–12 oz / 280–340 g medium potato, a source range kept unchanged. The bacon line is a source alternative: 6 strips cooked until crisp, or microwave-ready fully cooked bacon; both are covered by the source method.',
+    grocery: 'Microwave recipe; bacon or microwave-ready bacon both work'
+  },
+  'wikibooks:brown-rice-casserole': {
+    summary: 'Uses already-cooked brown rice; processed cheese formulation unverified',
+    detail: 'The 3 cups of brown rice are already cooked: cook fresh or use safely stored leftovers (handling note below). The processed cheese is a manufactured product whose formulation (including rennet) is unverified, so diet stays unclassified. Cooking spray for the dish is an unquantified process line.',
+    grocery: 'Cooked rice must be fresh or safely stored; processed cheese formulation unverified',
+    handling: 'Two Plates handling note (not a change to the source method): cooked rice carries Bacillus cereus risk when warm-held. Cook the rice fresh, or use leftovers with a known safe history: cooled promptly in small portions, covered, refrigerated below 5°C within 2 hours and used within 2 days. Count all time between 5°C and 60°C cumulatively: under 2 hours, use or refrigerate; 2 to 4 hours, use immediately or discard, not refrigerate for later; after 4 hours, discard. Reheat only once, until steaming hot throughout (at least 60°C).',
+    handlingUrl: 'https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers',
+    handlingLabel: 'NSW leftovers guidance'
+  },
+  'wikibooks:cazuela-gallega': {
+    summary: 'Single-serve baked egg dish; ham is cured, the egg must set',
+    detail: 'A one-serving casserole baked in a foil casing per the source. The ham is a cured, ready-to-eat product per the source presentation; the egg is raw going in and must be fully set, so use the adapted egg endpoint below. The source method adds a pinch of salt not in the ingredient list; that gap is kept visible. Parmesan formulation (rennet) is unverified.',
+    grocery: 'The egg must be fully set; ham formulation unverified'
+  },
+  'wikibooks:chuck-wagon-beans': {
+    summary: 'Adapted mince endpoint replacing "no longer pink"',
+    detail: 'The source browns the ground chuck until "no longer pink"; colour is not a doneness check for mince, so use the adapted measured endpoint below. The canned pork-and-beans (32 oz), barbecue sauce and molasses are source quantities, kept as written; can contents and sauce formulations are unverified. The bacon is cooked with the beef per the source.',
+    grocery: 'Barbecue sauce and canned beans formulations unverified'
+  },
+  'wikibooks:cioppino-italian-seafood-stew': {
+    summary: 'Adapted seafood endpoint; live mussels; contains wine',
+    detail: 'The source simmers until the fish "flakes easily"; flaking is a texture cue, not a measured endpoint, so use the adapted endpoint below in the thickest fish pieces. The mussels go in live: scrub and debeard them, discard any with broken shells or that stay open when tapped before cooking, and discard any that stay closed after cooking. The 1½ cups of white wine stay in the stew; no alcohol-free claim is made. Clam juice and fish stock formulations are unverified. The sourdough loaves are a notes-only accompaniment and are not included in the groceries. Red pepper flakes beyond the listed ¾ tsp are to taste at serving.',
+    grocery: 'Live mussels need sorting before and after cooking; contains white wine; no alcohol-free claim'
+  },
+  'wikibooks:corny-souffle': {
+    summary: 'Egg dish: bake until fully set',
+    detail: 'A blender batter of corn, eggs and milk, baked in a casserole. The egg matrix must be fully set: use the adapted egg endpoint below rather than colour alone. Milk formulation is unverified.',
+    grocery: 'The souffle must be fully set; milk formulation unverified'
+  },
+  'wikibooks:crock-pot-beef-stew': {
+    summary: '12-hour slow cooker; tomato can size unstated',
+    detail: 'The source cooks 12 hours in a slow cooker; follow your slow-cooker manufacturer directions, and keep the stew above 60°C once cooked until serving. The "1 large can tomatoes" size is genuinely unstated in the source and stays that way. The whole-clove-or-ground-cloves line is a source alternative, both covered by the method. The tapioca thickens the stew per the source.',
+    grocery: 'Slow-cooker recipe; large tomato can size not stated',
+    handling: 'Two Plates handling note (not a change to the source method): cool leftovers promptly in small portions, cover and refrigerate below 5°C within 2 hours, eat within 2 days, and reheat only once until steaming hot throughout (at least 60°C). Count all time between 5°C and 60°C cumulatively: under 2 hours, use or refrigerate; 2 to 4 hours, use immediately or discard, not refrigerate for later; after 4 hours, discard.',
+    handlingUrl: 'https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers',
+    handlingLabel: 'NSW leftovers guidance'
+  },
+  'wikibooks:cucumber-sprout-sandwich': {
+    summary: 'Raw sprouts: ready-to-eat produce care',
+    detail: 'Alfalfa sprouts are eaten raw: buy them fresh and refrigerated, keep them at 5°C or colder, rinse under running water just before use, and do not serve raw sprouts to anyone pregnant, elderly, very young or immunocompromised. Cream cheese and mayonnaise formulations are unverified, so diet stays unclassified.',
+    grocery: 'Raw sprouts need extra care and are not for at-risk diners; cream cheese formulation unverified'
+  },
+  'wikibooks:dutch-oven-beans': {
+    summary: 'Campfire Dutch oven; adapted mince endpoint; contains liquid smoke',
+    detail: 'The source cooks over campfire coals; never leave the fire unattended, follow the fire-safety note below, and check current local fire restrictions before lighting; no current restriction status is checked by this recipe. The source browns the ground beef; browning is not a doneness check for mince, so use the adapted measured endpoint below. Liquid smoke is a manufactured product whose formulation is unverified.',
+    grocery: 'Campfire cooking: see fire-safety note; liquid smoke formulation unverified'
+  },
+  'wikibooks:fabes-con-almejas': {
+    summary: 'Live clams; dried beans soak overnight',
+    detail: 'The 24 clams go in live: scrub them, discard any with broken shells or that stay open when tapped before cooking, and discard any that stay closed after cooking; adapted measured endpoint below for the broth. The dried fabes (or large white beans) soak overnight per the source. Saffron-or-food-coloring is a source alternative. Salt is "as needed" per the source. Ham formulation is unverified, so diet rests on the explicit clam line.',
+    grocery: 'Live clams need sorting before and after cooking; beans soak overnight'
+  },
+  'wikibooks:keralan-vegetable-stew': {
+    summary: 'Source gap: vinegar listed but never used; two coconut pressings',
+    detail: 'The source lists 1 tbsp vinegar but its numbered method never adds it; that gap is kept visible rather than inventing a step. The method presses two batches of coconut milk from the grated coconut with ¾ cup and ½ cup of water; that water is an unlisted process quantity, kept visible. The flour-or-rice-flour-or-cornstarch line is a source alternative (the method calls it maida/rice flour), all covered by the method.',
+    grocery: 'Source gap: vinegar has no method step; coconut-milk water is unlisted in the source'
+  },
+  'wikibooks:macaroni-pie': {
+    summary: 'Cheese formulation unverified; breadcrumbs unquantified',
+    detail: 'The grated cheese is a manufactured product whose formulation (including rennet) is unverified, so diet stays unclassified despite the source categories. The breadcrumbs are listed without a quantity, kept that way. The one pat of butter is the source wording, kept verbatim. The pie is done when a fork or skewer pressed all the way through comes out dry per the source; use the adapted egg-set endpoint below as the measured check.',
+    grocery: 'Cheese formulation unverified; breadcrumbs quantity not stated'
+  },
+  'wikibooks:malvani-chicken-curry': {
+    summary: 'Adapted poultry endpoint; water amount at your discretion',
+    detail: 'The source cooks the marinated chicken about 25 minutes "until tender and fully cooked"; time and tenderness are not measured doneness checks, so use the adapted measured endpoint below. The water is added "according to the desired level of consistency", genuinely unquantified in the source, kept that way. Salt is to taste per the source. Malvani Special Masala is a manufactured blend whose formulation is unverified.',
+    grocery: 'Water amount not stated; Malvani masala blend formulation unverified'
+  },
+  'wikibooks:meatless-sloppy-joes': {
+    summary: 'Source name says meatless; product formulations unverified; uses cooked rice',
+    detail: 'The source names this meatless and files it as vegetarian, but the canned chili beans, hickory barbecue sauce and buns are manufactured products whose formulations are unverified (barbecue sauce can contain anchovy-derived ingredients), so diet stays unclassified and the source claim is displayed as unverified. The 1½ cups of brown rice are already cooked: cook fresh or use safely stored leftovers (handling note below). The chili-bean can size and bun count are unstated in the source.',
+    grocery: 'Cooked rice must be fresh or safely stored; sauce and bean formulations unverified despite the source name',
+    handling: 'Two Plates handling note (not a change to the source method): cooked rice carries Bacillus cereus risk when warm-held. Cook the rice fresh, or use leftovers with a known safe history: cooled promptly in small portions, covered, refrigerated below 5°C within 2 hours and used within 2 days. Count all time between 5°C and 60°C cumulatively: under 2 hours, use or refrigerate; 2 to 4 hours, use immediately or discard, not refrigerate for later; after 4 hours, discard. Reheat only once, until steaming hot throughout (at least 60°C).',
+    handlingUrl: 'https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers',
+    handlingLabel: 'NSW leftovers guidance'
+  },
+  'wikibooks:mini-three-cheese-english-muffin-pizzas': {
+    summary: 'Frankfurter species unstated; Parmesan unquantified; butter not listed',
+    detail: 'The frankfurters are a manufactured sausage whose species (pork, beef, chicken or other) is not stated, so diet stays unclassified and the sausage fails closed against any meat exclusion. The grated Parmesan has no quantity in the source, kept that way. The muffins are buttered per the method but butter is not in the ingredient list; that gap is kept visible. Frankfurters are pre-cooked products; the bake heats everything through. Broiler use per your oven manufacturer directions.',
+    grocery: 'Frankfurter species unstated; Parmesan quantity not stated'
+  },
+  'wikibooks:mozzarella-tuna-melts': {
+    summary: 'Canned tuna; mayonnaise formulation unverified',
+    detail: 'The water-packed canned tuna is drained and flaked per the source; the 6 oz can is a source quantity. The mayonnaise and mozzarella are manufactured products whose formulations are unverified; diet rests on the explicit tuna line. Broil per your oven manufacturer directions until the cheese melts per the source.',
+    grocery: 'Mayonnaise formulation unverified; canned tuna, drained'
+  },
+  'wikibooks:parmesan-cheese-souffle': {
+    summary: 'Source category says vegetarian; Parmesan rennet unverified',
+    detail: 'The source files this as vegetarian, but Parmesan is a manufactured cheese whose rennet is unverified, so diet stays unclassified and the source claim is displayed as unverified. The egg whites are folded in raw and the souffle bakes 1 to 1½ hours; the interior must be cooked through, so use the adapted egg endpoint below rather than rise and colour alone. Sour-cream formulation is unverified.',
+    grocery: 'Parmesan rennet unverified despite the source category; souffle must cook through'
+  },
+  'wikibooks:mostaccioli': {
+    summary: 'Adapted mince and sausage endpoint; sausage species unstated',
+    detail: 'The source browns the beef and sausage together; browning is not a doneness check for mince or sausage meat, so use the adapted measured endpoint below. The Italian sausage species (pork, beef, chicken or other) is not stated, so diet stays unclassified and the dish fails closed against pork, beef and other meat exclusions. Ricotta and Parmesan formulations (rennet) are unverified. The two dashes (sugar, black pepper) are source wording, kept verbatim.',
+    grocery: 'Sausage species unstated: fails closed against meat exclusions; cheese formulations unverified'
+  },
+  'wikibooks:potato-chickpea-curry': {
+    summary: 'Serving rice not included; coconut-milk formulation unverified',
+    detail: 'The source serves this with basmati rice "or whatever you prefer", an unquantified serving suggestion that is not included in the groceries. The canned coconut milk and chickpeas are source quantities; the coconut-milk formulation is unverified. Curry-powder blend formulation is unverified.',
+    grocery: 'Rice to serve not included; coconut milk formulation unverified'
+  },
+  'wikibooks:potato-curry-aloo-masala': {
+    summary: 'Chana dhal optional; salt quantity listed but method says to taste',
+    detail: 'The ½ tablespoon of chana dhal is marked optional in the source. The list gives ½ teaspoon salt while the method seasons "with salt to taste"; both wordings are kept verbatim as a visible source inconsistency rather than silently picking one. The potatoes are par-boiled before they go in per the source.',
+    grocery: 'Chana dhal optional; salt listed as ½ tsp, method says to taste'
+  },
+  'wikibooks:radish-pie': {
+    summary: 'Contains sherry; egg custard must set; goat cheese formulation unverified',
+    detail: 'The 2 tablespoons of dry sherry stay in the filling; no alcohol-free claim is made. The eggs, extra yolk and cream form a custard that must be fully set; the source timing (20 minutes plus 15–20 with the walnuts) is kept, and the adapted egg-set endpoint below is the measured check. Goat-cheese formulation (rennet) is unverified, so diet stays unclassified despite the source category. The source notes the radishes can be baked a day ahead and refrigerated; follow the leftover handling times below if you do. The 1–2 bunches of radishes are a source range.',
+    grocery: 'Contains sherry; no alcohol-free claim; goat cheese formulation unverified',
+    handling: 'Two Plates handling note (not a change to the source method): cool leftovers promptly in small portions, cover and refrigerate below 5°C within 2 hours, eat within 2 days, and reheat only once until steaming hot throughout (at least 60°C). Count all time between 5°C and 60°C cumulatively: under 2 hours, use or refrigerate; 2 to 4 hours, use immediately or discard, not refrigerate for later; after 4 hours, discard.',
+    handlingUrl: 'https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers',
+    handlingLabel: 'NSW leftovers guidance'
+  },
+  'wikibooks:reuben-sandwich': {
+    summary: 'Corned beef and dressing formulations unverified',
+    detail: 'The corned beef is a manufactured cured product and the Russian dressing a manufactured sauce; both formulations are unverified, so diet rests on the explicit corned-beef line. The pastrami alternative and the sourdough-for-rye-allergy swap are source alternatives, both covered by the method. The chopped parsley has no quantity, kept that way. Grill until lightly browned per the source; the cheese melts in the same step.',
+    grocery: 'Corned beef and Russian dressing formulations unverified; 1–3 cheese slices is a source range'
+  },
+  'wikibooks:risotto-alla-milanese': {
+    summary: 'Contains wine; broth formulation unverified; 6-8 servings is a large batch',
+    detail: 'The ½ cup of dry white wine stays in the risotto; no alcohol-free claim is made. The chicken broth is a manufactured product whose formulation is unverified, so diet stays unclassified; the source notes vegetable broth may be substituted. The butter-or-margarine line is a divided total (6 tbsp then 1 tbsp) per the source. The optional parsley-and-tomato garnish has no quantities. Parmesan formulation (rennet) is unverified.',
+    grocery: 'Contains white wine; no alcohol-free claim; broth formulation unverified'
+  },
+  'wikibooks:sloppy-joes': {
+    summary: 'Adapted mince endpoint; buns not in the ingredient list',
+    detail: 'The source browns the ground beef; browning is not a doneness check for mince, so use the adapted measured endpoint below. The hamburger buns appear only in the serving step, not the ingredient list; that gap is kept visible and the buns are not included in the groceries. Ketchup and barbecue-sauce formulations are unverified (barbecue sauce can contain anchovy-derived ingredients); diet rests on the explicit beef line. Onion and green pepper are optional per the source.',
+    grocery: 'Buns not included (serving step only); sauce formulations unverified'
+  },
+  'wikibooks:spaghetti-bake': {
+    summary: 'Adapted mince endpoint; turkey or beef both work',
+    detail: 'The ground-turkey-or-beef line is a source alternative, both covered by the source method, so the dish is non-vegetarian with the species open and the endpoint below is species-aware (75°C for turkey, 71°C for beef). The source sautés the meat "when cooked through"; use the adapted measured endpoint, not time. Cooking spray for the dish is an unlisted process line, kept visible. The spaghetti-sauce jar, cream cheese, cottage cheese and sour cream are manufactured products whose formulations are unverified.',
+    grocery: 'Turkey or beef: check 75°C for turkey, 71°C for beef; dairy formulations unverified'
+  },
+  'wikibooks:tripes-a-la-mode-de-caen': {
+    summary: 'Contains brandy and wine; 10-12 hour bake; salt and pepper unquantified',
+    detail: 'The 1 cup of apple brandy and 2 cups of wine stay in the dish; no alcohol-free claim is made. The method bakes 10–12 hours while the infobox says 25 minutes; both source wordings are kept verbatim, and the 25 minutes is treated as preparation. Salt and pepper are listed without quantities, kept that way. Ask your butcher for the tripe pre-cleaned and prepared for cooking; the calf\'s foot and marrow bone go in whole and the bones are removed before serving per the source. Beef-broth formulation is unverified.',
+    grocery: 'Contains brandy and wine; no alcohol-free claim; ask the butcher for prepared tripe'
+  },
+  'wikibooks:yetsom-shiro': {
+    summary: 'Serving injera or rice not included; broth formulation unverified',
+    detail: 'The source serves the stew with injera or rice; those are unquantified serving suggestions and are not included in the groceries. The vegetable-broth-or-water line is a source alternative, both covered by the source method; the broth formulation is unverified, so use the water option if avoiding manufactured products. Berbere is a manufactured spice blend whose formulation is unverified. Salt is to taste per the source.',
+    grocery: 'Injera or rice to serve not included; berbere blend formulation unverified'
+  },
+  'wikibooks:yogurt-curry-soup-kadhi': {
+    summary: 'Sweet Gujarati kadhi; yogurt formulation unverified',
+    detail: 'A sweet style of kadhi per the source; the source notes northern-Indian versions are less sweet, so the 2 tbsp of sugar is the source quantity, kept unchanged. The yogurt (curds/dahi) is a manufactured product whose formulation is unverified. The 3 teacups of water are the source wording, kept verbatim. The tempering (ghee, cumin, mustard, asafoetida, red chilli) is added at the end per the source.',
+    grocery: 'A sweet kadhi; yogurt formulation unverified'
+  },
+
 };
 export const IMPORTED = new Map();
 
@@ -200,6 +381,35 @@ const REVIEWED_DIET = {
   // vichyssoise: Chicken-bouillon formulation unverified; diet stays unknown. Contains white wine.
   // simple-italian-sausage-spaghetti: Italian sausage species unstated; diet stays unknown.
   // sweet-italian-sausage-skillet: Italian sausage species unstated; diet stays unknown.
+  'wikibooks:bean-and-bacon-bake': { diet: 'nonveg', meatKind: 'pork', basis: 'Bacon explicit in source line 3 (6 strips, or microwave-ready bacon alternative); all six source lines independently read 2026-11-12. Cheese absent; bacon product formulation and cross-contact not cleared.' },
+  'wikibooks:brown-rice-casserole': { diet: 'unknown', basis: 'All six source lines independently read 2026-11-12: processed cheese is a manufactured product with unverified rennet; no meat named. Not classified vegetarian.' },
+  'wikibooks:cazuela-gallega': { diet: 'nonveg', meatKind: 'pork', basis: 'Ham slices explicit in source line 3; all seven source lines independently read 2026-11-12. Parmesan formulation and cross-contact not cleared.' },
+  'wikibooks:chuck-wagon-beans': { diet: 'nonveg', basis: 'Bacon, ground chuck (beef) and canned pork-and-beans explicit across source lines 1–4; mixed species explicit. All thirteen source lines independently read 2026-11-12. Product formulations not cleared.' },
+  'wikibooks:cioppino-italian-seafood-stew': { diet: 'nonveg', meatKind: 'fish', basis: 'Mixed seafood explicit: crab, mussels, scallops and white fish fillets across source lines; all eighteen source lines independently read 2026-11-12. Clam-juice and stock formulations not cleared.' },
+  'wikibooks:corny-souffle': { diet: 'veg', basis: 'All six source lines independently read 2026-11-12: corn, eggs, milk, butter, flour, sugar. Egg and dairy present; no meat named. Product formulations not cleared.' },
+  'wikibooks:crock-pot-beef-stew': { diet: 'nonveg', meatKind: 'beef', basis: 'Stew beef explicit in source line 1 (2 lb / 900 g); all ten source lines independently read 2026-11-12. Canned tomato formulation not cleared.' },
+  'wikibooks:cucumber-sprout-sandwich': { diet: 'unknown', basis: 'All twelve source lines independently read 2026-11-12: cream cheese and mayonnaise are manufactured products with unverified formulations; no meat named. Not classified vegetarian.' },
+  'wikibooks:dutch-oven-beans': { diet: 'nonveg', basis: 'Bacon and ground beef explicit in source lines 1–2, plus four canned bean products including pork-and-beans; mixed species explicit. All fourteen source lines independently read 2026-11-12. Product formulations not cleared.' },
+  'wikibooks:fabes-con-almejas': { diet: 'nonveg', meatKind: 'fish', basis: 'Live clams explicit in source line 6 (24 littleneck or mahogany); all eleven source lines independently read 2026-11-12. Ham formulation not cleared; diet rests on the clam line.' },
+  'wikibooks:keralan-vegetable-stew': { diet: 'veg', basis: 'All sixteen source lines independently read 2026-11-12: coconut, vegetables, spices, oil, vinegar and flour; no animal product named. Source files it vegan. Product formulations not cleared.' },
+  'wikibooks:macaroni-pie': { diet: 'unknown', basis: 'All eleven source lines independently read 2026-11-12: grated cheese formulation (rennet) unverified; eggs and evaporated milk present; no meat named. Not classified vegetarian.' },
+  'wikibooks:malvani-chicken-curry': { diet: 'nonveg', meatKind: 'chicken', basis: 'Chicken explicit in source line 4 (800 g / 8 pieces); all thirteen source lines independently read 2026-11-12. Malvani masala blend formulation not cleared.' },
+  'wikibooks:meatless-sloppy-joes': { diet: 'unknown', basis: 'All eight source lines independently read 2026-11-12: no meat named, but canned chili beans, barbecue sauce and buns are manufactured products with unverified formulations (barbecue sauce can contain anchovy-derived ingredients). Source files it vegetarian; displayed as an unverified claim.' },
+  'wikibooks:mini-three-cheese-english-muffin-pizzas': { diet: 'unknown', basis: 'All six source lines independently read 2026-11-12: frankfurter sausage species not stated; cheese formulations unverified. Fails closed against meat exclusions.' },
+  'wikibooks:mozzarella-tuna-melts': { diet: 'nonveg', meatKind: 'fish', basis: 'Water-packed tuna explicit in source line 1 (6 oz can); all eight source lines independently read 2026-11-12. Mayonnaise and cheese formulations not cleared.' },
+  'wikibooks:parmesan-cheese-souffle': { diet: 'unknown', basis: 'All nine source lines independently read 2026-11-12: Parmesan rennet unverified; eggs and sour cream present; no meat named. Source files it vegetarian; displayed as an unverified claim.' },
+  'wikibooks:mostaccioli': { diet: 'unknown', basis: 'All nineteen source lines independently read 2026-11-12: ground beef explicit, but the Italian sausage species is not stated and cheese rennet is unverified, so the dish fails closed against pork, beef and other meat exclusions rather than classifying as single-species beef.' },
+  'wikibooks:potato-chickpea-curry': { diet: 'veg', basis: 'All seven source lines independently read 2026-11-12: potatoes, chickpeas, coconut milk, onion, garlic, curry powder, olive oil; no animal product named. Source files it vegan. Canned-product formulations not cleared.' },
+  'wikibooks:potato-curry-aloo-masala': { diet: 'veg', basis: 'All nine source lines independently read 2026-11-12: potatoes, oil, mustard seed, chana dhal, curry leaves, onion, chillies, turmeric, salt; no animal product named. Source files it vegan.' },
+  'wikibooks:radish-pie': { diet: 'unknown', basis: 'All twelve source lines independently read 2026-11-12: goat cheese rennet unverified; eggs and cream present; no meat named. Source files it vegetarian; displayed as an unverified claim.' },
+  'wikibooks:reuben-sandwich': { diet: 'nonveg', meatKind: 'beef', basis: 'Corned beef explicit in source line 1 (½ lb; pastrami alternative also beef); all eight source lines independently read 2026-11-12. Dressing and cheese formulations not cleared.' },
+  'wikibooks:risotto-alla-milanese': { diet: 'unknown', basis: 'All ten source lines independently read 2026-11-12: chicken broth is a manufactured product with unverified formulation; the source offers a vegetable-broth substitution. Parmesan rennet unverified. Not classified vegetarian or meat-exclusion-safe.' },
+  'wikibooks:sloppy-joes': { diet: 'nonveg', meatKind: 'beef', basis: 'Ground beef explicit in source line 1 (1 lb / 450 g); all seven source lines independently read 2026-11-12. Ketchup and barbecue-sauce formulations not cleared.' },
+  'wikibooks:spaghetti-bake': { diet: 'nonveg', basis: 'Ground turkey or beef explicit as a source alternative in line 1, both covered by the source method; species open. All ten source lines independently read 2026-11-12. Dairy product formulations not cleared.' },
+  'wikibooks:tripes-a-la-mode-de-caen': { diet: 'nonveg', meatKind: 'beef', basis: 'Beef tripe, calf\'s foot and marrow bone explicit in source lines 1–3; all fourteen source lines independently read 2026-11-12. Beef-broth formulation not cleared.' },
+  'wikibooks:yetsom-shiro': { diet: 'veg', basis: 'All twelve source lines independently read 2026-11-12: chickpea flour, oil, onion, garlic, spices, broth-or-water; no animal product named. Source files it vegan. Berbere blend and broth formulations not cleared; the water alternative avoids the broth.' },
+  'wikibooks:yogurt-curry-soup-kadhi': { diet: 'veg', basis: 'All twelve source lines independently read 2026-11-12: chickpea flour, yogurt, ghee and spices; dairy (yogurt, ghee) present; no meat or egg named. Yogurt formulation not cleared.' },
+
 };
 
 function adapt(src) {
