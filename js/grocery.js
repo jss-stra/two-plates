@@ -1,5 +1,6 @@
 // Builds the combined, scaled shopping list for the week's dishes.
 import { INGREDIENTS, AISLES, BASE_SERVINGS } from './data.js';
+import { IMPORTED, importedShoppingRows } from './imported.js';
 import { occasionTotals, customOccasionRows } from './occasions.js';
 import { planRecipes } from './planner.js';
 import { HABITS, WEEKLY_STAPLES } from '../data/shopping-habits.js';
@@ -84,6 +85,11 @@ export function buildGrocery(state) {
       amount: '', unit: '', text: x.amount || '', dishes: [], pantry: false, checked: !!state.checked[`x:${x.id}`], bought: state.bought[`x:${x.id}`] || '',
     });
   }
+  // Imported source-native dishes: exact original-base rows, no scaling.
+  for (const slot of state.plan.slots) {
+    const imp = IMPORTED.get(slot.id);
+    if (imp) rows.push(...importedShoppingRows(imp, state));
+  }
   rows.push(...customOccasionRows(state));
   const order = (a) => (a === 'extra' ? -1 : aisleOrder.indexOf(a));
   rows.sort((a, b) => order(a.aisle) - order(b.aisle) || a.aisle.localeCompare(b.aisle) || a.name.localeCompare(b.name));
@@ -109,13 +115,15 @@ export function groceryText(state, { amounts = false } = {}) {
   const { shopGroups } = buildGrocery(state);
   return shopGroups.map((g) => `${g.label.toUpperCase()}\n` + g.items
     .filter((i) => !i.checked)
-    .map((i) => `☐ ${i.name}${(amounts || i.extraId || i.key.startsWith('p:')) && i.text ? ' — ' + i.text : ''}`).join('\n')).join('\n\n');
+    .map((i) => `☐ ${i.name}${(amounts || i.extraId || i.key.startsWith('p:') || i.key.startsWith('src:')) && i.text ? ' — ' + i.text : ''}`).join('\n')).join('\n\n');
 }
 
 // One note with the week's dishes and the shopping list — for Google Keep / Notes.
 export function weeklyNoteText(state, { amounts = false } = {}) {
   const recipes = planRecipes(state);
-  const line = (r) => `• ${r.name} (${r.cuisine}, ${r.time} min)\n  Recipe: ${youtubeUrl(r)}`;
+  const line = (r) => r.imported
+    ? `• ${r.name} (${r.cuisine}, fixed ${r.baseServings}-serving batch, nutrition unknown)\n  Recipe: in the app (Week tab, tap Recipe)`
+    : `• ${r.name} (${r.cuisine}, ${r.time} min)\n  Recipe: ${youtubeUrl(r)}`;
   const chicken = recipes.filter((r) => kindOf(r, state.rules.eggsCountAsVeg) === 'chicken');
   const veg = recipes.filter((r) => kindOf(r, state.rules.eggsCountAsVeg) === 'veg');
   return [

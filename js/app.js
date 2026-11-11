@@ -13,6 +13,7 @@ import { renderHome } from './home.js';
 import { pushStatus, enablePush, disablePush } from './push.js';
 import { initAuth, signInWithGoogle, signOut, onAuth, authUser, authReady } from './auth.js';
 import { cb, bindCookbook, initCookbook, renderCookbook, renderCbSheet, cbActions, cbOnChange, renderFeed, renderPeople, refreshFeed, SHARING_ENABLED } from './cookbook-ui.js';
+import { IMPORTED, importedList, importedAddStatus, isImported } from './imported.js';
 
 const $ = (sel, el = document) => el.querySelector(sel);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -26,6 +27,7 @@ const ui = {
   tab: 'home', // Home is the default landing screen on every open
   search: '', group: 'All', vegOnly: false, quick: false, sort: 'smart', expanded: null,
   sheet: null, // { index, filter, query }
+  imported: null, // imported recipe id while its detail sheet is open
   showAmounts: store.get('twoplates.amounts', '0') === '1',
   logBought: false,
   checkin: false,
@@ -158,6 +160,8 @@ function ratingBadge(s, r) {
 
 // Warning badges for dishes containing excluded ingredients (Settings → Allergies & dislikes).
 function exclBadge(s, r) {
+  if (r.imported) return (s.exclusions?.allergies?.length || s.exclusions?.dislikes?.length)
+    ? '<span class="badge allerg">⚠ not allergy-checked</span>' : '';
   const h = exclusionHits(r, s.exclusions);
   const names = (ids) => ids.map((id) => esc(exclName(id))).join(', ');
   return [
@@ -217,7 +221,7 @@ function dishCard(r, i, slot, s) {
       ${slot.locked && !final ? `<span class="locked-tag">${icon('lock')} Locked</span>` : ''}
     </div>
     <h3>${esc(r.name)}</h3>
-    <div class="meta">${dietDot(r)} ${esc(r.cuisine)} · ${icon('clock', 'sm')} ${r.time} min · ${PROTEIN_LABEL[r.mainProtein] || ''}</div>
+    <div class="meta">${dietDot(r)} ${esc(r.cuisine)}${r.imported ? ` · fixed ${r.baseServings}-serving batch · nutrition unknown` : ` · ${icon('clock', 'sm')} ${r.time} min · ${PROTEIN_LABEL[r.mainProtein] || ''}`}</div>
     <div class="macros">${s.people.map((p) => {
       const m = mealFor(r, p);
       if (m.protein == null) return `<span><b>${esc(p.name)}</b> <span class="fine">nutrition unknown</span></span>`;
@@ -226,13 +230,17 @@ function dishCard(r, i, slot, s) {
       return `<span><b>${esc(p.name)}</b> <span class="st ${cls}">${r.nutritionApproximate ? '~' : ''}${m.protein} g</span> · ${r.nutritionApproximate ? '~' : ''}${m.kcal} kcal</span>`;
     }).join('')}</div>
     <div class="actions">
-      ${final ? `<a class="act yt" href="${youtubeUrl(r)}" target="_blank" rel="noopener">${icon('play')}<span>YouTube</span></a>` : `
+      ${final ? (r.imported
+        ? `<button class="act" data-act="open-imported" data-id="${r.id}">${icon('play')}<span>Recipe</span></button>`
+        : `<a class="act yt" href="${youtubeUrl(r)}" target="_blank" rel="noopener">${icon('play')}<span>YouTube</span></a>`) : `
       <button class="act primary-act" data-act="swap-random" data-i="${i}" ${slot.locked ? 'disabled' : ''}>${icon('shuffle')}<span>Swap</span></button>
       <span class="act-spacer"></span>
       <details class="dish-more"><summary class="act icon-only" aria-label="More actions for ${esc(r.name)}">${icon('dots')}</summary>
         <button class="act ${slot.locked ? 'on' : ''}" data-act="lock" data-i="${i}">${icon(slot.locked ? 'lock' : 'unlock')}<span>${slot.locked ? 'Unlock' : 'Lock'}</span></button>
         <button class="act" data-act="open-sheet" data-i="${i}">${icon('list')}<span>Pick…</span></button>
-        <a class="act yt" href="${youtubeUrl(r)}" target="_blank" rel="noopener">${icon('play')}<span>YouTube</span></a>
+        ${r.imported
+          ? `<button class="act" data-act="open-imported" data-id="${r.id}">${icon('play')}<span>Recipe</span></button>`
+          : `<a class="act yt" href="${youtubeUrl(r)}" target="_blank" rel="noopener">${icon('play')}<span>YouTube</span></a>`}
       </details>`}
     </div>
     <details class="rate-wrap" ${s.ratings[r.id] ? 'open' : ''}><summary>Cooked it? Rate it</summary>${starsFor(s, r)}</details>
@@ -255,7 +263,7 @@ function glanceChip(d) {
 
 function renderWeek(s) {
   const recipes = planRecipes(s);
-  const totalTime = recipes.reduce((a, r) => a + r.time, 0);
+  const totalTime = recipes.reduce((a, r) => a + (r.time || 0), 0);
   const lockedCount = s.plan.slots.filter((x) => x.locked).length;
   const section = (kind, title) => {
     const items = s.plan.slots.map((slot, i) => ({ slot, i, r: RECIPE_BY_ID[slot.id] }))
@@ -347,7 +355,7 @@ function renderCheckin(s) {
     const c = cooked[r.id];
     return `<li class="dish">
       <h3>${esc(r.name)}</h3>
-      <div class="meta">${dietDot(r)} ${esc(r.cuisine)} · ${r.time} min</div>
+      <div class="meta">${dietDot(r)} ${esc(r.cuisine)}${r.time == null ? ' · nutrition unknown' : ` · ${r.time} min`}</div>
       <div class="seg yesno">
         <button class="${c === true ? 'on' : ''}" data-act="cooked" data-id="${r.id}" data-v="1">Cooked it</button>
         <button class="${c === false ? 'on' : ''}" data-act="cooked" data-id="${r.id}" data-v="0">Didn't cook</button>
@@ -442,6 +450,18 @@ function renderRecipeList(s) {
     + (list.length ? shown.map((r) => recipeRow(r, s)).join('') : '<p class="empty">Nothing matches — try fewer filters.</p>')
     + (!ui.showAll && list.length > RECIPE_PAGE
       ? `<button class="btn wide show-more" data-act="recipes-more">Show all ${list.length} dishes</button>` : '');
+  const q = ui.search.toLowerCase();
+  const imp = ui.group === 'All' ? importedList().filter((r) => !q || r.name.toLowerCase().includes(q) || r.cuisine.toLowerCase().includes(q)) : [];
+  if (imp.length) {
+    el.innerHTML += `<h3 class="fine count">Imported (not allergy-checked)</h3>` + imp.map((r) => `<div class="rrow">
+    <button class="rrow-main" data-act="open-imported" data-id="${r.id}">
+      <span class="rname">${dietDot(r)} ${esc(r.name)}</span>
+      <span class="badges">${exclBadge(s, r)}</span>
+      <span class="meta">${esc(r.cuisine)} · fixed ${r.baseServings}-serving batch</span>
+      <span class="per"><span class="fine">nutrition unknown</span></span>
+    </button>
+  </div>`).join('');
+  }
 }
 
 function renderRecipes(s) {
@@ -463,7 +483,7 @@ function renderRecipes(s) {
 // ---------- Groceries ----------
 function gItem(i, pantry) {
   const habit = i.text.startsWith('usually');
-  const qty = (ui.showAmounts || habit || i.extraId || i.key.startsWith('p:')) && i.text ? `<span class="qty">${esc(i.text)}</span>` : '';
+  const qty = (ui.showAmounts || habit || i.extraId || i.key.startsWith('p:') || i.key.startsWith('src:')) && i.text ? `<span class="qty">${esc(i.text)}</span>` : '';
   return `<div class="gitem ${i.checked ? 'done' : ''}">
     ${pantry ? '' : `<label class="check"><input type="checkbox" data-act="check" data-key="${esc(i.key)}" ${i.checked ? 'checked' : ''}><span class="box">${icon('check')}</span></label>`}
     <div class="gtext">
@@ -706,9 +726,40 @@ function renderSettings(s) {
 }
 
 // ---------- Swap sheet ----------
+function renderImportedSheet(el, s) {
+  const r = IMPORTED.get(ui.imported);
+  if (!r) { ui.imported = null; el.innerHTML = ''; el.hidden = true; document.body.classList.remove('sheet-open'); return; }
+  el.hidden = false;
+  document.body.classList.add('sheet-open');
+  const src = r.src;
+  const gate = importedAddStatus(s, r.id);
+  const rights = src.rights || {};
+  const tagLine = (src.sourceDietClaims?.length) ? `<p class="fine">Source diet claims (not verified by Two Plates): ${esc(src.sourceDietClaims.join(', '))}</p>` : '';
+  const ings = src.lines.map((l) => `<li><span>${esc(l.name)}</span><span>${l.unit === 'toTaste' ? 'to taste' : `${esc(String(l.quantity))} ${esc(l.unit)}`}${l.note?.en ? ` <span class="fine">(${esc(l.note.en)})</span>` : ''}</span></li>`).join('');
+  const steps = src.steps.map((st, i) => `<li>${esc(st.text.en)}${st.minutes ? ` <span class="fine">(~${st.minutes} min)</span>` : ''}</li>`).join('');
+  el.innerHTML = `<div class="backdrop" data-act="close-sheet"></div>
+  <div class="sheet" role="dialog" aria-label="Imported recipe">
+    <header><div><div class="fine">Imported recipe</div><h2>${esc(r.name)}</h2></div>
+      <button class="act icon-only" data-act="close-sheet" aria-label="Close">${icon('x')}</button></header>
+    <div class="sheet-body">
+      <p class="meta">${dietDot(r)} ${esc(r.cuisine)}${r.country ? ` · ${esc(r.country)}` : ''} · fixed ${r.baseServings}-serving batch</p>
+      <p><span class="badge">nutrition unknown</span>${s.exclusions?.allergies?.length || s.exclusions?.dislikes?.length ? ' <span class="badge allerg">⚠ not allergy-checked</span>' : ''}</p>
+      ${src.sourceTimes?.prepMinutes != null || src.sourceTimes?.cookMinutes != null ? `<p class="fine">Prep ${src.sourceTimes.prepMinutes ?? '?'} min · cook ${src.sourceTimes.cookMinutes ?? '?'} min (source times, not added to weekly totals)</p>` : ''}
+      ${tagLine}
+      ${gate.allowed ? '' : `<p class="fine">${esc(gate.reason)}</p>`}
+      <h3>Ingredients (exact source amounts)</h3>
+      <ul class="ings">${ings}</ul>
+      <h3>Steps</h3>
+      <ol class="steps">${steps}</ol>
+      <p class="fine">Recipe: ${esc(rights.credit || 'source')}${rights.landingPage ? ` — <a href="${esc(rights.landingPage)}" target="_blank" rel="noopener">source</a>` : ''}${rights.license ? ` · <a href="${esc(rights.licenseUrl || '#')}" target="_blank" rel="noopener">${esc(rights.license)}</a>` : ''}${rights.changes ? `<br>Changes: ${esc(rights.changes)}` : ''}</p>
+    </div>
+  </div>`;
+}
+
 function renderSheet(s) {
   const el = $('#sheet');
   if (cb.sheet) { renderCbSheet(el); return; }
+  if (ui.imported) { renderImportedSheet(el, s); return; }
   if (!ui.sheet) { el.innerHTML = ''; el.hidden = true; document.body.classList.remove('sheet-open'); return; }
   el.hidden = false;
   document.body.classList.add('sheet-open');
@@ -744,6 +795,22 @@ function renderSheetList(s) {
       <span class="badges">${ratingBadge(s, r)}</span>
       <span class="meta">${esc(r.cuisine)} · ${r.time} min · <b>${r.protein} g</b> · ${r.kcal} kcal</span>
     </button>`).join('') || '<p class="empty">No matches.</p>';
+  const q = (ui.sheet.query || '').toLowerCase();
+  const imp = importedList().filter((r) => !q || r.name.toLowerCase().includes(q) || r.cuisine.toLowerCase().includes(q));
+  if (imp.length) {
+    el.innerHTML += `<div class="fine count">Imported (not allergy-checked)</div>` + imp.map((r) => {
+      const gate = importedAddStatus(s, r.id);
+      return `<div class="pick imported-pick">
+      <button class="rrow-main" data-act="open-imported" data-id="${r.id}">
+        <span class="rname">${dietDot(r)} ${esc(r.name)}</span>
+        <span class="meta">${esc(r.cuisine)} · fixed ${r.baseServings}-serving batch · nutrition unknown</span>
+      </button>
+      ${gate.allowed
+        ? `<button class="act add" data-act="choose-imported" data-id="${r.id}">${icon('plus')}<span>Add</span></button>`
+        : `<span class="fine" title="${esc(gate.reason)}">not allergy-checked</span>`}
+    </div>`;
+    }).join('');
+  }
 }
 
 // ---------- Render ----------
@@ -795,7 +862,9 @@ function menuUrl(no, weekOf, ids) {
 
 function menuMessage(s, no, weekOf, ids) {
   const recipes = ids.map((id) => RECIPE_BY_ID[id]).filter(Boolean);
-  const line = (r) => `• ${r.name} (${r.cuisine}, ${r.time} min)\n  ${youtubeUrl(r)}`;
+  const line = (r) => r.imported
+    ? `• ${r.name} (${r.cuisine}, fixed ${r.baseServings}-serving batch, nutrition unknown)\n  Recipe: in the app`
+    : `• ${r.name} (${r.cuisine}, ${r.time} min)\n  ${youtubeUrl(r)}`;
   const chicken = recipes.filter((r) => kindOf(r, s.rules.eggsCountAsVeg) === 'chicken');
   const veg = recipes.filter((r) => kindOf(r, s.rules.eggsCountAsVeg) === 'veg');
   return [`🍽️ Week ${no} menu — week of ${fmtWeek(weekOf)}`, '',
@@ -858,7 +927,16 @@ const actions = {
     ui.sheet = null; render();
   },
   'open-sheet': (el) => { ui.sheet = { index: Number(el.dataset.i), filter: 'kind', query: '' }; renderSheet(getState()); },
-  'close-sheet': () => { ui.sheet = null; renderSheet(getState()); },
+  'close-sheet': () => { ui.sheet = null; ui.imported = null; renderSheet(getState()); },
+  'open-imported': (el) => { ui.imported = el.dataset.id; renderSheet(getState()); },
+  'choose-imported': (el) => {
+    const s = getState();
+    const gate = importedAddStatus(s, el.dataset.id);
+    if (!gate.allowed) { toast(gate.reason); return; }
+    const i = ui.sheet?.index;
+    ui.sheet = null;
+    if (i != null) { replaceSlot(i, el.dataset.id); toast(`Added ${IMPORTED.get(el.dataset.id).name} (fixed batch)`); }
+  },
   ...cbActions,
   'sheet-filter': (el) => { ui.sheet.filter = el.dataset.v; renderSheet(getState()); },
   choose: (el) => { const i = ui.sheet.index; ui.sheet = null; replaceSlot(i, el.dataset.id); },

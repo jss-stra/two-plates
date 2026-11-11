@@ -1,6 +1,7 @@
 // Public, read-only menu page. Everything it shows comes from the link itself
 // (?n=week number&w=week start&d=dish ids), so no personal data is involved.
 import { RECIPE_BY_ID, youtubeUrl, isVeg } from './data.js';
+import './imported.js'; // registers imported recipes into RECIPE_BY_ID for menu links
 
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const q = new URLSearchParams(location.search);
@@ -11,8 +12,10 @@ const when = weekOf ? new Date(`${weekOf}T12:00:00`).toLocaleDateString('en-AU',
 
 const item = (r) => `<div class="menu-item">
   <div><h3><span class="dot diet-${r.diet}"></span> ${esc(r.name)}</h3>
-    <div class="meta">${esc(r.cuisine)} · ${r.time} min · ${r.protein == null ? 'nutrition unknown' : `${r.nutritionApproximate ? '~' : ''}${r.protein} g protein per serving`}</div></div>
-  <a class="btn small" href="${youtubeUrl(r)}" target="_blank" rel="noopener">Recipe</a>
+    <div class="meta">${esc(r.cuisine)}${r.time == null ? ` · fixed ${r.baseServings}-serving batch` : ` · ${r.time} min`} · ${r.protein == null ? 'nutrition unknown' : `${r.nutritionApproximate ? '~' : ''}${r.protein} g protein per serving`}</div></div>
+  ${r.imported
+    ? '<span class="fine">Recipe in the Two Plates app</span>'
+    : `<a class="btn small" href="${youtubeUrl(r)}" target="_blank" rel="noopener">Recipe</a>`}
 </div>`;
 
 const chicken = dishes.filter((r) => !isVeg(r, false));

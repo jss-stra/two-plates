@@ -1,1 +1,1 @@
-{"type":"module","private":true,"name":"two-plates","description":"Static PWA - no build step. Tests: node tests/semantics.test.mjs && node tests/allergen-cats.test.mjs"}
+{"type":"module","private":true,"name":"two-plates","description":"Static PWA - no build step. Tests: node tests/semantics.test.mjs && node tests/allergen-cats.test.mjs && node tests/imported.test.mjs"}
