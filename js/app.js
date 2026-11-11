@@ -221,7 +221,7 @@ function dishCard(r, i, slot, s) {
       ${slot.locked && !final ? `<span class="locked-tag">${icon('lock')} Locked</span>` : ''}
     </div>
     <h3>${esc(r.name)}</h3>
-    <div class="meta">${dietDot(r)} ${esc(r.cuisine)}${r.imported ? ` · fixed ${r.baseServings}-serving batch · nutrition unknown` : ` · ${icon('clock', 'sm')} ${r.time} min · ${PROTEIN_LABEL[r.mainProtein] || ''}`}</div>
+    <div class="meta">${dietDot(r)} ${esc(r.cuisine)}${r.imported ? ` · fixed ${r.baseServings}-serving batch${r.diet === 'unknown' ? ' · diet not classified' : ''} · nutrition unknown` : ` · ${icon('clock', 'sm')} ${r.time} min · ${PROTEIN_LABEL[r.mainProtein] || ''}`}</div>
     <div class="macros">${s.people.map((p) => {
       const m = mealFor(r, p);
       if (m.protein == null) return `<span><b>${esc(p.name)}</b> <span class="fine">nutrition unknown</span></span>`;
@@ -462,7 +462,7 @@ function renderRecipeList(s) {
     <button class="rrow-main" data-act="open-imported" data-id="${r.id}">
       <span class="rname">${dietDot(r)} ${esc(r.name)}</span>
       <span class="badges">${exclBadge(s, r)}</span>
-      <span class="meta">${esc(r.cuisine)} · fixed ${r.baseServings}-serving batch</span>
+      <span class="meta">${esc(r.cuisine)} · fixed ${r.baseServings}-serving batch${r.diet === 'unknown' ? ' · diet not classified' : ''}</span>
       <span class="per"><span class="fine">nutrition unknown</span></span>
     </button>
   </div>`).join('');
@@ -747,7 +747,7 @@ function renderImportedSheet(el, s) {
     <header><div><div class="fine">Imported recipe</div><h2>${esc(r.name)}</h2></div>
       <button class="act icon-only" data-act="close-sheet" aria-label="Close">${icon('x')}</button></header>
     <div class="sheet-body">
-      <p class="meta">${dietDot(r)} ${esc(r.cuisine)}${r.country ? ` · ${esc(r.country)}` : ''} · fixed ${r.baseServings}-serving batch</p>
+      <p class="meta">${dietDot(r)} ${esc(r.cuisine)}${r.country ? ` · ${esc(r.country)}` : ''} · fixed ${r.baseServings}-serving batch${r.diet === 'unknown' ? ' · diet not classified' : ''}</p>
       <p><span class="badge">nutrition unknown</span>${s.exclusions?.allergies?.length || s.exclusions?.dislikes?.length ? ' <span class="badge allerg">⚠ not allergy-checked</span>' : ''}</p>
       ${src.sourceTimes?.prepMinutes != null || src.sourceTimes?.cookMinutes != null ? `<p class="fine">Prep ${src.sourceTimes.prepMinutes ?? '?'} min · cook ${src.sourceTimes.cookMinutes ?? '?'} min (source times, not added to weekly totals)</p>` : ''}
       ${tagLine}
@@ -808,7 +808,7 @@ function renderSheetList(s) {
       return `<div class="pick imported-pick">
       <button class="rrow-main" data-act="open-imported" data-id="${r.id}">
         <span class="rname">${dietDot(r)} ${esc(r.name)}</span>
-        <span class="meta">${esc(r.cuisine)} · fixed ${r.baseServings}-serving batch · nutrition unknown</span>
+        <span class="meta">${esc(r.cuisine)} · fixed ${r.baseServings}-serving batch${r.diet === 'unknown' ? ' · diet not classified' : ''} · nutrition unknown</span>
       </button>
       ${gate.allowed
         ? `<button class="act add" data-act="choose-imported" data-id="${r.id}">${icon('plus')}<span>Add</span></button>`
@@ -1292,5 +1292,5 @@ startSync();
 pushStatus().then((st) => { const changed = ui.pushStatus !== st; ui.pushStatus = st; if (changed && ui.tab === 'settings') render(); });
 
 if ('serviceWorker' in navigator && location.protocol === 'https:') {
-  navigator.serviceWorker.register('sw.js').catch(() => {});
+  navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).then(reg => reg.update()).catch(() => {});
 }
