@@ -171,4 +171,11 @@ t('Jollof rice source amount and rinsed note remain',jr.src.lines.find(l=>l.name
 t('Jollof handling distinguishes cumulative 2-4h from refrigerating',jr.limitation.handling.includes('not refrigerate for later') && jr.limitation.handling.includes('only once') && jr.limitation.handling.includes('within 1 day'));
 t('Jollof grocery explicitly chicken stock',importedShoppingRows(jr,base).every(x=>x.aisleLabel.includes('chicken stock')));
 console.log(`jollof contract: ${pass} passed, ${fail} failed`);
+const sv=IMPORTED.get('unitools:souvla');
+t('Souvla explicit pork classification without summary lamb substitution',sv.diet==='nonveg' && displayKind(sv,true)==='pork' && sv.src.lines[0].name==='Pork shoulder' && sv.src.lines[0].quantity===2.5);
+t('Souvla practical endpoint replaces fixed time and final serving',sv.safety.replacements[5].includes('71°C') && sv.safety.replacements[7].includes('confirm the measured endpoint'));
+t('Souvla fire restrictions active before lighting and no current status claim',sv.safety.replacements[3].includes('Before lighting') && sv.safety.note.includes('does not check current restrictions'));
+t('Souvla standalone pork class in weekly text',weeklyNoteText({...base,plan:{slots:[{id:sv.id,planKind:'chicken'}]}}).includes('Pork:'));
+t('Souvla fixed base and grocery equipment caveat',sv.baseServings===6 && importedShoppingRows(sv,base).every(x=>x.aisleLabel.includes('food thermometer required')));
+console.log(`souvla contract: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
