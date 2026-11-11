@@ -302,7 +302,7 @@ function renderWeek(s) {
   ${section('unknown', 'Diet not classified')}
 
   ${s.plan.finalizedAt ? '' : `<div class="remix-row">
-    <span class="mix-count">${s.rules.chickenDishes} chicken · ${s.rules.vegDishes} veg</span>
+    <span class="mix-count">Planner target: ${s.rules.chickenDishes} chicken · ${s.rules.vegDishes} veg</span>
     <button class="btn small" data-act="shuffle">${icon('shuffle')} Shuffle${lockedCount ? ` (keeps ${lockedCount} locked)` : ''}</button>
     <details class="mix-detail"><summary>Change the mix</summary>
       <div class="toolbar">

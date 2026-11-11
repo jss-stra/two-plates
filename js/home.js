@@ -73,7 +73,7 @@ export function renderHome(s) {
   }).join('');
 
   const recipes = planRecipes(s);
-  const kinds = { chicken: 0, veg: 0 };
+  const kinds = { chicken: 0, veg: 0, unknown: 0 };
   recipes.forEach((r) => kinds[kindOf(r, s.rules?.eggsCountAsVeg)]++);
   const cooked = s.plan?.cooked || {};
   const yes = recipes.filter((r) => cooked[r.id] === true).length;
@@ -104,7 +104,7 @@ export function renderHome(s) {
   </section>
   <section class="card">
     <h2>This week</h2>
-    <p>${recipes.length ? `${kinds.chicken} chicken · ${kinds.veg} veg dishes${cookedBits ? ` · ${cookedBits}` : ''}` : 'No dishes planned yet'}</p>
+    <p>${recipes.length ? `${kinds.chicken} chicken · ${kinds.veg} veg${kinds.unknown ? ` · ${kinds.unknown} diet not classified` : ''} dishes${cookedBits ? ` · ${cookedBits}` : ''}` : 'No dishes planned yet'}</p>
     ${weekRows}
     <button class="btn wide" data-act="tab" data-tab="week">See the week</button>
   </section>`;
