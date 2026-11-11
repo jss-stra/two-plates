@@ -447,4 +447,101 @@ export const IMPORTED_SAFETY = {
       7: 'Bake 12–15 minutes until thoroughly heated: the frankfurter slices should be steaming hot throughout, at least 60°C in the centre. Continue baking and recheck if below the target.',
     },
   },
+  'wikibooks:chicken-bacon-broccoli-alfredo-spaghetti': {
+    title: 'Cook the chicken through; 4 minutes is not the check',
+    note: 'Two Plates adds a measured endpoint: the source cooks the chopped chicken "for 4 minutes until cooked", which is not a measured doneness check. Safely take the pan off the heat and use a clean food thermometer in the thickest pieces, avoiding bone, to check at least 75°C, following FSANZ poultry guidance (which covers minced poultry); continue cooking and recheck any piece below the target. Keep poultry refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw poultry and ready-to-eat food, and clean hands and surfaces after handling. Do not wash raw poultry. The bacon is added later with the cheese. Follow product storage, use-by and cooking directions.',
+    sources: [['FSANZ: poultry 75°C; do not wash raw poultry', 'https://www.foodstandards.gov.au/consumer/safety'], ['USDA (US): thickest part, avoid bones, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      3: 'Cook the chicken in the oil, then safely take the pan off the heat and use a clean food thermometer in the thickest pieces to check at least 75°C. Four minutes and colour are not doneness checks; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks:gambas-al-ajillo-garlic-shrimp': {
+    title: 'Probe the shrimp; pink colour is not the check',
+    note: 'Two Plates adds a measured endpoint: the source sautés until the shrimp "turn pink and curl", which is a texture cue, not a measured check. Safely take the pan off the heat and use a clean food thermometer in the thickest pieces to check at least 63°C, following NSW fish guidance; continue cooking and recheck if below the target. Keep seafood refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw seafood and ready-to-eat food, and clean hands and surfaces after handling. The sherry (or cognac) stays in the dish; no alcohol-free claim is made. Follow product storage, use-by and cooking directions.',
+    sources: [['NSW: fish 63°C', 'https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers'], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      2: 'Raise the heat to high and add the shrimp, lemon juice, sherry or cognac and paprika. Stir well, then sauté, stirring briskly, until the shrimp are opaque and a clean food thermometer in the thickest shrimp reads at least 63°C. Colour and curl are not measured checks; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks:salmon-spaghetti': {
+    title: 'Probe fresh salmon; smoked salmon is ready to eat',
+    note: 'Two Plates adds a measured endpoint: the source cooks the salmon for "another 3 minutes", which is a texture cue, not a measured check. Safely take the pan off the heat and use a clean food thermometer in the thickest pieces to check at least 63°C, following NSW fish guidance; continue cooking and recheck if below the target. Keep seafood refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw seafood and ready-to-eat food, and clean hands and surfaces after handling. If you chose smoked salmon (the source alternative), it is a ready-to-eat product: add it to warm through only, keep it refrigerated at 5°C or colder, and follow the package storage and use-by directions. The white wine stays in the sauce; no alcohol-free claim is made. Follow product storage, use-by and cooking directions.',
+    sources: [['NSW: fish 63°C', 'https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers'], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      2: 'Put the salmon into the pan and cook until it is opaque and a clean food thermometer in the thickest pieces reads at least 63°C (the source says about 3 minutes; time is not the check). Smoked salmon only needs warming through.',
+    },
+  },
+  'wikibooks:manx-smoked-salmon': {
+    title: 'Boiled kippers, cold-set cream: keep it cold',
+    note: 'Two Plates adds a measured endpoint: the source boils the kippers without a measured endpoint, which is a texture cue, not a measured check. Safely take the pan off the heat and use a clean food thermometer in the thickest pieces to check at least 63°C, following NSW fish guidance; continue cooking and recheck if below the target. Keep seafood refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw seafood and ready-to-eat food, and clean hands and surfaces after handling. After blending with the cream, the terrine is never cooked again: refrigerate at 5°C or colder, keep total time out of refrigeration under 2 hours, and serve well chilled. The smoked salmon is a ready-to-eat cured product; follow its package storage and use-by directions, and do not serve raw cured fish to anyone pregnant, elderly, very young or immunocompromised without checking the product is suitable. Follow product storage, use-by and cooking directions.',
+    sources: [['NSW: fish 63°C', 'https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers'], ['NSW: refrigerate below 5°C', 'https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers'], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      1: 'Boil the kippers in a pot of salty water until a clean food thermometer in the thickest part reads at least 63°C, then continue with the recipe.',
+    },
+  },
+  'wikibooks:menemen-eggs-with-onion-green-pepper-and-tomato': {
+    title: 'Cook the eggs until fully set',
+    note: 'Two Plates adds a measured doneness check: The source instruction "stir until cooked" is not a reliable check that the egg is cooked through. Cook until the egg is fully set: the centre does not jiggle when the pan is gently shaken, and a clean food thermometer in the centre reads at least 71°C (an editorial application of FSANZ guidance to cook egg dishes thoroughly, not a tested dish-specific standard). This matters most for anyone pregnant, elderly, very young or immunocompromised. Follow product storage, use-by and cooking directions.',
+    sources: [['FSANZ: cook egg dishes thoroughly', 'https://www.foodstandards.gov.au/consumer/safety'], ['USDA (US): thermometer use', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      6: 'Beat the eggs and pour over the mixture in the pan. Stir until the egg is fully set: no liquid egg remains, and a clean food thermometer reads at least 71°C. The source "stir until cooked" is not a measured check.',
+    },
+  },
+  'wikibooks:baked-penne': {
+    title: 'Bake until the centre is fully set',
+    note: 'Two Plates adds a measured doneness check: The source bake times and "browned and bubbly" cue is not a reliable check that the egg is cooked through. Cook until the egg is fully set: the centre does not jiggle when the pan is gently shaken, and a clean food thermometer in the centre reads at least 71°C (an editorial application of FSANZ guidance to cook egg dishes thoroughly, not a tested dish-specific standard). This matters most for anyone pregnant, elderly, very young or immunocompromised. The egg whites are folded in raw. Follow product storage, use-by and cooking directions.',
+    sources: [['FSANZ: cook egg dishes thoroughly', 'https://www.foodstandards.gov.au/consumer/safety'], ['USDA (US): thermometer use', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      6: 'Remove foil and lower temperature to 350 °F (177 °C). Bake for another 30 minutes, then confirm the egg is cooked through: the centre does not jiggle when the pan is gently shaken and a clean food thermometer in the centre reads at least 71°C. Browning on top is not the check; continue baking and recheck if needed.',
+    },
+  },
+  'wikibooks:paella-valenciana': {
+    title: 'Probe the poultry and rabbit pieces',
+    note: 'Two Plates adds a measured endpoint: the source sautés the poultry and rabbit "until golden brown" and then simmers them in the broth, which is not a measured doneness check. Safely take the pan off the heat and use a clean food thermometer in the thickest pieces, avoiding bone, to check at least 75°C, following FSANZ poultry guidance (which covers minced poultry); continue cooking and recheck any piece below the target. Keep poultry refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw poultry and ready-to-eat food, and clean hands and surfaces after handling. Do not wash raw poultry. The rabbit-or-duck line is a source alternative; treat both with the poultry endpoint. The optional snails are already boiled per the source. Follow product storage, use-by and cooking directions.',
+    sources: [['FSANZ: poultry 75°C; do not wash raw poultry', 'https://www.foodstandards.gov.au/consumer/safety'], ['USDA (US): thickest part, avoid bones, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      5: 'Add the water and bring it to a rolling boil. Then add the snails, fresh haricot beans (if canned, continue reading to see when to add these), runner beans, and saffron (and/or food coloring). Allow the mixture to boil for 10 minutes over a high flame, then safely take the pan off the heat and use a clean food thermometer in the thickest meat pieces, avoiding bone, to check at least 75°C. Continue cooking and recheck any piece below the target. Sweep a rosemary branch through the broth for no longer than 30 seconds and then remove it.',
+    },
+  },
+  'wikibooks:zupa-ogorkowa-polish-cucumber-soup': {
+    title: 'Simmer the wings through; 25 minutes is not the check',
+    note: 'Two Plates adds a measured endpoint: the source simmers the chicken wings for 25 minutes, which is not a measured doneness check. Safely take the pan off the heat and use a clean food thermometer in the thickest pieces, avoiding bone, to check at least 75°C, following FSANZ poultry guidance (which covers minced poultry); continue cooking and recheck any piece below the target. Keep poultry refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw poultry and ready-to-eat food, and clean hands and surfaces after handling. Do not wash raw poultry. The wings stay in the soup, so the meat continues cooking with the vegetables; check before serving. Follow product storage, use-by and cooking directions.',
+    sources: [['FSANZ: poultry 75°C; do not wash raw poultry', 'https://www.foodstandards.gov.au/consumer/safety'], ['USDA (US): thickest part, avoid bones, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      1: 'Put the chicken wings, salt, pepper, bay leaves and pimentos into a saucepan or stock pot with 1.5 L (1½ quarts) cold water. After bringing it to a boil, let it simmer for 25 minutes on low heat, then use a clean food thermometer in the thickest wing meat, avoiding bone, to check at least 75°C. Continue simmering and recheck if below the target.',
+    },
+  },
+  'wikibooks:zuppa-toscana': {
+    title: 'Probe the sausage; browning is not the check',
+    note: 'Two Plates adds a measured endpoint: the source browns the crumbled sausage, which is not a measured doneness check. The sausage species is unstated and could include poultry, so use a clean food thermometer in the thickest part of the cooking sausage meat, after breaking it up, to check at least 75°C (FSANZ poultry guidance, which covers minced poultry); 71°C applies only if the package confirms a non-poultry species (NSW mince guidance). Continue cooking and recheck if below the target. Keep the sausage refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw meat and ready-to-eat food, and clean hands and surfaces after handling. Follow product storage, use-by and cooking directions.',
+    sources: [['FSANZ: poultry 75°C', 'https://www.foodstandards.gov.au/consumer/safety'], ['NSW: minced meat and sausages 71°C', 'https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers'], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      1: 'In a skillet over medium-high heat, brown the sausage, breaking into small pieces as you fry it, then use a clean food thermometer in the thickest pieces to check at least 75°C (or at least 71°C only if the package confirms a non-poultry species). Browning is not a doneness check; continue cooking and recheck if below the target. Drain and set aside.',
+    },
+  },
+  'wikibooks:tomato-basil-sausage-pasta': {
+    title: 'Probe the sausage meat; 6 minutes is not the check',
+    note: 'Two Plates adds a measured endpoint: the source cooks the sausage meat "for 6 minutes until well browned", which is not a measured doneness check. The sausage species is unstated and could include poultry, so use a clean food thermometer in the thickest part of the cooking sausage meat, after breaking it up, to check at least 75°C (FSANZ poultry guidance, which covers minced poultry); 71°C applies only if the package confirms a non-poultry species (NSW mince guidance). Continue cooking and recheck if below the target. Keep the sausage refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw meat and ready-to-eat food, and clean hands and surfaces after handling. Follow product storage, use-by and cooking directions.',
+    sources: [['FSANZ: poultry 75°C', 'https://www.foodstandards.gov.au/consumer/safety'], ['NSW: minced meat and sausages 71°C', 'https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers'], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      2: 'Meanwhile, cook the sausage meat in a pan over a medium heat, then use a clean food thermometer in the thickest part of the cooking meat to check at least 75°C (or at least 71°C only if the package confirms a non-poultry species). Six minutes and browning are not doneness checks; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks:stir-fried-seafood-with-noodles': {
+    title: 'Probe the shrimp; the fishballs are pre-cooked',
+    note: 'Two Plates adds a measured endpoint: the source stir-fries until the shrimp "just begin to change color", which is a texture cue, not a measured check. Safely take the pan off the heat and use a clean food thermometer in the thickest pieces to check at least 63°C, following NSW fish guidance; continue cooking and recheck if below the target. Keep seafood refrigerated at 5°C or colder before preparation, use separate boards and utensils for raw seafood and ready-to-eat food, and clean hands and surfaces after handling. Fishballs are a pre-cooked manufactured product whose species and formulation are unstated; heat them through until steaming and follow the package storage, use-by and heating directions. Follow product storage, use-by and cooking directions.',
+    sources: [['NSW: fish 63°C', 'https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers'], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      2: 'Add the fishball and shrimp. Stir fry until the shrimp are opaque and a clean food thermometer in the thickest shrimp reads at least 63°C. Beginning to change color is not a measured check; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks:succotash': {
+    title: 'Parboil the pickled pork; cook the lima beans through',
+    note: 'The source parboils the optional pickled pork; pickled pork is a cured product, so parboil it per the source and then make sure it cooks through with the beans: at least 71°C in the thickest pieces checked with a clean food thermometer (an editorial application of NSW guidance for cured meats being recooked, not a tested product standard). Follow the product storage, use-by and cooking directions. The source also warns that lima beans must be thoroughly boiled for at least 10 minutes to remove a natural toxin; that source instruction is kept and applies here. This is a feast-scale recipe (2 quarts of beans, 24 ears of corn) per the source.',
+    sources: [['NSW: recook cured meats through', 'https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers'], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      1: 'If using pork, cover pork with water, and parboil it. Then cook it through with the beans to at least 71°C in the thickest pieces. If using fresh (uncooked) lima beans, boil them thoroughly for at least 10 minutes first as the source notes; canned beans are safe without this step.',
+      2: 'Add beans, then corn, sugar, butter, and pepper to taste. After corn is added, watch carefully to keep from scorching. Make sure the beans are fully tender and any pork has reached at least 71°C before serving.',
+    },
+  },
 };

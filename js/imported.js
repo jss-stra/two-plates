@@ -101,7 +101,34 @@ import spaghettiBake from '../data/imported/spaghetti-bake.mjs';
 import tripesALaModeDeCaen from '../data/imported/tripes-a-la-mode-de-caen.mjs';
 import yetsomShiro from '../data/imported/yetsom-shiro.mjs';
 import yogurtCurrySoupKadhi from '../data/imported/yogurt-curry-soup-kadhi.mjs';
-const SOURCES = [ratatouille, draniki, galayet, kaesespaetzle, melanzane, byrek, misir, tortilla, chicken, irish, farikal, fish, lentilSoup, coldSoup, fondue, spinachPie, strukli, jollof, souvla, trout, paprikaChicken, softTacos, adultMac, agnolotti, garbanzoSoup, porkLima, spaghettiBolognese, spareRibs, poutine, penneMeatSauce, jambalayaI, asparagusSoup, beanSoupVegetarian, beefGravySoup, blackPepperedChickenSpaghetti, creamyTomatoBeanSoup, crockPotPotatoSoup, hotAndSourSoup, mushroomSoup, pastaSoupForKids, pepperSoup, potatoSoup, spicedPumpkinSoup, sausageAndTortelliniSoup, tomKhaKai, vichyssoise, ertesuppePeaSoup, lenguaDeRes, baconWrappedScallops, chickenFriedSteak, chipsiMayai, chuuCheeFish, cubanPicadillo, garlicPorkChopsBlackMushrooms, honeyPepperedSalmon, lemonRosemaryPorkTenderloin, maplePlankedSalmon, meatloafIv, mediterraneanGreenChicken, poppyseedChicken, schweinsbraten, shrimpScampiAngelHair, simpleItalianSausageSpaghetti, spicyChickenCutlets, sweetItalianSausageSkillet, tunaGlop, wineRoastedPorkRoast, beanAndBaconBake, brownRiceCasserole, cazuelaGallega, chuckWagonBeans, cioppinoItalianSeafoodStew, cornySouffle, crockPotBeefStew, cucumberSproutSandwich, dutchOvenBeans, fabesConAlmejas, keralanVegetableStew, macaroniPie, malvaniChickenCurry, meatlessSloppyJoes, miniThreeCheeseEnglishMuffinPizzas, mozzarellaTunaMelts, parmesanCheeseSouffle, mostaccioli, potatoChickpeaCurry, potatoCurryAlooMasala, radishPie, reubenSandwich, risottoAllaMilanese, sloppyJoes, spaghettiBake, tripesALaModeDeCaen, yetsomShiro, yogurtCurrySoupKadhi];
+import bakedPenne from '../data/imported/baked-penne.mjs';
+import beanburger from '../data/imported/beanburger.mjs';
+import chanterelleGoulash from '../data/imported/chanterelle-goulash.mjs';
+import chickenBaconBroccoliAlfredoSpaghetti from '../data/imported/chicken-bacon-broccoli-alfredo-spaghetti.mjs';
+import chickenTetrazzini from '../data/imported/chicken-tetrazzini.mjs';
+import cornChowderI from '../data/imported/corn-chowder-i.mjs';
+import gambasAlAjilloGarlicShrimp from '../data/imported/gambas-al-ajillo-garlic-shrimp.mjs';
+import garlicParmesanPasta from '../data/imported/garlic-parmesan-pasta.mjs';
+import hutspotDutchMashedVegetables from '../data/imported/hutspot-dutch-mashed-vegetables.mjs';
+import jambons from '../data/imported/jambons.mjs';
+import manxSmokedSalmon from '../data/imported/manx-smoked-salmon.mjs';
+import menemenEggsWithOnionGreenPepperAndTomato from '../data/imported/menemen-eggs-with-onion-green-pepper-and-tomato.mjs';
+import ossobucoAllaMilanese from '../data/imported/ossobuco-alla-milanese.mjs';
+import paellaValenciana from '../data/imported/paella-valenciana.mjs';
+import panDeJamon from '../data/imported/pan-de-jamon.mjs';
+import riceWithTofuAndNuts from '../data/imported/rice-with-tofu-and-nuts.mjs';
+import salmonSpaghetti from '../data/imported/salmon-spaghetti.mjs';
+import southwestPasta from '../data/imported/southwest-pasta.mjs';
+import spaghettiAllaPuttanesca from '../data/imported/spaghetti-alla-puttanesca.mjs';
+import spinachMushroomPestoSpaghetti from '../data/imported/spinach-mushroom-pesto-spaghetti.mjs';
+import stirFriedSeafoodWithNoodles from '../data/imported/stir-fried-seafood-with-noodles.mjs';
+import succotash from '../data/imported/succotash.mjs';
+import tomatoBasilSausagePasta from '../data/imported/tomato-basil-sausage-pasta.mjs';
+import tomatoPastaWithBaconOnionsAndCheese from '../data/imported/tomato-pasta-with-bacon-onions-and-cheese.mjs';
+import tuscanSoupMeatless from '../data/imported/tuscan-soup-meatless.mjs';
+import zupaOgorkowaPolishCucumberSoup from '../data/imported/zupa-ogorkowa-polish-cucumber-soup.mjs';
+import zuppaToscana from '../data/imported/zuppa-toscana.mjs';
+const SOURCES = [ratatouille, draniki, galayet, kaesespaetzle, melanzane, byrek, misir, tortilla, chicken, irish, farikal, fish, lentilSoup, coldSoup, fondue, spinachPie, strukli, jollof, souvla, trout, paprikaChicken, softTacos, adultMac, agnolotti, garbanzoSoup, porkLima, spaghettiBolognese, spareRibs, poutine, penneMeatSauce, jambalayaI, asparagusSoup, beanSoupVegetarian, beefGravySoup, blackPepperedChickenSpaghetti, creamyTomatoBeanSoup, crockPotPotatoSoup, hotAndSourSoup, mushroomSoup, pastaSoupForKids, pepperSoup, potatoSoup, spicedPumpkinSoup, sausageAndTortelliniSoup, tomKhaKai, vichyssoise, ertesuppePeaSoup, lenguaDeRes, baconWrappedScallops, chickenFriedSteak, chipsiMayai, chuuCheeFish, cubanPicadillo, garlicPorkChopsBlackMushrooms, honeyPepperedSalmon, lemonRosemaryPorkTenderloin, maplePlankedSalmon, meatloafIv, mediterraneanGreenChicken, poppyseedChicken, schweinsbraten, shrimpScampiAngelHair, simpleItalianSausageSpaghetti, spicyChickenCutlets, sweetItalianSausageSkillet, tunaGlop, wineRoastedPorkRoast, beanAndBaconBake, brownRiceCasserole, cazuelaGallega, chuckWagonBeans, cioppinoItalianSeafoodStew, cornySouffle, crockPotBeefStew, cucumberSproutSandwich, dutchOvenBeans, fabesConAlmejas, keralanVegetableStew, macaroniPie, malvaniChickenCurry, meatlessSloppyJoes, miniThreeCheeseEnglishMuffinPizzas, mozzarellaTunaMelts, parmesanCheeseSouffle, mostaccioli, potatoChickpeaCurry, potatoCurryAlooMasala, radishPie, reubenSandwich, risottoAllaMilanese, sloppyJoes, spaghettiBake, tripesALaModeDeCaen, yetsomShiro, yogurtCurrySoupKadhi, bakedPenne, beanburger, chanterelleGoulash, chickenBaconBroccoliAlfredoSpaghetti, chickenTetrazzini, cornChowderI, gambasAlAjilloGarlicShrimp, garlicParmesanPasta, hutspotDutchMashedVegetables, jambons, manxSmokedSalmon, menemenEggsWithOnionGreenPepperAndTomato, ossobucoAllaMilanese, paellaValenciana, panDeJamon, riceWithTofuAndNuts, salmonSpaghetti, southwestPasta, spaghettiAllaPuttanesca, spinachMushroomPestoSpaghetti, stirFriedSeafoodWithNoodles, succotash, tomatoBasilSausagePasta, tomatoPastaWithBaconOnionsAndCheese, tuscanSoupMeatless, zupaOgorkowaPolishCucumberSoup, zuppaToscana];
 const LIMITATIONS = {
   'unitools:ohridska-pastrmka': { summary: 'Whole fish; shared oil and lemons; wine retained', detail: 'The source lists four whole gutted trout without weights. No kg, edible yield or exact trout species is inferred, and the regional name does not establish Lake Ohrid origin. The 80 ml olive oil is shared between rubbing, greasing and the remaining pour; the three lemons supply cavity slices and serving wedges. No numeric split or extra amount is invented. The 800 g potatoes are cooked under the raw fish, not an uncooked garnish. Wine remains 150 ml with no alcohol-free claim. Follow the adapted endpoint and raw-fish separation note. Whole gutted fish still have bones; take care when serving and eating. Product formulations and cross-contact remain unreviewed.', grocery: 'Four whole gutted fish, no weight conversion; oil and lemons are shared totals; contains wine' },
   'unitools:souvla': { summary: 'Pork shoulder; charcoal spit and probe needed', detail: 'The actual ingredient is 2.5 kg pork shoulder, not a pork-or-lamb choice despite the broader source summary. The source cuts pieces of about 200 g; no exact piece count is inferred. Pita formulation and cross-contact are unverified. No marinade, oil, dressing or extra side is added. This requires suitable charcoal-spit equipment and a food thermometer, not an ordinary pan. Check current local fire restrictions before lighting; no current restriction status is checked by this recipe. Follow the separately adapted cooking steps and handling note.', grocery: 'Pork shoulder 2.5 kg; separate charcoal-spit equipment and food thermometer required' },
@@ -315,6 +342,148 @@ const LIMITATIONS = {
     grocery: 'A sweet kadhi; yogurt formulation unverified'
   },
 
+  'wikibooks:baked-penne': {
+    summary: 'Raw egg whites folded in; cheeses formulation unverified; 1 gallon pasta water',
+    detail: 'The egg whites are folded in raw and the dish bakes in two stages; use the adapted egg endpoint below rather than the browned top alone. The ricotta and mozzarella are manufactured products whose formulations (including rennet) are unverified, so diet stays unclassified. The 1 gallon of salted boiling water is a process quantity, kept verbatim; the gram figures in parentheses are the source conversions.',
+    grocery: 'Egg whites go in raw; cheese formulations unverified'
+  },
+  'wikibooks:beanburger': {
+    summary: 'Source vegetarian; optional egg omission frays the burger; frying oil unlisted',
+    detail: 'The source files this vegetarian and notes the egg can be left out for a vegan version, but the burger breaks and frays more in the pan without it; both wordings are kept. The method fries in "a little bit of oil", which is not in the ingredient list; that process-medium gap is kept visible. The 2 tins of mixed beans have no stated tin size. Cumin, coriander, chilli, paprika and turmeric are one generous pinch each per the source.',
+    grocery: 'Tin size for the beans not stated; frying oil not listed'
+  },
+  'wikibooks:chanterelle-goulash': {
+    summary: 'Salt and pepper unquantified; butter-or-oil alternative; sour cream formulation unverified',
+    detail: 'Salt and pepper are listed without quantities, kept that way. The butter-or-oil line is a source alternative, both covered by the method. Sour cream and butter are dairy products whose formulations are unverified, so diet rests on the plant and dairy lines and stays unclassified as vegetarian-safe without that check.',
+    grocery: 'Salt and pepper quantities not stated; sour cream formulation unverified'
+  },
+  'wikibooks:chicken-bacon-broccoli-alfredo-spaghetti': {
+    summary: 'Adapted poultry endpoint; Parmesan formulation unverified',
+    detail: 'The source cooks the chopped chicken "for 4 minutes until cooked"; time is not a doneness check, so use the adapted measured endpoint below. The Parmesan is a manufactured cheese whose rennet is unverified, so diet rests on the explicit chicken and bacon lines. Milk formulation is unverified.',
+    grocery: 'Chicken must reach 75°C; Parmesan rennet unverified'
+  },
+  'wikibooks:chicken-tetrazzini': {
+    summary: 'Uses already-cooked rotisserie chicken; breadcrumbs and Parmesan formulations unverified',
+    detail: 'The 4 cups of rotisserie chicken are already cooked: use a freshly cooked chicken or safely stored leftovers (handling note below). The source notes the dish can be assembled ahead and refrigerated before baking; follow the same leftover times. Chicken broth and Parmesan formulations are unverified. Salt and black pepper are listed without quantities.',
+    grocery: 'Cooked chicken must be fresh or safely stored; broth formulation unverified',
+    handling: 'Two Plates handling note (not a change to the source method): cool leftovers promptly in small portions, cover and refrigerate below 5°C within 2 hours, and use within 2 days. Count all time between 5°C and 60°C cumulatively: under 2 hours, use or refrigerate; 2 to 4 hours, use immediately; over 4 hours, discard. Reheat only once, until steaming hot throughout (at least 60°C).',
+    handlingUrl: 'https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers',
+    handlingLabel: 'NSW leftovers guidance'
+  },
+  'wikibooks:corn-chowder-i': {
+    summary: 'Bouillon formulation unverified; salt and pepper to taste',
+    detail: 'The chicken bouillon cubes, milk and light cream are manufactured products whose formulations are unverified, so diet stays unclassified. Salt and pepper are to taste per the source. The source notes evaporated or powdered milk can be substituted when cooking outdoors.',
+    grocery: 'Bouillon formulation unverified; salt and pepper to taste'
+  },
+  'wikibooks:gambas-al-ajillo-garlic-shrimp': {
+    summary: 'Contains sherry or cognac; adapted shrimp endpoint',
+    detail: 'The 2–3 oz of dry sherry stays in the dish and the source allows substituting cognac; no alcohol-free claim is made. The source cooks until the shrimp turn pink and curl; colour is not a measured check, so use the adapted endpoint below. Salt and pepper are added to taste at serving per the source.',
+    grocery: 'Contains sherry or cognac; no alcohol-free claim'
+  },
+  'wikibooks:garlic-parmesan-pasta': {
+    summary: 'Parmesan quantity not stated; pasta and broccoli pre-cooked; source vegetarian',
+    detail: 'The Parmesan is listed without a quantity, kept that way. The pasta and broccoli are cooked before they enter the recipe per the source. The source notes cooked chicken or shrimp may be added; those are optional serving additions not in the ingredient list. Parmesan and butter formulations are unverified; the source vegetarian category is displayed as an unverified claim.',
+    grocery: 'Parmesan quantity not stated; pasta and broccoli must be cooked first'
+  },
+  'wikibooks:hutspot-dutch-mashed-vegetables': {
+    summary: 'Cheese, salt and pepper "to your liking"; ham explicit',
+    detail: 'The source adds cheese, salt and pepper "to your liking" without types or quantities, kept visible. The cubed ham is a cured pork product whose formulation is unverified; diet rests on the explicit ham line. This is a large batch (5 lb potatoes, 3½ lb carrots, 2 lb onions) per the source, traditionally served as a main.',
+    grocery: 'Cheese type and quantity not stated; ham formulation unverified'
+  },
+  'wikibooks:jambons': {
+    summary: 'Ham and cheese pastries; egg glaze baked on',
+    detail: 'The diced ham is a cured pork product and the cheese a manufactured product whose formulations are unverified; diet rests on the explicit ham line. The puff pastry is pre-prepared per the source. The egg glaze is brushed on raw and sets during the 20–25 minute bake per the source.',
+    grocery: 'Ham and cheese formulations unverified; 6–9 servings is a source range'
+  },
+  'wikibooks:manx-smoked-salmon': {
+    summary: 'Cold-set cream terrine; boiled kippers and ready-to-eat smoked salmon',
+    detail: 'The kippers are boiled, then blended with cream and never cooked again: keep the terrine refrigerated and serve well chilled (see the adapted note below). The smoked salmon is a ready-to-eat cured product; follow its package storage and use-by directions. Cream formulation is unverified. The 500–600 ml of cream and ¼–½ cucumber are source ranges.',
+    grocery: 'Keep the finished terrine refrigerated; smoked salmon is ready-to-eat',
+    handling: 'Two Plates handling note (not a change to the source method): cool leftovers promptly in small portions, cover and refrigerate below 5°C within 2 hours, and use within 2 days. Count all time between 5°C and 60°C cumulatively: under 2 hours, use or refrigerate; 2 to 4 hours, use immediately; over 4 hours, discard. Reheat only once, until steaming hot throughout (at least 60°C).',
+    handlingUrl: 'https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers',
+    handlingLabel: 'NSW leftovers guidance'
+  },
+  'wikibooks:menemen-eggs-with-onion-green-pepper-and-tomato': {
+    summary: 'Adapted egg endpoint; Turkish bread to serve not included; source vegetarian',
+    detail: 'The source stirs the eggs "until cooked"; use the adapted egg endpoint below as the measured check. The Turkish bread in the serving step is an unquantified accompaniment and is not included in the groceries. The oregano and paprika are optional per the source. The source vegetarian category is displayed as an unverified claim.',
+    grocery: 'Bread to serve not included; eggs must be fully set'
+  },
+  'wikibooks:ossobuco-alla-milanese': {
+    summary: 'Contains wine; two-hour braise; anchovies explicit',
+    detail: 'The 240 ml of dry white wine (or white vermouth, a source alternative) stays in the dish; no alcohol-free claim is made. The veal shanks braise about 2 hours until fork tender and falling from the bone per the source, a long covered braise. The anchovies are explicit; meat broth formulation is unverified, so diet rests on the explicit veal and anchovy lines. Flour, salt and pepper are listed without quantities. The source notes gremolata and a risotto accompaniment; those are notes-only and not in the groceries.',
+    grocery: 'Contains wine; no alcohol-free claim; broth formulation unverified'
+  },
+  'wikibooks:paella-valenciana': {
+    summary: 'Species-open poultry; adapted endpoint; large pan and heat source needed',
+    detail: 'The rabbit-or-duck line is a source alternative; both are treated with the poultry endpoint below. The 24 boiled snails are optional and already cooked. The saffron-and/or-food-coloring line is a source alternative. The source needs a 38 cm paellera and a wide heat source; the equipment list is kept in the source record. The rosemary is swept through the broth and used again as a cover per the source. Water quantity (2 litres) is the source figure for this rice quantity.',
+    grocery: 'Rabbit or duck; snails optional; needs a wide pan and heat source'
+  },
+  'wikibooks:pan-de-jamon': {
+    summary: 'Cured ham bread; long rise and bake; 3.5 hours total',
+    detail: 'The thin-sliced cured ham is a ready-to-eat product whose formulation is unverified; diet rests on the explicit ham line. The dough rises twice (about 90 and 40 minutes) before a 30–40 minute bake per the source. The egg-sugar glaze goes on raw and sets in the bake. Raisins and pimento-stuffed olives formulations are unverified.',
+    grocery: 'Cured ham formulation unverified; plan for two rises'
+  },
+  'wikibooks:rice-with-tofu-and-nuts': {
+    summary: 'Whole spices discarded, not eaten; source vegan',
+    detail: 'The bay leaf, peppercorns, cinnamon and cloves are whole spices the source intends to be discarded, not eaten. The tofu is shallow-fried per the source. The source files this vegan; tofu formulation is unverified, so the claim is displayed as unverified. Servings "prose: serves 1" is the source wording, kept verbatim.',
+    grocery: 'Whole spices are discarded before serving; tofu formulation unverified'
+  },
+  'wikibooks:salmon-spaghetti': {
+    summary: 'Smoked-or-fresh salmon alternative; contains wine; adapted endpoint',
+    detail: 'The smoked-or-fresh salmon line is a source alternative: fresh salmon uses the adapted measured endpoint below; smoked salmon is ready-to-eat and only warms through. The ½ cup of white wine stays in the sauce; no alcohol-free claim is made. Cream and crème fraîche formulations are unverified. The source cautions on salt with smoked salmon; that wording is kept.',
+    grocery: 'Contains white wine; no alcohol-free claim; fresh salmon must reach 63°C'
+  },
+  'wikibooks:southwest-pasta': {
+    summary: 'Source vegan; salsa and taco-seasoning formulations unverified',
+    detail: 'The source files this vegan, but the salsa, taco seasoning mix and sliced olives are manufactured products whose formulations are unverified, so diet stays unclassified and the claim is displayed as unverified. Salt and pepper are to taste per the source. The dish can be served warm or cold per the source.',
+    grocery: 'Salsa and taco-seasoning formulations unverified despite the source vegan category'
+  },
+  'wikibooks:spaghetti-alla-puttanesca': {
+    summary: 'Anchovies explicit with an omit alternative; chilli quantity a source range',
+    detail: 'The anchovies are explicit, with the source noting they can be omitted for a Neapolitan version; both wordings are kept, and diet rests on the anchovy line. The 1–3 dried chile peppers are a source range to taste. The source notes Italians do not top this with cheese. Salt is to taste.',
+    grocery: 'Anchovies optional only for the Neapolitan version; chilli quantity to taste'
+  },
+  'wikibooks:spinach-mushroom-pesto-spaghetti': {
+    summary: 'Pesto and Parmesan formulations unverified',
+    detail: 'The pesto and Parmesan are manufactured products whose formulations (including rennet) are unverified, so diet stays unclassified. The extra Parmesan for sprinkling has no quantity, kept that way.',
+    grocery: 'Pesto formulation unverified; extra Parmesan unquantified'
+  },
+  'wikibooks:stir-fried-seafood-with-noodles': {
+    summary: 'Fishball formulation unstated; adapted shrimp endpoint',
+    detail: 'The fishballs are a manufactured product whose species and formulation are unstated; diet rests on the explicit shrimp line. The source cooks until the shrimp begin to change colour; use the adapted measured endpoint below. The egg noodles are a manufactured product whose formulation is unverified. The 1 tbsp of salt, 1 tbsp of sugar and 1 tbsp of pepper are source quantities, kept verbatim. Bean sprouts are rinsed in hot water per the source; serve promptly.',
+    grocery: 'Fishball species and formulation unstated; egg-noodle formulation unverified'
+  },
+  'wikibooks:succotash': {
+    summary: 'Feast-scale recipe; optional pickled pork; lima beans must boil 10 minutes',
+    detail: 'This is a large-batch source recipe (2 quarts of lima beans, 24 ears of corn), kept at source scale. The pickled pork, sugar and butter-or-oil are optional per the source; the pork is a cured product that the source parboils (see the adapted note). The source warns that uncooked lima beans must be boiled at least 10 minutes for toxin safety while canned beans need no cooking; that source wording is kept. Pepper is unquantified.',
+    grocery: 'Feast-scale quantities; lima beans need a 10-minute boil if fresh'
+  },
+  'wikibooks:tomato-basil-sausage-pasta': {
+    summary: 'Sausage species unstated; adapted 75°C endpoint',
+    detail: 'The sausage meat species (pork, beef, chicken or other) is not stated, so diet stays unclassified and the dish fails closed against meat exclusions; use the adapted species-aware endpoint below. The marinara sauce and milk are manufactured products whose formulations are unverified.',
+    grocery: 'Sausage species unstated: fails closed against meat exclusions; marinara formulation unverified'
+  },
+  'wikibooks:tomato-pasta-with-bacon-onions-and-cheese': {
+    summary: 'Smoked bacon explicit; Parmesan formulation unverified; red pepper a wide range',
+    detail: 'The smoked bacon is explicit; the Parmesan is a manufactured cheese whose rennet is unverified, so diet rests on the bacon line. The crushed red pepper is a ½ tsp to 1 tbsp source range to taste. The tomato sauce can size (12–16 ounces) is a source range.',
+    grocery: 'Tomato sauce 12–16 oz is a source range; Parmesan rennet unverified'
+  },
+  'wikibooks:tuscan-soup-meatless': {
+    summary: 'Title says meatless but the recipe uses chicken broth',
+    detail: 'The source titles this "Meatless" and files it vegetarian, but the ingredient list uses 2 cans of chicken broth; that contradiction is kept visible and the dish is non-vegetarian via the broth. The source notes vegetable broth may be substituted. Broth formulation is unverified. Near-neighbour note: a distinct Tuscan bean soup exists in the app; this pasta-and-escarole version is a different composition.',
+    grocery: 'Uses chicken broth despite the meatless title; vegetable broth substitution is a source note'
+  },
+  'wikibooks:zupa-ogorkowa-polish-cucumber-soup': {
+    summary: 'Adapted poultry endpoint; salt and pepper unquantified',
+    detail: 'The chicken wings simmer per the source; use the adapted measured endpoint below. Salt and pepper are listed without quantities. The celery root is optional, the leek-or-onion is a source alternative, and the cream or half and half finish is optional with yoghurt acceptable but not traditional per the source.',
+    grocery: 'Wings must reach 75°C; sour pickled cucumbers, not vinegar pickles'
+  },
+  'wikibooks:zuppa-toscana': {
+    summary: 'Sausage species unstated; adapted 75°C endpoint',
+    detail: 'The spicy Italian sausage species is not stated in the ingredient line, so diet stays unclassified and the dish fails closed against meat exclusions; use the adapted species-aware endpoint below. The source notes half mild half spicy turkey sausage can replace pork sausage. Chicken broth and heavy cream formulations are unverified. The bacon is explicit. Salt and pepper are to taste.',
+    grocery: 'Sausage species unstated: fails closed against meat exclusions; broth formulation unverified'
+  },
+
 };
 export const IMPORTED = new Map();
 
@@ -409,6 +578,34 @@ const REVIEWED_DIET = {
   'wikibooks:tripes-a-la-mode-de-caen': { diet: 'nonveg', meatKind: 'beef', basis: 'Beef tripe, calf\'s foot and marrow bone explicit in source lines 1–3; all fourteen source lines independently read 2026-11-12. Beef-broth formulation not cleared.' },
   'wikibooks:yetsom-shiro': { diet: 'veg', basis: 'All twelve source lines independently read 2026-11-12: chickpea flour, oil, onion, garlic, spices, broth-or-water; no animal product named. Source files it vegan. Berbere blend and broth formulations not cleared; the water alternative avoids the broth.' },
   'wikibooks:yogurt-curry-soup-kadhi': { diet: 'veg', basis: 'All twelve source lines independently read 2026-11-12: chickpea flour, yogurt, ghee and spices; dairy (yogurt, ghee) present; no meat or egg named. Yogurt formulation not cleared.' },
+
+  'wikibooks:baked-penne': { diet: 'unknown', basis: 'All twelve source lines independently read 2026-11-12: ricotta and mozzarella rennet unverified; eggs present; no meat named. Not classified vegetarian.' },
+  'wikibooks:beanburger': { diet: 'veg', basis: 'All seven source lines independently read 2026-11-12: beans, oats, carrots, onion, pepper, spices, egg; no meat named. Source files it vegetarian and notes a vegan egg-free option.' },
+  'wikibooks:chanterelle-goulash': { diet: 'veg', basis: 'All ten source lines independently read 2026-11-12: chanterelles, onions, butter or oil, sour cream, paprika, vinegar, flour, parsley; dairy present; no meat or egg named. Product formulations not cleared.' },
+  'wikibooks:chicken-bacon-broccoli-alfredo-spaghetti': { diet: 'nonveg', basis: 'Chicken breast and streaky bacon explicit in source lines; mixed species (chicken, pork). All eleven source lines independently read 2026-11-12. Parmesan formulation not cleared.' },
+  'wikibooks:chicken-tetrazzini': { diet: 'nonveg', meatKind: 'chicken', basis: 'Shredded rotisserie chicken and chicken broth explicit in source lines; all fourteen source lines independently read 2026-11-12. Parmesan formulation not cleared.' },
+  'wikibooks:corn-chowder-i': { diet: 'unknown', basis: 'All twelve source lines independently read 2026-11-12: chicken bouillon cubes, milk and cream are manufactured products with unverified formulations; no meat named. Not classified vegetarian.' },
+  'wikibooks:gambas-al-ajillo-garlic-shrimp': { diet: 'nonveg', meatKind: 'fish', basis: 'Shrimp explicit in source line 1 (1 pound); all seven source lines independently read 2026-11-12.' },
+  'wikibooks:garlic-parmesan-pasta': { diet: 'unknown', basis: 'All nine source lines independently read 2026-11-12: Parmesan rennet and butter formulations unverified; no meat named. Source files it vegetarian; displayed as an unverified claim.' },
+  'wikibooks:hutspot-dutch-mashed-vegetables': { diet: 'nonveg', meatKind: 'pork', basis: 'Cubed ham explicit in source line 4; all five source lines independently read 2026-11-12. Cheese (type unstated) formulation not cleared.' },
+  'wikibooks:jambons': { diet: 'nonveg', meatKind: 'pork', basis: 'Diced ham explicit in source line 5; all seven source lines independently read 2026-11-12. Cheese and puff-pastry formulations not cleared.' },
+  'wikibooks:manx-smoked-salmon': { diet: 'nonveg', meatKind: 'fish', basis: 'Kippers and smoked salmon explicit in source lines 1–2; all six source lines independently read 2026-11-12. Cream formulation not cleared.' },
+  'wikibooks:menemen-eggs-with-onion-green-pepper-and-tomato': { diet: 'veg', basis: 'All ten source lines independently read 2026-11-12: eggs, vegetables, olive oil, herbs and spices; no meat named. Source files it vegetarian.' },
+  'wikibooks:ossobuco-alla-milanese': { diet: 'nonveg', basis: 'Veal shanks (beef species) and anchovy fillets explicit in source lines; mixed species explicit. All seventeen source lines independently read 2026-11-12. Meat-broth formulation not cleared.' },
+  'wikibooks:paella-valenciana': { diet: 'nonveg', basis: 'Chicken and rabbit-or-duck explicit, optional boiled snails; mixed and open species. All sixteen source lines independently read 2026-11-12.' },
+  'wikibooks:pan-de-jamon': { diet: 'nonveg', meatKind: 'pork', basis: 'Thin-sliced cured ham explicit in source line 7; all twelve source lines independently read 2026-11-12. Ham formulation not cleared.' },
+  'wikibooks:rice-with-tofu-and-nuts': { diet: 'veg', basis: 'All twelve source lines independently read 2026-11-12: rice, tofu, nuts, raisins, spices, oil; no animal product named. Source files it vegan; tofu formulation not cleared.' },
+  'wikibooks:salmon-spaghetti': { diet: 'nonveg', meatKind: 'fish', basis: 'Salmon (smoked or fresh) explicit in source line 3; all eleven source lines independently read 2026-11-12. Cream formulations not cleared.' },
+  'wikibooks:southwest-pasta': { diet: 'unknown', basis: 'All twelve source lines independently read 2026-11-12: no animal product named, but salsa and taco seasoning are manufactured products with unverified formulations. Source files it vegan; displayed as an unverified claim.' },
+  'wikibooks:spaghetti-alla-puttanesca': { diet: 'nonveg', meatKind: 'fish', basis: 'Anchovy fillets explicit in source line 3 with a source omit-alternative for the Neapolitan version; all ten source lines independently read 2026-11-12.' },
+  'wikibooks:spinach-mushroom-pesto-spaghetti': { diet: 'unknown', basis: 'All eight source lines independently read 2026-11-12: pesto and Parmesan formulations (rennet) unverified; no meat named. Not classified vegetarian.' },
+  'wikibooks:stir-fried-seafood-with-noodles': { diet: 'nonveg', meatKind: 'fish', basis: 'Shrimp explicit in source line 5; fishballs present with species and formulation unstated. All thirteen source lines independently read 2026-11-12.' },
+  'wikibooks:succotash': { diet: 'unknown', basis: 'All six source lines independently read 2026-11-12: pickled pork is optional but explicit; butter-or-oil option. Not classified vegetarian; fails closed against pork exclusion when the pork is used.' },
+  'wikibooks:tomato-basil-sausage-pasta': { diet: 'unknown', basis: 'All eight source lines independently read 2026-11-12: sausage meat explicit but species not stated; fails closed against meat exclusions. Marinara formulation not cleared.' },
+  'wikibooks:tomato-pasta-with-bacon-onions-and-cheese': { diet: 'nonveg', meatKind: 'pork', basis: 'Smoked bacon explicit in source line 4; all eight source lines independently read 2026-11-12. Parmesan formulation not cleared.' },
+  'wikibooks:tuscan-soup-meatless': { diet: 'nonveg', meatKind: 'chicken', basis: 'Chicken broth explicit in source line 4 despite the meatless title; all ten source lines independently read 2026-11-12. Source vegetarian category displayed as an unverified claim.' },
+  'wikibooks:zupa-ogorkowa-polish-cucumber-soup': { diet: 'nonveg', meatKind: 'chicken', basis: 'Chicken wings explicit in source line 1; all fourteen source lines independently read 2026-11-12. Cream formulation not cleared.' },
+  'wikibooks:zuppa-toscana': { diet: 'unknown', basis: 'All eleven source lines independently read 2026-11-12: spicy Italian sausage explicit but species not stated (source notes a turkey-sausage substitution); bacon explicit. Fails closed against meat exclusions. Broth formulation not cleared.' },
 
 };
 
