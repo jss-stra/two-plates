@@ -158,4 +158,11 @@ t('Spanakopita sheet dimensions retained as gap',sp.limitation.detail.includes('
 t('Fondue alcohol retained and holding measured',fo.limitation.detail.includes('2 tbsp kirsch') && fo.safety.replacements[6].includes('above 60°C'));
 t('Both new cheese recipes stay unknown diet',sp.diet==='unknown' && fo.diet==='unknown');
 console.log(`fondue/pie contract: ${pass} passed, ${fail} failed`);
+const st = IMPORTED.get('unitools:zagorski-strukli');
+t('Strukli separate dough and filling eggs unchanged', st.src.lines.find(l=>l.name==='Egg').quantity===1 && st.src.lines.find(l=>l.name==='Eggs for the filling').quantity===2);
+t('Strukli original boil retained with explicit adapted bake endpoint',st.src.steps[4].text.en.includes('five minutes after they float') && st.safety.replacements[6].includes('71°C') && st.safety.note.includes('not a universal legal threshold'));
+t('Strukli dry curd not converted to another cheese',st.src.lines.find(l=>l.name==='Dry curd cheese').quantity===600 && st.limitation.detail.includes('not a pre-drain weight'));
+t('Strukli shared fat and process water caveats reach groceries',importedShoppingRows(st,base).every(x=>x.aisleLabel.includes('shared totals')));
+t('Strukli unknown diet and fixed base retained',st.diet==='unknown' && st.baseServings===6 && st.time===null);
+console.log(`strukli contract: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
