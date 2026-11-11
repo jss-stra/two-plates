@@ -10,7 +10,7 @@
 //   revocation delay bound, and it is not immediate.
 import { authUser, authReady, onAuth } from './auth.js';
 import {
-  uploadPhoto, saveEntry, listEntries, publishEntry, signedPhotoUrl,
+  uploadPhoto, saveEntry, deleteEntry, listEntries, publishEntry, signedPhotoUrl,
   readFeed, unpublish, hidePost, reportPost, feedPhotoUrl,
   listMyHousehold, createHousehold, inviteToHousehold, listMyInvites, acceptInvite,
   leaveHousehold, removeHouseholdMember,
@@ -246,6 +246,7 @@ export function renderCookbook() {
             <div class="cb-title">${esc(en.title)}</div>
             <div class="fine">${esc(new Date(en.created_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' }))}</div>
           </div>
+          <button class="link" data-act="cb-remove" data-id="${esc(en.id)}">Remove</button>
           ${SHARING_ENABLED ? `<button class="btn small" data-act="cb-share" data-id="${esc(en.id)}">Share…</button>` : ''}
         </div>`).join('')}</div>`;
   return `<section class="card" id="cookbook-card">
@@ -337,6 +338,19 @@ export const cbActions = {
     } finally { cb.busy = false; rerender(); }
   },
   'cb-share': (el) => { cb.sheet = { share: el.dataset.id }; rerender(); },
+  'cb-remove': async (el) => {
+    const en = (cb.entries || []).find((x) => x.id === el.dataset.id);
+    if (!en) return;
+    if (!window.confirm(`Remove "${en.title}" from your cookbook? This deletes the dish and its photo.`)) return;
+    cb.busy = true; rerender();
+    try {
+      await deleteEntry(en);
+      toastMsg('Removed from your cookbook');
+      await refreshEntries();
+    } catch (e) {
+      toastMsg(`Not removed: ${e.message}`);
+    } finally { cb.busy = false; rerender(); }
+  },
   'cb-publish': async (el) => {
     const en = (cb.entries || []).find((x) => x.id === el.dataset.id);
     if (!en) return;

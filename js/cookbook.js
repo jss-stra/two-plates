@@ -70,6 +70,16 @@ export async function saveEntry({ title, photoPath = null, ingredients = null, s
   return data.id;
 }
 
+export async function deleteEntry(entry) {
+  const { error } = await client().from('cookbook_entries').delete().eq('id', entry.id);
+  if (error) throw error;
+  // The frozen shared/ copy (if any) is a separate path and is untouched;
+  // only the private original is removed here.
+  if (entry.photo_path) {
+    try { await client().storage.from('cookbook-photos').remove([entry.photo_path]); } catch { /* row is gone; file cleanup is best-effort */ }
+  }
+}
+
 export async function listEntries() {
   const { data, error } = await client()
     .from('cookbook_entries')
