@@ -14,6 +14,7 @@ import { pushStatus, enablePush, disablePush } from './push.js';
 import { initAuth, signInWithGoogle, signOut, onAuth, authUser, authReady } from './auth.js';
 import { cb, bindCookbook, initCookbook, renderCookbook, renderCbSheet, cbActions, cbOnChange, renderFeed, renderPeople, refreshFeed, SHARING_ENABLED } from './cookbook-ui.js';
 import { IMPORTED, importedList, importedAddStatus, isImported, importedMatches } from './imported.js';
+import { IDEAS, IDEA_BY_ID, ideaMatches } from './ideas.js';
 
 const $ = (sel, el = document) => el.querySelector(sel);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -28,6 +29,7 @@ const ui = {
   search: '', group: 'All', vegOnly: false, quick: false, sort: 'smart', expanded: null,
   sheet: null, // { index, filter, query }
   imported: null, // imported recipe id while its detail sheet is open
+  idea: null, // dish-idea id while its detail sheet is open
   showAmounts: store.get('twoplates.amounts', '0') === '1',
   logBought: false,
   checkin: false,
@@ -444,7 +446,33 @@ function recipeRow(r, s) {
 }
 
 const RECIPE_PAGE = 30;
+function ideaRow(idea) {
+  return `<div class="rrow">
+    <button class="rrow-main" data-act="open-idea" data-id="${esc(idea.id)}">
+      <span class="rname">${esc(idea.name)}</span>
+      <span class="badges"><span class="badge">idea</span></span>
+      <span class="meta">${esc(idea.countries.join(' · '))}</span>
+      <span class="per"><span class="fine">${esc(idea.blurb)}</span></span>
+    </button>
+  </div>`;
+}
+
+const IDEA_PAGE = 40;
+function renderIdeaList(s) {
+  const el = $('#recipe-list');
+  if (!el) return;
+  const q = ui.search.toLowerCase();
+  const list = IDEAS.filter((i) => ideaMatches(i, q));
+  const shown = ui.showAll ? list : list.slice(0, IDEA_PAGE);
+  el.innerHTML = `<div class="fine count">Showing ${shown.length} of ${list.length} dish ideas</div>
+    <p class="fine">Dish ideas for discovery: names and one-line descriptions only. They are not recipes - no ingredients, amounts, steps, nutrition or safety guidance - and they cannot be added to the week or the shopping list.</p>`
+    + (list.length ? shown.map(ideaRow).join('') : '<p class="empty">Nothing matches - try fewer words.</p>')
+    + (!ui.showAll && list.length > IDEA_PAGE
+      ? `<button class="btn wide show-more" data-act="recipes-more">Show all ${list.length} ideas</button>` : '');
+}
+
 function renderRecipeList(s) {
+  if (ui.group === 'Dish ideas') { renderIdeaList(s); return; }
   const list = filteredRecipes(s);
   const el = $('#recipe-list');
   if (!el) return;
@@ -468,7 +496,7 @@ function renderRecipeList(s) {
 }
 
 function renderRecipes(s) {
-  const groups = ['All', 'Our regulars', 'Top rated', 'Rated', ...GROUPS, ...(s.hidden.length ? ['Hidden'] : [])];
+  const groups = ['All', 'Our regulars', 'Top rated', 'Rated', ...GROUPS, 'Dish ideas', ...(s.hidden.length ? ['Hidden'] : [])];
   return `
   <div class="searchbar">${icon('search')}<input id="q" type="search" placeholder="Search dishes or ingredients…" value="${esc(ui.search)}" autocomplete="off"></div>
   <div class="chips">${groups.map((g) => `<button class="chip ${ui.group === g ? 'on' : ''}" data-act="group" data-g="${esc(g)}">${esc(g)}${g === 'Hidden' ? ` (${s.hidden.length})` : ''}</button>`).join('')}
@@ -793,9 +821,28 @@ function renderImportedSheet(el, s) {
   </div>`;
 }
 
+function renderIdeaSheet(el) {
+  const idea = IDEA_BY_ID.get(ui.idea);
+  if (!idea) { ui.idea = null; el.innerHTML = ''; el.hidden = true; document.body.classList.remove('sheet-open'); return; }
+  el.hidden = false;
+  document.body.classList.add('sheet-open');
+  el.innerHTML = `<div class="backdrop" data-act="close-sheet"></div>
+  <div class="sheet" role="dialog" aria-label="Dish idea">
+    <header><div><div class="fine">Dish idea - not a recipe</div><h2>${esc(idea.name)}</h2></div>
+      <button class="act icon-only" data-act="close-sheet" aria-label="Close">${icon('x')}</button></header>
+    <div class="sheet-body">
+      <p class="meta">${esc(idea.countries.join(' · '))}</p>
+      <p>${esc(idea.blurb)}</p>
+      <section class="safety-note"><div class="fine">What this is</div><h3>An idea to explore, not cooking directions</h3><p>Two Plates has no ingredients, amounts, steps, nutrition or food-safety guidance for this dish. Look up a trusted recipe for it elsewhere; it cannot be added to your week or shopping list.</p></section>
+      <p class="fine">Name and description: <a href="${esc(idea.source.url)}" target="_blank" rel="noopener">${esc(idea.source.label)}</a> · <a href="${esc(idea.source.licenseUrl)}" target="_blank" rel="noopener">${esc(idea.source.license)}</a></p>
+    </div>
+  </div>`;
+}
+
 function renderSheet(s) {
   const el = $('#sheet');
   if (cb.sheet) { renderCbSheet(el); return; }
+  if (ui.idea) { renderIdeaSheet(el); return; }
   if (ui.imported) { renderImportedSheet(el, s); return; }
   if (!ui.sheet) { el.innerHTML = ''; el.hidden = true; document.body.classList.remove('sheet-open'); return; }
   el.hidden = false;
@@ -968,8 +1015,9 @@ const actions = {
     ui.sheet = null; render();
   },
   'open-sheet': (el) => { ui.sheet = { index: Number(el.dataset.i), filter: 'kind', query: '' }; renderSheet(getState()); },
-  'close-sheet': () => { ui.sheet = null; ui.imported = null; renderSheet(getState()); },
+  'close-sheet': () => { ui.sheet = null; ui.imported = null; ui.idea = null; renderSheet(getState()); },
   'open-imported': (el) => { ui.imported = el.dataset.id; renderSheet(getState()); },
+  'open-idea': (el) => { ui.idea = el.dataset.id; renderSheet(getState()); },
   'choose-imported': (el) => {
     const s = getState();
     const gate = importedAddStatus(s, el.dataset.id);
