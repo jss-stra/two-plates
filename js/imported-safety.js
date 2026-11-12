@@ -1431,19 +1431,11 @@ export const IMPORTED_SAFETY = {
     },
   },
   'wikibooks-es:es-conejo-en-salsa': {
-    title: 'Probe the rabbit pieces; rabbit has no NSW temperature',
-    note: 'Two Plates adds a measured endpoint: rabbit is not separately listed in NSW temperature guidance, so Two Plates uses a cautious endpoint of at least 71°C. Use a clean food thermometer in the thickest part of the largest pieces, avoiding bone; continue simmering and recheck if below the target. The livers cook with the rabbit and are blended into the sauce: they are offal and must cook through with the meat. Keep the raw rabbit refrigerated at 5°C or colder and use separate boards and utensils for raw meat and ready-to-eat food.',
-    sources: [['NSW: mince and cut meats 71°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    title: 'Probe the rabbit pieces; the reduced broth is not the check',
+    note: 'Two Plates adds a measured endpoint: the source simmers the rabbit until the broth has reduced; that is not a doneness check. Use a clean food thermometer in the thickest part of the largest pieces, avoiding bone, to check at least 71°C, following USDA guidance for rabbit (wild or farm-raised); continue simmering and recheck if below the target. The livers cook with the rabbit and are blended into the sauce: offal must be cooked thoroughly, steaming hot all the way through, per UK FSA advice. Keep the raw rabbit refrigerated at 5°C or colder and use separate boards and utensils for raw meat and ready-to-eat food.',
+    sources: [['USDA (US): rabbit and venison 160°F (71°C)', 'https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures'], ['USDA FSIS: rabbit to at least 160°F', 'https://www.govinfo.gov/content/pkg/GOVPUB-A110-PURL-gpo5193/pdf/GOVPUB-A110-PURL-gpo5193.pdf'], ['UK FSA: cook offal thoroughly, steaming hot throughout', 'https://www.gov.uk/government/publications/cooking-your-food/cooking-your-food'], ['FSANZ: raw separation and temperature control', FSANZ]],
     replacements: {
-      4: 'Meanwhile the rabbit broth will have reduced; before adding the sauce, check the largest pieces with a clean food thermometer in the thickest part, avoiding bone, for at least 71°C - rabbit has no NSW temperature, so Two Plates uses this cautious endpoint; continue simmering and recheck if below the target, then add the sauce and let it come to a boil.',
-    },
-  },
-  'wikibooks-es:es-cuy-en-salsa-de-mani': {
-    title: 'Probe the cuy; marinade and produce handling',
-    note: 'Two Plates adds a measured endpoint: cuy (guinea pig) is not separately listed in NSW temperature guidance, so Two Plates uses a cautious endpoint of at least 71°C. Use a clean food thermometer in the thickest part of the meat, avoiding bone; continue roasting and recheck if below the target. The adobo contacts the raw cuy during the overnight rest: keep it refrigerated and discard any leftover adobo that touched the raw meat. The salad is served raw: wash the lettuce, tomato and avocado under running water. Keep the raw cuy refrigerated at 5°C or colder and use separate boards and utensils for raw meat and ready-to-eat food. Take care with skewers and roasting heat.',
-    sources: [['NSW: mince and cut meats 71°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
-    replacements: {
-      2: 'When the cuy is ready, place it on skewers and roast it, brushing on achiote (onoto) while it cooks, until a clean food thermometer in the thickest part, avoiding bone, reads at least 71°C - cuy has no NSW temperature, so Two Plates uses this cautious endpoint; continue roasting and recheck if below the target.',
+      4: 'Meanwhile the rabbit broth will have reduced; before adding the sauce, check the largest pieces with a clean food thermometer in the thickest part, avoiding bone, for at least 71°C, following USDA rabbit guidance - the reduced broth is not a doneness check; continue simmering and recheck if below the target, then add the sauce and let it come to a boil.',
     },
   },
   'wikibooks-es:es-caldo-tlalpeno': {
@@ -1468,6 +1460,14 @@ export const IMPORTED_SAFETY = {
     sources: [['NSW: pork 71°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
     replacements: {
       4: 'Cook over medium heat until the orange juice is mostly consumed and a clean food thermometer in the centre of the thickest chop reads at least 71°C - the consumed juice is not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks-es:es-buseca': {
+    title: 'Tripe is offal: cook it thoroughly, steaming hot throughout',
+    note: 'Two Plates adds an authority-backed check: tripe is offal, and UK FSA advice is that offal must be cooked thoroughly until steaming hot all the way through - bacteria can be present throughout offal, unlike whole muscle cuts. The source wash, vinegar soak and one-hour boil are retained as written; do not shorten them. During the final cooking, check the thickest tripe pieces with a clean food thermometer for at least 70°C held for 2 minutes (the UK FSA core temperature-time combination). Buy tripe visibly clean from a licensed butcher, keep it refrigerated at 5°C or colder, and use separate boards and utensils for raw offal and ready-to-eat food.',
+    sources: [['UK FSA: offal cooked thoroughly, steaming hot throughout; core 70°C for 2 minutes', 'https://www.gov.uk/government/publications/cooking-your-food/cooking-your-food'], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      10: 'Add the carrots, the cabbage and the rice, cover and cook another hour; then add the chorizos, the morcillas and the cheese, stir and cook 10 minutes more, and check the thickest tripe pieces with a clean food thermometer for at least 70°C held for 2 minutes, per UK FSA offal guidance - time alone is not a doneness check; continue cooking and recheck if below the target.',
     },
   },
 };

@@ -11,7 +11,7 @@ export default {
     "carbs": null,
     "fat": null
   },
-  "nutritionStatus": "source-stated",
+  "nutritionStatus": "unknown",
   "diet": null,
   "sourceDietClaims": [],
   "mainProtein": null,
@@ -22,17 +22,6 @@ export default {
     "totalMinutes": null,
     "stepMinutesTotal": null,
     "guaranteedElapsedTime": false
-  },
-  "nutritionSourceStated": {
-    "basis": "Single value exactly as stated in the source recipe data (energia = 300; the source does not state the unit or the basis); not computed or validated by Two Plates",
-    "publication": "es.wikibooks Artes culinarias (CC BY-SA 4.0)",
-    "url": "https://es.wikibooks.org/wiki/Artes_culinarias/Recetas/Lentejas_de_langar?oldid=423976",
-    "servingSize": "per the source recipe data; basis not stated",
-    "yield": "4 servings (source)",
-    "perServing": {
-      "calories": "300 (energia; unit not stated by the source)"
-    },
-    "variants": []
   },
   "lines": [
     {
@@ -311,7 +300,7 @@ export default {
     "license": "CC BY-SA 4.0 (es.wikibooks)",
     "summary": {
       "ru": null,
-      "en": "Simple pressure-cooked lentils with turmeric, onion and ghee, as served in gurdwaras and mosques; the source recipe data carries an energy value, shown as-is"
+      "en": "Simple pressure-cooked lentils with turmeric, onion and ghee, as served in gurdwaras and mosques; the source recipe data carries an energy value without a stated unit, kept as an unclassified note"
     },
     "servings": 4,
     "time": null,

@@ -383,5 +383,39 @@ const ban = wes('es-bandeja-paisa');
 t('Bandeja egg notes-only, tray tip visible, beef endpoint', ban.src.lines.find(l => l.name === 'Egg').methodTraceStatus === 'garnish_in_notes_only' && ban.limitation.detail.includes('source tip') && ban.safety.replacements[7].includes('71°C') && ban.diet === 'nonveg' && ban.meatKind === null);
 const tac = wes('es-tacos-de-pollo-al-pastor');
 t('Tacos poultry endpoint with marinade discard', tac.safety.replacements[6].includes('75°C') && tac.safety.replacements[6].includes('discard the used adobo'));
+// es.wikibooks batch2 contract (pinned revisions, ES verbatim + EN translation layer)
+const es2Ids = ['es-albondigas-en-salsa', 'es-pollo-con-salsa-de-limon', 'es-conejo-en-salsa', 'es-caldo-tlalpeno', 'es-lentejas-de-langar', 'es-atascaburras', 'es-buseca', 'es-caldo-de-frijol', 'es-chuletas-en-naranja'];
+for (const id of es2Ids) {
+  const r = wes(id);
+  t(`${id} registered`, !!r);
+  t(`${id} attribution pinned`, r.src.rights.credit.includes('es.wikibooks') && Number.isInteger(r.src.sourceRecord.revid));
+  t(`${id} ES verbatim raws and steps kept`, r.src.lines.every(l => l.source.raw.length > 0) && r.src.sourceRecord.sourceStepsEs.length === r.src.steps.length);
+}
+// Cuy held from the active cooking UI: no grounded species-appropriate endpoint exists (no USDA/NSW/FSA guinea-pig temperature), so it must not be in SOURCES while its record file is retained.
+t('cuy held from active UI pending grounded endpoint', !IMPORTED.has('wikibooks-es:es-cuy-en-salsa-de-mani'));
+const alb = wes('es-albondigas-en-salsa');
+t('Albondigas mixed mince fails closed nonveg, 75C endpoint', alb.diet === 'nonveg' && alb.meatKind === null && alb.safety.replacements[7].includes('75°C'));
+t('Albondigas unquantified lines not invented', alb.src.lines.filter(l => l.unit === 'unstated').length === 11 && alb.src.lines[0].quantity === null);
+const pcl = wes('es-pollo-con-salsa-de-limon');
+t('Pollo limon 75C endpoint, half-breast kept', pcl.safety.replacements[3].includes('75°C') && pcl.src.lines[0].quantity === '0.5' && pcl.src.lines[0].note.en.includes('300 g'));
+const con = wes('es-conejo-en-salsa');
+t('Conejo grounded USDA rabbit 71C, no NSW claim', con.safety.replacements[4].includes('71°C') && con.safety.replacements[4].includes('USDA rabbit guidance') && con.safety.note.includes('USDA guidance for rabbit') && !con.safety.note.includes('cautious endpoint') && con.safety.sources.some(s => s[1].includes('foodsafety.gov')));
+t('Conejo livers offal note with FSA cite', con.safety.note.includes('offal must be cooked thoroughly') && con.safety.sources.some(s => s[1].includes('gov.uk')));
+const cuyFile = await import('../data/imported/es-cuy-en-salsa-de-mani.mjs').then(m => m.default);
+t('Cuy record retained but unpublished', cuyFile.id === 'wikibooks-es:es-cuy-en-salsa-de-mani' && cuyFile.nutritionStatus === 'unknown');
+const ctl = wes('es-caldo-tlalpeno');
+t('Tlalpeno 75C before shredding; accompaniments notes-only', ctl.safety.replacements[3].includes('75°C') && ctl.src.lines.find(l => l.name.startsWith('Avocado')).methodTraceStatus === 'garnish_in_notes_only');
+const lan = wes('es-lentejas-de-langar');
+t('Langar: no nutrition panel for unit-less energia', lan.src.nutritionStatus === 'unknown' && !('nutritionSourceStated' in lan.src) && lan.src.nutrition.kcal === null);
+t('Langar energia kept as unclassified note only', lan.limitation.detail.includes('energia = 300') && lan.limitation.detail.includes('not shown as a calorie'));
+const ata = wes('es-atascaburras');
+t('Atascaburras 63C cod; garnish eggs/walnuts gap kept', ata.safety.replacements[1].includes('63°C') && ata.src.lines.find(l => l.name === 'Walnuts').methodTraceStatus === 'source_method_omits_line' && ata.limitation.detail.includes('not desalted'));
+const bus = wes('es-buseca');
+t('Buseca FSA offal endpoint 70C/2min', bus.safety.replacements[10].includes('70°C held for 2 minutes') && bus.safety.sources.some(s => s[1].includes('gov.uk')) && bus.safety.note.includes('offal'));
+t('Buseca poroto/habas discrepancy kept', bus.src.lines.find(l => l.name.startsWith('Dried beans')).note.en.includes('habas'));
+const cdf = wes('es-caldo-de-frijol');
+t('Caldo de frijol nopales gap kept', cdf.limitation.detail.includes('never shows their cooking') && cdf.diet === 'nonveg' && cdf.meatKind === 'pork');
+const chu = wes('es-chuletas-en-naranja');
+t('Chuletas 71C pork endpoint', chu.safety.replacements[4].includes('71°C') && chu.diet === 'nonveg' && chu.meatKind === 'pork');
 console.log(`wikibooks contract: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
