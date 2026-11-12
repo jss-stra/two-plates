@@ -1535,4 +1535,84 @@ export const IMPORTED_SAFETY = {
       8: 'When it starts to boil, reduce the heat, cover it and cook it slowly for at least 1 to 1.5 hours, until a clean food thermometer in the centre of the thickest beef cubes reads at least 63°C - browning and time are not doneness checks; continue simmering and recheck if below the target.',
     },
   },
+  'wikibooks-es:es-arepa-de-huevo': {
+    title: 'The egg inside must cook through; hot-oil care',
+    note: 'Two Plates adds an explicit doneness check: the raw egg goes into the arepa after the first fry and must cook completely in the second fry. foodsafety.gov guidance is to cook eggs until the yolk and white are firm; cut the first arepa open and check the centre is fully set with no runny yolk, and keep frying if not. Deep-frying: heat the oil steadily, lower the arepas away from you, never leave the pot unattended, and keep a lid nearby to smother splatter; never add water to hot oil.',
+    sources: [['foodsafety.gov: eggs and egg dishes 71°C; cook eggs until yolk and white are firm', 'https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures'], ['FSANZ: temperature control', FSANZ]],
+    replacements: {
+      9: 'Optionally, close the opening with a little raw dough and put the arepa back into the hot oil until both the arepa and the egg are fully fried - cut the first one open and check the egg yolk and white are completely set; a runny centre is not done; keep frying and recheck if needed.',
+    },
+  },
+  'wikibooks-es:es-sancocho-antioqueno': {
+    title: 'Probe the beef and the pork after the first simmer',
+    note: 'Two Plates adds measured endpoints: the 45-minute simmer and later stages are not doneness checks. Use a clean food thermometer in the thickest beef pieces to check at least 63°C, a conservative editorial selection of the NSW medium endpoint for whole-cut beef, and in the thickest pork pieces to check at least 71°C, following NSW pork guidance; continue simmering and recheck if below the targets. Keep the raw meats refrigerated at 5°C or colder and use separate boards and utensils for raw meat and ready-to-eat food.',
+    sources: [['NSW: whole-cut beef 63°C and pork 71°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      2: 'Cook for approximately 45 minutes, then check a thick beef piece with a clean food thermometer for at least 63°C and a thick pork piece for at least 71°C - the times in this recipe are not doneness checks; continue simmering and recheck if below the targets.',
+    },
+  },
+  'wikibooks-es:es-kaq-ik': {
+    title: 'Probe the turkey pieces; boiling is not the check',
+    note: 'Two Plates adds a measured endpoint: use a clean food thermometer in the thickest part of the largest turkey pieces, avoiding bone, to check at least 75°C, following NSW poultry guidance; continue boiling and recheck if below the target. A whole cut-up turkey cooks unevenly, so check more than one piece. Keep the raw turkey refrigerated at 5°C or colder and use separate boards and utensils for raw poultry and ready-to-eat food; wash hands and surfaces after handling.',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      8: 'Let it boil for 10 to 15 minutes and check the thickest part of the largest turkey pieces, avoiding bone, with a clean food thermometer for at least 75°C - boiling is not a doneness check; continue boiling and recheck if below the target.',
+    },
+  },
+  'wikibooks-es:es-juane-de-arroz': {
+    title: 'Probe a parcel: 75°C chicken and fully set egg binding',
+    note: 'Two Plates adds a measured endpoint: the hour of boiling is not a doneness check. After boiling, open one parcel and use a clean food thermometer in the thickest part of the chicken piece, avoiding bone, to check at least 75°C, following NSW poultry guidance, and check the egg-and-rice binding is completely set with no liquid egg; rewrap and boil longer, rechecking a fresh parcel, if below the target. Cool the cooked rice quickly before mixing in the raw eggs and do not leave the raw mixture at room temperature; cooked rice is a higher-risk food. Keep the raw chicken refrigerated at 5°C or colder and use separate boards and utensils for raw poultry and ready-to-eat food.',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      8: 'Place the juanes in a large pot with water and boil them for 1 hour, then open one and check the thickest part of the chicken piece, avoiding bone, with a clean food thermometer for at least 75°C and that the egg binding is completely set - the hour is not a doneness check; rewrap and boil longer, rechecking a fresh parcel, if below the target. Remove them and place them upside down on a rack, so any liquid can drain.',
+    },
+  },
+  'wikibooks-es:es-kottbullar': {
+    title: 'Probe the meatballs; browning is not the check',
+    note: 'Two Plates adds a measured endpoint: the meatballs are minced beef and pork, so use a clean food thermometer in the centre of the largest meatballs to check at least 71°C, following NSW mince guidance; continue frying and recheck if below the target. The raw egg in the mixture and the test meatball in step 4 must also cook through - never taste raw mince. Keep the raw mince refrigerated at 5°C or colder and use separate boards and utensils for raw meat and ready-to-eat food.',
+    sources: [['NSW: mince and cut meats 71°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      5: 'Brown a sufficiently thick layer of butter in the frying pan, and when it goes quiet place the meatballs in the pan and brown them on all sides, then check the centre of the largest meatballs with a clean food thermometer for at least 71°C - browning is not a doneness check; continue frying and recheck if below the target.',
+    },
+  },
+  'wikibooks-es:es-tallarin-saltado-tay-pa': {
+    title: 'Prawns pearly and opaque; reheat the cooked meats through',
+    note: 'Two Plates adds explicit doneness checks: the prawns or shrimp are done when the flesh is pearly and opaque, following foodsafety.gov shellfish guidance - the colour change in the source is that check made explicit. The roast pork, roast duck and chicken are pre-cooked inputs: reheat them until steaming hot throughout. Keep the raw prawns refrigerated at 5°C or colder and use separate boards and utensils for raw seafood and ready-to-eat food. The quail eggs are a cooked input.',
+    sources: [['foodsafety.gov: shrimp, lobster and scallops - flesh pearly or white and opaque', 'https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures'], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      5: 'Saute the shrimp or prawns in oil until the flesh is pearly and opaque - that, not the colour change alone, is the doneness check - and set aside.',
+    },
+  },
+  'wikibooks-es:es-porkolt': {
+    title: 'Probe the beef cubes; two hours is not the check',
+    note: 'Two Plates adds a measured endpoint: the two hours at minimum heat are not a doneness check, and the pot never boils by design. Use a clean food thermometer in the centre of the thickest beef cubes to check at least 63°C, a conservative editorial selection of the NSW medium endpoint for whole-cut beef; continue cooking and recheck if below the target. Keep the raw beef refrigerated at 5°C or colder and use separate boards and utensils for raw meat and ready-to-eat food.',
+    sources: [['NSW: whole-cut beef 63°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      6: 'After two hours, the beef will have finished rendering and will be completely tender; check the centre of the thickest cubes with a clean food thermometer for at least 63°C - the time is not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks-es:es-gazpacho-manchego': {
+    title: 'Probe each kind of meat; separating from the bone is not the check',
+    note: 'Two Plates adds measured endpoints for the mixed game: check the rabbit or hare pieces with a clean food thermometer in the thickest part, avoiding bone, for at least 71°C, following USDA guidance for rabbit, and the partridge or chicken pieces for at least 75°C, following NSW poultry guidance; continue simmering and recheck if below the targets. Meat starting to separate from the bone is a texture cue, not a safety check. Keep the raw game refrigerated at 5°C or colder and use separate boards and utensils for raw meat and ready-to-eat food.',
+    sources: [['USDA (US): rabbit 71°C', 'https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures'], ['NSW: poultry 75°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      2: 'Then fry the meat, in rather large pieces, with enough salt (some people add wine and let it evaporate). Add water, and add the bay leaf and thyme. Let it boil until the meat starts to come away from the bones, then check the thickest rabbit or hare pieces, avoiding bone, with a clean food thermometer for at least 71°C and the partridge or chicken pieces for at least 75°C - separating from the bone is not a doneness check; continue simmering and recheck if below the targets.',
+    },
+  },
+  'wikibooks-es:es-guatita': {
+    title: 'Tripe must be thoroughly cooked before you start',
+    note: 'Two Plates makes the offal requirement explicit: the source starts from already-cooked tripe and never shows its initial cooking. If your tripe is raw, clean it and boil it thoroughly before starting this recipe - UK FSA guidance is that offal must be cooked thoroughly, to a core temperature of at least 70°C for 2 minutes. Do not shorten its cooking. Keep raw tripe refrigerated at 5°C or colder, use separate boards and utensils for raw offal and ready-to-eat food, and wash hands and surfaces after handling. Peanut is a major allergen.',
+    sources: [['UK FSA: offal must be cooked thoroughly, 70°C for 2 minutes', 'https://www.gov.uk/government/publications/cooking-your-food/cooking-your-food'], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      2: 'Add the tripe, cut into pieces, and fry it again for 5 minutes. The tripe must already be thoroughly cooked - if yours is raw, boil it first until it reaches at least 70°C for 2 minutes, following UK FSA offal guidance.',
+    },
+  },
+  'wikibooks-es:es-conejo-en-salmorejo': {
+    title: 'Probe the rabbit; the adobo must cook, not be served raw',
+    note: 'Two Plates adds a measured endpoint: rabbit is not separately listed in NSW temperature guidance, so Two Plates uses USDA guidance for rabbit of at least 71°C. Use a clean food thermometer in the thickest part of the largest pieces, avoiding bone; continue simmering and recheck if below the target. Piercing tenderness is a texture cue, not a safety check. The adobo contacts the raw rabbit during the marinade: it is safe only because it is added to the casserole and boiled - never taste or serve it uncooked. Marinate in the fridge as the source directs and use separate boards and utensils for raw meat and ready-to-eat food.',
+    sources: [['USDA (US): rabbit 71°C', 'https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures'], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      6: 'In the casserole, let it boil over low heat until the rabbit is tender and a clean food thermometer in the thickest part of the largest pieces, avoiding bone, reads at least 71°C - piercing tenderness is not a safety check; continue simmering and recheck if below the target. Serve accompanied by boiled or fried potatoes.',
+    },
+  },
 };
