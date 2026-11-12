@@ -3,6 +3,143 @@
 const NSW_TEMP = 'https://www.foodauthority.nsw.gov.au/consumer/food-safety-home/cooking-temperatures';
 const FSANZ = 'https://www.foodstandards.gov.au/consumer/prevention-of-foodborne-illness/food-safety-basics';
 export const IMPORTED_SAFETY = {
+  'wikibooks-fr:fr-acras-de-rouget': {
+    title: 'Probe the fritters; colour is not the check',
+    note: 'Two Plates adds a measured endpoint: the source fries the fish batter balls until well golden; colour is not a doneness check for the flaked fish inside. Use a clean food thermometer in the centre of a fritter to check at least 63°C, following NSW fish guidance; continue frying and recheck if below the target. Keep the fish refrigerated at 5°C or colder before preparation. Take care with hot oil: add the balls gently, do not overfill the fryer, and never use water on an oil fire. Flaked fillet can still carry bones.',
+    sources: [['NSW: fish 63°C', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      5: 'Drop the balls into the hot oil and fry until well golden, then check the centre of a fritter with a clean food thermometer for at least 63°C. Colour is not a doneness check; continue frying and recheck if below the target.',
+    },
+  },
+  'wikibooks-fr:fr-cassolette-de-sole-et-cabillaud': {
+    title: 'Probe the fish before adding the shellfish',
+    note: 'Two Plates adds a measured endpoint: the source bakes the cod and sole 10 minutes; time is not a doneness check. Use a clean food thermometer in the thickest part of each fish piece to check at least 63°C, following NSW fish guidance, before adding the shellfish; continue baking and recheck if below the target. The scallops, shrimps and mussels then get brief final heat - heat them through until the scallop slices are opaque. Keep fish and shellfish refrigerated at 5°C or colder before preparation.',
+    sources: [['NSW: fish 63°C', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      5: 'Cook in an oven preheated to 180 degrees until a clean food thermometer in the thickest part of each fish piece reads at least 63°C - the source suggests 10 minutes, but time is not a doneness check; continue baking and recheck if below the target.',
+      6: 'add the shrimps, scallop slices and mussels and heat them through until the scallop slices are opaque',
+    },
+  },
+  'wikibooks-fr:fr-cotriade': {
+    title: 'Probe the fish; brief simmer is not the check',
+    note: 'Two Plates adds a measured endpoint: the source gives the fish sections and fillets a brief final simmer in hot stock; time is not a doneness check. Use a clean food thermometer in the thickest flesh of the largest fish pieces, avoiding bones, to check at least 63°C, following NSW fish guidance; continue cooking and recheck if below the target. Keep the fish and shellfish chilled during preparation as the source says.',
+    sources: [['NSW: fish 63°C', NSW_TEMP], ['USDA (US): thickest part, avoid bones and remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      2: 'Add the fish sections and shellfish, and 5 min later the fillets, velvet crabs and langoustines; cook until a clean food thermometer in the thickest flesh of the largest fish pieces, avoiding bones, reads at least 63°C. Brief simmering time is not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks-fr:fr-curry-de-poisson-keralais': {
+    title: 'Probe the fish; simmering time is not the check',
+    note: 'Two Plates adds a measured endpoint: the source poaches the fillets 5-10 minutes in the sauce; time is not a doneness check. Use a clean food thermometer in the thickest part of a fillet to check at least 63°C, following NSW fish guidance; continue cooking and recheck if below the target. Keep the fish refrigerated at 5°C or colder before preparation.',
+    sources: [['NSW: fish 63°C', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      7: 'Cook over low heat until a clean food thermometer in the thickest part of a fillet reads at least 63°C - the source suggests five to ten minutes, but time is not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks-fr:fr-escalopes-de-veau-parmesan-amandes': {
+    title: 'Probe the escalopes; browning is not the check',
+    note: 'Two Plates adds a measured endpoint: the source browns the escalopes 3-4 minutes per side; time and browning are not doneness checks. Use a clean food thermometer in the thickest part of an escalope to check at least 63°C, a conservative editorial selection of the NSW medium endpoint for whole-cut veal, and rest 3 minutes; continue cooking and recheck if below the target. Keep the veal refrigerated at 5°C or colder before preparation.',
+    sources: [['NSW: whole-cut beef/veal medium endpoint and resting', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      6: 'brown them over medium heat on each side, then use a clean food thermometer in the thickest part of an escalope to check at least 63°C. Browning is not a doneness check; continue cooking and recheck if below the target, then rest 3 minutes.',
+    },
+  },
+  'wikibooks-fr:fr-lieu-jaune-en-papillote-de-cresson': {
+    title: 'Probe the pollock in the parcel',
+    note: 'Two Plates adds a measured endpoint: the source doneness cue is that the pollock should be well cooked. Open the parcel carefully away from your face (hot steam) and use a clean food thermometer in the thickest fish piece, avoiding bones, to check at least 63°C, following NSW fish guidance; reseal and continue baking if below the target.',
+    sources: [['NSW: fish 63°C', NSW_TEMP], ['USDA (US): thickest part, avoid bones and remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      11: 'Bake at the stated temperature. The source suggests 45 minutes, but open the parcel carefully away from your face (hot steam) and use a clean food thermometer in the thickest fish piece, avoiding bones, to check at least 63°C. Reseal and continue baking if below the target.',
+    },
+  },
+  'wikibooks-fr:fr-poulet-sauce-au-vin-rouge': {
+    title: 'Probe the chicken; simmering time is not the check',
+    note: 'Two Plates adds a measured endpoint: the source cooks the chicken about 1 hour over low heat; time is not a doneness check for poultry. Use a clean food thermometer in the thickest part of the largest piece, avoiding bone, to check at least 75°C, following NSW poultry guidance; continue cooking and recheck if below the target. Keep the chicken refrigerated at 5°C or colder before preparation and use separate boards and tools for raw chicken.',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['USDA (US): thickest part, avoid bones and remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      3: 'Halfway through cooking, add the peeled tomato and the sliced mushrooms and cook about 1 hour over low heat per the source, then check the thickest part of the largest piece, avoiding bone, with a clean food thermometer for at least 75°C. Continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks-fr:fr-poulet-fafa': {
+    title: 'Probe the chicken; short high-heat timing is not the check',
+    note: 'Two Plates adds a measured endpoint: the source cooks the chicken 5 minutes browning plus 7 minutes over high heat; time is not a doneness check for poultry. Use a clean food thermometer in the thickest part of the largest piece, avoiding bone, to check at least 75°C, following NSW poultry guidance; continue cooking and recheck if below the target. Keep the chicken refrigerated at 5°C or colder before preparation and use separate boards and tools for raw chicken.',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['USDA (US): thickest part, avoid bones and remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      6: 'cook for another 7 minutes per the source, then check the thickest part of the largest piece, avoiding bone, with a clean food thermometer for at least 75°C. Time is not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks-fr:fr-poulet-kedjenou': {
+    title: 'Probe the chicken after the sealed simmer',
+    note: 'Two Plates adds a measured endpoint: the source simmers the sealed pot 30 minutes and says not to open it before then; time is not a doneness check for poultry. After the 30 minutes, use a clean food thermometer in the thickest part of the largest piece, avoiding bone, to check at least 75°C, following NSW poultry guidance; reseal and continue cooking if below the target. Keep the chicken refrigerated at 5°C or colder before preparation and use separate boards and tools for raw chicken.',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['USDA (US): thickest part, avoid bones and remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      6: 'Simmer for 30 minutes per the source, then open and check the thickest part of the largest chicken piece, avoiding bone, with a clean food thermometer for at least 75°C. Time is not a doneness check; reseal and continue cooking, then recheck, if below the target.',
+    },
+  },
+  'wikibooks-fr:fr-riz-noir': {
+    title: 'Probe the shrimp and fish; brief saute is not the check',
+    note: 'Two Plates adds a measured endpoint: the source sautes the shrimps and fish 5 minutes; time is not a doneness check. Use a clean food thermometer in the thickest piece of fish to check at least 63°C, following NSW fish guidance; continue cooking and recheck if below the target. Source only small dried black mushrooms from a trusted supplier - the source describes market mushrooms local to Abidjan and asserts their edibility there; do not forage lookalikes.',
+    sources: [['NSW: fish and seafood 63°C', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      3: 'Saute the shrimps and the fish pieces with the onion, garlic, salt and half the seasoning cube, then check the thickest fish piece with a clean food thermometer for at least 63°C. Brief saute time is not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks-fr:fr-sauce-arachide-poulet': {
+    title: 'Probe the chicken; browning and simmer time are not the check',
+    note: 'Two Plates adds a measured endpoint: the source fries the chicken until brown then simmers it 20 minutes in the sauce; neither browning nor time is a doneness check for poultry. Use a clean food thermometer in the thickest part of the largest piece, avoiding bone, to check at least 75°C, following NSW poultry guidance; continue cooking and recheck if below the target. Keep the chicken refrigerated at 5°C or colder before preparation and use separate boards and tools for raw chicken. Use a deep pot as the source warns - the sauce rises during cooking.',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['USDA (US): thickest part, avoid bones and remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      6: 'Cook for another 20 minutes per the source, then check the thickest part of the largest chicken piece, avoiding bone, with a clean food thermometer for at least 75°C. Browning and simmer time are not doneness checks; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks-fr:fr-soupe-d-asperges-champignons-mais-et-poulet': {
+    title: 'Probe the chicken; the visual cue is not the check',
+    note: 'Two Plates replaces the source visual doneness cue (translucency turning opaque white) with a measured endpoint. Use a clean food thermometer in the thickest part of an escalope to check at least 75°C, following NSW poultry guidance; return it to the water and continue cooking if below the target. Keep the chicken refrigerated at 5°C or colder before preparation and use separate boards and tools for raw chicken - the source shreds the chicken partway, so clean the board and forks after shredding partly cooked chicken.',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      3: 'escalopes are cooked through - check with a clean food thermometer in the thickest part for at least 75°C, not by colour alone',
+    },
+  },
+  'wikibooks-fr:fr-torti-aux-crevettes-et-a-la-feta': {
+    title: 'Cook raw prawns through; golden colour is not the check',
+    note: 'The source does not state whether the prawns start raw or cooked. If raw, cook them until a clean food thermometer in the thickest prawn reads at least 63°C, following NSW seafood guidance - golden colour is not a doneness check. If using pre-cooked prawns, heat them through until hot. Keep prawns refrigerated at 5°C or colder before preparation.',
+    sources: [['NSW: fish and seafood 63°C', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      3: 'add the shelled prawns. If they are raw, cook until a clean food thermometer in the thickest prawn reads at least 63°C - golden colour is not a doneness check; if pre-cooked, heat them through until hot',
+    },
+  },
+  'wikibooks-fr:fr-fondue-epicee': {
+    title: 'Measure hot holding; attend the burner',
+    note: 'Two Plates adapts the serving instruction: if holding the fondue hot, check that the food stays above 60°C with a clean food thermometer, following FSANZ hot-holding guidance. The burner setting alone does not prove a food temperature. Follow product storage, use-by and cooking directions. Stay beside the burner and keep children and flammable materials clear; never leave cooking unattended. Wine and grappa remain in the dish; no alcohol-free claim is made.',
+    sources: [['FSANZ: food held above 60°C', FSANZ], ['Fire and Rescue NSW: cooking attention and flammable materials', 'https://www.fire.nsw.gov.au/fire-safety/home-fire-safety/topics/cooking-fire-safety']],
+    replacements: {
+      3: 'Sprinkle with chilli and serve. If holding the fondue hot on a burner, use a clean food thermometer to check the food stays above 60°C, and attend the burner, keeping children and flammable materials clear.',
+    },
+  },
+  'wikibooks-fr:fr-souffle-au-bleu-de-gex': {
+    title: 'No source bake duration; cook the souffle through',
+    note: 'The source states no bake duration - the only cue is that the souffle has risen. Two Plates adds a set-through check: bake until risen and the centre is set, not liquid. Our conservative editorial target is at least 71°C in the centre, selected from NSW pregnancy-specific cooked-egg-dish advice, not a universal legal threshold or a tested duration. Bleu de Gex is typically a raw-milk blue cheese; this egg-focused target does not certify the cheese or make the dish suitable for pregnancy - people who are pregnant or immunocompromised should check product pasteurisation.',
+    sources: [['NSW: raw and lightly cooked egg risk', 'https://www.foodauthority.nsw.gov.au/consumer/food-extra-care/eggs-enjoy-safely/higher-risk-dishes'], ['NSW: pregnancy-specific 71°C advice', 'https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant']],
+    replacements: {
+      7: 'Fill the moulds with the preparation and bake at 200 C until risen and set through the centre, not liquid - the source states no duration, so check the centre with a clean food thermometer for at least 71°C.',
+    },
+  },
+  'wikibooks-fr:fr-tarte-a-l-oignon': {
+    title: 'Bake the egg filling until set',
+    note: 'Two Plates adds a set-through check for the egg-flour filling: bake until the filling is firm or set through the centre, not runny. Our conservative editorial target is at least 71°C in the thickest filling, selected from NSW pregnancy-specific cooked-egg-dish advice, not a universal legal threshold or a tested 25-30 minute process. Continue baking if needed; a browned top is not a filling-temperature check. The source states two different oven temperatures (preheat 190°C, bake 180°C) - the discrepancy is preserved.',
+    sources: [['NSW: raw and lightly cooked egg risk', 'https://www.foodauthority.nsw.gov.au/consumer/food-extra-care/eggs-enjoy-safely/higher-risk-dishes'], ['NSW: pregnancy-specific 71°C advice', 'https://www.foodauthority.nsw.gov.au/consumer/life-events-and-food/pregnancy/foods-to-eat-or-avoid-when-pregnant']],
+    replacements: {
+      6: 'Bake for 25 to 30 minutes per the source, until the filling is firm or set through the centre, not runny; check the thickest filling with a clean food thermometer for at least 71°C and continue baking if below the target.',
+    },
+  },
+  'wikibooks-fr:fr-poelee-brestoise': {
+    title: 'Cook the eggs until fully set',
+    note: 'The source cooks the mixture like an omelette. Two Plates confirms: cook until the eggs are fully set through, not runny, following NSW guidance to cook eggs thoroughly. People under 2, pregnant, over 70 or with weakened immunity should avoid runny eggs. The knacki-type sausages are a pre-cooked product type - follow product heating, storage and use-by directions.',
+    sources: [['NSW: raw and lightly cooked egg risk', 'https://www.foodauthority.nsw.gov.au/consumer/food-extra-care/eggs-enjoy-safely/higher-risk-dishes']],
+    replacements: {
+      6: 'cook like an omelette until the eggs are fully set through, not runny',
+    },
+  },
   'unitools:ohridska-pastrmka': {
     title: 'Probe every trout and cook the potatoes through',
     note: 'Two Plates replaces the source time, skin-colour and spine-test endpoint with a clean food thermometer in the thickest flesh of each trout, avoiding the spine and other bones. Check at least 63°C for every fish, following NSW fish guidance; continue baking and recheck any below the target. This is not a tested 25-minute process. Follow thermometer instructions and take the tray off the heat to check safely. The potatoes contact raw-fish juices: check they are tender and at least 70°C in the centre of the thickest potato portions before serving. The potato check is an editorial application of FSANZ general centre-temperature guidance, not a tested potato-specific standard. Keep raw fish refrigerated at 5°C or colder before preparation. Use separate boards, tools and plates for raw fish and ready-to-eat lemon wedges; reserve garnish before handling raw fish. Wash lemons, garlic, herbs and potatoes under running water before preparation. The source fish rinse is not sanitisation; avoid splashing raw-fish juices and clean hands, sink, boards and work area after handling. Follow product storage, use-by and cooking directions. No allergy, bone-free or pregnancy suitability claim is made; wine remains in the dish.',
@@ -665,10 +802,10 @@ export const IMPORTED_SAFETY = {
     sources: [["NSW: whole-cut meat 63\u00b0C and resting", "https://www.foodauthority.nsw.gov.au/consumer/food-safety-home/cooking-temperatures"], ["USDA (US): thickest part, remove from heat to check", "https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer"]],
   },
   "nhlbi:baked-pork-chops": {
-    title: "Check the meat with a thermometer",
-    note: "Two Plates food-safety note, separate from the NHLBI method: cooking times and browning are not doneness checks. Use a clean food thermometer in the thickest part to check at least 63\u00b0C for whole-cut meat, and rest 3 minutes, following NSW guidance; continue cooking and recheck if below the target.",
+    title: "Check the fish or seafood with a thermometer",
+    note: "Two Plates food-safety note, separate from the NHLBI method: cooking times are not doneness checks. Use a clean food thermometer in the thickest part of the fish or seafood, avoiding bones, to check at least 63\u00b0C, following NSW fish guidance; continue cooking and recheck if below the target. Keep fish and seafood refrigerated at 5\u00b0C or colder before preparation.",
     guidanceOnly: true,
-    sources: [["NSW: whole-cut meat 63\u00b0C and resting", "https://www.foodauthority.nsw.gov.au/consumer/food-safety-home/cooking-temperatures"], ["USDA (US): thickest part, remove from heat to check", "https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer"]],
+    sources: [["NSW: fish 63\u00b0C", "https://www.foodauthority.nsw.gov.au/consumer/food-safety-home/cooking-temperatures"], ["USDA (US): thickest part, avoid bones, remove from heat to check", "https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer"]],
   },
   "nhlbi:shish-kabob": {
     title: "Check the poultry with a thermometer",

@@ -154,6 +154,32 @@ import poheSpicedFlattenedRice from '../data/imported/pohe-spiced-flattened-rice
 import riceWithBlackBeansArrozConFrijolesNegros from '../data/imported/rice-with-black-beans-arroz-con-frijoles-negros.mjs';
 import taroFish from '../data/imported/taro-fish.mjs';
 import yellowSplitPeaSoup from '../data/imported/yellow-split-pea-soup.mjs';
+import frAcrasDeRouget from '../data/imported/fr-acras-de-rouget.mjs';
+import frAkpessiIgname from '../data/imported/fr-akpessi-igname.mjs';
+import frCassoletteDeSoleEtCabillaud from '../data/imported/fr-cassolette-de-sole-et-cabillaud.mjs';
+import frCotriade from '../data/imported/fr-cotriade.mjs';
+import frCremeDeChouFleur from '../data/imported/fr-creme-de-chou-fleur.mjs';
+import frCurryDePoissonKeralais from '../data/imported/fr-curry-de-poisson-keralais.mjs';
+import frEscalopesDeVeauParmesanAmandes from '../data/imported/fr-escalopes-de-veau-parmesan-amandes.mjs';
+import frFondueEpicee from '../data/imported/fr-fondue-epicee.mjs';
+import frGratinDeCourgettesEtTomates from '../data/imported/fr-gratin-de-courgettes-et-tomates.mjs';
+import frLieuJauneEnPapilloteDeCresson from '../data/imported/fr-lieu-jaune-en-papillote-de-cresson.mjs';
+import frPatesAuThon from '../data/imported/fr-pates-au-thon.mjs';
+import frPenneRigateALaGrecque from '../data/imported/fr-penne-rigate-a-la-grecque.mjs';
+import frPoeleeBrestoise from '../data/imported/fr-poelee-brestoise.mjs';
+import frPoeleeDeChampignonsAuFromageALAilEtFinesHerbes from '../data/imported/fr-poelee-de-champignons-au-fromage-a-l-ail-et-fines-herbes.mjs';
+import frPouletFafa from '../data/imported/fr-poulet-fafa.mjs';
+import frPouletKedjenou from '../data/imported/fr-poulet-kedjenou.mjs';
+import frPouletSauceAuVinRouge from '../data/imported/fr-poulet-sauce-au-vin-rouge.mjs';
+import frRizNoir from '../data/imported/fr-riz-noir.mjs';
+import frSaladeDeRiz from '../data/imported/fr-salade-de-riz.mjs';
+import frSauceArachidePoulet from '../data/imported/fr-sauce-arachide-poulet.mjs';
+import frSouffleAuBleuDeGex from '../data/imported/fr-souffle-au-bleu-de-gex.mjs';
+import frSoupeDAspergesChampignonsMaisEtPoulet from '../data/imported/fr-soupe-d-asperges-champignons-mais-et-poulet.mjs';
+import frSpaghettiAuJambonDeParme from '../data/imported/fr-spaghetti-au-jambon-de-parme.mjs';
+import frTarteALOignon from '../data/imported/fr-tarte-a-l-oignon.mjs';
+import frTomatesFarciesALAgneau from '../data/imported/fr-tomates-farcies-a-l-agneau.mjs';
+import frTortiAuxCrevettesEtALaFeta from '../data/imported/fr-torti-aux-crevettes-et-a-la-feta.mjs';
 import nhlbiBavarianBeef from '../data/imported/nhlbi-bavarian-beef.mjs';
 import nhlbiBeefAndBeanChili from '../data/imported/nhlbi-beef-and-bean-chili.mjs';
 import nhlbiBeefStroganoff from '../data/imported/nhlbi-beef-stroganoff.mjs';
@@ -204,7 +230,7 @@ import nhlbiSummerVegetableSpaghetti from '../data/imported/nhlbi-summer-vegetab
 import nhlbiVegetarianSpaghettiSauce from '../data/imported/nhlbi-vegetarian-spaghetti-sauce.mjs';
 import nhlbiZucchiniLasagna from '../data/imported/nhlbi-zucchini-lasagna.mjs';
 import nhlbiMexicanPozole from '../data/imported/nhlbi-mexican-pozole.mjs';
-const SOURCES = [ratatouille, draniki, galayet, kaesespaetzle, melanzane, byrek, misir, tortilla, chicken, irish, farikal, fish, lentilSoup, coldSoup, fondue, spinachPie, strukli, jollof, souvla, trout, paprikaChicken, softTacos, adultMac, agnolotti, garbanzoSoup, porkLima, spaghettiBolognese, spareRibs, poutine, penneMeatSauce, jambalayaI, asparagusSoup, beanSoupVegetarian, beefGravySoup, blackPepperedChickenSpaghetti, creamyTomatoBeanSoup, crockPotPotatoSoup, hotAndSourSoup, mushroomSoup, pastaSoupForKids, pepperSoup, potatoSoup, spicedPumpkinSoup, sausageAndTortelliniSoup, tomKhaKai, vichyssoise, ertesuppePeaSoup, lenguaDeRes, baconWrappedScallops, chickenFriedSteak, chipsiMayai, chuuCheeFish, cubanPicadillo, garlicPorkChopsBlackMushrooms, honeyPepperedSalmon, lemonRosemaryPorkTenderloin, maplePlankedSalmon, meatloafIv, mediterraneanGreenChicken, poppyseedChicken, schweinsbraten, shrimpScampiAngelHair, simpleItalianSausageSpaghetti, spicyChickenCutlets, sweetItalianSausageSkillet, tunaGlop, wineRoastedPorkRoast, beanAndBaconBake, brownRiceCasserole, cazuelaGallega, chuckWagonBeans, cioppinoItalianSeafoodStew, cornySouffle, crockPotBeefStew, cucumberSproutSandwich, dutchOvenBeans, fabesConAlmejas, keralanVegetableStew, macaroniPie, malvaniChickenCurry, meatlessSloppyJoes, miniThreeCheeseEnglishMuffinPizzas, mozzarellaTunaMelts, parmesanCheeseSouffle, mostaccioli, potatoChickpeaCurry, potatoCurryAlooMasala, radishPie, reubenSandwich, risottoAllaMilanese, sloppyJoes, spaghettiBake, tripesALaModeDeCaen, yetsomShiro, yogurtCurrySoupKadhi, bakedPenne, beanburger, chanterelleGoulash, chickenBaconBroccoliAlfredoSpaghetti, chickenTetrazzini, cornChowderI, gambasAlAjilloGarlicShrimp, garlicParmesanPasta, hutspotDutchMashedVegetables, jambons, manxSmokedSalmon, menemenEggsWithOnionGreenPepperAndTomato, ossobucoAllaMilanese, paellaValenciana, panDeJamon, riceWithTofuAndNuts, salmonSpaghetti, southwestPasta, spaghettiAllaPuttanesca, spinachMushroomPestoSpaghetti, stirFriedSeafoodWithNoodles, succotash, tomatoBasilSausagePasta, tomatoPastaWithBaconOnionsAndCheese, tuscanSoupMeatless, zupaOgorkowaPolishCucumberSoup, zuppaToscana, calzone, fishermanSCasserole, floridaStyleCrabCakes, porkBurritosWithGreenPepperSauce, tacoCasserole, tunaCasserole, banhChung, bakedBeans, chiliConBambi, deluxeBurgers, honeyAppleGlazedPork, hongshaoRouRedBraisedPorkBelly, hoppinJohn, italianMarinatedChicken, kashmiriPulao, kharaPongalRiceAndMungBeanPorridge, lambSausagesAndGrilledPotatoes, mapoTofu, mukimo, paneerButterMasala, polloDelFungoChickenWithMushrooms, porkAachi, poheSpicedFlattenedRice, riceWithBlackBeansArrozConFrijolesNegros, taroFish, yellowSplitPeaSoup, nhlbiBavarianBeef, nhlbiBeefAndBeanChili, nhlbiBeefStroganoff, nhlbiBlackSkilletBeefWithGreensAndRedPotatoes, nhlbiQuickBeefCasserole, nhlbiScrumptiousMeatLoaf, nhlbiStirFriedBeefAndPotatoes, nhlbiStirFriedBeefAndChineseVegetables, nhlbiBakedPorkChops, nhlbiShishKabob, nhlbiSpicyVealRoast, nhlbiBarbecuedChicken, nhlbiBarbecuedChickenSpicySouthernStyle, nhlbiChickenGumbo, nhlbiChickenAndRice, nhlbiChickenAndSpanishRice, nhlbiChickenMarsala, nhlbiChickenOrientale, nhlbiChickenRatatouille, nhlbiChickenSalad, nhlbiChickenStew, nhlbiCrispyOvenFriedChicken, nhlbiFingerLickingCurriedChicken, nhlbiGrilledChickenWithGreenChileSauce, nhlbiJamaicanJerkChicken, nhlbi20MinuteChickenCreole, nhlbiVeryLemonyChicken, nhlbiAutumnTurkeyStuffedCabbage, nhlbiSpaghettiWithTurkeyMeatSauce, nhlbiTurkeyMeatLoaf, nhlbiBakedSalmonDijon, nhlbiBakedTrout, nhlbiCatfishStewAndRice, nhlbiFishVeronique, nhlbiMediterraneanBakedFish, nhlbiMouthWateringOvenFriedFish, nhlbiScallopKabobs, nhlbiSpicyBakedFish, nhlbiSpinachStuffedSole, nhlbiTunaSalad, nhlbiChillinOutPastaSalad, nhlbiClassicMacaroniAndCheese, nhlbiRedHotFusilli, nhlbiBlackBeansWithRice, nhlbiCaribbeanPinkBeans, nhlbiNewOrleansRedBeans, nhlbiSummerVegetableSpaghetti, nhlbiVegetarianSpaghettiSauce, nhlbiZucchiniLasagna, nhlbiMexicanPozole];
+const SOURCES = [ratatouille, draniki, galayet, kaesespaetzle, melanzane, byrek, misir, tortilla, chicken, irish, farikal, fish, lentilSoup, coldSoup, fondue, spinachPie, strukli, jollof, souvla, trout, paprikaChicken, softTacos, adultMac, agnolotti, garbanzoSoup, porkLima, spaghettiBolognese, spareRibs, poutine, penneMeatSauce, jambalayaI, asparagusSoup, beanSoupVegetarian, beefGravySoup, blackPepperedChickenSpaghetti, creamyTomatoBeanSoup, crockPotPotatoSoup, hotAndSourSoup, mushroomSoup, pastaSoupForKids, pepperSoup, potatoSoup, spicedPumpkinSoup, sausageAndTortelliniSoup, tomKhaKai, vichyssoise, ertesuppePeaSoup, lenguaDeRes, baconWrappedScallops, chickenFriedSteak, chipsiMayai, chuuCheeFish, cubanPicadillo, garlicPorkChopsBlackMushrooms, honeyPepperedSalmon, lemonRosemaryPorkTenderloin, maplePlankedSalmon, meatloafIv, mediterraneanGreenChicken, poppyseedChicken, schweinsbraten, shrimpScampiAngelHair, simpleItalianSausageSpaghetti, spicyChickenCutlets, sweetItalianSausageSkillet, tunaGlop, wineRoastedPorkRoast, beanAndBaconBake, brownRiceCasserole, cazuelaGallega, chuckWagonBeans, cioppinoItalianSeafoodStew, cornySouffle, crockPotBeefStew, cucumberSproutSandwich, dutchOvenBeans, fabesConAlmejas, keralanVegetableStew, macaroniPie, malvaniChickenCurry, meatlessSloppyJoes, miniThreeCheeseEnglishMuffinPizzas, mozzarellaTunaMelts, parmesanCheeseSouffle, mostaccioli, potatoChickpeaCurry, potatoCurryAlooMasala, radishPie, reubenSandwich, risottoAllaMilanese, sloppyJoes, spaghettiBake, tripesALaModeDeCaen, yetsomShiro, yogurtCurrySoupKadhi, bakedPenne, beanburger, chanterelleGoulash, chickenBaconBroccoliAlfredoSpaghetti, chickenTetrazzini, cornChowderI, gambasAlAjilloGarlicShrimp, garlicParmesanPasta, hutspotDutchMashedVegetables, jambons, manxSmokedSalmon, menemenEggsWithOnionGreenPepperAndTomato, ossobucoAllaMilanese, paellaValenciana, panDeJamon, riceWithTofuAndNuts, salmonSpaghetti, southwestPasta, spaghettiAllaPuttanesca, spinachMushroomPestoSpaghetti, stirFriedSeafoodWithNoodles, succotash, tomatoBasilSausagePasta, tomatoPastaWithBaconOnionsAndCheese, tuscanSoupMeatless, zupaOgorkowaPolishCucumberSoup, zuppaToscana, calzone, fishermanSCasserole, floridaStyleCrabCakes, porkBurritosWithGreenPepperSauce, tacoCasserole, tunaCasserole, banhChung, bakedBeans, chiliConBambi, deluxeBurgers, honeyAppleGlazedPork, hongshaoRouRedBraisedPorkBelly, hoppinJohn, italianMarinatedChicken, kashmiriPulao, kharaPongalRiceAndMungBeanPorridge, lambSausagesAndGrilledPotatoes, mapoTofu, mukimo, paneerButterMasala, polloDelFungoChickenWithMushrooms, porkAachi, poheSpicedFlattenedRice, riceWithBlackBeansArrozConFrijolesNegros, taroFish, yellowSplitPeaSoup, frAcrasDeRouget, frAkpessiIgname, frCassoletteDeSoleEtCabillaud, frCotriade, frCremeDeChouFleur, frCurryDePoissonKeralais, frEscalopesDeVeauParmesanAmandes, frFondueEpicee, frGratinDeCourgettesEtTomates, frLieuJauneEnPapilloteDeCresson, frPatesAuThon, frPenneRigateALaGrecque, frPoeleeBrestoise, frPoeleeDeChampignonsAuFromageALAilEtFinesHerbes, frPouletFafa, frPouletKedjenou, frPouletSauceAuVinRouge, frRizNoir, frSaladeDeRiz, frSauceArachidePoulet, frSouffleAuBleuDeGex, frSoupeDAspergesChampignonsMaisEtPoulet, frSpaghettiAuJambonDeParme, frTarteALOignon, frTomatesFarciesALAgneau, frTortiAuxCrevettesEtALaFeta, nhlbiBavarianBeef, nhlbiBeefAndBeanChili, nhlbiBeefStroganoff, nhlbiBlackSkilletBeefWithGreensAndRedPotatoes, nhlbiQuickBeefCasserole, nhlbiScrumptiousMeatLoaf, nhlbiStirFriedBeefAndPotatoes, nhlbiStirFriedBeefAndChineseVegetables, nhlbiBakedPorkChops, nhlbiShishKabob, nhlbiSpicyVealRoast, nhlbiBarbecuedChicken, nhlbiBarbecuedChickenSpicySouthernStyle, nhlbiChickenGumbo, nhlbiChickenAndRice, nhlbiChickenAndSpanishRice, nhlbiChickenMarsala, nhlbiChickenOrientale, nhlbiChickenRatatouille, nhlbiChickenSalad, nhlbiChickenStew, nhlbiCrispyOvenFriedChicken, nhlbiFingerLickingCurriedChicken, nhlbiGrilledChickenWithGreenChileSauce, nhlbiJamaicanJerkChicken, nhlbi20MinuteChickenCreole, nhlbiVeryLemonyChicken, nhlbiAutumnTurkeyStuffedCabbage, nhlbiSpaghettiWithTurkeyMeatSauce, nhlbiTurkeyMeatLoaf, nhlbiBakedSalmonDijon, nhlbiBakedTrout, nhlbiCatfishStewAndRice, nhlbiFishVeronique, nhlbiMediterraneanBakedFish, nhlbiMouthWateringOvenFriedFish, nhlbiScallopKabobs, nhlbiSpicyBakedFish, nhlbiSpinachStuffedSole, nhlbiTunaSalad, nhlbiChillinOutPastaSalad, nhlbiClassicMacaroniAndCheese, nhlbiRedHotFusilli, nhlbiBlackBeansWithRice, nhlbiCaribbeanPinkBeans, nhlbiNewOrleansRedBeans, nhlbiSummerVegetableSpaghetti, nhlbiVegetarianSpaghettiSauce, nhlbiZucchiniLasagna, nhlbiMexicanPozole];
 const LIMITATIONS = {
   'unitools:ohridska-pastrmka': { summary: 'Whole fish; shared oil and lemons; wine retained', detail: 'The source lists four whole gutted trout without weights. No kg, edible yield or exact trout species is inferred, and the regional name does not establish Lake Ohrid origin. The 80 ml olive oil is shared between rubbing, greasing and the remaining pour; the three lemons supply cavity slices and serving wedges. No numeric split or extra amount is invented. The 800 g potatoes are cooked under the raw fish, not an uncooked garnish. Wine remains 150 ml with no alcohol-free claim. Follow the adapted endpoint and raw-fish separation note. Whole gutted fish still have bones; take care when serving and eating. Product formulations and cross-contact remain unreviewed.', grocery: 'Four whole gutted fish, no weight conversion; oil and lemons are shared totals; contains wine' },
   'unitools:souvla': { summary: 'Pork shoulder; charcoal spit and probe needed', detail: 'The actual ingredient is 2.5 kg pork shoulder, not a pork-or-lamb choice despite the broader source summary. The source cuts pieces of about 200 g; no exact piece count is inferred. Pita formulation and cross-contact are unverified. No marinade, oil, dressing or extra side is added. This requires suitable charcoal-spit equipment and a food thermometer, not an ordinary pan. Check current local fire restrictions before lighting; no current restriction status is checked by this recipe. Follow the separately adapted cooking steps and handling note.', grocery: 'Pork shoulder 2.5 kg; separate charcoal-spit equipment and food thermometer required' },
@@ -701,6 +727,140 @@ const LIMITATIONS = {
     grocery: 'Bouillon species and formulation unverified'
   },
 
+  'wikibooks-fr:fr-acras-de-rouget': {
+    summary: 'Red mullet fritters deep-fried; cayenne and frying oil unquantified; adapted fritter endpoint',
+    detail: 'Red mullet is flaked into a batter and deep-fried until well golden; colour is not a doneness check, so use the adapted measured endpoint below. Cayenne, salt, pepper and frying oil quantities are unstated in the source, kept that way. No bone-free claim: flaked fillet can still carry bones.',
+    grocery: 'Red mullet and deep-frying oil required; seasonings unquantified'
+  },
+  'wikibooks-fr:fr-akpessi-igname': {
+    summary: 'Red palm oil (or peanut oil alternative); yam and African eggplant',
+    detail: '"Huile rouge" is glossed by the source as red palm oil, with peanut oil as the source alternative; peanut is a declared allergen on the alternative. N\'drowa is the source\'s own gloss for African eggplants. All lines plant foods.',
+    grocery: 'Yam, African eggplants and red palm oil are specialty items; peanut-oil alternative contains peanut'
+  },
+  'wikibooks-fr:fr-cassolette-de-sole-et-cabillaud': {
+    summary: 'Adapted fish endpoint; alcohol (white beer); bisque formulation unverified',
+    detail: 'The cod and sole bake 10 minutes per the source; time is not a doneness check, so use the adapted measured endpoint below. The scallops, shrimps and mussels get brief final heat - typical for shellfish, noted. White beer (a dry white wine alternative is offered by the source) means no alcohol-free claim. Lobster bisque is a purchased product, formulation unverified. Source cod quantity is approximate ("plus ou moins 125 g"), kept.',
+    grocery: 'Mixed fish and shellfish required; contains alcohol; bisque formulation unverified'
+  },
+  'wikibooks-fr:fr-cotriade': {
+    summary: 'Shellfish quantities unstated; brief final fish cooking; adapted endpoint; muscadet (alcohol)',
+    detail: 'Shellfish and crustacean quantities are unstated in the source, kept that way. The fish gets a brief final simmer in hot stock; use the adapted measured endpoint below. "Vieille" is glossed as ballan wrasse with low confidence - regional fish naming. Muscadet means no alcohol-free claim. Keep fish and shellfish chilled during prep as the source says.',
+    grocery: '2.5 kg mixed fish plus assorted shellfish required; contains alcohol; quantities of shellfish unstated'
+  },
+  'wikibooks-fr:fr-creme-de-chou-fleur': {
+    summary: 'Stock species unstated (fail-closed); glass of milk and spoons of butter unquantified',
+    detail: 'The source calls for 1 litre of stock without stating species or formulation - treated as unknown species, fail-closed. A glass of milk and 2 unqualified spoons of butter are unquantified in the source, kept. The page carries an external recipe link; provenance noted.',
+    grocery: 'Stock species and formulation not stated; cauliflower and potatoes required'
+  },
+  'wikibooks-fr:fr-curry-de-poisson-keralais': {
+    summary: 'Adapted fish endpoint; coconut-milk tin size unstated',
+    detail: 'The fish fillets poach 5-10 minutes in the sauce per the source; use the adapted measured endpoint below. The coconut-milk tin size and a glass of water are unquantified in the source, kept. Curry leaves are a specialty item.',
+    grocery: 'White fish fillets required; coconut-milk tin size unstated; curry leaves are a specialty item'
+  },
+  'wikibooks-fr:fr-escalopes-de-veau-parmesan-amandes': {
+    summary: 'Adapted veal endpoint; almonds (tree nut); flour quantity vague',
+    detail: 'The escalopes brown 3-4 minutes per side per the source; time is not a doneness check, so use the adapted measured endpoint below. Almonds are a declared tree-nut allergen. "A little flour" is unquantified in the source, kept. Parmesan formulation unverified.',
+    grocery: 'Veal escalopes required; tree nuts (almonds); flour quantity vague'
+  },
+  'wikibooks-fr:fr-fondue-epicee': {
+    summary: 'Contains wine and grappa; no alcohol-free claim; burner attention and hot-holding check',
+    detail: 'White wine and grappa are explicit and the fondue is not boiled after the spirits are added - no alcohol-free claim. If holding hot, use the adapted hot-holding check below and attend the burner. Gruyere formulation (rennet, pasteurisation) unverified.',
+    grocery: '800 g Gruyere required; contains alcohol (wine and grappa)'
+  },
+  'wikibooks-fr:fr-gratin-de-courgettes-et-tomates': {
+    summary: 'All plant plus cheese; cheese formulation unverified',
+    detail: 'All source lines are plant foods plus grated cheese; cheese formulation (rennet) unverified; reviewed vegetarian by line read. Source categories also mark it vegetarian, consistent.',
+    grocery: 'Courgettes, tomatoes and basil required'
+  },
+  'wikibooks-fr:fr-lieu-jaune-en-papillote-de-cresson': {
+    summary: 'Adapted fish endpoint; 45-minute parcel bake kept',
+    detail: 'The source doneness cue is "the pollock should be well cooked"; use the adapted measured endpoint below. The parcels steam the fish and potatoes together - check the thickest fish piece.',
+    grocery: 'Pollock (lieu jaune) and watercress required'
+  },
+  'wikibooks-fr:fr-pates-au-thon': {
+    summary: 'Tuna can size unstated; parmesan formulation unverified',
+    detail: 'The tuna can size is unstated in the source, kept. Parmesan formulation unverified; diet rests on the explicit tuna line. The chilli is added crushed per the source - deseeding not specified.',
+    grocery: 'Canned tuna required; can size unstated'
+  },
+  'wikibooks-fr:fr-penne-rigate-a-la-grecque': {
+    summary: 'Wine (alcohol); goat cheese formulation unverified; source vegan tag inconsistent',
+    detail: 'The source carries both vegan and vegetarian category tags while containing goat cheese - the vegan tag is inconsistent with the ingredient list; we adopt no diet label from it. By line read: plant foods plus goat cheese, reviewed vegetarian with cheese formulation (rennet) unverified. White wine means no alcohol-free claim. Olive preparation style ("a la grecque") not further specified in the source.',
+    grocery: 'Goat cheese log and Greek-style black olives required; contains alcohol'
+  },
+  'wikibooks-fr:fr-poelee-brestoise': {
+    summary: 'Sausage species unstated (fail-closed); source gluten-free template conflict; eggs set cue',
+    detail: 'The source page carries a "SansGluten" (gluten-free) template yet contains knacki-type sausages (commonly wheat-containing) and unverified canned "thon a la catalane" - we adopt no diet label from it and flag the conflict. Sausage species is unstated - fail-closed against meat exclusions. The eggs are cooked like an omelette; the set-egg cue is the source\'s own and the adapted step confirms it. Butter quantity vague ("a good piece"), kept.',
+    grocery: 'Sausage species and canned-tuna formulation not stated; source gluten-free label conflicts with ingredients'
+  },
+  'wikibooks-fr:fr-poelee-de-champignons-au-fromage-a-l-ail-et-fines-herbes': {
+    summary: 'Pork (lardons); wine; source method omits when lardons are cooked - gap preserved',
+    detail: 'Lardons (diced bacon) are explicit - diet rests on that line. The source method never says when the lardons are cooked - they appear in the ingredient list but not the method steps; the gap is preserved, nothing invented. White wine (deglazed) means no alcohol-free claim. Wild mushroom options (ceps, girolles) carry a sourcing/identification caveat; the source gives button mushrooms as an alternative. Cheese formulation unverified.',
+    grocery: 'Lardons required; contains alcohol; wild-mushroom sourcing caveat; source method gap on lardons preserved'
+  },
+  'wikibooks-fr:fr-poulet-fafa': {
+    summary: 'Peanut oil (declared allergen); adapted poultry endpoint; stock cube unverified',
+    detail: 'Peanut oil is explicit - a declared allergen. The chicken cooks by timing only in the source (5 + 7 minutes over high heat); use the adapted measured endpoint below. The "fafa" green identity is uncertain in the source (spinach offered as the alternative). Chicken stock cube formulation unverified.',
+    grocery: 'Peanut oil (peanut allergen); spinach or fafa shoots and coconut milk required; stock-cube formulation unverified'
+  },
+  'wikibooks-fr:fr-poulet-kedjenou': {
+    summary: 'Peanut-oil option; adapted poultry endpoint; vessel ambiguity preserved (sealed canari vs pressure cooker)',
+    detail: 'Peanut or vegetable oil is a source alternative - peanut is a declared allergen on the option. The chicken cooks 30 minutes sealed per the source; use the adapted measured endpoint below. The source names a traditional sealed clay "canari" or a "cocotte minute" (literally pressure cooker) but describes sealed low-heat simmering without pressure timing - vessel ambiguity preserved, no pressure-cooker timing invented. Do not add water per the source; do not open before 30 minutes per the source.',
+    grocery: 'Peanut-oil option (peanut allergen); eggplant and attieke are specialty items'
+  },
+  'wikibooks-fr:fr-poulet-sauce-au-vin-rouge': {
+    summary: 'Red wine (alcohol); adapted poultry endpoint; thickener spoon size ambiguous',
+    detail: 'Red wine is explicit with a 1-hour simmer - no alcohol-free claim. The chicken endpoint is timing-only in the source; use the adapted measured endpoint below. The source says "3 cuillers" of starch without tea/tablespoon qualification - ambiguity preserved. Wine quantity is 2 glasses (vessel measure), kept.',
+    grocery: 'Chicken required; contains alcohol; thickener spoon size ambiguous in source'
+  },
+  'wikibooks-fr:fr-riz-noir': {
+    summary: 'Mushroom sourcing caveat; smoked fish and mushroom quantities vague; adapted seafood endpoint',
+    detail: 'The source specifies small dried black mushrooms ("Djre ble") sold in Abidjan markets and asserts local edibility - wild/market mushroom identification is a safety-relevant sourcing note; no substitute species is asserted by the source. Smoked fish and mushroom quantities are vague in the source, kept. The shrimps and fish saute briefly; use the adapted measured endpoint below. Seasoning cube formulation unverified. "1 quartier d\'ail" kept as the source term (clove vs wedge uncertain).',
+    grocery: 'Dried black mushrooms are a specialty item with a sourcing caveat; shrimp and smoked fish required; quantities vague in source'
+  },
+  'wikibooks-fr:fr-salade-de-riz': {
+    summary: 'Cooked-rice handling; tuna form and mayonnaise unquantified',
+    detail: 'The tuna form (canned or fresh) is unstated in the source, kept; mayonnaise is unquantified, formulation unverified. Uses cooked rice that is cooled for a salad - see the handling note. Substantial as a meal (350 g rice for 4).',
+    grocery: 'Cooked rice needs prompt chilling; tuna form and mayonnaise quantity unstated',
+    handling: 'Two Plates handling note (not a change to the source method): cooked rice is a higher-risk food. Refrigerate it below 5°C within 2 hours of cooking, use within 1 day, and keep the made salad chilled until serving.',
+    handlingUrl: 'https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers',
+    handlingLabel: 'NSW leftovers guidance'
+  },
+  'wikibooks-fr:fr-sauce-arachide-poulet': {
+    summary: 'PEANUT central ingredient; adapted poultry endpoint; source boil-over caution',
+    detail: 'Peanut paste (and a peanut-oil option) is the central ingredient - a major declared allergen. The chicken fries until brown then simmers 20 minutes; browning is not a doneness check, so use the adapted measured endpoint below. The source warns the pot must be deep "because the soup rises during cooking" - boil-over caution is the source\'s own. Vegetables are an unquantified optional choice, kept.',
+    grocery: 'Peanut (major allergen) is central; chicken required; use a deep pot per the source'
+  },
+  'wikibooks-fr:fr-souffle-au-bleu-de-gex': {
+    summary: 'No bake duration stated in source; raw-milk blue cheese note; adapted set-egg endpoint',
+    detail: 'The source gives no bake duration - the only doneness cue is "as soon as the souffle has risen"; the missing duration is preserved, none invented, and the adapted step adds a set-through check. Bleu de Gex is typically a raw-milk blue cheese - unpasteurised-milk note; people who are pregnant or immunocompromised should check product pasteurisation. The source wording "dans un moule" (in a mould) for the roux almost certainly means a pan - gloss uncertain, preserved.',
+    grocery: 'Bleu de Gex (regional blue cheese, often raw-milk) required; no bake duration in source'
+  },
+  'wikibooks-fr:fr-soupe-d-asperges-champignons-mais-et-poulet': {
+    summary: 'Adapted poultry endpoint replaces visual cue; vague seasonings preserved',
+    detail: 'The source chicken doneness cue is visual ("translucency turns opaque white deeply enough"); the adapted step replaces it with a measured endpoint. Several seasonings are vague in the source (salt, sugar, plenty of pepper, a little tomato concentrate, optional stock and herbs), kept. Mushroom type unspecified.',
+    grocery: 'Chicken escalopes required; asparagus, corn and mushrooms required'
+  },
+  'wikibooks-fr:fr-spaghetti-au-jambon-de-parme': {
+    summary: 'Both hams pork; Parma ham added with residual heat only (source process)',
+    detail: 'Parma ham (cured) and cooked ham are explicit - both pork. The Parma ham is added with residual heat only per the source - it is a ready-to-eat cured product; follow product storage and use-by directions. Parmesan formulation unverified. Olive oil unquantified, kept.',
+    grocery: 'Two hams (both pork) required; cured ham is ready-to-eat - follow product directions'
+  },
+  'wikibooks-fr:fr-tarte-a-l-oignon': {
+    summary: 'Source temperature discrepancy preserved (190 then 180°C); pastry formulation unverified; set-egg check',
+    detail: 'The source preheats to 190°C then bakes at 180°C - the discrepancy is preserved as written. Shortcrust pastry formulation (fat type) unverified; diet rests on the explicit lines (eggs, butter). The egg-flour filling bakes 25-30 minutes; the adapted step confirms the filling is set. The source notes the genuine Alsatian version has no bacon.',
+    grocery: 'Shortcrust pastry required; source temperatures inconsistent (preserved)'
+  },
+  'wikibooks-fr:fr-tomates-farcies-a-l-agneau': {
+    summary: 'Lamb is pre-cooked roast per source; vessel water quantity kept',
+    detail: 'The stuffing lamb is "agneau roti hache" - cooked roast lamb per the source wording (likely leftover); the mushrooms and onion cook in the 40-minute bake. "Half a glass of water" is a vessel quantity, kept. Olive oil unquantified, kept.',
+    grocery: 'Cooked roast lamb required (leftover-style); tomatoes 1 kg'
+  },
+  'wikibooks-fr:fr-torti-aux-crevettes-et-a-la-feta': {
+    summary: 'SHELLFISH (prawns); raw-or-cooked prawns unstated - adapted endpoint covers raw; butter quantity vague',
+    detail: 'Prawns are explicit - a declared shellfish allergen. The source does not state whether the prawns start raw or cooked - ambiguity preserved; the adapted endpoint covers the raw case. "A knob of butter" is a vague quantity, kept. Feta formulation unverified.',
+    grocery: 'Prawns (shellfish allergen) required; raw-or-cooked not stated in source; feta required'
+  },
+
   "nhlbi:bavarian-beef": { summary: 'Nutrition stated by source (2003)', detail: 'NHLBI heart-healthy recipe from Keep the Beat (2003): a lighter adaptation rather than a traditional formulation. Nutrition values are stated by the source per serving and shown as-is; not computed by Two Plates.' },
   "nhlbi:beef-and-bean-chili": { summary: 'Nutrition stated by source (2003)', detail: 'NHLBI heart-healthy recipe from Keep the Beat (2003): a lighter adaptation rather than a traditional formulation. Nutrition values are stated by the source per serving and shown as-is; not computed by Two Plates.' },
   "nhlbi:beef-stroganoff": { summary: 'Nutrition stated by source (2003)', detail: 'NHLBI heart-healthy recipe from Keep the Beat (2003): a lighter adaptation rather than a traditional formulation. Nutrition values are stated by the source per serving and shown as-is; not computed by Two Plates.' },
@@ -903,6 +1063,33 @@ const REVIEWED_DIET = {
   'wikibooks:taro-fish': { diet: 'unknown', basis: 'All nine source lines independently read 2026-11-12: no meat, fish or egg lines, but the vegetable stock powder formulation is unverified - fail-closed. Source categorises the dish as vegetarian (unverified claim).' },
   'wikibooks:yellow-split-pea-soup': { diet: 'unknown', basis: 'All seven source lines independently read 2026-11-12: chicken-or-beef bouillon is a species-open source alternative with formulation unverified - fail-closed.' },
 
+  'wikibooks-fr:fr-acras-de-rouget': { diet: 'nonveg', meatKind: 'fish', basis: 'Red mullet explicit in source line 1 (400 g); egg and milk (dairy) also present; all eight source lines independently read 2026-11-12.' },
+  'wikibooks-fr:fr-akpessi-igname': { diet: 'vegan', basis: 'All nine source lines independently read 2026-11-12: plant foods only (red palm oil, or peanut oil as the source alternative).' },
+  'wikibooks-fr:fr-cassolette-de-sole-et-cabillaud': { diet: 'nonveg', meatKind: 'fish', basis: 'Cod and sole explicit in source lines 1-2, with scallops, shrimps and mussels in lines 3-5 (mixed fish and shellfish); all ten source lines independently read 2026-11-12. Lobster bisque formulation not cleared.' },
+  'wikibooks-fr:fr-cotriade': { diet: 'nonveg', meatKind: 'fish', basis: 'Mixed fish (2.5 kg) explicit in source line 1 plus shellfish and crustaceans in line 2; all eleven source lines independently read 2026-11-12.' },
+  'wikibooks-fr:fr-creme-de-chou-fleur': { diet: 'unknown', basis: 'All six source lines independently read 2026-11-12: no meat, fish or egg lines, but the 1 litre of stock has species and formulation unstated - fail-closed.' },
+  'wikibooks-fr:fr-curry-de-poisson-keralais': { diet: 'nonveg', meatKind: 'fish', basis: 'White fish fillets explicit in source line 1 (haddock, cod or hake); all fourteen source lines independently read 2026-11-12.' },
+  'wikibooks-fr:fr-escalopes-de-veau-parmesan-amandes': { diet: 'nonveg', meatKind: 'veal', basis: 'Veal escalopes explicit in source line 1; eggs and parmesan also present; all five source lines independently read 2026-11-12. Parmesan formulation not cleared.' },
+  'wikibooks-fr:fr-fondue-epicee': { diet: 'vegetarian', basis: 'All ten source lines independently read 2026-11-12: plant foods plus Gruyere (dairy). Wine and grappa present - no alcohol-free claim. Cheese rennet not verified.' },
+  'wikibooks-fr:fr-gratin-de-courgettes-et-tomates': { diet: 'vegetarian', basis: 'All five source lines independently read 2026-11-12: plant foods plus grated cheese (dairy, rennet unverified). Source categories mark it vegetarian, consistent.' },
+  'wikibooks-fr:fr-lieu-jaune-en-papillote-de-cresson': { diet: 'nonveg', meatKind: 'fish', basis: 'Pollock explicit in source line 1 (400 g); all six source lines independently read 2026-11-12.' },
+  'wikibooks-fr:fr-pates-au-thon': { diet: 'nonveg', meatKind: 'fish', basis: 'Canned tuna explicit in source line 3; all seven source lines independently read 2026-11-12. Parmesan formulation not cleared.' },
+  'wikibooks-fr:fr-penne-rigate-a-la-grecque': { diet: 'vegetarian', basis: 'All seven source lines independently read 2026-11-12: plant foods plus goat cheese (dairy, rennet unverified). Source vegan category tag is inconsistent with the goat cheese and was not adopted.' },
+  'wikibooks-fr:fr-poelee-brestoise': { diet: 'nonveg', basis: 'Knacki-type sausages explicit in source line 2 with species unstated (fail-closed against meat exclusions); tuna also present in line 5; all seven source lines independently read 2026-11-12. Source gluten-free template conflicts with ingredients and was not adopted.' },
+  'wikibooks-fr:fr-poelee-de-champignons-au-fromage-a-l-ail-et-fines-herbes': { diet: 'nonveg', meatKind: 'pork', basis: 'Lardons (diced bacon) explicit in source line 6; all six source lines independently read 2026-11-12. Cheese formulation not cleared.' },
+  'wikibooks-fr:fr-poulet-fafa': { diet: 'nonveg', meatKind: 'chicken', basis: 'Chicken explicit in source line 1 (1 large chicken); all ten source lines independently read 2026-11-12. Stock cube formulation not cleared.' },
+  'wikibooks-fr:fr-poulet-kedjenou': { diet: 'nonveg', meatKind: 'chicken', basis: 'Chicken explicit in source line 1 (one whole chicken); all eleven source lines independently read 2026-11-12.' },
+  'wikibooks-fr:fr-poulet-sauce-au-vin-rouge': { diet: 'nonveg', meatKind: 'chicken', basis: 'Chicken explicit in source line 1 (1 chicken in pieces); all five source lines independently read 2026-11-12.' },
+  'wikibooks-fr:fr-riz-noir': { diet: 'nonveg', meatKind: 'fish', basis: 'Shrimps explicit in source line 3 and smoked fish in line 4; all seven source lines independently read 2026-11-12. Seasoning cube formulation not cleared.' },
+  'wikibooks-fr:fr-salade-de-riz': { diet: 'nonveg', meatKind: 'fish', basis: 'Tuna explicit in source line 2 (200 g); all six source lines independently read 2026-11-12. Mayonnaise formulation not cleared.' },
+  'wikibooks-fr:fr-sauce-arachide-poulet': { diet: 'nonveg', meatKind: 'chicken', basis: 'Chicken explicit in source line 1 (half a chicken); all twelve source lines independently read 2026-11-12.' },
+  'wikibooks-fr:fr-souffle-au-bleu-de-gex': { diet: 'vegetarian', basis: 'All six source lines independently read 2026-11-12: eggs and blue cheese (dairy) only. Bleu de Gex is typically raw-milk - pasteurisation unverified.' },
+  'wikibooks-fr:fr-soupe-d-asperges-champignons-mais-et-poulet': { diet: 'nonveg', meatKind: 'chicken', basis: 'Chicken escalopes explicit in source line 5; all eight source lines independently read 2026-11-12.' },
+  'wikibooks-fr:fr-spaghetti-au-jambon-de-parme': { diet: 'nonveg', meatKind: 'pork', basis: 'Parma ham explicit in source line 2 and cooked ham in line 3 (both pork); all six source lines independently read 2026-11-12. Parmesan formulation not cleared.' },
+  'wikibooks-fr:fr-tarte-a-l-oignon': { diet: 'vegetarian', basis: 'All six source lines independently read 2026-11-12: plant foods plus eggs and butter. Shortcrust pastry formulation (fat type) unverified.' },
+  'wikibooks-fr:fr-tomates-farcies-a-l-agneau': { diet: 'nonveg', meatKind: 'lamb', basis: 'Roast lamb explicit in source line 2 (500 g, cooked); all six source lines independently read 2026-11-12.' },
+  'wikibooks-fr:fr-torti-aux-crevettes-et-a-la-feta': { diet: 'nonveg', meatKind: 'fish', basis: 'Prawns explicit in source line 2 (400 g, shellfish); all six source lines independently read 2026-11-12. Feta formulation not cleared.' },
+
   "nhlbi:bavarian-beef": { diet: 'nonveg', meatKind: 'beef', basis: 'Beef explicit in the verbatim NHLBI ingredient list; all 12 source lines read 2026-11-12. Stock, sauce and product formulations and cross-contact not cleared.' },
   "nhlbi:beef-and-bean-chili": { diet: 'nonveg', meatKind: 'beef', basis: 'Beef explicit in the verbatim NHLBI ingredient list; all 12 source lines read 2026-11-12. Stock, sauce and product formulations and cross-contact not cleared.' },
   "nhlbi:beef-stroganoff": { diet: 'nonveg', meatKind: 'beef', basis: 'Beef explicit in the verbatim NHLBI ingredient list; all 11 source lines read 2026-11-12. Stock, sauce and product formulations and cross-contact not cleared.' },
@@ -911,7 +1098,7 @@ const REVIEWED_DIET = {
   "nhlbi:scrumptious-meat-loaf": { diet: 'nonveg', meatKind: 'beef', basis: 'Beef explicit in the verbatim NHLBI ingredient list; all 16 source lines read 2026-11-12. Stock, sauce and product formulations and cross-contact not cleared.' },
   "nhlbi:stir-fried-beef-and-potatoes": { diet: 'nonveg', meatKind: 'beef', basis: 'Beef explicit in the verbatim NHLBI ingredient list; all 9 source lines read 2026-11-12. Stock, sauce and product formulations and cross-contact not cleared.' },
   "nhlbi:stir-fried-beef-and-chinese-vegetables": { diet: 'nonveg', meatKind: 'beef', basis: 'Beef explicit in the verbatim NHLBI ingredient list; all 13 source lines read 2026-11-12. Stock, sauce and product formulations and cross-contact not cleared.' },
-  "nhlbi:baked-pork-chops": { diet: 'nonveg', meatKind: 'pork', basis: 'Pork explicit in the verbatim NHLBI ingredient list; all 14 source lines read 2026-11-12. Stock, sauce and product formulations and cross-contact not cleared.' },
+  "nhlbi:baked-pork-chops": { diet: 'nonveg', meatKind: 'fish', basis: 'Fish explicit in the verbatim NHLBI ingredient list; all 14 source lines read 2026-11-12. Stock, sauce and product formulations and cross-contact not cleared.' },
   "nhlbi:shish-kabob": { diet: 'nonveg', meatKind: 'chicken', basis: 'Chicken explicit in the verbatim NHLBI ingredient list; all 12 source lines read 2026-11-12. Stock, sauce and product formulations and cross-contact not cleared.' },
   "nhlbi:spicy-veal-roast": { diet: 'nonveg', meatKind: 'veal', basis: 'Veal explicit in the verbatim NHLBI ingredient list; all 12 source lines read 2026-11-12. Stock, sauce and product formulations and cross-contact not cleared.' },
   "nhlbi:barbecued-chicken": { diet: 'nonveg', meatKind: 'chicken', basis: 'Chicken explicit in the verbatim NHLBI ingredient list; all 9 source lines read 2026-11-12. Stock, sauce and product formulations and cross-contact not cleared.' },
