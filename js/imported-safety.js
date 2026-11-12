@@ -1350,5 +1350,68 @@ export const IMPORTED_SAFETY = {
     },
   },
 
+  'wikibooks-es:es-sopa-de-lima': {
+    title: 'Probe the chicken breasts; well cooked is not the check',
+    note: 'Two Plates adds a measured endpoint: the source poaches the chicken breasts until well cooked; that wording is not a doneness check. Use a clean food thermometer in the thickest part of each breast to check at least 75°C, following NSW poultry guidance; continue cooking and recheck if below the target. Keep the raw chicken refrigerated at 5°C or colder before preparation and use separate boards and utensils for raw chicken and ready-to-eat food. Take care with hot oil when frying the tortilla strips.',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      1: 'Cook the chicken breasts in the broth until a clean food thermometer in the thickest part of each breast reads at least 75°C - well cooked is not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks-es:es-pepian': {
+    title: 'Probe the meat; the sauce time is not the check',
+    note: 'Two Plates adds a measured endpoint: the source lists beef or chicken and simmers everything together; time is not a doneness check. Use a clean food thermometer in the thickest part of the largest meat pieces for at least 71°C for beef or 75°C because the meat might be poultry, following NSW guidance; continue simmering and recheck if below the target. Keep the raw meat refrigerated at 5°C or colder before preparation.',
+    sources: [['NSW: poultry 75°C; mince and sausages 71°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      5: 'Drop in the meat and the vegetables so the flavors combine, keep boiling until thickened, and check the largest meat pieces with a clean food thermometer in the thickest part: at least 71°C for beef or 75°C for chicken - time is not a doneness check; continue simmering and recheck if below the target.',
+    },
+  },
+  'wikibooks-es:es-marmitako-de-bonito': {
+    title: 'Probe the bonito; the 10 minutes are not the check',
+    note: 'Two Plates adds a measured endpoint: the source sears the bonito cubes and gives them a final 10 minutes in the stew; browning and time are not doneness checks. Use a clean food thermometer in the thickest part of the largest bonito cubes to check at least 63°C, following NSW fish guidance; continue cooking and recheck if below the target. Keep the fish refrigerated at 5°C or colder before preparation.',
+    sources: [['NSW: fish 63°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      9: 'Cook until a clean food thermometer in the thickest part of the largest bonito cubes reads at least 63°C - the 10 minutes are not a doneness check; continue cooking and recheck if below the target - then serve in the same pot.',
+    },
+  },
+  'wikibooks-es:es-rocoto-relleno-a-la-cusquena': {
+    title: 'Probe the beef; hot-oil care for the frying',
+    note: 'Two Plates adds a measured endpoint: the source cooks the beef cubes a few minutes before stuffing; time is not a doneness check. Use a clean food thermometer in the centre of the beef cubes to check at least 71°C, following NSW guidance for cut and minced meats; continue cooking and recheck if below the target. Rocoto peppers are extremely hot: handle with care, keep hands away from eyes, and wash boards and utensils. Take care with hot oil in step 6: add the battered rocotos gently, do not overfill the pan, and never use water on an oil fire. Keep the beef refrigerated at 5°C or colder before preparation.',
+    sources: [['NSW: mince and cut meats 71°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      4: 'Add the garlic, the beef and the bay leaf. Cook over medium heat until a clean food thermometer in the centre of the beef cubes reads at least 71°C - a few minutes is not a doneness check; continue cooking and recheck if below the target. Then add the carrot, peas, peanut, raisins, parsley and chopped egg. Season.',
+    },
+  },
+  'wikibooks-es:es-seco-de-gallina': {
+    title: 'Probe the chicken; tender is not the check',
+    note: 'Two Plates adds a measured endpoint: the source cooks the bone-in chicken until tender; tenderness is not a doneness check. Use a clean food thermometer in the thickest part of the largest pieces, avoiding bone, to check at least 75°C, following NSW poultry guidance; continue cooking and recheck if below the target. Keep the raw chicken refrigerated at 5°C or colder before preparation and use separate boards and utensils for raw chicken and ready-to-eat food.',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      5: 'Cook over low heat until a clean food thermometer in the thickest part of the largest pieces, avoiding bone, reads at least 75°C - tenderness is not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks-es:es-fabada-asturiana-olla-a-presion': {
+    title: 'Probe the fresh tocino after pressure cooking',
+    note: 'Two Plates adds a measured endpoint: the tocino is fresh (not cured) pork; the 40 pressure-cooking minutes are not a doneness check. After the pressure releases, open the cooker and use a clean food thermometer in the centre of the tocino pieces to check at least 71°C, following NSW guidance; if below the target, simmer uncovered and recheck. Dried beans must be fully cooked - do not eat them undercooked. Follow the pressure cooker manual for filling limits and safe opening. Keep the fresh tocino refrigerated at 5°C or colder before preparation.',
+    sources: [['NSW: pork 71°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      5: 'When the cooker valve starts to spin, lower the heat to minimum and cook for 40 minutes, then let the pressure release, open the cooker and check the tocino pieces with a clean food thermometer in the centre for at least 71°C - time is not a doneness check; if below the target, simmer uncovered and recheck.',
+    },
+  },
+  'wikibooks-es:es-bandeja-paisa': {
+    title: 'Probe the beef; seven minutes is not the check',
+    note: 'Two Plates adds a measured endpoint: the source fries the beef pieces about seven minutes, then pulverizes them; time is not a doneness check. Use a clean food thermometer in the centre of the beef pieces to check at least 71°C, following NSW guidance for mince and cut meats; continue cooking and recheck if below the target. The smoked hocks or tocino are commercially prepared products; follow their labels. Keep the beef refrigerated at 5°C or colder during the resting step and before preparation.',
+    sources: [['NSW: mince and cut meats 71°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      7: 'Add the beef with the sauce and cook over medium heat until a clean food thermometer in the centre of the beef pieces reads at least 71°C - the seven minutes are not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks-es:es-tacos-de-pollo-al-pastor': {
+    title: 'Probe the chicken strips; marinade handling',
+    note: 'Two Plates adds a measured endpoint: the source bakes the chicken strips about 15 minutes; time is not a doneness check. Use a clean food thermometer in the thickest part of the largest strips to check at least 75°C, following NSW poultry guidance; continue baking and recheck if below the target. The adobo contacts raw chicken during marinating: baste with it only during baking, and discard any leftover adobo that touched raw chicken unless it is boiled first. Keep the marinating chicken refrigerated as the source says.',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      6: 'Bake at 180°C until a clean food thermometer in the thickest part of the largest strips reads at least 75°C - the about 15 minutes are not a doneness check; baste occasionally with the adobo during baking only, then discard the used adobo; continue baking and recheck if below the target.',
+    },
+  },
 };
-
