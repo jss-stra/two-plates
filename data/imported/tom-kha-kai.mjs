@@ -26,13 +26,10 @@ export default {
   "lines": [
     {
       "lineRef": "src:wikibooks:tom-kha-kai:001",
-      "name": "(600 ml) coconut milk",
+      "name": "Coconut milk",
       "quantity": "2½",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "600 ml",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -58,13 +55,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:tom-kha-kai:002",
-      "name": "(775 ml) chicken stock",
+      "name": "Chicken stock",
       "quantity": "3¼",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "775 ml",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -286,13 +280,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:tom-kha-kai:009",
-      "name": "(150 g) mushrooms",
+      "name": "Mushrooms",
       "quantity": "1",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": "sliced"
-      },
+      "note": "150 g",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

@@ -93,13 +93,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:bean-and-bacon-bake:003",
-      "name": "(28 oz / 790 g) green beans",
+      "name": "Green beans",
       "quantity": "1",
       "unit": "can",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "28 oz / 790 g",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -190,13 +187,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:bean-and-bacon-bake:006",
-      "name": "(15 g / 0.53 oz) sliced almonds",
+      "name": "Sliced almonds",
       "quantity": "⅛",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "15 g / 0.53 oz",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

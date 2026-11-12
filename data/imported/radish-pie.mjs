@@ -93,13 +93,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:radish-pie:003",
-      "name": "(60 ml) butter",
+      "name": "Butter",
       "quantity": "¼",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": "divided"
-      },
+      "note": "60 ml",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -126,13 +123,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:radish-pie:004",
-      "name": "(227 g) phyllo dough",
+      "name": "Phyllo dough",
       "quantity": "8",
       "unit": "oz",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "227 g",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -287,13 +281,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:radish-pie:009",
-      "name": "(177 ml) heavy cream",
+      "name": "Heavy cream",
       "quantity": "¾",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "177 ml",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -319,13 +310,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:radish-pie:010",
-      "name": "(113 g) fresh goat cheese",
+      "name": "Fresh goat cheese",
       "quantity": "4",
       "unit": "oz",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "113 g",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -351,13 +339,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:radish-pie:011",
-      "name": "(177 ml) broken walnut pieces",
+      "name": "Broken walnut pieces",
       "quantity": "¾",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "177 ml",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -384,13 +369,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:radish-pie:012",
-      "name": "(80 ml) fresh Italian parsley",
+      "name": "Fresh Italian parsley",
       "quantity": "⅓",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "80 ml",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

@@ -26,13 +26,10 @@ export default {
   "lines": [
     {
       "lineRef": "src:wikibooks:baked-penne:001",
-      "name": "(125 g (4.4 oz)) uncooked penne pasta",
+      "name": "Uncooked penne pasta",
       "quantity": "1",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "125 g (4.4 oz",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -61,13 +58,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:baked-penne:002",
-      "name": "(300 g (10.6 oz)) ricotta cheese",
+      "name": "Ricotta cheese",
       "quantity": "1",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "300 g (10.6 oz",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -124,13 +118,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:baked-penne:004",
-      "name": "(½ stick/125 g (4.4 oz)) unsalted butter",
+      "name": "Unsalted butter",
       "quantity": "¼",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": "melted"
-      },
+      "note": "½ stick/125 g (4.4 oz",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -318,13 +309,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:baked-penne:010",
-      "name": "(60 g (2.1 oz)) grated mozzarella cheese",
+      "name": "Grated mozzarella cheese",
       "quantity": "½",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "60 g (2.1 oz",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -350,13 +338,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:baked-penne:011",
-      "name": "(400 g (14.1 oz)) tomato paste",
+      "name": "Tomato paste",
       "quantity": "1 ½",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "400 g (14.1 oz",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

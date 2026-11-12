@@ -26,13 +26,10 @@ export default {
   "lines": [
     {
       "lineRef": "src:wikibooks:chicken-bacon-broccoli-alfredo-spaghetti:001",
-      "name": "(8 oz) spaghetti",
+      "name": "Spaghetti",
       "quantity": "225",
       "unit": "g",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "8 oz",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -216,13 +213,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:chicken-bacon-broccoli-alfredo-spaghetti:007",
-      "name": "(200 g / 7 oz) broccoli florets",
+      "name": "Broccoli florets",
       "quantity": "2",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "200 g / 7 oz",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -280,13 +274,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:chicken-bacon-broccoli-alfredo-spaghetti:009",
-      "name": "(125 g / 4.5 oz) grated parmesan cheese",
+      "name": "Grated parmesan cheese",
       "quantity": "1",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "125 g / 4.5 oz",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -312,13 +303,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:chicken-bacon-broccoli-alfredo-spaghetti:010",
-      "name": "(25 g / 1 oz) chopped parsley",
+      "name": "Chopped parsley",
       "quantity": "¼",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "25 g / 1 oz",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

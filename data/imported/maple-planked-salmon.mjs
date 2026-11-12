@@ -96,13 +96,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:maple-planked-salmon:003",
-      "name": "(10 ml) pure maple syrup",
+      "name": "Pure maple syrup",
       "quantity": "2",
       "unit": "tsp",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "10 ml",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -128,13 +125,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:maple-planked-salmon:004",
-      "name": "(30 ml) grapeseed oil (or other neutral oil)",
+      "name": "Grapeseed oil (or other neutral oil)",
       "quantity": "2",
       "unit": "tbsp",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "30 ml",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -160,13 +154,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:maple-planked-salmon:005",
-      "name": "(7 g) chipotle powder (chipotle barbecue sauce may be substituted for this)",
+      "name": "Chipotle powder (chipotle barbecue sauce may be substituted for this)",
       "quantity": "1½",
       "unit": "tsp",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "7 g",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -194,13 +185,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:maple-planked-salmon:006",
-      "name": "(5 g) crushed dried rosemary",
+      "name": "Crushed dried rosemary",
       "quantity": "1",
       "unit": "tsp",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "5 g",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

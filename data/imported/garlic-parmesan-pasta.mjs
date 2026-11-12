@@ -28,13 +28,10 @@ export default {
   "lines": [
     {
       "lineRef": "src:wikibooks:garlic-parmesan-pasta:001",
-      "name": "(½ cup) butter",
+      "name": "Butter",
       "quantity": "120",
       "unit": "ml",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "½ cup",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

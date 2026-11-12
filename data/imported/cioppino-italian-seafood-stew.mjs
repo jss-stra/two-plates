@@ -123,7 +123,7 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:cioppino-italian-seafood-stew:004",
-      "name": "Of celery",
+      "name": "Celery",
       "quantity": "8",
       "unit": "oz",
       "note": {
@@ -547,13 +547,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:cioppino-italian-seafood-stew:017",
-      "name": "Tilapia (or other white",
+      "name": "Tilapia (or other white firm-fleshed fish), cut into 2-inch chunks",
       "quantity": "1 ½",
       "unit": "lb",
-      "note": {
-        "ru": null,
-        "en": "firm-fleshed fish), cut into 2-inch chunks"
-      },
+      "note": "firm-fleshed fish), cut into 2-inch chunks",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -562,7 +559,7 @@ export default {
         "id": "cioppino-italian-seafood-stew-017",
         "name": {
           "ru": null,
-          "en": "Tilapia (or other white"
+          "en": "Tilapia (or other white firm-fleshed fish), cut into 2-inch chunks"
         },
         "quantity": "1 ½",
         "unit": "lb",

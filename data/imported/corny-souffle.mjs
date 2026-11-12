@@ -26,13 +26,10 @@ export default {
   "lines": [
     {
       "lineRef": "src:wikibooks:corny-souffle:001",
-      "name": "(16 ounces) frozen corn",
+      "name": "Frozen corn",
       "quantity": "1",
       "unit": "package",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "16 ounces",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

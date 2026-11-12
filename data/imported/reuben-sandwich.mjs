@@ -59,13 +59,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:reuben-sandwich:002",
-      "name": "(60 ml) drained sauerkraut",
+      "name": "Drained sauerkraut",
       "quantity": "¼",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "60 ml",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

@@ -59,7 +59,7 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:kashmiri-pulao:002",
-      "name": "",
+      "name": "Cloves",
       "quantity": "5",
       "unit": "clove",
       "note": {

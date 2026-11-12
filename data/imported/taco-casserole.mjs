@@ -26,13 +26,10 @@ export default {
   "lines": [
     {
       "lineRef": "src:wikibooks:taco-casserole:001",
-      "name": "(450 g) ground beef",
+      "name": "Ground beef",
       "quantity": "1",
       "unit": "lb",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "450 g",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -157,13 +154,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:taco-casserole:005",
-      "name": "(225 g) tomato sauce",
+      "name": "Tomato sauce",
       "quantity": "8",
       "unit": "oz",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "225 g",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

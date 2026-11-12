@@ -26,13 +26,10 @@ export default {
   "lines": [
     {
       "lineRef": "src:wikibooks:sloppy-joes:001",
-      "name": "(450 g) ground beef",
+      "name": "Ground beef",
       "quantity": "1",
       "unit": "lb",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "450 g",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

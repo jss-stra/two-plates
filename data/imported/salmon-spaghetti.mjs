@@ -122,13 +122,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:salmon-spaghetti:004",
-      "name": "(125 ml) white wine",
+      "name": "White wine",
       "quantity": "½",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "125 ml",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -155,13 +152,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:salmon-spaghetti:005",
-      "name": "(250 ml) cream",
+      "name": "Cream",
       "quantity": "1",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "250 ml",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

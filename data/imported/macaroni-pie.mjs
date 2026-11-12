@@ -26,13 +26,10 @@ export default {
   "lines": [
     {
       "lineRef": "src:wikibooks:macaroni-pie:001",
-      "name": "(225 grams / 8 oz) dried macaroni pasta",
+      "name": "Dried macaroni pasta",
       "quantity": "1",
       "unit": "package",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "225 grams / 8 oz",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

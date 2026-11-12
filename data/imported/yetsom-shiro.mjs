@@ -127,7 +127,7 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:yetsom-shiro:004",
-      "name": "Of garlic",
+      "name": "Garlic",
       "quantity": "4",
       "unit": "clove",
       "note": {

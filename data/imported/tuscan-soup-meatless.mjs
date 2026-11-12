@@ -251,13 +251,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:tuscan-soup-meatless:008",
-      "name": "(15–16 ounces) kidney beans or great northern beans",
+      "name": "Kidney beans or great northern beans",
       "quantity": "1",
       "unit": "can",
-      "note": {
-        "ru": null,
-        "en": "rinsed and drained"
-      },
+      "note": "15–16 ounces",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

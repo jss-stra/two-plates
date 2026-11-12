@@ -26,13 +26,10 @@ export default {
   "lines": [
     {
       "lineRef": "src:wikibooks:tomato-basil-sausage-pasta:001",
-      "name": "(8 oz) uncooked spaghetti",
+      "name": "Uncooked spaghetti",
       "quantity": "225",
       "unit": "g",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "8 oz",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -186,13 +183,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:tomato-basil-sausage-pasta:006",
-      "name": "(500 g / 1.1 lb) marinara (tomato) sauce",
+      "name": "Marinara (tomato) sauce",
       "quantity": "2",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "500 g / 1.1 lb",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -219,13 +213,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:tomato-basil-sausage-pasta:007",
-      "name": "(250 ml / 8.5 oz) milk",
+      "name": "Milk",
       "quantity": "1",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "250 ml / 8.5 oz",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -251,13 +242,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:tomato-basil-sausage-pasta:008",
-      "name": "(50 g / 2 oz) fresh basil leaves",
+      "name": "Fresh basil leaves",
       "quantity": "½",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": "chopped"
-      },
+      "note": "50 g / 2 oz",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

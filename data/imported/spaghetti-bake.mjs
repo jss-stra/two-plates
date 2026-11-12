@@ -158,13 +158,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:spaghetti-bake:005",
-      "name": "(8 oz / 225 g)  cream cheese",
+      "name": "Cream cheese",
       "quantity": "1",
       "unit": "package",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "8 oz / 225 g",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

@@ -532,13 +532,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:pork-burritos-with-green-pepper-sauce:017",
-      "name": "(~2 cups) shredded Monterey Jack cheese",
+      "name": "Shredded Monterey Jack cheese",
       "quantity": "8",
       "unit": "oz",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "~2 cups",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

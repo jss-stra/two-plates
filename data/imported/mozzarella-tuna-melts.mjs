@@ -26,13 +26,10 @@ export default {
   "lines": [
     {
       "lineRef": "src:wikibooks:mozzarella-tuna-melts:001",
-      "name": "(6 ounces) water-packed tuna",
+      "name": "Water-packed tuna",
       "quantity": "1",
       "unit": "can",
-      "note": {
-        "ru": null,
-        "en": "drained and flaked"
-      },
+      "note": "6 ounces",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

@@ -123,13 +123,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:zuppa-toscana:004",
-      "name": "(29 oz) chicken broth",
+      "name": "Chicken broth",
       "quantity": "2",
       "unit": "can",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "29 oz",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

@@ -26,13 +26,10 @@ export default {
   "lines": [
     {
       "lineRef": "src:wikibooks:spaghetti-alla-puttanesca:001",
-      "name": "Grams (21 ounces) uncooked spaghetti",
+      "name": "Uncooked spaghetti",
       "quantity": "600",
-      "unit": "piece",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "unit": "g",
+      "note": "21 ounces",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -124,7 +121,7 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:spaghetti-alla-puttanesca:004",
-      "name": "Of garlic",
+      "name": "Garlic",
       "quantity": "5",
       "unit": "clove",
       "note": {
@@ -157,13 +154,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:spaghetti-alla-puttanesca:005",
-      "name": "Grams (7 ounces) black olives",
+      "name": "Black olives",
       "quantity": "200",
-      "unit": "piece",
-      "note": {
-        "ru": null,
-        "en": "pitted and chopped"
-      },
+      "unit": "g",
+      "note": "7 ounces",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

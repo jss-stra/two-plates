@@ -28,13 +28,10 @@ export default {
   "lines": [
     {
       "lineRef": "src:wikibooks:rice-with-tofu-and-nuts:001",
-      "name": "(120 g) Basmati rice",
+      "name": "Basmati rice",
       "quantity": "½",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "120 g",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -62,13 +59,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:rice-with-tofu-and-nuts:002",
-      "name": "(240 g) diced firm tofu",
+      "name": "Diced firm tofu",
       "quantity": "1",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "240 g",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -345,13 +339,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:rice-with-tofu-and-nuts:011",
-      "name": "(480 ml) water",
+      "name": "Water",
       "quantity": "2",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "480 ml",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

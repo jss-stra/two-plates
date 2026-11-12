@@ -160,13 +160,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:southwest-pasta:005",
-      "name": "(15 oz) sweet corn kernels",
+      "name": "Sweet corn kernels",
       "quantity": "1",
       "unit": "can",
-      "note": {
-        "ru": null,
-        "en": "drained"
-      },
+      "note": "15 oz",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -192,13 +189,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:southwest-pasta:006",
-      "name": "(15 oz) black beans",
+      "name": "Black beans",
       "quantity": "1",
       "unit": "can",
-      "note": {
-        "ru": null,
-        "en": "drained"
-      },
+      "note": "15 oz",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -224,13 +218,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:southwest-pasta:007",
-      "name": "(14.5 oz) peeled and diced tomatoes with juice",
+      "name": "Peeled and diced tomatoes with juice",
       "quantity": "1",
       "unit": "can",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "14.5 oz",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

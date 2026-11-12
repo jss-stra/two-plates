@@ -26,13 +26,10 @@ export default {
   "lines": [
     {
       "lineRef": "src:wikibooks:calzone:001",
-      "name": "(240 ml) ricotta cheese",
+      "name": "Ricotta cheese",
       "quantity": "1",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "240 ml",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -59,13 +56,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:calzone:002",
-      "name": "(240 ml) shredded mozzarella cheese",
+      "name": "Shredded mozzarella cheese",
       "quantity": "1",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "240 ml",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -125,13 +119,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:calzone:004",
-      "name": "(10 ml) oregano",
+      "name": "Oregano",
       "quantity": "2",
       "unit": "tsp",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "10 ml",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

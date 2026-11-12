@@ -61,13 +61,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:keralan-vegetable-stew:002",
-      "name": "Boiled vegetables (carrots",
+      "name": "Boiled vegetables (carrots, green beans, potatoes, peas, etc.)",
       "quantity": "1½",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": "green beans, potatoes, peas, etc.)"
-      },
+      "note": "green beans, potatoes, peas, etc.)",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -76,7 +73,7 @@ export default {
         "id": "keralan-vegetable-stew-002",
         "name": {
           "ru": null,
-          "en": "Boiled vegetables (carrots"
+          "en": "Boiled vegetables (carrots, green beans, potatoes, peas, etc.)"
         },
         "quantity": "1½",
         "unit": "cup",

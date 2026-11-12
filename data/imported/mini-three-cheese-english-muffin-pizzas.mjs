@@ -94,13 +94,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:mini-three-cheese-english-muffin-pizzas:003",
-      "name": "(6 ounces) shredded cheddar cheese",
+      "name": "Shredded cheddar cheese",
       "quantity": "1½",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "6 ounces",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -160,13 +157,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:mini-three-cheese-english-muffin-pizzas:005",
-      "name": "(10.5 ounces) pizza sauce",
+      "name": "Pizza sauce",
       "quantity": "1",
       "unit": "can",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "10.5 ounces",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -192,13 +186,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:mini-three-cheese-english-muffin-pizzas:006",
-      "name": "(4 ounces) shredded mozzarella cheese",
+      "name": "Shredded mozzarella cheese",
       "quantity": "1",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "4 ounces",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

@@ -26,13 +26,10 @@ export default {
   "lines": [
     {
       "lineRef": "src:wikibooks:spinach-mushroom-pesto-spaghetti:001",
-      "name": "(8 oz) spaghetti",
+      "name": "Spaghetti",
       "quantity": "225",
       "unit": "g",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "8 oz",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -88,13 +85,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:spinach-mushroom-pesto-spaghetti:003",
-      "name": "(5 oz) spinach",
+      "name": "Spinach",
       "quantity": "140",
       "unit": "g",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "5 oz",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -120,13 +114,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:spinach-mushroom-pesto-spaghetti:004",
-      "name": "(7 oz) mushrooms",
+      "name": "Mushrooms",
       "quantity": "200",
       "unit": "g",
-      "note": {
-        "ru": null,
-        "en": "sliced"
-      },
+      "note": "7 oz",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -216,13 +207,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:spinach-mushroom-pesto-spaghetti:007",
-      "name": "(275 g / 9.5 oz) pesto",
+      "name": "Pesto",
       "quantity": "1",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "275 g / 9.5 oz",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -248,13 +236,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:spinach-mushroom-pesto-spaghetti:008",
-      "name": "(60 g / 2 oz) grated parmesan cheese",
+      "name": "Grated parmesan cheese",
       "quantity": "½",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": "plus extra for sprinkling"
-      },
+      "note": "60 g / 2 oz",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

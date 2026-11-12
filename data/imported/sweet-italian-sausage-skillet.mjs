@@ -26,13 +26,10 @@ export default {
   "lines": [
     {
       "lineRef": "src:wikibooks:sweet-italian-sausage-skillet:001",
-      "name": "(480 ml) rotini or other spiral pasta",
+      "name": "Rotini or other spiral pasta",
       "quantity": "2",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "480 ml",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -219,13 +216,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:sweet-italian-sausage-skillet:007",
-      "name": "(240 ml) chicken broth",
+      "name": "Chicken broth",
       "quantity": "1",
       "unit": "cup",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "240 ml",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

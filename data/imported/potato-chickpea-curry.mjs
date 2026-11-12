@@ -60,7 +60,7 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:potato-chickpea-curry:002",
-      "name": "Of garlic",
+      "name": "Garlic",
       "quantity": "2",
       "unit": "clove",
       "note": {
@@ -221,13 +221,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:potato-chickpea-curry:007",
-      "name": "Chickpeas (unsalted",
+      "name": "Chickpeas (unsalted if available)",
       "quantity": "1",
       "unit": "can",
-      "note": {
-        "ru": null,
-        "en": "if available)"
-      },
+      "note": "if available)",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -236,7 +233,7 @@ export default {
         "id": "potato-chickpea-curry-007",
         "name": {
           "ru": null,
-          "en": "Chickpeas (unsalted"
+          "en": "Chickpeas (unsalted if available)"
         },
         "quantity": "1",
         "unit": "can",

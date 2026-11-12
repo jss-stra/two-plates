@@ -186,13 +186,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:jambons:006",
-      "name": "Grated cheese (Dubliner Cheese recommended",
+      "name": "Grated cheese (Dubliner cheese recommended; can be substituted)",
       "quantity": "150",
       "unit": "g",
-      "note": {
-        "ru": null,
-        "en": "can be substituted)"
-      },
+      "note": "can be substituted)",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -201,7 +198,7 @@ export default {
         "id": "jambons-006",
         "name": {
           "ru": null,
-          "en": "Grated cheese (Dubliner Cheese recommended"
+          "en": "Grated cheese (Dubliner cheese recommended; can be substituted)"
         },
         "quantity": "150",
         "unit": "g",

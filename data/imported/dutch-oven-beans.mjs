@@ -156,13 +156,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:dutch-oven-beans:005",
-      "name": "(15 ounces) lima beans",
+      "name": "Lima beans",
       "quantity": "1",
       "unit": "can",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "15 ounces",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -188,13 +185,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:dutch-oven-beans:006",
-      "name": "(15 ounces) pinto beans",
+      "name": "Pinto beans",
       "quantity": "1",
       "unit": "can",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "15 ounces",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -220,13 +214,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:dutch-oven-beans:007",
-      "name": "(15 ounces) red beans",
+      "name": "Red beans",
       "quantity": "1",
       "unit": "can",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "15 ounces",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -252,13 +243,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:dutch-oven-beans:008",
-      "name": "(15 ounces) butter beans",
+      "name": "Butter beans",
       "quantity": "1",
       "unit": "can",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "15 ounces",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

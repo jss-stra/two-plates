@@ -26,13 +26,10 @@ export default {
   "lines": [
     {
       "lineRef": "src:wikibooks:paella-valenciana:001",
-      "name": "(17.5 ounces) chicken",
+      "name": "Chicken",
       "quantity": "500",
       "unit": "g",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "17.5 ounces",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -90,13 +87,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:paella-valenciana:003",
-      "name": "(0.75 ounce) salt",
+      "name": "Salt",
       "quantity": "20",
       "unit": "g",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "0.75 ounce",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -155,13 +149,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:paella-valenciana:005",
-      "name": "(10 ounces) chopped green bell peppers (optional)",
+      "name": "Chopped green bell peppers (optional)",
       "quantity": "250",
       "unit": "g",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "10 ounces",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -252,13 +243,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:paella-valenciana:008",
-      "name": "(17.5 ounces) diced or grated tomatoes",
+      "name": "Diced or grated tomatoes",
       "quantity": "500",
       "unit": "g",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "17.5 ounces",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -284,13 +272,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:paella-valenciana:009",
-      "name": "(2 quarts) water (preferably hard water)",
+      "name": "Water (preferably hard water)",
       "quantity": "2",
       "unit": "L",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "2 quarts",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -349,13 +334,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:paella-valenciana:011",
-      "name": "(4.5 ounces) large haricot beans (canned or fresh)",
+      "name": "Large haricot beans (canned or fresh)",
       "quantity": "125",
       "unit": "g",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "4.5 ounces",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -382,13 +364,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:paella-valenciana:012",
-      "name": "(3.5 ounces) small haricot beans (canned or fresh)",
+      "name": "Small haricot beans (canned or fresh)",
       "quantity": "100",
       "unit": "g",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "3.5 ounces",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -416,13 +395,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:paella-valenciana:013",
-      "name": "(4.5 ounces) fresh runner beans or green beans",
+      "name": "Fresh runner beans or green beans",
       "quantity": "125",
       "unit": "g",
-      "note": {
-        "ru": null,
-        "en": null
-      },
+      "note": "4.5 ounces",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
@@ -483,13 +459,10 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:paella-valenciana:015",
-      "name": "(14 ounces) calasparra rice",
+      "name": "Calasparra rice",
       "quantity": "400",
       "unit": "g",
-      "note": {
-        "ru": null,
-        "en": "bomba rice, or pearl rice"
-      },
+      "note": "14 ounces",
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,

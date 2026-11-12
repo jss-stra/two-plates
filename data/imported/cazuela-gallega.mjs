@@ -123,7 +123,7 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:cazuela-gallega:004",
-      "name": "Of ketchup",
+      "name": "Ketchup",
       "quantity": "2",
       "unit": "tbsp",
       "note": {
@@ -155,7 +155,7 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:cazuela-gallega:005",
-      "name": "Of butter",
+      "name": "Butter",
       "quantity": "1",
       "unit": "tbsp",
       "note": {
@@ -187,7 +187,7 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:cazuela-gallega:006",
-      "name": "Of ground Parmesan cheese",
+      "name": "Ground Parmesan cheese",
       "quantity": "½",
       "unit": "cup",
       "note": {
