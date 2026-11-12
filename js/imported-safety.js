@@ -1537,8 +1537,8 @@ export const IMPORTED_SAFETY = {
   },
   'wikibooks-es:es-arepa-de-huevo': {
     title: 'The egg inside must cook through; hot-oil care',
-    note: 'Two Plates adds an explicit doneness check: the raw egg goes into the arepa after the first fry and must cook completely in the second fry. foodsafety.gov guidance is to cook eggs until the yolk and white are firm; cut the first arepa open and check the centre is fully set with no runny yolk, and keep frying if not. Deep-frying: heat the oil steadily, lower the arepas away from you, never leave the pot unattended, and keep a lid nearby to smother splatter; never add water to hot oil.',
-    sources: [['foodsafety.gov: eggs and egg dishes 71°C; cook eggs until yolk and white are firm', 'https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures'], ['FSANZ: temperature control', FSANZ]],
+    note: 'Two Plates adds an explicit doneness check: the raw egg goes into the arepa after the first fry and must cook completely in the second fry. foodsafety.gov guidance is to cook eggs until the yolk and white are firm; cut the first arepa open and check the centre is fully set with no runny yolk, and keep frying if not. Deep-frying: heat the oil steadily and lower the arepas gently away from you to limit ordinary splatter; never add water to hot oil and never leave the pot unattended. If the oil catches fire, follow Fire and Rescue NSW guidance: turn off the stove if it is safe to do so, cover the pan with its lid to smother the flames, never use water on an oil fire, and if the fire is not out in the first few seconds, leave the kitchen, close the door and call Triple Zero 000.',
+    sources: [['foodsafety.gov: eggs and egg dishes 71°C; cook eggs until yolk and white are firm', 'https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures'], ['Fire and Rescue NSW: pan fire - turn off the stove, cover with a lid, never use water', 'https://www.fire.nsw.gov.au/fire-safety/home-fire-safety/topics/cooking-fire-safety'], ['FSANZ: temperature control', FSANZ]],
     replacements: {
       9: 'Optionally, close the opening with a little raw dough and put the arepa back into the hot oil until both the arepa and the egg are fully fried - cut the first one open and check the egg yolk and white are completely set; a runny centre is not done; keep frying and recheck if needed.',
     },
@@ -1576,11 +1576,12 @@ export const IMPORTED_SAFETY = {
     },
   },
   'wikibooks-es:es-tallarin-saltado-tay-pa': {
-    title: 'Prawns pearly and opaque; reheat the cooked meats through',
-    note: 'Two Plates adds explicit doneness checks: the prawns or shrimp are done when the flesh is pearly and opaque, following foodsafety.gov shellfish guidance - the colour change in the source is that check made explicit. The roast pork, roast duck and chicken are pre-cooked inputs: reheat them until steaming hot throughout. Keep the raw prawns refrigerated at 5°C or colder and use separate boards and utensils for raw seafood and ready-to-eat food. The quail eggs are a cooked input.',
-    sources: [['foodsafety.gov: shrimp, lobster and scallops - flesh pearly or white and opaque', 'https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures'], ['FSANZ: raw separation and temperature control', FSANZ]],
+    title: 'Prawns pearly and opaque; chicken must reach 75°C if raw',
+    note: 'Two Plates adds explicit doneness checks: the prawns or shrimp are done when the flesh is pearly and opaque, following foodsafety.gov shellfish guidance - the colour change in the source is that check made explicit. The roast pork and roast duck are pre-cooked inputs: reheat them until steaming hot throughout. The chicken appears only in the method and the source does not say whether it is cooked: if yours is raw, cook it through first until a clean food thermometer in the thickest part reads at least 75°C, following NSW poultry guidance. Keep the raw prawns and any raw chicken refrigerated at 5°C or colder and use separate boards and utensils for raw seafood, raw poultry and ready-to-eat food. The quail eggs are a cooked input.',
+    sources: [['foodsafety.gov: shrimp, lobster and scallops - flesh pearly or white and opaque', 'https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures'], ['NSW: poultry 75°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
     replacements: {
       5: 'Saute the shrimp or prawns in oil until the flesh is pearly and opaque - that, not the colour change alone, is the doneness check - and set aside.',
+      6: 'Saute the roast pork, the duck and the chicken in oil until lightly golden. The roast pork and roast duck are cooked inputs - reheat them until steaming hot. If your chicken is raw (the source does not say), cook it through until the thickest part reads at least 75°C on a clean food thermometer; set aside.',
     },
   },
   'wikibooks-es:es-porkolt': {

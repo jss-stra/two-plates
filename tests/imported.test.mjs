@@ -459,7 +459,10 @@ for (const id of es4Ids) {
   t(`${id} ES verbatim raws and steps kept`, r.src.lines.every(l => l.source.raw.length > 0) && r.src.sourceRecord.sourceStepsEs.length === r.src.steps.length);
 }
 const are = wes('es-arepa-de-huevo');
-t('Arepa egg method-only kept, egg-set endpoint', are.src.lines.find(l => l.name === 'Hen egg').source.raw.includes('huevo de gallina crudo') && are.safety.replacements[9].includes('completely set') && are.diet === 'veg');
+const areEgg = are.src.lines.find(l => l.name === 'Hen egg');
+t('Arepa egg method-only kept, egg-set endpoint', areEgg.source.raw.includes('huevo de gallina crudo') && are.safety.replacements[9].includes('completely set') && are.diet === 'veg');
+t('Arepa egg listed with source-stated quantity and provenance note', areEgg.quantity === '1' && areEgg.unit === 'piece' && areEgg.note.en.includes('named only in the method'));
+t('Arepa oil-fire wording follows FRNSW, no invented splatter-smothering', are.safety.note.includes('Fire and Rescue NSW') && are.safety.note.includes('Triple Zero 000') && !are.safety.note.includes('smother splatter') && are.safety.sources.some(s => s[1].includes('fire.nsw.gov.au')));
 const san = wes('es-sancocho-antioqueno');
 t('Sancocho beef 63C and pork 71C, mixed meats fail closed', san.safety.replacements[2].includes('63°C') && san.safety.replacements[2].includes('71°C') && san.diet === 'nonveg' && san.meatKind === null);
 const kaq = wes('es-kaq-ik');
@@ -469,7 +472,9 @@ t('Juane parcel endpoint 75C plus set egg, range base 6', jua.safety.replacement
 const kot = wes('es-kottbullar');
 t('Kottbullar mince 71C, no raw tasting', kot.safety.replacements[5].includes('71°C') && kot.safety.note.includes('never taste raw mince') && kot.meatKind === null);
 const tal = wes('es-tallarin-saltado-tay-pa');
-t('Tallarin prawns pearly-opaque; chicken gap retained', tal.safety.replacements[5].includes('pearly and opaque') && tal.limitation.detail.includes('chicken is not in the ingredient list'));
+t('Tallarin prawns pearly-opaque; chicken listed method-only with poultry endpoint', tal.safety.replacements[5].includes('pearly and opaque') && tal.safety.replacements[6].includes('75°C') && tal.safety.note.includes('source does not say whether it is cooked'));
+const talChk = tal.src.lines.find(l => l.name === 'Chicken');
+t('Tallarin chicken ingredient included, quantity genuinely unknown, provenance marked', !!talChk && talChk.quantity === null && talChk.unit === 'unstated' && talChk.note.en.includes('named only in the method') && talChk.source.raw === 'el chancho, el pato y el pollo' && tal.limitation.detail.includes('included as an ingredient with no stated quantity'));
 const por = wes('es-porkolt');
 t('Porkolt 1.5 no-unit kept, beef 63C', por.src.lines[0].quantity === '1.5' && por.src.lines[0].unit === 'unstated' && por.safety.replacements[6].includes('63°C'));
 const gaz4 = wes('es-gazpacho-manchego');

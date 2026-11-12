@@ -796,6 +796,38 @@ export default {
       "methodSteps": [
         12
       ]
+    },
+    {
+      "lineRef": "src:wikibooks-es:es-tallarin-saltado-tay-pa:025",
+      "name": "Chicken",
+      "quantity": null,
+      "unit": "unstated",
+      "note": {
+        "ru": null,
+        "en": "named only in the method (the saute step), not in the source ingredient list; the source gives no quantity and does not say whether it is pre-cooked"
+      },
+      "scaling": "linear",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "es-tallarin-saltado-tay-pa:025",
+        "name": {
+          "ru": null,
+          "en": "Chicken"
+        },
+        "quantity": null,
+        "unit": "unstated",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "named only in the method (the saute step), not in the source ingredient list; the source gives no quantity and does not say whether it is pre-cooked"
+        },
+        "raw": "el chancho, el pato y el pollo"
+      },
+      "methodSteps": [
+        5
+      ]
     }
   ],
   "steps": [
@@ -907,7 +939,7 @@ export default {
     "license": "CC BY-SA 4.0 (es.wikibooks)",
     "summary": {
       "ru": null,
-      "en": "Chifa stir-fried egg noodles with prawns, roast pork, roast duck, quail eggs and Chinese greens in a thick oyster-sauce gravy; the source serves 4-6, base set to 4 (prawn pearly-opaque endpoint; meats are cooked inputs)"
+      "en": "Chifa stir-fried egg noodles with prawns, roast pork, roast duck, chicken, quail eggs and Chinese greens in a thick oyster-sauce gravy; the source serves 4-6, base set to 4 (prawn pearly-opaque endpoint; chicken raw-poultry endpoint since the source does not say it is cooked)"
     },
     "servings": 4,
     "time": null,
@@ -1272,6 +1304,21 @@ export default {
           "en": "dissolved, to thicken; kept as written"
         },
         "raw": "1 cucharada de {{ing|Chuño}}"
+      },
+      {
+        "id": "es-tallarin-saltado-tay-pa:025",
+        "name": {
+          "ru": null,
+          "en": "Chicken"
+        },
+        "quantity": null,
+        "unit": "unstated",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "named only in the method (the saute step), not in the source ingredient list; the source gives no quantity and does not say whether it is pre-cooked"
+        },
+        "raw": "el chancho, el pato y el pollo"
       }
     ],
     "steps": [
