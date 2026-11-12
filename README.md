@@ -1,6 +1,6 @@
 # Two Plates
 
-A weekly high-protein meal planner for two people. It picks 5–7 dinners (each one also covers the next day's lunch), shows protein and calories per person, and builds a combined grocery list you can export to Excel. The Today tab also logs water per person, with optional 3-hourly nudges (9am–9pm) when nothing was logged in the previous 3 hours, plus a 10pm check-in asking about coffees, teas, milks and shakes. Nudges arrive as push notifications even when the app is closed (see `supabase/reminders-setup.sql`).
+A weekly high-protein meal planner for two people. It picks 5–7 dinners (each one also covers the next day's lunch), shows protein and calories per person, and builds a combined grocery list you can export to Excel. The Today tab also tracks water per person: a "Did you drink water?" yes/no check-in at 9am, noon, 3pm, 6pm and 9pm (nothing after 10pm) plus an optional glass counter, and a 10pm check-in asking about coffees, teas, milks and shakes. Check-ins arrive as push notifications even when the app is closed (see `supabase/reminders-setup.sql`); tapping one opens the app on the Yes/No question and daily/weekly summaries keep check-in answers separate from glass counts.
 
 Allergies and dislikes can be excluded in Settings: dishes listing those ingredients (or direct forms of the same food, like peanut butter for peanuts) are skipped by shuffle, swaps and the dish picker, and anything already in the week gets a warning badge. The app checks its own recipe ingredient lists — it can't see inside packaged goods or track cross-contact.
 
@@ -18,7 +18,7 @@ There's no build step. It's plain HTML, CSS and JavaScript modules, and everythi
 | `js/grocery.js` | Combines and scales ingredients into the shopping list. |
 | `js/export.js` | Excel export (shopping list, pantry check, menu with YouTube links). |
 | `js/sync.js` | Optional live sync between phones through Supabase. |
-| `js/water.js` | Water goal helper and the 3-hourly reminder check (fires while the app is open). |
+| `js/water.js` | Water goal helper and the fixed-time check-in slots, answers and summaries. |
 | `js/push.js` | Subscribe this phone for push reminders (even when the app is closed). |
 | `supabase/functions/water-reminders` | Edge function that sends the push notifications. |
 | `supabase/reminders-setup.sql` | One-time SQL: subscriptions table, dedupe log, cron job (every 5 min). |

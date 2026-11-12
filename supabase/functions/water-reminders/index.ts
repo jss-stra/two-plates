@@ -1,5 +1,5 @@
-// Reminder sender (water nudges + evening beverage check-in). Triggered by a
-// pg_cron job every 15 minutes with the household subscriptions that are due (all rules and dedupe run in SQL inside
+// Reminder sender (water yes/no check-ins + evening beverage check-in). Triggered by a
+// pg_cron job every 5 minutes with the household subscriptions that are due (all rules and dedupe run in SQL inside
 // the database, so subscription endpoints are never exposed via the API).
 // Secrets: VAPID_PRIVATE (+ VAPID_PUBLIC below), WATER_CRON_SECRET.
 import webpush from 'npm:web-push@3.6.7';
@@ -19,6 +19,11 @@ Deno.serve(async (req) => {
       await webpush.sendNotification(item.subscription, JSON.stringify({
         title: item.title || 'Two Plates',
         body: item.body || 'Time for some water',
+        tag: item.tag,           // same-tag notifications replace, not stack
+        kind: item.kind,         // 'water-checkin' lets the app record the answer
+        slot: item.slot,         // local hour the check-in is for (9/12/15/18/21)
+        person: item.person,
+        actions: item.actions,   // Yes/No buttons where the platform shows them
       }));
       results.sent++;
     } catch (err) {

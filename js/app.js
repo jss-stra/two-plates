@@ -8,7 +8,7 @@ import { buildGrocery, weeklyNoteText, scaleFactor, formatQty, qtyText } from '.
 import { exportExcel } from './export.js';
 import { renderBought, loadReceipts, onReceipts, addReceipt, removeReceipt, rereadReceipt, shiftWeek } from './receipts.js';
 import { startSync, connect, disconnect, flushSync, getConfig, newHouseholdCode, onSyncStatus, syncStatus } from './sync.js';
-import { waterGoal, waterReminderDue, markWaterReminded } from './water.js';
+import { waterGoal, pendingWaterSlot, recordWaterAnswer, waterAnswer, slotLabel, dismissWaterSlot, WATER_SLOTS } from './water.js';
 import { renderHome } from './home.js';
 import { pushStatus, enablePush, disablePush } from './push.js';
 import { initAuth, signInWithGoogle, signOut, onAuth, authUser, authReady } from './auth.js';
@@ -37,6 +37,7 @@ const ui = {
   logPerson: Number(store.get('twoplates.me', '0')) || 0, // whose phone this is
   logView: 'day',
   pushStatus: 'off',
+  waterPrompt: null, // { slot, person } while a water check-in question is on screen
   logMonth: localISO().slice(0, 7),
   boughtWeek: null, // null = the week being planned
   uploading: false,
@@ -601,7 +602,7 @@ function pushUi(s) {
   if (ui.pushStatus === 'on') return `<p class="fine">Reminders are on for ${esc(name)} on this phone — they arrive even when the app is closed.</p>
     <button class="btn ghost" data-act="push-disable">Stop reminders on this phone</button>`;
   return `<button class="btn wide wrap" data-act="push-enable">Remind ${esc(name)} on this phone, even when the app is closed</button>
-    <p class="fine">Sends a notification at 9am, noon, 3pm, 6pm and 9pm if no water was logged in the previous 3 hours, plus a 10pm check-in asking how many coffees, teas, milks and shakes you had.</p>`;
+    <p class="fine">Sends a \"Did you drink water?\" check-in at 9am, noon, 3pm, 6pm and 9pm — tap it and answer Yes or No — plus a 10pm check-in asking how many coffees, teas, milks and shakes you had. Nothing after 10pm.</p>`;
 }
 
 // ---------- Exclusions (allergies & dislikes) ----------
@@ -707,7 +708,7 @@ function renderSettings(s) {
 
   <section class="card">
     <h2>Water reminders</h2>
-    <label class="rule toggle"><span>Nudge every 3 hours, 9am–9pm, when no water was logged in the previous 3 hours</span><input type="checkbox" data-set="rules.waterRemind" ${s.rules.waterRemind !== false ? 'checked' : ''}></label>
+    <label class="rule toggle"><span>Ask \"Did you drink water?\" at 9am, noon, 3pm, 6pm and 9pm while the app is open</span><input type="checkbox" data-set="rules.waterRemind" ${s.rules.waterRemind !== false ? 'checked' : ''}></label>
     ${pushUi(s)}
   </section>
 
@@ -1157,6 +1158,33 @@ const actions = {
       if (e.waterTs.length > 40) e.waterTs = e.waterTs.slice(-40);
     });
   },
+  // Water check-ins: answer the on-screen prompt, or tap a slot chip on the
+  // Today card to set/change/clear that slot's answer (cycles yes - no - clear).
+  'water-answer': (el) => {
+    const slot = Number(el.dataset.slot);
+    if (!WATER_SLOTS.includes(slot)) return;
+    const p = el.dataset.p != null ? Number(el.dataset.p) : ui.logPerson;
+    recordCheckin(slot, el.dataset.answer === 'yes' ? 'yes' : 'no', p);
+    ui.waterPrompt = null;
+    render();
+  },
+  'water-later': (el) => {
+    const slot = Number(el.dataset.slot);
+    const p = el.dataset.p != null ? Number(el.dataset.p) : ui.logPerson;
+    dismissWaterSlot(localISO(), p, slot);
+    ui.waterPrompt = null;
+    render();
+  },
+  'water-chip': (el) => {
+    const slot = Number(el.dataset.slot);
+    if (!WATER_SLOTS.includes(slot)) return;
+    const cur = waterAnswer(getState().days?.[ui.logDate]?.[ui.logPerson] || {}, slot);
+    const next = cur === 'yes' ? 'no' : cur === 'no' ? null : 'yes';
+    setEntry((e) => {
+      if (next) recordWaterAnswer(e, slot, next);
+      else if (e.waterCheck) delete e.waterCheck[String(slot)];
+    });
+  },
   'push-enable': async () => {
     try { await enablePush(ui.logPerson); ui.pushStatus = 'on'; toast('Water reminders on for this phone'); }
     catch (err) { toast(err.message || 'Could not turn on reminders'); ui.pushStatus = await pushStatus(); }
@@ -1346,22 +1374,76 @@ document.addEventListener('visibilitychange', () => {
   if (ui.tab === 'bought') loadReceipts();
   checkWaterReminder();
 });
-// Water nudges: while the app is open, check every 15 min and on return.
+// Water check-ins: record a yes/no answer for a slot on a person's today entry.
+function recordCheckin(slot, answer, person, iso = localISO()) {
+  const s = getState();
+  const p = Math.min(Math.max(0, Number(person) || 0), (s.people.length || 1) - 1);
+  update((d) => {
+    d.days ||= {};
+    const day = (d.days[iso] ||= {});
+    const e = (day[p] ||= {});
+    recordWaterAnswer(e, slot, answer);
+    e.at = Date.now();
+  });
+  toast(`${slotLabel(slot)} check-in saved: ${answer === 'yes' ? 'yes, had water' : 'no water'}`);
+}
+
+// Launch params from a notification tap: ?water=yes|no&slot=15&p=0 records the
+// answer; ?waterPrompt=15&p=0 opens the question. Both land on the Today tab.
+function applyLaunchParams() {
+  let q;
+  try { q = new URLSearchParams(location.search); } catch { return; }
+  const answer = q.get('water');
+  const slot = Number(q.get('slot') || q.get('waterPrompt'));
+  if (!WATER_SLOTS.includes(slot)) return;
+  const s = getState();
+  const rawP = q.get('p');
+  const p = rawP != null && Number(rawP) >= 0 && Number(rawP) < s.people.length ? Number(rawP) : ui.logPerson;
+  if (answer === 'yes' || answer === 'no') {
+    recordCheckin(slot, answer, p);
+  } else if (q.get('waterPrompt')) {
+    ui.waterPrompt = { slot, person: p };
+  } else {
+    return;
+  }
+  ui.tab = 'today'; ui.logView = 'day'; ui.logDate = localISO(); ui.logPerson = p;
+  history.replaceState(null, '', location.pathname);
+}
+
+// Water check-in prompts: while the app is open, surface the latest unanswered
+// slot as an in-app Yes/No question (push covers the app-closed case). Answering
+// either one clears the other, because both record the same slot.
 function checkWaterReminder() {
   const s = getState();
-  if (s.rules.waterRemind === false || !waterReminderDue(s, ui.logPerson)) return;
-  const name = s.people[ui.logPerson]?.name || 'there';
-  const msg = `No water logged in the last 3 hours, ${name} — time for a glass`;
-  markWaterReminded();
-  if ('Notification' in window && Notification.permission === 'granted') {
-    try { new Notification('Two Plates — water break', { body: msg, icon: 'icons/icon-192.png' }); return; } catch { /* show in-app instead */ }
-  }
-  toast(msg);
+  if (s.rules.waterRemind === false || ui.waterPrompt) return;
+  const slot = pendingWaterSlot(s, ui.logPerson);
+  if (slot == null) return;
+  ui.waterPrompt = { slot, person: ui.logPerson };
+  render();
 }
 setInterval(checkWaterReminder, 15 * 60 * 1000);
 
+// Check-in answers and prompts tapped on a notification while the app is open.
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.addEventListener('message', (ev) => {
+    const m = ev.data || {};
+    const slot = Number(m.slot);
+    if (!WATER_SLOTS.includes(slot)) return;
+    if (m.type === 'water-checkin') {
+      recordCheckin(slot, m.answer === 'yes' ? 'yes' : 'no', m.person);
+      ui.waterPrompt = null;
+      render();
+    } else if (m.type === 'water-prompt') {
+      ui.waterPrompt = { slot, person: Number(m.person) || 0 };
+      ui.tab = 'today'; ui.logView = 'day'; ui.logDate = localISO();
+      render();
+    }
+  });
+}
+
 migrate();
 ensurePlan();
+applyLaunchParams();
 render();
 checkWaterReminder();
 openFromLink();

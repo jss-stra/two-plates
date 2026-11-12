@@ -33,7 +33,10 @@ self.addEventListener('activate', (event) => {
     await self.clients.claim();
   })());
 });
-// Water reminders sent by the scheduled Supabase job.
+// Water check-ins and reminders sent by the scheduled Supabase job. A check-in
+// notification carries kind/slot/person and Yes/No actions; iOS ignores action
+// buttons on web notifications, so tapping the notification itself opens the app
+// on the same question and answering there records the identical slot.
 self.addEventListener('push', (e) => {
   let data = {};
   try { data = e.data ? e.data.json() : {}; } catch { /* no payload */ }
@@ -41,15 +44,34 @@ self.addEventListener('push', (e) => {
     body: data.body || 'Time for some water',
     icon: 'icons/icon-192.png',
     badge: 'icons/icon-192.png',
-    data: { url: './#today' },
+    tag: data.tag,
+    actions: Array.isArray(data.actions) ? data.actions : [],
+    data: { url: './#today', kind: data.kind, slot: data.slot, person: data.person },
   }));
 });
 
 self.addEventListener('notificationclick', (e) => {
   e.notification.close();
-  const url = e.notification.data?.url || './#today';
+  const d = e.notification.data || {};
+  const isCheckin = d.kind === 'water-checkin';
+  const answer = isCheckin && (e.action === 'yes' || e.action === 'no') ? e.action : null;
+  // An answered check-in records through the launch params; an unanswered tap
+  // opens the in-app Yes/No question for the same slot.
+  const url = !isCheckin ? (d.url || './#today')
+    : answer ? `./?water=${answer}&slot=${d.slot}&p=${d.person ?? 0}#today`
+    : `./?waterPrompt=${d.slot}&p=${d.person ?? 0}#today`;
+  const msg = !isCheckin ? null
+    : answer ? { type: 'water-checkin', slot: d.slot, answer, person: d.person ?? 0 }
+    : { type: 'water-prompt', slot: d.slot, person: d.person ?? 0 };
   e.waitUntil(clients.matchAll({ type: 'window', includeUncontrolled: true }).then((list) => {
-    for (const c of list) { if ('focus' in c) { c.navigate(url); return c.focus(); } }
+    if (msg) for (const c of list) { try { c.postMessage(msg); } catch { /* client gone */ } }
+    for (const c of list) {
+      if ('focus' in c) {
+        // A check-in message reaches the open app directly; anything else navigates.
+        if (!msg) c.navigate(url);
+        return c.focus();
+      }
+    }
     return clients.openWindow(url);
   }));
 });

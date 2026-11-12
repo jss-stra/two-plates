@@ -1,4 +1,4 @@
--- Two Plates reminders: one-time setup (water nudges + 10pm beverage check-in).
+-- Two Plates reminders: one-time setup (water yes/no check-ins + 10pm beverage check-in).
 -- Phones insert/delete their own push subscriptions; only the database itself
 -- (the cron job) ever reads them, so push endpoints are never exposed via the API.
 
@@ -31,46 +31,45 @@ create extension if not exists pg_net;
 
 -- Every 5 minutes (cron runs in-database, no billable invocations; the edge
 -- function is only called when a reminder is actually due):
---  * water: in 9am-9pm local, if no water was logged in the previous 3 hours
---    and no water nudge went out in the previous 3 hours. Due moments are
---    9am/noon/3pm/6pm/9pm minus any logged water; 5-minute ticks keep each
---    nudge within 5 minutes of its due moment (checkpoint times land exactly
---    on tick marks, so a dry day fires on time).
+--  * water: a "Did you drink water?" yes/no check-in at 9am, noon, 3pm, 6pm and
+--    9pm local, once per slot per day (the date guard on the per-slot log row
+--    keeps the 5-minute tick from sending twice). Nothing after 10pm.
 --  * evening: at 10pm local, once per day, the beverage check-in.
 create or replace function public.two_plates_reminder_check() returns void language plpgsql as $$
 declare
   s record;
   lt timestamp;
-  entry jsonb;
-  recent_log boolean;
+  slot_h int;
   last_nudge timestamptz;
   due jsonb := '[]'::jsonb;
   pname text;
 begin
   for s in select * from public.push_subscriptions loop
     lt := now() at time zone s.tz;
-    select m.data #> array['days', to_char(lt, 'YYYY-MM-DD'), s.person::text]
-      into entry from public.meal_state m where m.id = s.household;
     select m.data #>> array['people', s.person::text, 'name'] into pname
       from public.meal_state m where m.id = s.household;
 
-    -- Water nudges, 9am-9pm local.
-    if extract(hour from lt) between 9 and 21
-       and not (extract(hour from lt) = 21 and extract(minute from lt) > 0) then
-      select coalesce(bool_or((extract(epoch from now()) * 1000 - t::bigint) < 3 * 3600 * 1000), false)
-        into recent_log
-        from jsonb_array_elements_text(coalesce(entry -> 'waterTs', '[]'::jsonb)) as t;
-      if not recent_log then
-        select r.last_at into last_nudge from public.reminder_log r where r.id = s.id and r.kind = 'water';
-        if last_nudge is null or now() - last_nudge >= interval '3 hours' then
+    -- Water check-ins at 9am, noon, 3pm, 6pm and 9pm local, once per slot per day.
+    -- The 10-minute window covers a delayed tick; the log row's date guard dedupes.
+    for slot_h in select h from (values (9),(12),(15),(18),(21)) as v(h) loop
+      if extract(hour from lt) = slot_h and extract(minute from lt) < 10 then
+        select r.last_at into last_nudge from public.reminder_log r where r.id = s.id and r.kind = 'water-' || slot_h;
+        if last_nudge is null or (last_nudge at time zone s.tz)::date < lt::date then
           due := due || jsonb_build_object('id', s.id, 'subscription', s.subscription,
-            'title', 'Two Plates — water break',
-            'body', 'No water logged in the last 3 hours' || case when pname is not null then ', ' || pname else '' end || ' — time for a glass');
-          insert into public.reminder_log (id, kind, last_at) values (s.id, 'water', now())
+            'title', 'Two Plates — water check-in',
+            'body', 'Did you drink water' || case when pname is not null then ', ' || pname else '' end || '? Tap to answer yes or no',
+            'tag', 'water-' || slot_h,
+            'kind', 'water-checkin',
+            'slot', slot_h,
+            'person', s.person,
+            'actions', jsonb_build_array(
+              jsonb_build_object('action', 'yes', 'title', 'Yes'),
+              jsonb_build_object('action', 'no', 'title', 'No')));
+          insert into public.reminder_log (id, kind, last_at) values (s.id, 'water-' || slot_h, now())
             on conflict (id, kind) do update set last_at = now();
         end if;
       end if;
-    end if;
+    end loop;
 
     -- Evening beverage check-in, 10pm local, once per day.
     if extract(hour from lt) = 22 then

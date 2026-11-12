@@ -1,7 +1,7 @@
 // Daily food log ("Today" tab) and the month report built from it.
 import { RECIPE_BY_ID } from './data.js';
 import { localISO, plannedFor } from './planner.js';
-import { waterGoal } from './water.js';
+import { waterGoal, waterAnswer, waterCheckDay, slotLabel, slotsSoFar, WATER_SLOTS } from './water.js';
 
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const MEALS = [['lunch', 'Lunch'], ['dinner', 'Dinner']];
@@ -45,7 +45,25 @@ export function renderToday(s, ui, icon) {
   const wGoal = waterGoal(s.people[p]);
   const wHad = e.water || 0;
   const wPct = Math.min(100, Math.round((wHad / wGoal) * 100));
+  const isToday = iso === today;
+  const shownSlots = isToday ? slotsSoFar() : WATER_SLOTS;
+  const wCheck = waterCheckDay(e, isToday ? new Date() : new Date(`${iso}T21:30:00`));
+  const slotChips = shownSlots.map((h) => {
+    const a = waterAnswer(e, h);
+    return `<button class="chip water-chip ${a || ''}" data-act="water-chip" data-slot="${h}" aria-label="${slotLabel(h)} check-in: ${a || 'unanswered'}">${slotLabel(h)}${a === 'yes' ? ' ✓' : a === 'no' ? ' ✗' : ''}</button>`;
+  }).join('');
+  const wp = ui.waterPrompt;
+  const promptCard = wp ? `<section class="card water-prompt">
+    <h3>Water check-in · ${slotLabel(wp.slot)}</h3>
+    <p>Did ${esc(s.people[wp.person]?.name || 'you')} drink water?</p>
+    <div class="row-btns">
+      <button class="btn primary" data-act="water-answer" data-slot="${wp.slot}" data-p="${wp.person}" data-answer="yes">Yes</button>
+      <button class="btn" data-act="water-answer" data-slot="${wp.slot}" data-p="${wp.person}" data-answer="no">No</button>
+      <button class="btn ghost" data-act="water-later" data-slot="${wp.slot}" data-p="${wp.person}">Later</button>
+    </div>
+  </section>` : '';
   return `
+  ${promptCard}
   <section class="card">
     <div class="day-nav">
       <button class="act icon-only" data-act="log-day" data-d="-1" aria-label="Previous day">${icon('up', 'rot-l')}</button>
@@ -59,6 +77,9 @@ export function renderToday(s, ui, icon) {
 
   <section class="card log">
     <h3>Water</h3>
+    <div class="chips wrapchips water-slots">${slotChips || '<span class="muted">Check-ins start at 9am</span>'}</div>
+    <p class="fine">${wCheck.answered ? `${wCheck.yes} yes · ${wCheck.no} no of ${wCheck.due} check-in${wCheck.due === 1 ? '' : 's'}${isToday ? ' so far' : ''} — tap a time to set or change its answer.` : isToday ? 'Answer the check-ins as they arrive, or tap a time above.' : 'No check-ins answered this day.'}</p>
+    <h3 class="water-glasses-head">Glasses <span class="muted">· the actual amount, if you want to track it</span></h3>
     <div class="water-row">
       <button data-act="water-add" data-d="-1" ${wHad <= 0 ? 'disabled' : ''} aria-label="Remove a glass">${icon('minus')}</button>
       <div class="water-count"><b>${wHad}</b><span class="muted"> / ${wGoal} glasses</span></div>

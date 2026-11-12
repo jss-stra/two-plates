@@ -430,6 +430,13 @@ label.btn.busy { opacity: .6; pointer-events: none; }
 .show-more { margin: 12px 0 18px; }
 
 /* Water tracker */
+.water-slots { margin: 2px 0 4px; }
+.chip.water-chip.yes { background: var(--ok-soft); color: var(--ok); border-color: transparent; }
+.chip.water-chip.no { background: var(--warn-soft); color: var(--warn); border-color: transparent; }
+.water-glasses-head { margin-top: 14px; }
+.water-prompt p { margin: 0 0 10px; }
+.water-prompt .row-btns { display: flex; gap: 8px; }
+.water-prompt .row-btns .btn { flex: 1; }
 .water-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .water-row > button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--soft); color: var(--ink); display: inline-flex; align-items: center; justify-content: center; }
 .water-row > button:disabled { opacity: .4; }

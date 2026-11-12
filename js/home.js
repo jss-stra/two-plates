@@ -3,7 +3,7 @@
 import { entryFor, isLogged, shiftDay } from './log.js';
 import { localISO, planRecipes } from './planner.js';
 import { displayKind, DISPLAY_GROUPS } from './data.js';
-import { waterGoal } from './water.js';
+import { waterGoal, waterCheckDay } from './water.js';
 
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
@@ -27,6 +27,14 @@ function weekDaysSoFar(startDay) {
 // A day has a water record only if water was explicitly entered (any number,
 // zero included). A meals-only day is missing water data, not a missed goal.
 const hasWater = (e) => e.water != null || (e.waterTs?.length ?? 0) > 0;
+
+// Check-in answers say whether water was had around each reminder time; they are
+// not glass counts, so they are summarised separately from the glass counter.
+const checkinText = (dc) => {
+  if (!dc.due) return null;
+  if (!dc.answered) return `${dc.due} check-in${dc.due === 1 ? '' : 's'} so far, none answered`;
+  return `Check-ins: ${dc.yes} yes · ${dc.no} no of ${dc.due}`;
+};
 
 function waterLine(s, p, days) {
   const goal = waterGoal(s.people?.[p]);
@@ -61,9 +69,11 @@ export function renderHome(s) {
     const pct = Math.min(100, Math.round((had / goal) * 100));
     const mealsLogged = isLogged(e);
     const waterLogged = hasWater(e);
-    const water = waterLogged
+    const checkins = checkinText(waterCheckDay(e));
+    const water = `${waterLogged
       ? `<b>${had}</b><span class="muted"> / ${goal} glasses</span>${had >= goal ? ' · goal reached' : ''}`
-      : `<span class="muted">Water not logged yet</span>`;
+      : checkins ? '' : `<span class="muted">Water not logged yet</span>`}
+      ${checkins ? `${waterLogged ? '<br>' : ''}<span class="muted">${esc(checkins)}</span>` : ''}`;
     return `<div class="home-row">
       <div class="home-head"><b>${esc(person?.name || `Person ${p + 1}`)}</b>
         <span class="${mealsLogged ? 'home-ok' : 'muted'}">${mealsLogged ? 'Meals logged ✓' : 'No meals logged yet'}</span></div>
@@ -87,9 +97,15 @@ export function renderHome(s) {
 
   const weekRows = people.map((person, p) => {
     const mealsLogged = days.filter((d) => isLogged(entryFor(s, d, p))).length;
+    let cYes = 0, cNo = 0, cAnswered = 0;
+    for (const d of days) {
+      const dc = waterCheckDay(entryFor(s, d, p), d === today ? new Date() : new Date(`${d}T21:30:00`));
+      cYes += dc.yes; cNo += dc.no; cAnswered += dc.answered;
+    }
     const bits = [
       `Meals logged ${mealsLogged} of ${days.length} day${days.length === 1 ? '' : 's'}`,
       waterLine(s, p, days),
+      cAnswered ? `Water check-ins: ${cYes} yes · ${cNo} no of ${cAnswered} answered` : null,
       ratingLine(s, p, days),
     ].filter(Boolean);
     return `<div class="home-row"><div class="home-head"><b>${esc(person?.name || `Person ${p + 1}`)}</b></div>

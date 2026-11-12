@@ -49,7 +49,8 @@ export function defaultState() {
     // Daily food log: 'YYYY-MM-DD' -> { 0: entry for person 1, 1: entry for person 2 }.
     // entry: { breakfast: 'usual'|'other', breakfastText, lunch/dinner: recipe id|'other'|'skipped',
     //          lunchText, dinnerText, snacks, cheats: [], cheatDay, rating 1-5, note,
-    //          water: glasses today, waterTs: [ms timestamps of each glass] }
+    //          water: glasses today, waterTs: [ms timestamps of each glass],
+    //          waterCheck: { '9'|'12'|'15'|'18'|'21': { a: 'yes'|'no', t: ms } } — check-in answers }
     days: {},
   };
 }
