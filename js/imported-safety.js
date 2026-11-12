@@ -1011,4 +1011,36 @@ export const IMPORTED_SAFETY = {
     guidanceOnly: true,
     sources: [["NSW: whole-cut meat 63\u00b0C and resting", "https://www.foodauthority.nsw.gov.au/consumer/food-safety-home/cooking-temperatures"], ["USDA (US): thickest part, remove from heat to check", "https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer"]],
   },
+  'wikibooks-fr:fr-poulet-gaston-gerard': {
+    title: 'Probe the chicken after the bake',
+    note: 'Two Plates adds a measured endpoint: the source browns the chicken pieces and bakes 30 minutes at 200 °C; time is not a doneness check for poultry. After baking, use a clean food thermometer in the thickest part of the largest piece, avoiding bone, to check at least 75°C, following NSW poultry guidance; continue baking and recheck if below the target. Keep the chicken refrigerated at 5°C or colder before preparation and use separate boards and tools for raw chicken.',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['USDA (US): thickest part, avoid bones and remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      4: 'Sprinkle with grated Comté and bake at 200 °C until a clean food thermometer in the thickest part of the largest piece, avoiding bone, reads at least 75°C - the source suggests 30 minutes, but time is not a doneness check; continue baking and recheck if below the target.',
+    },
+  },
+  'wikibooks-fr:fr-couscous-de-poulet-au-miel': {
+    title: 'Probe the chicken before adding the honey',
+    note: 'Two Plates adds a measured endpoint: the source cooks the whole chicken covered, turning it, and says "once the chicken is cooked"; that wording is not a doneness check for poultry. Use a clean food thermometer in the thickest part of the thigh, avoiding bone, to check at least 75°C, following NSW poultry guidance, before adding the honey; continue cooking and recheck if below the target. Keep the chicken refrigerated at 5°C or colder before preparation and use separate boards and tools for raw chicken.',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['USDA (US): thickest part, avoid bones and remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      7: 'Once a clean food thermometer in the thickest part of the thigh, avoiding bone, reads at least 75°C (the source says "once the chicken is cooked", which is not a doneness check; continue cooking and recheck if below the target), add 4 tablespoons honey and 1 tablespoon cinnamon. Mix, let the sauce reduce and remove from heat when well creamy and the chicken well golden.',
+    },
+  },
+  'wikibooks-fr:fr-risotto-au-poulet': {
+    title: 'Probe the chicken strips before adding rice',
+    note: 'Two Plates adds a measured endpoint: the source browns the chicken breast strips and simmers 10 minutes with no doneness check. Use a clean food thermometer in the thickest strip to check at least 75°C, following NSW poultry guidance; continue cooking and recheck if below the target. Keep the chicken refrigerated at 5°C or colder before preparation and use separate boards and tools for raw chicken. Cool leftover risotto promptly and refrigerate below 5°C; reheat only once until steaming hot throughout.',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      2: 'Add the glass of white wine and the peeled tomato pieces, and cook over low heat until a clean food thermometer in the thickest chicken strip reads at least 75°C - the source suggests 10 minutes, but time is not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks-fr:fr-sauce-gnangnan': {
+    title: 'Probe the meat; species unspecified in source',
+    note: 'Two Plates adds a measured endpoint: the source boils the meat pieces about 30 minutes and simmers the sauce 30 minutes more; time is not a doneness check, and the meat species is unspecified. Use a clean food thermometer in the thickest pieces to check the safe internal temperature for the meat you are using - at least 75°C for poultry, at least 70°C for minced or mixed meats, at least 63°C with a 3-minute rest for whole cuts - following NSW guidance; continue cooking and recheck if below the target. Keep meat refrigerated at 5°C or colder before preparation and use separate boards and tools for raw meat.',
+    sources: [['NSW: cooking temperatures', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      5: 'Add 1.5 l water to the saucepan and boil until a clean food thermometer in the thickest meat pieces reads the safe temperature for the meat used (at least 75°C for poultry, 70°C for minced or mixed, 63°C with a 3-minute rest for whole cuts) - the source suggests about thirty minutes, but time is not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
 };
