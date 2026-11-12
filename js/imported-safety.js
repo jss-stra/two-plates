@@ -1163,5 +1163,39 @@ export const IMPORTED_SAFETY = {
       2: 'Step 2: peel the potatoes and place them in cold water so they do not brown and look unseemly. After the 1.5 hours, open the roasting pan, pour in the remaining wine, turn the leg and place the potatoes raw into the roasting pan with the leg. Close the lid again and braise in the oven for another 1 hour, then check the centre of the leg with a clean food thermometer, away from the bone, for at least 71°C - time is not a doneness check; continue braising and recheck if below the target.',
     },
   },
+  'wikibooks-de:de-huehnerbrust-rahmwirsing': {
+    title: 'Probe the chicken breast in the oven',
+    note: 'Two Plates uses at least 75°C in the thickest part of each chicken breast, checked with a clean food thermometer, following NSW poultry guidance. The source cooks "to the point" in just under 20 minutes - time and feel are not doneness checks; continue cooking and recheck if below the target. Keep raw chicken refrigerated at 5°C or colder before preparation; do not wash it; use separate boards and utensils for raw poultry and ready-to-eat food.',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      10: 'Put foil on a baking tray and cook the chicken breast in the oven at 200 degrees, until a clean food thermometer in the thickest part reads at least 75°C - the source\'s "just under 20 minutes, to the point" is not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks-de:de-lachs-spinat-auflauf': {
+    title: 'Probe the fish at the centre of the bake',
+    note: 'Two Plates uses at least 63°C in the thickest part of each fillet, checked with a clean food thermometer, following NSW fish guidance. The source bakes about 30 minutes - time is not a doneness check; continue baking and recheck if below the target. Keep the fish refrigerated at 5°C or colder before preparation and use separate boards and utensils for raw fish and ready-to-eat food.',
+    sources: [['NSW: fish 63°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      5: 'Before the bake is ready to serve, it has to bake at 180 degrees fan for about 30 minutes, until a clean food thermometer in the thickest part of a fillet reads at least 63°C - time is not a doneness check; continue baking and recheck if below the target.',
+    },
+  },
+  'wikibooks-de:de-hack-in-weisskohl': {
+    title: 'Never taste raw mince; probe the mince layers after the braise',
+    note: 'Two Plates uses at least 71°C in the centre of a mince layer, checked with a clean food thermometer. NSW guidance names 71°C for minced meat because mince carries contamination throughout, and warns that colour is not a reliable doneness indicator. The source\'s method says to taste the seasoned mixture before baking - never taste raw mince; taste only a cooked sample instead. The 1.5-hour braise is not a doneness check; continue braising and recheck if below the target. Keep raw mince and the raw-egg mixture refrigerated at 5°C or colder before preparation, clean hands, boards and utensils after shaping, and beware the par-boiled cabbage stays hot inside for about ten minutes.',
+    sources: [['NSW: minced meat 71°C; colour unreliable', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      5: 'Mix the mince with the onion, thyme, garlic, egg and bread roll and season generously with salt and pepper. Taste only a cooked sample - never taste the raw mince mixture.',
+      13: 'Leave to braise in the oven for 1.5 hours at 180 degrees C, then check the centre of a mince layer with a clean food thermometer for at least 71°C - time is not a doneness check; continue braising and recheck if below the target. Check the heat 10 minutes after putting it in and adjust if needed.',
+    },
+  },
+  'wikibooks-de:de-kalafkalsch': {
+    title: 'Never taste raw mince; probe the centre of a cigar',
+    note: 'Two Plates uses at least 71°C in the centre of a cigar, checked with a clean food thermometer. NSW guidance names 71°C for minced meat because mince carries contamination throughout, and warns that colour is not a reliable doneness indicator. The source\'s method says to taste the mixture after kneading - never taste raw mince; taste only a cooked sample instead. "Until nicely done through" is not a doneness check; continue cooking and recheck if below the target. The mixture contains raw egg yolk: keep it refrigerated at 5°C or colder, clean hands, boards and utensils after shaping, and do not let it sit out. The source advises eating within 24 hours - follow the handling note on this recipe.',
+    sources: [['NSW: minced meat 71°C; colour unreliable', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      2: 'Then add the garlic and the other spices and knead the mass vigorously so everything distributes well and a creamy mass forms. After kneading, taste only a cooked sample - never taste the raw mince mixture - and season if needed.',
+      4: 'Cook the Khlav Kalash on the grill or in the pan until a clean food thermometer in the centre of a cigar reads at least 71°C - "nicely done through" is not a doneness check; continue cooking and recheck if below the target - and serve with a can of crab juice!',
+    },
+  },
 };
 
