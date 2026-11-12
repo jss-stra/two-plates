@@ -134,6 +134,11 @@ t('Quick never matches unknown imported time', importedList().every(x=>!imported
 t('Chicken picker never shows lamb or unknown', !importedMatches(lambda,base,{kind:'chicken'}) && !importedMatches(galayet,base,{kind:'chicken'}));
 t('Anything allows cross-kind manual replacement', importedMatches(lambda,base,{kind:null}) && importedMatches(galayet,base,{kind:null}));
 t('Imported ingredient-name search uses retained source lines', importedMatches(lambda,base,{query:'carrots'}));
+const lambSausages = IMPORTED.get('wikibooks:lamb-sausages-and-grilled-potatoes');
+t('Lamb Sausages source grounds no cuisine and stays null', lambSausages.cuisine == null);
+t('Null cuisine never breaks non-empty search by name', importedMatches(lambSausages,base,{query:'lamb sausages'}));
+t('Null cuisine never breaks non-empty search miss', !importedMatches(lambSausages,base,{query:'definitely-not-in-this-recipe'}));
+t('Null cuisine never breaks All-group non-empty search (group omitted, matching app.js caller)', importedMatches(lambSausages,base,{query:'lamb sausages',vegOnly:false,quick:false}));
 t('Veg picker honors eggsCountAsVeg without changing Egg display group', importedMatches(IMPORTED.get('unitools:tortilla-espanola'),base,{kind:'veg'}) && displayKind(IMPORTED.get('unitools:tortilla-espanola'),true)==='egg');
 console.log(`imported filters contract: ${pass} passed, ${fail} failed`);
 for (const id of ['mercimek-corbasi','tarator']) {

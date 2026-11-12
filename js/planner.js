@@ -142,7 +142,7 @@ export function alternatives(state, index, { kind = null, group = null, query = 
   const ranked = RECIPES
     .filter((r) => !taken.has(r.id) && !state.hidden.includes(r.id) && !hasExclusions(r, state.exclusions) && ofKind(r)
       && (!group || r.group === group)
-      && (!q || r.name.toLowerCase().includes(q) || r.cuisine.toLowerCase().includes(q)))
+      && (!q || r.name.toLowerCase().includes(q) || (r.cuisine || '').toLowerCase().includes(q)))
     .map((r) => ({ r, w: score(state, r, others) + (r.protein != null && r.protein >= state.rules.minProtein ? 0.01 : 0) }))
     .sort((a, b) => b.w - a.w)
     .map((x) => x.r);

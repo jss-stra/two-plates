@@ -1032,6 +1032,6 @@ export function importedMatches(r, state, { query = '', vegOnly = false, quick =
   if (kind === 'veg' && !isVeg(r, state.rules.eggsCountAsVeg)) return false;
   if (kind && kind !== 'veg' && displayKind(r, state.rules.eggsCountAsVeg) !== kind) return false;
   if (group && r.group !== group) return false;
-  return !q || r.name.toLowerCase().includes(q) || r.cuisine.toLowerCase().includes(q)
+  return !q || r.name.toLowerCase().includes(q) || (r.cuisine || '').toLowerCase().includes(q)
     || r.src.lines.some(l => l.name.toLowerCase().includes(q));
 }

@@ -388,7 +388,7 @@ function filteredRecipes(s) {
     }
     if (ui.vegOnly && !isVeg(r, s.rules.eggsCountAsVeg)) return false;
     if (ui.quick && r.time > 30) return false;
-    if (q && !(r.name.toLowerCase().includes(q) || r.cuisine.toLowerCase().includes(q)
+    if (q && !(r.name.toLowerCase().includes(q) || (r.cuisine || '').toLowerCase().includes(q)
       || r.items.some((it) => INGREDIENTS[it.id].name.toLowerCase().includes(q)))) return false;
     return true;
   });
