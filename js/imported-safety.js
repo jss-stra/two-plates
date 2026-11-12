@@ -1478,4 +1478,61 @@ export const IMPORTED_SAFETY = {
       9: 'Release the pressure following your own pressure cooker manual: natural release is the appropriate method for starchy lentils (manufacturers advise against quick release for foods like this). Never cover or obstruct the steam valve with a towel or anything else, never poke the valve with a toothpick or spoon, keep hands and face away from the steam, and do not open the lid until the cooker has fully depressurized.',
     },
   },
+  'wikibooks-es:es-almejas-a-la-marinera': {
+    title: 'Clams are done when their shells open; discard any that stay closed',
+    note: 'Two Plates replaces the source time cue with the shellfish doneness check from foodsafety.gov: clams are cooked when their shells open during cooking; discard any that do not open. Buy live clams from a reputable supplier, keep them refrigerated at 5°C or colder, discard any with broken shells or that do not close when tapped, and scrub the shells before cooking. Do not eat them raw or undercooked. The two minutes in the source are a texture note, not the safety check.',
+    sources: [['foodsafety.gov: clams, oysters and mussels - shells open during cooking; discard any that do not open', 'https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures'], ['FSANZ: temperature control', FSANZ]],
+    replacements: {
+      5: 'Add the clams and cook until their shells open - that, not the couple of minutes in the source, is the doneness check; discard any clam whose shell does not open.',
+    },
+  },
+  'wikibooks-es:es-arroz-negro': {
+    title: 'Probe the pork rib pieces and check the prawns; times are not the check',
+    note: 'Two Plates adds measured endpoints: the pork rib pieces must reach at least 71°C in the thickest part, away from bone, following NSW pork guidance; the prawns are done when the flesh is pearly and opaque, following foodsafety.gov shellfish guidance; the cuttlefish pieces must be cooked through. The source times (8 minutes high, 8-10 minutes low) are not doneness checks; continue cooking and recheck if below the target. Cooked rice is a higher-risk food: serve it hot and refrigerate leftovers at 5°C or colder within two hours; do not keep cooked rice warm for long periods. Keep the raw seafood and pork refrigerated and use separate boards and utensils for raw and ready-to-eat food.',
+    sources: [['NSW: pork 71°C', NSW_TEMP], ['foodsafety.gov: shrimp, lobster and scallops - flesh pearly or white and opaque', 'https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures'], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      6: 'Saute the rice for a few minutes and pour in the boiling fish stock, add the pounded mixture from the mortar and the saffron and put it over high heat for 8 minutes, then add the prawns, adjust the salt and cook over lower heat until the prawns are pearly and opaque and a clean food thermometer in the thickest part of a pork rib piece, away from bone, reads at least 71°C - the source 8-10 minutes are not a doneness check; continue cooking and recheck if below the target. Cover and let rest 5-7 minutes.',
+    },
+  },
+  'wikibooks-es:es-caldereta-de-cordero': {
+    title: 'Probe the lamb pieces; tender is not the only check',
+    note: 'Two Plates adds a measured endpoint: use a clean food thermometer in the centre of the thickest lamb pieces, away from bone, fat and gristle, to check at least 71°C. This is a conservative editorial selection of the NSW medium endpoint for lamb, not a universal minimum for all whole-cut lamb dishes; the pieces here are small, so check several. Fork-tenderness is a texture cue, not a safety check. Keep the raw lamb refrigerated at 5°C or colder and use separate boards and utensils for raw meat and ready-to-eat food.',
+    sources: [['NSW: lamb medium endpoint and probe placement', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      4: 'Cook over low heat until the lamb is tender, then check the centre of the thickest pieces, away from bone, with a clean food thermometer for at least 71°C - tenderness alone is not a safety check; continue cooking and recheck if below the target. It is preferable to keep the casserole covered so it keeps its flavour.',
+    },
+  },
+  'wikibooks-es:es-cazuelita-esparragos-colmenillas': {
+    title: 'Morels must be cooked thoroughly - never raw or undercooked',
+    note: 'Two Plates strengthens the cooking step following FDA and CDC guidance: fresh morels must be fully cooked before eating; raw or undercooked morels have caused outbreaks of illness. The quick saute in the source is not enough on its own - make sure the morels cook through completely, including the 4-minute simmer in the cream sauce. Buy morels from a reputable supplier and identify them with certainty: false morels are toxic. Keep fresh morels refrigerated at 4°C or colder in breathable packaging and wash them well before cooking, as the source directs.',
+    sources: [['FDA: morel mushrooms should be cooked thoroughly before consumption', 'https://www.fda.gov/food/outbreaks-foodborne-illness/investigation-illnesses-morel-mushrooms-may-2023'], ['CDC MMWR: morel-associated illness, Montana 2023', 'https://www.cdc.gov/mmwr/volumes/73/wr/mm7310a1.htm']],
+    replacements: {
+      2: 'Cut each mushroom in 2. Heat the clarified butter in a frying pan and saute the morels quickly, drain them in a colander. Put 20 g of butter in the same pan and sweat the shallots without browning. Add the morels and the crushed half garlic clove. Season with salt and pepper. Deglaze with the wines and reduce by half. Add the cream and cook gently for 4 minutes, making sure the morels cook through completely - never eat morels raw or undercooked; the quick saute alone is not enough. Mount the sauce with 20 g of butter and sprinkle with a splash of lemon juice. Adjust the seasoning.',
+    },
+  },
+  'wikibooks-es:es-chilcano': {
+    title: 'Probe the fish; the half hour is not the check',
+    note: 'Two Plates adds a measured endpoint: the source boils the fish head and frame about half an hour; time is not a doneness check. Use a clean food thermometer in the thickest part of the fish, avoiding bones, to check at least 63°C, following NSW fish guidance; continue cooking and recheck if below the target. Keep the raw fish refrigerated at 5°C or colder and use separate boards and utensils for raw fish and ready-to-eat food. Take care with small bones when separating the fish from the frame.',
+    sources: [['NSW: fish 63°C', NSW_TEMP], ['USDA (US): thickest part, avoid bones and remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      1: 'Boil the fish in salted water, together with the celery, until a clean food thermometer in the thickest part of the fish, avoiding bones, reads at least 63°C - the half hour in the source is not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks-es:es-costillas-con-papas': {
+    title: 'Desalt in the refrigerator; probe the ribs at the end',
+    note: 'Two Plates adapts the desalting for safety and adds a measured endpoint. The source soaks the salt-cured ribs 7-8 hours without stating a temperature: do the whole desalting in the refrigerator at 5°C or colder, not on the bench. The ribs are a commercially salt-cured product: keep them refrigerated, follow the product storage and use-by directions, and use separate boards and utensils for raw pork and ready-to-eat food. Before serving, use a clean food thermometer in the thickest part of the meat, away from bone, to check at least 71°C, following NSW pork guidance; fork-tenderness is a texture cue, not a safety check; continue simmering and recheck if below the target.',
+    sources: [['NSW: pork 71°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      1: 'The ribs must be desalted beforehand: do this in the refrigerator at 5°C or colder, leaving them in water for about 2 hours, then remove the heavily salted water and leave them in fresh water for another 5 or 6 hours, still refrigerated.',
+      6: 'Put over high heat until it comes to a boil, then keep at medium heat with the water visibly bubbling until the meat separates from the rib bones effortlessly with a simple fork and a clean food thermometer in the thickest part of the meat, away from bone, reads at least 71°C - fork-tenderness is not a safety check; the source 1.5-2.5 hours are not a doneness check; continue simmering and recheck if below the target.',
+    },
+  },
+  'wikibooks-es:es-carne-con-papas': {
+    title: 'Probe the beef cubes; browning and simmer time are not the check',
+    note: 'Two Plates adds a measured endpoint: browning and the 1 to 1.5 hour simmer are not doneness checks. Use a clean food thermometer in the centre of the thickest beef cubes to check at least 63°C, a conservative editorial selection of the NSW medium endpoint for whole-cut beef; continue simmering and recheck if below the target. Keep the raw beef refrigerated at 5°C or colder and use separate boards and utensils for raw meat and ready-to-eat food.',
+    sources: [['NSW: whole-cut beef 63°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      8: 'When it starts to boil, reduce the heat, cover it and cook it slowly for at least 1 to 1.5 hours, until a clean food thermometer in the centre of the thickest beef cubes reads at least 63°C - browning and time are not doneness checks; continue simmering and recheck if below the target.',
+    },
+  },
 };
