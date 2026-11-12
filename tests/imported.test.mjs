@@ -405,6 +405,10 @@ const cuyFile = await import('../data/imported/es-cuy-en-salsa-de-mani.mjs').the
 t('Cuy record retained but unpublished', cuyFile.id === 'wikibooks-es:es-cuy-en-salsa-de-mani' && cuyFile.nutritionStatus === 'unknown');
 const ctl = wes('es-caldo-tlalpeno');
 t('Tlalpeno 75C before shredding; accompaniments notes-only', ctl.safety.replacements[3].includes('75°C') && ctl.src.lines.find(l => l.name.startsWith('Avocado')).methodTraceStatus === 'garnish_in_notes_only');
+const lan2 = wes('es-lentejas-de-langar');
+t('Langar valve technique replaced with manual-first release', lan2.safety.replacements[9].includes('Never cover or obstruct the steam valve') && lan2.safety.replacements[9].includes('natural release') && lan2.safety.replacements[9].includes('manual'));
+t('Langar release grounded in manufacturer guidance', lan2.safety.sources.some(s => s[1].includes('instantpot.com')) && lan2.safety.sources.some(s => s[1].includes('cuckooamerica.com')) && lan2.safety.note.includes('dangerous'));
+t('Langar ES source technique preserved as reference only', lan2.src.sourceRecord.sourceStepsEs[8].includes('toalla') && lan2.limitation.detail.includes('unsafe and is replaced'));
 const lan = wes('es-lentejas-de-langar');
 t('Langar: no nutrition panel for unit-less energia', lan.src.nutritionStatus === 'unknown' && !('nutritionSourceStated' in lan.src) && lan.src.nutrition.kcal === null);
 t('Langar energia kept as unclassified note only', lan.limitation.detail.includes('energia = 300') && lan.limitation.detail.includes('not shown as a calorie'));

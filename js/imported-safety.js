@@ -1470,4 +1470,12 @@ export const IMPORTED_SAFETY = {
       10: 'Add the carrots, the cabbage and the rice, cover and cook another hour; then add the chorizos, the morcillas and the cheese, stir and cook 10 minutes more, and check the thickest tripe pieces with a clean food thermometer for at least 70°C held for 2 minutes, per UK FSA offal guidance - time alone is not a doneness check; continue cooking and recheck if below the target.',
     },
   },
+  'wikibooks-es:es-lentejas-de-langar': {
+    title: 'Release pressure per your cooker manual; never cover or poke the valve',
+    note: 'Two Plates replaces the source pressure-release technique: the source directs covering the valve with a towel and poking it with a toothpick or spoon. Manufacturers explicitly warn against this: covering or obstructing the steam release valve is dangerous and can lead to injury or an explosion, and utensils in the valve can block a safety part. Release the pressure following your own pressure cooker manual; because lentils are starchy, Instant Pot advises against quick release for foods like this, so natural release is the appropriate method here. Keep hands and face away from the steam and do not open the cooker until it has fully depressurized.',
+    sources: [['Instant Pot: never cover or obstruct the steam release valve; no quick release for starchy foods', 'https://instantpot.com/pages/frequently-asked-questions'], ['Cuckoo: do not cover the pressure valve with a towel; keep hands and face away', 'https://cuckooamerica.com/pages/user-manual-cr-0671v-en']],
+    replacements: {
+      9: 'Release the pressure following your own pressure cooker manual: natural release is the appropriate method for starchy lentils (manufacturers advise against quick release for foods like this). Never cover or obstruct the steam valve with a towel or anything else, never poke the valve with a toothpick or spoon, keep hands and face away from the steam, and do not open the lid until the cooker has fully depressurized.',
+    },
+  },
 };
