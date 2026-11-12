@@ -1115,4 +1115,53 @@ export const IMPORTED_SAFETY = {
       4: 'Then heat the oil in the pan and soften the onion cubes over low heat for 4-5 minutes. Add the chicken and stir-fry over medium heat for 6-8 minutes, until a clean food thermometer in the thickest strips reads at least 75°C - time is not a doneness check; continue cooking and recheck if below the target.',
     },
   },
+  'wikibooks-de:de-szegediner-gulasch': {
+    title: 'Probe the thickest meat pieces; 71°C covers both species choices',
+    note: 'Two Plates uses at least 71°C in the centre of the thickest meat pieces, checked with a clean food thermometer. The source offers beef or pork: 71°C is the conservative endpoint that covers both choices (the NSW medium endpoint for whole-cut pork; beef needs less), not a universal minimum or a tested 45-minute process. The source braises 45 minutes (15 in a pressure cooker) - time is not a doneness check; continue cooking and recheck if below the target. Keep raw meat refrigerated at 5°C or colder before preparation and use separate boards and utensils for raw meat and ready-to-eat food.',
+    sources: [['NSW: pork medium endpoint and probe placement', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      1: 'Cut the meat further into 2 cm pieces, roughly chop the onions, and sear together over high heat for about 5 minutes. Deglaze with 1/4 l water, add the sauerkraut, broth, tomato paste, the pressed garlic and the spices. Mix everything well and cook 15 minutes in a pressure cooker or 45 minutes in a normal pot, then check the thickest meat pieces with a clean food thermometer for at least 71°C - time is not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks-de:de-plov': {
+    title: 'Probe the meat pieces; poultry may be chosen',
+    note: 'Two Plates uses at least 75°C in the centre of the thickest meat pieces, checked with a clean food thermometer. The source leaves the species open and poultry is one of its options, so the conservative NSW poultry endpoint is used to cover every choice; if you cook only beef, lamb or pork, 71°C suffices. The source cooks covered for about 40 minutes - time is not a doneness check; continue cooking and recheck if below the target. Keep raw meat refrigerated at 5°C or colder before preparation and use separate boards and utensils for raw meat and ready-to-eat food. Cool leftover cooked rice promptly, refrigerate below 5°C within 2 hours, eat within 2 days and reheat only once until steaming hot throughout (at least 60°C).',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      13: 'Cover the pot with a lid and cook over medium heat for about 40 minutes, then check the thickest meat pieces with a clean food thermometer for at least 75°C - time is not a doneness check; continue cooking and recheck if below the target. At the end, mix everything through.',
+    },
+  },
+  'wikibooks-de:de-zanderfilet-auf-sauerkraut': {
+    title: 'Probe the zander fillet',
+    note: 'Two Plates uses at least 63°C in the thickest part of the fillet, checked with a clean food thermometer, following NSW fish guidance. The source fries 2-3 minutes - time is not a doneness check; continue frying and recheck if below the target. Keep the fish refrigerated at 5°C or colder before preparation and use separate boards and utensils for raw fish and ready-to-eat food. The spice bag is removed before serving; the decoration apple is served raw.',
+    sources: [['NSW: fish 63°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      9: 'Season the zander with salt and pepper and fry in a frying pan over medium heat for 2-3 minutes in a little oil and butter, until a clean food thermometer in the thickest part reads at least 63°C - time is not a doneness check; continue frying and recheck if below the target.',
+    },
+  },
+  'wikibooks-de:de-garnelen-mit-fenchel': {
+    title: 'Cook the shrimp through',
+    note: 'Two Plates uses at least 63°C for seafood, checked with a clean food thermometer in the thickest shrimp, following NSW guidance for fish and seafood. The source fries the shrimp briefly - colour and time are not doneness checks; continue cooking and recheck if below the target. Keep raw shrimp refrigerated at 5°C or colder before preparation and use separate boards and utensils for raw seafood and ready-to-eat food. This dish contains crustaceans, a declared allergen.',
+    sources: [['NSW: fish 63°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      4: 'Briefly roast the tomato paste and garlic with them, add the pasta water and lemon juice, season generously, and cook until a clean food thermometer in the thickest shrimp reads at least 63°C - colour and time are not doneness checks; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks-de:de-estragonhuhn': {
+    title: 'Probe the whole chicken at the thigh',
+    note: 'Two Plates uses at least 75°C in the thickest part of the thigh, checked with a clean food thermometer away from bone, following NSW poultry guidance for a whole bird. The source braises about 50 minutes and says to test at the belly - time and feel are not doneness checks; continue braising and recheck if below the target. Keep raw chicken refrigerated at 5°C or colder before preparation; do not wash it; use separate boards and utensils for raw poultry and ready-to-eat food, and clean hands and surfaces after handling.',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      4: 'Braise over low heat for about 50 minutes, until a clean food thermometer in the thickest part of the thigh, away from bone, reads at least 75°C - time and feel are not doneness checks; continue braising and recheck if below the target.',
+    },
+  },
+  'wikibooks-de:de-lammkeule-geschmort': {
+    title: 'Probe the centre of the leg after the braise',
+    note: 'Two Plates uses at least 71°C in the centre of the leg, checked with a clean food thermometer away from bone. This is a conservative editorial medium endpoint for a whole-cut leg of lamb, not a universal minimum or a tested 2.5-hour process; NSW safe-minimum guidance allows less for whole cuts with a rest. The source braises 1.5 hours plus another hour - time is not a doneness check; continue braising and recheck if below the target. Keep raw lamb refrigerated at 5°C or colder before preparation and use separate boards and utensils for raw meat and ready-to-eat food.',
+    sources: [['NSW: whole-cut red meat; probe placement', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      2: 'Step 2: peel the potatoes and place them in cold water so they do not brown and look unseemly. After the 1.5 hours, open the roasting pan, pour in the remaining wine, turn the leg and place the potatoes raw into the roasting pan with the leg. Close the lid again and braise in the oven for another 1 hour, then check the centre of the leg with a clean food thermometer, away from the bone, for at least 71°C - time is not a doneness check; continue braising and recheck if below the target.',
+    },
+  },
 };
+
