@@ -15,6 +15,7 @@ export default {
   "diet": null,
   "sourceDietClaims": [],
   "mainProtein": null,
+  "sourceLabel": "Kochbuch (de.wikibooks)",
   "sourceTimes": {
     "prepMinutes": null,
     "cookMinutes": null,
@@ -507,6 +508,5 @@ export default {
     "catalogMappingReviewed": false,
     "dietIndependentlyReviewed": false,
     "crossContactKnown": false
-  },
-  "sourceLabel": "Kochbuch (de.wikibooks)"
+  }
 }

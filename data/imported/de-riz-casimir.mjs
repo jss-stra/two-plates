@@ -15,6 +15,7 @@ export default {
   "diet": null,
   "sourceDietClaims": [],
   "mainProtein": null,
+  "sourceLabel": "Kochbuch (de.wikibooks)",
   "sourceTimes": {
     "prepMinutes": null,
     "cookMinutes": null,
@@ -224,7 +225,7 @@ export default {
       "lineRef": "src:wikibooks-de:de-riz-casimir:007",
       "name": "Oil",
       "quantity": null,
-      "unit": null,
+      "unit": "unstated",
       "note": {
         "ru": null,
         "en": "appears in the method; not in the source ingredient list; 'a little oil' for browning"
@@ -240,7 +241,7 @@ export default {
           "en": "Oil"
         },
         "quantity": null,
-        "unit": null,
+        "unit": "unstated",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -409,7 +410,7 @@ export default {
           "en": "Oil"
         },
         "quantity": null,
-        "unit": null,
+        "unit": "unstated",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -487,6 +488,5 @@ export default {
     "catalogMappingReviewed": false,
     "dietIndependentlyReviewed": false,
     "crossContactKnown": false
-  },
-  "sourceLabel": "Kochbuch (de.wikibooks)"
+  }
 }

@@ -15,6 +15,7 @@ export default {
   "diet": null,
   "sourceDietClaims": [],
   "mainProtein": null,
+  "sourceLabel": "Kochbuch (de.wikibooks)",
   "sourceTimes": {
     "prepMinutes": null,
     "cookMinutes": null,
@@ -259,10 +260,10 @@ export default {
       "lineRef": "src:wikibooks-de:de-moussaka:008",
       "name": "Butter",
       "quantity": null,
-      "unit": null,
+      "unit": "unstated",
       "note": {
         "ru": null,
-        "en": "quantity not stated; greases the dish, and the bechamel roux (method step 6) also uses butter without a stated amount"
+        "en": "greases the dish, and the bechamel roux (method step 6) also uses butter without a stated amount"
       },
       "scaling": "linear",
       "catalogId": null,
@@ -275,11 +276,11 @@ export default {
           "en": "Butter"
         },
         "quantity": null,
-        "unit": null,
+        "unit": "unstated",
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "quantity not stated; greases the dish, and the bechamel roux (method step 6) also uses butter without a stated amount"
+          "en": "greases the dish, and the bechamel roux (method step 6) also uses butter without a stated amount"
         },
         "raw": "Butter für die Form"
       },
@@ -324,7 +325,7 @@ export default {
       "lineRef": "src:wikibooks-de:de-moussaka:010",
       "name": "Dry white wine",
       "quantity": "1/4",
-      "unit": null,
+      "unit": "",
       "note": {
         "ru": null,
         "en": "unit unstated in the source; listed with liquids measured in litres, so likely 1/4 l - kept as written"
@@ -340,7 +341,7 @@ export default {
           "en": "Dry white wine"
         },
         "quantity": "1/4",
-        "unit": null,
+        "unit": "",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -855,11 +856,11 @@ export default {
           "en": "Butter"
         },
         "quantity": null,
-        "unit": null,
+        "unit": "unstated",
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "quantity not stated; greases the dish, and the bechamel roux (method step 6) also uses butter without a stated amount"
+          "en": "greases the dish, and the bechamel roux (method step 6) also uses butter without a stated amount"
         },
         "raw": "Butter für die Form"
       },
@@ -885,7 +886,7 @@ export default {
           "en": "Dry white wine"
         },
         "quantity": "1/4",
-        "unit": null,
+        "unit": "",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -1121,6 +1122,5 @@ export default {
     "catalogMappingReviewed": false,
     "dietIndependentlyReviewed": false,
     "crossContactKnown": false
-  },
-  "sourceLabel": "Kochbuch (de.wikibooks)"
+  }
 }

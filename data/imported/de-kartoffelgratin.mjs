@@ -15,6 +15,7 @@ export default {
   "diet": null,
   "sourceDietClaims": [],
   "mainProtein": null,
+  "sourceLabel": "Kochbuch (de.wikibooks)",
   "sourceTimes": {
     "prepMinutes": null,
     "cookMinutes": null,
@@ -221,10 +222,10 @@ export default {
       "lineRef": "src:wikibooks-de:de-kartoffelgratin:007",
       "name": "Butter",
       "quantity": null,
-      "unit": null,
+      "unit": "unstated",
       "note": {
         "ru": null,
-        "en": "quantity not stated; butters the dish and dots the top"
+        "en": "butters the dish and dots the top"
       },
       "scaling": "linear",
       "catalogId": null,
@@ -237,11 +238,11 @@ export default {
           "en": "Butter"
         },
         "quantity": null,
-        "unit": null,
+        "unit": "unstated",
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "quantity not stated; butters the dish and dots the top"
+          "en": "butters the dish and dots the top"
         },
         "raw": "Butter"
       },
@@ -392,11 +393,11 @@ export default {
           "en": "Butter"
         },
         "quantity": null,
-        "unit": null,
+        "unit": "unstated",
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "quantity not stated; butters the dish and dots the top"
+          "en": "butters the dish and dots the top"
         },
         "raw": "Butter"
       }
@@ -454,6 +455,5 @@ export default {
     "catalogMappingReviewed": false,
     "dietIndependentlyReviewed": false,
     "crossContactKnown": false
-  },
-  "sourceLabel": "Kochbuch (de.wikibooks)"
+  }
 }

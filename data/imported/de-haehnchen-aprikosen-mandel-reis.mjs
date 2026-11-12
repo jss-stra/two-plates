@@ -15,6 +15,7 @@ export default {
   "diet": null,
   "sourceDietClaims": [],
   "mainProtein": null,
+  "sourceLabel": "Kochbuch (de.wikibooks)",
   "sourceTimes": {
     "prepMinutes": null,
     "cookMinutes": null,
@@ -287,10 +288,10 @@ export default {
       "lineRef": "src:wikibooks-de:de-haehnchen-aprikosen-mandel-reis:009",
       "name": "Coriander leaves or parsley",
       "quantity": null,
-      "unit": null,
+      "unit": "unstated",
       "note": {
         "ru": null,
-        "en": "quantity unstated; roughly chopped, scattered over the finished dish"
+        "en": "roughly chopped, scattered over the finished dish"
       },
       "scaling": "linear",
       "catalogId": null,
@@ -303,11 +304,11 @@ export default {
           "en": "Coriander leaves or parsley"
         },
         "quantity": null,
-        "unit": null,
+        "unit": "unstated",
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "quantity unstated; roughly chopped, scattered over the finished dish"
+          "en": "roughly chopped, scattered over the finished dish"
         },
         "raw": "Koriandergrün oder Petersilie, grob gehackt"
       },
@@ -534,11 +535,11 @@ export default {
           "en": "Coriander leaves or parsley"
         },
         "quantity": null,
-        "unit": null,
+        "unit": "unstated",
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "quantity unstated; roughly chopped, scattered over the finished dish"
+          "en": "roughly chopped, scattered over the finished dish"
         },
         "raw": "Koriandergrün oder Petersilie, grob gehackt"
       },
@@ -627,6 +628,5 @@ export default {
     "catalogMappingReviewed": false,
     "dietIndependentlyReviewed": false,
     "crossContactKnown": false
-  },
-  "sourceLabel": "Kochbuch (de.wikibooks)"
+  }
 }

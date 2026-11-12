@@ -15,6 +15,7 @@ export default {
   "diet": null,
   "sourceDietClaims": [],
   "mainProtein": null,
+  "sourceLabel": "Kochbuch (de.wikibooks)",
   "sourceTimes": {
     "prepMinutes": null,
     "cookMinutes": null,
@@ -191,10 +192,10 @@ export default {
       "lineRef": "src:wikibooks-de:de-frikadellen:006",
       "name": "Clarified butter or neutral vegetable oil",
       "quantity": null,
-      "unit": null,
+      "unit": "unstated",
       "note": {
         "ru": null,
-        "en": "quantity not stated; frying fat, e.g. rapeseed oil per the source"
+        "en": "frying fat, e.g. rapeseed oil per the source"
       },
       "scaling": "linear",
       "catalogId": null,
@@ -207,11 +208,11 @@ export default {
           "en": "Clarified butter or neutral vegetable oil"
         },
         "quantity": null,
-        "unit": null,
+        "unit": "unstated",
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "quantity not stated; frying fat, e.g. rapeseed oil per the source"
+          "en": "frying fat, e.g. rapeseed oil per the source"
         },
         "raw": "Butterschmalz oder (geschmacks-)neutrales Pflanzenöl (z.B. Rapsöl)"
       },
@@ -224,10 +225,10 @@ export default {
       "lineRef": "src:wikibooks-de:de-frikadellen:007",
       "name": "Milk or water for soaking",
       "quantity": null,
-      "unit": null,
+      "unit": "unstated",
       "note": {
         "ru": null,
-        "en": "appears in the method; not in the source ingredient list; quantity unstated"
+        "en": "appears in the method; not in the source ingredient list; for soaking the rolls"
       },
       "scaling": "linear",
       "catalogId": null,
@@ -240,11 +241,11 @@ export default {
           "en": "Milk or water for soaking"
         },
         "quantity": null,
-        "unit": null,
+        "unit": "unstated",
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "appears in the method; not in the source ingredient list; quantity unstated"
+          "en": "appears in the method; not in the source ingredient list; for soaking the rolls"
         },
         "raw": "Die Brötchen in Milch oder Wasser einweichen"
       },
@@ -256,7 +257,7 @@ export default {
       "lineRef": "src:wikibooks-de:de-frikadellen:008",
       "name": "Breadcrumbs",
       "quantity": null,
-      "unit": null,
+      "unit": "unstated",
       "note": {
         "ru": null,
         "en": "appears in the method; not in the source ingredient list; only if the mixture is too soft"
@@ -272,7 +273,7 @@ export default {
           "en": "Breadcrumbs"
         },
         "quantity": null,
-        "unit": null,
+        "unit": "unstated",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -433,11 +434,11 @@ export default {
           "en": "Clarified butter or neutral vegetable oil"
         },
         "quantity": null,
-        "unit": null,
+        "unit": "unstated",
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "quantity not stated; frying fat, e.g. rapeseed oil per the source"
+          "en": "frying fat, e.g. rapeseed oil per the source"
         },
         "raw": "Butterschmalz oder (geschmacks-)neutrales Pflanzenöl (z.B. Rapsöl)"
       },
@@ -448,11 +449,11 @@ export default {
           "en": "Milk or water for soaking"
         },
         "quantity": null,
-        "unit": null,
+        "unit": "unstated",
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "appears in the method; not in the source ingredient list; quantity unstated"
+          "en": "appears in the method; not in the source ingredient list; for soaking the rolls"
         },
         "raw": "Die Brötchen in Milch oder Wasser einweichen"
       },
@@ -463,7 +464,7 @@ export default {
           "en": "Breadcrumbs"
         },
         "quantity": null,
-        "unit": null,
+        "unit": "unstated",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -549,6 +550,5 @@ export default {
     "catalogMappingReviewed": false,
     "dietIndependentlyReviewed": false,
     "crossContactKnown": false
-  },
-  "sourceLabel": "Kochbuch (de.wikibooks)"
+  }
 }

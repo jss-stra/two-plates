@@ -15,6 +15,7 @@ export default {
   "diet": null,
   "sourceDietClaims": [],
   "mainProtein": null,
+  "sourceLabel": "Kochbuch (de.wikibooks)",
   "sourceTimes": {
     "prepMinutes": null,
     "cookMinutes": null,
@@ -251,10 +252,10 @@ export default {
       "lineRef": "src:wikibooks-de:de-bigos:008",
       "name": "Caraway seeds",
       "quantity": null,
-      "unit": "toTaste",
+      "unit": "unstated",
       "note": {
         "ru": null,
-        "en": "quantity unstated"
+        "en": null
       },
       "scaling": "fixed",
       "catalogId": null,
@@ -267,11 +268,11 @@ export default {
           "en": "Caraway seeds"
         },
         "quantity": null,
-        "unit": "toTaste",
+        "unit": "unstated",
         "scaling": "fixed",
         "note": {
           "ru": null,
-          "en": "quantity unstated"
+          "en": null
         },
         "raw": "Kümmel"
       },
@@ -283,10 +284,10 @@ export default {
       "lineRef": "src:wikibooks-de:de-bigos:009",
       "name": "Marjoram",
       "quantity": null,
-      "unit": "toTaste",
+      "unit": "unstated",
       "note": {
         "ru": null,
-        "en": "quantity unstated"
+        "en": null
       },
       "scaling": "fixed",
       "catalogId": null,
@@ -299,11 +300,11 @@ export default {
           "en": "Marjoram"
         },
         "quantity": null,
-        "unit": "toTaste",
+        "unit": "unstated",
         "scaling": "fixed",
         "note": {
           "ru": null,
-          "en": "quantity unstated"
+          "en": null
         },
         "raw": "Majoran"
       },
@@ -544,11 +545,11 @@ export default {
           "en": "Caraway seeds"
         },
         "quantity": null,
-        "unit": "toTaste",
+        "unit": "unstated",
         "scaling": "fixed",
         "note": {
           "ru": null,
-          "en": "quantity unstated"
+          "en": null
         },
         "raw": "Kümmel"
       },
@@ -559,11 +560,11 @@ export default {
           "en": "Marjoram"
         },
         "quantity": null,
-        "unit": "toTaste",
+        "unit": "unstated",
         "scaling": "fixed",
         "note": {
           "ru": null,
-          "en": "quantity unstated"
+          "en": null
         },
         "raw": "Majoran"
       },
@@ -642,6 +643,5 @@ export default {
     "catalogMappingReviewed": false,
     "dietIndependentlyReviewed": false,
     "crossContactKnown": false
-  },
-  "sourceLabel": "Kochbuch (de.wikibooks)"
+  }
 }

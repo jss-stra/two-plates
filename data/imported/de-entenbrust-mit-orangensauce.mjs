@@ -15,6 +15,7 @@ export default {
   "diet": null,
   "sourceDietClaims": [],
   "mainProtein": null,
+  "sourceLabel": "Kochbuch (de.wikibooks)",
   "sourceTimes": {
     "prepMinutes": null,
     "cookMinutes": null,
@@ -220,10 +221,10 @@ export default {
       "lineRef": "src:wikibooks-de:de-entenbrust-mit-orangensauce:007",
       "name": "Potatoes or noodles",
       "quantity": null,
-      "unit": null,
+      "unit": "unstated",
       "note": {
         "ru": null,
-        "en": "appears in the method; not in the source ingredient list; quantity unstated - a side cooked as usual that soaks up the sauce"
+        "en": "appears in the method; not in the source ingredient list; a side cooked as usual that soaks up the sauce"
       },
       "scaling": "linear",
       "catalogId": null,
@@ -236,11 +237,11 @@ export default {
           "en": "Potatoes or noodles"
         },
         "quantity": null,
-        "unit": null,
+        "unit": "unstated",
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "appears in the method; not in the source ingredient list; quantity unstated - a side cooked as usual that soaks up the sauce"
+          "en": "appears in the method; not in the source ingredient list; a side cooked as usual that soaks up the sauce"
         },
         "raw": "Wasser aufsetzen für Kartoffeln oder Nudeln. Zubereitung wie gewöhnlich."
       },
@@ -253,10 +254,10 @@ export default {
       "lineRef": "src:wikibooks-de:de-entenbrust-mit-orangensauce:008",
       "name": "Endive salad",
       "quantity": null,
-      "unit": null,
+      "unit": "unstated",
       "note": {
         "ru": null,
-        "en": "appears in the method; not in the source ingredient list; quantity unstated; washed and plucked"
+        "en": "appears in the method; not in the source ingredient list; washed and plucked"
       },
       "scaling": "linear",
       "catalogId": null,
@@ -269,11 +270,11 @@ export default {
           "en": "Endive salad"
         },
         "quantity": null,
-        "unit": null,
+        "unit": "unstated",
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "appears in the method; not in the source ingredient list; quantity unstated; washed and plucked"
+          "en": "appears in the method; not in the source ingredient list; washed and plucked"
         },
         "raw": "Endiviensalat waschen und zupfen."
       },
@@ -350,10 +351,10 @@ export default {
       "lineRef": "src:wikibooks-de:de-entenbrust-mit-orangensauce:011",
       "name": "Salad oil",
       "quantity": null,
-      "unit": null,
+      "unit": "unstated",
       "note": {
         "ru": null,
-        "en": "appears in the method; not in the source ingredient list; quantity unstated; added to the dressing at the end"
+        "en": "appears in the method; not in the source ingredient list; added to the dressing at the end"
       },
       "scaling": "linear",
       "catalogId": null,
@@ -366,11 +367,11 @@ export default {
           "en": "Salad oil"
         },
         "quantity": null,
-        "unit": null,
+        "unit": "unstated",
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "appears in the method; not in the source ingredient list; quantity unstated; added to the dressing at the end"
+          "en": "appears in the method; not in the source ingredient list; added to the dressing at the end"
         },
         "raw": "Zum Schluss Salatöl dazugeben."
       },
@@ -514,11 +515,11 @@ export default {
           "en": "Potatoes or noodles"
         },
         "quantity": null,
-        "unit": null,
+        "unit": "unstated",
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "appears in the method; not in the source ingredient list; quantity unstated - a side cooked as usual that soaks up the sauce"
+          "en": "appears in the method; not in the source ingredient list; a side cooked as usual that soaks up the sauce"
         },
         "raw": "Wasser aufsetzen für Kartoffeln oder Nudeln. Zubereitung wie gewöhnlich."
       },
@@ -529,11 +530,11 @@ export default {
           "en": "Endive salad"
         },
         "quantity": null,
-        "unit": null,
+        "unit": "unstated",
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "appears in the method; not in the source ingredient list; quantity unstated; washed and plucked"
+          "en": "appears in the method; not in the source ingredient list; washed and plucked"
         },
         "raw": "Endiviensalat waschen und zupfen."
       },
@@ -574,11 +575,11 @@ export default {
           "en": "Salad oil"
         },
         "quantity": null,
-        "unit": null,
+        "unit": "unstated",
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "appears in the method; not in the source ingredient list; quantity unstated; added to the dressing at the end"
+          "en": "appears in the method; not in the source ingredient list; added to the dressing at the end"
         },
         "raw": "Zum Schluss Salatöl dazugeben."
       }
@@ -628,6 +629,5 @@ export default {
     "catalogMappingReviewed": false,
     "dietIndependentlyReviewed": false,
     "crossContactKnown": false
-  },
-  "sourceLabel": "Kochbuch (de.wikibooks)"
+  }
 }
