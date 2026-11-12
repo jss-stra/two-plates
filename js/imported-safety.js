@@ -1197,5 +1197,13 @@ export const IMPORTED_SAFETY = {
       4: 'Cook the Khlav Kalash on the grill or in the pan until a clean food thermometer in the centre of a cigar reads at least 71°C - "nicely done through" is not a doneness check; continue cooking and recheck if below the target - and serve with a can of crab juice!',
     },
   },
+  'wikibooks-de:de-pfefferrahmschnitzel': {
+    title: 'Probe the schnitzels after the simmer',
+    note: 'Two Plates uses at least 71°C in the centre of the thickest schnitzel, checked with a clean food thermometer. This is a conservative editorial selection of the NSW medium endpoint for whole-cut pork, not a universal minimum. The source\'s doneness cue is "when the meat is through" after frying and a short simmer - appearance and time are not doneness checks; continue cooking and recheck if below the target. Keep raw pork refrigerated at 5°C or colder before preparation and use separate boards and utensils for raw pork and ready-to-eat food.',
+    sources: [['NSW: pork medium endpoint and probe placement', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      12: 'Leave to simmer 5 minutes (do not add any water in this time), then check the thickest schnitzel with a clean food thermometer for at least 71°C - appearance and time are not doneness checks; continue simmering and recheck if below the target.',
+    },
+  },
 };
 
