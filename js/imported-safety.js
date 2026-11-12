@@ -1051,4 +1051,68 @@ export const IMPORTED_SAFETY = {
       3: 'Braise the guinea-fowl pieces until a clean food thermometer in the thickest piece, avoiding bone, reads at least 75°C - the source suggests 40 minutes, but time is not a doneness check; continue braising and recheck if below the target.',
     },
   },
+  'wikibooks-de:de-daeji-bulgogi': {
+    title: 'Probe the pork strips; marinate in the fridge',
+    note: 'Two Plates uses at least 71°C in the centre of the thickest pork strips, checked with a clean food thermometer. This is a conservative editorial selection of the NSW medium endpoint for whole-cut pork, not a universal minimum or a tested frying time. The source endpoint is "lightly cooked through" - colour is not proof of doneness. Marinate the pork refrigerated at 5°C or colder for the source hour; the marinade then fries with the pork and is cooked with it - it is never served uncooked. Keep raw pork and its marinade separate from ready-to-eat food, and clean hands, boards and utensils after handling. Gochujang is a manufactured product; follow its storage, use-by and cooking directions.',
+    sources: [['NSW: pork medium endpoint and probe placement', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      4: 'When the meat is lightly cooked through, check the thickest pork strips with a clean food thermometer for at least 71°C - colour is not a doneness check; continue frying and recheck if below the target, then add the onions.',
+    },
+  },
+  'wikibooks-de:de-moussaka': {
+    title: 'Probe the centre of the bake; wine retained',
+    note: 'Two Plates uses at least 71°C in the centre of the finished bake, checked with a clean food thermometer after stirring the probe into the thickest part of the mince layer. NSW guidance names 71°C for minced meat because mince carries contamination throughout, and warns that colour is not a reliable doneness indicator. The source browns the mince in step 3 and finishes it in a 1-hour bake; neither browning nor bake time is a doneness check - the measured check is added at the final cook step. Keep raw mince refrigerated at 5°C or colder before preparation and use separate boards and utensils for raw meat and ready-to-eat food. The wine stays in the sauce; no alcohol-free claim. The eggs in the topping and mince cook through in the bake.',
+    sources: [['NSW: minced meat 71°C; colour unreliable', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      7: 'Assembly: beat 2 eggs and stir them with the remaining cheese into the sauce from step 6. Brush a suitable baking dish with butter and sprinkle with breadcrumbs. Mix 1 egg into the mince. Line the dish with half of the aubergine slices and spread the mince over them. Distribute the rest of the aubergines on top and cover with the sauce. Bake in the oven for about 1 hour, then check the centre of the mince layer with a clean food thermometer for at least 71°C - bake time is not a doneness check; continue baking and recheck if below the target. To serve, cut the moussaka into squares.',
+    },
+  },
+  'wikibooks-de:de-entenbrust-mit-orangensauce': {
+    title: 'Probe the duck to 75°C; refrigerate the marinade and boil the sauce',
+    note: 'Two Plates uses at least 75°C in the thickest part of the duck breast, checked with a clean food thermometer, following NSW poultry guidance. The source takes the duck off when it "appears done" - appearance is not a doneness check. Marinate refrigerated at 5°C or colder: the source marinates at least 2 hours, overnight if possible, without saying where, and room-temperature marinating is unsafe. The used marinade contacted raw duck and becomes the sauce: the adapted step brings the deglazed sauce to a full boil before the meat and orange segments go back in. Keep raw duck and its marinade separate from the salad and other ready-to-eat food, and clean hands, boards and utensils after handling.',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['FSANZ: raw separation, temperature control and marinade handling', FSANZ]],
+    replacements: {
+      3: 'Cooking: score the skin side of the marinated duck breast crosswise and place it skin-side down in the hot, moderately greased pan; fry until the flesh at the edges begins to turn pale. Then turn and continue frying over moderate heat until a clean food thermometer in the thickest part reads at least 75°C - appearance is not a doneness check; continue frying and recheck if below the target. Remove the meat and leave it to rest covered with aluminium foil. Deglaze the pan juices with the soy sauce, which has meanwhile been pepped up with a little orange juice, and bring the sauce to a full boil - the marinade contacted raw duck. Add more orange juice as liked. Add the prepared orange segments to the sauce together with the meat. Serve with potatoes or noodles, which soak up the sauce well, and with the dressed endive salad.',
+    },
+  },
+  'wikibooks-de:de-paprika-bohnen-curry': {
+    title: 'Probe the pork pieces after the simmer',
+    note: 'Two Plates uses at least 71°C in the centre of the thickest pork pieces, checked with a clean food thermometer. This is a conservative editorial selection of the NSW medium endpoint for whole-cut pork, not a universal minimum or a tested 20-minute process; the source states no cut, so check several of the thickest pieces. The source simmers about 20 minutes - time is not a doneness check; continue simmering and recheck if below the target. Keep raw pork refrigerated at 5°C or colder before preparation and use separate boards and utensils for raw pork and ready-to-eat food. Follow product storage, use-by and cooking directions, including the canned beans and yogurt.',
+    sources: [['NSW: pork medium endpoint and probe placement', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      8: 'Leave to simmer in the closed wok for about 20 minutes, then check the thickest pork pieces with a clean food thermometer for at least 71°C - time is not a doneness check; continue simmering and recheck if below the target.',
+    },
+  },
+  'wikibooks-de:de-riz-casimir': {
+    title: 'Probe the turkey strips',
+    note: 'Two Plates uses at least 75°C in the thickest turkey strips, checked with a clean food thermometer, following NSW poultry guidance. The source steams the turkey about 15 minutes, then reduces it in the cream; neither time nor a creamy sauce is a doneness check - the measured check is added at the final cook step. Keep raw turkey refrigerated at 5°C or colder before preparation and use separate boards and utensils for raw poultry and ready-to-eat food.',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      4: 'Add the cream and curry and reduce to a creamy sauce; round off with the peach juice. Check the thickest turkey strips with a clean food thermometer for at least 75°C - time is not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks-de:de-frikadellen': {
+    title: 'Probe the centre of every patty',
+    note: 'Two Plates uses at least 71°C in the centre of each frikadelle, checked with a clean food thermometer. NSW guidance names 71°C for minced meat because mince carries contamination throughout, and warns that colour is not a reliable doneness indicator. The source finishes the patties "in a few minutes" over moderate heat - time and browning are not doneness checks. For thin patties, insert the probe from the side into the centre. Check every patty and continue cooking and recheck any below the target. Keep raw mince refrigerated at 5°C or colder before preparation; the mixture contains raw egg, so clean hands, boards and utensils after shaping and do not taste the raw mixture.',
+    sources: [['NSW: minced meat 71°C; colour unreliable', NSW_TEMP], ['USDA (US): thin foods probed from the side', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      5: 'Fry the frikadellen in not too little fat on both sides, then finish cooking over moderate heat, turning occasionally, until a clean food thermometer in the centre of each patty - from the side for thin ones - reads at least 71°C. Browning and time are not doneness checks; continue cooking and recheck any patty below the target.',
+    },
+  },
+  'wikibooks-de:de-bigos': {
+    title: 'Probe the pork pieces after the braise',
+    note: 'Two Plates uses at least 71°C in the centre of the thickest pork pieces, checked with a clean food thermometer. This is a conservative editorial selection of the NSW medium endpoint for whole-cut pork, not a universal minimum or a tested one-hour process. The source braises one hour - time is not a doneness check; continue braising and recheck if below the target. The smoked sausage\'s species and formulation are unverified; follow its package directions. Keep raw pork and bacon refrigerated at 5°C or colder before preparation and use separate boards and utensils for raw meat and ready-to-eat food. Sauerkraut is a fermented product; follow its storage and use-by directions.',
+    sources: [['NSW: pork medium endpoint and probe placement', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      1: 'Cut the bacon into small cubes, render it and briefly roast the chopped onions in it. Cut the meat into small cubes, the sausage into thick slices, the cabbage finely and the mushrooms into slices. Put everything with the spices and sauerkraut into a pot. Pour on enough hot water to barely cover everything. Leave the well-covered pot to braise for one hour in the preheated oven or over a low flame, then check the thickest pork pieces with a clean food thermometer for at least 71°C - time is not a doneness check; continue braising and recheck if below the target.',
+    },
+  },
+  'wikibooks-de:de-haehnchen-aprikosen-mandel-reis': {
+    title: 'Probe the chicken strips',
+    note: 'Two Plates uses at least 75°C in the thickest chicken strips, checked with a clean food thermometer, following NSW poultry guidance. The source stir-fries the chicken 6-8 minutes - time is not a doneness check; continue cooking and recheck if below the target. Keep raw chicken refrigerated at 5°C or colder before preparation and use separate boards and utensils for raw poultry and ready-to-eat food. Cool leftover cooked rice promptly, refrigerate below 5°C within 2 hours, eat within 2 days and reheat only once until steaming hot throughout (at least 60°C).',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['NSW: cooked-rice leftovers', 'https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers'], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      4: 'Then heat the oil in the pan and soften the onion cubes over low heat for 4-5 minutes. Add the chicken and stir-fry over medium heat for 6-8 minutes, until a clean food thermometer in the thickest strips reads at least 75°C - time is not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
 };
