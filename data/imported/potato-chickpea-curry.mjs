@@ -395,7 +395,7 @@ export default {
         "id": "potato-chickpea-curry-007",
         "name": {
           "ru": null,
-          "en": "Chickpeas (unsalted"
+          "en": "Chickpeas (unsalted if available)"
         },
         "quantity": "1",
         "unit": "can",

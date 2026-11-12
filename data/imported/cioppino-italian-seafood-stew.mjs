@@ -937,7 +937,7 @@ export default {
         "id": "cioppino-italian-seafood-stew-017",
         "name": {
           "ru": null,
-          "en": "Tilapia (or other white"
+          "en": "Tilapia (or other white firm-fleshed fish), cut into 2-inch chunks"
         },
         "quantity": "1 ½",
         "unit": "lb",

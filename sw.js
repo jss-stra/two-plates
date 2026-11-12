@@ -113,7 +113,7 @@ const ASSETS = [
   ],
   [
     "data/imported/cioppino-italian-seafood-stew.mjs",
-    "36ec6e5c39bcd5f1a99d7db42f6c3bf0ece0a826612bf3b66e63b152b5b462b7"
+    "d75bfd80c54949fc51e6ec5c3a8510fd81d6527ab81de8b4000a540c0041d2cd"
   ],
   [
     "data/imported/corn-chowder-i.mjs",
@@ -161,7 +161,7 @@ const ASSETS = [
   ],
   [
     "data/imported/fabes-con-almejas.mjs",
-    "e410b3afa68cc9b5242f46c82cbc2514db9906791c58075a0f084c5ba62c0886"
+    "cb584676674fe4da76a91e9a747849fea8d77c046c3b7b638ffcbcc62ec45f6f"
   ],
   [
     "data/imported/farikal.mjs",
@@ -237,7 +237,7 @@ const ASSETS = [
   ],
   [
     "data/imported/jambons.mjs",
-    "5c71a5436e48afeeb48352733cfb69b6d1ea8a50bf7a55a561b923f222338f9d"
+    "d78a44c1e60438c2d8d83e709f9c1c3062deda0f70c495bd92fc99bc8bb6774a"
   ],
   [
     "data/imported/jollof-rice.mjs",
@@ -253,7 +253,7 @@ const ASSETS = [
   ],
   [
     "data/imported/keralan-vegetable-stew.mjs",
-    "72ea3b4f17b0fe0be7344419784611691162df070fdfe6fc2e57896e7f06c194"
+    "8498028d3882a8553b92c3f27cd9034e8ae6784ea95e70dcba9623c0e0911016"
   ],
   [
     "data/imported/khara-pongal-rice-and-mung-bean-porridge.mjs",
@@ -405,7 +405,7 @@ const ASSETS = [
   ],
   [
     "data/imported/potato-chickpea-curry.mjs",
-    "cc1a559af0f9d651b272da8eeb5dbaecfa59b88c12af73bc18dff9857a13f03c"
+    "73007fd7c0141ef9744ab8248c4803b8c12618506f278e7fbe46d7b9a61fb2b1"
   ],
   [
     "data/imported/potato-curry-aloo-masala.mjs",

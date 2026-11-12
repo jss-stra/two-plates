@@ -481,14 +481,14 @@ export default {
         "id": "fabes-con-almejas-001",
         "name": {
           "ru": null,
-          "en": "(450 g) dried white beans (e.g. navy"
+          "en": "Dried white beans (e.g. navy, great northern, cannellini)"
         },
         "quantity": "1",
         "unit": "lb",
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "great northern, cannellini)"
+          "en": "450 g"
         },
         "raw": "1 pound (450 g) dried white beans (e.g. navy, great northern, cannellini)"
       },

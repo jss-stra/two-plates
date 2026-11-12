@@ -382,7 +382,7 @@ export default {
         "id": "jambons-006",
         "name": {
           "ru": null,
-          "en": "Grated cheese (Dubliner Cheese recommended"
+          "en": "Grated cheese (Dubliner cheese recommended; can be substituted)"
         },
         "quantity": "150",
         "unit": "g",

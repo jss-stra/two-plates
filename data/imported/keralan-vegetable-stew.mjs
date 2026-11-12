@@ -643,7 +643,7 @@ export default {
         "id": "keralan-vegetable-stew-002",
         "name": {
           "ru": null,
-          "en": "Boiled vegetables (carrots"
+          "en": "Boiled vegetables (carrots, green beans, potatoes, peas, etc.)"
         },
         "quantity": "1½",
         "unit": "cup",
