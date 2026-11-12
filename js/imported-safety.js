@@ -1414,4 +1414,60 @@ export const IMPORTED_SAFETY = {
       6: 'Bake at 180°C until a clean food thermometer in the thickest part of the largest strips reads at least 75°C - the about 15 minutes are not a doneness check; baste occasionally with the adobo during baking only, then discard the used adobo; continue baking and recheck if below the target.',
     },
   },
+  'wikibooks-es:es-albondigas-en-salsa': {
+    title: 'Probe the meatballs; frying and reducing are not the check',
+    note: 'Two Plates adds a measured endpoint: the meatballs are minced pork and chicken, so they need the poultry-mince endpoint. Use a clean food thermometer in the centre of the largest meatballs to check at least 75°C, following NSW poultry guidance; continue cooking and recheck if below the target. The raw egg in the mixture and the test patty in step 3 must also cook through. The sauce contains wine and the marinade can use beer; no claim is made that the alcohol evaporates. Keep the raw mince refrigerated at 5°C or colder and use separate boards and utensils for raw meat and ready-to-eat food. Take care with hot oil when frying.',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      7: 'Fry them in a pan with oil and transfer them to the saucepan with the sauce; then check the largest meatballs with a clean food thermometer in the centre for at least 75°C - frying is not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks-es:es-pollo-con-salsa-de-limon': {
+    title: 'Probe the breast; three minutes a side is not the check',
+    note: 'Two Plates adds a measured endpoint: the source cooks the breast about three minutes per side; time is not a doneness check. Use a clean food thermometer in the thickest part of the breast to check at least 75°C, following NSW poultry guidance; continue cooking and recheck if below the target. The sauce contains wine; no claim is made that the alcohol evaporates. Keep the raw chicken refrigerated at 5°C or colder and use separate boards and utensils for raw chicken and ready-to-eat food.',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      3: 'Cover the pan and set to medium heat; cook, turning once, until a clean food thermometer in the thickest part of the breast reads at least 75°C - three minutes per side is not a doneness check; add the onion and the garlic after the first side and continue cooking, rechecking if below the target.',
+    },
+  },
+  'wikibooks-es:es-conejo-en-salsa': {
+    title: 'Probe the rabbit pieces; rabbit has no NSW temperature',
+    note: 'Two Plates adds a measured endpoint: rabbit is not separately listed in NSW temperature guidance, so Two Plates uses a cautious endpoint of at least 71°C. Use a clean food thermometer in the thickest part of the largest pieces, avoiding bone; continue simmering and recheck if below the target. The livers cook with the rabbit and are blended into the sauce: they are offal and must cook through with the meat. Keep the raw rabbit refrigerated at 5°C or colder and use separate boards and utensils for raw meat and ready-to-eat food.',
+    sources: [['NSW: mince and cut meats 71°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      4: 'Meanwhile the rabbit broth will have reduced; before adding the sauce, check the largest pieces with a clean food thermometer in the thickest part, avoiding bone, for at least 71°C - rabbit has no NSW temperature, so Two Plates uses this cautious endpoint; continue simmering and recheck if below the target, then add the sauce and let it come to a boil.',
+    },
+  },
+  'wikibooks-es:es-cuy-en-salsa-de-mani': {
+    title: 'Probe the cuy; marinade and produce handling',
+    note: 'Two Plates adds a measured endpoint: cuy (guinea pig) is not separately listed in NSW temperature guidance, so Two Plates uses a cautious endpoint of at least 71°C. Use a clean food thermometer in the thickest part of the meat, avoiding bone; continue roasting and recheck if below the target. The adobo contacts the raw cuy during the overnight rest: keep it refrigerated and discard any leftover adobo that touched the raw meat. The salad is served raw: wash the lettuce, tomato and avocado under running water. Keep the raw cuy refrigerated at 5°C or colder and use separate boards and utensils for raw meat and ready-to-eat food. Take care with skewers and roasting heat.',
+    sources: [['NSW: mince and cut meats 71°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      2: 'When the cuy is ready, place it on skewers and roast it, brushing on achiote (onoto) while it cooks, until a clean food thermometer in the thickest part, avoiding bone, reads at least 71°C - cuy has no NSW temperature, so Two Plates uses this cautious endpoint; continue roasting and recheck if below the target.',
+    },
+  },
+  'wikibooks-es:es-caldo-tlalpeno': {
+    title: 'Probe the chicken before shredding',
+    note: 'Two Plates adds a measured endpoint: the source removes the chicken once cooked; cooked is not a doneness check. Before shredding, use a clean food thermometer in the thickest part of the breast to check at least 75°C, following NSW poultry guidance; continue simmering and recheck if below the target. Keep the raw chicken refrigerated at 5°C or colder and use separate boards and utensils for raw chicken and ready-to-eat food. The avocado and lime are served raw: wash them before cutting.',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      3: 'Once a clean food thermometer in the thickest part of the breast reads at least 75°C - cooked is not a doneness check; continue simmering and recheck if below the target - remove the chicken from the broth, shred it and set it aside, keeping the broth on the heat.',
+    },
+  },
+  'wikibooks-es:es-atascaburras': {
+    title: 'Probe the salt cod; the 30 minutes are not the check',
+    note: 'Two Plates adds a measured endpoint: the source boils the cod with the potatoes about 30 minutes; time is not a doneness check. Use a clean food thermometer in the thickest part of the cod to check at least 63°C, following NSW fish guidance; continue cooking and recheck if below the target. The cod is a salt-cured product and is not desalted here: keep it refrigerated at 5°C or colder before preparation. The hard-boiled eggs are a cooked input; boil them until the yolks are firm.',
+    sources: [['NSW: fish 63°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      1: 'Boil the potatoes together with the salt cod, which has been washed but not desalted, until a clean food thermometer in the thickest part of the cod reads at least 63°C - the about 30 minutes are not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks-es:es-chuletas-en-naranja': {
+    title: 'Probe the chops; the consumed juice is not the check',
+    note: 'Two Plates adds a measured endpoint: the source cooks the chops until the orange juice is consumed; that is not a doneness check. Use a clean food thermometer in the centre of the thickest chop to check at least 71°C, following NSW pork guidance; continue cooking and recheck if below the target. Keep the raw chops refrigerated at 5°C or colder and use separate boards and utensils for raw pork and ready-to-eat food.',
+    sources: [['NSW: pork 71°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      4: 'Cook over medium heat until the orange juice is mostly consumed and a clean food thermometer in the centre of the thickest chop reads at least 71°C - the consumed juice is not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
 };
