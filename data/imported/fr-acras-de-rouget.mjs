@@ -273,11 +273,108 @@ export default {
           "ru": null,
           "en": "salt and freshly ground pepper, frying oil"
         },
-        "raw": "piment de Cayenne, sel et poivre du moulin, huile de friture"
+        "raw": "piment de Cayenne"
       },
       "methodSteps": [
         1,
         3
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-acras-de-rouget:009",
+      "name": "Salt",
+      "quantity": null,
+      "unit": "toTaste",
+      "note": {
+        "ru": null,
+        "en": null
+      },
+      "scaling": "fixed",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-acras-de-rouget:009",
+        "name": {
+          "ru": null,
+          "en": "Salt"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "sel"
+      },
+      "methodSteps": [
+        1,
+        2
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-acras-de-rouget:010",
+      "name": "Mill pepper",
+      "quantity": null,
+      "unit": "toTaste",
+      "note": {
+        "ru": null,
+        "en": null
+      },
+      "scaling": "fixed",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-acras-de-rouget:010",
+        "name": {
+          "ru": null,
+          "en": "Mill pepper"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "poivre du moulin"
+      },
+      "methodSteps": [
+        1
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-acras-de-rouget:011",
+      "name": "Frying oil",
+      "quantity": null,
+      "unit": "unstated",
+      "note": {
+        "ru": null,
+        "en": "quantity not stated in source"
+      },
+      "scaling": "linear",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-acras-de-rouget:011",
+        "name": {
+          "ru": null,
+          "en": "Frying oil"
+        },
+        "quantity": null,
+        "unit": "unstated",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "quantity not stated in source"
+        },
+        "raw": "huile de friture"
+      },
+      "methodSteps": [
+        5
       ]
     }
   ],
@@ -458,7 +555,52 @@ export default {
           "ru": null,
           "en": "salt and freshly ground pepper, frying oil"
         },
-        "raw": "piment de Cayenne, sel et poivre du moulin, huile de friture"
+        "raw": "piment de Cayenne"
+      },
+      {
+        "id": "fr-acras-de-rouget:009",
+        "name": {
+          "ru": null,
+          "en": "Salt"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "sel"
+      },
+      {
+        "id": "fr-acras-de-rouget:010",
+        "name": {
+          "ru": null,
+          "en": "Mill pepper"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "poivre du moulin"
+      },
+      {
+        "id": "fr-acras-de-rouget:011",
+        "name": {
+          "ru": null,
+          "en": "Frying oil"
+        },
+        "quantity": null,
+        "unit": "unstated",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "quantity not stated in source"
+        },
+        "raw": "huile de friture"
       }
     ],
     "steps": [
@@ -522,7 +664,7 @@ export default {
     "landingPage": "https://fr.wikibooks.org/wiki/Livre_de_cuisine/Acras_de_rouget?oldid=327198",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://fr.wikibooks.org/wiki/Wikibooks:Copyright",
-    "changes": "Photo omitted; pinned fr.wikibooks revision 327198 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged."
+    "changes": "Photo omitted; pinned fr.wikibooks revision 327198 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged. 2026-11-12 fidelity fix: compound source bullets re-split so every listed ingredient appears as its own line (seasonings, oil, garlic, sugar, herbs); method-used seasonings added with a note."
   },
   "review": {
     "productionApproved": false,
@@ -531,4 +673,4 @@ export default {
     "dietIndependentlyReviewed": false,
     "crossContactKnown": false
   }
-};
+}

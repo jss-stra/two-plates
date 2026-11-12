@@ -214,10 +214,74 @@ export default {
           "ru": null,
           "en": "salt, pepper"
         },
-        "raw": "2 cuillères de beurre, sel, poivre"
+        "raw": "2 cuillères de beurre"
       },
       "methodSteps": [
         3
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-creme-de-chou-fleur:007",
+      "name": "Salt",
+      "quantity": null,
+      "unit": "toTaste",
+      "note": {
+        "ru": null,
+        "en": null
+      },
+      "scaling": "fixed",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-creme-de-chou-fleur:007",
+        "name": {
+          "ru": null,
+          "en": "Salt"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "sel"
+      },
+      "methodSteps": [
+        1
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-creme-de-chou-fleur:008",
+      "name": "Pepper",
+      "quantity": null,
+      "unit": "toTaste",
+      "note": {
+        "ru": null,
+        "en": null
+      },
+      "scaling": "fixed",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-creme-de-chou-fleur:008",
+        "name": {
+          "ru": null,
+          "en": "Pepper"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "poivre"
+      },
+      "methodSteps": [
+        1
       ]
     }
   ],
@@ -354,7 +418,37 @@ export default {
           "ru": null,
           "en": "salt, pepper"
         },
-        "raw": "2 cuillères de beurre, sel, poivre"
+        "raw": "2 cuillères de beurre"
+      },
+      {
+        "id": "fr-creme-de-chou-fleur:007",
+        "name": {
+          "ru": null,
+          "en": "Salt"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "sel"
+      },
+      {
+        "id": "fr-creme-de-chou-fleur:008",
+        "name": {
+          "ru": null,
+          "en": "Pepper"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "poivre"
       }
     ],
     "steps": [
@@ -401,7 +495,7 @@ export default {
     "landingPage": "https://fr.wikibooks.org/wiki/Livre_de_cuisine/Crème_de_chou-fleur?oldid=327225",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://fr.wikibooks.org/wiki/Wikibooks:Copyright",
-    "changes": "Photo omitted; pinned fr.wikibooks revision 327225 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged."
+    "changes": "Photo omitted; pinned fr.wikibooks revision 327225 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged. 2026-11-12 fidelity fix: compound source bullets re-split so every listed ingredient appears as its own line (seasonings, oil, garlic, sugar, herbs); method-used seasonings added with a note."
   },
   "review": {
     "productionApproved": false,
@@ -410,4 +504,4 @@ export default {
     "dietIndependentlyReviewed": false,
     "crossContactKnown": false
   }
-};
+}

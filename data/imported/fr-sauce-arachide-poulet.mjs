@@ -350,7 +350,7 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:fr-sauce-arachide-poulet:011",
-      "name": "Potatoes",
+      "name": "Potatoes, carrots or pumpkin (your choice)",
       "quantity": null,
       "unit": "unstated",
       "note": {
@@ -365,7 +365,7 @@ export default {
         "id": "fr-sauce-arachide-poulet-011",
         "name": {
           "ru": null,
-          "en": "Potatoes"
+          "en": "Potatoes, carrots or pumpkin (your choice)"
         },
         "quantity": null,
         "unit": "unstated",
@@ -408,6 +408,39 @@ export default {
       },
       "methodSteps": [
         5
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-sauce-arachide-poulet:013",
+      "name": "Salt",
+      "quantity": null,
+      "unit": "toTaste",
+      "note": {
+        "ru": null,
+        "en": "appears in the method; not in the source ingredient list"
+      },
+      "scaling": "fixed",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-sauce-arachide-poulet:013",
+        "name": {
+          "ru": null,
+          "en": "Salt"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": "appears in the method; not in the source ingredient list"
+        },
+        "raw": "sel"
+      },
+      "methodSteps": [
+        1,
+        7
       ]
     }
   ],
@@ -638,7 +671,7 @@ export default {
         "id": "fr-sauce-arachide-poulet-011",
         "name": {
           "ru": null,
-          "en": "Potatoes"
+          "en": "Potatoes, carrots or pumpkin (your choice)"
         },
         "quantity": null,
         "unit": "unstated",
@@ -663,6 +696,21 @@ export default {
           "en": null
         },
         "raw": "Un piment rouge frais  (facultatif)"
+      },
+      {
+        "id": "fr-sauce-arachide-poulet:013",
+        "name": {
+          "ru": null,
+          "en": "Salt"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": "appears in the method; not in the source ingredient list"
+        },
+        "raw": "sel"
       }
     ],
     "steps": [
@@ -741,7 +789,7 @@ export default {
     "landingPage": "https://fr.wikibooks.org/wiki/Livre_de_cuisine/Sauce_arachide_poulet?oldid=647612",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://fr.wikibooks.org/wiki/Wikibooks:Copyright",
-    "changes": "Photo omitted; pinned fr.wikibooks revision 647612 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged."
+    "changes": "Photo omitted; pinned fr.wikibooks revision 647612 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged. 2026-11-12 fidelity fix: compound source bullets re-split so every listed ingredient appears as its own line (seasonings, oil, garlic, sugar, herbs); method-used seasonings added with a note."
   },
   "review": {
     "productionApproved": false,
@@ -750,4 +798,4 @@ export default {
     "dietIndependentlyReviewed": false,
     "crossContactKnown": false
   }
-};
+}

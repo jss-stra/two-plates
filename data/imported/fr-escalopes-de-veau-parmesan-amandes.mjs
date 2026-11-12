@@ -180,10 +180,138 @@ export default {
           "ru": null,
           "en": "2 tablespoons cooking oil, salt and mill pepper, a little flour"
         },
-        "raw": "50 g de beurre, 2 cuillerées à soupe d'huile de cuisson, sel et poivre du moulin, un peu de farine."
+        "raw": "50 g de beurre"
       },
       "methodSteps": [
         5
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-escalopes-de-veau-parmesan-amandes:006",
+      "name": "Cooking oil",
+      "quantity": "2",
+      "unit": "tbsp",
+      "note": {
+        "ru": null,
+        "en": null
+      },
+      "scaling": "linear",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-escalopes-de-veau-parmesan-amandes:006",
+        "name": {
+          "ru": null,
+          "en": "Cooking oil"
+        },
+        "quantity": "2",
+        "unit": "tbsp",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "2 cuillerées à soupe d'huile de cuisson"
+      },
+      "methodSteps": [
+        5
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-escalopes-de-veau-parmesan-amandes:007",
+      "name": "Salt",
+      "quantity": null,
+      "unit": "toTaste",
+      "note": {
+        "ru": null,
+        "en": null
+      },
+      "scaling": "fixed",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-escalopes-de-veau-parmesan-amandes:007",
+        "name": {
+          "ru": null,
+          "en": "Salt"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "sel"
+      },
+      "methodSteps": [
+        3
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-escalopes-de-veau-parmesan-amandes:008",
+      "name": "Mill pepper",
+      "quantity": null,
+      "unit": "toTaste",
+      "note": {
+        "ru": null,
+        "en": null
+      },
+      "scaling": "fixed",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-escalopes-de-veau-parmesan-amandes:008",
+        "name": {
+          "ru": null,
+          "en": "Mill pepper"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "poivre du moulin"
+      },
+      "methodSteps": [
+        3
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-escalopes-de-veau-parmesan-amandes:009",
+      "name": "Flour",
+      "quantity": null,
+      "unit": "unstated",
+      "note": {
+        "ru": null,
+        "en": "\"a little flour\" in source - quantity not stated"
+      },
+      "scaling": "linear",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-escalopes-de-veau-parmesan-amandes:009",
+        "name": {
+          "ru": null,
+          "en": "Flour"
+        },
+        "quantity": null,
+        "unit": "unstated",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "\"a little flour\" in source - quantity not stated"
+        },
+        "raw": "un peu de farine"
+      },
+      "methodSteps": [
+        4
       ]
     }
   ],
@@ -319,7 +447,67 @@ export default {
           "ru": null,
           "en": "2 tablespoons cooking oil, salt and mill pepper, a little flour"
         },
-        "raw": "50 g de beurre, 2 cuillerées à soupe d'huile de cuisson, sel et poivre du moulin, un peu de farine."
+        "raw": "50 g de beurre"
+      },
+      {
+        "id": "fr-escalopes-de-veau-parmesan-amandes:006",
+        "name": {
+          "ru": null,
+          "en": "Cooking oil"
+        },
+        "quantity": "2",
+        "unit": "tbsp",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "2 cuillerées à soupe d'huile de cuisson"
+      },
+      {
+        "id": "fr-escalopes-de-veau-parmesan-amandes:007",
+        "name": {
+          "ru": null,
+          "en": "Salt"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "sel"
+      },
+      {
+        "id": "fr-escalopes-de-veau-parmesan-amandes:008",
+        "name": {
+          "ru": null,
+          "en": "Mill pepper"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "poivre du moulin"
+      },
+      {
+        "id": "fr-escalopes-de-veau-parmesan-amandes:009",
+        "name": {
+          "ru": null,
+          "en": "Flour"
+        },
+        "quantity": null,
+        "unit": "unstated",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "\"a little flour\" in source - quantity not stated"
+        },
+        "raw": "un peu de farine"
       }
     ],
     "steps": [
@@ -383,7 +571,7 @@ export default {
     "landingPage": "https://fr.wikibooks.org/wiki/Livre_de_cuisine/Escalopes_de_veau_parmesan-amandes?oldid=358319",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://fr.wikibooks.org/wiki/Wikibooks:Copyright",
-    "changes": "Photo omitted; pinned fr.wikibooks revision 358319 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged."
+    "changes": "Photo omitted; pinned fr.wikibooks revision 358319 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged. 2026-11-12 fidelity fix: compound source bullets re-split so every listed ingredient appears as its own line (seasonings, oil, garlic, sugar, herbs); method-used seasonings added with a note."
   },
   "review": {
     "productionApproved": false,
@@ -392,4 +580,4 @@ export default {
     "dietIndependentlyReviewed": false,
     "crossContactKnown": false
   }
-};
+}

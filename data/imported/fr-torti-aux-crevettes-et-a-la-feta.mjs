@@ -178,7 +178,7 @@ export default {
           "ru": null,
           "en": "a knob of butter"
         },
-        "raw": "20 cl de crème fraîche, une noix de beurre"
+        "raw": "20 cl de crème fraîche"
       },
       "methodSteps": [
         5
@@ -210,10 +210,107 @@ export default {
           "ru": null,
           "en": "salt, pepper"
         },
-        "raw": "ciboulette, sel, poivre."
+        "raw": "ciboulette"
       },
       "methodSteps": [
         6
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-torti-aux-crevettes-et-a-la-feta:007",
+      "name": "Butter",
+      "quantity": "1",
+      "unit": "knob",
+      "note": {
+        "ru": null,
+        "en": "\"une noix de beurre\" - a knob of butter"
+      },
+      "scaling": "linear",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-torti-aux-crevettes-et-a-la-feta:007",
+        "name": {
+          "ru": null,
+          "en": "Butter"
+        },
+        "quantity": "1",
+        "unit": "knob",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "\"une noix de beurre\" - a knob of butter"
+        },
+        "raw": "une noix de beurre"
+      },
+      "methodSteps": [
+        3
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-torti-aux-crevettes-et-a-la-feta:008",
+      "name": "Salt",
+      "quantity": null,
+      "unit": "toTaste",
+      "note": {
+        "ru": null,
+        "en": null
+      },
+      "scaling": "fixed",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-torti-aux-crevettes-et-a-la-feta:008",
+        "name": {
+          "ru": null,
+          "en": "Salt"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "sel"
+      },
+      "methodSteps": [
+        1,
+        5
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-torti-aux-crevettes-et-a-la-feta:009",
+      "name": "Pepper",
+      "quantity": null,
+      "unit": "toTaste",
+      "note": {
+        "ru": null,
+        "en": null
+      },
+      "scaling": "fixed",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-torti-aux-crevettes-et-a-la-feta:009",
+        "name": {
+          "ru": null,
+          "en": "Pepper"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "poivre"
+      },
+      "methodSteps": [
+        5
       ]
     }
   ],
@@ -349,7 +446,7 @@ export default {
           "ru": null,
           "en": "a knob of butter"
         },
-        "raw": "20 cl de crème fraîche, une noix de beurre"
+        "raw": "20 cl de crème fraîche"
       },
       {
         "id": "fr-torti-aux-crevettes-et-a-la-feta-006",
@@ -364,7 +461,52 @@ export default {
           "ru": null,
           "en": "salt, pepper"
         },
-        "raw": "ciboulette, sel, poivre."
+        "raw": "ciboulette"
+      },
+      {
+        "id": "fr-torti-aux-crevettes-et-a-la-feta:007",
+        "name": {
+          "ru": null,
+          "en": "Butter"
+        },
+        "quantity": "1",
+        "unit": "knob",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "\"une noix de beurre\" - a knob of butter"
+        },
+        "raw": "une noix de beurre"
+      },
+      {
+        "id": "fr-torti-aux-crevettes-et-a-la-feta:008",
+        "name": {
+          "ru": null,
+          "en": "Salt"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "sel"
+      },
+      {
+        "id": "fr-torti-aux-crevettes-et-a-la-feta:009",
+        "name": {
+          "ru": null,
+          "en": "Pepper"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "poivre"
       }
     ],
     "steps": [
@@ -428,7 +570,7 @@ export default {
     "landingPage": "https://fr.wikibooks.org/wiki/Livre_de_cuisine/Torti_aux_crevettes_et_à_la_feta?oldid=452267",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://fr.wikibooks.org/wiki/Wikibooks:Copyright",
-    "changes": "Photo omitted; pinned fr.wikibooks revision 452267 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged."
+    "changes": "Photo omitted; pinned fr.wikibooks revision 452267 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged. 2026-11-12 fidelity fix: compound source bullets re-split so every listed ingredient appears as its own line (seasonings, oil, garlic, sugar, herbs); method-used seasonings added with a note."
   },
   "review": {
     "productionApproved": false,
@@ -437,4 +579,4 @@ export default {
     "dietIndependentlyReviewed": false,
     "crossContactKnown": false
   }
-};
+}

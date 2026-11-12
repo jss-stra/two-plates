@@ -252,6 +252,72 @@ export default {
         3,
         7
       ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-riz-noir:008",
+      "name": "Oil",
+      "quantity": null,
+      "unit": "unstated",
+      "note": {
+        "ru": null,
+        "en": "appears in the method; not in the source ingredient list"
+      },
+      "scaling": "linear",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-riz-noir:008",
+        "name": {
+          "ru": null,
+          "en": "Oil"
+        },
+        "quantity": null,
+        "unit": "unstated",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "appears in the method; not in the source ingredient list"
+        },
+        "raw": "un peu d’huile"
+      },
+      "methodSteps": [
+        1
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-riz-noir:009",
+      "name": "Salt",
+      "quantity": null,
+      "unit": "toTaste",
+      "note": {
+        "ru": null,
+        "en": "appears in the method; not in the source ingredient list"
+      },
+      "scaling": "fixed",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-riz-noir:009",
+        "name": {
+          "ru": null,
+          "en": "Salt"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": "appears in the method; not in the source ingredient list"
+        },
+        "raw": "sel"
+      },
+      "methodSteps": [
+        1,
+        2,
+        6
+      ]
     }
   ],
   "steps": [
@@ -431,6 +497,36 @@ export default {
           "en": null
         },
         "raw": "1 cube d'assaisonnement"
+      },
+      {
+        "id": "fr-riz-noir:008",
+        "name": {
+          "ru": null,
+          "en": "Oil"
+        },
+        "quantity": null,
+        "unit": "unstated",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "appears in the method; not in the source ingredient list"
+        },
+        "raw": "un peu d’huile"
+      },
+      {
+        "id": "fr-riz-noir:009",
+        "name": {
+          "ru": null,
+          "en": "Salt"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": "appears in the method; not in the source ingredient list"
+        },
+        "raw": "sel"
       }
     ],
     "steps": [
@@ -509,7 +605,7 @@ export default {
     "landingPage": "https://fr.wikibooks.org/wiki/Livre_de_cuisine/Riz_noir?oldid=517184",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://fr.wikibooks.org/wiki/Wikibooks:Copyright",
-    "changes": "Photo omitted; pinned fr.wikibooks revision 517184 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged."
+    "changes": "Photo omitted; pinned fr.wikibooks revision 517184 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged. 2026-11-12 fidelity fix: compound source bullets re-split so every listed ingredient appears as its own line (seasonings, oil, garlic, sugar, herbs); method-used seasonings added with a note."
   },
   "review": {
     "productionApproved": false,
@@ -518,4 +614,4 @@ export default {
     "dietIndependentlyReviewed": false,
     "crossContactKnown": false
   }
-};
+}

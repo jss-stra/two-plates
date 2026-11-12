@@ -185,6 +185,39 @@ export default {
       "methodSteps": [
         4
       ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-gratin-de-courgettes-et-tomates:006",
+      "name": "Salt",
+      "quantity": null,
+      "unit": "toTaste",
+      "note": {
+        "ru": null,
+        "en": "appears in the method; not in the source ingredient list"
+      },
+      "scaling": "fixed",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-gratin-de-courgettes-et-tomates:006",
+        "name": {
+          "ru": null,
+          "en": "Salt"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": "appears in the method; not in the source ingredient list"
+        },
+        "raw": "Saler"
+      },
+      "methodSteps": [
+        1,
+        2
+      ]
     }
   ],
   "steps": [
@@ -320,6 +353,21 @@ export default {
           "en": null
         },
         "raw": "50 g de fromage râpé."
+      },
+      {
+        "id": "fr-gratin-de-courgettes-et-tomates:006",
+        "name": {
+          "ru": null,
+          "en": "Salt"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": "appears in the method; not in the source ingredient list"
+        },
+        "raw": "Saler"
       }
     ],
     "steps": [
@@ -397,7 +445,7 @@ export default {
     "landingPage": "https://fr.wikibooks.org/wiki/Livre_de_cuisine/Gratin_de_courgettes_et_tomates?oldid=710472",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://fr.wikibooks.org/wiki/Wikibooks:Copyright",
-    "changes": "Photo omitted; pinned fr.wikibooks revision 710472 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged."
+    "changes": "Photo omitted; pinned fr.wikibooks revision 710472 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged. 2026-11-12 fidelity fix: compound source bullets re-split so every listed ingredient appears as its own line (seasonings, oil, garlic, sugar, herbs); method-used seasonings added with a note."
   },
   "review": {
     "productionApproved": false,
@@ -406,4 +454,4 @@ export default {
     "dietIndependentlyReviewed": false,
     "crossContactKnown": false
   }
-};
+}

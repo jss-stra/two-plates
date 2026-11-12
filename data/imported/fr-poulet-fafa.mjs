@@ -346,7 +346,71 @@ export default {
           "ru": null,
           "en": "salt and mill pepper"
         },
-        "raw": "15 cl d'eau, sel et poivre du moulin."
+        "raw": "15 cl d'eau"
+      },
+      "methodSteps": [
+        6
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-poulet-fafa:011",
+      "name": "Salt",
+      "quantity": null,
+      "unit": "toTaste",
+      "note": {
+        "ru": null,
+        "en": null
+      },
+      "scaling": "fixed",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-poulet-fafa:011",
+        "name": {
+          "ru": null,
+          "en": "Salt"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "sel"
+      },
+      "methodSteps": [
+        6
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-poulet-fafa:012",
+      "name": "Mill pepper",
+      "quantity": null,
+      "unit": "toTaste",
+      "note": {
+        "ru": null,
+        "en": null
+      },
+      "scaling": "fixed",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-poulet-fafa:012",
+        "name": {
+          "ru": null,
+          "en": "Mill pepper"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "poivre du moulin"
       },
       "methodSteps": [
         6
@@ -581,7 +645,37 @@ export default {
           "ru": null,
           "en": "salt and mill pepper"
         },
-        "raw": "15 cl d'eau, sel et poivre du moulin."
+        "raw": "15 cl d'eau"
+      },
+      {
+        "id": "fr-poulet-fafa:011",
+        "name": {
+          "ru": null,
+          "en": "Salt"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "sel"
+      },
+      {
+        "id": "fr-poulet-fafa:012",
+        "name": {
+          "ru": null,
+          "en": "Mill pepper"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "poivre du moulin"
       }
     ],
     "steps": [
@@ -669,7 +763,7 @@ export default {
     "landingPage": "https://fr.wikibooks.org/wiki/Livre_de_cuisine/Poulet_fafa?oldid=379297",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://fr.wikibooks.org/wiki/Wikibooks:Copyright",
-    "changes": "Photo omitted; pinned fr.wikibooks revision 379297 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged."
+    "changes": "Photo omitted; pinned fr.wikibooks revision 379297 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged. 2026-11-12 fidelity fix: compound source bullets re-split so every listed ingredient appears as its own line (seasonings, oil, garlic, sugar, herbs); method-used seasonings added with a note."
   },
   "review": {
     "productionApproved": false,
@@ -678,4 +772,4 @@ export default {
     "dietIndependentlyReviewed": false,
     "crossContactKnown": false
   }
-};
+}

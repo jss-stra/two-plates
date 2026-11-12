@@ -409,7 +409,7 @@ export default {
           "ru": null,
           "en": "cayenne pepper, parsley, chives"
         },
-        "raw": "sel, piment de Cayenne, persil, ciboulette"
+        "raw": "sel"
       },
       "methodSteps": [
         3
@@ -442,6 +442,160 @@ export default {
           "en": null
         },
         "raw": "1 dl de muscadet"
+      },
+      "methodSteps": [
+        2
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-cotriade:013",
+      "name": "Cayenne pepper",
+      "quantity": null,
+      "unit": "toTaste",
+      "note": {
+        "ru": null,
+        "en": null
+      },
+      "scaling": "fixed",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-cotriade:013",
+        "name": {
+          "ru": null,
+          "en": "Cayenne pepper"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "piment de Cayenne"
+      },
+      "methodSteps": []
+    },
+    {
+      "lineRef": "src:wikibooks:fr-cotriade:014",
+      "name": "Parsley",
+      "quantity": null,
+      "unit": "unstated",
+      "note": {
+        "ru": null,
+        "en": null
+      },
+      "scaling": "linear",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-cotriade:014",
+        "name": {
+          "ru": null,
+          "en": "Parsley"
+        },
+        "quantity": null,
+        "unit": "unstated",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "persil"
+      },
+      "methodSteps": []
+    },
+    {
+      "lineRef": "src:wikibooks:fr-cotriade:015",
+      "name": "Chives",
+      "quantity": null,
+      "unit": "unstated",
+      "note": {
+        "ru": null,
+        "en": null
+      },
+      "scaling": "linear",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-cotriade:015",
+        "name": {
+          "ru": null,
+          "en": "Chives"
+        },
+        "quantity": null,
+        "unit": "unstated",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "ciboulette"
+      },
+      "methodSteps": []
+    },
+    {
+      "lineRef": "src:wikibooks:fr-cotriade:016",
+      "name": "Pepper",
+      "quantity": null,
+      "unit": "toTaste",
+      "note": {
+        "ru": null,
+        "en": "appears in the method; not in the source ingredient list"
+      },
+      "scaling": "fixed",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-cotriade:016",
+        "name": {
+          "ru": null,
+          "en": "Pepper"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": "appears in the method; not in the source ingredient list"
+        },
+        "raw": "saler et poivrer"
+      },
+      "methodSteps": [
+        2
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-cotriade:017",
+      "name": "Oil",
+      "quantity": null,
+      "unit": "unstated",
+      "note": {
+        "ru": null,
+        "en": "appears in the method; not in the source ingredient list"
+      },
+      "scaling": "linear",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-cotriade:017",
+        "name": {
+          "ru": null,
+          "en": "Oil"
+        },
+        "quantity": null,
+        "unit": "unstated",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "appears in the method; not in the source ingredient list"
+        },
+        "raw": "un peu d'huile"
       },
       "methodSteps": [
         2
@@ -664,7 +818,7 @@ export default {
           "ru": null,
           "en": "cayenne pepper, parsley, chives"
         },
-        "raw": "sel, piment de Cayenne, persil, ciboulette"
+        "raw": "sel"
       },
       {
         "id": "fr-cotriade-013",
@@ -680,6 +834,81 @@ export default {
           "en": null
         },
         "raw": "1 dl de muscadet"
+      },
+      {
+        "id": "fr-cotriade:013",
+        "name": {
+          "ru": null,
+          "en": "Cayenne pepper"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "piment de Cayenne"
+      },
+      {
+        "id": "fr-cotriade:014",
+        "name": {
+          "ru": null,
+          "en": "Parsley"
+        },
+        "quantity": null,
+        "unit": "unstated",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "persil"
+      },
+      {
+        "id": "fr-cotriade:015",
+        "name": {
+          "ru": null,
+          "en": "Chives"
+        },
+        "quantity": null,
+        "unit": "unstated",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "ciboulette"
+      },
+      {
+        "id": "fr-cotriade:016",
+        "name": {
+          "ru": null,
+          "en": "Pepper"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": "appears in the method; not in the source ingredient list"
+        },
+        "raw": "saler et poivrer"
+      },
+      {
+        "id": "fr-cotriade:017",
+        "name": {
+          "ru": null,
+          "en": "Oil"
+        },
+        "quantity": null,
+        "unit": "unstated",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "appears in the method; not in the source ingredient list"
+        },
+        "raw": "un peu d'huile"
       }
     ],
     "steps": [
@@ -731,7 +960,7 @@ export default {
     "landingPage": "https://fr.wikibooks.org/wiki/Livre_de_cuisine/Cotriade?oldid=649006",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://fr.wikibooks.org/wiki/Wikibooks:Copyright",
-    "changes": "Photo omitted; pinned fr.wikibooks revision 649006 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged."
+    "changes": "Photo omitted; pinned fr.wikibooks revision 649006 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged. 2026-11-12 fidelity fix: compound source bullets re-split so every listed ingredient appears as its own line (seasonings, oil, garlic, sugar, herbs); method-used seasonings added with a note."
   },
   "review": {
     "productionApproved": false,
@@ -740,4 +969,4 @@ export default {
     "dietIndependentlyReviewed": false,
     "crossContactKnown": false
   }
-};
+}

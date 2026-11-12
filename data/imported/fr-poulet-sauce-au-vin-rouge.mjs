@@ -180,10 +180,74 @@ export default {
           "ru": null,
           "en": "salt and mill pepper"
         },
-        "raw": "3 cuillers de fécule de pommes de terre ou farine de maïs, sel et poivre du moulin"
+        "raw": "3 cuillers de fécule de pommes de terre ou farine de maïs"
       },
       "methodSteps": [
         4
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-poulet-sauce-au-vin-rouge:006",
+      "name": "Salt",
+      "quantity": null,
+      "unit": "toTaste",
+      "note": {
+        "ru": null,
+        "en": null
+      },
+      "scaling": "fixed",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-poulet-sauce-au-vin-rouge:006",
+        "name": {
+          "ru": null,
+          "en": "Salt"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "sel"
+      },
+      "methodSteps": [
+        2
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-poulet-sauce-au-vin-rouge:007",
+      "name": "Mill pepper",
+      "quantity": null,
+      "unit": "toTaste",
+      "note": {
+        "ru": null,
+        "en": null
+      },
+      "scaling": "fixed",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-poulet-sauce-au-vin-rouge:007",
+        "name": {
+          "ru": null,
+          "en": "Mill pepper"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "poivre du moulin"
+      },
+      "methodSteps": [
+        2
       ]
     }
   ],
@@ -312,7 +376,37 @@ export default {
           "ru": null,
           "en": "salt and mill pepper"
         },
-        "raw": "3 cuillers de fécule de pommes de terre ou farine de maïs, sel et poivre du moulin"
+        "raw": "3 cuillers de fécule de pommes de terre ou farine de maïs"
+      },
+      {
+        "id": "fr-poulet-sauce-au-vin-rouge:006",
+        "name": {
+          "ru": null,
+          "en": "Salt"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "sel"
+      },
+      {
+        "id": "fr-poulet-sauce-au-vin-rouge:007",
+        "name": {
+          "ru": null,
+          "en": "Mill pepper"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "poivre du moulin"
       }
     ],
     "steps": [
@@ -368,7 +462,7 @@ export default {
     "landingPage": "https://fr.wikibooks.org/wiki/Livre_de_cuisine/Poulet_sauce_au_vin_rouge?oldid=329409",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://fr.wikibooks.org/wiki/Wikibooks:Copyright",
-    "changes": "Photo omitted; pinned fr.wikibooks revision 329409 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged."
+    "changes": "Photo omitted; pinned fr.wikibooks revision 329409 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged. 2026-11-12 fidelity fix: compound source bullets re-split so every listed ingredient appears as its own line (seasonings, oil, garlic, sugar, herbs); method-used seasonings added with a note."
   },
   "review": {
     "productionApproved": false,
@@ -377,4 +471,4 @@ export default {
     "dietIndependentlyReviewed": false,
     "crossContactKnown": false
   }
-};
+}

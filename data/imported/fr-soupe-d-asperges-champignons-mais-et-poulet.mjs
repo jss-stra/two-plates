@@ -281,10 +281,106 @@ export default {
           "ru": null,
           "en": "sugar, pepper"
         },
-        "raw": "sel, sucre, poivre."
+        "raw": "sel"
       },
       "methodSteps": [
         11
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-soupe-d-asperges-champignons-mais-et-poulet:009",
+      "name": "Sugar",
+      "quantity": null,
+      "unit": "toTaste",
+      "note": {
+        "ru": null,
+        "en": null
+      },
+      "scaling": "fixed",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-soupe-d-asperges-champignons-mais-et-poulet:009",
+        "name": {
+          "ru": null,
+          "en": "Sugar"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "sucre"
+      },
+      "methodSteps": [
+        11
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-soupe-d-asperges-champignons-mais-et-poulet:010",
+      "name": "Pepper",
+      "quantity": null,
+      "unit": "toTaste",
+      "note": {
+        "ru": null,
+        "en": null
+      },
+      "scaling": "fixed",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-soupe-d-asperges-champignons-mais-et-poulet:010",
+        "name": {
+          "ru": null,
+          "en": "Pepper"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "poivre"
+      },
+      "methodSteps": [
+        12
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-soupe-d-asperges-champignons-mais-et-poulet:011",
+      "name": "Butter",
+      "quantity": null,
+      "unit": "unstated",
+      "note": {
+        "ru": null,
+        "en": "appears in the method; not in the source ingredient list"
+      },
+      "scaling": "linear",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-soupe-d-asperges-champignons-mais-et-poulet:011",
+        "name": {
+          "ru": null,
+          "en": "Butter"
+        },
+        "quantity": null,
+        "unit": "unstated",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "appears in the method; not in the source ingredient list"
+        },
+        "raw": "du beurre"
+      },
+      "methodSteps": [
+        7
       ]
     }
   ],
@@ -535,7 +631,52 @@ export default {
           "ru": null,
           "en": "sugar, pepper"
         },
-        "raw": "sel, sucre, poivre."
+        "raw": "sel"
+      },
+      {
+        "id": "fr-soupe-d-asperges-champignons-mais-et-poulet:009",
+        "name": {
+          "ru": null,
+          "en": "Sugar"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "sucre"
+      },
+      {
+        "id": "fr-soupe-d-asperges-champignons-mais-et-poulet:010",
+        "name": {
+          "ru": null,
+          "en": "Pepper"
+        },
+        "quantity": null,
+        "unit": "toTaste",
+        "scaling": "fixed",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "poivre"
+      },
+      {
+        "id": "fr-soupe-d-asperges-champignons-mais-et-poulet:011",
+        "name": {
+          "ru": null,
+          "en": "Butter"
+        },
+        "quantity": null,
+        "unit": "unstated",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "appears in the method; not in the source ingredient list"
+        },
+        "raw": "du beurre"
       }
     ],
     "steps": [
@@ -676,7 +817,7 @@ export default {
     "landingPage": "https://fr.wikibooks.org/wiki/Livre_de_cuisine/Soupe_d'asperges,_champignons,_maïs_et_poulet?oldid=749724",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://fr.wikibooks.org/wiki/Wikibooks:Copyright",
-    "changes": "Photo omitted; pinned fr.wikibooks revision 749724 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged."
+    "changes": "Photo omitted; pinned fr.wikibooks revision 749724 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged. 2026-11-12 fidelity fix: compound source bullets re-split so every listed ingredient appears as its own line (seasonings, oil, garlic, sugar, herbs); method-used seasonings added with a note."
   },
   "review": {
     "productionApproved": false,
@@ -685,4 +826,4 @@ export default {
     "dietIndependentlyReviewed": false,
     "crossContactKnown": false
   }
-};
+}

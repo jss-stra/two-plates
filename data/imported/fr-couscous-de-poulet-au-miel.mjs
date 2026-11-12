@@ -544,6 +544,38 @@ export default {
       "methodSteps": [
         11
       ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-couscous-de-poulet-au-miel:017",
+      "name": "Oil",
+      "quantity": null,
+      "unit": "unstated",
+      "note": {
+        "ru": null,
+        "en": "appears in the method; not in the source ingredient list (almonds fried in oil)"
+      },
+      "scaling": "linear",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-couscous-de-poulet-au-miel:017",
+        "name": {
+          "ru": null,
+          "en": "Oil"
+        },
+        "quantity": null,
+        "unit": "unstated",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "appears in the method; not in the source ingredient list (almonds fried in oil)"
+        },
+        "raw": "l'huile"
+      },
+      "methodSteps": [
+        4
+      ]
     }
   ],
   "steps": [
@@ -858,6 +890,21 @@ export default {
           "en": "season to taste"
         },
         "raw": "Sel"
+      },
+      {
+        "id": "fr-couscous-de-poulet-au-miel:017",
+        "name": {
+          "ru": null,
+          "en": "Oil"
+        },
+        "quantity": null,
+        "unit": "unstated",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "appears in the method; not in the source ingredient list (almonds fried in oil)"
+        },
+        "raw": "l'huile"
       }
     ],
     "steps": [
@@ -937,7 +984,7 @@ export default {
     "landingPage": "https://fr.wikibooks.org/wiki/Livre_de_cuisine/Couscous_de_poulet_au_miel?oldid=686659",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://fr.wikibooks.org/wiki/Wikibooks:Copyright",
-    "changes": "Photo omitted; pinned fr.wikibooks revision 686659 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged."
+    "changes": "Photo omitted; pinned fr.wikibooks revision 686659 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged. 2026-11-12 fidelity fix: compound source bullets re-split so every listed ingredient appears as its own line (seasonings, oil, garlic, sugar, herbs); method-used seasonings added with a note."
   },
   "review": {
     "productionApproved": false,
