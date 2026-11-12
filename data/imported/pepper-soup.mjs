@@ -255,29 +255,26 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:pepper-soup:008",
-      "name": "1 tsp ground pepper (adjust to taste)",
-      "quantity": null,
-      "unit": "toTaste",
+      "name": "ground pepper",
+      "quantity": "1",
+      "unit": "tsp",
       "note": {
         "ru": null,
-        "en": null
+        "en": "adjust to taste"
       },
-      "scaling": "fixed",
+      "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
       "nutritionStatus": "unknown",
       "source": {
         "id": "pepper-soup-008",
-        "name": {
-          "ru": null,
-          "en": "1 tsp ground pepper (adjust to taste)"
-        },
-        "quantity": null,
-        "unit": "toTaste",
-        "scaling": "fixed",
+        "name": "ground pepper",
+        "quantity": "1",
+        "unit": "tsp",
+        "scaling": "linear",
         "note": {
           "ru": null,
-          "en": null
+          "en": "adjust to taste"
         },
         "raw": "1 tsp ground pepper (adjust to taste)"
       },
@@ -486,16 +483,13 @@ export default {
       },
       {
         "id": "pepper-soup-008",
-        "name": {
-          "ru": null,
-          "en": "1 tsp ground pepper (adjust to taste)"
-        },
-        "quantity": null,
-        "unit": "toTaste",
-        "scaling": "fixed",
+        "name": "ground pepper",
+        "quantity": "1",
+        "unit": "tsp",
+        "scaling": "linear",
         "note": {
           "ru": null,
-          "en": null
+          "en": "adjust to taste"
         },
         "raw": "1 tsp ground pepper (adjust to taste)"
       },
@@ -575,4 +569,4 @@ export default {
     "dietIndependentlyReviewed": false,
     "crossContactKnown": false
   }
-};
+}

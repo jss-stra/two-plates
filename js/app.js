@@ -221,10 +221,10 @@ function dishCard(r, i, slot, s) {
       ${slot.locked && !final ? `<span class="locked-tag">${icon('lock')} Locked</span>` : ''}
     </div>
     <h3>${esc(r.name)}</h3>
-    <div class="meta">${dietDot(r)} ${esc(r.cuisine)}${r.imported ? ` · fixed ${r.baseServings}-serving batch${r.diet === 'unknown' ? ' · diet not classified' : ''}${r.limitation ? ` · ${esc(r.limitation.summary)}` : ''} · nutrition unknown` : ` · ${icon('clock', 'sm')} ${r.time} min · ${PROTEIN_LABEL[r.mainProtein] || ''}`}</div>
+    <div class="meta">${dietDot(r)} ${esc(r.cuisine)}${r.imported ? ` · fixed ${r.baseServings}-serving batch${r.diet === 'unknown' ? ' · diet not classified' : ''}${r.limitation ? ` · ${esc(r.limitation.summary)}` : ''} · ${nutritionLabel(r)}` : ` · ${icon('clock', 'sm')} ${r.time} min · ${PROTEIN_LABEL[r.mainProtein] || ''}`}</div>
     <div class="macros">${s.people.map((p) => {
       const m = mealFor(r, p);
-      if (m.protein == null) return `<span><b>${esc(p.name)}</b> <span class="fine">nutrition unknown</span></span>`;
+      if (m.protein == null) return `<span><b>${esc(p.name)}</b> <span class="fine">${nutritionLabel(r)}</span></span>`;
       const g = perMealGoal(p, s.rules);
       const cls = m.protein < g.min ? 'warn' : 'ok';
       return `<span><b>${esc(p.name)}</b> <span class="st ${cls}">${r.nutritionApproximate ? '~' : ''}${m.protein} g</span> · ${r.nutritionApproximate ? '~' : ''}${m.kcal} kcal</span>`;
@@ -461,7 +461,7 @@ function renderRecipeList(s) {
       <span class="rname">${dietDot(r)} ${esc(r.name)}</span>
       <span class="badges">${exclBadge(s, r)}</span>
       <span class="meta">${esc(r.cuisine)} · fixed ${r.baseServings}-serving batch${r.diet === 'unknown' ? ' · diet not classified' : ''}${r.limitation ? ` · ${esc(r.limitation.summary)}` : ''}</span>
-      <span class="per"><span class="fine">nutrition unknown</span></span>
+      <span class="per"><span class="fine">${nutritionLabel(r)}</span></span>
     </button>
   </div>`).join('');
   }
@@ -729,6 +729,20 @@ function renderSettings(s) {
 }
 
 // ---------- Swap sheet ----------
+// Source-stated nutrition: NHLBI records carry per-serving values stated by
+// the source (2003), not computed by Two Plates. Planner math keeps nulls;
+// these helpers are display-only.
+function nutritionLabel(r) { return r?.src?.nutritionSourceStated ? 'nutrition stated by source' : 'nutrition unknown'; }
+function srcNutritionPanel(nss) {
+  const rows = [['Calories','calories'],['Total fat','totalFat'],['Saturated fat','saturatedFat'],['Cholesterol','cholesterol'],['Sodium','sodium'],['Total fiber','totalFiber'],['Protein','protein'],['Carbohydrates','carbohydrates'],['Potassium','potassium']];
+  const dl = rows.filter(([,k]) => nss.perServing[k] != null).map(([label,k]) => `<div><dt>${label}</dt><dd>${esc(nss.perServing[k])}</dd></div>`).join('');
+  const variantHtml = (nss.variants || []).map(v => {
+    const vals = rows.filter(([,k]) => v.perServing[k] != null).map(([label,k]) => `${label} ${esc(v.perServing[k])}`).join(' · ');
+    return `<p class="fine"><b>${esc(v.label)}:</b> ${vals}</p>`;
+  }).join('');
+  const yieldDisp = /^\d+$/.test(nss.yield) ? `${nss.yield} servings` : nss.yield;
+  return `<section class="nutrition-src"><h3>Nutrition per serving <span class="fine">(${esc(nss.servingSize)}; ${esc(yieldDisp)})</span></h3><dl>${dl}</dl>${variantHtml}<p class="fine">${esc(nss.basis)}. ${esc(nss.publication)} · <a href="${esc(nss.url)}" target="_blank" rel="noopener">Source (PDF)</a></p></section>`;
+}
 function renderImportedSheet(el, s) {
   const r = IMPORTED.get(ui.imported);
   if (!r) { ui.imported = null; el.innerHTML = ''; el.hidden = true; document.body.classList.remove('sheet-open'); return; }
@@ -751,20 +765,23 @@ function renderImportedSheet(el, s) {
       <button class="act icon-only" data-act="close-sheet" aria-label="Close">${icon('x')}</button></header>
     <div class="sheet-body">
       <p class="meta">${dietDot(r)} ${esc(r.cuisine)}${r.country ? ` · ${esc(r.country)}` : ''} · fixed ${r.baseServings}-serving batch${r.diet === 'unknown' ? ' · diet not classified' : ''}${r.limitation ? ` · ${esc(r.limitation.summary)}` : ''}</p>
-      <p><span class="badge">nutrition unknown</span>${s.exclusions?.allergies?.length || s.exclusions?.dislikes?.length ? ' <span class="badge allerg">⚠ not allergy-checked</span>' : ''}</p>
+      <p><span class="badge">${nutritionLabel(r)}${r.src.nutritionSourceStated ? ' (2003)' : ''}</span>${s.exclusions?.allergies?.length || s.exclusions?.dislikes?.length ? ' <span class="badge allerg">⚠ not allergy-checked</span>' : ''}</p>
       ${src.sourceTimes?.prepMinutes != null || src.sourceTimes?.cookMinutes != null ? `<p class="fine">Prep ${src.sourceTimes.prepMinutes ?? '?'} min · cook ${src.sourceTimes.cookMinutes ?? '?'} min (source times, not added to weekly totals)</p>` : ''}
       ${src.sourceTimes?.totalMinutes != null && src.sourceTimes?.prepMinutes == null && src.sourceTimes?.cookMinutes == null ? `<p class="fine">About ${src.sourceTimes.totalMinutes} min total (source time, not added to weekly totals)</p>` : ''}
       ${tagLine}
-      ${r.safety ? `<section class="safety-note"><div class="fine">Two Plates editorial adaptation, separate from the original ${esc(sourceLabel)} method</div><h3>${esc(r.safety.title)}</h3><p>${esc(r.safety.note)}</p><p class="fine">Sources: ${r.safety.sources.map(([label,url]) => `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(label)}</a>`).join(' · ')}</p><p><b>Use the adapted cooking steps below.</b></p><p class="fine">Cooking adaptation by Two Plates, shared under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>. The original source method is preserved separately below.</p></section>` : ''}
+      ${src.nutritionSourceStated ? srcNutritionPanel(src.nutritionSourceStated) : ''}
+      ${r.safety ? (r.safety.guidanceOnly
+        ? `<section class="safety-note"><div class="fine">Two Plates food-safety note, separate from the original ${esc(sourceLabel)} method</div><h3>${esc(r.safety.title)}</h3><p>${esc(r.safety.note)}</p><p class="fine">Sources: ${r.safety.sources.map(([label,url]) => `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(label)}</a>`).join(' · ')}</p></section>`
+        : `<section class="safety-note"><div class="fine">Two Plates editorial adaptation, separate from the original ${esc(sourceLabel)} method</div><h3>${esc(r.safety.title)}</h3><p>${esc(r.safety.note)}</p><p class="fine">Sources: ${r.safety.sources.map(([label,url]) => `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(label)}</a>`).join(' · ')}</p><p><b>Use the adapted cooking steps below.</b></p><p class="fine">Cooking adaptation by Two Plates, shared under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>. The original source method is preserved separately below.</p></section>`) : ''}
       ${r.limitation ? `<p class="import-limit fine"><b>Before you start:</b> ${esc(r.limitation.detail)}</p>` : ''}
       ${r.limitation?.handling ? `<p class="import-limit fine">${esc(r.limitation.handling)} <a href="${esc(r.limitation.handlingUrl)}" target="_blank" rel="noopener">${esc(r.limitation.handlingLabel || 'FSANZ handling guidance')}</a>${r.limitation.handlingExtraUrl ? ` · <a href="${esc(r.limitation.handlingExtraUrl)}" target="_blank" rel="noopener">${esc(r.limitation.handlingExtraLabel)}</a>` : ''}</p>` : ''}
       ${gate.allowed ? '' : `<p class="fine">${esc(gate.reason)}</p>`}
       <h3>Ingredients (exact source amounts)</h3>
       <ul class="ings">${ings}</ul>
-      <h3>${r.safety ? 'Cooking steps (Two Plates adaptation)' : 'Steps'}</h3>
+      <h3>${r.safety && !r.safety.guidanceOnly ? 'Cooking steps (Two Plates adaptation)' : 'Steps'}</h3>
       <p class="fine">Minute tags are source metadata. They may differ from times in the instructions and are not tested elapsed times.</p>
       <ol class="steps">${steps}</ol>
-      ${r.safety ? `<details class="source-original"><summary>Original ${esc(sourceLabel)} method (reference only, not cooking directions)</summary><p class="fine">This is unchanged source text for attribution. It may contain endpoints superseded by the Two Plates adaptation above. Do not use it in place of the adapted cooking steps.</p><ol class="steps">${sourceSteps}</ol></details>` : ''}
+      ${r.safety && !r.safety.guidanceOnly ? `<details class="source-original"><summary>Original ${esc(sourceLabel)} method (reference only, not cooking directions)</summary><p class="fine">This is unchanged source text for attribution. It may contain endpoints superseded by the Two Plates adaptation above. Do not use it in place of the adapted cooking steps.</p><ol class="steps">${sourceSteps}</ol></details>` : ''}
       <p class="fine">Recipe: ${esc(rights.credit || 'source')}${rights.landingPage ? ` — <a href="${esc(rights.landingPage)}" target="_blank" rel="noopener">source</a>` : ''}${rights.license ? ` · <a href="${esc(rights.licenseUrl || '#')}" target="_blank" rel="noopener">${esc(rights.license)}</a>` : ''}${rights.changes ? `<br>Source-record changes: ${esc(rights.changes)}` : ''}</p>
     </div>
   </div>`;
@@ -817,7 +834,7 @@ function renderSheetList(s) {
       return `<div class="pick imported-pick">
       <button class="rrow-main" data-act="open-imported" data-id="${r.id}">
         <span class="rname">${dietDot(r)} ${esc(r.name)}</span>
-        <span class="meta">${esc(r.cuisine)} · fixed ${r.baseServings}-serving batch${r.diet === 'unknown' ? ' · diet not classified' : ''}${r.limitation ? ` · ${esc(r.limitation.summary)}` : ''} · nutrition unknown</span>
+        <span class="meta">${esc(r.cuisine)} · fixed ${r.baseServings}-serving batch${r.diet === 'unknown' ? ' · diet not classified' : ''}${r.limitation ? ` · ${esc(r.limitation.summary)}` : ''} · ${nutritionLabel(r)}</span>
       </button>
       ${gate.allowed
         ? `<button class="act add" data-act="choose-imported" data-id="${r.id}">${icon('plus')}<span>Add</span></button>`
@@ -877,7 +894,7 @@ function menuUrl(no, weekOf, ids) {
 function menuMessage(s, no, weekOf, ids) {
   const recipes = ids.map((id) => RECIPE_BY_ID[id]).filter(Boolean);
   const line = (r) => r.imported
-    ? `• ${r.name} (${r.cuisine}, fixed ${r.baseServings}-serving batch, nutrition unknown)\n  Recipe: in the app`
+    ? `• ${r.name} (${r.cuisine}, fixed ${r.baseServings}-serving batch, ${nutritionLabel(r)})\n  Recipe: in the app`
     : `• ${r.name} (${r.cuisine}, ${r.time} min)\n  ${youtubeUrl(r)}`;
   return [`🍽️ Week ${no} menu - week of ${fmtWeek(weekOf)}`, '',
     ...DISPLAY_GROUPS.flatMap(([kind,label]) => {
