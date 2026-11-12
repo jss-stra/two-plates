@@ -1043,4 +1043,12 @@ export const IMPORTED_SAFETY = {
       5: 'Add 1.5 l water to the saucepan and boil until a clean food thermometer in the thickest meat pieces reads the safe temperature for the meat used (at least 75°C for poultry or any mix that may contain poultry, at least 71°C for other minced or mixed meats, at least 63°C with a 3-minute rest for whole cuts of red meat) - the source suggests about thirty minutes, but time is not a doneness check; continue cooking and recheck if below the target.',
     },
   },
+  'wikibooks-fr:fr-djenkoume2': {
+    title: 'Probe the guinea fowl; braising time is not the check',
+    note: 'Two Plates adds a measured endpoint: the source braises the guinea-fowl pieces 40 minutes; time is not a doneness check. Use a clean food thermometer in the thickest piece, avoiding bone, to check at least 75°C, following NSW poultry guidance (guinea fowl is poultry); continue braising and recheck if below the target. This is the poultry\'s final cook - the later steps make the sauce and plate the dish. Keep the poultry refrigerated at 5°C or colder before preparation and use separate boards and tools for raw poultry.',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      3: 'Braise the guinea-fowl pieces until a clean food thermometer in the thickest piece, avoiding bone, reads at least 75°C - the source suggests 40 minutes, but time is not a doneness check; continue braising and recheck if below the target.',
+    },
+  },
 };
