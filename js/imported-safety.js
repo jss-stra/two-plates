@@ -1232,7 +1232,7 @@ export const IMPORTED_SAFETY = {
   'wikibooks-de:de-baerlauchsuppe': {
     title: 'Identify wild garlic with certainty before use',
     note: 'Two Plates editorial note (not a change to the source method): wild garlic (Bärlauch) is often foraged, and it has toxic lookalikes - especially lily of the valley and autumn crocus, which have caused poisonings. Use only leaves you have identified with certainty (wild garlic smells clearly of garlic when rubbed) or buy cultivated wild garlic; when in doubt, do not use foraged leaves. Wash the leaves well as the source says.',
-    sources: [['BfR (Germany): wild garlic lookalike poisoning warnings', 'https://www.bfr.bund.de/en/press_information/2019/15/poisonings_through_the_confusion_of_wild_garlic_with_lily_of_the_valley-220460.html']],
+    sources: [['BfR (Germany): wild garlic lookalike poisoning warnings', 'https://www.bfr.bund.de/en/press-release/wild-garlic-confusion-often-leads-to-poisoning/']],
   },
 
 };
