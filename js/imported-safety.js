@@ -1298,7 +1298,7 @@ export const IMPORTED_SAFETY = {
     note: 'Two Plates requires the salad to be kept refrigerated at 5°C or colder during steeping and storage, and to be kept cold until serving, because it contains cooked ham, hard-boiled eggs and a mayonnaise-style dressing and the source steeps it a day. Use commercially produced ready-to-eat ingredients (cooked ham, canned goods, salad mayonnaise).',
     sources: [['FSANZ: refrigeration of ready-to-eat and prepared foods', FSANZ]],
     replacements: {
-      4: 'Leave the salad to marinate for a day, kept refrigerated at 5°C or colder, then serve - keep it cold until serving.',
+      5: 'Leave the salad to marinate for a day, kept refrigerated at 5°C or colder, then serve - keep it cold until serving.',
     },
   },
 
