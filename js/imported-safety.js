@@ -1235,14 +1235,6 @@ export const IMPORTED_SAFETY = {
     sources: [['BfR (Germany): wild garlic lookalike poisoning warnings', 'https://www.bfr.bund.de/en/press-release/wild-garlic-confusion-often-leads-to-poisoning/']],
   },
 
-  'wikibooks-de:de-afrikanisches-huhn': {
-    title: 'Probe the chicken; "until the meat is done" is not the check',
-    note: 'Two Plates uses at least 75°C in the thickest part of the largest chicken piece, checked with a clean food thermometer - NSW guidance names 75°C for poultry. The source simmers the chicken "until the meat is done"; that and the simmering time are not doneness checks, so continue simmering and recheck if below the target. Keep raw chicken refrigerated at 5°C or colder, use separate boards and utensils for raw chicken and ready-to-eat food, and wash hands after handling.',
-    sources: [['NSW: poultry 75°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
-    replacements: {
-      3: 'Remove the fat from the pan except for 2 tbsp of fat and the roasting residue. Stir the curry powder and salt into the pan, then add the onion slices, pepper strips and the tomato cut into pieces, turn through, cover and leave to simmer for 5 minutes. Then lay the meat back into the pan. Cover and simmer until a clean food thermometer in the thickest part of the largest chicken piece reads at least 75°C - "until the meat is done" is not a doneness check; continue simmering and recheck if below the target.',
-    },
-  },
   'wikibooks-de:de-blaetterteigfisch': {
     title: 'Probe the fish filling through the pastry',
     note: 'Two Plates adds a measured endpoint: the source bakes the filled pastry for a fixed 40 minutes; time is not a doneness check for the raw fish and salmon mousse inside. Use a clean food thermometer pushed into the thickest part of the filling to check at least 63°C, following NSW fish guidance; continue baking and recheck if below the target. Keep the fish, shrimps and the raw-egg mousse refrigerated at 5°C or colder during assembly. Fillet can still carry bones.',
@@ -1257,6 +1249,15 @@ export const IMPORTED_SAFETY = {
     sources: [['NSW: minced meat 71°C; colour unreliable', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
     replacements: {
       7: 'When everything has drawn through well, the beans can be added too and cook along for at least another 15 minutes, then check a thicker clump of the meat with a clean food thermometer for at least 71°C - simmering time is not a doneness check for minced meat; continue cooking and recheck if below the target.',
+    },
+  },
+
+  'wikibooks-de:de-gebratene-fische': {
+    title: 'Probe the fish; frying time is not the check',
+    note: 'Two Plates adds a measured endpoint: the source fries the fish for a fixed time on each side; time and colour are not doneness checks. Use a clean food thermometer in the thickest part of the fish to check at least 63°C, following NSW fish guidance; continue frying and recheck if below the target. Keep the fish refrigerated at 5°C or colder before preparation. The source\'s own warning is to eat within 24 hours - follow the handling note on this recipe. Whole fish and fillets can carry bones.',
+    sources: [['NSW: fish 63°C', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      3: 'Heat the butter or fat in a sufficiently large frying pan, add the fish and fry on both sides over medium heat until a clean food thermometer in the thickest part reads at least 63°C - the source\'s frying times (7-12 minutes for whole fish, 3-6 minutes for fillets) are not doneness checks; continue frying and recheck if below the target.',
     },
   },
 
