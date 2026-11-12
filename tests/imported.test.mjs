@@ -440,7 +440,7 @@ t('Arroz negro rice handling in note; mixed meats fail closed', arn.safety.note.
 const cal3 = wes('es-caldereta-de-cordero');
 t('Caldereta lamb 71C NSW medium editorial', cal3.safety.replacements[4].includes('71°C') && cal3.safety.note.includes('conservative editorial selection of the NSW medium endpoint for lamb') && cal3.meatKind === 'lamb');
 const caz9 = wes('es-cazuelita-esparragos-colmenillas');
-t('Cazuelita morel thorough-cook FDA/CDC', caz9.safety.note.includes('fully cooked') && caz9.safety.replacements[2].includes('never eat morels raw or undercooked') && caz9.safety.sources.some(s => s[1].includes('fda.gov')) && caz9.safety.sources.some(s => s[1].includes('cdc.gov')));
+t('Cazuelita morel thorough-cook FDA/CDC', caz9.safety.note.includes('fully cooked') && caz9.safety.replacements[2].includes('never eat morels raw or undercooked') && caz9.safety.replacements[2].includes('not a safety criterion') && caz9.safety.sources.some(s => s[1].includes('fda.gov')) && caz9.safety.sources.some(s => s[1].includes('cdc.gov')));
 t('Cazuelita 336 Kcal unclassified note, no panel', caz9.src.nutritionStatus === 'unknown' && !('nutritionSourceStated' in caz9.src) && caz9.limitation.detail.includes('336 Kcal') && caz9.limitation.detail.includes('not shown under Calories'));
 const chi = wes('es-chilcano');
 t('Chilcano fish 63C', chi.safety.replacements[1].includes('63°C') && chi.meatKind === 'fish');
