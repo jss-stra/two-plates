@@ -1205,5 +1205,35 @@ export const IMPORTED_SAFETY = {
       12: 'Leave to simmer 5 minutes (do not add any water in this time), then check the thickest schnitzel with a clean food thermometer for at least 71°C - appearance and time are not doneness checks; continue simmering and recheck if below the target.',
     },
   },
+  'wikibooks-de:de-fischsalat': {
+    title: 'Probe the steamed fish pieces; steaming time is not the check',
+    note: 'Two Plates adds a measured endpoint: the source steams the fish pieces for a fixed time; time is not a doneness check. Use a clean food thermometer in the thickest fish piece to check at least 63°C, following NSW fish guidance, before taking the fish out of the steam; continue steaming and recheck if below the target. Keep the fish refrigerated at 5°C or colder before preparation. Fillet can still carry bones.',
+    sources: [['NSW: fish 63°C', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      1: 'Cut the fish fillets into bite-sized pieces. Bring some water to the boil in a pot and set the steamer insert over it. First put in the monkfish and after one minute the flounder; steam until a clean food thermometer in the thickest piece reads at least 63°C - the source suggests about 6 minutes in total, but time is not a doneness check; continue steaming and recheck if below the target. Then take the fish out of the steam and leave to cool.',
+    },
+  },
+  'wikibooks-de:de-haehnchenroulade-mikrowelle': {
+    title: 'Probe the roulades after the microwave time',
+    note: 'Two Plates uses at least 75°C in the centre of the thickest roulade, checked with a clean food thermometer - NSW guidance names 75°C for poultry. The source finishes the roulades in the microwave for a fixed 20-25 minutes; time and appearance are not doneness checks, and microwave power varies, so continue cooking and recheck if below the target. The ham wrapping is a cured product and does not make the raw chicken inside safe. Keep raw chicken refrigerated at 5°C or colder, use separate boards and utensils for raw chicken and ready-to-eat food, and wash hands after shaping the roulades.',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      5: 'Leave to cook in the microwave with 50%-50%-grill and normal microwave power at 800 watts until a clean food thermometer in the centre of the thickest roulade reads at least 75°C - the source suggests about 20-25 minutes, but time is not a doneness check and microwave power varies; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks-de:de-lachs-in-vanille': {
+    title: 'Probe the salmon at the end of the frying',
+    note: 'Two Plates adds a measured endpoint: the source fries the salmon pieces without a doneness check. Use a clean food thermometer in the thickest part of a salmon piece to check at least 63°C, following NSW fish guidance, before taking the fish out of the pan; continue frying and recheck if below the target. Keep the salmon refrigerated at 5°C or colder before preparation.',
+    sources: [['NSW: fish 63°C', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      2: 'Shortly before the end of the cooking time, add the leek, some of the parsley and the dill, and fry until a clean food thermometer in the thickest part of a salmon piece reads at least 63°C - appearance and time are not doneness checks; continue frying and recheck if below the target.',
+    },
+  },
+  'wikibooks-de:de-baerlauchsuppe': {
+    title: 'Identify wild garlic with certainty before use',
+    note: 'Two Plates editorial note (not a change to the source method): wild garlic (Bärlauch) is often foraged, and it has toxic lookalikes - especially lily of the valley and autumn crocus, which have caused poisonings. Use only leaves you have identified with certainty (wild garlic smells clearly of garlic when rubbed) or buy cultivated wild garlic; when in doubt, do not use foraged leaves. Wash the leaves well as the source says.',
+    sources: [['BfR (Germany): wild garlic lookalike poisoning warnings', 'https://www.bfr.bund.de/en/press_information/2019/15/poisonings_through_the_confusion_of_wild_garlic_with_lily_of_the_valley-220460.html']],
+  },
+
 };
 
