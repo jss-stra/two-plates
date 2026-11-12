@@ -1043,4 +1043,20 @@ export const IMPORTED_SAFETY = {
       5: 'Add 1.5 l water to the saucepan and boil until a clean food thermometer in the thickest meat pieces reads the safe temperature for the meat used (at least 75°C for poultry or any mix that may contain poultry, at least 71°C for other minced or mixed meats, at least 63°C with a 3-minute rest for whole cuts of red meat) - the source suggests about thirty minutes, but time is not a doneness check; continue cooking and recheck if below the target.',
     },
   },
+  'wikibooks-fr:fr-bawoin': {
+    title: 'Probe the beef after browning; cassava leaves must cook through',
+    note: 'Two Plates adds a measured endpoint: the source browns the beef pieces 15 minutes, then boils; time is not a doneness check. After browning, use a clean food thermometer in the thickest beef pieces to check at least 63°C, following NSW whole-cut meat guidance, and rest the meat off the heat at least 3 minutes; continue browning and recheck if below the target. Cassava leaves are unsafe raw or undercooked: the source\'s long boiling after the leaf paste goes in is part of making them safe - keep the dish boiling as directed and never shorten it. Keep the beef refrigerated at 5°C or colder before preparation and use separate boards and tools for raw meat.',
+    sources: [['NSW: whole-cut meat 63°C and resting', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      5: 'Add the oil and brown until a clean food thermometer in the thickest beef pieces reads at least 63°C - the source suggests 15 minutes, but time is not a doneness check; continue browning and recheck if below the target, then rest the meat off the heat at least 3 minutes.',
+    },
+  },
+  'wikibooks-fr:fr-biecosseu': {
+    title: 'Probe the fish after the gentle cook',
+    note: 'Two Plates adds a measured endpoint: the source cooks the stuffed fish over low heat 20 minutes; time is not a doneness check. Use a clean food thermometer in the thickest flesh of the largest piece, avoiding bones, to check at least 63°C, following NSW fish guidance; continue cooking and recheck if below the target. The fish species is unspecified and the fish are whole - they still have bones; take care when serving and eating. Cassava in the foutou must be fully cooked - keep the 30-minute boil. Keep the fish refrigerated at 5°C or colder before preparation and use separate boards and tools for raw fish and the ready-to-eat sauce; clean hands and surfaces after handling raw fish.',
+    sources: [['NSW: fish 63°C', NSW_TEMP], ['USDA (US): thickest part, avoid bones and remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      15: 'Cook over low heat until a clean food thermometer in the thickest flesh of the largest piece, avoiding bones, reads at least 63°C - the source suggests 20 minutes, but time is not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
 };
