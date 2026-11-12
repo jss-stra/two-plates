@@ -249,7 +249,7 @@ const ASSETS = [
   ],
   [
     "data/imported/kashmiri-pulao.mjs",
-    "fc5b06d398d39d88636e57e632e44005ccab68da5843add8da393d0392494d78"
+    "dce3e15cf3f928796777174fe1ab492b2f4543feaad69f5586ff57a894bf985b"
   ],
   [
     "data/imported/keralan-vegetable-stew.mjs",

@@ -89,7 +89,7 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:kashmiri-pulao:003",
-      "name": "Pods green cardamom",
+      "name": "Green cardamom pods",
       "quantity": "4",
       "unit": "piece",
       "note": {
@@ -282,7 +282,7 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:kashmiri-pulao:009",
-      "name": "Strands saffron",
+      "name": "Saffron strands",
       "quantity": "3–4",
       "unit": "piece",
       "note": {
