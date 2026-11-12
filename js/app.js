@@ -729,10 +729,15 @@ function renderSettings(s) {
 }
 
 // ---------- Swap sheet ----------
-// Source-stated nutrition: NHLBI records carry per-serving values stated by
-// the source (2003), not computed by Two Plates. Planner math keeps nulls;
-// these helpers are display-only.
-function nutritionLabel(r) { return r?.src?.nutritionSourceStated ? 'nutrition stated by source' : 'nutrition unknown'; }
+// Source-stated nutrition: some records carry per-serving values stated by
+// their source, not computed or validated by Two Plates. Planner math keeps
+// nulls; these helpers are display-only.
+function nutritionLabel(r) {
+  const nss = r?.src?.nutritionSourceStated;
+  if (!nss) return 'nutrition unknown';
+  const year = nss.publication?.match(/\((\d{4})\)/)?.[1];
+  return `nutrition stated by source${year ? ` (${year})` : ''}`;
+}
 function srcNutritionPanel(nss) {
   const rows = [['Calories','calories'],['Total fat','totalFat'],['Saturated fat','saturatedFat'],['Cholesterol','cholesterol'],['Sodium','sodium'],['Total fiber','totalFiber'],['Protein','protein'],['Carbohydrates','carbohydrates'],['Potassium','potassium']];
   const dl = rows.filter(([,k]) => nss.perServing[k] != null).map(([label,k]) => `<div><dt>${label}</dt><dd>${esc(nss.perServing[k])}</dd></div>`).join('');
@@ -741,7 +746,8 @@ function srcNutritionPanel(nss) {
     return `<p class="fine"><b>${esc(v.label)}:</b> ${vals}</p>`;
   }).join('');
   const yieldDisp = /^\d+$/.test(nss.yield) ? `${nss.yield} servings` : nss.yield;
-  return `<section class="nutrition-src"><h3>Nutrition per serving <span class="fine">(${esc(nss.servingSize)}; ${esc(yieldDisp)})</span></h3><dl>${dl}</dl>${variantHtml}<p class="fine">${esc(nss.basis)}. ${esc(nss.publication)} · <a href="${esc(nss.url)}" target="_blank" rel="noopener">Source (PDF)</a></p></section>`;
+  const linkLabel = /\.pdf(\?|#|$)/i.test(nss.url) ? 'Source (PDF)' : 'Source';
+  return `<section class="nutrition-src"><h3>Nutrition per serving <span class="fine">(${esc(nss.servingSize)}; ${esc(yieldDisp)})</span></h3><dl>${dl}</dl>${variantHtml}<p class="fine">${esc(nss.basis)}. ${esc(nss.publication)} · <a href="${esc(nss.url)}" target="_blank" rel="noopener">${linkLabel}</a></p></section>`;
 }
 function renderImportedSheet(el, s) {
   const r = IMPORTED.get(ui.imported);
@@ -765,7 +771,7 @@ function renderImportedSheet(el, s) {
       <button class="act icon-only" data-act="close-sheet" aria-label="Close">${icon('x')}</button></header>
     <div class="sheet-body">
       <p class="meta">${dietDot(r)} ${esc(r.cuisine)}${r.country ? ` · ${esc(r.country)}` : ''} · fixed ${r.baseServings}-serving batch${r.diet === 'unknown' ? ' · diet not classified' : ''}${r.limitation ? ` · ${esc(r.limitation.summary)}` : ''}</p>
-      <p><span class="badge">${nutritionLabel(r)}${r.src.nutritionSourceStated ? ' (2003)' : ''}</span>${s.exclusions?.allergies?.length || s.exclusions?.dislikes?.length ? ' <span class="badge allerg">⚠ not allergy-checked</span>' : ''}</p>
+      <p><span class="badge">${nutritionLabel(r)}</span>${s.exclusions?.allergies?.length || s.exclusions?.dislikes?.length ? ' <span class="badge allerg">⚠ not allergy-checked</span>' : ''}</p>
       ${src.sourceTimes?.prepMinutes != null || src.sourceTimes?.cookMinutes != null ? `<p class="fine">Prep ${src.sourceTimes.prepMinutes ?? '?'} min · cook ${src.sourceTimes.cookMinutes ?? '?'} min (source times, not added to weekly totals)</p>` : ''}
       ${src.sourceTimes?.totalMinutes != null && src.sourceTimes?.prepMinutes == null && src.sourceTimes?.cookMinutes == null ? `<p class="fine">About ${src.sourceTimes.totalMinutes} min total (source time, not added to weekly totals)</p>` : ''}
       ${tagLine}

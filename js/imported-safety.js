@@ -1343,8 +1343,8 @@ export const IMPORTED_SAFETY = {
   },
   'wikibooks:callaloo': {
     title: 'Cook the taro leaves through and probe the crab',
-    note: 'Two Plates requires the pot to simmer covered for at least 30 minutes so the taro leaves are cooked through - raw or undercooked taro leaves are not safe to eat. Probe the crab pieces with a clean food thermometer for at least 63°C after simmering; time is not a doneness check. Salted beef or pork is a commercially prepared cured product; keep it refrigerated before preparation.',
-    sources: [['FSANZ: seafood cooking and temperature control', FSANZ], ['NSW: refrigeration of ready-to-eat and prepared foods', NSW_TEMP]],
+    note: 'The source simmers the pot covered for 30 minutes or more until everything is soft and cooked. Taro (dasheen) leaves must be cooked through - raw or undercooked taro leaves can irritate the mouth and throat from calcium oxalate crystals, and food-safety guidance says to boil them and cook thoroughly. Probe the crab pieces with a clean food thermometer for at least 63°C after simmering; time is not a doneness check. Salted beef or pork is a commercially prepared cured product; keep it refrigerated before preparation.',
+    sources: [['Hong Kong CFS: cook edible taro properly; boiling and cooking thoroughly reduce irritation', 'https://www.cfs.gov.hk/english/multimedia/multimedia_pub/multimedia_pub_fsf_243_03.html'], ['FSANZ: seafood cooking and temperature control', FSANZ], ['NSW: refrigeration of ready-to-eat and prepared foods', NSW_TEMP]],
     replacements: {
       6: 'Bring to the boil; reduce the heat, cover and simmer for 30 minutes or more until everything is soft and cooked through - the taro leaves must be cooked through, do not eat them raw; check the crab pieces with a clean food thermometer for at least 63°C - time is not a doneness check; continue simmering and recheck if below the target.',
     },

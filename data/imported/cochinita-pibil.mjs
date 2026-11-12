@@ -13,10 +13,10 @@ export default {
   },
   "nutritionStatus": "source-stated",
   "nutritionSourceStated": {
-    "basis": "Stated by the source per serving; not computed by Two Plates",
+    "basis": "Per-serving values exactly as stated by the source (source yields 12–16 servings); not computed or validated by Two Plates",
     "publication": "en.wikibooks Cookbook (CC BY-SA 4.0)",
     "url": "https://en.wikibooks.org/wiki/Cookbook:Cochinita_Pibil_(Mexican_Braised_Pork)?oldid=4510059",
-    "servingSize": "1 of 12–16 servings (source)",
+    "servingSize": "per serving, as stated by the source",
     "yield": "12–16 servings (source)",
     "perServing": {
       "calories": "240",
