@@ -4,7 +4,7 @@ export default {
   "name": "Moussaka",
   "country": "GR",
   "cuisine": "Greek",
-  "baseServings": 4,
+  "baseServings": "4–6",
   "nutrition": {
     "kcal": null,
     "protein": null,
@@ -737,11 +737,11 @@ export default {
     "license": "CC BY-SA 4.0 (de.wikibooks)",
     "summary": {
       "ru": null,
-      "en": "Greek mainland eggplant and beef-mince bake with bechamel topping (source states 4-6 portions; fixed batch shown at the stated minimum of 4)"
+      "en": "Greek mainland eggplant and beef-mince bake with bechamel topping (source states 4-6 portions, kept as written)"
     },
-    "servings": 4,
+    "servings": "4–6",
     "time": null,
-    "baseServings": 4,
+    "baseServings": "4–6",
     "ingredients": [
       {
         "id": "de-moussaka:001",
@@ -1121,5 +1121,6 @@ export default {
     "catalogMappingReviewed": false,
     "dietIndependentlyReviewed": false,
     "crossContactKnown": false
-  }
+  },
+  "sourceLabel": "Kochbuch (de.wikibooks)"
 }

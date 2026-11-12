@@ -4,7 +4,7 @@ export default {
   "name": "Paprika-Bohnen-Curry (capsicum and bean curry with pork)",
   "country": "DE",
   "cuisine": "German",
-  "baseServings": 3,
+  "baseServings": "3–4",
   "nutrition": {
     "kcal": null,
     "protein": null,
@@ -395,11 +395,11 @@ export default {
     "license": "CC BY-SA 4.0 (de.wikibooks)",
     "summary": {
       "ru": null,
-      "en": "Wok curry of pork strips, green capsicum and red beans in a curried broth, served with yogurt (source states 3-4 portions; fixed batch shown at the stated minimum of 3; source tip: rice or bread alongside, not included)"
+      "en": "Wok curry of pork strips, green capsicum and red beans in a curried broth, served with yogurt (source states 3-4 portions, kept as written; source tip: rice or bread alongside, not included)"
     },
-    "servings": 3,
+    "servings": "3–4",
     "time": null,
-    "baseServings": 3,
+    "baseServings": "3–4",
     "ingredients": [
       {
         "id": "de-paprika-bohnen-curry:001",
@@ -638,5 +638,6 @@ export default {
     "catalogMappingReviewed": false,
     "dietIndependentlyReviewed": false,
     "crossContactKnown": false
-  }
+  },
+  "sourceLabel": "Kochbuch (de.wikibooks)"
 }

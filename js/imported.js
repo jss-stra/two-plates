@@ -907,7 +907,7 @@ const LIMITATIONS = {
   },
   'wikibooks-de:de-moussaka': {
     summary: 'Contains white wine (unit unstated); cheese rennet unverified; butter amount unstated; adapted 71°C mince endpoint',
-    detail: 'The source states 4-6 portions; the fixed batch is shown at the stated minimum of 4 with quantities unchanged. The dry white wine line reads "1/4" without a unit; it is listed with liquids measured in litres, so it is likely 1/4 l - kept as written. The wine stays in the sauce; no alcohol-free claim is made. Butter has no stated amount (it greases the dish and forms the bechamel roux). Graviera, or the source alternative Parmesan, has rennet/formulation unverified. The mince browns in step 3, but its final cook is the 1-hour bake - time is not a doneness check, so use the adapted measured endpoint below. The source tips offer other vegetables (zucchini, tomatoes, green beans or potatoes) in place of aubergines, with their own pre-cooking - an option, not part of the listed lines.',
+    detail: 'The source states 4-6 portions, kept as the serving range with quantities unchanged. The dry white wine line reads "1/4" without a unit; it is listed with liquids measured in litres, so it is likely 1/4 l - kept as written. The wine stays in the sauce; no alcohol-free claim is made. Butter has no stated amount (it greases the dish and forms the bechamel roux). Graviera, or the source alternative Parmesan, has rennet/formulation unverified. The mince browns in step 3, but its final cook is the 1-hour bake - time is not a doneness check, so use the adapted measured endpoint below. The source tips offer other vegetables (zucchini, tomatoes, green beans or potatoes) in place of aubergines, with their own pre-cooking - an option, not part of the listed lines.',
     grocery: 'Contains white wine; butter amount unstated; cheese rennet unverified'
   },
   'wikibooks-de:de-entenbrust-mit-orangensauce': {
@@ -917,7 +917,7 @@ const LIMITATIONS = {
   },
   'wikibooks-de:de-paprika-bohnen-curry': {
     summary: 'Pork cut unspecified; cup and tub measures kept as written; broth formulation unverified; adapted 71°C pork endpoint',
-    detail: 'The source says only "400 g pork" without a cut; it is browned, then braised 20 minutes - time is not a doneness check, so use the adapted measured endpoint below. The vegetable broth is "1 Tasse" (cup) and the yogurt "1 grosser Becher" (large tub) - the source\'s own measures, kept as written; broth formulation unverified. The curry powder is hot per the source. The source tip suggests rice or bread alongside; they are not included. The source states 3-4 portions; the fixed batch is shown at the stated minimum of 3.',
+    detail: 'The source says only "400 g pork" without a cut; it is browned, then braised 20 minutes - time is not a doneness check, so use the adapted measured endpoint below. The vegetable broth is "1 Tasse" (cup) and the yogurt "1 grosser Becher" (large tub) - the source\'s own measures, kept as written; broth formulation unverified. The curry powder is hot per the source. The source tip suggests rice or bread alongside; they are not included. The source states 3-4 portions, kept as the serving range.',
     grocery: 'Pork cut unspecified; broth formulation unverified; rice or bread not included'
   },
   'wikibooks-de:de-linseneintopf': {
@@ -948,8 +948,8 @@ const LIMITATIONS = {
     handlingUrl: 'https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers', handlingLabel: 'NSW leftovers guidance'
   },
   'wikibooks-de:de-haehnchen-aprikosen-mandel-reis': {
-    summary: 'Source states 4-6 portions, shown as 4; adapted 75°C poultry endpoint',
-    detail: 'The source states 4-6 portions; the fixed batch is shown at the stated minimum of 4 with quantities unchanged. The herbs are unquantified, and the salt and pepper appear in the method but not in the ingredient list - flagged on their lines. The rice cooks per its package directions, which govern. The chicken stir-fries 6-8 minutes - time is not a doneness check, so use the adapted measured endpoint below. Dried or fresh apricots are a source alternative, kept as written.',
+    summary: 'Source states 4-6 portions, kept as the range; adapted 75°C poultry endpoint',
+    detail: 'The source states 4-6 portions, kept as the serving range with quantities unchanged. The herbs are unquantified, and the salt and pepper appear in the method but not in the ingredient list - flagged on their lines. The rice cooks per its package directions, which govern. The chicken stir-fries 6-8 minutes - time is not a doneness check, so use the adapted measured endpoint below. Dried or fresh apricots are a source alternative, kept as written.',
     grocery: 'Herbs unquantified; rice cooks per its package'
   },
 

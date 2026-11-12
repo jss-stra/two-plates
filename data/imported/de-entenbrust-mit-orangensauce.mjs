@@ -628,5 +628,6 @@ export default {
     "catalogMappingReviewed": false,
     "dietIndependentlyReviewed": false,
     "crossContactKnown": false
-  }
+  },
+  "sourceLabel": "Kochbuch (de.wikibooks)"
 }
