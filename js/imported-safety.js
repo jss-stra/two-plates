@@ -1293,6 +1293,14 @@ export const IMPORTED_SAFETY = {
       6: 'Simmer for 10 minutes, then check the largest chicken pieces with a clean food thermometer in the thickest part for at least 75°C - time is not a doneness check; continue simmering and recheck if below the target.',
     },
   },
+  'wikibooks-de:de-schichtsalat': {
+    title: 'Keep the salad refrigerated during its day-long steep',
+    note: 'Two Plates requires the salad to be kept refrigerated at 5°C or colder during steeping and storage, and to be kept cold until serving, because it contains cooked ham, hard-boiled eggs and a mayonnaise-style dressing and the source steeps it a day. Use commercially produced ready-to-eat ingredients (cooked ham, canned goods, salad mayonnaise).',
+    sources: [['FSANZ: refrigeration of ready-to-eat and prepared foods', FSANZ]],
+    replacements: {
+      4: 'Leave the salad to marinate for a day, kept refrigerated at 5°C or colder, then serve - keep it cold until serving.',
+    },
+  },
 
 };
 
