@@ -1301,6 +1301,54 @@ export const IMPORTED_SAFETY = {
       5: 'Leave the salad to marinate for a day, kept refrigerated at 5°C or colder, then serve - keep it cold until serving.',
     },
   },
+  'wikibooks:cochinita-pibil': {
+    title: 'Probe the pork after the 4-hour bake',
+    note: 'Two Plates uses at least 71°C in the centre of the thickest piece, checked with a clean food thermometer. This is a conservative editorial endpoint for whole-cut pork, not a universal minimum; NSW safe-minimum guidance allows less for whole cuts with a rest. The source bakes 4 hours at 325°F (160°C) and checks that the meat shreds easily - time and tenderness are not doneness checks; continue baking and recheck if below the target. The pork marinates 8-24 hours - keep it refrigerated during marinating.',
+    sources: [['NSW: whole-cut red meat; probe placement', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      7: 'Bake for 4 hours. Open the packet carefully; the meat should shred easily with a fork, and check the centre of the thickest piece with a clean food thermometer for at least 71°C - time is not a doneness check; continue baking and recheck if below the target.',
+    },
+  },
+  'wikibooks:ghormeh-sabzi': {
+    title: 'Probe the meat after the final simmer',
+    note: 'Two Plates uses at least 71°C in the centre of the thickest piece, checked with a clean food thermometer. This is a conservative editorial endpoint for whole-cut beef or lamb, not a universal minimum; NSW safe-minimum guidance allows less for whole cuts with a rest. The source simmers 1-4 hours in total until the meat is fork-tender - time and tenderness are not doneness checks; continue simmering and recheck if below the target.',
+    sources: [['NSW: whole-cut red meat; probe placement', NSW_TEMP]],
+    replacements: {
+      10: 'Add the dried limes, turmeric, pepper, and salt to the stew. Simmer for another ½-1 hour, then check the centre of the thickest piece of meat with a clean food thermometer for at least 71°C - time is not a doneness check; continue simmering and recheck if below the target.',
+    },
+  },
+  'wikibooks:soto-ayam': {
+    title: 'Probe the chicken after boiling',
+    note: 'Two Plates uses at least 75°C in the thickest part of the chicken, checked with a clean food thermometer, following NSW poultry guidance. The source boils the chicken at least 30 minutes until tender - time and tenderness are not doneness checks; continue boiling and recheck if below the target.',
+    sources: [['NSW: poultry safe minimum; probe placement', NSW_TEMP]],
+    replacements: {
+      2: 'Make soup by cooking the whole chicken with the spice paste, galangal, lime leaves, lemongrass, and bay leaves in a pot for at least 30 minutes until the meat is tender, then check the thickest part of the chicken with a clean food thermometer for at least 75°C - time is not a doneness check; continue boiling and recheck if below the target. Use a pressure cooker for faster cooking time and better broth. For a traditional method, bring the soup to a boil, cover, and turn off the heat, then let steep for 30-40 minutes - this makes the meat more tender.',
+    },
+  },
+  'wikibooks:tajine-bil-samak': {
+    title: 'Probe the fish after simmering',
+    note: 'Two Plates uses at least 63°C in the thickest fillet, checked with a clean food thermometer. The source simmers the fish 10-15 minutes until it flakes easily - time and flaking are not doneness checks; continue simmering and recheck if below the target.',
+    sources: [['FSANZ: seafood cooking and temperature control', FSANZ]],
+    replacements: {
+      7: 'Cover the tajine with a lid and let the fish simmer in the sauce for about 10-15 minutes, then check the thickest fillet with a clean food thermometer for at least 63°C - the fish should be cooked through and flake easily with a fork; continue simmering and recheck if below the target.',
+    },
+  },
+  'wikibooks:buuz': {
+    title: 'Probe a dumpling after steaming',
+    note: 'Two Plates uses at least 71°C in the centre of a dumpling, checked with a clean food thermometer, because the filling is minced beef. The source steams 15 minutes - time is not a doneness check; continue steaming and recheck if below the target.',
+    sources: [['NSW: minced meat safe minimum; probe placement', NSW_TEMP]],
+    replacements: {
+      6: 'Carefully place the buuz buns on the steamer pan, spacing them 1 cm (0.4 inch) away from one another. Place the pan into the boiling steamer and steam for about 15 minutes, then check the centre of one dumpling with a clean food thermometer for at least 71°C - time is not a doneness check; continue steaming and recheck if below the target.',
+    },
+  },
+  'wikibooks:callaloo': {
+    title: 'Cook the taro leaves through and probe the crab',
+    note: 'Two Plates requires the pot to simmer covered for at least 30 minutes so the taro leaves are cooked through - raw or undercooked taro leaves are not safe to eat. Probe the crab pieces with a clean food thermometer for at least 63°C after simmering; time is not a doneness check. Salted beef or pork is a commercially prepared cured product; keep it refrigerated before preparation.',
+    sources: [['FSANZ: seafood cooking and temperature control', FSANZ], ['NSW: refrigeration of ready-to-eat and prepared foods', NSW_TEMP]],
+    replacements: {
+      6: 'Bring to the boil; reduce the heat, cover and simmer for 30 minutes or more until everything is soft and cooked through - the taro leaves must be cooked through, do not eat them raw; check the crab pieces with a clean food thermometer for at least 63°C - time is not a doneness check; continue simmering and recheck if below the target.',
+    },
+  },
 
 };
 
