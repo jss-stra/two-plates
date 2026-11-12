@@ -1261,5 +1261,38 @@ export const IMPORTED_SAFETY = {
     },
   },
 
+  'wikibooks-de:de-kartoffelpfanne-mit-forelle-und-erbsenschoten': {
+    title: 'Probe the fish pieces; stewing time is not the check',
+    note: 'Two Plates uses at least 63°C in the thickest fish piece, checked with a clean food thermometer, following NSW fish guidance. The source stews the fish about 1 minute - time is not a doneness check; continue stewing and recheck if below the target. If using frozen fish, thaw it in the refrigerator, not on the bench. Keep fish refrigerated at 5°C or colder before preparation and use separate boards and utensils for raw fish and ready-to-eat food.',
+    sources: [['NSW: fish 63°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      3: 'Then add the fish cut into pieces and continue stewing until a clean food thermometer in the thickest piece reads at least 63°C - the source\'s about 1 minute (lid on) is not a doneness check; continue stewing and recheck if below the target.',
+    },
+  },
+  'wikibooks-de:de-lammcurry': {
+    title: 'Probe the lamb after the simmer',
+    note: 'Two Plates uses at least 71°C in the thickest part of the largest pieces, checked with a clean food thermometer. This is a conservative editorial medium endpoint for whole-cut lamb, not a universal minimum or a tested 40-minute process; NSW safe-minimum guidance allows less for whole cuts with a rest. The source simmers 40 minutes - time is not a doneness check; continue simmering and recheck if below the target. Keep raw lamb refrigerated at 5°C or colder before preparation and use separate boards and utensils for raw meat and ready-to-eat food.',
+    sources: [['NSW: whole-cut red meat; probe placement', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      9: 'Add the coconut milk and boil down, then check the largest lamb pieces with a clean food thermometer in the thickest part for at least 71°C - time is not a doneness check; continue simmering and recheck if below the target.',
+    },
+  },
+  'wikibooks-de:de-ram-stek': {
+    title: 'Probe the steaks after the braise; do not wash the meat',
+    note: 'Two Plates uses at least 71°C in the centre of the thickest steak, checked with a clean food thermometer. This is a conservative editorial medium endpoint for whole-cut beef, not a universal minimum or a tested 1.5-hour process; NSW safe-minimum guidance allows less for whole cuts with a rest. The source braises about 1.5 hours - time is not a doneness check; continue braising and recheck if below the target. The source says to wash the meat; food safety guidance advises against washing raw meat because splashes spread bacteria - pat it dry instead. Keep raw beef refrigerated at 5°C or colder before preparation and use separate boards and utensils for raw meat and ready-to-eat food.',
+    sources: [['NSW: whole-cut red meat; probe placement', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      8: 'Slowly add 1/2 litre broth (and the mushroom soaking water), stirring constantly, season with salt and pepper, return the meat slices and braise the whole covered over low heat for about 1.5 hours, then check the centre of the thickest steak with a clean food thermometer for at least 71°C - time is not a doneness check; continue braising and recheck if below the target.',
+    },
+  },
+  'wikibooks-de:de-huhn-mit-knoblauch-und-chili': {
+    title: 'Probe the chicken after the simmer',
+    note: 'Two Plates uses at least 75°C in the thickest part of the largest chicken pieces, checked with a clean food thermometer, following NSW poultry guidance. The source simmers 10 minutes - time is not a doneness check; continue simmering and recheck if below the target. Keep raw chicken refrigerated at 5°C or colder before preparation; do not wash it; use separate boards and utensils for raw poultry and ready-to-eat food, and clean hands and surfaces after handling.',
+    sources: [['NSW: poultry 75°C', NSW_TEMP], ['FSANZ: raw separation and temperature control', FSANZ]],
+    replacements: {
+      6: 'Simmer for 10 minutes, then check the largest chicken pieces with a clean food thermometer in the thickest part for at least 75°C - time is not a doneness check; continue simmering and recheck if below the target.',
+    },
+  },
+
 };
 
