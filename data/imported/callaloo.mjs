@@ -11,7 +11,18 @@ export default {
     "carbs": null,
     "fat": null
   },
-  "nutritionStatus": "unknown",
+  "nutritionStatus": "source-stated",
+  "nutritionSourceStated": {
+    "basis": "Stated by the source per serving; not computed by Two Plates",
+    "publication": "en.wikibooks Cookbook (CC BY-SA 4.0)",
+    "url": "https://en.wikibooks.org/wiki/Cookbook:Callaloo",
+    "servingSize": "1 of 8 servings (source)",
+    "yield": "8 servings (source)",
+    "perServing": {
+      "calories": "300"
+    },
+    "variants": []
+  },
   "diet": null,
   "sourceDietClaims": [],
   "mainProtein": null,

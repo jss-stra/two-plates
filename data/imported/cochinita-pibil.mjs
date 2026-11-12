@@ -6,12 +6,30 @@ export default {
   "cuisine": "Mexican",
   "baseServings": "12–16",
   "nutrition": {
-    "kcal": 240,
-    "protein": 33.1,
-    "carbs": 5.2,
-    "fat": 9.3
+    "kcal": null,
+    "protein": null,
+    "carbs": null,
+    "fat": null
   },
   "nutritionStatus": "source-stated",
+  "nutritionSourceStated": {
+    "basis": "Stated by the source per serving; not computed by Two Plates",
+    "publication": "en.wikibooks Cookbook (CC BY-SA 4.0)",
+    "url": "https://en.wikibooks.org/wiki/Cookbook:Cochinita_Pibil_(Mexican_Braised_Pork)?oldid=4510059",
+    "servingSize": "1 of 12–16 servings (source)",
+    "yield": "12–16 servings (source)",
+    "perServing": {
+      "calories": "240",
+      "protein": "33.1 g",
+      "carbohydrates": "5.2 g",
+      "totalFat": "9.3 g",
+      "sodium": "1037 mg",
+      "saturatedFat": "2.9 g",
+      "cholesterol": "92.2 mg",
+      "totalFiber": "0.7 g"
+    },
+    "variants": []
+  },
   "diet": null,
   "sourceDietClaims": [],
   "mainProtein": null,
@@ -23,11 +41,7 @@ export default {
     "stepMinutesTotal": null,
     "guaranteedElapsedTime": false
   },
-  "nutritionSourceStated": {
-    "basis": "Stated by the source per serving; not computed by Two Plates",
-    "publication": "Wikibooks Cookbook (en.wikibooks), pinned revision",
-    "url": "https://en.wikibooks.org/wiki/Cookbook:Cochinita_Pibil_(Mexican_Braised_Pork)?oldid=4510059"
-  },
+  
   "lines": [
     {
       "lineRef": "src:wikibooks:cochinita-pibil:001",
