@@ -465,7 +465,7 @@ function renderIdeaList(s) {
   const list = IDEAS.filter((i) => ideaMatches(i, q));
   const shown = ui.showAll ? list : list.slice(0, IDEA_PAGE);
   el.innerHTML = `<div class="fine count">Showing ${shown.length} of ${list.length} dish ideas</div>
-    <p class="fine">Dish ideas for discovery: names and one-line descriptions only. They are not recipes - no ingredients, amounts, steps, nutrition or safety guidance - and they cannot be added to the week or the shopping list.</p>`
+    <p class="fine">Ideas to explore, not recipes - they can't go into your week or shopping list.</p>`
     + (list.length ? shown.map(ideaRow).join('') : '<p class="empty">Nothing matches - try fewer words.</p>')
     + (!ui.showAll && list.length > IDEA_PAGE
       ? `<button class="btn wide show-more" data-act="recipes-more">Show all ${list.length} ideas</button>` : '');
@@ -496,18 +496,19 @@ function renderRecipeList(s) {
 }
 
 function renderRecipes(s) {
-  const groups = ['All', 'Our regulars', 'Top rated', 'Rated', ...GROUPS, 'Dish ideas', ...(s.hidden.length ? ['Hidden'] : [])];
+  const ideaMode = ui.group === 'Dish ideas';
+  const groups = ['All', 'Dish ideas', 'Our regulars', 'Top rated', 'Rated', ...GROUPS, ...(s.hidden.length ? ['Hidden'] : [])];
   return `
-  <div class="searchbar">${icon('search')}<input id="q" type="search" placeholder="Search dishes or ingredients…" value="${esc(ui.search)}" autocomplete="off"></div>
+  <div class="searchbar">${icon('search')}<input id="q" type="search" placeholder="${ideaMode ? 'Search dish ideas…' : 'Search dishes or ingredients…'}" value="${esc(ui.search)}" autocomplete="off"></div>
   <div class="chips">${groups.map((g) => `<button class="chip ${ui.group === g ? 'on' : ''}" data-act="group" data-g="${esc(g)}">${esc(g)}${g === 'Hidden' ? ` (${s.hidden.length})` : ''}</button>`).join('')}
-    <button class="chip ${ui.vegOnly ? 'on' : ''}" data-act="rtoggle" data-k="vegOnly">Veg only</button>
-    <button class="chip ${ui.quick ? 'on' : ''}" data-act="rtoggle" data-k="quick">≤ 30 min</button></div>
-  <div class="filters">
+    ${ideaMode ? '' : `<button class="chip ${ui.vegOnly ? 'on' : ''}" data-act="rtoggle" data-k="vegOnly">Veg only</button>
+    <button class="chip ${ui.quick ? 'on' : ''}" data-act="rtoggle" data-k="quick">≤ 30 min</button>`}</div>
+  ${ideaMode ? '' : `<div class="filters">
     <select data-ui="sort" aria-label="Sort">
       ${[['smart', 'Most protein per calorie'], ['rating', 'Highest rated'], ['protein', 'Most protein'], ['kcal', 'Fewest calories'], ['time', 'Quickest'], ['name', 'A–Z']]
         .map(([v, l]) => `<option value="${v}" ${ui.sort === v ? 'selected' : ''}>${l}</option>`).join('')}
     </select>
-  </div>
+  </div>`}
   <div id="recipe-list"></div>`;
 }
 
@@ -833,7 +834,7 @@ function renderIdeaSheet(el) {
     <div class="sheet-body">
       <p class="meta">${esc(idea.countries.join(' · '))}</p>
       <p>${esc(idea.blurb)}</p>
-      <section class="safety-note"><div class="fine">What this is</div><h3>An idea to explore, not cooking directions</h3><p>Two Plates has no ingredients, amounts, steps, nutrition or food-safety guidance for this dish. Look up a trusted recipe for it elsewhere; it cannot be added to your week or shopping list.</p></section>
+      <p class="fine">An idea to explore, not cooking directions - Two Plates has no ingredients, steps or nutrition for it. Find a trusted recipe elsewhere; it can't go into your week or shopping list.</p>
       <p class="fine">Name and description: <a href="${esc(idea.source.url)}" target="_blank" rel="noopener">${esc(idea.source.label)}</a> · <a href="${esc(idea.source.licenseUrl)}" target="_blank" rel="noopener">${esc(idea.source.license)}</a></p>
     </div>
   </div>`;

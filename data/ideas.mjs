@@ -12,7 +12,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q130265510",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Trio",
+   "Three-in-one",
+   "3—in—1"
+  ]
  },
  {
   "id": "wd-q107358460",
@@ -27,7 +32,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107358460",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "African salad"
+  ]
  },
  {
   "id": "wd-q107357035",
@@ -42,7 +50,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107357035",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Atama soup"
+  ]
  },
  {
   "id": "wd-q135427283",
@@ -57,7 +68,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q135427283",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q107020680",
@@ -72,7 +84,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107020680",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q65091072",
@@ -87,7 +100,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q65091072",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Abula"
+  ]
  },
  {
   "id": "wd-q64490692",
@@ -102,7 +118,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q64490692",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Abubunabunu"
+  ]
  },
  {
   "id": "wd-q11258240",
@@ -117,7 +136,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11258240",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12497149",
@@ -132,7 +152,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12497149",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q107358770",
@@ -147,7 +168,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107358770",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ofe Achi"
+  ]
  },
  {
   "id": "wd-q107358452",
@@ -162,7 +186,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107358452",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Echicha Ede"
+  ]
  },
  {
   "id": "wd-q4073388",
@@ -177,7 +204,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4073388",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Aczma"
+  ]
  },
  {
   "id": "wd-q85739611",
@@ -192,7 +222,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q85739611",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Yellow soup",
+   "Achu (soup)",
+   "Taro à la sauce jaune"
+  ]
  },
  {
   "id": "wd-q19749023",
@@ -207,7 +242,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19749023",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "tholpit",
+   "food from",
+   "tolpit"
+  ]
  },
  {
   "id": "wd-q30599785",
@@ -222,7 +262,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q30599785",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Afang",
+   "Afang soup",
+   "Spinach And Okazi Leaves (Afang)"
+  ]
  },
  {
   "id": "wd-q107364240",
@@ -237,7 +282,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107364240",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q107357284",
@@ -252,7 +298,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107357284",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "eko"
+  ]
  },
  {
   "id": "wd-q21210955",
@@ -267,7 +316,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q21210955",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "agnulìn",
+   "agnolini Mantovani",
+   "Agnolini",
+   "agnulì"
+  ]
  },
  {
   "id": "wd-q123441",
@@ -282,7 +337,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q123441",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ahle Wurst",
+   "Aahle Worscht"
+  ]
  },
  {
   "id": "wd-q135266265",
@@ -297,22 +356,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q135266265",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q29998824",
-  "name": "Ajopuchero",
-  "countries": [
-   "Spain"
-  ],
-  "cuisine": "Spain",
-  "blurb": "Food preparation.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q29998824",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q28725149",
@@ -327,7 +372,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q28725149",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q56300140",
@@ -346,7 +392,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56300140",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "akassa"
+  ]
  },
  {
   "id": "wd-q110738684",
@@ -361,7 +410,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q110738684",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Alentejo bread",
+   "Pan alentejano",
+   "pão alentejano"
+  ]
  },
  {
   "id": "wd-q127433632",
@@ -376,7 +430,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q127433632",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Alibongbong",
+   "Alifongfong"
+  ]
  },
  {
   "id": "wd-q4737104",
@@ -391,7 +449,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4737104",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q133284186",
@@ -406,7 +465,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q133284186",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "trei ngeat ovlek"
+  ]
  },
  {
   "id": "wd-q4739207",
@@ -421,7 +483,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4739207",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "àmàlà",
+   "alibo",
+   "amala"
+  ]
  },
  {
   "id": "wd-q116842438",
@@ -436,7 +503,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q116842438",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q19731959",
@@ -451,7 +519,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19731959",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "ambalese satay",
+   "ambalian satay"
+  ]
  },
  {
   "id": "wd-q12974081",
@@ -466,7 +538,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12974081",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q30890348",
@@ -481,7 +554,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q30890348",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q107489664",
@@ -496,7 +570,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107489664",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "amiwô",
+   "Am I Wooton"
+  ]
  },
  {
   "id": "wd-q116739072",
@@ -511,37 +589,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q116739072",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q1969648",
-  "name": "Amsterdam onion",
-  "countries": [
-   "Netherlands"
-  ],
-  "cuisine": "Netherlands",
-  "blurb": "Yellow pickled onions.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q1969648",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q481774",
-  "name": "Amuse-bouche",
-  "countries": [
-   "France"
-  ],
-  "cuisine": "France",
-  "blurb": "Single, bite-sized hors d’œuvre.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q481774",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q9611817",
@@ -556,7 +605,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q9611817",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Clams à la Bulhão Pato",
+   "Almejas a Bulhão Pato",
+   "Amêijoas à Bulhão Pato",
+   "Bulhão Pato clams"
+  ]
  },
  {
   "id": "wd-q16051701",
@@ -571,7 +626,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16051701",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q2849577",
@@ -586,7 +642,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2849577",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "anges à cheval",
+   "Angels on horseback"
+  ]
  },
  {
   "id": "wd-q6821745",
@@ -601,7 +661,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6821745",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q56393494",
@@ -616,7 +677,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56393494",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q85742197",
@@ -631,7 +693,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q85742197",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q111609493",
@@ -646,37 +709,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q111609493",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q620967",
-  "name": "Appenzeller Pantli IGP",
-  "countries": [
-   "Switzerland"
-  ],
-  "cuisine": "Switzerland",
-  "blurb": "Swiss regional dried sausage.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q620967",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q66049188",
-  "name": "Applebee's Classic Combo",
-  "countries": [
-   "United States"
-  ],
-  "cuisine": "United States",
-  "blurb": "Appetizer at Applebee's.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q66049188",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Appelflap",
+   "Dutch apple turnover"
+  ]
  },
  {
   "id": "wd-q11113287",
@@ -691,7 +728,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11113287",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q138677652",
@@ -706,22 +744,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q138677652",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q12808559",
-  "name": "Arnavut ciğeri",
-  "countries": [
-   "Turkey"
-  ],
-  "cuisine": "Turkey",
-  "blurb": "Turkish cold platter (meze) made of liver.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q12808559",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Porteño-style pizza",
+   "Argentine pizza (dish)",
+   "Argentine pizza dish"
+  ]
  },
  {
   "id": "wd-q100258740",
@@ -736,7 +764,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q100258740",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q141642341",
@@ -751,7 +780,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q141642341",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Arroz con menestra",
+   "Arroz con menestra y carne"
+  ]
  },
  {
   "id": "wd-q703832",
@@ -766,7 +799,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q703832",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "arroz de marisco",
+   "riz aux fruits de mer"
+  ]
  },
  {
   "id": "wd-q11679965",
@@ -781,7 +818,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11679965",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Arroz al horno"
+  ]
  },
  {
   "id": "wd-q4796545",
@@ -796,7 +836,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4796545",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q109423540",
@@ -811,7 +852,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q109423540",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "asado de puerco"
+  ]
  },
  {
   "id": "wd-q4803469",
@@ -826,7 +870,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4803469",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "asam padeh",
+   "asam pedas"
+  ]
  },
  {
   "id": "wd-q122999857",
@@ -842,22 +890,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q122999857",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q137217603",
-  "name": "Ashoka Halwa",
-  "countries": [
-   "India"
-  ],
-  "cuisine": "India",
-  "blurb": "Confectionery from Tamil Nadu, India.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q137217603",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q136486631",
@@ -872,7 +906,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q136486631",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q30739641",
@@ -887,7 +922,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q30739641",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "aubergines à la bonifacienne"
+  ]
  },
  {
   "id": "wd-q122017831",
@@ -902,7 +940,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q122017831",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Avellanate"
+  ]
  },
  {
   "id": "wd-q951525",
@@ -917,7 +958,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q951525",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Avial"
+  ]
  },
  {
   "id": "wd-q16836245",
@@ -932,7 +976,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16836245",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "ayam goreng"
+  ]
  },
  {
   "id": "wd-q17998502",
@@ -947,7 +994,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q17998502",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q119436877",
@@ -962,7 +1010,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q119436877",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q85744456",
@@ -977,7 +1026,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q85744456",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q28163731",
@@ -992,7 +1042,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q28163731",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ayam kecap"
+  ]
  },
  {
   "id": "wd-q65210405",
@@ -1007,7 +1060,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q65210405",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q7309235",
@@ -1022,7 +1076,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7309235",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q2428787",
@@ -1037,7 +1092,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2428787",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ayam Taliwang"
+  ]
  },
  {
   "id": "wd-q12472901",
@@ -1052,7 +1110,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12472901",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q136281801",
@@ -1069,7 +1128,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q136281801",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Corn and Pigeon pea food"
+  ]
  },
  {
   "id": "wd-q7309432",
@@ -1084,7 +1146,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7309432",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "açorda à Alentejana",
+   "Açorda à alentejana",
+   "Açorda"
+  ]
  },
  {
   "id": "wd-q4833788",
@@ -1099,7 +1166,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4833788",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "British Columbia roll"
+  ]
  },
  {
   "id": "wd-q97307766",
@@ -1114,7 +1184,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q97307766",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Bubur saring",
+   "Bubur baayak",
+   "Bubur ayak"
+  ]
  },
  {
   "id": "wd-q17032101",
@@ -1129,7 +1204,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q17032101",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q101115409",
@@ -1144,7 +1220,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q101115409",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q28163754",
@@ -1159,7 +1236,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q28163754",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "babi kecap"
+  ]
  },
  {
   "id": "wd-q17998552",
@@ -1174,7 +1254,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q17998552",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "BPK"
+  ]
  },
  {
   "id": "wd-q2878129",
@@ -1189,7 +1272,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2878129",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Bacalao al ajoarriero",
+   "bacalao al ajoarriero",
+   "Bacalao al ajo arriero",
+   "Bacalo ajoarriero",
+   "Bacalao ajoarriero"
+  ]
  },
  {
   "id": "wd-q4838579",
@@ -1204,7 +1294,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4838579",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Cod with cream",
+   "Bacalhau com natas",
+   "Cod with double cream",
+   "Bacalao con nata"
+  ]
  },
  {
   "id": "wd-q541392",
@@ -1219,7 +1315,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q541392",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Bacalhau a Bras",
+   "Bacalhau à Brás",
+   "Bacalhau à la Brás"
+  ]
  },
  {
   "id": "wd-q4838584",
@@ -1234,7 +1335,22 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4838584",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Bacalhau a gomes de sá",
+   "Bacalhau à gomes de sa",
+   "Bacalhau a Gomes de Sa",
+   "Bacalhau à gomes de sá",
+   "Bacalhau à Gomes de Sá",
+   "Bacalhau a Gomes de Sá",
+   "Bacalhau a gomes de sa",
+   "Bacalhau à Gomes de Sa",
+   "Bacalao de Gomes de Sá",
+   "Bacalhau à la Gomes de Sá",
+   "Bacalao a Gomes de Sa",
+   "Bacalao de Gomes de Sa",
+   "bacalhau à Gomes de Sá"
+  ]
  },
  {
   "id": "wd-q16496019",
@@ -1249,7 +1365,16 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16496019",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Bacalhau a Narcisa",
+   "Bacalhau à Narcisa (dish)",
+   "Bacalhau à Narcisa",
+   "Bacalhau a Braga",
+   "Bacalhau à Minhota",
+   "Bacalhau à Braga",
+   "Bacalhau à la Narcisa"
+  ]
  },
  {
   "id": "wd-q4838586",
@@ -1264,22 +1389,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4838586",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q63228690",
-  "name": "Baccalà mantecato",
-  "countries": [
-   "Italy"
-  ],
-  "cuisine": "Italy",
-  "blurb": "Venetian appetizer.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q63228690",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Bacalhau a Zé do Pipo",
+   "Bacalhau à la Zé do Pipo",
+   "Bacalhau à Zé do Pipo"
+  ]
  },
  {
   "id": "wd-q20587724",
@@ -1294,7 +1409,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q20587724",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q1093790",
@@ -1309,7 +1425,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1093790",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Bacon explosion",
+   "Bacon Explosion"
+  ]
  },
  {
   "id": "wd-q983160",
@@ -1324,7 +1444,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q983160",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Bak kut teh",
+   "bak Kut Teh"
+  ]
  },
  {
   "id": "wd-q65210830",
@@ -1339,7 +1463,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q65210830",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12785386",
@@ -1354,7 +1479,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12785386",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Bakalca"
+  ]
  },
  {
   "id": "wd-q7220887",
@@ -1369,7 +1497,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7220887",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q1293258",
@@ -1384,7 +1513,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1293258",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "bamii",
+   "Bami",
+   "Bakmi"
+  ]
  },
  {
   "id": "wd-q17998685",
@@ -1399,7 +1533,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q17998685",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q4208144",
@@ -1414,7 +1549,15 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4208144",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "bala bala",
+   "Bakwan",
+   "ote-ote",
+   "bakwan sayur",
+   "ote ote",
+   "bala-bala"
+  ]
  },
  {
   "id": "wd-q12473662",
@@ -1429,7 +1572,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12473662",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q572275",
@@ -1444,7 +1588,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q572275",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Panhas",
+   "Pannas",
+   "Balkenbrij"
+  ]
  },
  {
   "id": "wd-q123503313",
@@ -1459,22 +1608,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q123503313",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q510521",
-  "name": "Balushahi",
-  "countries": [
-   "India"
-  ],
-  "cuisine": "India",
-  "blurb": "South Asian donuts.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q510521",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q21402490",
@@ -1489,7 +1624,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q21402490",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "fish börek"
+  ]
  },
  {
   "id": "wd-q107357073",
@@ -1504,7 +1642,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107357073",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Jugo Beans"
+  ]
  },
  {
   "id": "wd-q131628439",
@@ -1519,7 +1660,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q131628439",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Hot Pot de brotes de bambú",
+   "Bamboo Shoot Spicy Hot Pot"
+  ]
  },
  {
   "id": "wd-q107323701",
@@ -1534,7 +1679,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107323701",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Palm oil rice"
+  ]
  },
  {
   "id": "wd-q2882471",
@@ -1549,7 +1697,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2882471",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "bangers and mash"
+  ]
  },
  {
   "id": "wd-q113451751",
@@ -1564,7 +1715,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q113451751",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q10404947",
@@ -1579,37 +1731,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q10404947",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q2294743",
-  "name": "Barbajuan",
-  "countries": [
-   "Monaco"
-  ],
-  "cuisine": "Monaco",
-  "blurb": "Southern European appetizer.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q2294743",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q1187319",
-  "name": "Barfi",
-  "countries": [
-   "India"
-  ],
-  "cuisine": "India",
-  "blurb": "Sweet confectionery from the Pakistani subcontinent.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q1187319",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q17998988",
@@ -1624,7 +1747,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q17998988",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q109587599",
@@ -1639,7 +1763,17 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q109587599",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "tháng-á-kue",
+   "Tongzi chicken",
+   "àng-á chicken",
+   "Wongzi chicken",
+   "Kiln-roasted chicken",
+   "àng-á-ke",
+   "tháng-á chicken",
+   "Earthenware chicken"
+  ]
  },
  {
   "id": "wd-q689416",
@@ -1654,7 +1788,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q689416",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Basler Lackerli",
+   "Läggerli",
+   "Basler Leckerli",
+   "Basler Läggerli",
+   "Basler Läckerli"
+  ]
  },
  {
   "id": "wd-q132152948",
@@ -1669,7 +1810,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q132152948",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "baso aci"
+  ]
  },
  {
   "id": "wd-q126783792",
@@ -1684,7 +1828,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q126783792",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Batiburrillo",
+   "batiburrillo"
+  ]
  },
  {
   "id": "wd-q3636224",
@@ -1699,7 +1847,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3636224",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q4869727",
@@ -1714,7 +1863,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4869727",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Salchicha rebozada",
+   "sausage in batter"
+  ]
  },
  {
   "id": "wd-q812609",
@@ -1729,7 +1882,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q812609",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Bayrisch Kraut"
+  ]
  },
  {
   "id": "wd-q85876025",
@@ -1745,7 +1901,15 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q85876025",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "pambazo",
+   "pan baso",
+   "pambacería",
+   "pan basso",
+   "Pan bazo",
+   "pambaso"
+  ]
  },
  {
   "id": "wd-q107416756",
@@ -1760,7 +1924,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107416756",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Adalu"
+  ]
  },
  {
   "id": "wd-q9706614",
@@ -1775,7 +1942,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q9706614",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "ragoût de castor"
+  ]
  },
  {
   "id": "wd-q2224749",
@@ -1790,7 +1960,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2224749",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Sarde a beccafico"
+  ]
  },
  {
   "id": "wd-q64358326",
@@ -1805,7 +1978,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q64358326",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "beef with broccoli"
+  ]
  },
  {
   "id": "wd-q134139217",
@@ -1820,7 +1996,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q134139217",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q22583433",
@@ -1835,7 +2012,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q22583433",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q10429442",
@@ -1850,7 +2028,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q10429442",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q65251483",
@@ -1865,7 +2044,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q65251483",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q4880437",
@@ -1880,7 +2060,15 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4880437",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Hangzhou simmer chicken",
+   "rich and noble chicken",
+   "poulet du mendiant",
+   "baked stuffed chicken",
+   "yellow mud simmer chicken",
+   "jiaohua ji"
+  ]
  },
  {
   "id": "wd-q16879307",
@@ -1895,7 +2083,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16879307",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q490759",
@@ -1910,7 +2099,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q490759",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "beondegi",
+   "Beondegi"
+  ]
  },
  {
   "id": "wd-q140644397",
@@ -1925,7 +2118,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q140644397",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Betamax (alimento)"
+  ]
  },
  {
   "id": "wd-q4899060",
@@ -1940,7 +2136,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4899060",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q24906665",
@@ -1955,7 +2152,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q24906665",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Bharwan bhindi",
+   "Okra fry",
+   "Bhindi fry"
+  ]
  },
  {
   "id": "wd-q213105",
@@ -1970,7 +2172,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q213105",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "biangbiang noodle",
+   "nouilles biang biang",
+   "Biangbiang-Nudeln",
+   "biang biang noodles"
+  ]
  },
  {
   "id": "wd-q56231429",
@@ -1985,7 +2193,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56231429",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "meatbun"
+  ]
  },
  {
   "id": "wd-q18500460",
@@ -2000,7 +2211,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q18500460",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Bica",
+   "Bica d'azeite",
+   "Bica dos afilhados",
+   "Bica de azeite"
+  ]
  },
  {
   "id": "wd-q104622587",
@@ -2015,7 +2232,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q104622587",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "singgang cake"
+  ]
  },
  {
   "id": "wd-q58090277",
@@ -2030,7 +2250,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q58090277",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q19724350",
@@ -2045,7 +2266,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19724350",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q3341250",
@@ -2060,7 +2282,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3341250",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "nids d'oiseaux",
+   "vogelnestjes"
+  ]
  },
  {
   "id": "wd-q130486185",
@@ -2075,7 +2301,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q130486185",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "biscuit of the nun"
+  ]
  },
  {
   "id": "wd-q69394023",
@@ -2090,7 +2319,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q69394023",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "San Martino (cookie)"
+  ]
  },
  {
   "id": "wd-q882556",
@@ -2105,7 +2337,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q882556",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Saure Zipfel",
+   "Blaue zipfel",
+   "Blaue Zipfel"
+  ]
  },
  {
   "id": "wd-q55693926",
@@ -2120,7 +2357,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q55693926",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q1539635",
@@ -2135,7 +2373,16 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1539635",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Blabärssoppa",
+   "Blåbarssoppa",
+   "Blabarssoppa",
+   "blueberry soup",
+   "Schwedische Blaubeersuppe",
+   "bilberry soup",
+   "Blåbärssoppa"
+  ]
  },
  {
   "id": "wd-q132800029",
@@ -2150,7 +2397,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q132800029",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Boba",
+   "yeye"
+  ]
  },
  {
   "id": "wd-q888832",
@@ -2165,7 +2416,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q888832",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "bobotie",
+   "bobotjie",
+   "Bobotie"
+  ]
  },
  {
   "id": "wd-q12535788",
@@ -2180,7 +2436,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12535788",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Bodyk"
+  ]
  },
  {
   "id": "wd-q25098851",
@@ -2195,22 +2454,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q25098851",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q56893397",
-  "name": "Bogurar doi",
-  "countries": [
-   "Bangladesh"
-  ],
-  "cuisine": "Bangladesh",
-  "blurb": "Type of curd from Bogura.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q56893397",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "slap-pap"
+  ]
  },
  {
   "id": "wd-q123515650",
@@ -2225,7 +2472,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q123515650",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q5257848",
@@ -2240,7 +2488,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5257848",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Mi rebus",
+   "Mi Jawa",
+   "Mee rebus",
+   "Mi kuah"
+  ]
  },
  {
   "id": "wd-q8249805",
@@ -2255,7 +2509,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q8249805",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Bok l'hong"
+  ]
  },
  {
   "id": "wd-q135433271",
@@ -2270,7 +2527,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q135433271",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12537353",
@@ -2285,7 +2543,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12537353",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Bokpe"
+  ]
  },
  {
   "id": "wd-q105529161",
@@ -2300,7 +2561,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q105529161",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q25466948",
@@ -2315,22 +2577,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q25466948",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q5731555",
-  "name": "Bolla de chicharrones",
-  "countries": [
-   "Spain"
-  ],
-  "cuisine": "Spain",
-  "blurb": "Sweet made with chicharrones.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q5731555",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q19903564",
@@ -2345,7 +2593,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19903564",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "bolo de arroz"
+  ]
  },
  {
   "id": "wd-q3565924",
@@ -2360,7 +2611,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3565924",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Bolo do caco"
+  ]
  },
  {
   "id": "wd-q17999717",
@@ -2375,7 +2629,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q17999717",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q86732805",
@@ -2390,7 +2645,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q86732805",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "baulus",
+   "bolus"
+  ]
  },
  {
   "id": "wd-q56232037",
@@ -2405,7 +2664,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56232037",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12476958",
@@ -2420,7 +2680,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12476958",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q892952",
@@ -2435,22 +2696,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q892952",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q893318",
-  "name": "Borani",
-  "countries": [
-   "Iran"
-  ],
-  "cuisine": "Iran",
-  "blurb": "Persian appetizer.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q893318",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Boodog",
+   "boodog"
+  ]
  },
  {
   "id": "wd-q910996",
@@ -2465,7 +2715,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q910996",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "bossam",
+   "Bossam"
+  ]
  },
  {
   "id": "wd-q4197759",
@@ -2480,7 +2734,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4197759",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "bothok",
+   "Botok"
+  ]
  },
  {
   "id": "wd-q3400745",
@@ -2495,7 +2753,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3400745",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Botarga de Martigues",
+   "poutargue de Martigues"
+  ]
  },
  {
   "id": "wd-q2921567",
@@ -2510,7 +2772,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2921567",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "bougna",
+   "Bougna"
+  ]
  },
  {
   "id": "wd-q828043",
@@ -2525,7 +2791,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q828043",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Bouillabaisse",
+   "bouillabaisse",
+   "Bullabesa"
+  ]
  },
  {
   "id": "wd-q12881337",
@@ -2540,22 +2811,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12881337",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q137844616",
-  "name": "Bowls, underglaze cobalt and overglaze enamels",
-  "countries": [
-   "Empire of Japan"
-  ],
-  "cuisine": "Empire of Japan",
-  "blurb": "Pottery by Rosanjin.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q137844616",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "bougiourdi"
+  ]
  },
  {
   "id": "wd-q12477242",
@@ -2570,7 +2829,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12477242",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q121686412",
@@ -2585,7 +2845,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q121686412",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "larded bread",
+   "Pan con manteca de cerdo"
+  ]
  },
  {
   "id": "wd-q107356806",
@@ -2600,7 +2864,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107356806",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q597921",
@@ -2615,7 +2880,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q597921",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "brem",
+   "Brem"
+  ]
  },
  {
   "id": "wd-q16533773",
@@ -2630,7 +2899,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16533773",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "brioscia"
+  ]
  },
  {
   "id": "wd-q2925658",
@@ -2645,7 +2917,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2925658",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "brissaouda"
+  ]
  },
  {
   "id": "wd-q2926295",
@@ -2660,7 +2935,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2926295",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "brouet",
+   "Brouet"
+  ]
  },
  {
   "id": "wd-q995299",
@@ -2675,7 +2954,15 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q995299",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Brimsennocken",
+   "Bryndzové halušky",
+   "Bryndzove halusky",
+   "bryndzové halušky",
+   "Bryndzové halusky",
+   "Bryndzove halušky"
+  ]
  },
  {
   "id": "wd-q2527136",
@@ -2690,7 +2977,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2527136",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "bsissa",
+   "Bsissa"
+  ]
  },
  {
   "id": "wd-q12512536",
@@ -2705,7 +2996,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12512536",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "buah kepayang",
+   "football fruit",
+   "Keluak"
+  ]
  },
  {
   "id": "wd-q129811529",
@@ -2720,7 +3016,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q129811529",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q127037926",
@@ -2735,7 +3032,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q127037926",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ase porridge"
+  ]
  },
  {
   "id": "wd-q123503171",
@@ -2750,7 +3050,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q123503171",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q4197962",
@@ -2765,7 +3066,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4197962",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "bubur kacang hijau"
+  ]
  },
  {
   "id": "wd-q65251381",
@@ -2780,7 +3084,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q65251381",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q105485736",
@@ -2795,7 +3100,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q105485736",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q2402333",
@@ -2810,7 +3116,29 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2402333",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Luohan cai",
+   "lo han jai",
+   "Delicia de Buda",
+   "lo hon jai",
+   "Luohan cài",
+   "Luohàn zhāi",
+   "Luóhàn cài",
+   "Luohàn zhai",
+   "Luóhan cai",
+   "Luohan zhāi",
+   "Luóhan cài",
+   "délice de Bouddha",
+   "Luóhàn zhai",
+   "Luóhàn zhāi",
+   "Luóhan zhāi",
+   "Luohàn cài",
+   "Luóhan zhai",
+   "Lo hon jai",
+   "Delicias de Buda",
+   "Luohan zhai"
+  ]
  },
  {
   "id": "wd-q12512314",
@@ -2825,7 +3153,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12512314",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q13092279",
@@ -2840,7 +3169,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q13092279",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Bugis"
+  ]
  },
  {
   "id": "wd-q20427327",
@@ -2855,7 +3187,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q20427327",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q50634",
@@ -2870,7 +3203,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q50634",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Bun cha",
+   "Bún chả"
+  ]
  },
  {
   "id": "wd-q138849367",
@@ -2885,52 +3222,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q138849367",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q64584601",
-  "name": "Burger King French Toast Sticks",
-  "countries": [
-   "United States"
-  ],
-  "cuisine": "United States",
-  "blurb": "Dish at Burger King.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q64584601",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q64575548",
-  "name": "Burger King Hash Browns",
-  "countries": [
-   "United States"
-  ],
-  "cuisine": "United States",
-  "blurb": "Dish at Burger King.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q64575548",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q64585293",
-  "name": "Burger King Onion Rings",
-  "countries": [
-   "United States"
-  ],
-  "cuisine": "United States",
-  "blurb": "Dish at Burger King.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q64585293",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q60761467",
@@ -2945,7 +3238,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q60761467",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q3647314",
@@ -2960,22 +3254,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3647314",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q85749574",
-  "name": "Burmese fried rice",
-  "countries": [
-   "Myanmar"
-  ],
-  "cuisine": "Myanmar",
-  "blurb": "Fried rice dish.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q85749574",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Burrida",
+   "Buridda"
+  ]
  },
  {
   "id": "wd-q65084218",
@@ -2990,7 +3273,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q65084218",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q136679835",
@@ -3005,7 +3289,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q136679835",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q5736147",
@@ -3020,7 +3305,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5736147",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "gutifarra",
+   "jamón del país sandwich",
+   "butifarra"
+  ]
  },
  {
   "id": "wd-q19712268",
@@ -3035,7 +3325,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19712268",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q9182865",
@@ -3050,7 +3341,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q9182865",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Byśki"
+  ]
  },
  {
   "id": "wd-q5004794",
@@ -3065,7 +3359,16 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5004794",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Banh beo",
+   "Bánh bèo",
+   "water fern cake",
+   "Banh bèo",
+   "Bánh beo",
+   "banh beo",
+   "bánh bèo"
+  ]
  },
  {
   "id": "wd-q5004813",
@@ -3080,7 +3383,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5004813",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Bánh tét",
+   "banh tét",
+   "bánh tét",
+   "bánh tet",
+   "banh tet"
+  ]
  },
  {
   "id": "wd-q12195766",
@@ -3095,7 +3405,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12195766",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "باطرش",
+   "باطرش حموي",
+   "Bāṭarš",
+   "Bāṭarsh"
+  ]
  },
  {
   "id": "wd-q5015278",
@@ -3110,22 +3426,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5015278",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q1302342",
-  "name": "Cabbage stew a la Székely",
-  "countries": [
-   "Hungary"
-  ],
-  "cuisine": "Hungary",
-  "blurb": "Hungarian stew dish.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q1302342",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "kaalilaatikko"
+  ]
  },
  {
   "id": "wd-q135494034",
@@ -3140,7 +3444,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q135494034",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q2060858",
@@ -3155,7 +3460,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2060858",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Cachupa",
+   "Katxupa"
+  ]
  },
  {
   "id": "wd-q5016033",
@@ -3170,7 +3479,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5016033",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Cacio e pepe",
+   "cacio e pepe"
+  ]
  },
  {
   "id": "wd-q137816339",
@@ -3185,7 +3498,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q137816339",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q137834678",
@@ -3200,7 +3514,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q137834678",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q1026488",
@@ -3215,7 +3530,15 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1026488",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "caldo gallego",
+   "бульон по-галисийски",
+   "Caldo gallego",
+   "кальдо гальего",
+   "Pote gallego",
+   "Caldo galego"
+  ]
  },
  {
   "id": "wd-q1139527",
@@ -3230,7 +3553,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1139527",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "California Roll",
+   "California roll",
+   "Rollo de California"
+  ]
  },
  {
   "id": "wd-q19961671",
@@ -3245,7 +3573,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19961671",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "callos a la andaluza",
+   "Tripe and chickpea stew",
+   "Callos a la andaluza",
+   "Callos con garbanzos"
+  ]
  },
  {
   "id": "wd-q2934403",
@@ -3260,7 +3594,15 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2934403",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "cartaboș",
+   "călbaj",
+   "caltaboși",
+   "cartaboși",
+   "chișcă",
+   "caltaboș"
+  ]
  },
  {
   "id": "wd-q21087825",
@@ -3275,7 +3617,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q21087825",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q135486726",
@@ -3291,7 +3634,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q135486726",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q1027884",
@@ -3306,7 +3650,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1027884",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "calçotada",
+   "Calçotada",
+   "calcotada",
+   "calzotada"
+  ]
  },
  {
   "id": "wd-q123422106",
@@ -3321,22 +3671,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q123422106",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q597159",
-  "name": "Canarian wrinkly potatoes",
-  "countries": [
-   "Spain"
-  ],
-  "cuisine": "Spain",
-  "blurb": "Canarian potatoes.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q597159",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12516005",
@@ -3351,7 +3687,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12516005",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q107203498",
@@ -3366,7 +3703,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107203498",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "capoun"
+  ]
  },
  {
   "id": "wd-q15696039",
@@ -3381,7 +3721,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q15696039",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "cargolada",
+   "Caragolada",
+   "caragolà"
+  ]
  },
  {
   "id": "wd-q92298243",
@@ -3396,7 +3741,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q92298243",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "caramandunga",
+   "karamandunga",
+   "karamanduka",
+   "caramanduca"
+  ]
  },
  {
   "id": "wd-q3848112",
@@ -3412,7 +3763,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3848112",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "carcamusa",
+   "carcamusas"
+  ]
  },
  {
   "id": "wd-q66817770",
@@ -3427,7 +3782,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q66817770",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Carne polaca"
+  ]
  },
  {
   "id": "wd-q140635489",
@@ -3442,7 +3800,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q140635489",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "carp in forks"
+  ]
  },
  {
   "id": "wd-q5047987",
@@ -3457,7 +3818,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5047987",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Casado"
+  ]
  },
  {
   "id": "wd-q19727660",
@@ -3473,7 +3837,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19727660",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Tapioca chips",
+   "chips de tapioca"
+  ]
  },
  {
   "id": "wd-q85750898",
@@ -3488,7 +3856,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q85750898",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "mezali phu thoke"
+  ]
  },
  {
   "id": "wd-q3640411",
@@ -3503,7 +3874,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3640411",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q5057827",
@@ -3518,7 +3890,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5057827",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Celery Victor"
+  ]
  },
  {
   "id": "wd-q12478448",
@@ -3533,7 +3908,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12478448",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q109353074",
@@ -3548,7 +3924,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q109353074",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Semita",
+   "Cemita de Puebla",
+   "Sema",
+   "Cemita poblana",
+   "Cema"
+  ]
  },
  {
   "id": "wd-q129811505",
@@ -3563,7 +3946,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q129811505",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q11114189",
@@ -3578,22 +3962,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11114189",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q13092409",
-  "name": "Cethot",
-  "countries": [
-   "Indonesia"
-  ],
-  "cuisine": "Indonesia",
-  "blurb": "Indonesian dish.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q13092409",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "ꦕꦼꦤꦶꦭ꧀",
+   "Cêthil",
+   "Cênil"
+  ]
  },
  {
   "id": "wd-q1057953",
@@ -3608,7 +3982,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1057953",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "ceviche",
+   "Ceviche"
+  ]
  },
  {
   "id": "wd-q130101093",
@@ -3623,7 +4001,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q130101093",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "chamillo",
+   "Chama"
+  ]
  },
  {
   "id": "wd-q703286",
@@ -3638,7 +4020,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q703286",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Champon",
+   "champon",
+   "chanpon"
+  ]
  },
  {
   "id": "wd-q2378108",
@@ -3653,7 +4040,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2378108",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Chanakhi",
+   "Chanahi"
+  ]
  },
  {
   "id": "wd-q5072761",
@@ -3668,7 +4059,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5072761",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12618459",
@@ -3683,7 +4075,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12618459",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Chapagetti"
+  ]
  },
  {
   "id": "wd-q5764649",
@@ -3698,7 +4093,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5764649",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "chaparra",
+   "chaparrita"
+  ]
  },
  {
   "id": "wd-q28169436",
@@ -3713,7 +4112,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q28169436",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Kebab chapli"
+  ]
  },
  {
   "id": "wd-q7185336",
@@ -3728,7 +4130,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7185336",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "sorrowful rice",
+   "Riz triste"
+  ]
  },
  {
   "id": "wd-q1067884",
@@ -3743,7 +4149,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1067884",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Chartreuse",
+   "chartreuse"
+  ]
  },
  {
   "id": "wd-q125357007",
@@ -3758,22 +4168,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q125357007",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q64865837",
-  "name": "Cheetos Chicken Fries",
-  "countries": [
-   "United States"
-  ],
-  "cuisine": "United States",
-  "blurb": "Variant of Burger King's Chicken Fries.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q64865837",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q1069097",
@@ -3788,7 +4184,16 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1069097",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Tchelow kabab",
+   "čelow kabāb",
+   "chelo kebab",
+   "Chelo Kabab",
+   "Chelo kabab",
+   "Chelow kabab",
+   "chelo kabab"
+  ]
  },
  {
   "id": "wd-q114352250",
@@ -3803,7 +4208,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q114352250",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Chhilka pitha",
+   "Chilka roti"
+  ]
  },
  {
   "id": "wd-q64974847",
@@ -3818,7 +4227,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q64974847",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q111589124",
@@ -3833,7 +4243,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q111589124",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "chicken roll"
+  ]
  },
  {
   "id": "wd-q6013649",
@@ -3848,7 +4261,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6013649",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "inasal",
+   "asado negrense",
+   "pollo asado negrense",
+   "Bacolod chicken inasal"
+  ]
  },
  {
   "id": "wd-q11317904",
@@ -3863,7 +4282,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11317904",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "chicken namban"
+  ]
  },
  {
   "id": "wd-q131118490",
@@ -3878,22 +4300,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q131118490",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q66613654",
-  "name": "Chicken Wonton Tacos",
-  "countries": [
-   "United States"
-  ],
-  "cuisine": "United States",
-  "blurb": "Dish at Applebee's.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q66613654",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q2963566",
@@ -3908,7 +4316,15 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2963566",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "kikwanga",
+   "chikwanga",
+   "Chikwangue",
+   "Chikwange",
+   "Maniokbrot",
+   "kwanga"
+  ]
  },
  {
   "id": "wd-q112761223",
@@ -3923,22 +4339,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q112761223",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q464545",
-  "name": "Chinmi",
-  "countries": [
-   "Japan"
-  ],
-  "cuisine": "Japan",
-  "blurb": "Japanese delicacies.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q464545",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q5102345",
@@ -3953,7 +4355,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5102345",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q107092059",
@@ -3968,7 +4371,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107092059",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "choesels"
+  ]
  },
  {
   "id": "wd-q5104057",
@@ -3983,7 +4389,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5104057",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Chhoyela",
+   "Chhwela"
+  ]
  },
  {
   "id": "wd-q2555488",
@@ -4000,7 +4410,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2555488",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "carpa navideña",
+   "Weihnachtskarpfen"
+  ]
  },
  {
   "id": "wd-q25056748",
@@ -4015,7 +4429,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q25056748",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q1089959",
@@ -4031,7 +4446,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1089959",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Churrasco",
+   "bbq",
+   "churrasco"
+  ]
  },
  {
   "id": "wd-q140475304",
@@ -4046,7 +4466,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q140475304",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Churrasco marino"
+  ]
  },
  {
   "id": "wd-q3274058",
@@ -4061,7 +4484,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3274058",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "chả cá",
+   "Cha Ca La Vong"
+  ]
  },
  {
   "id": "wd-q54371849",
@@ -4076,7 +4503,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q54371849",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q11162",
@@ -4091,7 +4519,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11162",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ciccioli",
+   "ciccioli"
+  ]
  },
  {
   "id": "wd-q11142810",
@@ -4106,7 +4538,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11142810",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Cilok Goreng"
+  ]
  },
  {
   "id": "wd-q56231486",
@@ -4121,7 +4556,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56231486",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q11141042",
@@ -4136,22 +4572,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11141042",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q137270645",
-  "name": "Cinavu",
-  "countries": [
-   "Taiwan"
-  ],
-  "cuisine": "Taiwan",
-  "blurb": "Taiwanese Aboriginal dish.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q137270645",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q23021894",
@@ -4166,7 +4588,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q23021894",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "ciorbă de burtă"
+  ]
  },
  {
   "id": "wd-q48780108",
@@ -4181,7 +4606,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q48780108",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q3677427",
@@ -4196,7 +4622,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3677427",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "cipollata"
+  ]
  },
  {
   "id": "wd-q5123542",
@@ -4211,7 +4640,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5123542",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q16540061",
@@ -4226,7 +4656,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16540061",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Rehpfeffer",
+   "civet de chevreuil"
+  ]
  },
  {
   "id": "wd-q16540064",
@@ -4241,7 +4675,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16540064",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "civet de lapin",
+   "Kaninchenpfeffer"
+  ]
  },
  {
   "id": "wd-q20113734",
@@ -4256,7 +4694,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q20113734",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q29019793",
@@ -4271,7 +4710,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q29019793",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "clam pie",
+   "Clam pie dish",
+   "Clam pie (dish)"
+  ]
  },
  {
   "id": "wd-q18693987",
@@ -4286,7 +4730,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q18693987",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Klimppisoppa"
+  ]
  },
  {
   "id": "wd-q503494",
@@ -4301,7 +4748,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q503494",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "cobbler",
+   "Cobbler"
+  ]
  },
  {
   "id": "wd-q868158",
@@ -4316,7 +4767,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q868158",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "cocido",
+   "cozido",
+   "Cocido"
+  ]
  },
  {
   "id": "wd-q70241",
@@ -4331,7 +4787,25 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q70241",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "cold borsch",
+   "Saltibarščiai",
+   "Borsch frio",
+   "Saltibarsčiai",
+   "Šaltibarsčiai",
+   "Chłodnik",
+   "bortsch froid",
+   "Borsch frío",
+   "Borscht frio",
+   "Borscht frío",
+   "Chlodnik",
+   "Saltibarsciai",
+   "Šaltibaršciai",
+   "Šaltibarsciai",
+   "Saltibaršciai",
+   "Šaltibarščiai"
+  ]
  },
  {
   "id": "wd-q11680825",
@@ -4346,7 +4820,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11680825",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "completo italiano",
+   "completo (gastronomía)",
+   "completo"
+  ]
  },
  {
   "id": "wd-q3686985",
@@ -4361,7 +4840,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3686985",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "coniglio alla ligure"
+  ]
  },
  {
   "id": "wd-q2082064",
@@ -4376,7 +4858,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2082064",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Consomé",
+   "Consommé",
+   "Consome",
+   "Consomme"
+  ]
  },
  {
   "id": "wd-q5171049",
@@ -4391,7 +4879,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5171049",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Sopa de cangrejo y maíz",
+   "Sopa de maíz y cangrejo",
+   "Sopa de maiz y cangrejo",
+   "Sopa de cangrejo y maiz"
+  ]
  },
  {
   "id": "wd-q1133127",
@@ -4406,7 +4900,15 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1133127",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Corn Dog",
+   "saucisse sur bâtonnet",
+   "corndog",
+   "salchicha empanizada",
+   "corn dog",
+   "sorndog"
+  ]
  },
  {
   "id": "wd-q531184",
@@ -4421,22 +4923,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q531184",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q112943987",
-  "name": "Cortadillo",
-  "countries": [
-   "Spain"
-  ],
-  "cuisine": "Spain",
-  "blurb": "Typical sweet from the south of Spain.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q112943987",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Coronation chicken",
+   "coronation chicken",
+   "Coronation Chicken",
+   "poulet Reine Élizabeth"
+  ]
  },
  {
   "id": "wd-q112944304",
@@ -4451,7 +4944,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q112944304",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Cortadillo norteño"
+  ]
  },
  {
   "id": "wd-q848957",
@@ -4466,7 +4962,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q848957",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Coto Makassar",
+   "coto Mangkasara"
+  ]
  },
  {
   "id": "wd-q3695911",
@@ -4481,7 +4981,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3695911",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q115641438",
@@ -4496,7 +4997,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q115641438",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "couvert"
+  ]
  },
  {
   "id": "wd-q5180222",
@@ -4511,7 +5015,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5180222",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "King of Salads",
+   "Crab Louie",
+   "Crab Louie Salad",
+   "Crab Louis Salad"
+  ]
  },
  {
   "id": "wd-q1787022",
@@ -4527,7 +5037,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1787022",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "soupe de crabe",
+   "écrevisses à la nage",
+   "Krebssuppe"
+  ]
  },
  {
   "id": "wd-q5182787",
@@ -4542,22 +5057,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5182787",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q11299458",
-  "name": "Cream Box",
-  "countries": [
-   "Japan"
-  ],
-  "cuisine": "Japan",
-  "blurb": "A Japanese sweet from Fukushima.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q11299458",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q137908289",
@@ -4572,7 +5073,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q137908289",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q138413545",
@@ -4587,22 +5089,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q138413545",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q1141574",
-  "name": "Crostini",
-  "countries": [
-   "Italy"
-  ],
-  "cuisine": "Italy",
-  "blurb": "Italian appetizer.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q1141574",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Sour porridge",
+   "Creamy porridge (dish)",
+   "Creamy porridge dish"
+  ]
  },
  {
   "id": "wd-q3005487",
@@ -4617,7 +5109,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3005487",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Crozet (pasta)",
+   "Crozets",
+   "crozets"
+  ]
  },
  {
   "id": "wd-q25997959",
@@ -4632,7 +5129,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q25997959",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Käseschnitte",
+   "croûte au fromage"
+  ]
  },
  {
   "id": "wd-q109424807",
@@ -4647,7 +5148,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q109424807",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "pa de vidre",
+   "pan de vidrio",
+   "Pan de cristal",
+   "Pain de verre"
+  ]
  },
  {
   "id": "wd-q872503",
@@ -4662,7 +5169,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q872503",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Sándwich de pepino",
+   "Sandwich de pepino",
+   "Cucumber sándwich",
+   "Cucumber sandwich"
+  ]
  },
  {
   "id": "wd-q613665",
@@ -4677,37 +5190,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q613665",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q140642205",
-  "name": "Culurgionis d'Ogliastra PGI",
-  "countries": [
-   "Italy"
-  ],
-  "cuisine": "Italy",
-  "blurb": "Italian PGI pasta.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q140642205",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q123518001",
-  "name": "Cuore d'Abruzzo",
-  "countries": [
-   "Italy"
-  ],
-  "cuisine": "Italy",
-  "blurb": "Sweet typical of Abruzzo.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q123518001",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Cullen Skink",
+   "cullen skink"
+  ]
  },
  {
   "id": "wd-q112818476",
@@ -4722,7 +5209,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q112818476",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "curry soba",
+   "curry nanban"
+  ]
  },
  {
   "id": "wd-q5795066",
@@ -4737,7 +5228,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5795066",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Cushta"
+  ]
  },
  {
   "id": "wd-q3007979",
@@ -4752,7 +5246,16 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3007979",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Cuñapé",
+   "kuñapi",
+   "cunapé",
+   "cuñape",
+   "cuñapé",
+   "cunape",
+   "kuñape"
+  ]
  },
  {
   "id": "wd-q5202996",
@@ -4767,7 +5270,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5202996",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Cốm",
+   "cốm"
+  ]
  },
  {
   "id": "wd-q139501650",
@@ -4782,7 +5289,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q139501650",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "dagga Gazawiya"
+  ]
  },
  {
   "id": "wd-q109441389",
@@ -4797,7 +5307,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q109441389",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q2785975",
@@ -4812,7 +5323,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2785975",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "smos",
+   "dagobert",
+   "Dagoberto",
+   "club",
+   "smoske"
+  ]
  },
  {
   "id": "wd-q5208692",
@@ -4827,7 +5345,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5208692",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Dagwood sándwich",
+   "Dagwood sandwich",
+   "Dagwood",
+   "Dagwood Sándwich",
+   "Dagwood Sandwich"
+  ]
  },
  {
   "id": "wd-q5208800",
@@ -4842,7 +5367,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5208800",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "dahi baigana"
+  ]
  },
  {
   "id": "wd-q12591047",
@@ -4857,22 +5385,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12591047",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q762285",
-  "name": "Dakos",
-  "countries": [
-   "Greece"
-  ],
-  "cuisine": "Greece",
-  "blurb": "Greek cuisine starter.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q762285",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "dakgangjeong"
+  ]
  },
  {
   "id": "wd-q929364",
@@ -4887,7 +5403,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q929364",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Dal Bhat",
+   "Dahl baht",
+   "dal bhat"
+  ]
  },
  {
   "id": "wd-q119441937",
@@ -4902,7 +5423,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q119441937",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q7780958",
@@ -4917,7 +5439,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7780958",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q124259998",
@@ -4932,7 +5455,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q124259998",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Dal puri",
+   "Dahl puri",
+   "Dal poori"
+  ]
  },
  {
   "id": "wd-q20809686",
@@ -4947,7 +5475,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q20809686",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Dalvada"
+  ]
  },
  {
   "id": "wd-q107007191",
@@ -4963,7 +5494,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107007191",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "dambu jollofff",
+   "dambou"
+  ]
  },
  {
   "id": "wd-q19851743",
@@ -4978,7 +5513,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19851743",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "rolle egg crêpe",
+   "egg pancake"
+  ]
  },
  {
   "id": "wd-q107357106",
@@ -4993,7 +5532,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107357106",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ɗanwake",
+   "Danwake",
+   "Dan wake",
+   "Ɗan wake",
+   "bean dumpling"
+  ]
  },
  {
   "id": "wd-q117803607",
@@ -5010,7 +5556,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q117803607",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q5256658",
@@ -5025,7 +5572,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5256658",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Dendeng batokok",
+   "dendeng",
+   "Dendeng balado",
+   "Dendeng"
+  ]
  },
  {
   "id": "wd-q12481254",
@@ -5040,7 +5593,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12481254",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Dengke Naniura"
+  ]
  },
  {
   "id": "wd-q12411608",
@@ -5055,7 +5611,18 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12411608",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "dátiles con bacon",
+   "dátiles con bacón",
+   "dátiles envueltos",
+   "delicias de Elche",
+   "Dátiles con tocino",
+   "dátiles con panceta",
+   "dátiles con béicon",
+   "diablos a caballo",
+   "Devils on horseback"
+  ]
  },
  {
   "id": "wd-q171983",
@@ -5070,22 +5637,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q171983",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q109019732",
-  "name": "Dholl puri",
-  "countries": [
-   "Mauritius"
-  ],
-  "cuisine": "Mauritius",
-  "blurb": "Deep fried flatbread filled with lentils.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q109019732",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Dhokla"
+  ]
  },
  {
   "id": "wd-q3026484",
@@ -5100,7 +5655,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3026484",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "dibi",
+   "Dibi"
+  ]
  },
  {
   "id": "wd-q136674388",
@@ -5115,7 +5674,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q136674388",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q11853198",
@@ -5130,7 +5690,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11853198",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Spülmaschinenlachs",
+   "Salmón al lavavajillas",
+   "fishwasher",
+   "Saumon au lave-vaisselle"
+  ]
  },
  {
   "id": "wd-q10954885",
@@ -5145,7 +5711,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q10954885",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q11273790",
@@ -5160,7 +5727,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11273790",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Dojo tofu"
+  ]
  },
  {
   "id": "wd-q140578443",
@@ -5175,7 +5745,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q140578443",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "dolmadaki"
+  ]
  },
  {
   "id": "wd-q133521585",
@@ -5190,7 +5763,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q133521585",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Domoda"
+  ]
  },
  {
   "id": "wd-q11323173",
@@ -5205,22 +5781,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11323173",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q82549698",
-  "name": "Double Bypass Burger",
-  "countries": [
-   "United States"
-  ],
-  "cuisine": "United States",
-  "blurb": "Hamburger sold by Heart Attack Grill.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q82549698",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Doria"
+  ]
  },
  {
   "id": "wd-q109037701",
@@ -5235,23 +5799,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q109037701",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q5304700",
-  "name": "Dracula Piller",
-  "countries": [
-   "Sweden",
-   "Denmark"
-  ],
-  "cuisine": "Sweden",
-  "blurb": "Danish salty liquorice.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q5304700",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "fdawech leqma"
+  ]
  },
  {
   "id": "wd-q5305996",
@@ -5266,7 +5817,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5305996",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "soupe draw"
+  ]
  },
  {
   "id": "wd-q2631681",
@@ -5281,7 +5835,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2631681",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "hareng en fourrure",
+   "Sel'd' Pod Shuboi",
+   "Selyodka pod shuboy",
+   "Hering im Pelzmantel",
+   "Shuba"
+  ]
  },
  {
   "id": "wd-q129811500",
@@ -5296,7 +5857,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q129811500",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "ikan rebus kering"
+  ]
  },
  {
   "id": "wd-q2893649",
@@ -5311,7 +5875,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2893649",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Gamba borracha",
+   "Betrunkene Shrimps"
+  ]
  },
  {
   "id": "wd-q2920546",
@@ -5326,7 +5894,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2920546",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "doce de batata doce",
+   "Dulce de batata"
+  ]
  },
  {
   "id": "wd-q16184176",
@@ -5341,7 +5913,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16184176",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12593636",
@@ -5356,22 +5929,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12593636",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q19838749",
-  "name": "Düğün çorbası",
-  "countries": [
-   "Turkey"
-  ],
-  "cuisine": "Turkey",
-  "blurb": "Traditional soup from the Turkish cuisine, which literally means \"wedding soup\" and is served in social occasions like a wedding.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q19838749",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "pork and rice soup"
+  ]
  },
  {
   "id": "wd-q20009796",
@@ -5386,7 +5947,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q20009796",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q28402897",
@@ -5401,7 +5963,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q28402897",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "edikang ikong",
+   "Edikaikong soup",
+   "Edikang ikong soup"
+  ]
  },
  {
   "id": "wd-q30599933",
@@ -5416,7 +5983,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q30599933",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q113002820",
@@ -5431,7 +5999,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q113002820",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "omoebe"
+  ]
  },
  {
   "id": "wd-q56232138",
@@ -5446,7 +6017,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56232138",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "eel salad"
+  ]
  },
  {
   "id": "wd-q25043246",
@@ -5461,7 +6035,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q25043246",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Spinach stew",
+   "Efo riro",
+   "Efo Riro"
+  ]
  },
  {
   "id": "wd-q113038928",
@@ -5476,7 +6055,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q113038928",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q107358749",
@@ -5491,7 +6071,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107358749",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "ofe egusi",
+   "Melon soup",
+   "Egusi (sopa)",
+   "egwusi",
+   "Ndolé"
+  ]
  },
  {
   "id": "wd-q53927047",
@@ -5506,7 +6093,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q53927047",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q28000941",
@@ -5521,7 +6109,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q28000941",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Eiernockerl"
+  ]
  },
  {
   "id": "wd-q17019149",
@@ -5536,7 +6127,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q17019149",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Eight Treasure Rice",
+   "eight treasure rice",
+   "bā bǎo fàn",
+   "Babaofan"
+  ]
  },
  {
   "id": "wd-q107358554",
@@ -5552,7 +6149,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107358554",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ekwang"
+  ]
  },
  {
   "id": "wd-q10271107",
@@ -5567,7 +6167,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q10271107",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "White Moi Moi",
+   "Ekuru",
+   "white Moinmoin"
+  ]
  },
  {
   "id": "wd-q136486693",
@@ -5582,7 +6187,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q136486693",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q2565922",
@@ -5597,7 +6203,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2565922",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ema datshi",
+   "Ema Datshi"
+  ]
  },
  {
   "id": "wd-q5373825",
@@ -5612,7 +6222,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5373825",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q17050490",
@@ -5627,22 +6238,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q17050490",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q141182209",
-  "name": "Enchilada potosina",
-  "countries": [
-   "Mexico"
-  ],
-  "cuisine": "Mexico",
-  "blurb": "Type of enchilada.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q141182209",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q3097864",
@@ -5657,7 +6254,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3097864",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Espetada"
+  ]
  },
  {
   "id": "wd-q3044741",
@@ -5672,7 +6272,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3044741",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Esqueixada",
+   "esqueixada"
+  ]
  },
  {
   "id": "wd-q125501509",
@@ -5687,7 +6291,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q125501509",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Rice Topped with Sweet Fish",
+   "Sweetfish rice"
+  ]
  },
  {
   "id": "wd-q130632338",
@@ -5702,7 +6310,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q130632338",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q121379458",
@@ -5717,7 +6326,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q121379458",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "loving jungle princess",
+   "evil prince tofu"
+  ]
  },
  {
   "id": "wd-q47005642",
@@ -5732,7 +6345,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q47005642",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ewa agoyin"
+  ]
  },
  {
   "id": "wd-q109497393",
@@ -5747,7 +6363,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q109497393",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Fabiola"
+  ]
  },
  {
   "id": "wd-q3064798",
@@ -5762,7 +6381,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3064798",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Fallue",
+   "falue"
+  ]
  },
  {
   "id": "wd-q1397036",
@@ -5777,7 +6400,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1397036",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "farofa",
+   "Farofa"
+  ]
  },
  {
   "id": "wd-q85760630",
@@ -5792,22 +6419,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q85760630",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q10281090",
-  "name": "Fenek",
-  "countries": [
-   "Malta"
-  ],
-  "cuisine": "Malta",
-  "blurb": "Dining in Malta.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q10281090",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q59208435",
@@ -5822,7 +6435,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q59208435",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Jamaican festival",
+   "festivals",
+   "Jamaican festivals",
+   "Festival",
+   "festival"
+  ]
  },
  {
   "id": "wd-q2915859",
@@ -5838,7 +6458,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2915859",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "fettuccine Alfredo",
+   "salsa alfredo",
+   "Fettuccine Alfredo"
+  ]
  },
  {
   "id": "wd-q41521988",
@@ -5853,7 +6478,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q41521988",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q20016",
@@ -5868,7 +6494,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q20016",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "fideuá",
+   "fideua",
+   "Fideuà",
+   "fideuà"
+  ]
  },
  {
   "id": "wd-q139556341",
@@ -5883,7 +6515,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q139556341",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q22348764",
@@ -5898,7 +6531,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q22348764",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "américain préparé",
+   "préparé",
+   "filet américain"
+  ]
  },
  {
   "id": "wd-q136878697",
@@ -5913,7 +6551,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q136878697",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "fish croquette",
+   "fishcake",
+   "Fishcake"
+  ]
  },
  {
   "id": "wd-q136880981",
@@ -5928,7 +6571,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q136880981",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Fiskekaker"
+  ]
  },
  {
   "id": "wd-q8961756",
@@ -5943,22 +6589,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q8961756",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q82549887",
-  "name": "Flatliner Fries",
-  "countries": [
-   "United States"
-  ],
-  "cuisine": "United States",
-  "blurb": "French fries sold by Heart Attack Grill.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q82549887",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Flaczki",
+   "Flaki"
+  ]
  },
  {
   "id": "wd-q5862467",
@@ -5973,7 +6608,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5862467",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "tacos dorados",
+   "Flauta"
+  ]
  },
  {
   "id": "wd-q2395693",
@@ -5988,7 +6627,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2395693",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Vorschmack",
+   "vorschmack"
+  ]
  },
  {
   "id": "wd-q681770",
@@ -6003,7 +6646,21 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q681770",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Frankfurter Würstchen",
+   "Salchicha Fráncfort",
+   "Frank sausage",
+   "Salchicha Frankfurt",
+   "Salchichas de Frankfurt",
+   "Frankfurt sausage",
+   "Frankfurter sausage",
+   "saucisse de Francfort",
+   "Frankfurter",
+   "Salchicha de Frankfurt",
+   "Salchicha Francfort",
+   "Frankfurter Wurstchen"
+  ]
  },
  {
   "id": "wd-q30737843",
@@ -6033,7 +6690,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5503409",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "fricot"
+  ]
  },
  {
   "id": "wd-q1756289",
@@ -6049,7 +6709,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1756289",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "pan frito",
+   "Topinky"
+  ]
  },
  {
   "id": "wd-q8962869",
@@ -6064,7 +6728,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q8962869",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Frito mallorquín",
+   "Frito mallorquin"
+  ]
  },
  {
   "id": "wd-q85762176",
@@ -6079,22 +6747,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q85762176",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q391086",
-  "name": "Frittelle",
-  "countries": [
-   "Italy"
-  ],
-  "cuisine": "Italy",
-  "blurb": "Italian deep-fried sweet.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q391086",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "albondigas de prasa",
+   "keftes de prasa"
+  ]
  },
  {
   "id": "wd-q113945861",
@@ -6109,7 +6766,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q113945861",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "fruit sando"
+  ]
  },
  {
   "id": "wd-q10499831",
@@ -6124,7 +6784,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q10499831",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Fugazza con queso",
+   "Fugazza"
+  ]
  },
  {
   "id": "wd-q107486136",
@@ -6139,7 +6803,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107486136",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q25468949",
@@ -6154,7 +6819,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q25468949",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q950976",
@@ -6169,22 +6835,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q950976",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q5317729",
-  "name": "Gajar ka halwa",
-  "countries": [
-   "India"
-  ],
-  "cuisine": "India",
-  "blurb": "South Asian sweet.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q5317729",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "gachas manchegas",
+   "gachas"
+  ]
  },
  {
   "id": "wd-q5371702",
@@ -6199,22 +6854,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5371702",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q109820549",
-  "name": "Galician bread",
-  "countries": [
-   "Spain"
-  ],
-  "cuisine": "Spain",
-  "blurb": "European protected geographical indication.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q109820549",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Garijjim",
+   "galbi-jjim",
+   "Kalbijjim",
+   "Galbijjim",
+   "Dweji galbi"
+  ]
  },
  {
   "id": "wd-q138315412",
@@ -6229,7 +6876,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q138315412",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "pelotas galileas"
+  ]
  },
  {
   "id": "wd-q140454149",
@@ -6244,7 +6894,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q140454149",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Gomaj kabab",
+   "Gamaj kebab"
+  ]
  },
  {
   "id": "wd-q65234287",
@@ -6259,7 +6913,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q65234287",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "rice with potatoes"
+  ]
  },
  {
   "id": "wd-q130899848",
@@ -6274,7 +6931,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q130899848",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q131145353",
@@ -6289,7 +6947,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q131145353",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12483520",
@@ -6304,7 +6963,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12483520",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q3083513",
@@ -6319,7 +6979,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3083513",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Garbure",
+   "garbure"
+  ]
  },
  {
   "id": "wd-q3095449",
@@ -6334,7 +6998,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3095449",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "gardiane"
+  ]
  },
  {
   "id": "wd-q123510600",
@@ -6349,7 +7016,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q123510600",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Kue kering kelapa"
+  ]
  },
  {
   "id": "wd-q5523464",
@@ -6364,7 +7034,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5523464",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "garlies",
+   "garlic fingers",
+   "garlic cheese fingers",
+   "Doigts à l'ail"
+  ]
  },
  {
   "id": "wd-q107358893",
@@ -6379,7 +7055,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107358893",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Granulated cassava"
+  ]
  },
  {
   "id": "wd-q1408045",
@@ -6394,22 +7073,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1408045",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q5528400",
-  "name": "Gavvalu",
-  "countries": [
-   "India"
-  ],
-  "cuisine": "India",
-  "blurb": "Indian foodstuff.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q5528400",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Gatsby",
+   "Gatsby (sándwich)"
+  ]
  },
  {
   "id": "wd-q85735249",
@@ -6424,7 +7092,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q85735249",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "soup, amala, buka, ewedu, Nigerian, cuisine",
+   "Gbegiri Soup",
+   "Gbegiri"
+  ]
  },
  {
   "id": "wd-q1146771",
@@ -6439,22 +7112,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1146771",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q11498654",
-  "name": "Geki",
-  "countries": [
-   "Japan"
-  ],
-  "cuisine": "Japan",
-  "blurb": "Japanese confectionery.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q11498654",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "gefilte fish",
+   "Gefilte Fisch"
+  ]
  },
  {
   "id": "wd-q31178619",
@@ -6469,7 +7131,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q31178619",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12491642",
@@ -6484,7 +7147,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12491642",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Gêthuk kicak"
+  ]
  },
  {
   "id": "wd-q12484053",
@@ -6499,7 +7165,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12484053",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Gêthuk pêro"
+  ]
  },
  {
   "id": "wd-q3104777",
@@ -6514,7 +7183,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3104777",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ghapama",
+   "ghapama"
+  ]
  },
  {
   "id": "wd-q107047575",
@@ -6529,7 +7202,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107047575",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Tostada Gilgeori",
+   "Sandwish Gilgeori",
+   "Korean street toast"
+  ]
  },
  {
   "id": "wd-q495360",
@@ -6544,7 +7222,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q495360",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "seaweed roll",
+   "gimbap",
+   "kimbap",
+   "Gimbap"
+  ]
  },
  {
   "id": "wd-q5565095",
@@ -6559,22 +7243,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5565095",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q3769881",
-  "name": "Giurgiulena",
-  "countries": [
-   "Italy"
-  ],
-  "cuisine": "Italy",
-  "blurb": "Typical sweet from Sicily.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q3769881",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q107357232",
@@ -6589,22 +7259,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107357232",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q107478965",
-  "name": "Glorias de Linares",
-  "countries": [
-   "Mexico"
-  ],
-  "cuisine": "Mexico",
-  "blurb": "Typical Mexican sweet.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q107478965",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Gizdodo",
+   "gizzard and dodo"
+  ]
  },
  {
   "id": "wd-q1533235",
@@ -6619,7 +7278,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1533235",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Gnocchi alla romana"
+  ]
  },
  {
   "id": "wd-q56232277",
@@ -6634,7 +7296,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56232277",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q8567266",
@@ -6649,7 +7312,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q8567266",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Gohan",
+   "gohan"
+  ]
  },
  {
   "id": "wd-q97230633",
@@ -6664,7 +7331,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q97230633",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q83827888",
@@ -6679,7 +7347,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q83827888",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Gonré",
+   "Gonre"
+  ]
  },
  {
   "id": "wd-q6048146",
@@ -6694,7 +7366,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6048146",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Goralı"
+  ]
  },
  {
   "id": "wd-q107674774",
@@ -6709,7 +7384,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107674774",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q60761452",
@@ -6724,7 +7400,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q60761452",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q108570447",
@@ -6739,7 +7416,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q108570447",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "pounded cassava",
+   "gowi nifufu",
+   "gowi nihandro"
+  ]
  },
  {
   "id": "wd-q10316276",
@@ -6754,7 +7436,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q10316276",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Grilled Limpet's"
+  ]
  },
  {
   "id": "wd-q137834569",
@@ -6769,7 +7454,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q137834569",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q107358442",
@@ -6785,7 +7471,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107358442",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Peanut stew"
+  ]
  },
  {
   "id": "wd-q1367718",
@@ -6800,7 +7489,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1367718",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Sweet and sour pork",
+   "gulaorou",
+   "guloujuk",
+   "gu lao rou"
+  ]
  },
  {
   "id": "wd-q5613295",
@@ -6817,7 +7512,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5613295",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "T'anta wawa",
+   "Muñecas de pan",
+   "Guaguas de pan",
+   "Guagua de pan"
+  ]
  },
  {
   "id": "wd-q5613356",
@@ -6832,7 +7533,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5613356",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Guajolota"
+  ]
  },
  {
   "id": "wd-q980840",
@@ -6847,7 +7551,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q980840",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Gudeg"
+  ]
  },
  {
   "id": "wd-q16562242",
@@ -6862,23 +7569,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16562242",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q1554207",
-  "name": "Gulab jamun",
-  "countries": [
-   "India",
-   "Pakistan"
-  ],
-  "cuisine": "India",
-  "blurb": "Milk-solid-based sweet from the Indian subcontinent.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q1554207",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Guelfos"
+  ]
  },
  {
   "id": "wd-q4189322",
@@ -6893,7 +7587,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4189322",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "gule",
+   "Gulai"
+  ]
  },
  {
   "id": "wd-q98915728",
@@ -6908,7 +7606,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q98915728",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q16573500",
@@ -6923,7 +7622,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16573500",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Gushtaba",
+   "Goshtaba",
+   "Goshtabe"
+  ]
  },
  {
   "id": "wd-q7799573",
@@ -6938,22 +7642,18 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7799573",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q113369626",
-  "name": "Halawat Nahar Khuz",
-  "countries": [
-   "Iraq"
-  ],
-  "cuisine": "Iraq",
-  "blurb": "Iraqi confectionery.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q113369626",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Bánh tráng cuốn",
+   "Goi cuon",
+   "Rollo de verano",
+   "Nem cuốn",
+   "Sommerrolle",
+   "rouleau de printemps",
+   "summer roll",
+   "salad roll",
+   "Vietnamese Spring Roll"
+  ]
  },
  {
   "id": "wd-q3085085",
@@ -6968,7 +7668,16 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3085085",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "hallaquita",
+   "Hallaca",
+   "hayaca",
+   "hallacas",
+   "hallaca",
+   "hayacas",
+   "hallaquitas"
+  ]
  },
  {
   "id": "wd-q5643212",
@@ -6983,7 +7692,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5643212",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Hallulla"
+  ]
  },
  {
   "id": "wd-q112136957",
@@ -6998,38 +7710,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q112136957",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q6663",
-  "name": "Hamburger",
-  "countries": [
-   "United States",
-   "Germany"
-  ],
-  "cuisine": "United States",
-  "blurb": "American sandwich of ground beef patty.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q6663",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q127606236",
-  "name": "Hansakeli",
-  "countries": [
-   "India"
-  ],
-  "cuisine": "India",
-  "blurb": "Item offered to Lord Jagannath as Chhapan Bhog.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q127606236",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "ham and rice"
+  ]
  },
  {
   "id": "wd-q111938080",
@@ -7044,7 +7728,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q111938080",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Happy pizza food",
+   "Happy pizza (food)"
+  ]
  },
  {
   "id": "wd-q1513612",
@@ -7059,7 +7747,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1513612",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "harira",
+   "Harira"
+  ]
  },
  {
   "id": "wd-q590076",
@@ -7074,7 +7766,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q590076",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "pizza hawaiana",
+   "pizza hawaïenne",
+   "Pizza Hawaii"
+  ]
  },
  {
   "id": "wd-q5684686",
@@ -7089,7 +7786,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5684686",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Hawawshi",
+   "hawwaoshi"
+  ]
  },
  {
   "id": "wd-q4373369",
@@ -7104,7 +7805,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4373369",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Heotjesabap"
+  ]
  },
  {
   "id": "wd-q16928375",
@@ -7119,7 +7823,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16928375",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q6963832",
@@ -7134,22 +7839,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6963832",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q5750159",
-  "name": "Hi-Chew",
-  "countries": [
-   "Japan"
-  ],
-  "cuisine": "Japan",
-  "blurb": "Japanese fruit chew.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q5750159",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Hevrîşk"
+  ]
  },
  {
   "id": "wd-q60749256",
@@ -7164,7 +7857,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q60749256",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Hilachas"
+  ]
  },
  {
   "id": "wd-q8017486",
@@ -7179,7 +7875,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q8017486",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "raw fish bibimbap",
+   "Hoedeopbap",
+   "hoe-deopbap"
+  ]
  },
  {
   "id": "wd-q3139573",
@@ -7194,7 +7895,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3139573",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "homard à l'américaine"
+  ]
  },
  {
   "id": "wd-q16180568",
@@ -7209,7 +7913,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16180568",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q385808",
@@ -7224,7 +7929,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q385808",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "hornazo",
+   "Hornazo"
+  ]
  },
  {
   "id": "wd-q19726349",
@@ -7239,7 +7948,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19726349",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q135921153",
@@ -7254,7 +7964,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q135921153",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q135921156",
@@ -7269,22 +7980,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q135921156",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q11277777",
-  "name": "Hotchare",
-  "countries": [
-   "Japan"
-  ],
-  "cuisine": "Japan",
-  "blurb": "Confectionery from Kitami, Hokkaido, Japan.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q11277777",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q542790",
@@ -7299,7 +7996,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q542790",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "hujiao bing",
+   "hújiāo bǐng",
+   "Pfeffer-Tasche",
+   "bánh tiêu"
+  ]
  },
  {
   "id": "wd-q12020911",
@@ -7314,7 +8017,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12020911",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Huli-huli sauce",
+   "Huli-huli chicken"
+  ]
  },
  {
   "id": "wd-q60740502",
@@ -7329,7 +8036,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q60740502",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q133451449",
@@ -7344,7 +8052,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q133451449",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Hummus bil-lahm",
+   "Ḥummuṣ bil-laḥm",
+   "حمص باللحم",
+   "Hummus bel lahme",
+   "Hummus bi lahm"
+  ]
  },
  {
   "id": "wd-q30324437",
@@ -7359,7 +8074,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q30324437",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "poulet chasseur"
+  ]
  },
  {
   "id": "wd-q1703796",
@@ -7374,7 +8092,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1703796",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Hakarl",
+   "Hákarl"
+  ]
  },
  {
   "id": "wd-q6966108",
@@ -7389,7 +8111,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6966108",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Hêkerûn"
+  ]
  },
  {
   "id": "wd-q27909648",
@@ -7404,7 +8129,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q27909648",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Hu tieu Saigon"
+  ]
  },
  {
   "id": "wd-q16182271",
@@ -7419,22 +8147,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16182271",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q11259099",
-  "name": "Ikinaridango",
-  "countries": [
-   "Japan"
-  ],
-  "cuisine": "Japan",
-  "blurb": "Japanese confectionery.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q11259099",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q2138334",
@@ -7449,7 +8163,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2138334",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "ikizukuri",
+   "Ikizukuri"
+  ]
  },
  {
   "id": "wd-q28498842",
@@ -7464,7 +8182,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q28498842",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ikok",
+   "okok"
+  ]
  },
  {
   "id": "wd-q136485229",
@@ -7479,7 +8201,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q136485229",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q129321059",
@@ -7494,7 +8217,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q129321059",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "inche kabin"
+  ]
  },
  {
   "id": "wd-q104691076",
@@ -7509,7 +8235,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q104691076",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "indigirka",
+   "indigirka salad"
+  ]
  },
  {
   "id": "wd-q25066353",
@@ -7524,7 +8254,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q25066353",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q46349219",
@@ -7539,7 +8270,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q46349219",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q44506308",
@@ -7554,7 +8286,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q44506308",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q10303883",
@@ -7569,7 +8302,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q10303883",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Iscas"
+  ]
  },
  {
   "id": "wd-q6080770",
@@ -7584,7 +8320,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6080770",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Isi ewu",
+   "isi ewu",
+   "spicy goat head"
+  ]
  },
  {
   "id": "wd-q2904240",
@@ -7599,7 +8340,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2904240",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12486868",
@@ -7614,7 +8356,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12486868",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q136486862",
@@ -7629,7 +8372,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q136486862",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q137730537",
@@ -7644,7 +8388,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q137730537",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q65210593",
@@ -7659,7 +8404,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q65210593",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q97202137",
@@ -7674,7 +8420,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q97202137",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q123515682",
@@ -7689,7 +8436,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q123515682",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q30671978",
@@ -7704,22 +8452,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q30671978",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q6297757",
-  "name": "Jaynagarer Moa",
-  "countries": [
-   "India"
-  ],
-  "cuisine": "India",
-  "blurb": "Confectionery of West Bengal, India.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q6297757",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q31173190",
@@ -7734,7 +8468,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q31173190",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q2202018",
@@ -7749,7 +8484,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2202018",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Djingialov Hac",
+   "jingalov hats",
+   "zhengyalov hac"
+  ]
  },
  {
   "id": "wd-q19731965",
@@ -7764,22 +8504,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19731965",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q12501427",
-  "name": "Jepara grilled opor",
-  "countries": [
-   "Indonesia"
-  ],
-  "cuisine": "Indonesia",
-  "blurb": "Jepara style grilled opor.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q12501427",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q28724890",
@@ -7794,7 +8520,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q28724890",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q137168352",
@@ -7809,7 +8536,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q137168352",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Jiang gutou",
+   "Jiang guotou",
+   "Jiang dagu"
+  ]
  },
  {
   "id": "wd-q134528137",
@@ -7824,7 +8556,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q134528137",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q549081",
@@ -7839,7 +8572,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q549081",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "sauteed shredded pork in sweet bean sauce",
+   "jīngjiàngròusī"
+  ]
  },
  {
   "id": "wd-q12618468",
@@ -7854,7 +8591,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12618468",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q10308013",
@@ -7869,7 +8607,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q10308013",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Jopará",
+   "Jopara",
+   "Yopará"
+  ]
  },
  {
   "id": "wd-q110129212",
@@ -7884,7 +8627,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q110129212",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q2835652",
@@ -7899,22 +8643,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2835652",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q29920362",
-  "name": "Julienne",
-  "countries": [
-   "Russia"
-  ],
-  "cuisine": "Russia",
-  "blurb": "Russian appetizer of mushrooms and poultry.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q29920362",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Judías de El Barco de Ávila",
+   "Judias de El Barco de Avila"
+  ]
  },
  {
   "id": "wd-q119608124",
@@ -7929,7 +8662,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q119608124",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q31172805",
@@ -7944,22 +8678,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q31172805",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q45344116",
-  "name": "KafBikh",
-  "countries": [
-   "Iran"
-  ],
-  "cuisine": "Iran",
-  "blurb": "Traditional Iranian sweet.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q45344116",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q11065810",
@@ -7974,22 +8694,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11065810",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q17635889",
-  "name": "Kak'ik",
-  "countries": [
-   "Guatemala"
-  ],
-  "cuisine": "Guatemala",
-  "blurb": "Guatemalan turkey leg stew.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q17635889",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q138808636",
@@ -8004,7 +8710,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q138808636",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q11293960",
@@ -8019,7 +8726,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11293960",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q56806241",
@@ -8034,7 +8742,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56806241",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q612661",
@@ -8049,22 +8758,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q612661",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q3043512",
-  "name": "Kalamay",
-  "countries": [
-   "Philippines"
-  ],
-  "cuisine": "Philippines",
-  "blurb": "Filipino sweet delicacy.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q3043512",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Kalakukko",
+   "kalakukko"
+  ]
  },
  {
   "id": "wd-q19573003",
@@ -8079,7 +8777,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19573003",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Mie kangkung"
+  ]
  },
  {
   "id": "wd-q19943522",
@@ -8094,7 +8795,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19943522",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q141758893",
@@ -8109,7 +8811,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q141758893",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q11294485",
@@ -8124,7 +8827,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11294485",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q19727205",
@@ -8139,7 +8843,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19727205",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q578473",
@@ -8154,7 +8859,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q578473",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "shoarma with french fries",
+   "Kapsalon",
+   "kapsalon"
+  ]
  },
  {
   "id": "wd-q12489250",
@@ -8169,7 +8879,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12489250",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "kapurung"
+  ]
  },
  {
   "id": "wd-q109330183",
@@ -8184,7 +8897,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q109330183",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q4203530",
@@ -8199,7 +8913,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4203530",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Karedok"
+  ]
  },
  {
   "id": "wd-q74465700",
@@ -8214,7 +8931,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q74465700",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q104640127",
@@ -8229,7 +8947,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q104640127",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q134562216",
@@ -8244,7 +8963,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q134562216",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q16937065",
@@ -8259,7 +8979,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16937065",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "kashk-e bademjan",
+   "kashk bademjan",
+   "Kashk-e baademjan",
+   "kashk-o bademjan"
+  ]
  },
  {
   "id": "wd-q19727336",
@@ -8274,7 +9000,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19727336",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q890105",
@@ -8289,7 +9016,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q890105",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Kateh"
+  ]
  },
  {
   "id": "wd-q3391174",
@@ -8304,7 +9034,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3391174",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "katemak"
+  ]
  },
  {
   "id": "wd-q135266281",
@@ -8319,7 +9052,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q135266281",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q19515766",
@@ -8334,7 +9068,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19515766",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Kaz tiridi"
+  ]
  },
  {
   "id": "wd-q135989793",
@@ -8349,7 +9086,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q135989793",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "sandwich made of kebab",
+   "sandwich of kebab",
+   "sandwich au kebab"
+  ]
  },
  {
   "id": "wd-q16852506",
@@ -8364,7 +9106,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16852506",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12490514",
@@ -8379,7 +9122,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12490514",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q5690994",
@@ -8394,7 +9138,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5690994",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Kalana",
+   "Kelaneh"
+  ]
  },
  {
   "id": "wd-q58090319",
@@ -8409,7 +9157,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q58090319",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q109332108",
@@ -8424,7 +9173,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q109332108",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "kembung bertelur"
+  ]
  },
  {
   "id": "wd-q110301589",
@@ -8440,7 +9192,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q110301589",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q6393299",
@@ -8455,22 +9208,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6393299",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q85774104",
-  "name": "Kerala beef fry",
-  "countries": [
-   "India"
-  ],
-  "cuisine": "India",
-  "blurb": "Dish made of beef in Kerala.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q85774104",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Kerak telor"
+  ]
  },
  {
   "id": "wd-q105542530",
@@ -8485,7 +9226,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q105542530",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q3195568",
@@ -8500,7 +9242,16 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3195568",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Khobz el ftir",
+   "kesra",
+   "Khobz el f'tir",
+   "Kesra",
+   "Aghroum n'tajin",
+   "kessra",
+   "pan kesra"
+  ]
  },
  {
   "id": "wd-q6395436",
@@ -8515,7 +9266,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6395436",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ketoprak (gastronomía)",
+   "ketoprakJakarta",
+   "ketoprak",
+   "ketoprak (dish)"
+  ]
  },
  {
   "id": "wd-q19727704",
@@ -8530,7 +9287,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19727704",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q13013315",
@@ -8545,7 +9303,18 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q13013315",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Khao kha mu",
+   "khao kha moo",
+   "kha mu phalo",
+   "ka mu",
+   "kao ka moo",
+   "kao ka mu",
+   "kha moo",
+   "kha mu",
+   "ka moo"
+  ]
  },
  {
   "id": "wd-q139130853",
@@ -8560,7 +9329,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q139130853",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q65072654",
@@ -8575,7 +9345,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q65072654",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q4745482",
@@ -8590,37 +9361,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4745482",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q2478703",
-  "name": "Khichri",
-  "countries": [
-   "Indian subcontinent"
-  ],
-  "cuisine": "Indian subcontinent",
-  "blurb": "Dish from the South Asia made from rice and lentils (dal).",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q2478703",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q127532457",
-  "name": "Khuruma",
-  "countries": [
-   "India"
-  ],
-  "cuisine": "India",
-  "blurb": "Item offered to Lord Jagannath as Chhapan Bhog.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q127532457",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "khao phat",
+   "arroz frito americano"
+  ]
  },
  {
   "id": "wd-q65066634",
@@ -8635,7 +9380,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q65066634",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "kiampung"
+  ]
  },
  {
   "id": "wd-q1644022",
@@ -8652,7 +9400,19 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1644022",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "kipe",
+   "kubba",
+   "quibe",
+   "kibbee",
+   "kibbeh",
+   "Kibbeh",
+   "quipe",
+   "kebbeh",
+   "kebbé",
+   "kibe"
+  ]
  },
  {
   "id": "wd-q54875013",
@@ -8667,7 +9427,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q54875013",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q139597098",
@@ -8683,7 +9444,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q139597098",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q6404116",
@@ -8698,7 +9460,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6404116",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q32166486",
@@ -8713,7 +9476,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q32166486",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12366986",
@@ -8728,7 +9492,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12366986",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q23758190",
@@ -8743,7 +9508,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q23758190",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q111914087",
@@ -8758,7 +9524,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q111914087",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Kissuto rombo"
+  ]
  },
  {
   "id": "wd-q11264807",
@@ -8773,7 +9542,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11264807",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "shimesaba"
+  ]
  },
  {
   "id": "wd-q13096825",
@@ -8788,22 +9560,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q13096825",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q17107651",
-  "name": "Koba",
-  "countries": [
-   "Madagascar"
-  ],
-  "cuisine": "Madagascar",
-  "blurb": "Confectionery sweet.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q17107651",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q97231328",
@@ -8818,7 +9576,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q97231328",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q3198369",
@@ -8833,7 +9592,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3198369",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Koki"
+  ]
  },
  {
   "id": "wd-q6427832",
@@ -8848,7 +9610,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6427832",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Kolot"
+  ]
  },
  {
   "id": "wd-q57981542",
@@ -8863,7 +9628,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q57981542",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q58090327",
@@ -8878,7 +9644,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q58090327",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q56311538",
@@ -8893,7 +9660,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56311538",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Nkondrè"
+  ]
  },
  {
   "id": "wd-q907849",
@@ -8908,7 +9678,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q907849",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Kongbap"
+  ]
  },
  {
   "id": "wd-q1781865",
@@ -8923,7 +9696,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1781865",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Konowata"
+  ]
  },
  {
   "id": "wd-q6429813",
@@ -8938,22 +9714,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6429813",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q28455614",
-  "name": "Korean black goat stew",
-  "countries": [
-   "Korea"
-  ],
-  "cuisine": "Korea",
-  "blurb": "Korean goat stew dish.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q28455614",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q119541807",
@@ -8968,7 +9730,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q119541807",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12492558",
@@ -8983,7 +9746,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12492558",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Krechek"
+  ]
  },
  {
   "id": "wd-q123578664",
@@ -8998,7 +9764,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q123578664",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Krentenwegge",
+   "old dutch raisin bread",
+   "krentewegge"
+  ]
  },
  {
   "id": "wd-q25466619",
@@ -9013,7 +9784,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q25466619",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q120648586",
@@ -9028,22 +9800,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q120648586",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q2937861",
-  "name": "Krówki",
-  "countries": [
-   "Poland"
-  ],
-  "cuisine": "Poland",
-  "blurb": "Toffee-like confectionery that is less sticky than toffee.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q2937861",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "krupky (food)"
+  ]
  },
  {
   "id": "wd-q137856731",
@@ -9058,7 +9818,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q137856731",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12492690",
@@ -9073,7 +9834,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12492690",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q97226669",
@@ -9088,7 +9850,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q97226669",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12031817",
@@ -9103,7 +9866,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12031817",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "staročeský kuba"
+  ]
  },
  {
   "id": "wd-q124370673",
@@ -9118,7 +9884,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q124370673",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q137995719",
@@ -9133,7 +9900,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q137995719",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Kuddelfleck"
+  ]
  },
  {
   "id": "wd-q105528306",
@@ -9148,7 +9918,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q105528306",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q97178289",
@@ -9163,7 +9934,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q97178289",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q56231886",
@@ -9178,7 +9950,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56231886",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q60738834",
@@ -9193,7 +9966,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q60738834",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "kuksi"
+  ]
  },
  {
   "id": "wd-q12492887",
@@ -9208,7 +9984,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12492887",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q11567931",
@@ -9223,7 +10000,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11567931",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q15427731",
@@ -9238,7 +10016,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q15427731",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Kumpir",
+   "Turkish baked potato"
+  ]
  },
  {
   "id": "wd-q116376977",
@@ -9253,7 +10035,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q116376977",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q16906849",
@@ -9268,7 +10051,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16906849",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Kuru Fasulye",
+   "Turkish dry beans",
+   "kuru fasulye"
+  ]
  },
  {
   "id": "wd-q12484574",
@@ -9283,7 +10071,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12484574",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12493188",
@@ -9298,7 +10087,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12493188",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q61129128",
@@ -9313,7 +10103,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q61129128",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "batakuša"
+  ]
  },
  {
   "id": "wd-q137393900",
@@ -9328,7 +10121,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q137393900",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Gymrva kyalla"
+  ]
  },
  {
   "id": "wd-q3272930",
@@ -9343,7 +10139,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3272930",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "charaben",
+   "Charaben",
+   "Kyaraben"
+  ]
  },
  {
   "id": "wd-q107369606",
@@ -9361,7 +10162,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107369606",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Koje"
+  ]
  },
  {
   "id": "wd-q518601",
@@ -9376,7 +10180,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q518601",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Kūčiukai",
+   "slizhyki"
+  ]
  },
  {
   "id": "wd-q100255577",
@@ -9391,22 +10199,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q100255577",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q1218450",
-  "name": "Lacón Gallego",
-  "countries": [
-   "Spain"
-  ],
-  "cuisine": "Spain",
-  "blurb": "Spanish dried ham.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q1218450",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q6469786",
@@ -9421,7 +10215,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6469786",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q139882113",
@@ -9436,7 +10231,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q139882113",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q6478911",
@@ -9451,7 +10247,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6478911",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q135448417",
@@ -9466,7 +10263,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q135448417",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Lakh"
+  ]
  },
  {
   "id": "wd-q12691235",
@@ -9481,7 +10281,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12691235",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Laksam",
+   "Laksei"
+  ]
  },
  {
   "id": "wd-q19731963",
@@ -9496,7 +10300,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19731963",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q1561248",
@@ -9511,7 +10316,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1561248",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Lamian",
+   "la mian",
+   "lamian",
+   "pulled noodle"
+  ]
  },
  {
   "id": "wd-q30587986",
@@ -9526,7 +10337,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q30587986",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q613717",
@@ -9541,7 +10353,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q613717",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Lampredotto"
+  ]
  },
  {
   "id": "wd-q25485663",
@@ -9556,7 +10371,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q25485663",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12716458",
@@ -9571,7 +10387,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12716458",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Lauvsteik"
+  ]
  },
  {
   "id": "wd-q4199436",
@@ -9586,23 +10405,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4199436",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q872625",
-  "name": "Leberknödel",
-  "countries": [
-   "Austria",
-   "Germany"
-  ],
-  "cuisine": "Austria",
-  "blurb": "Traditional dish.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q872625",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Lawar"
+  ]
  },
  {
   "id": "wd-q119778178",
@@ -9617,7 +10423,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q119778178",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "lechon baboy"
+  ]
  },
  {
   "id": "wd-q2180951",
@@ -9632,7 +10441,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2180951",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12494333",
@@ -9647,7 +10457,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12494333",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q1684997",
@@ -9662,7 +10473,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1684997",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Lemang",
+   "Lamang"
+  ]
  },
  {
   "id": "wd-q137799088",
@@ -9677,7 +10492,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q137799088",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q65208584",
@@ -9692,7 +10508,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q65208584",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q2414031",
@@ -9707,7 +10524,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2414031",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Lemper"
+  ]
  },
  {
   "id": "wd-q12494522",
@@ -9722,7 +10542,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12494522",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q61134376",
@@ -9737,7 +10558,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q61134376",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "sprža",
+   "kavurma"
+  ]
  },
  {
   "id": "wd-q1567471",
@@ -9752,7 +10577,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1567471",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Leskovac grill",
+   "Leskovac barbecue"
+  ]
  },
  {
   "id": "wd-q113336629",
@@ -9767,22 +10596,15 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q113336629",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q137602787",
-  "name": "Lidded bowls with top design, overglaze enamels",
-  "countries": [
-   "Empire of Japan"
-  ],
-  "cuisine": "Empire of Japan",
-  "blurb": "Pottery by Rosanjin.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q137602787",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pan de libra",
+   "Libreta",
+   "Libreta castellana",
+   "Pan de libreta",
+   "Libreta de pan",
+   "Libreta de Castilla"
+  ]
  },
  {
   "id": "wd-q108545863",
@@ -9797,7 +10619,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q108545863",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "llengüet",
+   "Llonguet"
+  ]
  },
  {
   "id": "wd-q281385",
@@ -9812,7 +10638,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q281385",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Banmian",
+   "Lo mein"
+  ]
  },
  {
   "id": "wd-q12408621",
@@ -9827,7 +10657,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12408621",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Homard Newberg",
+   "Hummer Newburg"
+  ]
  },
  {
   "id": "wd-q2894864",
@@ -9842,7 +10676,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2894864",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Hummer Thermidor",
+   "Langosta Termidor",
+   "homard Thermidor",
+   "Langosta Thermidor"
+  ]
  },
  {
   "id": "wd-q1868851",
@@ -9857,7 +10697,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1868851",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Lomo saltado",
+   "lomo saltado"
+  ]
  },
  {
   "id": "wd-q129320476",
@@ -9872,7 +10716,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q129320476",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q97213219",
@@ -9887,22 +10732,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q97213219",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q11876213",
-  "name": "London drops",
-  "countries": [
-   "Finland"
-  ],
-  "cuisine": "Finland",
-  "blurb": "Swedish/Finnish sugar-coated licorice.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q11876213",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q7379736",
@@ -9917,7 +10748,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7379736",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Lontong Mi"
+  ]
  },
  {
   "id": "wd-q5700175",
@@ -9932,7 +10766,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5700175",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q14918748",
@@ -9947,7 +10782,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q14918748",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q1105512",
@@ -9966,7 +10802,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1105512",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Lula Kebab"
+  ]
  },
  {
   "id": "wd-q95216296",
@@ -9981,7 +10820,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q95216296",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Holzknechtnocken"
+  ]
  },
  {
   "id": "wd-q4103061",
@@ -9996,7 +10838,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4103061",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q1094305",
@@ -10011,7 +10854,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1094305",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Luther Burgers",
+   "Luther Burger",
+   "donut burger"
+  ]
  },
  {
   "id": "wd-q123171413",
@@ -10026,7 +10874,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q123171413",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Oluwombo",
+   "Luwombos",
+   "Empombo",
+   "Mpombo",
+   "Ugandan Luwombo"
+  ]
  },
  {
   "id": "wd-q10910138",
@@ -10041,7 +10896,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q10910138",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q15895670",
@@ -10056,7 +10912,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q15895670",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q16888187",
@@ -10071,7 +10928,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16888187",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12971248",
@@ -10086,22 +10944,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12971248",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q3841977",
-  "name": "Maccheroncini di Campofilone PGI",
-  "countries": [
-   "Italy"
-  ],
-  "cuisine": "Italy",
-  "blurb": "Italian PGI pasta.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q3841977",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q60760532",
@@ -10116,7 +10960,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q60760532",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q122644102",
@@ -10131,22 +10976,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q122644102",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q9026659",
-  "name": "Macun şekeri",
-  "countries": [
-   "Turkey"
-  ],
-  "cuisine": "Turkey",
-  "blurb": "Traditional Turkish confectionery that comes in varios colours.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q9026659",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Macho Camacho"
+  ]
  },
  {
   "id": "wd-q135448408",
@@ -10161,7 +10994,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q135448408",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Madd"
+  ]
  },
  {
   "id": "wd-q6585018",
@@ -10177,7 +11013,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6585018",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Mafroum",
+   "Mafroom",
+   "mafrum"
+  ]
  },
  {
   "id": "wd-q6729605",
@@ -10192,7 +11033,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6729605",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q535064",
@@ -10207,7 +11049,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q535064",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Magiritsa"
+  ]
  },
  {
   "id": "wd-q17634577",
@@ -10222,7 +11067,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q17634577",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Mhadjeb",
+   "Mahdjouba"
+  ]
  },
  {
   "id": "wd-q131384156",
@@ -10237,22 +11086,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q131384156",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q11766483",
-  "name": "Makagigi",
-  "countries": [
-   "Poland"
-  ],
-  "cuisine": "Poland",
-  "blurb": "Polish brittle confections.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q11766483",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Mahmoose",
+   "Mahmuse",
+   "محموسة",
+   "Maḥmūse",
+   "maḥmūse"
+  ]
  },
  {
   "id": "wd-q96742825",
@@ -10268,7 +11109,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q96742825",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q1886687",
@@ -10283,7 +11125,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1886687",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Malakoff (Käsegericht)",
+   "malakoff"
+  ]
  },
  {
   "id": "wd-q20060232",
@@ -10298,7 +11144,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q20060232",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Mallum",
+   "Mallung"
+  ]
  },
  {
   "id": "wd-q1887892",
@@ -10314,22 +11164,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1887892",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q13018870",
-  "name": "Mamuang kuan",
-  "countries": [
-   "Thailand"
-  ],
-  "cuisine": "Thailand",
-  "blurb": "Thai preserved mango.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q13018870",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Maluns",
+   "maluns"
+  ]
  },
  {
   "id": "wd-q28154305",
@@ -10344,7 +11183,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q28154305",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Kori Sukka"
+  ]
  },
  {
   "id": "wd-q25458340",
@@ -10359,7 +11201,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q25458340",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12496810",
@@ -10374,7 +11217,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12496810",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q10894961",
@@ -10389,7 +11233,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q10894961",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q13096834",
@@ -10404,7 +11249,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q13096834",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q100320697",
@@ -10419,7 +11265,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q100320697",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Margi cuisine"
+  ]
  },
  {
   "id": "wd-q22929033",
@@ -10434,7 +11283,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q22929033",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Market jelbana"
+  ]
  },
  {
   "id": "wd-q982758",
@@ -10450,7 +11302,16 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q982758",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "marraqueta",
+   "Marraqueta",
+   "pan paceño",
+   "pan marsellés",
+   "pan batido",
+   "pan felipe",
+   "pan de batalla"
+  ]
  },
  {
   "id": "wd-q108063948",
@@ -10465,7 +11326,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q108063948",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "martino"
+  ]
  },
  {
   "id": "wd-q137908295",
@@ -10480,7 +11344,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q137908295",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q116197926",
@@ -10495,7 +11360,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q116197926",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Masale bhat"
+  ]
  },
  {
   "id": "wd-q12497220",
@@ -10510,7 +11378,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12497220",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q106804810",
@@ -10525,7 +11394,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q106804810",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "mashanza"
+  ]
  },
  {
   "id": "wd-q60760541",
@@ -10540,7 +11412,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q60760541",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q125861439",
@@ -10555,7 +11428,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q125861439",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Matambre a la leche"
+  ]
  },
  {
   "id": "wd-q19731964",
@@ -10570,7 +11446,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19731964",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q96742694",
@@ -10585,22 +11462,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q96742694",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q22570090",
-  "name": "Mathura Peda",
-  "countries": [
-   "India"
-  ],
-  "cuisine": "India",
-  "blurb": "Indian Sweet dish.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q22570090",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "matapa"
+  ]
  },
  {
   "id": "wd-q1626853",
@@ -10615,22 +11480,18 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1626853",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q6789614",
-  "name": "Mattar paneer",
-  "countries": [
-   "India"
-  ],
-  "cuisine": "India",
-  "blurb": "Indian cheese and peas dish.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q6789614",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Igitoki",
+   "Ekitooke",
+   "Ekitookye",
+   "Ebitooke",
+   "matooke",
+   "Matooke",
+   "Musa acuminata AAA Group Mutika/Lujugira Subgroup",
+   "Matoke",
+   "Amatooke"
+  ]
  },
  {
   "id": "wd-q12208571",
@@ -10645,7 +11506,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12208571",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q11691713",
@@ -10660,7 +11522,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11691713",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Mazapán de Toledo",
+   "Mazapan de Toledo"
+  ]
  },
  {
   "id": "wd-q3853270",
@@ -10675,7 +11541,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3853270",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q133521632",
@@ -10690,37 +11557,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q133521632",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q3303593",
-  "name": "McBaguette",
-  "countries": [
-   "France"
-  ],
-  "cuisine": "France",
-  "blurb": "Hamburger sold by McDonald's in France.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q3303593",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q131823911",
-  "name": "McDonald's Hamburger",
-  "countries": [
-   "United States"
-  ],
-  "cuisine": "United States",
-  "blurb": "Hamburger sold by McDonald's.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q131823911",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Mbaxalou saloum"
+  ]
  },
  {
   "id": "wd-q135907082",
@@ -10735,7 +11575,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q135907082",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Mderbel",
+   "El Bernaniya",
+   "Al Barnaniya"
+  ]
  },
  {
   "id": "wd-q5367573",
@@ -10750,7 +11595,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5367573",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Fleischpastete",
+   "Tourte à la viande"
+  ]
  },
  {
   "id": "wd-q97101726",
@@ -10765,7 +11614,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q97101726",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Indonesian Meatball noodle soup",
+   "Mi bakso",
+   "Bakso Mee",
+   "Mie bakso",
+   "Mee Bakso"
+  ]
  },
  {
   "id": "wd-q6807955",
@@ -10780,7 +11636,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6807955",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q96244418",
@@ -10795,7 +11652,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q96244418",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Melchermuas"
+  ]
  },
  {
   "id": "wd-q12498026",
@@ -10810,7 +11670,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12498026",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12498071",
@@ -10825,7 +11686,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12498071",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q15896582",
@@ -10840,7 +11702,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q15896582",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q121600417",
@@ -10855,7 +11718,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q121600417",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pan menonita"
+  ]
  },
  {
   "id": "wd-q6817673",
@@ -10870,7 +11736,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6817673",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Minudo",
+   "Menudo"
+  ]
  },
  {
   "id": "wd-q16706914",
@@ -10885,7 +11755,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16706914",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Mett"
+  ]
  },
  {
   "id": "wd-q105812795",
@@ -10900,7 +11773,15 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q105812795",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "mesatlapique",
+   "meztlapique",
+   "Tlapique",
+   "mextlapique",
+   "metlapique",
+   "mestlapique"
+  ]
  },
  {
   "id": "wd-q19738539",
@@ -10915,7 +11796,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19738539",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q16913644",
@@ -10930,7 +11812,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16913644",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "mie kocok",
+   "shaken noodle"
+  ]
  },
  {
   "id": "wd-q16765345",
@@ -10945,7 +11831,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16765345",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "mie ayam"
+  ]
  },
  {
   "id": "wd-q130553333",
@@ -10960,7 +11849,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q130553333",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q4208661",
@@ -10975,7 +11865,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4208661",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "mie celor"
+  ]
  },
  {
   "id": "wd-q957776",
@@ -10990,7 +11883,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q957776",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "migas",
+   "Migas"
+  ]
  },
  {
   "id": "wd-q30326666",
@@ -11005,7 +11902,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q30326666",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Milanesa",
+   "milanesa"
+  ]
  },
  {
   "id": "wd-q65213460",
@@ -11020,7 +11921,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q65213460",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q4293923",
@@ -11035,22 +11937,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4293923",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q1142998",
-  "name": "Mimosa sugar ball",
-  "countries": [
-   "Nepal"
-  ],
-  "cuisine": "Nepal",
-  "blurb": "Type of religious offering.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q1142998",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Mimosa (salad)"
+  ]
  },
  {
   "id": "wd-q19958198",
@@ -11065,7 +11955,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19958198",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ming'oko",
+   "Mingoko"
+  ]
  },
  {
   "id": "wd-q12287205",
@@ -11080,7 +11974,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12287205",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Mischmasch",
+   "mish-mash"
+  ]
  },
  {
   "id": "wd-q125635868",
@@ -11095,7 +11993,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q125635868",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Mishṭāʿ al-ǧrīsh",
+   "Mishtah el jreesh",
+   "مشطاح الجريش",
+   "Mishṭāʿ al-ŷrīsh"
+  ]
  },
  {
   "id": "wd-q600438",
@@ -11110,7 +12014,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q600438",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Mititei",
+   "mititei"
+  ]
  },
  {
   "id": "wd-q107449597",
@@ -11125,7 +12033,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107449597",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "zogale soup",
+   "moringa soup"
+  ]
  },
  {
   "id": "wd-q25043234",
@@ -11140,22 +12052,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q25043234",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q60760520",
-  "name": "Moche",
-  "countries": [
-   "Philippines"
-  ],
-  "cuisine": "Philippines",
-  "blurb": "Pampangan sweet.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q60760520",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "baobab leaves soup",
+   "miyan kuka",
+   "Luru soup",
+   "baobab leaf soup",
+   "baobab soup"
+  ]
  },
  {
   "id": "wd-q12498712",
@@ -11170,22 +12074,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12498712",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q29998811",
-  "name": "Moje",
-  "countries": [
-   "Spain"
-  ],
-  "cuisine": "Spain",
-  "blurb": "Food preparation.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q29998811",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q110953641",
@@ -11200,37 +12090,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q110953641",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q111272426",
-  "name": "Mollete melenero",
-  "countries": [
-   "Cuba"
-  ],
-  "cuisine": "Cuba",
-  "blurb": "Typical street dish in Cuba.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q111272426",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q110533119",
-  "name": "Mollete of Antequera",
-  "countries": [
-   "Spain"
-  ],
-  "cuisine": "Spain",
-  "blurb": "Protected Geographical Indication.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q110533119",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Mollete"
+  ]
  },
  {
   "id": "wd-q25617898",
@@ -11245,7 +12108,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q25617898",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q6899671",
@@ -11260,7 +12124,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6899671",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "barbacoa mongola",
+   "Mongolian Barbeque",
+   "barbecue mongol"
+  ]
  },
  {
   "id": "wd-q6899667",
@@ -11275,7 +12144,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6899667",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ternera mongola",
+   "Mongolisches Rindfleisch"
+  ]
  },
  {
   "id": "wd-q877910",
@@ -11291,7 +12164,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q877910",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ofenkäse",
+   "mont d'Or chaud",
+   "Mont d'Or chaud",
+   "Mont-d'Or chaud"
+  ]
  },
  {
   "id": "wd-q6904753",
@@ -11306,7 +12185,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6904753",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Sándwich Monte Cristo",
+   "Sandwich Monte Cristo",
+   "Monte Cristo sándwich",
+   "Monte Cristo sandwich"
+  ]
  },
  {
   "id": "wd-q87316441",
@@ -11321,7 +12206,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q87316441",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q11581336",
@@ -11336,22 +12222,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11581336",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q109447101",
-  "name": "MOS Burger",
-  "countries": [
-   "Japan"
-  ],
-  "cuisine": "Japan",
-  "blurb": "Hamburger at MOS Burger.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q109447101",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Jajamen"
+  ]
  },
  {
   "id": "wd-q137884965",
@@ -11366,7 +12240,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q137884965",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Moules farcies à la sétoise"
+  ]
  },
  {
   "id": "wd-q1200514",
@@ -11381,7 +12258,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1200514",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Moules frites",
+   "Moules-frites",
+   "moules-frites",
+   "Moules et frites"
+  ]
  },
  {
   "id": "wd-q10912991",
@@ -11396,7 +12279,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q10912991",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "chicken with Sichuan sauce",
+   "Spicy Cold Chicken",
+   "Saliva Chicken",
+   "Koushuiji",
+   "Kou Shui Chicken"
+  ]
  },
  {
   "id": "wd-q3099553",
@@ -11411,7 +12301,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3099553",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Mrouzia"
+  ]
  },
  {
   "id": "wd-q136842110",
@@ -11426,7 +12319,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q136842110",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Mshosh",
+   "Vana Mshosh"
+  ]
  },
  {
   "id": "wd-q3327283",
@@ -11441,7 +12338,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3327283",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Msoki",
+   "msoki"
+  ]
  },
  {
   "id": "wd-q25697201",
@@ -11456,7 +12357,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q25697201",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Muboora"
+  ]
  },
  {
   "id": "wd-q59533377",
@@ -11471,7 +12375,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q59533377",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12038988",
@@ -11486,7 +12391,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12038988",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Muvi"
+  ]
  },
  {
   "id": "wd-q4305901",
@@ -11501,22 +12409,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4305901",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q141403759",
-  "name": "Mátame Amor",
-  "countries": [
-   "Italy"
-  ],
-  "cuisine": "Italy",
-  "blurb": "Paella socarrat created for Aguaquemada by Andrea Incerti Vezzani.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q141403759",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "muzhuzhi"
+  ]
  },
  {
   "id": "wd-q1476953",
@@ -11531,7 +12427,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1476953",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Möpkenbrot"
+  ]
  },
  {
   "id": "wd-q12589482",
@@ -11546,7 +12445,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12589482",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q6037556",
@@ -11561,7 +12461,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6037556",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Naiboa"
+  ]
  },
  {
   "id": "wd-q11574427",
@@ -11576,7 +12479,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11574427",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q11408569",
@@ -11591,7 +12495,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11408569",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Nambu senbei",
+   "Nambu Sembei",
+   "Nanbu senbei"
+  ]
  },
  {
   "id": "wd-q11274488",
@@ -11606,22 +12515,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11274488",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q16610775",
-  "name": "Naranjas picadas",
-  "countries": [
-   "Spain"
-  ],
-  "cuisine": "Spain",
-  "blurb": "Chopped sweet orange without skin, olive oil ..",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q16610775",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q6967043",
@@ -11636,7 +12531,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6967043",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "nasi bakar"
+  ]
  },
  {
   "id": "wd-q6967046",
@@ -11651,7 +12549,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6967046",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "bogana",
+   "sego bogana",
+   "sega bogana"
+  ]
  },
  {
   "id": "wd-q19729630",
@@ -11666,7 +12569,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19729630",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "sêgo brongkos",
+   "sêga brongkos"
+  ]
  },
  {
   "id": "wd-q3273951",
@@ -11681,7 +12588,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3273951",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Nasi Hainam",
+   "nasi campur",
+   "Nasi campur"
+  ]
  },
  {
   "id": "wd-q12500151",
@@ -11696,7 +12608,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12500151",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q25464887",
@@ -11711,7 +12624,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q25464887",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12500153",
@@ -11726,7 +12640,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12500153",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q56413999",
@@ -11741,7 +12656,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56413999",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q4205452",
@@ -11756,7 +12672,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4205452",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "nasi kebuli"
+  ]
  },
  {
   "id": "wd-q3244647",
@@ -11771,7 +12690,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3244647",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Sega kucing"
+  ]
  },
  {
   "id": "wd-q3269818",
@@ -11786,7 +12708,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3269818",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "nasi kunyit",
+   "nasi kuning"
+  ]
  },
  {
   "id": "wd-q19746558",
@@ -11801,7 +12727,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19746558",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q97231600",
@@ -11816,7 +12743,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q97231600",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q105337443",
@@ -11831,7 +12759,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q105337443",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "lemuni rice",
+   "Nasi Lemuni"
+  ]
  },
  {
   "id": "wd-q6967048",
@@ -11846,7 +12778,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6967048",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q55593280",
@@ -11861,7 +12794,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q55593280",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q17054040",
@@ -11876,7 +12810,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q17054040",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "nasi Padang"
+  ]
  },
  {
   "id": "wd-q12500155",
@@ -11891,7 +12828,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12500155",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q6967056",
@@ -11906,7 +12844,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6967056",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q3236175",
@@ -11921,7 +12860,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3236175",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Uduk",
+   "Nasi uduk",
+   "nasi uduk"
+  ]
  },
  {
   "id": "wd-q4920553",
@@ -11936,7 +12880,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4920553",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Nasi ulam"
+  ]
  },
  {
   "id": "wd-q1193612",
@@ -11951,7 +12898,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1193612",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "nata de coco",
+   "Nata de coco"
+  ]
  },
  {
   "id": "wd-q13651680",
@@ -11966,7 +12917,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q13651680",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Dengke Natinombur"
+  ]
  },
  {
   "id": "wd-q12555954",
@@ -11982,7 +12936,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12555954",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Nauryz koje",
+   "March soup",
+   "Nooruz kozhe"
+  ]
  },
  {
   "id": "wd-q1131837",
@@ -11995,21 +12954,6 @@ export default [
   "source": {
    "label": "Wikidata",
    "url": "https://www.wikidata.org/wiki/Q1131837",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q97308080",
-  "name": "Ne porridge",
-  "countries": [
-   "Indonesia"
-  ],
-  "cuisine": "Indonesia",
-  "blurb": "Traditional sweet porridge from Maluku, Indonesia.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q97308080",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
   }
@@ -12028,7 +12972,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3301336",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Negimaki",
+   "negimaki"
+  ]
  },
  {
   "id": "wd-q109436498",
@@ -12043,7 +12991,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q109436498",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Nem Lai Vung"
+  ]
  },
  {
   "id": "wd-q16159647",
@@ -12058,7 +13009,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16159647",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q7000528",
@@ -12073,7 +13025,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7000528",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "La sopa de ortiga",
+   "soupe aux orties",
+   "Brennnesselsuppe",
+   "utrica soup"
+  ]
  },
  {
   "id": "wd-q107805938",
@@ -12088,24 +13046,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107805938",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q12556365",
-  "name": "Nisholda",
-  "countries": [
-   "Iran",
-   "Afghanistan",
-   "Soviet Central Asia"
-  ],
-  "cuisine": "Iran",
-  "blurb": "Sweet food native to Central Asia.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q12556365",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q209486",
@@ -12120,7 +13062,16 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q209486",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "salade niçoise",
+   "Niçoise salad",
+   "Salade nicoise",
+   "Ensalada nicosia",
+   "Salade niçoise",
+   "Niçois salad",
+   "ensalada nizarda"
+  ]
  },
  {
   "id": "wd-q109313490",
@@ -12135,7 +13086,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q109313490",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Niños envueltos"
+  ]
  },
  {
   "id": "wd-q3342362",
@@ -12150,7 +13104,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3342362",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Nkui"
+  ]
  },
  {
   "id": "wd-q65336960",
@@ -12165,7 +13122,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q65336960",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q25056844",
@@ -12180,22 +13138,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q25056844",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q29998778",
-  "name": "Nuégados",
-  "countries": [
-   "Spain"
-  ],
-  "cuisine": "Spain",
-  "blurb": "Food preparation.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q29998778",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ofe Nsala",
+   "white soup",
+   "White soup"
+  ]
  },
  {
   "id": "wd-q22328037",
@@ -12211,7 +13159,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q22328037",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Nyama choma",
+   "nyama choma"
+  ]
  },
  {
   "id": "wd-q16681961",
@@ -12226,7 +13178,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16681961",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q68631373",
@@ -12241,7 +13194,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q68631373",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Nộm bắp chuối",
+   "ensalada de flor de banana",
+   "Gỏi bắp chuối"
+  ]
  },
  {
   "id": "wd-q136695982",
@@ -12256,7 +13214,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q136695982",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q87923314",
@@ -12271,7 +13230,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q87923314",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Obispo"
+  ]
  },
  {
   "id": "wd-q130677132",
@@ -12286,7 +13248,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q130677132",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Beans soup"
+  ]
  },
  {
   "id": "wd-q65119827",
@@ -12301,7 +13266,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q65119827",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "muqmad"
+  ]
  },
  {
   "id": "wd-q138854971",
@@ -12316,7 +13284,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q138854971",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ofe akwu",
+   "Ofe rice"
+  ]
  },
  {
   "id": "wd-q107357988",
@@ -12331,7 +13303,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107357988",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Oha soup"
+  ]
  },
  {
   "id": "wd-q107358874",
@@ -12346,7 +13321,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107358874",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ofé Owere"
+  ]
  },
  {
   "id": "wd-q125508762",
@@ -12361,22 +13339,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q125508762",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q125523765",
-  "name": "Ofé Ọgbọnọ",
-  "countries": [
-   "Nigeria"
-  ],
-  "cuisine": "Nigeria",
-  "blurb": "A soup of the Igbo people.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q125523765",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q11578189",
@@ -12391,22 +13355,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11578189",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q7079882",
-  "name": "Ogbono soup",
-  "countries": [
-   "Nigeria"
-  ],
-  "cuisine": "Nigeria",
-  "blurb": "Soup made with dry, ground Irvingia gabonensis (ogbono) seeds.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q7079882",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Oga no Yakisoba"
+  ]
  },
  {
   "id": "wd-q7080639",
@@ -12421,7 +13373,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7080639",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "rur"
+  ]
  },
  {
   "id": "wd-q3349987",
@@ -12436,7 +13391,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3349987",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "ojja"
+  ]
  },
  {
   "id": "wd-q118186787",
@@ -12451,22 +13409,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q118186787",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q28701751",
-  "name": "Okchundang",
-  "countries": [
-   "Korea"
-  ],
-  "cuisine": "Korea",
-  "blurb": "Traditional Korean sweet.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q28701751",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q11263059",
@@ -12481,7 +13425,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11263059",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Okosama Lunch"
+  ]
  },
  {
   "id": "wd-q107358723",
@@ -12496,7 +13443,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107358723",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Lady's finger soup",
+   "Okra soup"
+  ]
  },
  {
   "id": "wd-q152536",
@@ -12511,22 +13462,17 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q152536",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q3881787",
-  "name": "Olive all'ascolana",
-  "countries": [
-   "Italy"
-  ],
-  "cuisine": "Italy",
-  "blurb": "Italian appetizer.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q3881787",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Oliebol",
+   "olykoek",
+   "Croustillon",
+   "Oliebollen",
+   "oley‐cooks",
+   "Smoutebollen",
+   "olykoke",
+   "oliebollen"
+  ]
  },
  {
   "id": "wd-q111283137",
@@ -12541,7 +13487,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q111283137",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "olivenbrot",
+   "Pain aux olives",
+   "Pan de aceitunas",
+   "pan con aceitunas"
+  ]
  },
  {
   "id": "wd-q12492826",
@@ -12556,7 +13508,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12492826",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q136459564",
@@ -12571,7 +13524,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q136459564",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Omabe",
+   "Omebe",
+   "Omabhe",
+   "Omaebe"
+  ]
  },
  {
   "id": "wd-q18357204",
@@ -12586,7 +13545,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q18357204",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "rice ball",
+   "ɛmo tuo"
+  ]
  },
  {
   "id": "wd-q11644814",
@@ -12601,7 +13564,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11644814",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q4192299",
@@ -12616,7 +13580,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4192299",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Oncom",
+   "oncom"
+  ]
  },
  {
   "id": "wd-q19729905",
@@ -12631,7 +13599,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19729905",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q16359321",
@@ -12646,7 +13615,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16359321",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Onion tava"
+  ]
  },
  {
   "id": "wd-q244611",
@@ -12661,7 +13633,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q244611",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Zwiebelringe",
+   "onion rings",
+   "beignet d'oignon",
+   "aros de cebolla"
+  ]
  },
  {
   "id": "wd-q137856615",
@@ -12676,7 +13654,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q137856615",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q130758494",
@@ -12691,7 +13670,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q130758494",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q19729919",
@@ -12706,7 +13686,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19729919",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q99532347",
@@ -12721,52 +13702,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q99532347",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q141919184",
-  "name": "Oribe covered bowl",
-  "countries": [
-   "Empire of Japan"
-  ],
-  "cuisine": "Empire of Japan",
-  "blurb": "Mukōzuke by Rosanjin.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q141919184",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q141966127",
-  "name": "Oribe covered bowl 2",
-  "countries": [
-   "Empire of Japan"
-  ],
-  "cuisine": "Empire of Japan",
-  "blurb": "Mukōzuke by Rosanjin.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q141966127",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q141913755",
-  "name": "Oribe square food containers",
-  "countries": [
-   "Empire of Japan"
-  ],
-  "cuisine": "Empire of Japan",
-  "blurb": "Mukōzuke by Rosanjin.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q141913755",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q1048130",
@@ -12781,7 +13718,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1048130",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "orama",
+   "oromo"
+  ]
  },
  {
   "id": "wd-q17101058",
@@ -12796,22 +13737,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q17101058",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q862557",
-  "name": "Osechi",
-  "countries": [
-   "Japan"
-  ],
-  "cuisine": "Japan",
-  "blurb": "Assortment of food delicacies celebrating Japanese New Year.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q862557",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "orzotto",
+   "Orzotto"
+  ]
  },
  {
   "id": "wd-q30926481",
@@ -12826,7 +13756,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q30926481",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ochahoi"
+  ]
  },
  {
   "id": "wd-q20546828",
@@ -12841,7 +13774,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q20546828",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pan de Ousá",
+   "Pain d'Ousá"
+  ]
  },
  {
   "id": "wd-q983032",
@@ -12856,7 +13793,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q983032",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "ovos moles de Aveiro",
+   "Ovos Moles",
+   "Œufs mous d'Aveiro"
+  ]
  },
  {
   "id": "wd-q17109263",
@@ -12871,7 +13813,21 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q17109263",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "ofe owo",
+   "owo soup",
+   "oghwo evwri",
+   "oghwoevwri",
+   "oghwevwri",
+   "soupe owo",
+   "ogwofibo",
+   "Urhobo owho soup",
+   "oghwo ofigbo",
+   "ogh",
+   "owo",
+   "oghwo"
+  ]
  },
  {
   "id": "wd-q56232059",
@@ -12886,7 +13842,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56232059",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q134704040",
@@ -12901,7 +13858,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q134704040",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Bread"
+  ]
  },
  {
   "id": "wd-q60762918",
@@ -12917,7 +13877,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q60762918",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Paelya"
+  ]
  },
  {
   "id": "wd-q55730267",
@@ -12932,7 +13895,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q55730267",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q7124365",
@@ -12947,7 +13911,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7124365",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q123510771",
@@ -12962,7 +13927,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q123510771",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q65211932",
@@ -12977,7 +13943,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q65211932",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q56232060",
@@ -12992,7 +13959,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56232060",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q7127953",
@@ -13007,7 +13975,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7127953",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q141580167",
@@ -13022,37 +13991,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q141580167",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q17005230",
-  "name": "Palm nut soup",
-  "countries": [
-   "Nigeria"
-  ],
-  "cuisine": "Nigeria",
-  "blurb": "Soup made from palm fruit.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q17005230",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q25643982",
-  "name": "Palua ladu",
-  "countries": [
-   "Bhadrak"
-  ],
-  "cuisine": "Bhadrak",
-  "blurb": "Sweet item from Bhadrak, Odisha.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q25643982",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12954648",
@@ -13067,7 +14007,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12954648",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pampavìa"
+  ]
  },
  {
   "id": "wd-q108776243",
@@ -13082,7 +14025,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q108776243",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pan moreno",
+   "Pan cateto",
+   "Pain cateto",
+   "yokel bread (literal translation)"
+  ]
  },
  {
   "id": "wd-q121544620",
@@ -13097,7 +14046,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q121544620",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pan de queso"
+  ]
  },
  {
   "id": "wd-q2919135",
@@ -13112,7 +14064,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2919135",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pan-bagnat",
+   "pan bagnat",
+   "Pan bagnat"
+  ]
  },
  {
   "id": "wd-q74462045",
@@ -13127,7 +14084,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q74462045",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "panada"
+  ]
  },
  {
   "id": "wd-q60763199",
@@ -13142,7 +14102,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q60763199",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q48808905",
@@ -13157,7 +14118,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q48808905",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "pan dei santi",
+   "pan coi santi",
+   "pan co' santi"
+  ]
  },
  {
   "id": "wd-q2738934",
@@ -13172,22 +14138,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2738934",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q130465645",
-  "name": "Panhas",
-  "countries": [
-   "Germany"
-  ],
-  "cuisine": "Germany",
-  "blurb": "Traditional German food.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q130465645",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Panelle"
+  ]
  },
  {
   "id": "wd-q3362159",
@@ -13202,7 +14156,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3362159",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Panisse",
+   "Panissa"
+  ]
  },
  {
   "id": "wd-q20508454",
@@ -13217,7 +14175,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q20508454",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Panrakhash"
+  ]
  },
  {
   "id": "wd-q7132274",
@@ -13232,22 +14193,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7132274",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q3894691",
-  "name": "Papassino",
-  "countries": [
-   "Italy"
-  ],
-  "cuisine": "Italy",
-  "blurb": "Typical sweet from Sardinia produced for the religious recurrence of All Saints.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q3894691",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Paomo",
+   "paomo"
+  ]
  },
  {
   "id": "wd-q4272221",
@@ -13262,7 +14212,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4272221",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "papeda"
+  ]
  },
  {
   "id": "wd-q119909667",
@@ -13277,7 +14230,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q119909667",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Caldeirada paraense"
+  ]
  },
  {
   "id": "wd-q3895789",
@@ -13292,7 +14248,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3895789",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "casadinas",
+   "Pardulas",
+   "pardulas",
+   "Casatinas"
+  ]
  },
  {
   "id": "wd-q7136846",
@@ -13307,7 +14269,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7136846",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "pares"
+  ]
  },
  {
   "id": "wd-q2052426",
@@ -13322,7 +14287,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2052426",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Parisienne"
+  ]
  },
  {
   "id": "wd-q7139220",
@@ -13337,7 +14305,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7139220",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Parmo"
+  ]
  },
  {
   "id": "wd-q141632031",
@@ -13352,7 +14323,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q141632031",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "pastel de loro"
+  ]
  },
  {
   "id": "wd-q13175918",
@@ -13367,22 +14341,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q13175918",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q7142949",
-  "name": "Pasta al pomodoro",
-  "countries": [
-   "Italy"
-  ],
-  "cuisine": "Italy",
-  "blurb": "Typical Italian dish.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q7142949",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Parêv"
+  ]
  },
  {
   "id": "wd-q55629186",
@@ -13397,7 +14359,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q55629186",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "pasta all'Ortolana"
+  ]
  },
  {
   "id": "wd-q55641393",
@@ -13412,22 +14377,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q55641393",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q3368439",
-  "name": "Pasta di Gragnano PGI",
-  "countries": [
-   "Italy"
-  ],
-  "cuisine": "Italy",
-  "blurb": "Italian PGI pasta.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q3368439",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "spaghetti alla gricia",
+   "pasta alla gricia",
+   "Spaghetti alla gricia",
+   "pasta a la gricia"
+  ]
  },
  {
   "id": "wd-q3897489",
@@ -13442,23 +14398,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3897489",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q9056693",
-  "name": "Pastafrola",
-  "countries": [
-   "Uruguay",
-   "Argentina"
-  ],
-  "cuisine": "Uruguay",
-  "blurb": "Type of sweet tart.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q9056693",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pasta mollicata"
+  ]
  },
  {
   "id": "wd-q135395863",
@@ -13473,7 +14416,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q135395863",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Fataya"
+  ]
  },
  {
   "id": "wd-q10345990",
@@ -13488,7 +14434,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q10345990",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pastel de feijão",
+   "queijadas de feijão"
+  ]
  },
  {
   "id": "wd-q17084248",
@@ -13503,22 +14453,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q17084248",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q2056399",
-  "name": "Pastırma",
-  "countries": [
-   "Turkey"
-  ],
-  "cuisine": "Turkey",
-  "blurb": "Anatolian cuisine cold cut, also found in neighbouring countries.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q2056399",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q5402844",
@@ -13533,7 +14469,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5402844",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pataniscas de bacalhau"
+  ]
  },
  {
   "id": "wd-q23907623",
@@ -13548,22 +14487,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q23907623",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q16962929",
-  "name": "Patoleo",
-  "countries": [
-   "India"
-  ],
-  "cuisine": "India",
-  "blurb": "Sweet food from Goa.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q16962929",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pate acha",
+   "gote",
+   "pete acha",
+   "tere"
+  ]
  },
  {
   "id": "wd-q7009815",
@@ -13578,7 +14508,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7009815",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Patîle",
+   "pîza"
+  ]
  },
  {
   "id": "wd-q112967822",
@@ -13593,38 +14527,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q112967822",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q133898292",
-  "name": "Payesh with date palm jaggery",
-  "countries": [
-   "India",
-   "Bangladesh"
-  ],
-  "cuisine": "India",
-  "blurb": "Payesh made with date palm jaggery.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q133898292",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q16137937",
-  "name": "Pazham Pradhaman",
-  "countries": [
-   "India"
-  ],
-  "cuisine": "India",
-  "blurb": "Traditional sweet dish of Kerala with  Nendran Banana.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q16137937",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q6581424",
@@ -13639,7 +14543,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6581424",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "paçanga böreği"
+  ]
  },
  {
   "id": "wd-q25005338",
@@ -13654,7 +14561,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q25005338",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q123907368",
@@ -13669,7 +14577,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q123907368",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q5261363",
@@ -13684,7 +14593,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5261363",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pecel",
+   "pecel"
+  ]
  },
  {
   "id": "wd-q27963899",
@@ -13699,7 +14612,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q27963899",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q3898528",
@@ -13714,7 +14628,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3898528",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "pecora alla cottora"
+  ]
  },
  {
   "id": "wd-q136824382",
@@ -13729,7 +14646,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q136824382",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q107357114",
@@ -13744,7 +14662,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107357114",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q10978475",
@@ -13760,7 +14679,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q10978475",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q56232200",
@@ -13775,7 +14695,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56232200",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q17590922",
@@ -13792,7 +14713,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q17590922",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pelau"
+  ]
  },
  {
   "id": "wd-q130097",
@@ -13807,7 +14731,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q130097",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pemmican",
+   "Pemmikan",
+   "pemmican"
+  ]
  },
  {
   "id": "wd-q4200659",
@@ -13822,7 +14751,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4200659",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pempek",
+   "Empek-empek",
+   "Mpek-mpek",
+   "Mpek mpek",
+   "Empek empek"
+  ]
  },
  {
   "id": "wd-q137792091",
@@ -13837,37 +14773,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q137792091",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q56412603",
-  "name": "Pempek lenggang",
-  "countries": [
-   "Indonesia"
-  ],
-  "cuisine": "Indonesia",
-  "blurb": "Variant of pempek.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q56412603",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q105612974",
-  "name": "Pempek lenjer",
-  "countries": [
-   "Indonesia"
-  ],
-  "cuisine": "Indonesia",
-  "blurb": "Variant of pempek.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q105612974",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q109439271",
@@ -13882,7 +14789,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q109439271",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12512320",
@@ -13897,7 +14805,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12512320",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q139585819",
@@ -13912,7 +14821,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q139585819",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q137816671",
@@ -13927,7 +14837,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q137816671",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q27500854",
@@ -13942,7 +14853,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q27500854",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ceviche peruano"
+  ]
  },
  {
   "id": "wd-q21781581",
@@ -13957,7 +14871,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q21781581",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "pollada peruana",
+   "Pollada bailable."
+  ]
  },
  {
   "id": "wd-q12353750",
@@ -13972,7 +14890,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12353750",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Petatou"
+  ]
  },
  {
   "id": "wd-q122759178",
@@ -13987,7 +14908,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q122759178",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pichón de Cliza"
+  ]
  },
  {
   "id": "wd-q3382650",
@@ -14002,7 +14926,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3382650",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "pieds paquets"
+  ]
  },
  {
   "id": "wd-q17271604",
@@ -14017,22 +14944,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q17271604",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q19738844",
-  "name": "Pindang",
-  "countries": [
-   "Indonesia"
-  ],
-  "cuisine": "Indonesia",
-  "blurb": "Indonesian cooking method.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q19738844",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pilav",
+   "Turkish pilaf"
+  ]
  },
  {
   "id": "wd-q56232215",
@@ -14047,7 +14963,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56232215",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12505590",
@@ -14062,22 +14979,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12505590",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q11061604",
-  "name": "Ping On Bun",
-  "countries": [
-   "China"
-  ],
-  "cuisine": "China",
-  "blurb": "Traditional sweet steamed bun from Cheung Chau, Hong Kong.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q11061604",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "pindang sêrani"
+  ]
  },
  {
   "id": "wd-q60762598",
@@ -14092,7 +14997,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q60762598",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q7197643",
@@ -14107,7 +15013,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7197643",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "pira pupukue",
+   "pirakaldo",
+   "piracaldo",
+   "pirá caldo",
+   "pira caldo"
+  ]
  },
  {
   "id": "wd-q1815839",
@@ -14123,7 +15036,15 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1815839",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "pissaladière",
+   "Pissalandrea or Pissaladière",
+   "Pissaladière",
+   "Pissalandrea",
+   "pissaladiera",
+   "pissaladiere"
+  ]
  },
  {
   "id": "wd-q106906025",
@@ -14138,7 +15059,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q106906025",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q135646299",
@@ -14153,7 +15075,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q135646299",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Milani",
+   "Pithali",
+   "Milli Bhaat",
+   "Mənda",
+   "Mənda ("
+  ]
  },
  {
   "id": "wd-q3389336",
@@ -14168,7 +15097,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3389336",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "pithiviers",
+   "Pithivier"
+  ]
  },
  {
   "id": "wd-q3905837",
@@ -14183,39 +15116,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3905837",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q2916235",
-  "name": "Piyaz",
-  "countries": [
-   "Turkey",
-   "Iran",
-   "Iraq"
-  ],
-  "cuisine": "Turkey",
-  "blurb": "Turkish cuisine cold dish (meze or salad).",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q2916235",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q7015481",
-  "name": "Piyazmaş",
-  "countries": [
-   "Kurdistan"
-  ],
-  "cuisine": "Kurdistan",
-  "blurb": "Kurdish cuisine appetizer.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q7015481",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "pitina"
+  ]
  },
  {
   "id": "wd-q123400088",
@@ -14230,7 +15134,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q123400088",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "bitza karí",
+   "Pizza carrée",
+   "pizza carrée"
+  ]
  },
  {
   "id": "wd-q96050496",
@@ -14245,7 +15154,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q96050496",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "pizza ai funghi",
+   "pizza funghi",
+   "pizza con funghi",
+   "mushroom pizza",
+   "Pizza Funghi"
+  ]
  },
  {
   "id": "wd-q500724",
@@ -14260,7 +15176,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q500724",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pizza Margherita",
+   "pizza Margherita",
+   "pizza margarita"
+  ]
  },
  {
   "id": "wd-q65077962",
@@ -14275,22 +15196,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q65077962",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q140642353",
-  "name": "Pizzoccheri della Valtellina PGI",
-  "countries": [
-   "Italy"
-  ],
-  "cuisine": "Italy",
-  "blurb": "Italian PGI pasta.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q140642353",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pizzarello (food)",
+   "Pizzaridd",
+   "Pizzarello food"
+  ]
  },
  {
   "id": "wd-q2905237",
@@ -14305,7 +15216,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2905237",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "pkaïla"
+  ]
  },
  {
   "id": "wd-q136487236",
@@ -14320,7 +15234,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q136487236",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Amala Ogede"
+  ]
  },
  {
   "id": "wd-q135334986",
@@ -14337,7 +15254,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q135334986",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Palava sauce",
+   "Palaver sauce"
+  ]
  },
  {
   "id": "wd-q17747240",
@@ -14352,7 +15273,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q17747240",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "pleah saiko",
+   "plea sach ko",
+   "plear sach koh"
+  ]
  },
  {
   "id": "wd-q4992018",
@@ -14367,7 +15293,17 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4992018",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "po boy",
+   "po-boy",
+   "Po-boy",
+   "Poor boy",
+   "Po boy",
+   "po' boy",
+   "Po' boy",
+   "Po’boy"
+  ]
  },
  {
   "id": "wd-q7208574",
@@ -14382,7 +15318,16 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7208574",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "poke",
+   "Poke",
+   "poké",
+   "Poke Rice",
+   "pokè",
+   "Ahi poke",
+   "poki"
+  ]
  },
  {
   "id": "wd-q5479684",
@@ -14397,7 +15342,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5479684",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Baston de caramelo",
+   "Polkagris",
+   "polkagris"
+  ]
  },
  {
   "id": "wd-q136700752",
@@ -14412,7 +15362,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q136700752",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pollo asado al carbón",
+   "Chicken al carbón"
+  ]
  },
  {
   "id": "wd-q3907671",
@@ -14427,7 +15381,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3907671",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "polpettone di melanzane",
+   "Polpettone di melanzane"
+  ]
  },
  {
   "id": "wd-q10350921",
@@ -14442,22 +15400,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q10350921",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q2671459",
-  "name": "Polvoron",
-  "countries": [
-   "Spain"
-  ],
-  "cuisine": "Spain",
-  "blurb": "Andalusian shortbread.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q2671459",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Polvo à lagareiro",
+   "octopus à Lagareiro",
+   "Poulpe à lagareiro",
+   "octopus Lagareiro style",
+   "Pulpo a la lagareira"
+  ]
  },
  {
   "id": "wd-q13069284",
@@ -14472,7 +15422,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q13069284",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q712748",
@@ -14487,22 +15438,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q712748",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q7228884",
-  "name": "Pootharekulu",
-  "countries": [
-   "India"
-  ],
-  "cuisine": "India",
-  "blurb": "Popular Indian sweet from Atreyapuram, East Godavari.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q7228884",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pun choi"
+  ]
  },
  {
   "id": "wd-q81615502",
@@ -14517,22 +15456,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q81615502",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q137602972",
-  "name": "Porcelain bowl with Chinese character, overglaze enamels",
-  "countries": [
-   "Empire of Japan"
-  ],
-  "cuisine": "Empire of Japan",
-  "blurb": "Pottery by Rosanjin.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q137602972",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Poqui poqui"
+  ]
  },
  {
   "id": "wd-q5876578",
@@ -14547,7 +15474,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5876578",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q11078065",
@@ -14563,7 +15491,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11078065",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q56232266",
@@ -14578,7 +15507,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56232266",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q1137574",
@@ -14593,7 +15523,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1137574",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Porkkanalaatikko"
+  ]
  },
  {
   "id": "wd-q42373854",
@@ -14608,22 +15541,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q42373854",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q173265",
-  "name": "Potato chip",
-  "countries": [
-   "England"
-  ],
-  "cuisine": "England",
-  "blurb": "Deep-fried or baked thin slice of potato.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q173265",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Alu biryani",
+   "Aloo biryani"
+  ]
  },
  {
   "id": "wd-q24870653",
@@ -14638,7 +15560,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q24870653",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "potechi-pan"
+  ]
  },
  {
   "id": "wd-q966824",
@@ -14654,7 +15579,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q966824",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Potjevleesch",
+   "potjevleesch"
+  ]
  },
  {
   "id": "wd-q3400305",
@@ -14669,22 +15598,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3400305",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q116150719",
-  "name": "Praline",
-  "countries": [
-   "France"
-  ],
-  "cuisine": "France",
-  "blurb": "Confections made from nuts.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q116150719",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Poulet DG",
+   "poulet Directeur Général",
+   "poulet Director General"
+  ]
  },
  {
   "id": "wd-q11826942",
@@ -14699,7 +15618,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11826942",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q11826944",
@@ -14714,7 +15634,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11826944",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Prażucha"
+  ]
  },
  {
   "id": "wd-q108808119",
@@ -14729,7 +15652,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q108808119",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q18339078",
@@ -14744,7 +15668,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q18339078",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q18389634",
@@ -14759,7 +15684,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q18389634",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q28154814",
@@ -14774,7 +15700,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q28154814",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q118574754",
@@ -14789,7 +15716,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q118574754",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q100529246",
@@ -14804,7 +15732,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q100529246",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "punten"
+  ]
  },
  {
   "id": "wd-q97307872",
@@ -14819,7 +15750,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q97307872",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q31086812",
@@ -14834,7 +15766,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q31086812",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Puruvesis Kleine Maräne"
+  ]
  },
  {
   "id": "wd-q12969705",
@@ -14849,7 +15784,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12969705",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q123514659",
@@ -14864,7 +15800,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q123514659",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Putu Ambon"
+  ]
  },
  {
   "id": "wd-q12507493",
@@ -14879,7 +15818,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12507493",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pyeonsu"
+  ]
  },
  {
   "id": "wd-q126718176",
@@ -14894,7 +15836,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q126718176",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q16910416",
@@ -14909,7 +15852,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16910416",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "pârjoală",
+   "Moldavian Pârjoale"
+  ]
  },
  {
   "id": "wd-q107525592",
@@ -14924,7 +15871,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107525592",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pão da Lagoinha",
+   "Lagoinha bread"
+  ]
  },
  {
   "id": "wd-q134621732",
@@ -14939,7 +15890,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q134621732",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Mixed flour bread"
+  ]
  },
  {
   "id": "wd-q6981917",
@@ -14954,7 +15908,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6981917",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pölsa",
+   "Polsa"
+  ]
  },
  {
   "id": "wd-q3373858",
@@ -14969,7 +15927,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3373858",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "qingtuan",
+   "Qingtuan"
+  ]
  },
  {
   "id": "wd-q12955006",
@@ -14984,22 +15946,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12955006",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q124301857",
-  "name": "Queijada de Sintra",
-  "countries": [
-   "Portugal"
-  ],
-  "cuisine": "Portugal",
-  "blurb": "Traditional Portuguese sweet.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q124301857",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q117475843",
@@ -15014,7 +15962,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q117475843",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "quiaude"
+  ]
  },
  {
   "id": "wd-q23807286",
@@ -15029,22 +15980,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q23807286",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q127599395",
-  "name": "Radhaballav",
-  "countries": [
-   "India"
-  ],
-  "cuisine": "India",
-  "blurb": "Item offered to Lord Jagannath as Chhapan Bhog.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q127599395",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q7285800",
@@ -15059,7 +15996,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7285800",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Rajas à la crème",
+   "Rajas con crema",
+   "Rajas poblanas"
+  ]
  },
  {
   "id": "wd-q21424783",
@@ -15074,7 +16016,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q21424783",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Rakott krumpli"
+  ]
  },
  {
   "id": "wd-q13644362",
@@ -15089,22 +16034,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q13644362",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q3929866",
-  "name": "Rame di Napoli",
-  "countries": [
-   "Italy"
-  ],
-  "cuisine": "Italy",
-  "blurb": "Typical sweet from Catania, Italy.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q3929866",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ramazan pidesi"
+  ]
  },
  {
   "id": "wd-q123510977",
@@ -15119,7 +16052,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q123510977",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Sago porridge",
+   "Bubur randang"
+  ]
  },
  {
   "id": "wd-q7296297",
@@ -15134,7 +16071,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7296297",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Sooji idli",
+   "Suji idli"
+  ]
  },
  {
   "id": "wd-q3420363",
@@ -15149,7 +16090,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3420363",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "ravioles du Dauphiné",
+   "Raviole du dauphiné"
+  ]
  },
  {
   "id": "wd-q11349852",
@@ -15164,7 +16109,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11349852",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "reba nira",
+   "rebanira",
+   "Nirareba itame"
+  ]
  },
  {
   "id": "wd-q12508407",
@@ -15179,7 +16129,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12508407",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q643225",
@@ -15194,7 +16145,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q643225",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q50862300",
@@ -15209,7 +16161,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q50862300",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q105535632",
@@ -15224,7 +16177,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q105535632",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "randang jariang",
+   "rendang jengkol"
+  ]
  },
  {
   "id": "wd-q56399237",
@@ -15239,7 +16196,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56399237",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Randang Lokan"
+  ]
  },
  {
   "id": "wd-q61984600",
@@ -15254,7 +16214,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q61984600",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q5254542",
@@ -15269,7 +16230,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5254542",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q98279051",
@@ -15284,7 +16246,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q98279051",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q86066688",
@@ -15299,7 +16262,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q86066688",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "repocheta"
+  ]
  },
  {
   "id": "wd-q6107288",
@@ -15314,7 +16280,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6107288",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Revuelto de Gramajo",
+   "brouillé de Gramajo"
+  ]
  },
  {
   "id": "wd-q1559248",
@@ -15329,7 +16299,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1559248",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ribollita",
+   "ribollita"
+  ]
  },
  {
   "id": "wd-q12508588",
@@ -15344,7 +16318,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12508588",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "rica"
+  ]
  },
  {
   "id": "wd-q7446149",
@@ -15359,7 +16336,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7446149",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q4201329",
@@ -15374,22 +16352,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4201329",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q2151924",
-  "name": "Riebel",
-  "countries": [
-   "Austria"
-  ],
-  "cuisine": "Austria",
-  "blurb": "Austrian porridge.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q2151924",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q154043",
@@ -15405,7 +16369,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q154043",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Tarta de arroz",
+   "Reisfladen",
+   "tarte au riz"
+  ]
  },
  {
   "id": "wd-q860465",
@@ -15420,7 +16389,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q860465",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Roastbeef",
+   "rosbif"
+  ]
  },
  {
   "id": "wd-q720230",
@@ -15435,7 +16408,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q720230",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "rojak",
+   "Rojak",
+   "rujak",
+   "Rujak"
+  ]
  },
  {
   "id": "wd-q19958364",
@@ -15450,7 +16429,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19958364",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12508894",
@@ -15465,7 +16445,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12508894",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q20059873",
@@ -15480,7 +16461,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q20059873",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q96402831",
@@ -15495,7 +16477,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q96402831",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q7370536",
@@ -15511,7 +16494,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7370536",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q19747511",
@@ -15526,7 +16510,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19747511",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q7370537",
@@ -15541,7 +16526,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7370537",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Roti john",
+   "Roti John"
+  ]
  },
  {
   "id": "wd-q3443152",
@@ -15557,7 +16546,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3443152",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Rougail",
+   "rougail"
+  ]
  },
  {
   "id": "wd-q3443155",
@@ -15572,22 +16565,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3443155",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q13216848",
-  "name": "Rouyot",
-  "countries": [
-   "Wallonia"
-  ],
-  "cuisine": "Wallonia",
-  "blurb": "Type of baked goods.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q13216848",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "rougail saucisse",
+   "Rougail saucisse"
+  ]
  },
  {
   "id": "wd-q7418601",
@@ -15602,7 +16584,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7418601",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q9323991",
@@ -15617,7 +16600,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q9323991",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Rumpuć"
+  ]
  },
  {
   "id": "wd-q14943090",
@@ -15632,7 +16618,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q14943090",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Rondong",
+   "rondón",
+   "Rondón (plato)"
+  ]
  },
  {
   "id": "wd-q58090401",
@@ -15647,7 +16638,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q58090401",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Rusip"
+  ]
  },
  {
   "id": "wd-q21809695",
@@ -15662,7 +16656,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q21809695",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Russische Eier",
+   "œuf farci",
+   "Russian egg"
+  ]
  },
  {
   "id": "wd-q112073818",
@@ -15677,7 +16676,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q112073818",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "ongsimi"
+  ]
  },
  {
   "id": "wd-q119541331",
@@ -15692,7 +16694,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q119541331",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q1921170",
@@ -15707,7 +16710,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1921170",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Sajoer"
+  ]
  },
  {
   "id": "wd-q117011849",
@@ -15722,7 +16728,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q117011849",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q126434266",
@@ -15737,7 +16744,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q126434266",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Salade hawaïenne"
+  ]
  },
  {
   "id": "wd-q2108393",
@@ -15752,7 +16762,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2108393",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q2216156",
@@ -15768,7 +16779,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2216156",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Salzkartoffel",
+   "boiled potatoes",
+   "salt potatoes"
+  ]
  },
  {
   "id": "wd-q980388",
@@ -15783,22 +16799,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q980388",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q1410920",
-  "name": "Salty licorice",
-  "countries": [
-   "Finland"
-  ],
-  "cuisine": "Finland",
-  "blurb": "Northern European confectionery.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q1410920",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "salteña",
+   "Salteña",
+   "salteña boliviana",
+   "Argentina"
+  ]
  },
  {
   "id": "wd-q19731840",
@@ -15813,7 +16820,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19731840",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q97236883",
@@ -15828,7 +16836,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q97236883",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12511758",
@@ -15843,7 +16852,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12511758",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q19731843",
@@ -15858,7 +16868,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19731843",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q19731841",
@@ -15873,7 +16884,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19731841",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q137834536",
@@ -15888,7 +16900,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q137834536",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q109438515",
@@ -15903,7 +16916,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q109438515",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q55632427",
@@ -15918,7 +16932,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q55632427",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q491517",
@@ -15933,22 +16948,25 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q491517",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q86740899",
-  "name": "Sanbuzhan",
-  "countries": [
-   "Qing dynasty"
-  ],
-  "cuisine": "Qing dynasty",
-  "blurb": "Chinese sweet dish of starch and eggs.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q86740899",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "samoussa",
+   "sambusac",
+   "sambusa",
+   "somaas",
+   "somasi",
+   "samuza",
+   "singada",
+   "samosa",
+   "somosa",
+   "somucha",
+   "sambosak",
+   "sambosa",
+   "singhara",
+   "Samosa",
+   "sumsa",
+   "smoosa"
+  ]
  },
  {
   "id": "wd-q107405732",
@@ -15963,7 +16981,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107405732",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "sanga"
+  ]
  },
  {
   "id": "wd-q3472373",
@@ -15978,7 +16999,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3472373",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "sanquette"
+  ]
  },
  {
   "id": "wd-q3948384",
@@ -15993,7 +17017,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3948384",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "sangrecita"
+  ]
  },
  {
   "id": "wd-q4205456",
@@ -16008,7 +17035,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4205456",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "sangsang",
+   "Saksang"
+  ]
  },
  {
   "id": "wd-q31173018",
@@ -16023,7 +17054,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q31173018",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q3950514",
@@ -16038,22 +17070,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3950514",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q3950519",
-  "name": "Sardenaira",
-  "countries": [
-   "Italy"
-  ],
-  "cuisine": "Italy",
-  "blurb": "Type of focaccia from Sanremo, Italy.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q3950519",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q13434162",
@@ -16070,7 +17088,16 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q13434162",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Stuffed vine leaves",
+   "sarma",
+   "Stuffed cabbage leaves",
+   "Sarma",
+   "Stuffed grape leaves",
+   "Koupepia",
+   "Leaf roll"
+  ]
  },
  {
   "id": "wd-q11078597",
@@ -16085,7 +17112,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11078597",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "sarmale"
+  ]
  },
  {
   "id": "wd-q130101956",
@@ -16100,7 +17130,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q130101956",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "sarnita",
+   "Sarna"
+  ]
  },
  {
   "id": "wd-q60750699",
@@ -16115,7 +17149,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q60750699",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q7425966",
@@ -16130,7 +17165,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7425966",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12512318",
@@ -16145,7 +17181,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12512318",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q119541430",
@@ -16160,7 +17197,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q119541430",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12512317",
@@ -16175,7 +17213,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12512317",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q58339033",
@@ -16190,22 +17229,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q58339033",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q2425845",
-  "name": "Sate kambing",
-  "countries": [
-   "Indonesia"
-  ],
-  "cuisine": "Indonesia",
-  "blurb": "Indonesian goat meat dish.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q2425845",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q19646375",
@@ -16220,7 +17245,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19646375",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q574483",
@@ -16235,7 +17261,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q574483",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pfälzer Saumagen",
+   "sow's stomach",
+   "Pfalzer Saumagen",
+   "Saumagen"
+  ]
  },
  {
   "id": "wd-q3505757",
@@ -16253,7 +17285,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3505757",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "poronkäristys"
+  ]
  },
  {
   "id": "wd-q2457455",
@@ -16268,7 +17303,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2457455",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Sayur Asem"
+  ]
  },
  {
   "id": "wd-q56392589",
@@ -16283,7 +17321,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56392589",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q129811510",
@@ -16298,7 +17337,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q129811510",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q130559314",
@@ -16313,7 +17353,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q130559314",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q3951693",
@@ -16328,7 +17369,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3951693",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q28670491",
@@ -16343,7 +17385,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q28670491",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q2896374",
@@ -16358,7 +17401,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2896374",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Scotch broth",
+   "bouillon écossais",
+   "Caldo escoces",
+   "Caldo escocés"
+  ]
  },
  {
   "id": "wd-q7438301",
@@ -16374,7 +17423,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7438301",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Scouse (comida)"
+  ]
  },
  {
   "id": "wd-q4703104",
@@ -16389,7 +17441,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4703104",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Se'i"
+  ]
  },
  {
   "id": "wd-q12516009",
@@ -16404,7 +17459,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12516009",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q19732533",
@@ -16419,7 +17475,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19732533",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Seblak"
+  ]
  },
  {
   "id": "wd-q28163759",
@@ -16434,7 +17493,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q28163759",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q15976317",
@@ -16449,7 +17509,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q15976317",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q56411494",
@@ -16464,7 +17525,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56411494",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q99532546",
@@ -16479,7 +17541,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q99532546",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q19733063",
@@ -16494,7 +17557,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19733063",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q11045882",
@@ -16509,7 +17573,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11045882",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q2096886",
@@ -16524,7 +17589,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2096886",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Seroundeng"
+  ]
  },
  {
   "id": "wd-q107470450",
@@ -16539,22 +17607,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107470450",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q7457147",
-  "name": "Seven-layer salad",
-  "countries": [
-   "United States"
-  ],
-  "cuisine": "United States",
-  "blurb": "American salad dish.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q7457147",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Sesamum indicum"
+  ]
  },
  {
   "id": "wd-q3958703",
@@ -16569,7 +17625,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3958703",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Flan"
+  ]
  },
  {
   "id": "wd-q137375176",
@@ -16584,7 +17643,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q137375176",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Sodori khana",
+   "Sodori thala"
+  ]
  },
  {
   "id": "wd-q12817265",
@@ -16601,7 +17664,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12817265",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Shakarop"
+  ]
  },
  {
   "id": "wd-q12218191",
@@ -16616,7 +17682,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12218191",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q2474644",
@@ -16631,7 +17698,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2474644",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Shakshuka",
+   "shakshuka",
+   "chakchouka",
+   "shakshouka",
+   "Shakshouka"
+  ]
  },
  {
   "id": "wd-q7224024",
@@ -16646,7 +17720,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7224024",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Fideos fritos de Shanghai",
+   "fideos fritos de Shanghái"
+  ]
  },
  {
   "id": "wd-q11269205",
@@ -16661,7 +17739,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11269205",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "shirasu-don"
+  ]
  },
  {
   "id": "wd-q85800897",
@@ -16676,22 +17757,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q85800897",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q623247",
-  "name": "Shkedei marak",
-  "countries": [
-   "Israel"
-  ],
-  "cuisine": "Israel",
-  "blurb": "Israeli crouton.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q623247",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q15801159",
@@ -16706,7 +17773,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q15801159",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Chkmeruli",
+   "Shkmeruli"
+  ]
  },
  {
   "id": "wd-q2920132",
@@ -16721,7 +17792,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2920132",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q7504007",
@@ -16736,7 +17808,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7504007",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q137731959",
@@ -16751,7 +17824,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q137731959",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q94208532",
@@ -16766,7 +17840,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q94208532",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12172497",
@@ -16781,7 +17856,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12172497",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q85801047",
@@ -16796,7 +17872,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q85801047",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q19733671",
@@ -16811,7 +17888,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19733671",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q137270440",
@@ -16826,7 +17904,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q137270440",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "siraw"
+  ]
  },
  {
   "id": "wd-q31185698",
@@ -16841,7 +17922,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q31185698",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q65043034",
@@ -16856,7 +17938,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q65043034",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q20427468",
@@ -16871,7 +17954,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q20427468",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q119788537",
@@ -16886,7 +17970,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q119788537",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q108698282",
@@ -16901,7 +17986,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q108698282",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Khanz u Bnin",
+   "Khanz w Bnin"
+  ]
  },
  {
   "id": "wd-q12491347",
@@ -16916,7 +18005,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12491347",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "krupuk kulit",
+   "Rambak"
+  ]
  },
  {
   "id": "wd-q7535893",
@@ -16931,7 +18024,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7535893",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Skirlie"
+  ]
  },
  {
   "id": "wd-q127685368",
@@ -16946,7 +18042,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q127685368",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q1753265",
@@ -16961,7 +18058,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1753265",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "skordaliá",
+   "Skordalia"
+  ]
  },
  {
   "id": "wd-q7438806",
@@ -16976,52 +18077,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7438806",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q141906877",
-  "name": "Small dishes with bamboo grass under snow design",
-  "countries": [
-   "Empire of Japan"
-  ],
-  "cuisine": "Empire of Japan",
-  "blurb": "Mukōzuke by Rosanjin.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q141906877",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q137298789",
-  "name": "Small plates with a yukizasa pattern on a white glazed iron-colored",
-  "countries": [
-   "Empire of Japan"
-  ],
-  "cuisine": "Empire of Japan",
-  "blurb": "Pottery by Rosanjin.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q137298789",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q141864977",
-  "name": "Small porcelain serving bowls, design of bamboo and tree peonies, overglaze enamels",
-  "countries": [
-   "Empire of Japan"
-  ],
-  "cuisine": "Empire of Japan",
-  "blurb": "Porcelain by Rosanjin.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q141864977",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Slemang"
+  ]
  },
  {
   "id": "wd-q16878826",
@@ -17036,7 +18095,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16878826",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q16480434",
@@ -17051,7 +18111,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16480434",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "mudfish paste"
+  ]
  },
  {
   "id": "wd-q7548366",
@@ -17066,22 +18129,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7548366",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q141761848",
-  "name": "So-oribe square serving containers (five pieces)",
-  "countries": [
-   "Empire of Japan"
-  ],
-  "cuisine": "Empire of Japan",
-  "blurb": "Mukōzuke by Rosanjin.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q141761848",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q68005229",
@@ -17096,7 +18145,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q68005229",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q105337075",
@@ -17111,7 +18161,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q105337075",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q61366482",
@@ -17126,7 +18177,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q61366482",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q28015549",
@@ -17142,7 +18194,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q28015549",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q24947059",
@@ -17157,7 +18210,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q24947059",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q3425445",
@@ -17172,7 +18226,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3425445",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Sol over Gudhjem"
+  ]
  },
  {
   "id": "wd-q9078656",
@@ -17187,7 +18244,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q9078656",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Soldaditos de Pavia",
+   "Soldaditos de Pavía",
+   "Soldados de Pavia",
+   "Bacalao frito"
+  ]
  },
  {
   "id": "wd-q129811603",
@@ -17202,7 +18265,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q129811603",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q124448968",
@@ -17217,7 +18281,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q124448968",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "sombe sauce",
+   "sombe stew",
+   "sombe soup",
+   "cassava leaves stew"
+  ]
  },
  {
   "id": "wd-q135448430",
@@ -17232,7 +18302,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q135448430",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q56232372",
@@ -17247,7 +18318,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56232372",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q108181168",
@@ -17262,7 +18334,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q108181168",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q20427541",
@@ -17277,7 +18350,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q20427541",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "sop saudara"
+  ]
  },
  {
   "id": "wd-q56232377",
@@ -17292,7 +18368,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56232377",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "senerek soup"
+  ]
  },
  {
   "id": "wd-q6132427",
@@ -17307,7 +18386,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6132427",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Sopas"
+  ]
  },
  {
   "id": "wd-q2635144",
@@ -17322,7 +18404,18 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2635144",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "shchav",
+   "shtshav",
+   "schav",
+   "green borscht",
+   "Sopa de acedera",
+   "shav",
+   "green soup",
+   "green shchi",
+   "Bortsch vert"
+  ]
  },
  {
   "id": "wd-q12516004",
@@ -17337,7 +18430,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12516004",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Soto Betawi",
+   "soto betawi"
+  ]
  },
  {
   "id": "wd-q56232343",
@@ -17352,7 +18449,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56232343",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12516002",
@@ -17367,7 +18465,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12516002",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q139816855",
@@ -17382,7 +18481,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q139816855",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12516006",
@@ -17397,7 +18497,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12516006",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q110133485",
@@ -17412,7 +18513,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q110133485",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12709581",
@@ -17427,7 +18529,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12709581",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q135412763",
@@ -17442,7 +18545,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q135412763",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Soup Kandia"
+  ]
  },
  {
   "id": "wd-q141580181",
@@ -17457,7 +18563,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q141580181",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q703313",
@@ -17473,7 +18580,18 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q703313",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Żur",
+   "West Slavic fermented cereal soups",
+   "żurek",
+   "Żurek",
+   "Zurek",
+   "żur",
+   "kyselo",
+   "zur",
+   "zurek"
+  ]
  },
  {
   "id": "wd-q135921166",
@@ -17488,7 +18606,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q135921166",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q141248130",
@@ -17503,7 +18622,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q141248130",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q31173193",
@@ -17518,7 +18638,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q31173193",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q132775271",
@@ -17533,7 +18654,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q132775271",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Spice Burger"
+  ]
  },
  {
   "id": "wd-q107356970",
@@ -17548,7 +18672,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107356970",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "nkwobi",
+   "Nkwobi",
+   "Nkwobi ( spicy cow foot)"
+  ]
  },
  {
   "id": "wd-q16847884",
@@ -17563,7 +18692,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16847884",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "bubur pedas",
+   "bubur sambas"
+  ]
  },
  {
   "id": "wd-q3966710",
@@ -17578,7 +18711,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3966710",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Spiedo bresciano PAT"
+  ]
  },
  {
   "id": "wd-q13197885",
@@ -17593,22 +18729,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q13197885",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q128601889",
-  "name": "SpongeBob SquarePants Popsicle",
-  "countries": [
-   "United States"
-  ],
-  "cuisine": "United States",
-  "blurb": "Ice pop resembling SpongeBob SquarePants.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q128601889",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Spillonga"
+  ]
  },
  {
   "id": "wd-q879133",
@@ -17623,7 +18747,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q879133",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Spundekäs",
+   "Spundekas",
+   "spundekäs"
+  ]
  },
  {
   "id": "wd-q12522064",
@@ -17638,7 +18767,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12522064",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q112182363",
@@ -17653,7 +18783,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q112182363",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q101122441",
@@ -17668,7 +18799,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q101122441",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Martinsgans"
+  ]
  },
  {
   "id": "wd-q749593",
@@ -17684,7 +18818,17 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q749593",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "filete tártaro",
+   "Steak tartar",
+   "Tartar de ternera",
+   "Tartar",
+   "Filete tartaro",
+   "Steak tartare",
+   "steak tartare",
+   "Tatar"
+  ]
  },
  {
   "id": "wd-q10400401",
@@ -17699,7 +18843,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q10400401",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q139816842",
@@ -17714,7 +18859,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q139816842",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q305329",
@@ -17730,7 +18876,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q305329",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Stoemp",
+   "stoemp"
+  ]
  },
  {
   "id": "wd-q3499615",
@@ -17745,7 +18895,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3499615",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "stoemp saucisse"
+  ]
  },
  {
   "id": "wd-q106211393",
@@ -17760,7 +18913,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q106211393",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q120829140",
@@ -17775,7 +18929,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q120829140",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q15042119",
@@ -17790,7 +18945,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q15042119",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Stracciatella"
+  ]
  },
  {
   "id": "wd-q12884882",
@@ -17805,7 +18963,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12884882",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Strapatsada",
+   "kagianas"
+  ]
  },
  {
   "id": "wd-q14916156",
@@ -17820,7 +18982,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q14916156",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Strapačky"
+  ]
  },
  {
   "id": "wd-q87840119",
@@ -17835,7 +19000,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q87840119",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Stuffat tal-fenek"
+  ]
  },
  {
   "id": "wd-q16951552",
@@ -17850,7 +19018,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16951552",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q7554467",
@@ -17865,7 +19034,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7554467",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Oignons farcis",
+   "Cebolles rellenes",
+   "Sogan-dolma",
+   "Gefüllte Zwiebel",
+   "Cebollas rellenas"
+  ]
  },
  {
   "id": "wd-q6434737",
@@ -17880,7 +19056,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6434737",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Kousa Mahshi",
+   "Kusa mahshi",
+   "Punjene tikvice",
+   "stuffed zucchinis"
+  ]
  },
  {
   "id": "wd-q124317521",
@@ -17895,7 +19077,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q124317521",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Stuffed turnips"
+  ]
  },
  {
   "id": "wd-q109801608",
@@ -17910,7 +19095,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q109801608",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Étrille farci",
+   "Nécoras recheadas",
+   "Nécoras rellenas"
+  ]
  },
  {
   "id": "wd-q5996575",
@@ -17925,7 +19115,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5996575",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "suimono",
+   "Suimono"
+  ]
  },
  {
   "id": "wd-q1145039",
@@ -17940,7 +19134,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1145039",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Suiton",
+   "hand-pulled dough soup",
+   "ttŭdŏ-guk",
+   "sujebi"
+  ]
  },
  {
   "id": "wd-q6004351",
@@ -17955,7 +19155,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6004351",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Mohan Bhog",
+   "Suji halwa",
+   "Shira",
+   "Sheera",
+   "Sooji halwa"
+  ]
  },
  {
   "id": "wd-q1432724",
@@ -17970,7 +19177,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1432724",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Sucuk",
+   "soudjouk",
+   "sucuk"
+  ]
  },
  {
   "id": "wd-q16963428",
@@ -17985,7 +19197,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q16963428",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Sulu Köfte",
+   "sulu köfte"
+  ]
  },
  {
   "id": "wd-q10314235",
@@ -18000,7 +19216,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q10314235",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Kesäkeitto",
+   "Soupe d'été"
+  ]
  },
  {
   "id": "wd-q123511003",
@@ -18015,7 +19235,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q123511003",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Palang pintu cake"
+  ]
  },
  {
   "id": "wd-q778396",
@@ -18030,22 +19253,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q778396",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q7648934",
-  "name": "Sushi pizza",
-  "countries": [
-   "Canada"
-  ],
-  "cuisine": "Canada",
-  "blurb": "Variant of Japanese sushi served in Canada.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q7648934",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "hapusilk",
+   "Surströmming",
+   "surströmming",
+   "hapansilakka"
+  ]
  },
  {
   "id": "wd-q12518255",
@@ -18060,7 +19274,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12518255",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q7656154",
@@ -18075,7 +19290,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7656154",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "swikee"
+  ]
  },
  {
   "id": "wd-q7659027",
@@ -18090,7 +19308,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7659027",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q46070600",
@@ -18105,7 +19324,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q46070600",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q712031",
@@ -18121,7 +19341,16 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q712031",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "daami",
+   "Tann-a noodles",
+   "Dan-zai noodles",
+   "Tōo-sió-gue̍h Ta-a noodles",
+   "Tan-tsai noodles",
+   "Tu-hsiao-yue Tan-tsai noodles",
+   "Ta-a mi"
+  ]
  },
  {
   "id": "wd-q56391757",
@@ -18136,7 +19365,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56391757",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q111705550",
@@ -18151,7 +19381,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q111705550",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Pizza de taco",
+   "taco pizza"
+  ]
  },
  {
   "id": "wd-q107674870",
@@ -18166,7 +19400,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107674870",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q123245043",
@@ -18181,7 +19416,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q123245043",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Tagarninas o cardillos"
+  ]
  },
  {
   "id": "wd-q1417997",
@@ -18199,7 +19437,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1417997",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Taguella"
+  ]
  },
  {
   "id": "wd-q5864774",
@@ -18214,7 +19455,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5864774",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Tahchin"
+  ]
  },
  {
   "id": "wd-q13097602",
@@ -18229,7 +19473,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q13097602",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "tahu bakso"
+  ]
  },
  {
   "id": "wd-q12711188",
@@ -18244,7 +19491,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12711188",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q7476075",
@@ -18259,7 +19507,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7476075",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q139846003",
@@ -18274,7 +19523,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q139846003",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "night market steak"
+  ]
  },
  {
   "id": "wd-q20670432",
@@ -18289,7 +19541,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q20670432",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q27962923",
@@ -18304,7 +19557,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q27962923",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "taktouka"
+  ]
  },
  {
   "id": "wd-q19711295",
@@ -18319,7 +19575,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19711295",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "talapaw"
+  ]
  },
  {
   "id": "wd-q1147853",
@@ -18334,7 +19593,15 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1147853",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Tamales",
+   "tamal",
+   "Tamal oaxaqueño",
+   "Tamale",
+   "Tamal antioqueño",
+   "tamales"
+  ]
  },
  {
   "id": "wd-q25327105",
@@ -18349,7 +19616,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q25327105",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q78619741",
@@ -18364,7 +19632,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q78619741",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "tambunsu",
+   "gulai tambusu",
+   "tambusu",
+   "gule tambunsu"
+  ]
  },
  {
   "id": "wd-q61117066",
@@ -18379,7 +19653,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q61117066",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q2476688",
@@ -18394,7 +19669,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2476688",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Tanghulu",
+   "Bingtang hulu"
+  ]
  },
  {
   "id": "wd-q19743784",
@@ -18409,7 +19688,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19743784",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "tapai"
+  ]
  },
  {
   "id": "wd-q110255436",
@@ -18424,7 +19706,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q110255436",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q111604426",
@@ -18439,7 +19722,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q111604426",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q316849",
@@ -18455,7 +19739,17 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q316849",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Flammenkuchen",
+   "Flammekueche",
+   "Tarte flambee",
+   "Flammkuchen",
+   "tarte flambee",
+   "tarte flambée",
+   "Tarta flambeada",
+   "Tarte flambée"
+  ]
  },
  {
   "id": "wd-q19748856",
@@ -18470,7 +19764,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q19748856",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q6000077",
@@ -18485,7 +19780,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6000077",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q31173765",
@@ -18500,7 +19796,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q31173765",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12512316",
@@ -18515,7 +19812,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12512316",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Tegal goat satay"
+  ]
  },
  {
   "id": "wd-q7695520",
@@ -18530,7 +19830,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7695520",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q102172629",
@@ -18545,7 +19846,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q102172629",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "orak-arik tempe"
+  ]
  },
  {
   "id": "wd-q12476646",
@@ -18560,7 +19864,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12476646",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12520827",
@@ -18575,7 +19880,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12520827",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q24944542",
@@ -18590,7 +19896,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q24944542",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q97196240",
@@ -18605,7 +19912,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q97196240",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q123515615",
@@ -18620,7 +19928,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q123515615",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q15648182",
@@ -18635,7 +19944,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q15648182",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q135415105",
@@ -18650,7 +19960,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q135415105",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Rice and meat recipe",
+   "Thiebou Yapp"
+  ]
  },
  {
   "id": "wd-q1810575",
@@ -18665,7 +19979,16 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1810575",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ceebu jen",
+   "Thiéboudienne",
+   "thiéboudiène",
+   "Ceebu jën",
+   "Thiébou dieune",
+   "Thieboudienne",
+   "Tiep bou dien"
+  ]
  },
  {
   "id": "wd-q133521607",
@@ -18680,7 +20003,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q133521607",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Thiébou Kéthiakh"
+  ]
  },
  {
   "id": "wd-q130101795",
@@ -18695,7 +20021,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q130101795",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "pan de tres puntas",
+   "Pan de tres puntas"
+  ]
  },
  {
   "id": "wd-q3991202",
@@ -18710,7 +20040,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3991202",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Tielle"
+  ]
  },
  {
   "id": "wd-q3697035",
@@ -18725,7 +20058,20 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3697035",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Crescentine",
+   "Tigela",
+   "Chersèinta",
+   "Crescentina modenese",
+   "Tigelle",
+   "Crescenta",
+   "Crescenti",
+   "Tigèla",
+   "Tigella",
+   "Cherseinta",
+   "Crescentina"
+  ]
  },
  {
   "id": "wd-q12521504",
@@ -18740,7 +20086,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12521504",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "kimlo"
+  ]
  },
  {
   "id": "wd-q10971166",
@@ -18755,7 +20104,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q10971166",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q7808550",
@@ -18770,7 +20120,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7808550",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "bouillie Tinutuan"
+  ]
  },
  {
   "id": "wd-q7808813",
@@ -18785,22 +20138,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7808813",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q7809258",
-  "name": "Tirokafteri",
-  "countries": [
-   "Greece"
-  ],
-  "cuisine": "Greece",
-  "blurb": "Greek cuisine starter.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q7809258",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q13097938",
@@ -18815,7 +20154,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q13097938",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "nasi tiwul",
+   "ꦤꦱꦶꦠꦶꦮꦸꦭ",
+   "sêga thiwul",
+   "sêgo thiwul"
+  ]
  },
  {
   "id": "wd-q56232363",
@@ -18830,7 +20175,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56232363",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q108120915",
@@ -18845,22 +20191,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q108120915",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q135116202",
-  "name": "Tojiko mame",
-  "countries": [
-   "Japan"
-  ],
-  "cuisine": "Japan",
-  "blurb": "Japanese confectionery.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q135116202",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q31352561",
@@ -18875,7 +20207,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q31352561",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "tomyum-kung",
+   "tomyum kung",
+   "Tom yum goong",
+   "Tom yam kung"
+  ]
  },
  {
   "id": "wd-q13046648",
@@ -18890,7 +20228,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q13046648",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Tomato tava"
+  ]
  },
  {
   "id": "wd-q4272202",
@@ -18905,7 +20246,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4272202",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "tongseng"
+  ]
  },
  {
   "id": "wd-q1142841",
@@ -18920,7 +20264,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1142841",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Tonkatsu",
+   "tonkatsu"
+  ]
  },
  {
   "id": "wd-q1485640",
@@ -18935,7 +20283,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1485640",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Tonno del Chianti"
+  ]
  },
  {
   "id": "wd-q123503114",
@@ -18950,22 +20301,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q123503114",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q7825801",
-  "name": "Torikatsu",
-  "countries": [
-   "Japan"
-  ],
-  "cuisine": "Japan",
-  "blurb": "Japanese fried chicken dish.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q7825801",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q75761914",
@@ -18980,7 +20317,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q75761914",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q112325694",
@@ -18995,7 +20333,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q112325694",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "hemp seed torta",
+   "Torta de cañamones"
+  ]
  },
  {
   "id": "wd-q124971399",
@@ -19010,24 +20352,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q124971399",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q6150980",
-  "name": "Torta parda",
-  "countries": [
-   "Medina Sidonia",
-   "Spain",
-   "Andalusia"
-  ],
-  "cuisine": "Medina Sidonia",
-  "blurb": "Typical sweet from Cádíz.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q6150980",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Guimarães' Tart",
+   "Tart of Guimarães"
+  ]
  },
  {
   "id": "wd-q85810239",
@@ -19042,7 +20371,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q85810239",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q1760470",
@@ -19057,22 +20387,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1760470",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q50663373",
-  "name": "Trevico prosciutto",
-  "countries": [
-   "Italy"
-  ],
-  "cuisine": "Italy",
-  "blurb": "Italian dry-cured ham.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q50663373",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Tramezzino",
+   "tramezzino"
+  ]
  },
  {
   "id": "wd-q10384855",
@@ -19087,7 +20406,15 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q10384855",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Tripas à moda do Porto",
+   "Dobrada a moda do Porto",
+   "Tripas à la moda do Porto",
+   "Dobrada à moda do Porto",
+   "Dobrada à la moda do Porto",
+   "Tripas a moda do Porto"
+  ]
  },
  {
   "id": "wd-q64831532",
@@ -19103,7 +20430,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q64831532",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q11272509",
@@ -19118,7 +20446,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11272509",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Tsuyu-yakisoba",
+   "Kuroishi Tsuyu-yakisoba"
+  ]
  },
  {
   "id": "wd-q109950188",
@@ -19133,7 +20465,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q109950188",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "cybryki"
+  ]
  },
  {
   "id": "wd-q56308209",
@@ -19148,7 +20483,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q56308209",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q843052",
@@ -19163,7 +20499,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q843052",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Tteokgalbi",
+   "Tteok-galbi"
+  ]
  },
  {
   "id": "wd-q108808117",
@@ -19178,7 +20518,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q108808117",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q131145392",
@@ -19193,7 +20534,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q131145392",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q2746599",
@@ -19208,22 +20550,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2746599",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q978397",
-  "name": "Tuna fish sandwich",
-  "countries": [
-   "United States"
-  ],
-  "cuisine": "United States",
-  "blurb": "Type of sandwich.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q978397",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Tumpeng",
+   "tumpeng"
+  ]
  },
  {
   "id": "wd-q7852883",
@@ -19238,7 +20569,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7852883",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Tunday kabab"
+  ]
  },
  {
   "id": "wd-q20088993",
@@ -19253,7 +20587,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q20088993",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Tuo Zaafi",
+   "T.Z"
+  ]
  },
  {
   "id": "wd-q25041417",
@@ -19268,7 +20606,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q25041417",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Tuwo",
+   "Tuo masara"
+  ]
  },
  {
   "id": "wd-q107449555",
@@ -19283,37 +20625,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107449555",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q13198152",
-  "name": "Tàfara",
-  "countries": [
-   "Italy"
-  ],
-  "cuisine": "Italy",
-  "blurb": "Plat de Vulanza.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q13198152",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q6083159",
-  "name": "Tırşik çorbası",
-  "countries": [
-   "Turkey"
-  ],
-  "cuisine": "Turkey",
-  "blurb": "Poisonous plant.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q6083159",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Grounded Guinea corn"
+  ]
  },
  {
   "id": "wd-q129811494",
@@ -19328,7 +20643,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q129811494",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q85413737",
@@ -19343,7 +20659,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q85413737",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q1435874",
@@ -19358,7 +20675,21 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1435874",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "sembe",
+   "kuon",
+   "kimyet",
+   "obusuma",
+   "ngima",
+   "Ugali",
+   "ubugari",
+   "posho",
+   "ugali",
+   "ubugali",
+   "bugali",
+   "busuma"
+  ]
  },
  {
   "id": "wd-q17109441",
@@ -19373,7 +20704,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q17109441",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q107358567",
@@ -19388,7 +20720,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107358567",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Plantain Moi Moi"
+  ]
  },
  {
   "id": "wd-q845376",
@@ -19403,7 +20738,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q845376",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ulmyeon"
+  ]
  },
  {
   "id": "wd-q118496624",
@@ -19418,7 +20756,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q118496624",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q2725826",
@@ -19433,7 +20772,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2725826",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q10709601",
@@ -19448,22 +20788,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q10709601",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q7897138",
-  "name": "Unnakai",
-  "countries": [
-   "India"
-  ],
-  "cuisine": "India",
-  "blurb": "Plantain sweet dish from India.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q7897138",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ungui"
+  ]
  },
  {
   "id": "wd-q107368588",
@@ -19478,7 +20806,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107368588",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q10710162",
@@ -19493,7 +20822,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q10710162",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q4206002",
@@ -19508,22 +20838,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4206002",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q107358782",
-  "name": "Urhobo Owho Soup",
-  "countries": [
-   "Nigeria"
-  ],
-  "cuisine": "Nigeria",
-  "blurb": "Yellowish delicacy mostly eaten by the Urhobos, Isoko, and Itsekiri people of Delta State in Nigeria.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q107358782",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Urap"
+  ]
  },
  {
   "id": "wd-q3051726",
@@ -19539,22 +20857,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3051726",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q17109463",
-  "name": "Usi",
-  "countries": [
-   "Nigeria"
-  ],
-  "cuisine": "Nigeria",
-  "blurb": "Nigerian foodstuff.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q17109463",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Usban, osbane",
+   "osban",
+   "Osban"
+  ]
  },
  {
   "id": "wd-q546072",
@@ -19569,7 +20877,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q546072",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Utopenec"
+  ]
  },
  {
   "id": "wd-q7908657",
@@ -19584,7 +20895,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7908657",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Vaho"
+  ]
  },
  {
   "id": "wd-q7914788",
@@ -19599,7 +20913,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7914788",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "vangibath",
+   "Vangi Bhat",
+   "Vangi bath"
+  ]
  },
  {
   "id": "wd-q130269974",
@@ -19614,7 +20933,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q130269974",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Klausenburger Kraut"
+  ]
  },
  {
   "id": "wd-q107308168",
@@ -19629,7 +20951,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107308168",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Vepřo knedlo zelo"
+  ]
  },
  {
   "id": "wd-q135419287",
@@ -19644,7 +20969,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q135419287",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Broken Vermicelli and Chicken",
+   "Vermicelle Poulet"
+  ]
  },
  {
   "id": "wd-q4013610",
@@ -19659,38 +20988,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4013610",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q2548949",
-  "name": "Vine leaf roll",
-  "countries": [
-   "Turkey",
-   "Levant"
-  ],
-  "cuisine": "Turkey",
-  "blurb": "Dishes made by stuffing rice, cheese or ground meat in vine (grape) leaves (rolls).",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q2548949",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q140298634",
-  "name": "Vinegar pie",
-  "countries": [
-   "United States"
-  ],
-  "cuisine": "United States",
-  "blurb": "Type of pie made from vinegar.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q140298634",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Vincisgrassi"
+  ]
  },
  {
   "id": "wd-q3292757",
@@ -19705,7 +21006,14 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3292757",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Vori Vori",
+   "Vori Vorí",
+   "bori-bori",
+   "Vorí vorí",
+   "vorí vorí"
+  ]
  },
  {
   "id": "wd-q2538306",
@@ -19720,7 +21028,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2538306",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Wachauerlaberl",
+   "Wachauer Laberl"
+  ]
  },
  {
   "id": "wd-q209464",
@@ -19735,7 +21047,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q209464",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ensalada Waldorf",
+   "Waldorfsalat",
+   "salade Waldorf"
+  ]
  },
  {
   "id": "wd-q135921159",
@@ -19750,7 +21067,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q135921159",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q17034242",
@@ -19765,7 +21083,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q17034242",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q65589417",
@@ -19780,7 +21099,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q65589417",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "salade de chèvre chaud",
+   "Chevre chaud",
+   "Chèvre chaud"
+  ]
  },
  {
   "id": "wd-q85814488",
@@ -19795,7 +21119,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q85814488",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "hygienic"
+  ]
  },
  {
   "id": "wd-q25383277",
@@ -19810,22 +21137,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q25383277",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q12505591",
-  "name": "Water buffalo pindang",
-  "countries": [
-   "Indonesia"
-  ],
-  "cuisine": "Indonesia",
-  "blurb": "Water buffalo pindang dish.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q12505591",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "wassa-wassa",
+   "couscous d'igname",
+   "yam couscous"
+  ]
  },
  {
   "id": "wd-q136484195",
@@ -19840,7 +21157,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q136484195",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Amala lafun"
+  ]
  },
  {
   "id": "wd-q7995577",
@@ -19855,7 +21175,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q7995577",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q6497852",
@@ -19870,7 +21191,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6497852",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Wiener Schnitzel",
+   "escalope à la viennoise",
+   "Wienerschnitzel"
+  ]
  },
  {
   "id": "wd-q109046610",
@@ -19885,7 +21211,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q109046610",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "wèli"
+  ]
  },
  {
   "id": "wd-q109046650",
@@ -19900,7 +21229,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q109046650",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "wôkoli"
+  ]
  },
  {
   "id": "wd-q10394334",
@@ -19915,7 +21247,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q10394334",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Xarém",
+   "Xerém"
+  ]
  },
  {
   "id": "wd-q139816409",
@@ -19930,7 +21266,13 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q139816409",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "soy milk soup",
+   "Xián dòujiāng",
+   "salty soy milk",
+   "savory soy milk soup"
+  ]
  },
  {
   "id": "wd-q25105527",
@@ -19945,7 +21287,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q25105527",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q10394386",
@@ -19960,7 +21303,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q10394386",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Xipa"
+  ]
  },
  {
   "id": "wd-q113455543",
@@ -19975,7 +21321,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q113455543",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q2431975",
@@ -19990,7 +21337,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2431975",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "yakiniku",
+   "Yakiniku"
+  ]
  },
  {
   "id": "wd-q102419432",
@@ -20005,7 +21356,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q102419432",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q107486466",
@@ -20020,7 +21372,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107486466",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Ji akwụkwọ nri"
+  ]
  },
  {
   "id": "wd-q6027777",
@@ -20035,7 +21390,12 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q6027777",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Yayla Çorbası",
+   "yayla soup",
+   "yoğurt çorbası"
+  ]
  },
  {
   "id": "wd-q12473632",
@@ -20050,7 +21410,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12473632",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "karimunjawa meatballs"
+  ]
  },
  {
   "id": "wd-q12542057",
@@ -20065,7 +21428,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12542057",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Yerma"
+  ]
  },
  {
   "id": "wd-q860170",
@@ -20080,7 +21446,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q860170",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q11554370",
@@ -20095,7 +21462,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q11554370",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "yurinchi",
+   "yuringi"
+  ]
  },
  {
   "id": "wd-q17218222",
@@ -20110,7 +21481,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q17218222",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q55732697",
@@ -20125,22 +21497,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q55732697",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q8066663",
-  "name": "Zarda",
-  "countries": [
-   "India"
-  ],
-  "cuisine": "India",
-  "blurb": "Traditional South Asian sweet dish.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q8066663",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q136288988",
@@ -20155,7 +21513,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q136288988",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Zenne pot"
+  ]
  },
  {
   "id": "wd-q106352242",
@@ -20170,7 +21531,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q106352242",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "zeytinli açma"
+  ]
  },
  {
   "id": "wd-q5684811",
@@ -20185,7 +21549,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q5684811",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q107459853",
@@ -20200,7 +21565,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q107459853",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q12544534",
@@ -20215,7 +21581,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12544534",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Jent"
+  ]
  },
  {
   "id": "wd-q139270254",
@@ -20230,7 +21599,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q139270254",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q110891687",
@@ -20245,7 +21615,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q110891687",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "sopako",
+   "Zopako"
+  ]
  },
  {
   "id": "wd-q2625025",
@@ -20260,22 +21634,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q2625025",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q124744092",
-  "name": "Zozulia",
-  "countries": [
-   "Ukraine"
-  ],
-  "cuisine": "Ukraine",
-  "blurb": "Sweet millet dish with poppy seeds from Ukraine.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q124744092",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Zosui",
+   "Zōsui"
+  ]
  },
  {
   "id": "wd-q4024941",
@@ -20290,7 +21653,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q4024941",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q3952449",
@@ -20305,7 +21669,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q3952449",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Sciurilli",
+   "Beignets de fleurs de courgette"
+  ]
  },
  {
   "id": "wd-q10725554",
@@ -20320,7 +21688,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q10725554",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Bohuslänsk äggost"
+  ]
  },
  {
   "id": "wd-q132156532",
@@ -20338,7 +21709,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q132156532",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "ärtor med fläsk"
+  ]
  },
  {
   "id": "wd-q18755741",
@@ -20353,7 +21727,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q18755741",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Sac Kavurma",
+   "Turkish kavurma"
+  ]
  },
  {
   "id": "wd-q8077757",
@@ -20368,22 +21746,16 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q8077757",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q12849581",
-  "name": "Çörek",
-  "countries": [
-   "Turkey"
-  ],
-  "cuisine": "Turkey",
-  "blurb": "Turkish teatime bread, generally sweet.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q12849581",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "çoban salatası",
+   "Çoban salata",
+   "Coban salatasi",
+   "Ensalada choban",
+   "Çoban salatası",
+   "Çoban salatasi",
+   "Coban salatası"
+  ]
  },
  {
   "id": "wd-q109021226",
@@ -20398,7 +21770,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q109021226",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "èba"
+  ]
  },
  {
   "id": "wd-q25695452",
@@ -20413,7 +21788,8 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q25695452",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": []
  },
  {
   "id": "wd-q1472771",
@@ -20428,22 +21804,11 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q1472771",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q120648396",
-  "name": "Ħobż biż-żejt",
-  "countries": [
-   "Malta"
-  ],
-  "cuisine": "Malta",
-  "blurb": "Maltese appetizer.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q120648396",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Újházy-tyúkhúsleves",
+   "Újházi chicken soup"
+  ]
  },
  {
   "id": "wd-q22230906",
@@ -20458,7 +21823,10 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q22230906",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Žemaičių blynai"
+  ]
  },
  {
   "id": "wd-q12850447",
@@ -20473,21 +21841,9 @@ export default [
    "url": "https://www.wikidata.org/wiki/Q12850447",
    "license": "CC0 1.0",
    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
- },
- {
-  "id": "wd-q12599371",
-  "name": "비29",
-  "countries": [
-   "Korea"
-  ],
-  "cuisine": "Korea",
-  "blurb": "Korean sweet with curry flavor.",
-  "source": {
-   "label": "Wikidata",
-   "url": "https://www.wikidata.org/wiki/Q12599371",
-   "license": "CC0 1.0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
+  },
+  "aliases": [
+   "Əzmə"
+  ]
  }
 ]
