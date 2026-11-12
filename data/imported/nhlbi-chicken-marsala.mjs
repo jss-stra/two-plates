@@ -107,9 +107,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:chicken-marsala:003",
-      "name": "C flour",
+      "name": "flour",
       "quantity": "1/4",
-      "unit": "piece",
+      "unit": "C",
       "note": {
         "ru": null,
         "en": null
@@ -122,10 +122,10 @@ export default {
         "id": "nhlbi-chicken-marsala-003",
         "name": {
           "ru": null,
-          "en": "C flour"
+          "en": "flour"
         },
         "quantity": "1/4",
-        "unit": "piece",
+        "unit": "C",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -447,10 +447,10 @@ export default {
         "id": "nhlbi-chicken-marsala-003",
         "name": {
           "ru": null,
-          "en": "C flour"
+          "en": "flour"
         },
         "quantity": "1/4",
-        "unit": "piece",
+        "unit": "C",
         "scaling": "linear",
         "note": {
           "ru": null,

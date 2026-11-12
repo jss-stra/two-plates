@@ -43,11 +43,13 @@ export default {
   },
   "sourceLabel": "NHLBI Keep the Beat (2003)",
   "description": "You’ll reel them in with this nutritious delicious dish.",
-  "sourceNotes": [],
+  "sourceNotes": [
+    "Any kind of fish can be used."
+  ],
   "lines": [
     {
       "lineRef": "src:nhlbi:baked-trout:001",
-      "name": "trout fillet, cut into 6 pieces Any kind of fish can be used.",
+      "name": "trout fillet, cut into 6 pieces",
       "quantity": "2",
       "unit": "lb",
       "note": {
@@ -62,7 +64,7 @@ export default {
         "id": "nhlbi-baked-trout-001",
         "name": {
           "ru": null,
-          "en": "trout fillet, cut into 6 pieces Any kind of fish can be used."
+          "en": "trout fillet, cut into 6 pieces"
         },
         "quantity": "2",
         "unit": "lb",
@@ -71,7 +73,7 @@ export default {
           "ru": null,
           "en": null
         },
-        "raw": "2 lb trout fillet, cut into 6 pieces Any kind of fish can be used."
+        "raw": "2 lb trout fillet, cut into 6 pieces"
       },
       "methodSteps": []
     },
@@ -197,9 +199,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:baked-trout:006",
-      "name": "tsp olive oil",
+      "name": "olive oil",
       "quantity": "1/2",
-      "unit": "piece",
+      "unit": "tsp",
       "note": {
         "ru": null,
         "en": null
@@ -212,10 +214,10 @@ export default {
         "id": "nhlbi-baked-trout-006",
         "name": {
           "ru": null,
-          "en": "tsp olive oil"
+          "en": "olive oil"
         },
         "quantity": "1/2",
-        "unit": "piece",
+        "unit": "tsp",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -373,7 +375,7 @@ export default {
         "id": "nhlbi-baked-trout-001",
         "name": {
           "ru": null,
-          "en": "trout fillet, cut into 6 pieces Any kind of fish can be used."
+          "en": "trout fillet, cut into 6 pieces"
         },
         "quantity": "2",
         "unit": "lb",
@@ -382,7 +384,7 @@ export default {
           "ru": null,
           "en": null
         },
-        "raw": "2 lb trout fillet, cut into 6 pieces Any kind of fish can be used."
+        "raw": "2 lb trout fillet, cut into 6 pieces"
       },
       {
         "id": "nhlbi-baked-trout-002",
@@ -448,10 +450,10 @@ export default {
         "id": "nhlbi-baked-trout-006",
         "name": {
           "ru": null,
-          "en": "tsp olive oil"
+          "en": "olive oil"
         },
         "quantity": "1/2",
-        "unit": "piece",
+        "unit": "tsp",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -535,7 +537,9 @@ export default {
         "minutes": null
       }
     ],
-    "sourceNotes": [],
+    "sourceNotes": [
+      "Any kind of fish can be used."
+    ],
     "nutritionBlock": {
       "servingSize": "1 piece",
       "yield": "6 servings",

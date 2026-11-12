@@ -107,9 +107,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:finger-licking-curried-chicken:003",
-      "name": "stalk scallion, chopped",
+      "name": "scallion, chopped",
       "quantity": "1",
-      "unit": "piece",
+      "unit": "stalk",
       "note": {
         "ru": null,
         "en": null
@@ -122,10 +122,10 @@ export default {
         "id": "nhlbi-finger-licking-curried-chicken-003",
         "name": {
           "ru": null,
-          "en": "stalk scallion, chopped"
+          "en": "scallion, chopped"
         },
         "quantity": "1",
-        "unit": "piece",
+        "unit": "stalk",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -287,9 +287,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:finger-licking-curried-chicken:009",
-      "name": "pieces chicken, skinless (breast and drumstick)",
+      "name": "chicken, skinless (breast and drumstick)",
       "quantity": "8",
-      "unit": "piece",
+      "unit": "pieces",
       "note": {
         "ru": null,
         "en": null
@@ -302,10 +302,10 @@ export default {
         "id": "nhlbi-finger-licking-curried-chicken-009",
         "name": {
           "ru": null,
-          "en": "pieces chicken, skinless (breast and drumstick)"
+          "en": "chicken, skinless (breast and drumstick)"
         },
         "quantity": "8",
-        "unit": "piece",
+        "unit": "pieces",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -544,10 +544,10 @@ export default {
         "id": "nhlbi-finger-licking-curried-chicken-003",
         "name": {
           "ru": null,
-          "en": "stalk scallion, chopped"
+          "en": "scallion, chopped"
         },
         "quantity": "1",
-        "unit": "piece",
+        "unit": "stalk",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -634,10 +634,10 @@ export default {
         "id": "nhlbi-finger-licking-curried-chicken-009",
         "name": {
           "ru": null,
-          "en": "pieces chicken, skinless (breast and drumstick)"
+          "en": "chicken, skinless (breast and drumstick)"
         },
         "quantity": "8",
-        "unit": "piece",
+        "unit": "pieces",
         "scaling": "linear",
         "note": {
           "ru": null,

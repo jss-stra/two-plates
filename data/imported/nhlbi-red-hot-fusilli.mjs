@@ -332,9 +332,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:red-hot-fusilli:010",
-      "name": "lb (optional) cooked chicken breasts, diced into 1/2-inch pieces (3/4 lb if raw)",
+      "name": "(optional) cooked chicken breasts, diced into 1/2-inch pieces (3/4 lb if raw)",
       "quantity": "1/2",
-      "unit": "piece",
+      "unit": "lb",
       "note": {
         "ru": null,
         "en": null
@@ -347,10 +347,10 @@ export default {
         "id": "nhlbi-red-hot-fusilli-010",
         "name": {
           "ru": null,
-          "en": "lb (optional) cooked chicken breasts, diced into 1/2-inch pieces (3/4 lb if raw)"
+          "en": "(optional) cooked chicken breasts, diced into 1/2-inch pieces (3/4 lb if raw)"
         },
         "quantity": "1/2",
-        "unit": "piece",
+        "unit": "lb",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -553,10 +553,10 @@ export default {
         "id": "nhlbi-red-hot-fusilli-010",
         "name": {
           "ru": null,
-          "en": "lb (optional) cooked chicken breasts, diced into 1/2-inch pieces (3/4 lb if raw)"
+          "en": "(optional) cooked chicken breasts, diced into 1/2-inch pieces (3/4 lb if raw)"
         },
         "quantity": "1/2",
-        "unit": "piece",
+        "unit": "lb",
         "scaling": "linear",
         "note": {
           "ru": null,

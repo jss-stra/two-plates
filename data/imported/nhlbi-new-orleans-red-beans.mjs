@@ -77,9 +77,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:new-orleans-red-beans:002",
-      "name": "qt water",
+      "name": "water",
       "quantity": "2",
-      "unit": "piece",
+      "unit": "qt",
       "note": {
         "ru": null,
         "en": null
@@ -92,10 +92,10 @@ export default {
         "id": "nhlbi-new-orleans-red-beans-002",
         "name": {
           "ru": null,
-          "en": "qt water"
+          "en": "water"
         },
         "quantity": "2",
-        "unit": "piece",
+        "unit": "qt",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -448,10 +448,10 @@ export default {
         "id": "nhlbi-new-orleans-red-beans-002",
         "name": {
           "ru": null,
-          "en": "qt water"
+          "en": "water"
         },
         "quantity": "2",
-        "unit": "piece",
+        "unit": "qt",
         "scaling": "linear",
         "note": {
           "ru": null,

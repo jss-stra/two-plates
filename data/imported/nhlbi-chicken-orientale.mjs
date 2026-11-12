@@ -317,7 +317,7 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:chicken-orientale:010",
-      "name": "soy sauce, low sodium dash ginger, ground",
+      "name": "soy sauce, low sodium",
       "quantity": "2",
       "unit": "Tbsp",
       "note": {
@@ -332,7 +332,7 @@ export default {
         "id": "nhlbi-chicken-orientale-010",
         "name": {
           "ru": null,
-          "en": "soy sauce, low sodium dash ginger, ground"
+          "en": "soy sauce, low sodium"
         },
         "quantity": "2",
         "unit": "Tbsp",
@@ -341,12 +341,42 @@ export default {
           "ru": null,
           "en": null
         },
-        "raw": "2 Tbsp soy sauce, low sodium dash ginger, ground"
+        "raw": "2 Tbsp soy sauce, low sodium"
       },
       "methodSteps": []
     },
     {
       "lineRef": "src:nhlbi:chicken-orientale:011",
+      "name": "ginger, ground",
+      "quantity": "",
+      "unit": "dash",
+      "note": {
+        "ru": null,
+        "en": null
+      },
+      "scaling": "linear",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "nhlbi-chicken-orientale-011",
+        "name": {
+          "ru": null,
+          "en": "ginger, ground"
+        },
+        "quantity": "",
+        "unit": "dash",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "dash ginger, ground"
+      },
+      "methodSteps": []
+    },
+    {
+      "lineRef": "src:nhlbi:chicken-orientale:012",
       "name": "vinegar",
       "quantity": "2",
       "unit": "Tbsp",
@@ -359,7 +389,7 @@ export default {
       "massGrams": null,
       "nutritionStatus": "unknown",
       "source": {
-        "id": "nhlbi-chicken-orientale-011",
+        "id": "nhlbi-chicken-orientale-012",
         "name": {
           "ru": null,
           "en": "vinegar"
@@ -376,10 +406,10 @@ export default {
       "methodSteps": []
     },
     {
-      "lineRef": "src:nhlbi:chicken-orientale:012",
-      "name": "C vegetable oil",
+      "lineRef": "src:nhlbi:chicken-orientale:013",
+      "name": "vegetable oil",
       "quantity": "1/4",
-      "unit": "piece",
+      "unit": "C",
       "note": {
         "ru": null,
         "en": null
@@ -389,13 +419,13 @@ export default {
       "massGrams": null,
       "nutritionStatus": "unknown",
       "source": {
-        "id": "nhlbi-chicken-orientale-012",
+        "id": "nhlbi-chicken-orientale-013",
         "name": {
           "ru": null,
-          "en": "C vegetable oil"
+          "en": "vegetable oil"
         },
         "quantity": "1/4",
-        "unit": "piece",
+        "unit": "C",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -598,7 +628,7 @@ export default {
         "id": "nhlbi-chicken-orientale-010",
         "name": {
           "ru": null,
-          "en": "soy sauce, low sodium dash ginger, ground"
+          "en": "soy sauce, low sodium"
         },
         "quantity": "2",
         "unit": "Tbsp",
@@ -607,10 +637,25 @@ export default {
           "ru": null,
           "en": null
         },
-        "raw": "2 Tbsp soy sauce, low sodium dash ginger, ground"
+        "raw": "2 Tbsp soy sauce, low sodium"
       },
       {
         "id": "nhlbi-chicken-orientale-011",
+        "name": {
+          "ru": null,
+          "en": "ginger, ground"
+        },
+        "quantity": "",
+        "unit": "dash",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "dash ginger, ground"
+      },
+      {
+        "id": "nhlbi-chicken-orientale-012",
         "name": {
           "ru": null,
           "en": "vinegar"
@@ -625,13 +670,13 @@ export default {
         "raw": "2 Tbsp vinegar"
       },
       {
-        "id": "nhlbi-chicken-orientale-012",
+        "id": "nhlbi-chicken-orientale-013",
         "name": {
           "ru": null,
-          "en": "C vegetable oil"
+          "en": "vegetable oil"
         },
         "quantity": "1/4",
-        "unit": "piece",
+        "unit": "C",
         "scaling": "linear",
         "note": {
           "ru": null,

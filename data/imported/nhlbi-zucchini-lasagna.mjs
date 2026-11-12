@@ -44,7 +44,7 @@ export default {
   "sourceLabel": "NHLBI Keep the Beat (2003)",
   "description": "Say, \"Cheese,\" because this healthy version of a favorite comfort food will leave you smiling.",
   "sourceNotes": [
-    "Use unsalted cottage cheese to reduce the sodium"
+    "Use unsalted cottage cheese to reduce the sodium content. New sodium content for each serving is 196 mg."
   ],
   "lines": [
     {
@@ -319,9 +319,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:zucchini-lasagna:010",
-      "name": "clove garlic",
+      "name": "garlic",
       "quantity": "1",
-      "unit": "piece",
+      "unit": "clove",
       "note": {
         "ru": null,
         "en": null
@@ -334,10 +334,10 @@ export default {
         "id": "nhlbi-zucchini-lasagna-010",
         "name": {
           "ru": null,
-          "en": "clove garlic"
+          "en": "garlic"
         },
         "quantity": "1",
-        "unit": "piece",
+        "unit": "clove",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -374,36 +374,6 @@ export default {
           "en": null
         },
         "raw": "1/8 tsp black pepper"
-      },
-      "methodSteps": []
-    },
-    {
-      "lineRef": "src:nhlbi:zucchini-lasagna:012",
-      "name": "mg.",
-      "quantity": "196",
-      "unit": "piece",
-      "note": {
-        "ru": null,
-        "en": null
-      },
-      "scaling": "linear",
-      "catalogId": null,
-      "massGrams": null,
-      "nutritionStatus": "unknown",
-      "source": {
-        "id": "nhlbi-zucchini-lasagna-012",
-        "name": {
-          "ru": null,
-          "en": "mg."
-        },
-        "quantity": "196",
-        "unit": "piece",
-        "scaling": "linear",
-        "note": {
-          "ru": null,
-          "en": null
-        },
-        "raw": "196 mg."
       },
       "methodSteps": []
     }
@@ -614,10 +584,10 @@ export default {
         "id": "nhlbi-zucchini-lasagna-010",
         "name": {
           "ru": null,
-          "en": "clove garlic"
+          "en": "garlic"
         },
         "quantity": "1",
-        "unit": "piece",
+        "unit": "clove",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -639,21 +609,6 @@ export default {
           "en": null
         },
         "raw": "1/8 tsp black pepper"
-      },
-      {
-        "id": "nhlbi-zucchini-lasagna-012",
-        "name": {
-          "ru": null,
-          "en": "mg."
-        },
-        "quantity": "196",
-        "unit": "piece",
-        "scaling": "linear",
-        "note": {
-          "ru": null,
-          "en": null
-        },
-        "raw": "196 mg."
       }
     ],
     "steps": [
@@ -701,7 +656,7 @@ export default {
       }
     ],
     "sourceNotes": [
-      "Use unsalted cottage cheese to reduce the sodium"
+      "Use unsalted cottage cheese to reduce the sodium content. New sodium content for each serving is 196 mg."
     ],
     "nutritionBlock": {
       "servingSize": "1 piece",

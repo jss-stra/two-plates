@@ -407,9 +407,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:jamaican-jerk-chicken:013",
-      "name": "pieces chicken, skinless (4 breasts, 4 drumsticks)",
+      "name": "chicken, skinless (4 breasts, 4 drumsticks)",
       "quantity": "8",
-      "unit": "piece",
+      "unit": "pieces",
       "note": {
         "ru": null,
         "en": null
@@ -422,10 +422,10 @@ export default {
         "id": "nhlbi-jamaican-jerk-chicken-013",
         "name": {
           "ru": null,
-          "en": "pieces chicken, skinless (4 breasts, 4 drumsticks)"
+          "en": "chicken, skinless (4 breasts, 4 drumsticks)"
         },
         "quantity": "8",
-        "unit": "piece",
+        "unit": "pieces",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -673,10 +673,10 @@ export default {
         "id": "nhlbi-jamaican-jerk-chicken-013",
         "name": {
           "ru": null,
-          "en": "pieces chicken, skinless (4 breasts, 4 drumsticks)"
+          "en": "chicken, skinless (4 breasts, 4 drumsticks)"
         },
         "quantity": "8",
-        "unit": "piece",
+        "unit": "pieces",
         "scaling": "linear",
         "note": {
           "ru": null,

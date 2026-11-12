@@ -107,9 +107,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:fish-veronique:003",
-      "name": "tsp black pepper",
+      "name": "black pepper",
       "quantity": "1/8",
-      "unit": "piece",
+      "unit": "tsp",
       "note": {
         "ru": null,
         "en": null
@@ -122,10 +122,10 @@ export default {
         "id": "nhlbi-fish-veronique-003",
         "name": {
           "ru": null,
-          "en": "tsp black pepper"
+          "en": "black pepper"
         },
         "quantity": "1/8",
-        "unit": "piece",
+        "unit": "tsp",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -477,10 +477,10 @@ export default {
         "id": "nhlbi-fish-veronique-003",
         "name": {
           "ru": null,
-          "en": "tsp black pepper"
+          "en": "black pepper"
         },
         "quantity": "1/8",
-        "unit": "piece",
+        "unit": "tsp",
         "scaling": "linear",
         "note": {
           "ru": null,

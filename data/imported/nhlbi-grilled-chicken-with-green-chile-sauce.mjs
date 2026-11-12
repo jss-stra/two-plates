@@ -167,9 +167,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:grilled-chicken-with-green-chile-sauce:005",
-      "name": "tsp black pepper",
+      "name": "black pepper",
       "quantity": "1/2",
-      "unit": "piece",
+      "unit": "tsp",
       "note": {
         "ru": null,
         "en": null
@@ -182,10 +182,10 @@ export default {
         "id": "nhlbi-grilled-chicken-with-green-chile-sauce-005",
         "name": {
           "ru": null,
-          "en": "tsp black pepper"
+          "en": "black pepper"
         },
         "quantity": "1/2",
-        "unit": "piece",
+        "unit": "tsp",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -197,7 +197,7 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:grilled-chicken-with-green-chile-sauce:006",
-      "name": "water 10–12 tomatillos, husks removed, cut in half",
+      "name": "water",
       "quantity": "1/4",
       "unit": "C",
       "note": {
@@ -212,7 +212,7 @@ export default {
         "id": "nhlbi-grilled-chicken-with-green-chile-sauce-006",
         "name": {
           "ru": null,
-          "en": "water 10–12 tomatillos, husks removed, cut in half"
+          "en": "water"
         },
         "quantity": "1/4",
         "unit": "C",
@@ -221,12 +221,42 @@ export default {
           "ru": null,
           "en": null
         },
-        "raw": "1/4 C water 10–12 tomatillos, husks removed, cut in half"
+        "raw": "1/4 C water"
       },
       "methodSteps": []
     },
     {
       "lineRef": "src:nhlbi:grilled-chicken-with-green-chile-sauce:007",
+      "name": "tomatillos, husks removed, cut in half",
+      "quantity": "10–12",
+      "unit": "piece",
+      "note": {
+        "ru": null,
+        "en": null
+      },
+      "scaling": "linear",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "nhlbi-grilled-chicken-with-green-chile-sauce-007",
+        "name": {
+          "ru": null,
+          "en": "tomatillos, husks removed, cut in half"
+        },
+        "quantity": "10–12",
+        "unit": "piece",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "10–12 tomatillos, husks removed, cut in half"
+      },
+      "methodSteps": []
+    },
+    {
+      "lineRef": "src:nhlbi:grilled-chicken-with-green-chile-sauce:008",
       "name": "medium onion, quartered",
       "quantity": "1/2",
       "unit": "piece",
@@ -239,7 +269,7 @@ export default {
       "massGrams": null,
       "nutritionStatus": "unknown",
       "source": {
-        "id": "nhlbi-grilled-chicken-with-green-chile-sauce-007",
+        "id": "nhlbi-grilled-chicken-with-green-chile-sauce-008",
         "name": {
           "ru": null,
           "en": "medium onion, quartered"
@@ -256,7 +286,7 @@ export default {
       "methodSteps": []
     },
     {
-      "lineRef": "src:nhlbi:grilled-chicken-with-green-chile-sauce:008",
+      "lineRef": "src:nhlbi:grilled-chicken-with-green-chile-sauce:009",
       "name": "garlic, finely chopped",
       "quantity": "2",
       "unit": "cloves",
@@ -269,7 +299,7 @@ export default {
       "massGrams": null,
       "nutritionStatus": "unknown",
       "source": {
-        "id": "nhlbi-grilled-chicken-with-green-chile-sauce-008",
+        "id": "nhlbi-grilled-chicken-with-green-chile-sauce-009",
         "name": {
           "ru": null,
           "en": "garlic, finely chopped"
@@ -286,7 +316,7 @@ export default {
       "methodSteps": []
     },
     {
-      "lineRef": "src:nhlbi:grilled-chicken-with-green-chile-sauce:009",
+      "lineRef": "src:nhlbi:grilled-chicken-with-green-chile-sauce:010",
       "name": "jalapeño peppers",
       "quantity": "2",
       "unit": "piece",
@@ -299,7 +329,7 @@ export default {
       "massGrams": null,
       "nutritionStatus": "unknown",
       "source": {
-        "id": "nhlbi-grilled-chicken-with-green-chile-sauce-009",
+        "id": "nhlbi-grilled-chicken-with-green-chile-sauce-010",
         "name": {
           "ru": null,
           "en": "jalapeño peppers"
@@ -316,7 +346,7 @@ export default {
       "methodSteps": []
     },
     {
-      "lineRef": "src:nhlbi:grilled-chicken-with-green-chile-sauce:010",
+      "lineRef": "src:nhlbi:grilled-chicken-with-green-chile-sauce:011",
       "name": "cilantro, chopped",
       "quantity": "2",
       "unit": "Tbsp",
@@ -329,7 +359,7 @@ export default {
       "massGrams": null,
       "nutritionStatus": "unknown",
       "source": {
-        "id": "nhlbi-grilled-chicken-with-green-chile-sauce-010",
+        "id": "nhlbi-grilled-chicken-with-green-chile-sauce-011",
         "name": {
           "ru": null,
           "en": "cilantro, chopped"
@@ -346,7 +376,7 @@ export default {
       "methodSteps": []
     },
     {
-      "lineRef": "src:nhlbi:grilled-chicken-with-green-chile-sauce:011",
+      "lineRef": "src:nhlbi:grilled-chicken-with-green-chile-sauce:012",
       "name": "salt",
       "quantity": "1/4",
       "unit": "tsp",
@@ -359,7 +389,7 @@ export default {
       "massGrams": null,
       "nutritionStatus": "unknown",
       "source": {
-        "id": "nhlbi-grilled-chicken-with-green-chile-sauce-011",
+        "id": "nhlbi-grilled-chicken-with-green-chile-sauce-012",
         "name": {
           "ru": null,
           "en": "salt"
@@ -376,7 +406,7 @@ export default {
       "methodSteps": []
     },
     {
-      "lineRef": "src:nhlbi:grilled-chicken-with-green-chile-sauce:012",
+      "lineRef": "src:nhlbi:grilled-chicken-with-green-chile-sauce:013",
       "name": "lowfat sour cream",
       "quantity": "1/4",
       "unit": "C",
@@ -389,7 +419,7 @@ export default {
       "massGrams": null,
       "nutritionStatus": "unknown",
       "source": {
-        "id": "nhlbi-grilled-chicken-with-green-chile-sauce-012",
+        "id": "nhlbi-grilled-chicken-with-green-chile-sauce-013",
         "name": {
           "ru": null,
           "en": "lowfat sour cream"
@@ -530,10 +560,10 @@ export default {
         "id": "nhlbi-grilled-chicken-with-green-chile-sauce-005",
         "name": {
           "ru": null,
-          "en": "tsp black pepper"
+          "en": "black pepper"
         },
         "quantity": "1/2",
-        "unit": "piece",
+        "unit": "tsp",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -545,7 +575,7 @@ export default {
         "id": "nhlbi-grilled-chicken-with-green-chile-sauce-006",
         "name": {
           "ru": null,
-          "en": "water 10–12 tomatillos, husks removed, cut in half"
+          "en": "water"
         },
         "quantity": "1/4",
         "unit": "C",
@@ -554,10 +584,25 @@ export default {
           "ru": null,
           "en": null
         },
-        "raw": "1/4 C water 10–12 tomatillos, husks removed, cut in half"
+        "raw": "1/4 C water"
       },
       {
         "id": "nhlbi-grilled-chicken-with-green-chile-sauce-007",
+        "name": {
+          "ru": null,
+          "en": "tomatillos, husks removed, cut in half"
+        },
+        "quantity": "10–12",
+        "unit": "piece",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "10–12 tomatillos, husks removed, cut in half"
+      },
+      {
+        "id": "nhlbi-grilled-chicken-with-green-chile-sauce-008",
         "name": {
           "ru": null,
           "en": "medium onion, quartered"
@@ -572,7 +617,7 @@ export default {
         "raw": "1/2 medium onion, quartered"
       },
       {
-        "id": "nhlbi-grilled-chicken-with-green-chile-sauce-008",
+        "id": "nhlbi-grilled-chicken-with-green-chile-sauce-009",
         "name": {
           "ru": null,
           "en": "garlic, finely chopped"
@@ -587,7 +632,7 @@ export default {
         "raw": "2 cloves garlic, finely chopped"
       },
       {
-        "id": "nhlbi-grilled-chicken-with-green-chile-sauce-009",
+        "id": "nhlbi-grilled-chicken-with-green-chile-sauce-010",
         "name": {
           "ru": null,
           "en": "jalapeño peppers"
@@ -602,7 +647,7 @@ export default {
         "raw": "2 jalapeño peppers"
       },
       {
-        "id": "nhlbi-grilled-chicken-with-green-chile-sauce-010",
+        "id": "nhlbi-grilled-chicken-with-green-chile-sauce-011",
         "name": {
           "ru": null,
           "en": "cilantro, chopped"
@@ -617,7 +662,7 @@ export default {
         "raw": "2 Tbsp cilantro, chopped"
       },
       {
-        "id": "nhlbi-grilled-chicken-with-green-chile-sauce-011",
+        "id": "nhlbi-grilled-chicken-with-green-chile-sauce-012",
         "name": {
           "ru": null,
           "en": "salt"
@@ -632,7 +677,7 @@ export default {
         "raw": "1/4 tsp salt"
       },
       {
-        "id": "nhlbi-grilled-chicken-with-green-chile-sauce-012",
+        "id": "nhlbi-grilled-chicken-with-green-chile-sauce-013",
         "name": {
           "ru": null,
           "en": "lowfat sour cream"

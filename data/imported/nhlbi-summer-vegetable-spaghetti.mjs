@@ -227,9 +227,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:summer-vegetable-spaghetti:007",
-      "name": "clove garlic, minced",
+      "name": "garlic, minced",
       "quantity": "1",
-      "unit": "piece",
+      "unit": "clove",
       "note": {
         "ru": null,
         "en": null
@@ -242,10 +242,10 @@ export default {
         "id": "nhlbi-summer-vegetable-spaghetti-007",
         "name": {
           "ru": null,
-          "en": "clove garlic, minced"
+          "en": "garlic, minced"
         },
         "quantity": "1",
-        "unit": "piece",
+        "unit": "clove",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -576,10 +576,10 @@ export default {
         "id": "nhlbi-summer-vegetable-spaghetti-007",
         "name": {
           "ru": null,
-          "en": "clove garlic, minced"
+          "en": "garlic, minced"
         },
         "quantity": "1",
-        "unit": "piece",
+        "unit": "clove",
         "scaling": "linear",
         "note": {
           "ru": null,

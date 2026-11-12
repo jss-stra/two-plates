@@ -137,9 +137,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:mouth-watering-oven-fried-fish:004",
-      "name": "drops hot pepper sauce",
+      "name": "hot pepper sauce",
       "quantity": "2",
-      "unit": "piece",
+      "unit": "drops",
       "note": {
         "ru": null,
         "en": null
@@ -152,10 +152,10 @@ export default {
         "id": "nhlbi-mouth-watering-oven-fried-fish-004",
         "name": {
           "ru": null,
-          "en": "drops hot pepper sauce"
+          "en": "hot pepper sauce"
         },
         "quantity": "2",
-        "unit": "piece",
+        "unit": "drops",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -506,10 +506,10 @@ export default {
         "id": "nhlbi-mouth-watering-oven-fried-fish-004",
         "name": {
           "ru": null,
-          "en": "drops hot pepper sauce"
+          "en": "hot pepper sauce"
         },
         "quantity": "2",
-        "unit": "piece",
+        "unit": "drops",
         "scaling": "linear",
         "note": {
           "ru": null,

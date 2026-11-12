@@ -47,9 +47,9 @@ export default {
   "lines": [
     {
       "lineRef": "src:nhlbi:chicken-stew:001",
-      "name": "pieces chicken (breasts or legs)",
+      "name": "chicken (breasts or legs)",
       "quantity": "8",
-      "unit": "piece",
+      "unit": "pieces",
       "note": {
         "ru": null,
         "en": null
@@ -62,10 +62,10 @@ export default {
         "id": "nhlbi-chicken-stew-001",
         "name": {
           "ru": null,
-          "en": "pieces chicken (breasts or legs)"
+          "en": "chicken (breasts or legs)"
         },
         "quantity": "8",
-        "unit": "piece",
+        "unit": "pieces",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -449,10 +449,10 @@ export default {
         "id": "nhlbi-chicken-stew-001",
         "name": {
           "ru": null,
-          "en": "pieces chicken (breasts or legs)"
+          "en": "chicken (breasts or legs)"
         },
         "quantity": "8",
-        "unit": "piece",
+        "unit": "pieces",
         "scaling": "linear",
         "note": {
           "ru": null,

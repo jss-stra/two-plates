@@ -287,9 +287,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:chicken-gumbo:009",
-      "name": "C celery, chopped",
+      "name": "celery, chopped",
       "quantity": "1/4",
-      "unit": "piece",
+      "unit": "C",
       "note": {
         "ru": null,
         "en": null
@@ -302,10 +302,10 @@ export default {
         "id": "nhlbi-chicken-gumbo-009",
         "name": {
           "ru": null,
-          "en": "C celery, chopped"
+          "en": "celery, chopped"
         },
         "quantity": "1/4",
-        "unit": "piece",
+        "unit": "C",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -347,9 +347,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:chicken-gumbo:011",
-      "name": "stalks scallion, chopped",
+      "name": "scallion, chopped",
       "quantity": "2",
-      "unit": "piece",
+      "unit": "stalks",
       "note": {
         "ru": null,
         "en": null
@@ -362,10 +362,10 @@ export default {
         "id": "nhlbi-chicken-gumbo-011",
         "name": {
           "ru": null,
-          "en": "stalks scallion, chopped"
+          "en": "scallion, chopped"
         },
         "quantity": "2",
-        "unit": "piece",
+        "unit": "stalks",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -437,9 +437,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:chicken-gumbo:014",
-      "name": "tsp black pepper, ground",
+      "name": "black pepper, ground",
       "quantity": "1/2",
-      "unit": "piece",
+      "unit": "tsp",
       "note": {
         "ru": null,
         "en": null
@@ -452,10 +452,10 @@ export default {
         "id": "nhlbi-chicken-gumbo-014",
         "name": {
           "ru": null,
-          "en": "tsp black pepper, ground"
+          "en": "black pepper, ground"
         },
         "quantity": "1/2",
-        "unit": "piece",
+        "unit": "tsp",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -717,10 +717,10 @@ export default {
         "id": "nhlbi-chicken-gumbo-009",
         "name": {
           "ru": null,
-          "en": "C celery, chopped"
+          "en": "celery, chopped"
         },
         "quantity": "1/4",
-        "unit": "piece",
+        "unit": "C",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -747,10 +747,10 @@ export default {
         "id": "nhlbi-chicken-gumbo-011",
         "name": {
           "ru": null,
-          "en": "stalks scallion, chopped"
+          "en": "scallion, chopped"
         },
         "quantity": "2",
-        "unit": "piece",
+        "unit": "stalks",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -792,10 +792,10 @@ export default {
         "id": "nhlbi-chicken-gumbo-014",
         "name": {
           "ru": null,
-          "en": "tsp black pepper, ground"
+          "en": "black pepper, ground"
         },
         "quantity": "1/2",
-        "unit": "piece",
+        "unit": "tsp",
         "scaling": "linear",
         "note": {
           "ru": null,

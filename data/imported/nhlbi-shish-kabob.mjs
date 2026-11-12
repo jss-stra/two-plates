@@ -107,9 +107,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:shish-kabob:003",
-      "name": "C red wine",
+      "name": "red wine",
       "quantity": "1/4",
-      "unit": "piece",
+      "unit": "C",
       "note": {
         "ru": null,
         "en": null
@@ -122,10 +122,10 @@ export default {
         "id": "nhlbi-shish-kabob-003",
         "name": {
           "ru": null,
-          "en": "C red wine"
+          "en": "red wine"
         },
         "quantity": "1/4",
-        "unit": "piece",
+        "unit": "C",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -479,10 +479,10 @@ export default {
         "id": "nhlbi-shish-kabob-003",
         "name": {
           "ru": null,
-          "en": "C red wine"
+          "en": "red wine"
         },
         "quantity": "1/4",
-        "unit": "piece",
+        "unit": "C",
         "scaling": "linear",
         "note": {
           "ru": null,

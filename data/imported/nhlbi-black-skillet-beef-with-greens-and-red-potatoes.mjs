@@ -257,9 +257,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:black-skillet-beef-with-greens-and-red-potatoes:008",
-      "name": "tsp dry mustard",
+      "name": "dry mustard",
       "quantity": "1/8",
-      "unit": "piece",
+      "unit": "tsp",
       "note": {
         "ru": null,
         "en": null
@@ -272,10 +272,10 @@ export default {
         "id": "nhlbi-black-skillet-beef-with-greens-and-red-potatoes-008",
         "name": {
           "ru": null,
-          "en": "tsp dry mustard"
+          "en": "dry mustard"
         },
         "quantity": "1/8",
-        "unit": "piece",
+        "unit": "tsp",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -658,10 +658,10 @@ export default {
         "id": "nhlbi-black-skillet-beef-with-greens-and-red-potatoes-008",
         "name": {
           "ru": null,
-          "en": "tsp dry mustard"
+          "en": "dry mustard"
         },
         "quantity": "1/8",
-        "unit": "piece",
+        "unit": "tsp",
         "scaling": "linear",
         "note": {
           "ru": null,

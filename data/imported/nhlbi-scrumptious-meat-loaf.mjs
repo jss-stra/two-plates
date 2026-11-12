@@ -289,9 +289,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:scrumptious-meat-loaf:009",
-      "name": "tsp hot pepper, chopped",
+      "name": "hot pepper, chopped",
       "quantity": "1/2",
-      "unit": "piece",
+      "unit": "tsp",
       "note": {
         "ru": null,
         "en": null
@@ -304,10 +304,10 @@ export default {
         "id": "nhlbi-scrumptious-meat-loaf-009",
         "name": {
           "ru": null,
-          "en": "tsp hot pepper, chopped"
+          "en": "hot pepper, chopped"
         },
         "quantity": "1/2",
-        "unit": "piece",
+        "unit": "tsp",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -349,9 +349,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:scrumptious-meat-loaf:011",
-      "name": "stalks scallion, chopped",
+      "name": "scallion, chopped",
       "quantity": "2",
-      "unit": "piece",
+      "unit": "stalks",
       "note": {
         "ru": null,
         "en": null
@@ -364,10 +364,10 @@ export default {
         "id": "nhlbi-scrumptious-meat-loaf-011",
         "name": {
           "ru": null,
-          "en": "stalks scallion, chopped"
+          "en": "scallion, chopped"
         },
         "quantity": "2",
-        "unit": "piece",
+        "unit": "stalks",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -698,10 +698,10 @@ export default {
         "id": "nhlbi-scrumptious-meat-loaf-009",
         "name": {
           "ru": null,
-          "en": "tsp hot pepper, chopped"
+          "en": "hot pepper, chopped"
         },
         "quantity": "1/2",
-        "unit": "piece",
+        "unit": "tsp",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -728,10 +728,10 @@ export default {
         "id": "nhlbi-scrumptious-meat-loaf-011",
         "name": {
           "ru": null,
-          "en": "stalks scallion, chopped"
+          "en": "scallion, chopped"
         },
         "quantity": "2",
-        "unit": "piece",
+        "unit": "stalks",
         "scaling": "linear",
         "note": {
           "ru": null,

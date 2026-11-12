@@ -257,9 +257,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:quick-beef-casserole:008",
-      "name": "tsp paprika",
+      "name": "paprika",
       "quantity": "1/4",
-      "unit": "piece",
+      "unit": "tsp",
       "note": {
         "ru": null,
         "en": null
@@ -272,10 +272,10 @@ export default {
         "id": "nhlbi-quick-beef-casserole-008",
         "name": {
           "ru": null,
-          "en": "tsp paprika"
+          "en": "paprika"
         },
         "quantity": "1/4",
-        "unit": "piece",
+        "unit": "tsp",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -554,10 +554,10 @@ export default {
         "id": "nhlbi-quick-beef-casserole-008",
         "name": {
           "ru": null,
-          "en": "tsp paprika"
+          "en": "paprika"
         },
         "quantity": "1/4",
-        "unit": "piece",
+        "unit": "tsp",
         "scaling": "linear",
         "note": {
           "ru": null,

@@ -287,9 +287,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:stir-fried-beef-and-chinese-vegetables:009",
-      "name": "stalks (1/2 C) celery, bias cut into 1/4-inch slices",
+      "name": "(1/2 C) celery, bias cut into 1/4-inch slices",
       "quantity": "2",
-      "unit": "piece",
+      "unit": "stalks",
       "note": {
         "ru": null,
         "en": null
@@ -302,10 +302,10 @@ export default {
         "id": "nhlbi-stir-fried-beef-and-chinese-vegetables-009",
         "name": {
           "ru": null,
-          "en": "stalks (1/2 C) celery, bias cut into 1/4-inch slices"
+          "en": "(1/2 C) celery, bias cut into 1/4-inch slices"
         },
         "quantity": "2",
-        "unit": "piece",
+        "unit": "stalks",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -627,10 +627,10 @@ export default {
         "id": "nhlbi-stir-fried-beef-and-chinese-vegetables-009",
         "name": {
           "ru": null,
-          "en": "stalks (1/2 C) celery, bias cut into 1/4-inch slices"
+          "en": "(1/2 C) celery, bias cut into 1/4-inch slices"
         },
         "quantity": "2",
-        "unit": "piece",
+        "unit": "stalks",
         "scaling": "linear",
         "note": {
           "ru": null,

@@ -107,9 +107,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:scallop-kabobs:003",
-      "name": "pt cherry tomatoes",
+      "name": "cherry tomatoes",
       "quantity": "1",
-      "unit": "piece",
+      "unit": "pt",
       "note": {
         "ru": null,
         "en": null
@@ -122,10 +122,10 @@ export default {
         "id": "nhlbi-scallop-kabobs-003",
         "name": {
           "ru": null,
-          "en": "pt cherry tomatoes"
+          "en": "cherry tomatoes"
         },
         "quantity": "1",
-        "unit": "piece",
+        "unit": "pt",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -197,7 +197,7 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:scallop-kabobs:006",
-      "name": "lemon juice dash garlic powder",
+      "name": "lemon juice",
       "quantity": "3",
       "unit": "Tbsp",
       "note": {
@@ -212,7 +212,7 @@ export default {
         "id": "nhlbi-scallop-kabobs-006",
         "name": {
           "ru": null,
-          "en": "lemon juice dash garlic powder"
+          "en": "lemon juice"
         },
         "quantity": "3",
         "unit": "Tbsp",
@@ -221,12 +221,42 @@ export default {
           "ru": null,
           "en": null
         },
-        "raw": "3 Tbsp lemon juice dash garlic powder"
+        "raw": "3 Tbsp lemon juice"
       },
       "methodSteps": []
     },
     {
       "lineRef": "src:nhlbi:scallop-kabobs:007",
+      "name": "garlic powder",
+      "quantity": "",
+      "unit": "dash",
+      "note": {
+        "ru": null,
+        "en": null
+      },
+      "scaling": "linear",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "nhlbi-scallop-kabobs-007",
+        "name": {
+          "ru": null,
+          "en": "garlic powder"
+        },
+        "quantity": "",
+        "unit": "dash",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "dash garlic powder"
+      },
+      "methodSteps": []
+    },
+    {
+      "lineRef": "src:nhlbi:scallop-kabobs:008",
       "name": "black pepper",
       "quantity": "",
       "unit": "to taste",
@@ -239,7 +269,7 @@ export default {
       "massGrams": null,
       "nutritionStatus": "unknown",
       "source": {
-        "id": "nhlbi-scallop-kabobs-007",
+        "id": "nhlbi-scallop-kabobs-008",
         "name": {
           "ru": null,
           "en": "black pepper"
@@ -256,7 +286,7 @@ export default {
       "methodSteps": []
     },
     {
-      "lineRef": "src:nhlbi:scallop-kabobs:008",
+      "lineRef": "src:nhlbi:scallop-kabobs:009",
       "name": "skewers",
       "quantity": "4",
       "unit": "piece",
@@ -269,7 +299,7 @@ export default {
       "massGrams": null,
       "nutritionStatus": "unknown",
       "source": {
-        "id": "nhlbi-scallop-kabobs-008",
+        "id": "nhlbi-scallop-kabobs-009",
         "name": {
           "ru": null,
           "en": "skewers"
@@ -380,10 +410,10 @@ export default {
         "id": "nhlbi-scallop-kabobs-003",
         "name": {
           "ru": null,
-          "en": "pt cherry tomatoes"
+          "en": "cherry tomatoes"
         },
         "quantity": "1",
-        "unit": "piece",
+        "unit": "pt",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -425,7 +455,7 @@ export default {
         "id": "nhlbi-scallop-kabobs-006",
         "name": {
           "ru": null,
-          "en": "lemon juice dash garlic powder"
+          "en": "lemon juice"
         },
         "quantity": "3",
         "unit": "Tbsp",
@@ -434,10 +464,25 @@ export default {
           "ru": null,
           "en": null
         },
-        "raw": "3 Tbsp lemon juice dash garlic powder"
+        "raw": "3 Tbsp lemon juice"
       },
       {
         "id": "nhlbi-scallop-kabobs-007",
+        "name": {
+          "ru": null,
+          "en": "garlic powder"
+        },
+        "quantity": "",
+        "unit": "dash",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "dash garlic powder"
+      },
+      {
+        "id": "nhlbi-scallop-kabobs-008",
         "name": {
           "ru": null,
           "en": "black pepper"
@@ -452,7 +497,7 @@ export default {
         "raw": "to taste black pepper"
       },
       {
-        "id": "nhlbi-scallop-kabobs-008",
+        "id": "nhlbi-scallop-kabobs-009",
         "name": {
           "ru": null,
           "en": "skewers"

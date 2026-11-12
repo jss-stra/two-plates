@@ -407,9 +407,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:chicken-and-rice:013",
-      "name": "tsp salt",
+      "name": "salt",
       "quantity": "1/8",
-      "unit": "piece",
+      "unit": "tsp",
       "note": {
         "ru": null,
         "en": null
@@ -422,10 +422,10 @@ export default {
         "id": "nhlbi-chicken-and-rice-013",
         "name": {
           "ru": null,
-          "en": "tsp salt"
+          "en": "salt"
         },
         "quantity": "1/8",
-        "unit": "piece",
+        "unit": "tsp",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -823,10 +823,10 @@ export default {
         "id": "nhlbi-chicken-and-rice-013",
         "name": {
           "ru": null,
-          "en": "tsp salt"
+          "en": "salt"
         },
         "quantity": "1/8",
-        "unit": "piece",
+        "unit": "tsp",
         "scaling": "linear",
         "note": {
           "ru": null,

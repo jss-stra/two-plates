@@ -167,9 +167,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:spinach-stuffed-sole:005",
-      "name": "clove garlic, minced",
+      "name": "garlic, minced",
       "quantity": "1",
-      "unit": "piece",
+      "unit": "clove",
       "note": {
         "ru": null,
         "en": null
@@ -182,10 +182,10 @@ export default {
         "id": "nhlbi-spinach-stuffed-sole-005",
         "name": {
           "ru": null,
-          "en": "clove garlic, minced"
+          "en": "garlic, minced"
         },
         "quantity": "1",
-        "unit": "piece",
+        "unit": "clove",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -461,10 +461,10 @@ export default {
         "id": "nhlbi-spinach-stuffed-sole-005",
         "name": {
           "ru": null,
-          "en": "clove garlic, minced"
+          "en": "garlic, minced"
         },
         "quantity": "1",
-        "unit": "piece",
+        "unit": "clove",
         "scaling": "linear",
         "note": {
           "ru": null,

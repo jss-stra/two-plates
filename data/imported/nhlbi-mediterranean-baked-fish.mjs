@@ -227,9 +227,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:mediterranean-baked-fish:007",
-      "name": "clove garlic, minced",
+      "name": "garlic, minced",
       "quantity": "1",
-      "unit": "piece",
+      "unit": "clove",
       "note": {
         "ru": null,
         "en": null
@@ -242,10 +242,10 @@ export default {
         "id": "nhlbi-mediterranean-baked-fish-007",
         "name": {
           "ru": null,
-          "en": "clove garlic, minced"
+          "en": "garlic, minced"
         },
         "quantity": "1",
-        "unit": "piece",
+        "unit": "clove",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -467,9 +467,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:mediterranean-baked-fish:015",
-      "name": "tsp dried basil, crushed",
+      "name": "dried basil, crushed",
       "quantity": "1/2",
-      "unit": "piece",
+      "unit": "tsp",
       "note": {
         "ru": null,
         "en": null
@@ -482,10 +482,10 @@ export default {
         "id": "nhlbi-mediterranean-baked-fish-015",
         "name": {
           "ru": null,
-          "en": "tsp dried basil, crushed"
+          "en": "dried basil, crushed"
         },
         "quantity": "1/2",
-        "unit": "piece",
+        "unit": "tsp",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -666,10 +666,10 @@ export default {
         "id": "nhlbi-mediterranean-baked-fish-007",
         "name": {
           "ru": null,
-          "en": "clove garlic, minced"
+          "en": "garlic, minced"
         },
         "quantity": "1",
-        "unit": "piece",
+        "unit": "clove",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -786,10 +786,10 @@ export default {
         "id": "nhlbi-mediterranean-baked-fish-015",
         "name": {
           "ru": null,
-          "en": "tsp dried basil, crushed"
+          "en": "dried basil, crushed"
         },
         "quantity": "1/2",
-        "unit": "piece",
+        "unit": "tsp",
         "scaling": "linear",
         "note": {
           "ru": null,

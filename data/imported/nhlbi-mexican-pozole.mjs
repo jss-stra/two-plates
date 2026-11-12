@@ -139,9 +139,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:mexican-pozole:004",
-      "name": "clove garlic, finely chopped",
+      "name": "garlic, finely chopped",
       "quantity": "1",
-      "unit": "piece",
+      "unit": "clove",
       "note": {
         "ru": null,
         "en": null
@@ -154,10 +154,10 @@ export default {
         "id": "nhlbi-mexican-pozole-004",
         "name": {
           "ru": null,
-          "en": "clove garlic, finely chopped"
+          "en": "garlic, finely chopped"
         },
         "quantity": "1",
-        "unit": "piece",
+        "unit": "clove",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -450,10 +450,10 @@ export default {
         "id": "nhlbi-mexican-pozole-004",
         "name": {
           "ru": null,
-          "en": "clove garlic, finely chopped"
+          "en": "garlic, finely chopped"
         },
         "quantity": "1",
-        "unit": "piece",
+        "unit": "clove",
         "scaling": "linear",
         "note": {
           "ru": null,

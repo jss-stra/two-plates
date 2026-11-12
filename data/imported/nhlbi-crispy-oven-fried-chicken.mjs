@@ -287,9 +287,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:crispy-oven-fried-chicken:009",
-      "name": "pieces chicken, skinless (4 breasts, 4 drumsticks) a few shakes of paprika",
+      "name": "chicken, skinless (4 breasts, 4 drumsticks)",
       "quantity": "8",
-      "unit": "piece",
+      "unit": "pieces",
       "note": {
         "ru": null,
         "en": null
@@ -302,21 +302,51 @@ export default {
         "id": "nhlbi-crispy-oven-fried-chicken-009",
         "name": {
           "ru": null,
-          "en": "pieces chicken, skinless (4 breasts, 4 drumsticks) a few shakes of paprika"
+          "en": "chicken, skinless (4 breasts, 4 drumsticks)"
         },
         "quantity": "8",
-        "unit": "piece",
+        "unit": "pieces",
         "scaling": "linear",
         "note": {
           "ru": null,
           "en": null
         },
-        "raw": "8 pieces chicken, skinless (4 breasts, 4 drumsticks) a few shakes of paprika"
+        "raw": "8 pieces chicken, skinless (4 breasts, 4 drumsticks)"
       },
       "methodSteps": []
     },
     {
       "lineRef": "src:nhlbi:crispy-oven-fried-chicken:010",
+      "name": "of paprika",
+      "quantity": "a few",
+      "unit": "shakes",
+      "note": {
+        "ru": null,
+        "en": null
+      },
+      "scaling": "linear",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "nhlbi-crispy-oven-fried-chicken-010",
+        "name": {
+          "ru": null,
+          "en": "of paprika"
+        },
+        "quantity": "a few",
+        "unit": "shakes",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "a few shakes of paprika"
+      },
+      "methodSteps": []
+    },
+    {
+      "lineRef": "src:nhlbi:crispy-oven-fried-chicken:011",
       "name": "vegetable oil",
       "quantity": "1",
       "unit": "tsp",
@@ -329,7 +359,7 @@ export default {
       "massGrams": null,
       "nutritionStatus": "unknown",
       "source": {
-        "id": "nhlbi-crispy-oven-fried-chicken-010",
+        "id": "nhlbi-crispy-oven-fried-chicken-011",
         "name": {
           "ru": null,
           "en": "vegetable oil"
@@ -551,19 +581,34 @@ export default {
         "id": "nhlbi-crispy-oven-fried-chicken-009",
         "name": {
           "ru": null,
-          "en": "pieces chicken, skinless (4 breasts, 4 drumsticks) a few shakes of paprika"
+          "en": "chicken, skinless (4 breasts, 4 drumsticks)"
         },
         "quantity": "8",
-        "unit": "piece",
+        "unit": "pieces",
         "scaling": "linear",
         "note": {
           "ru": null,
           "en": null
         },
-        "raw": "8 pieces chicken, skinless (4 breasts, 4 drumsticks) a few shakes of paprika"
+        "raw": "8 pieces chicken, skinless (4 breasts, 4 drumsticks)"
       },
       {
         "id": "nhlbi-crispy-oven-fried-chicken-010",
+        "name": {
+          "ru": null,
+          "en": "of paprika"
+        },
+        "quantity": "a few",
+        "unit": "shakes",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": null
+        },
+        "raw": "a few shakes of paprika"
+      },
+      {
+        "id": "nhlbi-crispy-oven-fried-chicken-011",
         "name": {
           "ru": null,
           "en": "vegetable oil"

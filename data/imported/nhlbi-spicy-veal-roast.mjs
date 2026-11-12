@@ -257,9 +257,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:spicy-veal-roast:008",
-      "name": "clove garlic, peeled",
+      "name": "garlic, peeled",
       "quantity": "1/2",
-      "unit": "piece",
+      "unit": "clove",
       "note": {
         "ru": null,
         "en": null
@@ -272,10 +272,10 @@ export default {
         "id": "nhlbi-spicy-veal-roast-008",
         "name": {
           "ru": null,
-          "en": "clove garlic, peeled"
+          "en": "garlic, peeled"
         },
         "quantity": "1/2",
-        "unit": "piece",
+        "unit": "clove",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -317,9 +317,9 @@ export default {
     },
     {
       "lineRef": "src:nhlbi:spicy-veal-roast:010",
-      "name": "sprigs fresh parsley",
+      "name": "fresh parsley",
       "quantity": "4",
-      "unit": "piece",
+      "unit": "sprigs",
       "note": {
         "ru": null,
         "en": null
@@ -332,10 +332,10 @@ export default {
         "id": "nhlbi-spicy-veal-roast-010",
         "name": {
           "ru": null,
-          "en": "sprigs fresh parsley"
+          "en": "fresh parsley"
         },
         "quantity": "4",
-        "unit": "piece",
+        "unit": "sprigs",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -582,10 +582,10 @@ export default {
         "id": "nhlbi-spicy-veal-roast-008",
         "name": {
           "ru": null,
-          "en": "clove garlic, peeled"
+          "en": "garlic, peeled"
         },
         "quantity": "1/2",
-        "unit": "piece",
+        "unit": "clove",
         "scaling": "linear",
         "note": {
           "ru": null,
@@ -612,10 +612,10 @@ export default {
         "id": "nhlbi-spicy-veal-roast-010",
         "name": {
           "ru": null,
-          "en": "sprigs fresh parsley"
+          "en": "fresh parsley"
         },
         "quantity": "4",
-        "unit": "piece",
+        "unit": "sprigs",
         "scaling": "linear",
         "note": {
           "ru": null,
