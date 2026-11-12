@@ -134,7 +134,27 @@ import floridaStyleCrabCakes from '../data/imported/florida-style-crab-cakes.mjs
 import porkBurritosWithGreenPepperSauce from '../data/imported/pork-burritos-with-green-pepper-sauce.mjs';
 import tacoCasserole from '../data/imported/taco-casserole.mjs';
 import tunaCasserole from '../data/imported/tuna-casserole.mjs';
-const SOURCES = [ratatouille, draniki, galayet, kaesespaetzle, melanzane, byrek, misir, tortilla, chicken, irish, farikal, fish, lentilSoup, coldSoup, fondue, spinachPie, strukli, jollof, souvla, trout, paprikaChicken, softTacos, adultMac, agnolotti, garbanzoSoup, porkLima, spaghettiBolognese, spareRibs, poutine, penneMeatSauce, jambalayaI, asparagusSoup, beanSoupVegetarian, beefGravySoup, blackPepperedChickenSpaghetti, creamyTomatoBeanSoup, crockPotPotatoSoup, hotAndSourSoup, mushroomSoup, pastaSoupForKids, pepperSoup, potatoSoup, spicedPumpkinSoup, sausageAndTortelliniSoup, tomKhaKai, vichyssoise, ertesuppePeaSoup, lenguaDeRes, baconWrappedScallops, chickenFriedSteak, chipsiMayai, chuuCheeFish, cubanPicadillo, garlicPorkChopsBlackMushrooms, honeyPepperedSalmon, lemonRosemaryPorkTenderloin, maplePlankedSalmon, meatloafIv, mediterraneanGreenChicken, poppyseedChicken, schweinsbraten, shrimpScampiAngelHair, simpleItalianSausageSpaghetti, spicyChickenCutlets, sweetItalianSausageSkillet, tunaGlop, wineRoastedPorkRoast, beanAndBaconBake, brownRiceCasserole, cazuelaGallega, chuckWagonBeans, cioppinoItalianSeafoodStew, cornySouffle, crockPotBeefStew, cucumberSproutSandwich, dutchOvenBeans, fabesConAlmejas, keralanVegetableStew, macaroniPie, malvaniChickenCurry, meatlessSloppyJoes, miniThreeCheeseEnglishMuffinPizzas, mozzarellaTunaMelts, parmesanCheeseSouffle, mostaccioli, potatoChickpeaCurry, potatoCurryAlooMasala, radishPie, reubenSandwich, risottoAllaMilanese, sloppyJoes, spaghettiBake, tripesALaModeDeCaen, yetsomShiro, yogurtCurrySoupKadhi, bakedPenne, beanburger, chanterelleGoulash, chickenBaconBroccoliAlfredoSpaghetti, chickenTetrazzini, cornChowderI, gambasAlAjilloGarlicShrimp, garlicParmesanPasta, hutspotDutchMashedVegetables, jambons, manxSmokedSalmon, menemenEggsWithOnionGreenPepperAndTomato, ossobucoAllaMilanese, paellaValenciana, panDeJamon, riceWithTofuAndNuts, salmonSpaghetti, southwestPasta, spaghettiAllaPuttanesca, spinachMushroomPestoSpaghetti, stirFriedSeafoodWithNoodles, succotash, tomatoBasilSausagePasta, tomatoPastaWithBaconOnionsAndCheese, tuscanSoupMeatless, zupaOgorkowaPolishCucumberSoup, zuppaToscana, calzone, fishermanSCasserole, floridaStyleCrabCakes, porkBurritosWithGreenPepperSauce, tacoCasserole, tunaCasserole];
+import banhChung from '../data/imported/banh-chung.mjs';
+import bakedBeans from '../data/imported/baked-beans.mjs';
+import chiliConBambi from '../data/imported/chili-con-bambi.mjs';
+import deluxeBurgers from '../data/imported/deluxe-burgers.mjs';
+import honeyAppleGlazedPork from '../data/imported/honey-apple-glazed-pork.mjs';
+import hongshaoRouRedBraisedPorkBelly from '../data/imported/hongshao-rou-red-braised-pork-belly.mjs';
+import hoppinJohn from '../data/imported/hoppin-john.mjs';
+import italianMarinatedChicken from '../data/imported/italian-marinated-chicken.mjs';
+import kashmiriPulao from '../data/imported/kashmiri-pulao.mjs';
+import kharaPongalRiceAndMungBeanPorridge from '../data/imported/khara-pongal-rice-and-mung-bean-porridge.mjs';
+import lambSausagesAndGrilledPotatoes from '../data/imported/lamb-sausages-and-grilled-potatoes.mjs';
+import mapoTofu from '../data/imported/mapo-tofu.mjs';
+import mukimo from '../data/imported/mukimo.mjs';
+import paneerButterMasala from '../data/imported/paneer-butter-masala.mjs';
+import polloDelFungoChickenWithMushrooms from '../data/imported/pollo-del-fungo-chicken-with-mushrooms.mjs';
+import porkAachi from '../data/imported/pork-aachi.mjs';
+import poheSpicedFlattenedRice from '../data/imported/pohe-spiced-flattened-rice.mjs';
+import riceWithBlackBeansArrozConFrijolesNegros from '../data/imported/rice-with-black-beans-arroz-con-frijoles-negros.mjs';
+import taroFish from '../data/imported/taro-fish.mjs';
+import yellowSplitPeaSoup from '../data/imported/yellow-split-pea-soup.mjs';
+const SOURCES = [ratatouille, draniki, galayet, kaesespaetzle, melanzane, byrek, misir, tortilla, chicken, irish, farikal, fish, lentilSoup, coldSoup, fondue, spinachPie, strukli, jollof, souvla, trout, paprikaChicken, softTacos, adultMac, agnolotti, garbanzoSoup, porkLima, spaghettiBolognese, spareRibs, poutine, penneMeatSauce, jambalayaI, asparagusSoup, beanSoupVegetarian, beefGravySoup, blackPepperedChickenSpaghetti, creamyTomatoBeanSoup, crockPotPotatoSoup, hotAndSourSoup, mushroomSoup, pastaSoupForKids, pepperSoup, potatoSoup, spicedPumpkinSoup, sausageAndTortelliniSoup, tomKhaKai, vichyssoise, ertesuppePeaSoup, lenguaDeRes, baconWrappedScallops, chickenFriedSteak, chipsiMayai, chuuCheeFish, cubanPicadillo, garlicPorkChopsBlackMushrooms, honeyPepperedSalmon, lemonRosemaryPorkTenderloin, maplePlankedSalmon, meatloafIv, mediterraneanGreenChicken, poppyseedChicken, schweinsbraten, shrimpScampiAngelHair, simpleItalianSausageSpaghetti, spicyChickenCutlets, sweetItalianSausageSkillet, tunaGlop, wineRoastedPorkRoast, beanAndBaconBake, brownRiceCasserole, cazuelaGallega, chuckWagonBeans, cioppinoItalianSeafoodStew, cornySouffle, crockPotBeefStew, cucumberSproutSandwich, dutchOvenBeans, fabesConAlmejas, keralanVegetableStew, macaroniPie, malvaniChickenCurry, meatlessSloppyJoes, miniThreeCheeseEnglishMuffinPizzas, mozzarellaTunaMelts, parmesanCheeseSouffle, mostaccioli, potatoChickpeaCurry, potatoCurryAlooMasala, radishPie, reubenSandwich, risottoAllaMilanese, sloppyJoes, spaghettiBake, tripesALaModeDeCaen, yetsomShiro, yogurtCurrySoupKadhi, bakedPenne, beanburger, chanterelleGoulash, chickenBaconBroccoliAlfredoSpaghetti, chickenTetrazzini, cornChowderI, gambasAlAjilloGarlicShrimp, garlicParmesanPasta, hutspotDutchMashedVegetables, jambons, manxSmokedSalmon, menemenEggsWithOnionGreenPepperAndTomato, ossobucoAllaMilanese, paellaValenciana, panDeJamon, riceWithTofuAndNuts, salmonSpaghetti, southwestPasta, spaghettiAllaPuttanesca, spinachMushroomPestoSpaghetti, stirFriedSeafoodWithNoodles, succotash, tomatoBasilSausagePasta, tomatoPastaWithBaconOnionsAndCheese, tuscanSoupMeatless, zupaOgorkowaPolishCucumberSoup, zuppaToscana, calzone, fishermanSCasserole, floridaStyleCrabCakes, porkBurritosWithGreenPepperSauce, tacoCasserole, tunaCasserole, banhChung, bakedBeans, chiliConBambi, deluxeBurgers, honeyAppleGlazedPork, hongshaoRouRedBraisedPorkBelly, hoppinJohn, italianMarinatedChicken, kashmiriPulao, kharaPongalRiceAndMungBeanPorridge, lambSausagesAndGrilledPotatoes, mapoTofu, mukimo, paneerButterMasala, polloDelFungoChickenWithMushrooms, porkAachi, poheSpicedFlattenedRice, riceWithBlackBeansArrozConFrijolesNegros, taroFish, yellowSplitPeaSoup];
 const LIMITATIONS = {
   'unitools:ohridska-pastrmka': { summary: 'Whole fish; shared oil and lemons; wine retained', detail: 'The source lists four whole gutted trout without weights. No kg, edible yield or exact trout species is inferred, and the regional name does not establish Lake Ohrid origin. The 80 ml olive oil is shared between rubbing, greasing and the remaining pour; the three lemons supply cavity slices and serving wedges. No numeric split or extra amount is invented. The 800 g potatoes are cooked under the raw fish, not an uncooked garnish. Wine remains 150 ml with no alcohol-free claim. Follow the adapted endpoint and raw-fish separation note. Whole gutted fish still have bones; take care when serving and eating. Product formulations and cross-contact remain unreviewed.', grocery: 'Four whole gutted fish, no weight conversion; oil and lemons are shared totals; contains wine' },
   'unitools:souvla': { summary: 'Pork shoulder; charcoal spit and probe needed', detail: 'The actual ingredient is 2.5 kg pork shoulder, not a pork-or-lamb choice despite the broader source summary. The source cuts pieces of about 200 g; no exact piece count is inferred. Pita formulation and cross-contact are unverified. No marinade, oil, dressing or extra side is added. This requires suitable charcoal-spit equipment and a food thermometer, not an ordinary pan. Check current local fire restrictions before lighting; no current restriction status is checked by this recipe. Follow the separately adapted cooking steps and handling note.', grocery: 'Pork shoulder 2.5 kg; separate charcoal-spit equipment and food thermometer required' },
@@ -524,6 +544,113 @@ const LIMITATIONS = {
     grocery: 'Tuna, soup, noodle and topping package sizes not stated'
   },
 
+  'wikibooks:banh-chung': {
+    summary: 'Long soak and 6-8 hour simmer; banana-leaf wrapping; fish sauce unverified',
+    detail: 'A traditional long process: mung beans and sticky rice soak overnight, and the wrapped cakes simmer 6-8 hours in water - the pork belly is fully cooked by that simmer, kept as the source states. Raw pork is handled and marinated before wrapping; keep it refrigerated, avoid cross-contact with the soaked rice and leaves, and wash hands and surfaces. Fish sauce formulation is unverified; diet rests on the explicit pork belly line. Banana leaves are a specialty item. Source servings 10-15 as stated.',
+    grocery: 'Banana leaves and sticky rice are specialty items; long overnight soak and 6-8 hour simmer; fish sauce formulation unverified',
+    handling: 'Two Plates handling note (not a change to the source method): handle the raw pork belly separately from the soaked rice and leaves, keep it refrigerated until wrapping, and wash hands, boards and knives after contact. Cool the cooked cakes and refrigerate below 5°C within 2 hours; use within 2 days.',
+    handlingUrl: 'https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers',
+    handlingLabel: 'NSW leftovers guidance'
+  },
+  'wikibooks:baked-beans': {
+    summary: 'Bacon explicit; canned-beans alternative offered; 3-hour-plus bake',
+    detail: 'Salt pork or bacon is explicit in the source; diet rests on that line. The source offers dried beans (soaked overnight) or canned beans as an alternative, kept as stated. Molasses formulation unverified.',
+    grocery: 'Dried-bean version needs an overnight soak; bacon or salt pork required'
+  },
+  'wikibooks:chili-con-bambi': {
+    summary: 'Venison mince simmered 3+ hours; cider-or-stock alternative; dried beans must be soaked and cooked',
+    detail: 'Minced venison is explicit in the source. The source simmers the chili gently for at least 3 hours, which cooks the mince through, kept as stated. Dry cider or beef stock is a source alternative - with cider there is no alcohol-free claim; the optional stock cube species and formulation are not stated. Dried red kidney beans must be soaked and fully boiled before adding - never add them raw or undercooked (natural kidney-bean toxin); the source requires soaked and cooked beans.',
+    grocery: 'Venison mince required; dried kidney beans need soaking and boiling; cider contains alcohol if used'
+  },
+  'wikibooks:deluxe-burgers': {
+    summary: 'Adapted mince endpoint; bacon pre-cooked; steak sauce unverified',
+    detail: 'The beef patties are grilled 5-7 minutes per side per the source; colour and time are not a doneness check for mince, so use the adapted measured endpoint below. The bacon is cooked well done and crumbled before mixing. Steak sauce and bun formulations unverified; diet rests on the explicit beef and bacon lines (mixed species).',
+    grocery: 'Beef mince must reach 71°C; steak-sauce formulation unverified'
+  },
+  'wikibooks:honey-apple-glazed-pork': {
+    summary: 'Source gives its own 165°F (74°C) endpoint; honey glaze',
+    detail: 'The source states its own measured endpoint, 165°F (74°C) in the thickest part of the pork, kept verbatim - it meets the 71°C reference for whole pork cuts. Butter formulation unverified only where relevant; diet rests on the explicit pork line.',
+    grocery: 'Source endpoint 165°F (74°C) in the thickest part; pork butt roast required'
+  },
+  'wikibooks:hongshao-rou-red-braised-pork-belly': {
+    summary: 'Shaoxing wine; pork-or-chicken stock alternative; 40-minute braise',
+    detail: 'Shaoxing rice wine is explicit - no alcohol-free claim. The stock is a pork-or-chicken source alternative, formulation unverified; diet rests on the explicit pork belly line. The 40-minute simmer after boiling cooks the cubed pork belly through, kept as the source states.',
+    grocery: 'Shaoxing wine contains alcohol; dark soy sauce and stock formulations unverified'
+  },
+  'wikibooks:hoppin-john': {
+    summary: 'Seasoned rice packs unverified; bacon explicit',
+    detail: 'The source uses two packs of long grain rice with their seasoning packets - package size is not stated and the seasoning formulation is unverified; diet rests on the explicit bacon line. Canned black-eyed peas formulation unverified.',
+    grocery: 'Rice pack size and seasoning formulation not stated; bacon required'
+  },
+  'wikibooks:italian-marinated-chicken': {
+    summary: 'Adapted poultry endpoint; discard used marinade; broth and Parmesan unverified',
+    detail: 'The source grills the chicken 15 minutes "until done"; time and appearance are not a doneness check for poultry, so use the adapted measured endpoint below. The used marinade is discarded per the source and only the reserved (untouched) half is used for basting. Chicken broth and Parmesan formulations unverified; diet rests on the explicit chicken line.',
+    grocery: 'Chicken must reach 75°C; only the reserved marinade is used for basting'
+  },
+  'wikibooks:kashmiri-pulao': {
+    summary: 'Uses cooked rice; cinnamon tree leaf or bay leaves alternative',
+    detail: 'The rice goes in already cooked and drained - cook it fresh and use it hot, or follow the handling note for stored rice. Cinnamon tree leaf with a bay-leaf substitute is a source alternative. Saffron is a specialty item. All source lines are plant or dairy; reviewed vegetarian.',
+    grocery: 'Uses pre-cooked rice; saffron and mixed nuts required',
+    handling: 'Two Plates handling note (not a change to the source method): cooked rice is a higher-risk food. If the rice was cooked earlier, refrigerate it below 5°C within 2 hours of cooking, use within 1 day, and reheat only once until steaming hot throughout.',
+    handlingUrl: 'https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers',
+    handlingLabel: 'NSW leftovers guidance'
+  },
+  'wikibooks:khara-pongal-rice-and-mung-bean-porridge': {
+    summary: 'Rice and mung dhal cooked until mushy; ghee-or-butter alternative',
+    detail: 'Ghee with a butter substitute is a source alternative. All source lines are plant or dairy; reviewed vegetarian. Cashews are a tree-nut line.',
+    grocery: 'Moong dhal and curry leaves are specialty items'
+  },
+  'wikibooks:lamb-sausages-and-grilled-potatoes': {
+    summary: 'Adapted sausage endpoint; lamb sausages explicit',
+    detail: 'Lamb sausages are explicit (species stated); diet rests on that line. The source fries the sausages about 10 minutes; time and browning are not a doneness check for sausages, so use the adapted measured endpoint below. Sausage formulation beyond the lamb is unverified.',
+    grocery: 'Lamb sausages must reach 71°C; sausage formulation beyond lamb unverified'
+  },
+  'wikibooks:mapo-tofu': {
+    summary: 'Beef-or-pork species-open alternative; adapted mince endpoint; chili bean paste unverified',
+    detail: 'Minced beef or pork is a source alternative - species chosen by the cook; fails closed as non-veg with species unresolved. The source fries the mince until brown; browning is not a doneness check for mince, so use the adapted measured endpoint below. Chili bean paste, soy sauce and rice wine formulations unverified - no alcohol-free claim. A near-neighbor dish (mushroom mapo tofu) already exists in the app; this is the classic meat version.',
+    grocery: 'Mince species is the cook\'s choice and must reach 71°C; Szechuan pepper and chili bean paste are specialty items; rice wine contains alcohol'
+  },
+  'wikibooks:mukimo': {
+    summary: 'All-plant lines; traditionally served with meat stew (accompaniment note)',
+    detail: 'All source lines are plant foods; reviewed vegan. The source serves it with beef stew, chicken stew or grilled meat - an accompaniment suggestion, not part of the dish. Water quantity is "as needed" per the source.',
+    grocery: 'Maize kernels and pumpkin leaves (or spinach/kale) required'
+  },
+  'wikibooks:paneer-butter-masala': {
+    summary: 'Ghee-or-oil quantity unstated; paneer and yoghurt formulations unverified',
+    detail: 'The frying ghee or oil quantity is not stated in the source (frying medium), kept that way. Paneer, yoghurt and hing formulations unverified; all source lines are plant or dairy; reviewed vegetarian.',
+    grocery: 'Frying ghee/oil quantity not stated; paneer required'
+  },
+  'wikibooks:pollo-del-fungo-chicken-with-mushrooms': {
+    summary: 'Adapted poultry endpoint; white wine; stock unverified',
+    detail: 'Chicken strips are fried per the source without a measured check; use the adapted measured endpoint below. White wine is explicit - no alcohol-free claim. Chicken stock formulation unverified; diet rests on the explicit chicken line. Source categories list this as an appetizer; composition is a chicken main.',
+    grocery: 'Chicken must reach 75°C; wine contains alcohol'
+  },
+  'wikibooks:pork-aachi': {
+    summary: 'Adapted pork endpoint; stock-cube species unresolved in source; ready-mix mash unverified',
+    detail: 'The pork is browned then cooked through per the source; browning is not a doneness check, so use the adapted measured endpoint below. The ingredient line says pork stock cube but the method says beef stock cube - species unresolved in the source, treated as unknown species (fail-closed). Ready-to-mix potato mash formulation unverified; diet rests on the explicit pork line.',
+    grocery: 'Stock-cube species unresolved in source; meat masala is a specialty blend'
+  },
+  'wikibooks:pohe-spiced-flattened-rice': {
+    summary: 'All-plant lines; source marks vegan; a breakfast-associated dish served as a light meal',
+    detail: 'All source lines are plant foods and the source categorises it as vegan; reviewed vegan. Asafoetida (hing) powder formulations sometimes include wheat - unverified. Pohe is traditionally a breakfast dish in Maharashtra, Gujarat and Madhya Pradesh; included here as a light meal.',
+    grocery: 'Thick pohe (flattened rice) and asafoetida are specialty items'
+  },
+  'wikibooks:rice-with-black-beans-arroz-con-frijoles-negros': {
+    summary: 'Overnight soak and long simmer; wine-or-sherry alternative; sugar-or-sweetener alternative',
+    detail: 'Dried black beans soak overnight and simmer about 3 hours total, kept as the source states. Dry white wine, cooking wine or dry sherry is a source alternative - no alcohol-free claim; sugar or half a packet of low-calorie sweetener is another. Olive oil quantities appear in the method (2 tablespoons, three times), kept as the source states. All source lines are plant foods; reviewed vegetarian.',
+    grocery: 'Beans need an overnight soak; wine contains alcohol if used'
+  },
+  'wikibooks:taro-fish': {
+    summary: 'Taro must be cooked thoroughly; stock powder unverified; Shaoxing wine',
+    detail: 'Raw taro is an irritant - the source steams it until soft before mashing, kept as stated; never use undercooked taro. Vegetable stock powder formulation is unverified, so the reviewed diet is fail-closed unknown even though the source categorises the dish as vegetarian. Shaoxing wine is explicit - no alcohol-free claim.',
+    grocery: 'Taro must be steamed until fully soft; nori and preserved black beans are specialty items'
+  },
+  'wikibooks:yellow-split-pea-soup': {
+    summary: 'Bouillon species and formulation unresolved; long simmer',
+    detail: 'Chicken-or-beef bouillon cubes are a source alternative with species unresolved - treated as unknown species (fail-closed), formulation unverified. Optional pea soak shortens the 1-2 hour simmer, kept as the source states.',
+    grocery: 'Bouillon species and formulation unverified'
+  },
+
 };
 export const IMPORTED = new Map();
 
@@ -653,6 +780,27 @@ const REVIEWED_DIET = {
   'wikibooks:pork-burritos-with-green-pepper-sauce': { diet: 'nonveg', meatKind: 'pork', basis: 'Boneless pork loin roast explicit in source line 14 (4 pounds); all seventeen source lines independently read 2026-11-12. Salsa and cheese formulations not cleared.' },
   'wikibooks:taco-casserole': { diet: 'nonveg', meatKind: 'beef', basis: 'Ground beef explicit in source line 1 (1 pound / 450 g); all seven source lines independently read 2026-11-12. Taco-seasoning formulation not cleared.' },
   'wikibooks:tuna-casserole': { diet: 'nonveg', meatKind: 'fish', basis: 'Canned tuna explicit in source line 1 (3 cans); all five source lines independently read 2026-11-12. Cream-soup formulations not cleared.' },
+
+  'wikibooks:banh-chung': { diet: 'nonveg', meatKind: 'pork', basis: 'Pork belly explicit in source line 2 (500 g); all ten source lines independently read 2026-11-12. Fish sauce formulation not cleared.' },
+  'wikibooks:baked-beans': { diet: 'nonveg', meatKind: 'pork', basis: 'Bacon or salt pork explicit in source line 2; all source lines independently read 2026-11-12. Molasses formulation not cleared.' },
+  'wikibooks:chili-con-bambi': { diet: 'nonveg', meatKind: 'venison', basis: 'Minced stewing venison explicit in source line 7 (500 g); all sixteen source lines independently read 2026-11-12. Optional stock cube species not stated.' },
+  'wikibooks:deluxe-burgers': { diet: 'nonveg', basis: 'Ground beef explicit in source line 1 and bacon explicit in line 5 (mixed species); all nine source lines independently read 2026-11-12. Steak sauce formulation not cleared.' },
+  'wikibooks:honey-apple-glazed-pork': { diet: 'nonveg', meatKind: 'pork', basis: 'Pork butt roast explicit in source line 6 (3 lb); all ten source lines independently read 2026-11-12.' },
+  'wikibooks:hongshao-rou-red-braised-pork-belly': { diet: 'nonveg', meatKind: 'pork', basis: 'Pork belly explicit in source line 1 (700 g); all nine source lines independently read 2026-11-12. Stock formulation not cleared.' },
+  'wikibooks:hoppin-john': { diet: 'nonveg', meatKind: 'pork', basis: 'Bacon explicit in source line 1 (6 slices); all eight source lines independently read 2026-11-12. Rice-pack seasoning formulation not cleared.' },
+  'wikibooks:italian-marinated-chicken': { diet: 'nonveg', meatKind: 'chicken', basis: 'Boneless chicken breast halves explicit in source line 6; all six source lines independently read 2026-11-12. Broth and Parmesan formulations not cleared.' },
+  'wikibooks:kashmiri-pulao': { diet: 'vegetarian', basis: 'All sixteen source lines independently read 2026-11-12: plant foods plus ghee/butter and milk (dairy). No meat, fish or egg lines.' },
+  'wikibooks:khara-pongal-rice-and-mung-bean-porridge': { diet: 'vegetarian', basis: 'All thirteen source lines independently read 2026-11-12: plant foods plus ghee/butter (dairy). No meat, fish or egg lines.' },
+  'wikibooks:lamb-sausages-and-grilled-potatoes': { diet: 'nonveg', meatKind: 'lamb', basis: 'Lamb sausages explicit in source line 6 (8 sausages); all eight source lines independently read 2026-11-12. Sausage formulation beyond lamb not cleared.' },
+  'wikibooks:mapo-tofu': { diet: 'nonveg', basis: 'Minced beef or pork explicit in source line 4 (species-open source alternative); all twelve source lines independently read 2026-11-12. Chili bean paste formulation not cleared.' },
+  'wikibooks:mukimo': { diet: 'vegan', basis: 'All six source lines independently read 2026-11-12: plant foods only. Serving with meat stew is an accompaniment suggestion, not an ingredient.' },
+  'wikibooks:paneer-butter-masala': { diet: 'vegetarian', basis: 'All sixteen source lines independently read 2026-11-12: plant foods plus paneer, yoghurt and ghee (dairy). No meat, fish or egg lines. Paneer and hing formulations not cleared.' },
+  'wikibooks:pollo-del-fungo-chicken-with-mushrooms': { diet: 'nonveg', meatKind: 'chicken', basis: 'Chicken breast explicit in source line 1 (400 g); all ten source lines independently read 2026-11-12. Chicken stock formulation not cleared.' },
+  'wikibooks:pork-aachi': { diet: 'nonveg', meatKind: 'pork', basis: 'Diced pork explicit in source line 2 (500 g); all ten source lines independently read 2026-11-12. Stock-cube species unresolved in source (pork in ingredients, beef in method) - fail-closed.' },
+  'wikibooks:pohe-spiced-flattened-rice': { diet: 'vegan', basis: 'All nine source lines independently read 2026-11-12: plant foods only; source also categorises the dish as vegan. Asafoetida powder formulation not cleared.' },
+  'wikibooks:rice-with-black-beans-arroz-con-frijoles-negros': { diet: 'vegetarian', basis: 'All fifteen source lines independently read 2026-11-12: plant foods only (wine, vinegar, sugar/sweetener alternative). No dairy, egg, meat or fish lines.' },
+  'wikibooks:taro-fish': { diet: 'unknown', basis: 'All nine source lines independently read 2026-11-12: no meat, fish or egg lines, but the vegetable stock powder formulation is unverified - fail-closed. Source categorises the dish as vegetarian (unverified claim).' },
+  'wikibooks:yellow-split-pea-soup': { diet: 'unknown', basis: 'All seven source lines independently read 2026-11-12: chicken-or-beef bouillon is a species-open source alternative with formulation unverified - fail-closed.' },
 
 };
 

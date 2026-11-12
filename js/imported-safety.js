@@ -568,4 +568,52 @@ export const IMPORTED_SAFETY = {
       1: 'Brown the ground beef in skillet on medium heat, then use a clean food thermometer in the thickest part of the cooking beef to check at least 71°C. Browning is not a doneness check; continue cooking and recheck if below the target.',
     },
   },
+  'wikibooks:deluxe-burgers': {
+    title: 'Probe the patties; grill time is not the check',
+    note: 'Two Plates adds a measured endpoint: the patties contain raw ground beef (and pre-cooked crumbled bacon), and the source grill time of 5-7 minutes per side is not a doneness check for mince. Use a clean food thermometer in the thickest part of the centre of each patty, from the side, to check at least 71°C, following NSW mince guidance; continue grilling and recheck if below the target. Keep the beef refrigerated at 5°C or colder before preparation and wash hands, boards and utensils after handling raw mince. Follow product storage, use-by and cooking directions.',
+    sources: [['NSW: minced meat and sausages 71°C; colour unreliable', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      3: 'Grill the patties 5-7 minutes per side per the source, then use a clean food thermometer in the thickest part of the centre of each patty, from the side, to check at least 71°C. Colour and grill time are not doneness checks; continue grilling and recheck if below the target.',
+    },
+  },
+  'wikibooks:italian-marinated-chicken': {
+    title: 'Probe the chicken; 15 minutes is not the check',
+    note: 'Two Plates adds a measured endpoint: the source grills the breasts 15 minutes "until done"; time and appearance are not doneness checks for poultry. Use a clean food thermometer in the thickest part of each breast, from the side, to check at least 75°C, following FSANZ poultry guidance; continue cooking and recheck if below the target. Discard the used marinade as the source directs and do not let it contact cooked food; only the reserved, uncontaminated mixture is used for basting. Keep the chicken refrigerated at 5°C or colder during marinating. Follow product storage, use-by and cooking directions.',
+    sources: [['FSANZ: poultry 75°C', FSANZ], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      4: 'Grill or broil the chicken, turning and brushing often with the reserved broth mixture, then use a clean food thermometer in the thickest part of each breast to check at least 75°C. Time and appearance are not doneness checks; continue cooking and recheck if below the target. Discard the used marinade.',
+    },
+  },
+  'wikibooks:pollo-del-fungo-chicken-with-mushrooms': {
+    title: 'Probe the chicken strips; frying time is not the check',
+    note: 'Two Plates adds a measured endpoint: the source fries the flour-dusted chicken strips without a measured check. Use a clean food thermometer in the thickest part of a strip to check at least 75°C, following FSANZ poultry guidance; continue cooking and recheck if below the target. Keep the chicken refrigerated at 5°C or colder before preparation and wash hands, boards and utensils after handling raw chicken. Follow product storage, use-by and cooking directions.',
+    sources: [['FSANZ: poultry 75°C', FSANZ], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      4: 'Roll the chicken strips in the flour mixture and fry, then use a clean food thermometer in the thickest part of a strip to check at least 75°C. Continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks:lamb-sausages-and-grilled-potatoes': {
+    title: 'Probe the sausages; frying time is not the check',
+    note: 'Two Plates adds a measured endpoint: the source fries the sausages about 10 minutes; time and browning are not doneness checks for sausages. The lamb sausages are a package-stated non-poultry species, so use a clean food thermometer in the centre of a sausage to check at least 71°C, following NSW sausage guidance; continue cooking and recheck if below the target. Keep the sausages refrigerated at 5°C or colder before cooking. Follow product storage, use-by and cooking directions.',
+    sources: [['NSW: minced meat and sausages 71°C; colour unreliable', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      3: 'Cook the sausages about 10 minutes on high heat per the source, turning occasionally, then use a clean food thermometer in the centre of a sausage to check at least 71°C. Browning is not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks:mapo-tofu': {
+    title: 'Probe the mince; browning is not the check',
+    note: 'Two Plates adds a measured endpoint: the source fries the minced beef or pork until brown; browning is not a doneness check for mince. Both source species are non-poultry, so use a clean food thermometer in the thickest part of the cooking mince to check at least 71°C, following NSW mince guidance; continue cooking and recheck if below the target. Keep the mince refrigerated at 5°C or colder before preparation. Follow product storage, use-by and cooking directions.',
+    sources: [['NSW: minced meat and sausages 71°C; colour unreliable', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      2: 'Add the minced meat and garlic and fry until brown, then use a clean food thermometer in the thickest part of the cooking mince to check at least 71°C. Browning is not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
+  'wikibooks:pork-aachi': {
+    title: 'Probe the pork; browning is not the check',
+    note: 'Two Plates adds a measured endpoint: the source browns the diced pork, simmers it half-done, then finishes it in the onion mixture; browning is not a doneness check. Use a clean food thermometer in the thickest part of a pork piece to check at least 71°C, following NSW guidance for pork; continue cooking and recheck if below the target. Keep the pork refrigerated at 5°C or colder before preparation. Follow product storage, use-by and cooking directions.',
+    sources: [['NSW: pork 71°C; colour unreliable', NSW_TEMP], ['USDA (US): thickest part, remove from heat to check', 'https://www.fsis.usda.gov/news-events/news-press-releases/do-you-know-correct-place-insert-your-food-thermometer']],
+    replacements: {
+      6: 'Add the half-cooked meat and mix well, then cook until a clean food thermometer in the thickest part of a pork piece reads at least 71°C. Browning is not a doneness check; continue cooking and recheck if below the target.',
+    },
+  },
 };
