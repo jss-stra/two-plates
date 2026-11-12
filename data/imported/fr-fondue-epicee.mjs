@@ -383,7 +383,7 @@ export default {
       "unit": "unstated",
       "note": {
         "ru": null,
-        "en": "quantity not stated in source"
+        "en": null
       },
       "scaling": "linear",
       "catalogId": null,
@@ -400,7 +400,7 @@ export default {
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "quantity not stated in source"
+          "en": null
         },
         "raw": "poivre moulu"
       },
@@ -415,7 +415,7 @@ export default {
       "unit": "unstated",
       "note": {
         "ru": null,
-        "en": "quantity not stated in source"
+        "en": null
       },
       "scaling": "linear",
       "catalogId": null,
@@ -432,7 +432,7 @@ export default {
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "quantity not stated in source"
+          "en": null
         },
         "raw": "poivre de Cayenne"
       },
@@ -447,7 +447,7 @@ export default {
       "unit": "unstated",
       "note": {
         "ru": null,
-        "en": "quantity not stated in source"
+        "en": null
       },
       "scaling": "linear",
       "catalogId": null,
@@ -464,7 +464,7 @@ export default {
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "quantity not stated in source"
+          "en": null
         },
         "raw": "noix de muscade râpée"
       },
@@ -687,7 +687,7 @@ export default {
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "quantity not stated in source"
+          "en": null
         },
         "raw": "poivre moulu"
       },
@@ -702,7 +702,7 @@ export default {
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "quantity not stated in source"
+          "en": null
         },
         "raw": "poivre de Cayenne"
       },
@@ -717,7 +717,7 @@ export default {
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "quantity not stated in source"
+          "en": null
         },
         "raw": "noix de muscade râpée"
       }
