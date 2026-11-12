@@ -38,7 +38,7 @@ export default {
       "massGrams": null,
       "nutritionStatus": "unknown",
       "source": {
-        "id": "fr-fondue-epicee-001",
+        "id": "fr-fondue-epicee:001",
         "name": {
           "ru": null,
           "en": "Grated or sliced Gruyere"
@@ -70,7 +70,7 @@ export default {
       "massGrams": null,
       "nutritionStatus": "unknown",
       "source": {
-        "id": "fr-fondue-epicee-002",
+        "id": "fr-fondue-epicee:002",
         "name": {
           "ru": null,
           "en": "Oil"
@@ -84,7 +84,9 @@ export default {
         },
         "raw": "1 cuillerée à soupe d'huile"
       },
-      "methodSteps": []
+      "methodSteps": [
+        1
+      ]
     },
     {
       "lineRef": "src:wikibooks:fr-fondue-epicee:003",
@@ -93,14 +95,14 @@ export default {
       "unit": "piece",
       "note": {
         "ru": null,
-        "en": "chopped; 2 garlic cloves, pressed"
+        "en": "chopped"
       },
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
       "nutritionStatus": "unknown",
       "source": {
-        "id": "fr-fondue-epicee-003",
+        "id": "fr-fondue-epicee:003",
         "name": {
           "ru": null,
           "en": "Small onion"
@@ -110,9 +112,9 @@ export default {
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "chopped; 2 garlic cloves, pressed"
+          "en": "chopped"
         },
-        "raw": "1 petit oignon haché, 2 gousses d'ail pressées"
+        "raw": "1 petit oignon haché"
       },
       "methodSteps": [
         1
@@ -120,52 +122,115 @@ export default {
     },
     {
       "lineRef": "src:wikibooks:fr-fondue-epicee:004",
-      "name": "Green and 1 red capsicum (bell pepper)",
-      "quantity": "1",
+      "name": "Garlic cloves",
+      "quantity": "2",
       "unit": "piece",
       "note": {
         "ru": null,
-        "en": "halved, deseeded and chopped"
+        "en": "pressed"
       },
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
       "nutritionStatus": "unknown",
       "source": {
-        "id": "fr-fondue-epicee-004",
+        "id": "fr-fondue-epicee:004",
         "name": {
           "ru": null,
-          "en": "Green and 1 red capsicum (bell pepper)"
+          "en": "Garlic cloves"
+        },
+        "quantity": "2",
+        "unit": "piece",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "pressed"
+        },
+        "raw": "2 gousses d'ail pressées"
+      },
+      "methodSteps": [
+        1
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-fondue-epicee:005",
+      "name": "Green capsicum (bell pepper)",
+      "quantity": "1",
+      "unit": "piece",
+      "note": {
+        "ru": null,
+        "en": "halved, seeded and chopped"
+      },
+      "scaling": "linear",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-fondue-epicee:005",
+        "name": {
+          "ru": null,
+          "en": "Green capsicum (bell pepper)"
         },
         "quantity": "1",
         "unit": "piece",
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "halved, deseeded and chopped"
+          "en": "halved, seeded and chopped"
         },
-        "raw": "1 poivron vert et 1 poivron rouge coupés en deux, épépinés et hachés"
+        "raw": "1 poivron vert"
       },
       "methodSteps": [
-        1,
-        2
+        1
       ]
     },
     {
-      "lineRef": "src:wikibooks:fr-fondue-epicee:005",
-      "name": "Red chillies",
-      "quantity": "2",
+      "lineRef": "src:wikibooks:fr-fondue-epicee:006",
+      "name": "Red capsicum (bell pepper)",
+      "quantity": "1",
       "unit": "piece",
       "note": {
         "ru": null,
-        "en": "deseeded, sliced into rounds and briefly blanched (jarred chillies possibly)"
+        "en": "halved, seeded and chopped"
       },
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
       "nutritionStatus": "unknown",
       "source": {
-        "id": "fr-fondue-epicee-005",
+        "id": "fr-fondue-epicee:006",
+        "name": {
+          "ru": null,
+          "en": "Red capsicum (bell pepper)"
+        },
+        "quantity": "1",
+        "unit": "piece",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "halved, seeded and chopped"
+        },
+        "raw": "1 poivron rouge"
+      },
+      "methodSteps": [
+        1
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-fondue-epicee:007",
+      "name": "Red chillies",
+      "quantity": "2",
+      "unit": "piece",
+      "note": {
+        "ru": null,
+        "en": "seeded, sliced into rounds and briefly blanched; jarred chillies possible per source"
+      },
+      "scaling": "linear",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-fondue-epicee:007",
         "name": {
           "ru": null,
           "en": "Red chillies"
@@ -175,27 +240,29 @@ export default {
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "deseeded, sliced into rounds and briefly blanched (jarred chillies possibly)"
+          "en": "seeded, sliced into rounds and briefly blanched; jarred chillies possible per source"
         },
         "raw": "2 piments rouges épépinés, coupés en rondelles et brièvement blanchis (piments en bocal éventuellement)."
       },
-      "methodSteps": []
+      "methodSteps": [
+        3
+      ]
     },
     {
-      "lineRef": "src:wikibooks:fr-fondue-epicee:006",
+      "lineRef": "src:wikibooks:fr-fondue-epicee:008",
       "name": "White wine",
       "quantity": "3.5",
       "unit": "dl",
       "note": {
         "ru": null,
-        "en": "1 small glass of grappa"
+        "en": null
       },
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
       "nutritionStatus": "unknown",
       "source": {
-        "id": "fr-fondue-epicee-006",
+        "id": "fr-fondue-epicee:008",
         "name": {
           "ru": null,
           "en": "White wine"
@@ -205,16 +272,48 @@ export default {
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "1 small glass of grappa"
+          "en": null
         },
-        "raw": "3,5 dl de vin blanc, 1 petit verre de grappa"
+        "raw": "3,5 dl de vin blanc"
       },
       "methodSteps": [
         2
       ]
     },
     {
-      "lineRef": "src:wikibooks:fr-fondue-epicee:007",
+      "lineRef": "src:wikibooks:fr-fondue-epicee:009",
+      "name": "Grappa",
+      "quantity": "1",
+      "unit": "small glass",
+      "note": {
+        "ru": null,
+        "en": "small glass, vessel size unstated; stirred in at the end and not boiled off"
+      },
+      "scaling": "linear",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-fondue-epicee:009",
+        "name": {
+          "ru": null,
+          "en": "Grappa"
+        },
+        "quantity": "1",
+        "unit": "small glass",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "small glass, vessel size unstated; stirred in at the end and not boiled off"
+        },
+        "raw": "1 petit verre de grappa"
+      },
+      "methodSteps": [
+        3
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-fondue-epicee:010",
       "name": "Fresh lemon juice",
       "quantity": "1",
       "unit": "tsp",
@@ -227,7 +326,7 @@ export default {
       "massGrams": null,
       "nutritionStatus": "unknown",
       "source": {
-        "id": "fr-fondue-epicee-007",
+        "id": "fr-fondue-epicee:010",
         "name": {
           "ru": null,
           "en": "Fresh lemon juice"
@@ -246,7 +345,7 @@ export default {
       ]
     },
     {
-      "lineRef": "src:wikibooks:fr-fondue-epicee:008",
+      "lineRef": "src:wikibooks:fr-fondue-epicee:011",
       "name": "Cornflour (Maizena - brand as generic)",
       "quantity": "4",
       "unit": "tsp",
@@ -259,7 +358,7 @@ export default {
       "massGrams": null,
       "nutritionStatus": "unknown",
       "source": {
-        "id": "fr-fondue-epicee-008",
+        "id": "fr-fondue-epicee:011",
         "name": {
           "ru": null,
           "en": "Cornflour (Maizena - brand as generic)"
@@ -278,20 +377,20 @@ export default {
       ]
     },
     {
-      "lineRef": "src:wikibooks:fr-fondue-epicee:009",
+      "lineRef": "src:wikibooks:fr-fondue-epicee:012",
       "name": "Ground pepper",
       "quantity": null,
       "unit": "unstated",
       "note": {
         "ru": null,
-        "en": "cayenne pepper, grated nutmeg"
+        "en": "quantity not stated in source"
       },
       "scaling": "linear",
       "catalogId": null,
       "massGrams": null,
       "nutritionStatus": "unknown",
       "source": {
-        "id": "fr-fondue-epicee-009",
+        "id": "fr-fondue-epicee:012",
         "name": {
           "ru": null,
           "en": "Ground pepper"
@@ -301,11 +400,77 @@ export default {
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "cayenne pepper, grated nutmeg"
+          "en": "quantity not stated in source"
         },
-        "raw": "poivre moulu, poivre de Cayenne, noix de muscade râpée"
+        "raw": "poivre moulu"
       },
-      "methodSteps": []
+      "methodSteps": [
+        3
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-fondue-epicee:013",
+      "name": "Cayenne pepper",
+      "quantity": null,
+      "unit": "unstated",
+      "note": {
+        "ru": null,
+        "en": "quantity not stated in source"
+      },
+      "scaling": "linear",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-fondue-epicee:013",
+        "name": {
+          "ru": null,
+          "en": "Cayenne pepper"
+        },
+        "quantity": null,
+        "unit": "unstated",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "quantity not stated in source"
+        },
+        "raw": "poivre de Cayenne"
+      },
+      "methodSteps": [
+        3
+      ]
+    },
+    {
+      "lineRef": "src:wikibooks:fr-fondue-epicee:014",
+      "name": "Grated nutmeg",
+      "quantity": null,
+      "unit": "unstated",
+      "note": {
+        "ru": null,
+        "en": "quantity not stated in source"
+      },
+      "scaling": "linear",
+      "catalogId": null,
+      "massGrams": null,
+      "nutritionStatus": "unknown",
+      "source": {
+        "id": "fr-fondue-epicee:014",
+        "name": {
+          "ru": null,
+          "en": "Grated nutmeg"
+        },
+        "quantity": null,
+        "unit": "unstated",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "quantity not stated in source"
+        },
+        "raw": "noix de muscade râpée"
+      },
+      "methodSteps": [
+        3
+      ]
     }
   ],
   "steps": [
@@ -347,7 +512,7 @@ export default {
     "baseServings": 4,
     "ingredients": [
       {
-        "id": "fr-fondue-epicee-001",
+        "id": "fr-fondue-epicee:001",
         "name": {
           "ru": null,
           "en": "Grated or sliced Gruyere"
@@ -362,7 +527,7 @@ export default {
         "raw": "800 g de gruyère râpé ou en lamelles"
       },
       {
-        "id": "fr-fondue-epicee-002",
+        "id": "fr-fondue-epicee:002",
         "name": {
           "ru": null,
           "en": "Oil"
@@ -377,7 +542,7 @@ export default {
         "raw": "1 cuillerée à soupe d'huile"
       },
       {
-        "id": "fr-fondue-epicee-003",
+        "id": "fr-fondue-epicee:003",
         "name": {
           "ru": null,
           "en": "Small onion"
@@ -387,27 +552,57 @@ export default {
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "chopped; 2 garlic cloves, pressed"
+          "en": "chopped"
         },
-        "raw": "1 petit oignon haché, 2 gousses d'ail pressées"
+        "raw": "1 petit oignon haché"
       },
       {
-        "id": "fr-fondue-epicee-004",
+        "id": "fr-fondue-epicee:004",
         "name": {
           "ru": null,
-          "en": "Green and 1 red capsicum (bell pepper)"
+          "en": "Garlic cloves"
+        },
+        "quantity": "2",
+        "unit": "piece",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "pressed"
+        },
+        "raw": "2 gousses d'ail pressées"
+      },
+      {
+        "id": "fr-fondue-epicee:005",
+        "name": {
+          "ru": null,
+          "en": "Green capsicum (bell pepper)"
         },
         "quantity": "1",
         "unit": "piece",
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "halved, deseeded and chopped"
+          "en": "halved, seeded and chopped"
         },
-        "raw": "1 poivron vert et 1 poivron rouge coupés en deux, épépinés et hachés"
+        "raw": "1 poivron vert"
       },
       {
-        "id": "fr-fondue-epicee-005",
+        "id": "fr-fondue-epicee:006",
+        "name": {
+          "ru": null,
+          "en": "Red capsicum (bell pepper)"
+        },
+        "quantity": "1",
+        "unit": "piece",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "halved, seeded and chopped"
+        },
+        "raw": "1 poivron rouge"
+      },
+      {
+        "id": "fr-fondue-epicee:007",
         "name": {
           "ru": null,
           "en": "Red chillies"
@@ -417,12 +612,12 @@ export default {
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "deseeded, sliced into rounds and briefly blanched (jarred chillies possibly)"
+          "en": "seeded, sliced into rounds and briefly blanched; jarred chillies possible per source"
         },
         "raw": "2 piments rouges épépinés, coupés en rondelles et brièvement blanchis (piments en bocal éventuellement)."
       },
       {
-        "id": "fr-fondue-epicee-006",
+        "id": "fr-fondue-epicee:008",
         "name": {
           "ru": null,
           "en": "White wine"
@@ -432,12 +627,27 @@ export default {
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "1 small glass of grappa"
+          "en": null
         },
-        "raw": "3,5 dl de vin blanc, 1 petit verre de grappa"
+        "raw": "3,5 dl de vin blanc"
       },
       {
-        "id": "fr-fondue-epicee-007",
+        "id": "fr-fondue-epicee:009",
+        "name": {
+          "ru": null,
+          "en": "Grappa"
+        },
+        "quantity": "1",
+        "unit": "small glass",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "small glass, vessel size unstated; stirred in at the end and not boiled off"
+        },
+        "raw": "1 petit verre de grappa"
+      },
+      {
+        "id": "fr-fondue-epicee:010",
         "name": {
           "ru": null,
           "en": "Fresh lemon juice"
@@ -452,7 +662,7 @@ export default {
         "raw": "1 cuillerée à café de jus de citron frais"
       },
       {
-        "id": "fr-fondue-epicee-008",
+        "id": "fr-fondue-epicee:011",
         "name": {
           "ru": null,
           "en": "Cornflour (Maizena - brand as generic)"
@@ -467,7 +677,7 @@ export default {
         "raw": "4 cuillerées à café de Maïzena"
       },
       {
-        "id": "fr-fondue-epicee-009",
+        "id": "fr-fondue-epicee:012",
         "name": {
           "ru": null,
           "en": "Ground pepper"
@@ -477,9 +687,39 @@ export default {
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "cayenne pepper, grated nutmeg"
+          "en": "quantity not stated in source"
         },
-        "raw": "poivre moulu, poivre de Cayenne, noix de muscade râpée"
+        "raw": "poivre moulu"
+      },
+      {
+        "id": "fr-fondue-epicee:013",
+        "name": {
+          "ru": null,
+          "en": "Cayenne pepper"
+        },
+        "quantity": null,
+        "unit": "unstated",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "quantity not stated in source"
+        },
+        "raw": "poivre de Cayenne"
+      },
+      {
+        "id": "fr-fondue-epicee:014",
+        "name": {
+          "ru": null,
+          "en": "Grated nutmeg"
+        },
+        "quantity": null,
+        "unit": "unstated",
+        "scaling": "linear",
+        "note": {
+          "ru": null,
+          "en": "quantity not stated in source"
+        },
+        "raw": "noix de muscade râpée"
       }
     ],
     "steps": [
@@ -519,7 +759,7 @@ export default {
     "landingPage": "https://fr.wikibooks.org/wiki/Livre_de_cuisine/Fondue_épicée?oldid=331014",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://fr.wikibooks.org/wiki/Wikibooks:Copyright",
-    "changes": "Photo omitted; pinned fr.wikibooks revision 331014 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged."
+    "changes": "Photo omitted; pinned fr.wikibooks revision 331014 converted to structured lines and steps; EN display translation layered over verbatim FR source; quantities and method unchanged; 2026-11-12 fidelity fix re-split compound source bullets so garlic, grappa, cayenne and nutmeg appear as their own lines and corrected the capsicum count (1 green + 1 red)."
   },
   "review": {
     "productionApproved": false,
@@ -528,4 +768,4 @@ export default {
     "dietIndependentlyReviewed": false,
     "crossContactKnown": false
   }
-};
+}

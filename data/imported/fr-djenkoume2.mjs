@@ -31,7 +31,7 @@ export default {
       "unit": "piece",
       "note": {
         "ru": null,
-        "en": "pintade; source note says the original recipe uses chicken (poulet djénkoum)"
+        "en": "pintade; the source's own note says the traditional original recipe ('poulet djénkoum') uses chicken - this recipe's listed meat is guinea fowl"
       },
       "scaling": "linear",
       "catalogId": null,
@@ -48,7 +48,7 @@ export default {
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "pintade; source note says the original recipe uses chicken (poulet djénkoum)"
+          "en": "pintade; the source's own note says the traditional original recipe ('poulet djénkoum') uses chicken - this recipe's listed meat is guinea fowl"
         },
         "raw": "1 pintade"
       },
@@ -478,7 +478,7 @@ export default {
         "scaling": "linear",
         "note": {
           "ru": null,
-          "en": "pintade; source note says the original recipe uses chicken (poulet djénkoum)"
+          "en": "pintade; the source's own note says the traditional original recipe ('poulet djénkoum') uses chicken - this recipe's listed meat is guinea fowl"
         },
         "raw": "1 pintade"
       },
