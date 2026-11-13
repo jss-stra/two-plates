@@ -84,10 +84,13 @@ begin
     end if;
   end loop;
   if jsonb_array_length(due) > 0 then
+    -- Generous timeout: the edge function answers immediately and sends in the
+    -- background, but a cold start may still take seconds to accept the call.
     perform net.http_post(
       url := 'https://PROJECT_REF.supabase.co/functions/v1/water-reminders',
       headers := jsonb_build_object('Content-Type', 'application/json', 'x-water-secret', 'CRON_SECRET_PLACEHOLDER'),
-      body := jsonb_build_object('due', due)
+      body := jsonb_build_object('due', due),
+      timeout_milliseconds := 20000
     );
   end if;
 end;
