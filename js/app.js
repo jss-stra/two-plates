@@ -2,7 +2,7 @@ import { renderPrep, setupPrepEvents } from './prep.js';
 import { renderExtrasCard, renderPartiesCard, setupGroceryEvents } from './grocery-ui.js';
 import { RECIPES, RECIPE_BY_ID, GROUPS, INGREDIENTS, DIET_LABEL, PROTEIN_LABEL, youtubeUrl, isVeg, kindOf, DATA_ERRORS, exclusionHits, ALLERGEN_CATS, DISPLAY_GROUPS, displayKind } from './data.js';
 import { getState, update, onChange, defaultState, replaceState } from './state.js';
-import { generateSlots, slotKind, planRecipes, alternatives, randomSwap, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes, localISO, weekRelation, weekRangeLabel } from './planner.js';
+import { generateSlots, slotKind, planRecipes, alternatives, randomSwap, removeSlot, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes, localISO, weekRelation, weekRangeLabel } from './planner.js';
 import { renderLog, shiftDay, shiftMonth } from './log.js';
 import { buildGrocery, weeklyNoteText, scaleFactor, formatQty, qtyText } from './grocery.js';
 import { exportExcel } from './export.js';
@@ -44,6 +44,7 @@ const ui = {
   uploading: false,
   gview: 'tobuy', // groceries filter: tobuy | have | bought
   gsection: '', // groceries sub-screen: '' | extras | parties
+  noteSlot: null, // week slot index whose note sheet is open
   showAll: false, // recipes: show every match instead of the first page
   xq: { allergies: '', dislikes: '' }, // settings: ingredient search text for exclusions
 };
@@ -220,7 +221,14 @@ function personSummary(d, rules) {
 function dishCard(r, i, slot, s) {
   const final = !!s.plan.finalizedAt;
   const xActive = (s.exclusions?.allergies?.length || 0) + (s.exclusions?.dislikes?.length || 0) > 0;
-  return `<li class="dish ${slot.locked && !final ? 'locked' : ''}">
+  // The card sits in a swipe wrap: swipe left reveals Remove, swipe right
+  // reveals Note, long-press toggles the lock (see the gesture handlers).
+  return `<li class="dish-wrap" data-i="${i}">
+    <div class="swipe-under" aria-hidden="true">
+      <button class="swipe-act note-side" data-act="note-slot" data-i="${i}" tabindex="-1">${icon('note')}<span>Note</span></button>
+      ${final ? '' : `<button class="swipe-act remove-side" data-act="remove-slot" data-i="${i}" tabindex="-1">${icon('x')}<span>Remove</span></button>`}
+    </div>
+    <div class="dish ${slot.locked && !final ? 'locked' : ''}">
     <div class="dish-top">
       <span class="badges">${ratingBadge(s, r)}${exclBadge(s, r)}${r.custom && xActive ? ' <span class="badge allerg">⚠ not allergy-checked</span>' : ''}</span>
       ${slot.locked && !final ? `<span class="locked-tag">${icon('lock')} Locked</span>` : ''}
@@ -234,6 +242,7 @@ function dishCard(r, i, slot, s) {
       const cls = m.protein < g.min ? 'warn' : 'ok';
       return `<span><b>${esc(p.name)}</b> <span class="st ${cls}">${r.nutritionApproximate ? '~' : ''}${m.protein} g</span> · ${r.nutritionApproximate ? '~' : ''}${m.kcal} kcal</span>`;
     }).join('')}</div>
+    ${slot.note ? `<div class="slot-note">${icon('note', 'sm')} ${esc(slot.note)}</div>` : ''}
     <div class="actions">
       ${final ? (r.imported
         ? `<button class="act" data-act="open-imported" data-id="${r.id}">${icon('play')}<span>Recipe</span></button>`
@@ -256,6 +265,7 @@ function dishCard(r, i, slot, s) {
     </div>
     ${r.custom && r.customIngredients?.length ? `<details class="rate-wrap"><summary>Ingredients (as you wrote them)</summary><ul class="ings">${r.customIngredients.map((l) => `<li><span>${esc(l)}</span></li>`).join('')}</ul></details>` : ''}
     <details class="rate-wrap" ${s.ratings[r.id] ? 'open' : ''}><summary>Cooked it? Rate it</summary>${starsFor(s, r)}</details>
+    </div>
   </li>`;
 }
 
@@ -312,6 +322,8 @@ function renderWeek(s) {
       <button class="link" data-act="unfinalize">Edit week</button>
     </div>
   </section>` : ''}
+
+  ${s.plan.finalizedAt || !s.plan.slots.length ? '' : `<p class="fine gesture-hint">Long-press a dish to lock it · swipe left to remove · swipe right for a note</p>`}
 
   ${DISPLAY_GROUPS.map(([kind,label]) => section(kind, esc(label))).join('')}
 
@@ -860,6 +872,28 @@ function renderSheet(s) {
   if (cb.sheet) { renderCbSheet(el); return; }
   if (ui.idea) { renderIdeaSheet(el); return; }
   if (ui.imported) { renderImportedSheet(el, s); return; }
+  // Note sheet for a week dish (swipe right → Note). The note lives on the
+  // slot, so it syncs with the plan and disappears with the dish or the week.
+  if (ui.noteSlot != null) {
+    const i = ui.noteSlot;
+    const slot = s.plan.slots[i];
+    const r = slot && dishById(s, slot.id);
+    if (!r) { ui.noteSlot = null; el.innerHTML = ''; el.hidden = true; document.body.classList.remove('sheet-open'); return; }
+    el.hidden = false;
+    document.body.classList.add('sheet-open');
+    el.innerHTML = `<div class="backdrop" data-act="close-sheet"></div>
+    <div class="sheet" role="dialog" aria-label="Note for ${esc(r.name)}">
+      <header><div><div class="fine">${esc(r.name)}</div><h2>Note</h2></div>
+        <button class="act icon-only" data-act="close-sheet" aria-label="Close">${icon('x')}</button></header>
+      <div class="sheet-body">
+        <label class="field"><span>Note for this week <span class="fine">- e.g. which day, “make extra”, “less spice”</span></span>
+          <textarea id="slotnote" rows="3" placeholder="e.g. cook Thursday">${esc(slot.note || '')}</textarea></label>
+        <button class="btn primary wide" data-act="note-save">Save note</button>
+        ${slot.note ? `<button class="link" data-act="note-clear">Remove note</button>` : ''}
+      </div>
+    </div>`;
+    return;
+  }
   if (!ui.sheet) { el.innerHTML = ''; el.hidden = true; document.body.classList.remove('sheet-open'); return; }
   el.hidden = false;
   document.body.classList.add('sheet-open');
@@ -1149,7 +1183,7 @@ const actions = {
     renderSheet(getState());
     $('#sq')?.focus();
   },
-  'close-sheet': () => { ui.sheet = null; ui.imported = null; ui.idea = null; renderSheet(getState()); },
+  'close-sheet': () => { ui.sheet = null; ui.imported = null; ui.idea = null; ui.noteSlot = null; renderSheet(getState()); },
   'open-imported': (el) => { ui.imported = el.dataset.id; renderSheet(getState()); },
   'open-idea': (el) => { ui.idea = el.dataset.id; renderSheet(getState()); },
   'choose-imported': (el) => {
@@ -1227,6 +1261,43 @@ const actions = {
     toast(`Swapped in ${picked.name} — locked, so Shuffle keeps it`);
   },
   'pick-back': () => { if (ui.sheet) { ui.sheet.pick = null; renderSheet(getState()); $('#sq')?.focus(); } },
+  // Swipe-right on a week card → note sheet; swipe-left → take the dish out
+  // of the week (its chicken/veg target goes with it, so Shuffle won't refill).
+  'note-slot': (el) => {
+    const i = Number(el.dataset.i);
+    if (!getState().plan.slots[i]) return;
+    ui.noteSlot = i;
+    renderSheet(getState());
+    $('#slotnote')?.focus();
+  },
+  'note-save': () => {
+    const i = ui.noteSlot;
+    ui.noteSlot = null;
+    if (i == null) return;
+    const text = ($('#slotnote')?.value || '').trim();
+    update((d) => {
+      const x = d.plan.slots[i];
+      if (!x) return;
+      if (text) x.note = text; else delete x.note;
+    });
+    renderSheet(getState());
+    toast(text ? 'Note saved' : 'Note removed');
+  },
+  'note-clear': () => {
+    const i = ui.noteSlot;
+    ui.noteSlot = null;
+    if (i == null) return;
+    update((d) => { const x = d.plan.slots[i]; if (x) delete x.note; });
+    renderSheet(getState());
+    toast('Note removed');
+  },
+  'remove-slot': (el) => {
+    const s = getState();
+    if (s.plan.finalizedAt) { toast('This week is finalized — tap “Edit week” first'); return; }
+    let name = '';
+    update((d) => { name = removeSlot(d, Number(el.dataset.i))?.name || ''; });
+    toast(name ? `Removed ${name} — re-add it any time from Search` : 'Removed');
+  },
   rate: (el) => update((d) => {
     const id = el.dataset.id, p = Number(el.dataset.p), v = Number(el.dataset.v);
     const entry = d.ratings[id] || { r: [null, null], note: '' };
@@ -1449,6 +1520,126 @@ const actions = {
   },
 };
 
+// ---------- Week dish gestures ----------
+// Long-press a week card to lock/unlock it; swipe left to reveal Remove,
+// swipe right to reveal Note. Pointer events cover touch and mouse; the
+// cards are touch-action: pan-y so vertical scrolling stays native.
+const GEST = { longMs: 550, thresh: 56, reveal: 92, overdrag: 24 };
+let gest = null;
+let suppressClick = false;
+
+function gestTarget(e) {
+  const dish = e.target.closest?.('.dishes .dish');
+  if (!dish) return null;
+  const wrap = dish.closest('.dish-wrap');
+  return wrap ? { wrap, dish } : null;
+}
+
+function revealCard(wrap, dish, x, cls) {
+  dish.style.transform = `translateX(${x}px)`;
+  wrap.classList.add(cls);
+}
+
+function closeReveals(except = null) {
+  document.querySelectorAll('.dish-wrap.open-left, .dish-wrap.open-right').forEach((w) => {
+    if (w === except) return;
+    w.classList.remove('open-left', 'open-right');
+    const d = w.querySelector('.dish');
+    if (d) d.style.transform = '';
+  });
+}
+
+function cancelGest() {
+  if (!gest) return;
+  clearTimeout(gest.timer);
+  gest.dish.classList.remove('swiping');
+  if (gest.swiping) { gest.dish.style.transform = ''; suppressClick = true; }
+  gest = null;
+}
+
+document.addEventListener('pointerdown', (e) => {
+  const g = gestTarget(e);
+  if (!g) {
+    // Tapping anywhere outside a card closes a revealed one — but not when
+    // the tap is on the revealed Remove/Note button itself.
+    if (!e.target.closest?.('.swipe-under')) closeReveals();
+    return;
+  }
+  closeReveals(g.wrap);
+  gest = {
+    wrap: g.wrap, dish: g.dish, i: Number(g.wrap.dataset.i),
+    x0: e.clientX, y0: e.clientY, dx: 0, swiping: false, done: false, timer: 0,
+    interactive: !!e.target.closest('button, a, input, textarea, select, summary'),
+  };
+  if (!gest.interactive && !getState().plan.finalizedAt) {
+    gest.timer = setTimeout(() => {
+      if (!gest || gest.done || gest.swiping) return;
+      gest.done = true;
+      const cur = getState().plan.slots[gest.i];
+      if (!cur) return;
+      update((d) => { const x = d.plan.slots[gest.i]; if (x) x.locked = !x.locked; });
+      toast(cur.locked ? 'Unlocked — Shuffle can swap it' : 'Locked — Shuffle keeps it');
+      suppressClick = true;
+      try { navigator.vibrate?.(10); } catch { /* no haptics here */ }
+    }, GEST.longMs);
+  }
+});
+
+document.addEventListener('pointermove', (e) => {
+  if (!gest || gest.done) return;
+  const dx = e.clientX - gest.x0, dy = e.clientY - gest.y0;
+  if (!gest.swiping) {
+    if (Math.abs(dy) > 12 && Math.abs(dy) > Math.abs(dx)) { cancelGest(); return; } // vertical scroll
+    if (Math.abs(dx) > 8 || Math.abs(dy) > 8) clearTimeout(gest.timer); // moved too far for a long-press
+    if (Math.abs(dx) > 12 && Math.abs(dx) > Math.abs(dy)) {
+      gest.swiping = true;
+      try { gest.dish.setPointerCapture?.(e.pointerId); } catch { /* capture unsupported */ }
+    } else return;
+  }
+  const final = !!getState().plan.finalizedAt;
+  const lim = GEST.reveal + GEST.overdrag;
+  let x = Math.max(-lim, Math.min(lim, dx));
+  if (final && x < 0) x = 0; // no Remove once the week is finalized
+  gest.dx = x;
+  gest.dish.classList.add('swiping');
+  gest.dish.style.transform = `translateX(${x}px)`;
+});
+
+document.addEventListener('pointerup', () => {
+  if (!gest) return;
+  clearTimeout(gest.timer);
+  const { wrap, dish, dx, swiping, done } = gest;
+  gest = null;
+  dish.classList.remove('swiping');
+  if (done) return;
+  if (!swiping) {
+    if (!wrap.classList.contains('open-left') && !wrap.classList.contains('open-right')) dish.style.transform = '';
+    return;
+  }
+  suppressClick = true;
+  const final = !!getState().plan.finalizedAt;
+  if (dx <= -GEST.thresh && !final) revealCard(wrap, dish, -GEST.reveal, 'open-left');
+  else if (dx >= GEST.thresh) revealCard(wrap, dish, GEST.reveal, 'open-right');
+  else dish.style.transform = '';
+});
+
+document.addEventListener('pointercancel', cancelGest);
+
+// No browser context menu on week cards - it fights the long-press lock.
+document.addEventListener('contextmenu', (e) => { if (gestTarget(e)) e.preventDefault(); });
+
+// Capture-phase click guard: swallow the click that follows a long-press or
+// swipe, and close a revealed card when its body (not its buttons) is tapped.
+document.addEventListener('click', (e) => {
+  if (suppressClick) { suppressClick = false; e.stopPropagation(); e.preventDefault(); return; }
+  const g = gestTarget(e);
+  if (g && (g.wrap.classList.contains('open-left') || g.wrap.classList.contains('open-right'))) {
+    closeReveals();
+    e.stopPropagation();
+    e.preventDefault();
+  }
+}, true);
+
 document.addEventListener('click', (e) => {
   const el = e.target.closest('[data-act]');
   if (!el || el.tagName === 'INPUT' || el.disabled) return;
@@ -1532,7 +1723,7 @@ document.addEventListener('submit', (e) => {
   }
 });
 
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { if (ui.sheet) actions['close-sheet'](); else if (cb.sheet) actions['cb-close'](); } });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { if (ui.sheet || ui.noteSlot != null) actions['close-sheet'](); else if (cb.sheet) actions['cb-close'](); } });
 window.addEventListener('cb-toast', (e) => toast(e.detail));
 
 // ---------- Boot ----------

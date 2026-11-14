@@ -136,6 +136,20 @@ export function generateSlots(state, { keepLocked = true } = {}) {
   return sortSlots(kept, rules, state);
 }
 
+// Swipe-left on a week card: take the dish out of the week and drop the
+// matching chicken/veg target with it, so Shuffle doesn't refill the gap.
+// Unknown-diet custom dishes never filled a target, so none moves for them.
+export function removeSlot(state, index) {
+  const slot = state.plan.slots[index];
+  if (!slot) return null;
+  const r = dishById(state, slot.id);
+  const k = r ? slotKind(slot, r, state.rules) : null;
+  state.plan.slots.splice(index, 1);
+  if (k === 'veg' && state.rules.vegDishes > 0) state.rules.vegDishes--;
+  if (k === 'chicken' && state.rules.chickenDishes > 0) state.rules.chickenDishes--;
+  return r;
+}
+
 // Candidates for swapping one slot (pass index null/-1 for a week-level
 // search that isn't replacing a specific slot yet): best first, taking turns
 // between cuisines so the list isn't six Italian dishes in a row.
