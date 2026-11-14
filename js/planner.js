@@ -1,5 +1,5 @@
 // Picks the week's mix of chicken and veg dishes and works out per-person nutrition.
-import { RECIPES, RECIPE_BY_ID, isVeg, kindOf, hasExclusions } from './data.js';
+import { RECIPES, RECIPE_BY_ID, INGREDIENTS, isVeg, kindOf, hasExclusions } from './data.js';
 
 const isIndianVeg = (r, rules) => r.group === 'Indian' && isVeg(r, rules.eggsCountAsVeg);
 const kindFilter = (kind, rules) => (kind === 'veg'
@@ -132,17 +132,22 @@ export function generateSlots(state, { keepLocked = true } = {}) {
   return sortSlots(kept, rules);
 }
 
-// Candidates for swapping one slot: best first, taking turns between cuisines
-// so the list isn't six Italian dishes in a row.
+// Candidates for swapping one slot (pass index null/-1 for a week-level
+// search that isn't replacing a specific slot yet): best first, taking turns
+// between cuisines so the list isn't six Italian dishes in a row.
 export function alternatives(state, index, { kind = null, group = null, query = '' } = {}) {
   const others = planRecipes(state).filter((_, i) => i !== index);
   const taken = new Set(state.plan.slots.map((s) => s.id));
   const q = query.trim().toLowerCase();
   const ofKind = kind ? kindFilter(kind, state.rules) : () => true;
+  // Matches name, cuisine or any listed ingredient - same reach as the
+  // Recipes tab search, so "paneer" finds Saag Paneer too.
+  const matches = (r) => !q || r.name.toLowerCase().includes(q) || (r.cuisine || '').toLowerCase().includes(q)
+    || (r.items || []).some((it) => INGREDIENTS[it.id]?.name.toLowerCase().includes(q));
   const ranked = RECIPES
     .filter((r) => !taken.has(r.id) && !state.hidden.includes(r.id) && !hasExclusions(r, state.exclusions) && ofKind(r)
       && (!group || r.group === group)
-      && (!q || r.name.toLowerCase().includes(q) || (r.cuisine || '').toLowerCase().includes(q)))
+      && matches(r))
     .map((r) => ({ r, w: score(state, r, others) + (r.protein != null && r.protein >= state.rules.minProtein ? 0.01 : 0) }))
     .sort((a, b) => b.w - a.w)
     .map((x) => x.r);

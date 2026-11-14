@@ -308,6 +308,7 @@ function renderWeek(s) {
 
   ${s.plan.finalizedAt ? '' : `<div class="remix-row">
     <span class="mix-count">Planner target: ${s.rules.chickenDishes} chicken · ${s.rules.vegDishes} veg</span>
+    <button class="btn small" data-act="search-week">${icon('search')} Search</button>
     <button class="btn small" data-act="shuffle">${icon('shuffle')} Shuffle${lockedCount ? ` (keeps ${lockedCount} locked)` : ''}</button>
     <details class="mix-detail"><summary>Change the mix</summary>
       <div class="toolbar">
@@ -853,16 +854,43 @@ function renderSheet(s) {
   if (!ui.sheet) { el.innerHTML = ''; el.hidden = true; document.body.classList.remove('sheet-open'); return; }
   el.hidden = false;
   document.body.classList.add('sheet-open');
-  const current = RECIPE_BY_ID[s.plan.slots[ui.sheet.index]?.id];
+  // Week-level search (opened from the Week tab's Search button) has no slot
+  // yet: index null. ui.sheet.pick = the chosen dish, waiting for the user to
+  // say which current dish it replaces.
+  const addMode = ui.sheet.index == null;
+  if (addMode && ui.sheet.pick != null) {
+    const picked = RECIPE_BY_ID[ui.sheet.pick];
+    if (!picked) { ui.sheet = null; renderSheet(s); return; }
+    el.innerHTML = `<div class="backdrop" data-act="close-sheet"></div>
+  <div class="sheet" role="dialog" aria-label="Choose which dish it replaces">
+    <header><div><div class="fine">Adding ${esc(picked.name)}</div><h2>Which dish should it replace?</h2></div>
+      <button class="act icon-only" data-act="close-sheet" aria-label="Close">${icon('x')}</button></header>
+    <div class="sheet-list">
+      ${s.plan.slots.map((slot, i) => {
+        const cur = RECIPE_BY_ID[slot.id];
+        if (!cur) return '';
+        return `<button class="pick" data-act="pick-replace" data-i="${i}">
+        <span class="rname">${dietDot(cur)} ${esc(cur.name)}${slot.locked ? ' <span class="fine">(locked)</span>' : ''}</span>
+        <span class="meta">${esc(cur.cuisine)}${cur.time != null ? ` · ${cur.time} min` : ''}</span>
+      </button>`;
+      }).join('')}
+      <button class="link" data-act="pick-back">&lsaquo; Back to search</button>
+    </div>
+  </div>`;
+    return;
+  }
+  const current = addMode ? null : RECIPE_BY_ID[s.plan.slots[ui.sheet.index]?.id];
   const kind = current ? slotKind(s.plan.slots[ui.sheet.index], current, s.rules) : 'chicken';
-  const filters = [['kind', kind === 'veg' ? 'Veg' : 'Chicken & turkey'], ['same', `Same cuisine${current ? ` (${current.group})` : ''}`], ['regulars', 'Our regulars'], ['any', 'Anything']];
+  const filters = addMode
+    ? [['any', 'Anything'], ['veg', 'Veg'], ['chicken', 'Chicken & turkey'], ['regulars', 'Our regulars']]
+    : [['kind', kind === 'veg' ? 'Veg' : 'Chicken & turkey'], ['same', `Same cuisine${current ? ` (${current.group})` : ''}`], ['regulars', 'Our regulars'], ['any', 'Anything']];
   el.innerHTML = `<div class="backdrop" data-act="close-sheet"></div>
   <div class="sheet" role="dialog" aria-label="Choose a dish">
-    <header><div><div class="fine">Replacing ${esc(current?.name || '')}</div><h2>Choose a dish</h2></div>
+    <header><div><div class="fine">${addMode ? 'Decided what you want?' : `Replacing ${esc(current?.name || '')}`}</div><h2>${addMode ? 'Search &amp; add to the week' : 'Choose a dish'}</h2></div>
       <button class="act icon-only" data-act="close-sheet" aria-label="Close">${icon('x')}</button></header>
     <div class="chips">${filters.map(([v, l]) => `<button class="chip ${ui.sheet.filter === v ? 'on' : ''}" data-act="sheet-filter" data-v="${v}">${esc(l)}</button>`).join('')}</div>
-    <div class="searchbar">${icon('search')}<input id="sq" type="search" placeholder="Search…" value="${esc(ui.sheet.query)}" autocomplete="off"></div>
-    <button class="btn wide" data-act="swap-random" data-i="${ui.sheet.index}">${icon('shuffle')} Surprise me</button>
+    <div class="searchbar">${icon('search')}<input id="sq" type="search" placeholder="${addMode ? 'Search dishes or ingredients…' : 'Search…'}" value="${esc(ui.sheet.query)}" autocomplete="off"></div>
+    ${addMode ? '' : `<button class="btn wide" data-act="swap-random" data-i="${ui.sheet.index}">${icon('shuffle')} Surprise me</button>`}
     <div id="sheet-list" class="sheet-list"></div>
   </div>`;
   renderSheetList(s);
@@ -870,12 +898,14 @@ function renderSheet(s) {
 
 function renderSheetList(s) {
   const el = $('#sheet-list');
-  if (!el || !ui.sheet) return;
-  const current = RECIPE_BY_ID[s.plan.slots[ui.sheet.index]?.id];
+  if (!el || !ui.sheet || ui.sheet.pick != null) return;
+  const addMode = ui.sheet.index == null;
+  const current = addMode ? null : RECIPE_BY_ID[s.plan.slots[ui.sheet.index]?.id];
   const kind = current ? slotKind(s.plan.slots[ui.sheet.index], current, s.rules) : null;
   const f = ui.sheet.filter;
-  let list = alternatives(s, ui.sheet.index, {
-    kind: f === 'any' ? null : kind,
+  const kindArg = addMode ? (f === 'veg' || f === 'chicken' ? f : null) : (f === 'any' ? null : kind);
+  let list = alternatives(s, addMode ? -1 : ui.sheet.index, {
+    kind: kindArg,
     group: f === 'same' ? current?.group : null,
     query: ui.sheet.query,
   });
@@ -886,7 +916,7 @@ function renderSheetList(s) {
       <span class="meta">${esc(r.cuisine)} · ${r.time} min · <b>${r.protein} g</b> · ${r.kcal} kcal</span>
     </button>`).join('') || '<p class="empty">No matches.</p>';
   const q = (ui.sheet.query || '').toLowerCase();
-  const imp = f === 'regulars' ? [] : importedList().filter(r => importedMatches(r, s, { query: q, kind: f === 'any' ? null : kind, group: f === 'same' ? current?.group : null }));
+  const imp = f === 'regulars' ? [] : importedList().filter(r => importedMatches(r, s, { query: q, kind: kindArg, group: f === 'same' ? current?.group : null }));
   if (imp.length) {
     el.innerHTML += `<div class="fine count">Imported (not allergy-checked)</div>` + imp.map((r) => {
       const gate = importedAddStatus(s, r.id);
@@ -998,6 +1028,30 @@ function replaceSlot(i, id) {
   });
 }
 
+// A deliberate pick from the Week tab search ("I've decided what I want to
+// eat"). While the week has room it joins as a new locked dish; once full, or
+// for an imported fixed batch (which keeps the replaced slot's quota
+// bookkeeping), the sheet asks which current dish it replaces.
+function startWeekPick(id) {
+  const s = getState();
+  const r = RECIPE_BY_ID[id];
+  if (!r) return;
+  if (s.plan.finalizedAt) { ui.sheet = null; renderSheet(s); toast('This week is finalized — tap “Edit week” first'); return; }
+  if (r.imported) {
+    const gate = importedAddStatus(s, id);
+    if (!gate.allowed) { toast(gate.reason); return; }
+  }
+  if (!r.imported && targetDishes(s.rules) < 7) {
+    const key = kindOf(r, s.rules.eggsCountAsVeg) === 'veg' ? 'vegDishes' : 'chickenDishes';
+    ui.sheet = null;
+    update((d) => { d.plan.slots.push({ id, locked: true }); d.rules[key]++; resizePlan(d); });
+    toast(`Added ${r.name} — locked, so Shuffle keeps it`);
+    return;
+  }
+  ui.sheet = { ...ui.sheet, pick: id };
+  renderSheet(s);
+}
+
 const actions = {
   tab: (el) => setTab(el.dataset.tab),
   shuffle: () => {
@@ -1020,7 +1074,13 @@ const actions = {
     if (r) { replaceSlot(i, r.id); toast(`Swapped in ${r.name}`); } else toast('No other dish fits — try Pick');
     ui.sheet = null; render();
   },
-  'open-sheet': (el) => { ui.sheet = { index: Number(el.dataset.i), filter: 'kind', query: '' }; renderSheet(getState()); },
+  'open-sheet': (el) => { ui.sheet = { index: Number(el.dataset.i), filter: 'kind', query: '', pick: null }; renderSheet(getState()); $('#sq')?.focus(); },
+  'search-week': () => {
+    if (getState().plan.finalizedAt) { toast('This week is finalized — tap “Edit week” first'); return; }
+    ui.sheet = { index: null, filter: 'any', query: '', pick: null };
+    renderSheet(getState());
+    $('#sq')?.focus();
+  },
   'close-sheet': () => { ui.sheet = null; ui.imported = null; ui.idea = null; renderSheet(getState()); },
   'open-imported': (el) => { ui.imported = el.dataset.id; renderSheet(getState()); },
   'open-idea': (el) => { ui.idea = el.dataset.id; renderSheet(getState()); },
@@ -1029,12 +1089,48 @@ const actions = {
     const gate = importedAddStatus(s, el.dataset.id);
     if (!gate.allowed) { toast(gate.reason); return; }
     const i = ui.sheet?.index;
+    if (i == null) { startWeekPick(el.dataset.id); return; }
     ui.sheet = null;
-    if (i != null) { replaceSlot(i, el.dataset.id); toast(`Added ${IMPORTED.get(el.dataset.id).name} (fixed batch)`); }
+    replaceSlot(i, el.dataset.id);
+    toast(`Added ${IMPORTED.get(el.dataset.id).name} (fixed batch)`);
   },
   ...cbActions,
   'sheet-filter': (el) => { ui.sheet.filter = el.dataset.v; renderSheet(getState()); },
-  choose: (el) => { const i = ui.sheet.index; ui.sheet = null; replaceSlot(i, el.dataset.id); },
+  choose: (el) => {
+    const sh = ui.sheet;
+    if (!sh) return;
+    if (sh.index == null) { startWeekPick(el.dataset.id); return; }
+    ui.sheet = null;
+    replaceSlot(sh.index, el.dataset.id);
+  },
+  // Week-level search, full week or imported pick: the dish takes the place
+  // of a current dish the user names, locked so Shuffle keeps it. The
+  // chicken/veg targets follow the pick so it also survives the next load.
+  'pick-replace': (el) => {
+    const sh = ui.sheet;
+    const id = sh?.pick;
+    if (id == null) return;
+    const i = Number(el.dataset.i);
+    const s = getState();
+    const old = s.plan.slots[i];
+    const picked = RECIPE_BY_ID[id];
+    if (!old || !picked) { ui.sheet = null; renderSheet(s); return; }
+    ui.sheet = null;
+    update((d) => {
+      const planKind = slotKind(old, RECIPE_BY_ID[old.id], d.rules);
+      d.plan.slots[i] = { id, locked: true, ...(picked.imported ? { planKind } : {}) };
+      if (!picked.imported) {
+        const newKind = kindOf(picked, d.rules.eggsCountAsVeg);
+        if ((newKind === 'veg' || newKind === 'chicken') && newKind !== planKind) {
+          const up = newKind === 'veg' ? 'vegDishes' : 'chickenDishes';
+          const down = planKind === 'veg' ? 'vegDishes' : 'chickenDishes';
+          if (d.rules[down] > 0) { d.rules[down]--; d.rules[up]++; }
+        }
+      }
+    });
+    toast(`Swapped in ${picked.name} — locked, so Shuffle keeps it`);
+  },
+  'pick-back': () => { if (ui.sheet) { ui.sheet.pick = null; renderSheet(getState()); $('#sq')?.focus(); } },
   rate: (el) => update((d) => {
     const id = el.dataset.id, p = Number(el.dataset.p), v = Number(el.dataset.v);
     const entry = d.ratings[id] || { r: [null, null], note: '' };
