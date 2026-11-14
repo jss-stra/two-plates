@@ -323,7 +323,9 @@ function renderWeek(s) {
     </div>
   </section>` : ''}
 
-  ${s.plan.finalizedAt || !s.plan.slots.length ? '' : `<p class="fine gesture-hint">Long-press a dish to lock it · swipe left to remove · swipe right for a note</p>`}
+  ${!s.plan.slots.length ? '' : s.plan.finalizedAt
+    ? `<p class="fine gesture-hint">Week finalized — tap “Edit week” above to change dishes · swipe right on a dish for a note</p>`
+    : `<p class="fine gesture-hint">Long-press a dish to lock it · swipe left to remove · swipe right for a note</p>`}
 
   ${DISPLAY_GROUPS.map(([kind,label]) => section(kind, esc(label))).join('')}
 
@@ -1578,14 +1580,21 @@ document.addEventListener('pointerdown', (e) => {
     x0: e.clientX, y0: e.clientY, dx: 0, swiping: false, done: false, timer: 0,
     interactive: !!e.target.closest('button, a, input, textarea, select, summary'),
   };
-  if (!gest.interactive && !getState().plan.finalizedAt) {
+  if (!gest.interactive) {
+    const final = !!getState().plan.finalizedAt;
     gest.timer = setTimeout(() => {
       if (!gest || gest.done || gest.swiping) return;
       gest.done = true;
-      const cur = getState().plan.slots[gest.i];
-      if (!cur) return;
-      update((d) => { const x = d.plan.slots[gest.i]; if (x) x.locked = !x.locked; });
-      toast(cur.locked ? 'Unlocked — Shuffle can swap it' : 'Locked — Shuffle keeps it');
+      if (final) {
+        // Locking is meaningless once the week is finalized (no more
+        // shuffles) - say so instead of failing silently.
+        toast('This week is finalized — tap “Edit week” first');
+      } else {
+        const cur = getState().plan.slots[gest.i];
+        if (!cur) return;
+        update((d) => { const x = d.plan.slots[gest.i]; if (x) x.locked = !x.locked; });
+        toast(cur.locked ? 'Unlocked — Shuffle can swap it' : 'Locked — Shuffle keeps it');
+      }
       armSuppressClick();
       try { navigator.vibrate?.(10); } catch { /* no haptics here */ }
     }, GEST.longMs);
@@ -1597,7 +1606,7 @@ document.addEventListener('pointermove', (e) => {
   const dx = e.clientX - gest.x0, dy = e.clientY - gest.y0;
   if (!gest.swiping) {
     if (Math.abs(dy) > 12 && Math.abs(dy) > Math.abs(dx)) { cancelGest(); return; } // vertical scroll
-    if (Math.abs(dx) > 8 || Math.abs(dy) > 8) clearTimeout(gest.timer); // moved too far for a long-press
+    if (Math.abs(dx) > 14 || Math.abs(dy) > 14) clearTimeout(gest.timer); // moved too far for a long-press
     if (Math.abs(dx) > 12 && Math.abs(dx) > Math.abs(dy)) {
       gest.swiping = true;
       try { gest.dish.setPointerCapture?.(e.pointerId); } catch { /* capture unsupported */ }
@@ -1606,7 +1615,7 @@ document.addEventListener('pointermove', (e) => {
   const final = !!getState().plan.finalizedAt;
   const lim = GEST.reveal + GEST.overdrag;
   let x = Math.max(-lim, Math.min(lim, dx));
-  if (final && x < 0) x = 0; // no Remove once the week is finalized
+  if (final && x < 0) x = Math.max(x / 3, -24); // finalized: small nudge, then it snaps back (no Remove)
   gest.dx = x;
   gest.dish.classList.add('swiping');
   gest.dish.style.transform = `translateX(${x}px)`;
@@ -1626,6 +1635,7 @@ document.addEventListener('pointerup', () => {
   armSuppressClick();
   const final = !!getState().plan.finalizedAt;
   if (dx <= -GEST.thresh && !final) revealCard(wrap, dish, -GEST.reveal, 'open-left');
+  else if (dx <= -GEST.thresh && final) { dish.style.transform = ''; toast('This week is finalized — tap “Edit week” first'); }
   else if (dx >= GEST.thresh) revealCard(wrap, dish, GEST.reveal, 'open-right');
   else dish.style.transform = '';
 });
