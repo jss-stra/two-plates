@@ -232,10 +232,12 @@ main { max-width: 720px; margin: 0 auto; padding: 14px 16px 24px; }
 .field { display: grid; gap: 4px; font-size: .82rem; color: var(--muted); margin-bottom: 10px; }
 .field > span { display: grid; gap: 2px; }
 .field b { color: var(--ink); }
-.field input[type="text"], .field input[type="number"], .field input:not([type]) {
+.field input[type="text"], .field input[type="number"], .field input:not([type]), .field textarea {
   border: 1px solid var(--line); background: var(--bg); border-radius: 10px; padding: 0 10px; min-height: 42px; color: var(--ink); font-size: 1rem; width: 100%; min-width: 0;
 }
 .field input[type="range"] { width: 100%; accent-color: var(--accent); }
+.field textarea { padding: 10px; resize: vertical; font: inherit; line-height: 1.4; }
+.pick.custom-create { border-style: dashed; color: var(--accent); }
 .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 10px; }
 .inline { display: flex; gap: 8px; }
 .inline input { flex: 1; }

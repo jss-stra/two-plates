@@ -36,6 +36,9 @@ export function defaultState() {
     favourites: [], // replaced by ratings; kept so older saves can be migrated
     ratings: {}, // recipe id -> { r: [person1 stars, person2 stars], note }
     hidden: [],
+    // Your own dishes, written during menu creation when the catalog lacks
+    // them: id -> { id, name, custom, diet, customIngredients, ... }.
+    customDishes: {},
     // Ingredient ids (from data/ingredients.js) the planner must never suggest.
     // allergies: hard constraint; dislikes: also skipped. Both warn on already-planned dishes.
     exclusions: { allergies: [], dislikes: [] },

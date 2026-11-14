@@ -7,12 +7,20 @@ const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '
 const q = new URLSearchParams(location.search);
 const no = q.get('n');
 const weekOf = q.get('w');
-const dishes = (q.get('d') || '').split(',').map((id) => RECIPE_BY_ID[id]).filter(Boolean);
+// Your own dishes aren't in the bundled catalog - the link carries their
+// names (cn, aligned with the custom: ids in d) so the page needs no account.
+let customNames = {};
+try { customNames = JSON.parse(q.get('cn') || '{}'); } catch { customNames = {}; }
+const fromSlug = (id) => id.replace(/^custom:/, '').replace(/-/g, ' ').replace(/^\w/, (c) => c.toUpperCase());
+const dishes = (q.get('d') || '').split(',').map((id) => RECIPE_BY_ID[id]
+  || (id.startsWith('custom:') && (customNames[id] || fromSlug(id))
+    ? { id, name: customNames[id] || fromSlug(id), custom: true, cuisine: 'Your dish', diet: 'unknown', time: null, protein: null }
+    : null)).filter(Boolean);
 const when = weekOf ? new Date(`${weekOf}T12:00:00`).toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'long' }) : '';
 
 const item = (r) => `<div class="menu-item">
   <div><h3><span class="dot diet-${r.diet}"></span> ${esc(r.name)}</h3>
-    <div class="meta">${esc(r.cuisine)}${r.time == null ? ` · fixed ${r.baseServings}-serving batch` : ` · ${r.time} min`} · ${r.protein == null ? 'nutrition unknown' : `${r.nutritionApproximate ? '~' : ''}${r.protein} g protein per serving`}</div></div>
+    <div class="meta">${esc(r.cuisine)}${r.custom ? '' : r.time == null ? ` · fixed ${r.baseServings}-serving batch` : ` · ${r.time} min`} · ${r.protein == null ? 'nutrition unknown' : `${r.nutritionApproximate ? '~' : ''}${r.protein} g protein per serving`}</div></div>
   ${r.imported
     ? '<span class="fine">Recipe in the Two Plates app</span>'
     : `<a class="btn small" href="${youtubeUrl(r)}" target="_blank" rel="noopener">Recipe</a>`}

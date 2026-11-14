@@ -1,5 +1,5 @@
 // Daily food log ("Today" tab) and the month report built from it.
-import { RECIPE_BY_ID } from './data.js';
+import { dishById } from './custom.js';
 import { localISO, plannedFor } from './planner.js';
 import { waterGoal, waterAnswer, waterCheckDay, slotLabel, slotsSoFar, WATER_SLOTS } from './water.js';
 
@@ -32,7 +32,7 @@ export function renderToday(s, ui, icon) {
   const p = ui.logPerson;
   const e = entryFor(s, iso, p);
   const today = localISO();
-  const planned = plannedFor(s, iso).map((id) => RECIPE_BY_ID[id]).filter(Boolean);
+  const planned = plannedFor(s, iso).map((id) => dishById(s, id)).filter(Boolean);
   const mealPicker = (field) => {
     const v = e[field];
     return `<div class="chips wrapchips">${planned.map((r) => `<button class="chip ${v === r.id ? 'on' : ''}" data-act="log-set" data-field="${field}" data-value="${r.id}">${esc(r.name)}</button>`).join('')}

@@ -14,6 +14,7 @@ import { pushStatus, enablePush, disablePush } from './push.js';
 import { initAuth, signInWithGoogle, signOut, onAuth, authUser, authReady } from './auth.js';
 import { cb, bindCookbook, initCookbook, renderCookbook, renderCbSheet, cbActions, cbOnChange, renderFeed, renderPeople, refreshFeed, SHARING_ENABLED } from './cookbook-ui.js';
 import { IMPORTED, importedList, importedAddStatus, isImported, importedMatches } from './imported.js';
+import { dishById, customDishList, customMatches, makeCustomDish, parseIngredientLines, customId } from './custom.js';
 import { IDEAS, IDEA_BY_ID, ideaMatches } from './ideas.js';
 
 const $ = (sel, el = document) => el.querySelector(sel);
@@ -100,7 +101,7 @@ function setPath(obj, path, value) {
 
 const kindCounts = (s) => {
   const c = { chicken: 0, veg: 0 };
-  s.plan.slots.forEach((slot) => { const r = RECIPE_BY_ID[slot.id]; if (r) { const k = slotKind(slot, r, s.rules); c[k] = (c[k] || 0) + 1; } });
+  s.plan.slots.forEach((slot) => { const r = dishById(s, slot.id); if (r) { const k = slotKind(slot, r, s.rules); c[k] = (c[k] || 0) + 1; } });
   return c;
 };
 
@@ -119,7 +120,7 @@ function ensurePlan() {
   // Egg dishes only belong in the week if you added/locked them yourself
   // (or count eggs as veg) — otherwise they'd take a chicken slot.
   const fits = (x, rules) => {
-    const r = RECIPE_BY_ID[x.id];
+    const r = dishById(s, x.id);
     return r && (x.locked || r.diet !== 'egg' || rules.eggsCountAsVeg);
   };
   const valid = s.plan.slots.every((x) => fits(x, s.rules));
@@ -218,13 +219,14 @@ function personSummary(d, rules) {
 
 function dishCard(r, i, slot, s) {
   const final = !!s.plan.finalizedAt;
+  const xActive = (s.exclusions?.allergies?.length || 0) + (s.exclusions?.dislikes?.length || 0) > 0;
   return `<li class="dish ${slot.locked && !final ? 'locked' : ''}">
     <div class="dish-top">
-      <span class="badges">${ratingBadge(s, r)}${exclBadge(s, r)}</span>
+      <span class="badges">${ratingBadge(s, r)}${exclBadge(s, r)}${r.custom && xActive ? ' <span class="badge allerg">⚠ not allergy-checked</span>' : ''}</span>
       ${slot.locked && !final ? `<span class="locked-tag">${icon('lock')} Locked</span>` : ''}
     </div>
     <h3>${esc(r.name)}</h3>
-    <div class="meta">${dietDot(r)} ${esc(r.cuisine)}${r.imported ? ` · fixed ${r.baseServings}-serving batch${r.diet === 'unknown' ? ' · diet not classified' : ''}${r.limitation ? ` · ${esc(r.limitation.summary)}` : ''} · ${nutritionLabel(r)}` : ` · ${icon('clock', 'sm')} ${r.time} min · ${PROTEIN_LABEL[r.mainProtein] || ''}`}</div>
+    <div class="meta">${dietDot(r)} ${esc(r.cuisine)}${r.custom ? ' · nutrition unknown' : r.imported ? ` · fixed ${r.baseServings}-serving batch${r.diet === 'unknown' ? ' · diet not classified' : ''}${r.limitation ? ` · ${esc(r.limitation.summary)}` : ''} · ${nutritionLabel(r)}` : ` · ${icon('clock', 'sm')} ${r.time} min · ${PROTEIN_LABEL[r.mainProtein] || ''}`}</div>
     <div class="macros">${s.people.map((p) => {
       const m = mealFor(r, p);
       if (m.protein == null) return `<span><b>${esc(p.name)}</b> <span class="fine">${nutritionLabel(r)}</span></span>`;
@@ -235,7 +237,13 @@ function dishCard(r, i, slot, s) {
     <div class="actions">
       ${final ? (r.imported
         ? `<button class="act" data-act="open-imported" data-id="${r.id}">${icon('play')}<span>Recipe</span></button>`
-        : `<a class="act yt" href="${youtubeUrl(r)}" target="_blank" rel="noopener">${icon('play')}<span>YouTube</span></a>`) : `
+        : `<a class="act yt" href="${youtubeUrl(r)}" target="_blank" rel="noopener">${icon('play')}<span>YouTube</span></a>`) : r.custom ? `
+      <button class="act primary-act" data-act="open-sheet" data-i="${i}">${icon('list')}<span>Pick…</span></button>
+      <span class="act-spacer"></span>
+      <details class="dish-more"><summary class="act icon-only" aria-label="More actions for ${esc(r.name)}">${icon('dots')}</summary>
+        <button class="act ${slot.locked ? 'on' : ''}" data-act="lock" data-i="${i}">${icon(slot.locked ? 'lock' : 'unlock')}<span>${slot.locked ? 'Unlock' : 'Lock'}</span></button>
+        <a class="act yt" href="${youtubeUrl(r)}" target="_blank" rel="noopener">${icon('play')}<span>YouTube</span></a>
+      </details>` : `
       <button class="act primary-act" data-act="swap-random" data-i="${i}" ${slot.locked ? 'disabled' : ''}>${icon('shuffle')}<span>Swap</span></button>
       <span class="act-spacer"></span>
       <details class="dish-more"><summary class="act icon-only" aria-label="More actions for ${esc(r.name)}">${icon('dots')}</summary>
@@ -246,6 +254,7 @@ function dishCard(r, i, slot, s) {
           : `<a class="act yt" href="${youtubeUrl(r)}" target="_blank" rel="noopener">${icon('play')}<span>YouTube</span></a>`}
       </details>`}
     </div>
+    ${r.custom && r.customIngredients?.length ? `<details class="rate-wrap"><summary>Ingredients (as you wrote them)</summary><ul class="ings">${r.customIngredients.map((l) => `<li><span>${esc(l)}</span></li>`).join('')}</ul></details>` : ''}
     <details class="rate-wrap" ${s.ratings[r.id] ? 'open' : ''}><summary>Cooked it? Rate it</summary>${starsFor(s, r)}</details>
   </li>`;
 }
@@ -273,7 +282,7 @@ function renderWeek(s) {
     : `${fmtTime(totalTime)} cooking in total`;
   const lockedCount = s.plan.slots.filter((x) => x.locked).length;
   const section = (kind, title) => {
-    const items = s.plan.slots.map((slot, i) => ({ slot, i, r: RECIPE_BY_ID[slot.id] }))
+    const items = s.plan.slots.map((slot, i) => ({ slot, i, r: dishById(s, slot.id) }))
       .filter((x) => x.r && displayKind(x.r, s.rules.eggsCountAsVeg) === kind);
     if (!items.length) return '';
     return `<h2 class="sec-title">${title} <span class="muted">(${items.length})</span></h2>
@@ -341,7 +350,7 @@ function pastWeeks(s) {
     ${weeks.reverse().map((h) => `<div class="past-week">
       <div class="past-head"><span>Week ${h.no} · ${fmtWeek(h.weekOf)}${h.current ? ' <span class="badge reg">This week</span>' : ''}${h.finalizedAt ? '' : ' <span class="fine">(not finalized)</span>'}</span>
         <a class="link" href="${menuUrl(h.no, h.weekOf, h.ids)}" target="_blank" rel="noopener">Menu page</a></div>
-      <ul>${h.ids.map((id) => RECIPE_BY_ID[id]).filter(Boolean).map((r) => {
+      <ul>${h.ids.map((id) => dishById(s, id)).filter(Boolean).map((r) => {
         const c = h.cooked?.[r.id];
         const avg = ratingOf(s, r.id);
         return `<li><span>${c === true ? '✓' : c === false ? '✗' : '·'} ${esc(r.name)}${avg !== null ? ` <span class="badge star-b">★ ${avg.toFixed(1)}</span>` : ''}</span>
@@ -858,8 +867,31 @@ function renderSheet(s) {
   // yet: index null. ui.sheet.pick = the chosen dish, waiting for the user to
   // say which current dish it replaces.
   const addMode = ui.sheet.index == null;
+  // Creating your own dish: name + ingredients as you write them + type.
+  if (addMode && ui.sheet.customForm) {
+    const cf = ui.sheet.customForm;
+    el.innerHTML = `<div class="backdrop" data-act="close-sheet"></div>
+    <div class="sheet" role="dialog" aria-label="Add your own dish">
+      <header><div><div class="fine">Not in the catalog</div><h2>Your own dish</h2></div>
+        <button class="act icon-only" data-act="close-sheet" aria-label="Close">${icon('x')}</button></header>
+      <div class="sheet-body">
+        <label class="field"><span>Dish name</span><input id="cn" type="text" value="${esc(cf.name)}" autocomplete="off"></label>
+        <label class="field"><span>Ingredients <span class="fine">- optional, one per line, exactly how you'd shop for them</span></span><textarea id="cing" rows="5" placeholder="chicken thighs 500g
+greek yogurt 200g
+garam masala"></textarea></label>
+        <div class="chips" role="group" aria-label="Dish type">
+          ${[['veg', 'Veg'], ['nonveg', 'Non-veg'], ['unknown', 'Not sure']].map(([v, l]) => `<button class="chip ${cf.diet === v ? 'on' : ''}" data-act="cdiet" data-v="${v}">${l}</button>`).join('')}
+        </div>
+        <p class="fine">Saved under Your dishes. We can't check it against your allergies/dislikes or estimate its nutrition.</p>
+        <button class="btn primary wide" data-act="custom-save">Save & add to the week</button>
+        <button class="link" data-act="custom-back">‹ Back to search</button>
+      </div>
+    </div>`;
+    if (cf.ingredients) $('#cing').value = cf.ingredients;
+    return;
+  }
   if (addMode && ui.sheet.pick != null) {
-    const picked = RECIPE_BY_ID[ui.sheet.pick];
+    const picked = dishById(s, ui.sheet.pick);
     if (!picked) { ui.sheet = null; renderSheet(s); return; }
     el.innerHTML = `<div class="backdrop" data-act="close-sheet"></div>
   <div class="sheet" role="dialog" aria-label="Choose which dish it replaces">
@@ -867,7 +899,7 @@ function renderSheet(s) {
       <button class="act icon-only" data-act="close-sheet" aria-label="Close">${icon('x')}</button></header>
     <div class="sheet-list">
       ${s.plan.slots.map((slot, i) => {
-        const cur = RECIPE_BY_ID[slot.id];
+        const cur = dishById(s, slot.id);
         if (!cur) return '';
         return `<button class="pick" data-act="pick-replace" data-i="${i}">
         <span class="rname">${dietDot(cur)} ${esc(cur.name)}${slot.locked ? ' <span class="fine">(locked)</span>' : ''}</span>
@@ -879,7 +911,7 @@ function renderSheet(s) {
   </div>`;
     return;
   }
-  const current = addMode ? null : RECIPE_BY_ID[s.plan.slots[ui.sheet.index]?.id];
+  const current = addMode ? null : dishById(s, s.plan.slots[ui.sheet.index]?.id);
   const kind = current ? slotKind(s.plan.slots[ui.sheet.index], current, s.rules) : 'chicken';
   const filters = addMode
     ? [['any', 'Anything'], ['veg', 'Veg'], ['chicken', 'Chicken & turkey'], ['regulars', 'Our regulars']]
@@ -900,7 +932,7 @@ function renderSheetList(s) {
   const el = $('#sheet-list');
   if (!el || !ui.sheet || ui.sheet.pick != null) return;
   const addMode = ui.sheet.index == null;
-  const current = addMode ? null : RECIPE_BY_ID[s.plan.slots[ui.sheet.index]?.id];
+  const current = addMode ? null : dishById(s, s.plan.slots[ui.sheet.index]?.id);
   const kind = current ? slotKind(s.plan.slots[ui.sheet.index], current, s.rules) : null;
   const f = ui.sheet.filter;
   const kindArg = addMode ? (f === 'veg' || f === 'chicken' ? f : null) : (f === 'any' ? null : kind);
@@ -930,6 +962,30 @@ function renderSheetList(s) {
         : `<span class="fine" title="${esc(gate.reason)}">not allergy-checked</span>`}
     </div>`;
     }).join('');
+  }
+  if (addMode) {
+    const q2 = (ui.sheet.query || '').trim();
+    const inWeek = new Set(s.plan.slots.map((x) => x.id));
+    const cust = f === 'regulars' ? [] : customDishList(s).filter((r) => customMatches(r, q2) && !inWeek.has(r.id));
+    if (cust.length) {
+      el.innerHTML += `<div class="fine count">Your dishes</div>` + cust.map((r) => `<button class="pick" data-act="choose-custom" data-id="${r.id}">
+        <span class="rname">${dietDot(r)} ${esc(r.name)}</span>
+        <span class="meta">Your dish${r.customIngredients?.length ? ` · ${r.customIngredients.length} ingredient${r.customIngredients.length > 1 ? 's' : ''} as written` : ''} · nutrition unknown</span>
+      </button>`).join('');
+    }
+    if (q2) {
+      const exact = q2.toLowerCase();
+      const already = list.some((r) => r.name.toLowerCase() === exact)
+        || cust.some((r) => r.name.toLowerCase() === exact)
+        || customDishList(s).some((r) => r.name.toLowerCase() === exact)
+        || imp.some((r) => r.name.toLowerCase() === exact);
+      if (!already) {
+        el.innerHTML += `<button class="pick custom-create" data-act="custom-new">
+          <span class="rname">${icon('plus')} Add “${esc(q2)}” as your own dish</span>
+          <span class="meta">Write the name and ingredients yourself - added locked, Shuffle keeps it</span>
+        </button>`;
+      }
+    }
   }
 }
 
@@ -977,12 +1033,18 @@ function setTab(tab) {
 function menuUrl(no, weekOf, ids) {
   const base = new URL('menu.html', location.href);
   base.search = `?n=${no}&w=${weekOf || ''}&d=${ids.join(',')}`; // ids are url-safe slugs
+  const s = getState();
+  const cn = {};
+  for (const id of ids) if (s.customDishes?.[id]) cn[id] = s.customDishes[id].name;
+  if (Object.keys(cn).length) base.search += `&cn=${encodeURIComponent(JSON.stringify(cn))}`;
   return base.toString();
 }
 
 function menuMessage(s, no, weekOf, ids) {
-  const recipes = ids.map((id) => RECIPE_BY_ID[id]).filter(Boolean);
-  const line = (r) => r.imported
+  const recipes = ids.map((id) => dishById(s, id)).filter(Boolean);
+  const line = (r) => r.custom
+    ? `• ${r.name} (your dish)\n  Ingredients: in the app, as you wrote them`
+    : r.imported
     ? `• ${r.name} (${r.cuisine}, fixed ${r.baseServings}-serving batch, ${nutritionLabel(r)})\n  Recipe: in the app`
     : `• ${r.name} (${r.cuisine}, ${r.time} min)\n  ${youtubeUrl(r)}`;
   return [`🍽️ Week ${no} menu - week of ${fmtWeek(weekOf)}`, '',
@@ -1023,7 +1085,7 @@ function setEntry(fn) {
 function replaceSlot(i, id) {
   update((d) => {
     const old = d.plan.slots[i];
-    const planKind = slotKind(old, RECIPE_BY_ID[old.id], d.rules);
+    const planKind = slotKind(old, dishById(d, old.id), d.rules);
     d.plan.slots[i] = { id, locked: false, ...(IMPORTED.has(id) ? { planKind } : {}) };
   });
 }
@@ -1034,7 +1096,7 @@ function replaceSlot(i, id) {
 // bookkeeping), the sheet asks which current dish it replaces.
 function startWeekPick(id) {
   const s = getState();
-  const r = RECIPE_BY_ID[id];
+  const r = dishById(s, id);
   if (!r) return;
   if (s.plan.finalizedAt) { ui.sheet = null; renderSheet(s); toast('This week is finalized — tap “Edit week” first'); return; }
   if (r.imported) {
@@ -1042,9 +1104,15 @@ function startWeekPick(id) {
     if (!gate.allowed) { toast(gate.reason); return; }
   }
   if (!r.imported && targetDishes(s.rules) < 7) {
-    const key = kindOf(r, s.rules.eggsCountAsVeg) === 'veg' ? 'vegDishes' : 'chickenDishes';
+    const kind = kindOf(r, s.rules.eggsCountAsVeg);
     ui.sheet = null;
-    update((d) => { d.plan.slots.push({ id, locked: true }); d.rules[key]++; resizePlan(d); });
+    update((d) => {
+      d.plan.slots.push({ id, locked: true });
+      // Your own dish with no diet told to us grows the week without
+      // pretending to fill a chicken or veg target.
+      if (kind === 'veg' || kind === 'chicken') d.rules[kind === 'veg' ? 'vegDishes' : 'chickenDishes']++;
+      resizePlan(d);
+    });
     toast(`Added ${r.name} — locked, so Shuffle keeps it`);
     return;
   }
@@ -1103,6 +1171,34 @@ const actions = {
     ui.sheet = null;
     replaceSlot(sh.index, el.dataset.id);
   },
+  'choose-custom': (el) => startWeekPick(el.dataset.id),
+  'custom-new': () => {
+    if (!ui.sheet) return;
+    ui.sheet.customForm = { name: (ui.sheet.query || '').trim(), ingredients: '', diet: 'unknown' };
+    renderSheet(getState());
+    $('#cn')?.focus();
+  },
+  cdiet: (el) => {
+    document.querySelectorAll('[data-act="cdiet"]').forEach((b) => b.classList.toggle('on', b === el));
+  },
+  'custom-back': () => {
+    if (!ui.sheet) return;
+    ui.sheet.customForm = null;
+    renderSheet(getState());
+    $('#sq')?.focus();
+  },
+  'custom-save': () => {
+    const sh = ui.sheet;
+    if (!sh?.customForm) return;
+    const name = $('#cn')?.value.trim();
+    if (!name) { toast('Give the dish a name first'); $('#cn')?.focus(); return; }
+    const ingredients = parseIngredientLines($('#cing')?.value || '');
+    const diet = document.querySelector('[data-act="cdiet"].on')?.dataset.v || 'unknown';
+    const rec = makeCustomDish({ name, ingredients, diet });
+    update((d) => { d.customDishes[rec.id] = rec; });
+    ui.sheet = { index: null, filter: 'any', query: '', pick: null };
+    startWeekPick(rec.id);
+  },
   // Week-level search, full week or imported pick: the dish takes the place
   // of a current dish the user names, locked so Shuffle keeps it. The
   // chicken/veg targets follow the pick so it also survives the next load.
@@ -1113,11 +1209,11 @@ const actions = {
     const i = Number(el.dataset.i);
     const s = getState();
     const old = s.plan.slots[i];
-    const picked = RECIPE_BY_ID[id];
+    const picked = dishById(s, id);
     if (!old || !picked) { ui.sheet = null; renderSheet(s); return; }
     ui.sheet = null;
     update((d) => {
-      const planKind = slotKind(old, RECIPE_BY_ID[old.id], d.rules);
+      const planKind = slotKind(old, dishById(d, old.id), d.rules);
       d.plan.slots[i] = { id, locked: true, ...(picked.imported ? { planKind } : {}) };
       if (!picked.imported) {
         const newKind = kindOf(picked, d.rules.eggsCountAsVeg);

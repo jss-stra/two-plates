@@ -1,6 +1,7 @@
 // Builds the combined, scaled shopping list for the week's dishes.
 import { INGREDIENTS, AISLES, BASE_SERVINGS, DISPLAY_GROUPS, displayKind } from './data.js';
 import { IMPORTED, importedShoppingRows } from './imported.js';
+import { customDishRows } from './custom.js';
 import { occasionTotals, customOccasionRows } from './occasions.js';
 import { planRecipes } from './planner.js';
 import { HABITS, WEEKLY_STAPLES } from '../data/shopping-habits.js';
@@ -90,6 +91,11 @@ export function buildGrocery(state) {
     const imp = IMPORTED.get(slot.id);
     if (imp) rows.push(...importedShoppingRows(imp, state));
   }
+  // Your own dishes: the ingredient lines exactly as you wrote them.
+  for (const slot of state.plan.slots) {
+    const cust = state.customDishes?.[slot.id];
+    if (cust) rows.push(...customDishRows(cust, state));
+  }
   rows.push(...customOccasionRows(state));
   const order = (a) => (a === 'extra' ? -1 : aisleOrder.indexOf(a));
   rows.sort((a, b) => order(a.aisle) - order(b.aisle) || a.aisle.localeCompare(b.aisle) || a.name.localeCompare(b.name));
@@ -121,7 +127,9 @@ export function groceryText(state, { amounts = false } = {}) {
 // One note with the week's dishes and the shopping list — for Google Keep / Notes.
 export function weeklyNoteText(state, { amounts = false } = {}) {
   const recipes = planRecipes(state);
-  const line = (r) => r.imported
+  const line = (r) => r.custom
+    ? `• ${r.name} (your dish, nutrition unknown)\n  Ingredients: in the app, as you wrote them`
+    : r.imported
     ? `• ${r.name} (${r.cuisine}, fixed ${r.baseServings}-serving batch, nutrition unknown)\n  Recipe: in the app (Week tab, tap Recipe)`
     : `• ${r.name} (${r.cuisine}, ${r.time} min)\n  Recipe: ${youtubeUrl(r)}`;
   return [

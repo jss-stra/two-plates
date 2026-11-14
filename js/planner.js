@@ -1,20 +1,22 @@
 // Picks the week's mix of chicken and veg dishes and works out per-person nutrition.
 import { RECIPES, RECIPE_BY_ID, INGREDIENTS, isVeg, kindOf, hasExclusions } from './data.js';
+import { dishById } from './custom.js';
 
 const isIndianVeg = (r, rules) => r.group === 'Indian' && isVeg(r, rules.eggsCountAsVeg);
 const kindFilter = (kind, rules) => (kind === 'veg'
   ? (r) => isVeg(r, rules.eggsCountAsVeg)
   : (r) => r.diet === 'nonveg');
 
-// A manual import occupies the plan position the user replaced. This is
-// quota bookkeeping only, never a dietary classification or filter clearance.
-export const slotKind = (slot, recipe, rules) => recipe?.imported && ['veg', 'chicken'].includes(slot.planKind)
+// A manual import or your own dish occupies the plan position the user
+// replaced. This is quota bookkeeping only, never a dietary classification or
+// filter clearance.
+export const slotKind = (slot, recipe, rules) => (recipe?.imported || recipe?.custom) && ['veg', 'chicken'].includes(slot.planKind)
   ? slot.planKind : kindOf(recipe, rules.eggsCountAsVeg);
 
 export const targetDishes = (rules) => rules.chickenDishes + rules.vegDishes;
 
 export function planRecipes(state) {
-  return state.plan.slots.map((s) => RECIPE_BY_ID[s.id]).filter(Boolean);
+  return state.plan.slots.map((s) => dishById(state, s.id)).filter(Boolean);
 }
 
 // Average of both people's stars, or null if nobody has rated it.
@@ -41,6 +43,8 @@ function eligible(state, r) {
     // finite protein value may pass minProtein (null >= 0 is true in JS), so
     // auto-planning never quietly promises protein it can't verify. The dish
     // stays manually addable from the dish picker, with its unknown marker.
+    // Your own dishes are never auto-picked either: they enter the week only
+    // when you search for them and choose them yourself.
     && Number.isFinite(r.protein) && r.protein >= rules.minProtein
     && (rules.cuisineWeights[r.group] ?? 1) > 0;
 }
@@ -93,9 +97,9 @@ function pickOne(state, chosen, filters, longLeft) {
   return null;
 }
 
-const sortSlots = (slots, rules) => slots.sort((a, b) =>
-  (kindOf(RECIPE_BY_ID[a.id], rules.eggsCountAsVeg) === 'chicken' ? 0 : 1)
-  - (kindOf(RECIPE_BY_ID[b.id], rules.eggsCountAsVeg) === 'chicken' ? 0 : 1));
+const sortSlots = (slots, rules, state) => slots.sort((a, b) =>
+  (kindOf(dishById(state, a.id), rules.eggsCountAsVeg) === 'chicken' ? 0 : 1)
+  - (kindOf(dishById(state, b.id), rules.eggsCountAsVeg) === 'chicken' ? 0 : 1));
 
 // Fills the week up to the chicken/veg counts, keeping locked dishes.
 export function generateSlots(state, { keepLocked = true } = {}) {
@@ -103,13 +107,13 @@ export function generateSlots(state, { keepLocked = true } = {}) {
   const counts = { chicken: 0, veg: 0 };
   const kept = [];
   for (const s of state.plan.slots) {
-    const r = RECIPE_BY_ID[s.id];
+    const r = dishById(state, s.id);
     if (!keepLocked || !s.locked || !r) continue;
     const k = slotKind(s, r, rules);
     const max = k === 'veg' ? rules.vegDishes : rules.chickenDishes;
     if (counts[k] < max) { kept.push(s); counts[k]++; }
   }
-  const chosen = kept.map((s) => RECIPE_BY_ID[s.id]);
+  const chosen = kept.map((s) => dishById(state, s.id));
   let longLeft = rules.longPerWeek - chosen.filter((r) => r.time > rules.maxTime).length;
   let needIndianVeg = Math.max(0, Math.min(rules.indianVeg, rules.vegDishes)
     - chosen.filter((r) => isIndianVeg(r, rules)).length);
@@ -129,7 +133,7 @@ export function generateSlots(state, { keepLocked = true } = {}) {
   for (let i = counts.chicken; i < rules.chickenDishes; i++) {
     add(pickOne(state, chosen, [kindFilter('chicken', rules)], longLeft));
   }
-  return sortSlots(kept, rules);
+  return sortSlots(kept, rules, state);
 }
 
 // Candidates for swapping one slot (pass index null/-1 for a week-level
