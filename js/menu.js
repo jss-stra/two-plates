@@ -21,6 +21,29 @@ const item = (r) => `<div class="menu-item">
 const title = `${no ? `Week ${esc(no)} menu` : 'This week’s menu'}`;
 document.title = `${no ? `Week ${no} Menu` : 'Weekly Menu'} – Two Plates`;
 
+// A "Back to Two Plates" toggle for when this page opens inside the installed
+// app, which has no browser back button — without it the only way back was to
+// close and reopen the app. Left off for people opening a shared menu link in
+// a normal browser, where the browser's own back button works.
+const inApp = document.referrer.startsWith(location.origin)
+  || navigator.standalone === true
+  || window.matchMedia?.('(display-mode: standalone)').matches
+  || window.matchMedia?.('(display-mode: fullscreen)').matches;
+if (inApp) {
+  const bar = document.createElement('div');
+  bar.className = 'backbar';
+  const back = document.createElement('button');
+  back.type = 'button';
+  back.className = 'btn small';
+  back.textContent = '\u2039 Back to Two Plates';
+  back.addEventListener('click', () => {
+    if (document.referrer.startsWith(location.origin) && history.length > 1) history.back();
+    else location.href = './';
+  });
+  bar.append(back);
+  document.body.prepend(bar);
+}
+
 document.getElementById('menu').innerHTML = dishes.length ? `
   <div class="menu-hero"><img src="icons/icon.svg" alt="">
     <h1>${title}</h1><div class="muted">${when ? `Week of ${esc(when)} · ` : ''}${dishes.length} dishes, cooked at home</div></div>

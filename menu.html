@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/styles.css">
   <style>
     body { padding-bottom: 32px; }
+    .backbar { position: sticky; top: 0; z-index: 10; padding: calc(10px + env(safe-area-inset-top, 0px)) 12px 10px; background: var(--bg); border-bottom: 1px solid var(--line); }
     .menu-hero { text-align: center; padding: 28px 16px 8px; }
     .menu-hero img { width: 56px; height: 56px; }
     .menu-hero h1 { font-size: 1.6rem; margin: 10px 0 4px; letter-spacing: -0.02em; }
@@ -20,6 +21,7 @@
 </head>
 <body>
   <main id="menu"></main>
+  <!-- js/menu.js adds a "Back to Two Plates" toggle here when the page opens inside the installed app -->
   <script type="module" src="js/menu.js"></script>
 </body>
 </html>

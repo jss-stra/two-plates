@@ -217,6 +217,41 @@ export function weekStart(startDay, from = new Date()) {
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
 
+// Most recent start-of-week date (startDay) on or before `from`.
+export function currentWeekStart(startDay, from = new Date()) {
+  const d = new Date(from.getFullYear(), from.getMonth(), from.getDate());
+  const todayIdx = (d.getDay() + 6) % 7; // Monday = 0
+  d.setDate(d.getDate() - ((todayIdx - startDay + 7) % 7));
+  const pad = (n) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+}
+
+// How a plan week relates to today: 'this' | 'next' | 'later' | 'past'.
+// After "Finish week" the new plan is usually next week's, so screens must not
+// call every plan "This week". ISO dates compare correctly as strings.
+export function weekRelation(weekOf, startDay, from = new Date()) {
+  if (!weekOf) return 'this';
+  const cur = currentWeekStart(startDay, from);
+  if (weekOf === cur) return 'this';
+  if (weekOf < cur) return 'past';
+  const nxt = new Date(`${cur}T12:00:00`);
+  nxt.setDate(nxt.getDate() + 7);
+  return weekOf === localISO(nxt) ? 'next' : 'later';
+}
+
+// "Mon 10 – Sun 16 Nov" for the week starting on `weekOf`.
+export function weekRangeLabel(weekOf) {
+  if (!weekOf) return '';
+  const start = new Date(`${weekOf}T12:00:00`);
+  const end = new Date(`${weekOf}T12:00:00`);
+  end.setDate(end.getDate() + 6);
+  // Composed by hand: en-AU's built-in format adds a comma ("Sun, 15 Nov").
+  const wd = (d) => d.toLocaleDateString('en-AU', { weekday: 'short' });
+  const mo = (d) => d.toLocaleDateString('en-AU', { month: 'short' });
+  const fmt = (d, month) => `${wd(d)} ${d.getDate()}${month ? ` ${mo(d)}` : ''}`;
+  return `${fmt(start, start.getMonth() !== end.getMonth())} – ${fmt(end, true)}`;
+}
+
 // 'YYYY-MM-DD' in local time.
 export function localISO(d = new Date()) {
   const pad = (n) => String(n).padStart(2, '0');

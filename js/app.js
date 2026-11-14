@@ -2,7 +2,7 @@ import { renderPrep, setupPrepEvents } from './prep.js';
 import { renderExtrasCard, renderPartiesCard, setupGroceryEvents } from './grocery-ui.js';
 import { RECIPES, RECIPE_BY_ID, GROUPS, INGREDIENTS, DIET_LABEL, PROTEIN_LABEL, youtubeUrl, isVeg, kindOf, DATA_ERRORS, exclusionHits, ALLERGEN_CATS, DISPLAY_GROUPS, displayKind } from './data.js';
 import { getState, update, onChange, defaultState, replaceState } from './state.js';
-import { generateSlots, slotKind, planRecipes, alternatives, randomSwap, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes, localISO } from './planner.js';
+import { generateSlots, slotKind, planRecipes, alternatives, randomSwap, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes, localISO, weekRelation, weekRangeLabel } from './planner.js';
 import { renderLog, shiftDay, shiftMonth } from './log.js';
 import { buildGrocery, weeklyNoteText, scaleFactor, formatQty, qtyText } from './grocery.js';
 import { exportExcel } from './export.js';
@@ -280,9 +280,13 @@ function renderWeek(s) {
       <ol class="dishes">${items.map((x) => dishCard(x.r, x.i, x.slot, s)).join('')}</ol>`;
   };
   if (ui.checkin) return renderCheckin(s);
+  // Name the week the plan is actually for (it's next week's after "Finish week"), with dates.
+  const rel = weekRelation(s.plan.weekOf, s.rules.startDay ?? 0);
+  const range = weekRangeLabel(s.plan.weekOf);
+  const heading = rel === 'this' ? 'This week' : rel === 'next' ? 'Next week' : `Week of ${fmtWeek(s.plan.weekOf)}`;
   return `<section class="card summary">
-    <div class="summary-head"><div><h2>This week</h2>
-      <div class="muted">${recipes.length} dishes · ${timeLabel}</div></div></div>
+    <div class="summary-head"><div><h2>${heading}</h2>
+      <div class="muted">${range ? `${range} · ` : ''}${recipes.length} dishes · ${timeLabel}</div></div></div>
     <div class="glance-chips">${daily(s).map(glanceChip).join('')}</div>
     <details class="nutrition-detail"><summary>Nutrition details</summary>
       <div class="people">${daily(s).map((d) => personSummary(d, s.rules)).join('')}</div>
@@ -292,7 +296,7 @@ function renderWeek(s) {
 
   ${s.plan.finalizedAt ? `<section class="card final-card">
     <div><b>${icon('check')} Week ${s.history.length + 1} · finalized ${fmtDate(s.plan.finalizedAt)}</b>
-      <div class="muted">These are this week's dishes. The grocery list and Friday check-in use exactly these.</div></div>
+      <div class="muted">${range ? `These are the dishes for ${range}.` : "These are this week's dishes."} The grocery list and Friday check-in use exactly these.</div></div>
     <div class="final-actions">
       <button class="btn small primary" data-act="share-menu">${icon('share')} Share menu</button>
       <a class="btn small" href="${menuUrl(s.history.length + 1, s.plan.weekOf, s.plan.slots.map((x) => x.id))}" target="_blank" rel="noopener">Menu page</a>

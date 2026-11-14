@@ -1,19 +1,11 @@
 // Home tab: a quick daily and weekly overview built from the food and water logs.
 // Days with no log are called out as "not logged" — never counted as a missed goal.
 import { entryFor, isLogged, shiftDay } from './log.js';
-import { localISO, planRecipes } from './planner.js';
+import { localISO, planRecipes, currentWeekStart, weekRelation, weekRangeLabel } from './planner.js';
 import { displayKind, DISPLAY_GROUPS } from './data.js';
 import { waterGoal, waterCheckDay } from './water.js';
 
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-
-// Most recent week-start day (rules.startDay, Monday = 0) on or before today.
-function currentWeekStart(startDay, from = new Date()) {
-  const d = new Date(from.getFullYear(), from.getMonth(), from.getDate());
-  const todayIdx = (d.getDay() + 6) % 7; // Monday = 0
-  d.setDate(d.getDate() - ((todayIdx - startDay + 7) % 7));
-  return localISO(d);
-}
 
 // Days of the current week up to and including today (future days excluded).
 function weekDaysSoFar(startDay) {
@@ -60,7 +52,15 @@ export function renderHome(s) {
   const today = localISO();
   const dateLabel = new Date(`${today}T12:00:00`).toLocaleDateString('en-AU', { weekday: 'long', day: 'numeric', month: 'short' });
   const people = s.people || [];
-  const days = weekDaysSoFar(s.rules?.startDay ?? 0);
+  const startDay = s.rules?.startDay ?? 0;
+  const days = weekDaysSoFar(startDay);
+  // The plan can be next week's (after "Finish week"), so name the menu's week
+  // and give its dates — never leave it ambiguous which week the dishes are for.
+  const rel = weekRelation(s.plan?.weekOf, startDay);
+  const menuRange = weekRangeLabel(s.plan?.weekOf);
+  const menuHeading = rel === 'this' ? 'This week\u2019s menu'
+    : rel === 'next' ? 'Next week\u2019s menu'
+    : `Menu \u00b7 ${menuRange}`;
 
   const todayRows = people.map((person, p) => {
     const e = entryFor(s, today, p);
@@ -119,8 +119,8 @@ export function renderHome(s) {
     <button class="btn primary wide" data-act="tab" data-tab="today">Log today</button>
   </section>
   <section class="card">
-    <h2>This week</h2>
-    <p>${recipes.length ? `${DISPLAY_GROUPS.filter(([kind]) => kinds[kind]).map(([kind,label]) => `${kinds[kind]} ${esc(label.toLowerCase())}`).join(' · ')} dishes${cookedBits ? ` · ${cookedBits}` : ''}` : 'No dishes planned yet'}</p>
+    <h2>This week <span class="muted">\u00b7 ${esc(weekRangeLabel(currentWeekStart(startDay)))}</span></h2>
+    <p>${recipes.length ? `<b>${menuHeading}</b>${(rel === 'this' || rel === 'next') && menuRange ? ` <span class="muted">(${esc(menuRange)})</span>` : ''}: ${DISPLAY_GROUPS.filter(([kind]) => kinds[kind]).map(([kind,label]) => `${kinds[kind]} ${esc(label.toLowerCase())}`).join(' · ')} dishes${cookedBits ? ` \u00b7 ${cookedBits}` : ''}` : 'No dishes planned yet'}</p>
     ${weekRows}
     <button class="btn wide" data-act="tab" data-tab="week">See the week</button>
   </section>`;
