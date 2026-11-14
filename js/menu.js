@@ -12,10 +12,14 @@ const weekOf = q.get('w');
 let customNames = {};
 try { customNames = JSON.parse(q.get('cn') || '{}'); } catch { customNames = {}; }
 const fromSlug = (id) => id.replace(/^custom:/, '').replace(/-/g, ' ').replace(/^\w/, (c) => c.toUpperCase());
+const customEntry = (id) => {
+  const v = customNames[id];
+  const name = (v && typeof v === 'object' ? v.n : v) || fromSlug(id);
+  const diet = ['veg', 'nonveg'].includes(v?.d) ? v.d : 'unknown';
+  return { id, name, custom: true, cuisine: 'Your dish', diet, time: null, protein: null };
+};
 const dishes = (q.get('d') || '').split(',').map((id) => RECIPE_BY_ID[id]
-  || (id.startsWith('custom:') && (customNames[id] || fromSlug(id))
-    ? { id, name: customNames[id] || fromSlug(id), custom: true, cuisine: 'Your dish', diet: 'unknown', time: null, protein: null }
-    : null)).filter(Boolean);
+  || (id.startsWith('custom:') && (customNames[id] || fromSlug(id)) ? customEntry(id) : null)).filter(Boolean);
 const when = weekOf ? new Date(`${weekOf}T12:00:00`).toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'long' }) : '';
 
 const item = (r) => `<div class="menu-item">

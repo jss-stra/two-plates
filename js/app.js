@@ -1035,7 +1035,7 @@ function menuUrl(no, weekOf, ids) {
   base.search = `?n=${no}&w=${weekOf || ''}&d=${ids.join(',')}`; // ids are url-safe slugs
   const s = getState();
   const cn = {};
-  for (const id of ids) if (s.customDishes?.[id]) cn[id] = s.customDishes[id].name;
+  for (const id of ids) if (s.customDishes?.[id]) cn[id] = { n: s.customDishes[id].name, d: s.customDishes[id].diet };
   if (Object.keys(cn).length) base.search += `&cn=${encodeURIComponent(JSON.stringify(cn))}`;
   return base.toString();
 }
