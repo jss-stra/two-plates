@@ -1528,6 +1528,13 @@ const GEST = { longMs: 550, thresh: 56, reveal: 92, overdrag: 24 };
 let gest = null;
 let suppressClick = false;
 
+// The click a gesture ends with must not fire, but a real tap right after
+// must — so the suppression lapses on its own instead of waiting for a click.
+function armSuppressClick() {
+  suppressClick = true;
+  setTimeout(() => { suppressClick = false; }, 350);
+}
+
 function gestTarget(e) {
   const dish = e.target.closest?.('.dishes .dish');
   if (!dish) return null;
@@ -1553,7 +1560,7 @@ function cancelGest() {
   if (!gest) return;
   clearTimeout(gest.timer);
   gest.dish.classList.remove('swiping');
-  if (gest.swiping) { gest.dish.style.transform = ''; suppressClick = true; }
+  if (gest.swiping) { gest.dish.style.transform = ''; armSuppressClick(); }
   gest = null;
 }
 
@@ -1579,7 +1586,7 @@ document.addEventListener('pointerdown', (e) => {
       if (!cur) return;
       update((d) => { const x = d.plan.slots[gest.i]; if (x) x.locked = !x.locked; });
       toast(cur.locked ? 'Unlocked — Shuffle can swap it' : 'Locked — Shuffle keeps it');
-      suppressClick = true;
+      armSuppressClick();
       try { navigator.vibrate?.(10); } catch { /* no haptics here */ }
     }, GEST.longMs);
   }
@@ -1616,7 +1623,7 @@ document.addEventListener('pointerup', () => {
     if (!wrap.classList.contains('open-left') && !wrap.classList.contains('open-right')) dish.style.transform = '';
     return;
   }
-  suppressClick = true;
+  armSuppressClick();
   const final = !!getState().plan.finalizedAt;
   if (dx <= -GEST.thresh && !final) revealCard(wrap, dish, -GEST.reveal, 'open-left');
   else if (dx >= GEST.thresh) revealCard(wrap, dish, GEST.reveal, 'open-right');
