@@ -20,39 +20,88 @@ create table if not exists public.usage_events (
 create unique index if not exists usage_events_user_client on public.usage_events (user_id, client_id);
 create index if not exists usage_events_user_ts on public.usage_events (user_id, ts);
 
--- The app may only ever write the fixed event vocabulary. Anything else -
--- a new kind, an unexpected detail key, free text - is rejected outright,
--- so a future app change cannot widen what is collected by accident.
+-- The app may only ever write this exact event vocabulary. Every field is
+-- constrained to an enumerated set of known UI names: a new kind, detail
+-- key, action, tab, gesture, goal or outcome is rejected outright. Adding
+-- to these lists is a deliberate migration (a review gate), never something
+-- an app release can do silently. The same trigger enforces a continuous
+-- volume bound, so the table stays capped even between nightly cleanups.
 create or replace function public.usage_events_validate() returns trigger
 language plpgsql as $$
 declare
-  k text;
-  v jsonb;
-  allowed text[];
+  allowed_acts constant text[] := array[
+    'add','backup','bought-week','carry','cb-add','cb-close','cb-publish',
+    'cb-remove','cb-save','cb-share','cdiet','check','checkin-close',
+    'checkin-open','choose','choose-custom','choose-imported','close-sheet',
+    'cooked','copy','count','custom-back','custom-new','custom-save',
+    'del-extra','disconnect','expand','export','feed-delete','feed-hide',
+    'feed-report','finalize','finish-week','fr-accept','fr-decline','fr-end',
+    'fr-request','gen-code','google-signin','group','gsection','gview',
+    'hh-accept','hh-create','hh-invite','hh-leave','hh-remove','hide','lock',
+    'log-day','log-goto','log-month','log-person','log-view','note',
+    'note-clear','note-save','note-slot','open-idea','open-imported',
+    'open-sheet','pantry','pantry-toggle','pick-back','pick-replace',
+    'push-disable','push-enable','rate','receipt-remove','receipt-reread',
+    'recipes-more','remove-slot','reset','restore','rtoggle','search-week',
+    'set','share','share-menu','sheet-filter','shuffle','signout',
+    'swap-random','toggle-amounts','toggle-log','uncheck-all','unfinalize',
+    'xadd','xdel'
+  ];
+  allowed_tabs constant text[] := array[
+    'feed','home','week','prep','recipes','groceries','bought','settings'
+  ];
+  allowed_gestures constant text[] := array['long-press','swipe-left','swipe-right'];
+  allowed_gesture_results constant text[] := array['blocked','toggled','revealed','cancelled'];
+  allowed_goals constant text[] := array['plan-week','groceries','cooking','prep'];
+  allowed_goal_results constant text[] := array['shown','yes','no','skip'];
 begin
-  if new.kind not in ('app-open', 'tab', 'act', 'gesture', 'goal-check') then
+  if new.kind = 'app-open' then
+    if new.detail <> '{}'::jsonb then
+      raise exception 'usage_events: app-open takes no detail';
+    end if;
+  elsif new.kind = 'tab' then
+    if not (new.detail ? 't') or new.detail - 't' <> '{}'::jsonb
+       or jsonb_typeof(new.detail->'t') <> 'string'
+       or not new.detail->>'t' = any(allowed_tabs) then
+      raise exception 'usage_events: unknown tab %', new.detail;
+    end if;
+  elsif new.kind = 'act' then
+    if not (new.detail ? 'a') or new.detail - 'a' <> '{}'::jsonb
+       or jsonb_typeof(new.detail->'a') <> 'string'
+       or not new.detail->>'a' = any(allowed_acts) then
+      raise exception 'usage_events: unknown act %', new.detail;
+    end if;
+  elsif new.kind = 'gesture' then
+    if not (new.detail ? 'g' and new.detail ? 'result')
+       or new.detail - 'g' - 'result' <> '{}'::jsonb
+       or jsonb_typeof(new.detail->'g') <> 'string'
+       or jsonb_typeof(new.detail->'result') <> 'string'
+       or not new.detail->>'g' = any(allowed_gestures)
+       or not new.detail->>'result' = any(allowed_gesture_results) then
+      raise exception 'usage_events: unknown gesture %', new.detail;
+    end if;
+  elsif new.kind = 'goal-check' then
+    if not (new.detail ? 'g' and new.detail ? 'result')
+       or new.detail - 'g' - 'result' <> '{}'::jsonb
+       or jsonb_typeof(new.detail->'g') <> 'string'
+       or jsonb_typeof(new.detail->'result') <> 'string'
+       or not new.detail->>'g' = any(allowed_goals)
+       or not new.detail->>'result' = any(allowed_goal_results) then
+      raise exception 'usage_events: unknown goal-check %', new.detail;
+    end if;
+  else
     raise exception 'usage_events: unknown kind %', new.kind;
   end if;
-  allowed := case new.kind
-    when 'app-open' then array[]::text[]
-    when 'tab' then array['t']
-    when 'act' then array['a']
-    when 'gesture' then array['g', 'result']
-    when 'goal-check' then array['g', 'result']
-  end;
-  for k in select jsonb_object_keys(new.detail) loop
-    if not k = any(allowed) then
-      raise exception 'usage_events: detail key % not allowed for kind %', k, new.kind;
-    end if;
-  end loop;
-  for k, v in select * from jsonb_each(new.detail) loop
-    if jsonb_typeof(v) not in ('string', 'number', 'boolean') then
-      raise exception 'usage_events: detail % must be a scalar', k;
-    end if;
-    if jsonb_typeof(v) = 'string' and v #>> '{}' !~ '^[\w-]{1,40}$' then
-      raise exception 'usage_events: detail % must be a slug, not text', k;
-    end if;
-  end loop;
+  -- Continuous bounds: reject beyond 500 events/day or 5,000 rows/30 days
+  -- per owner, whatever the nightly cleanup has or has not done yet.
+  if (select count(*) from public.usage_events
+      where user_id = new.user_id and ts > now() - interval '1 day') >= 500 then
+    raise exception 'usage_events: daily volume cap reached';
+  end if;
+  if (select count(*) from public.usage_events
+      where user_id = new.user_id and ts > now() - interval '30 days') >= 5000 then
+    raise exception 'usage_events: monthly volume cap reached';
+  end if;
   return new;
 end $$;
 drop trigger if exists usage_events_validate on public.usage_events;
@@ -71,9 +120,11 @@ revoke all on public.usage_events from anon;
 grant insert, select on public.usage_events to authenticated;
 grant usage on sequence public.usage_events_id_seq to authenticated;
 
--- Cloud-side bounds, not just the phone's: keep 30 days and at most 5,000
--- rows per owner. Runs nightly in-database (pg_cron is already enabled for
--- reminders); the job role owns the table, so RLS does not block it.
+-- Age-based cleanup runs nightly in-database (pg_cron is already enabled
+-- for reminders); the job role owns the table, so RLS does not block it.
+-- The hard volume bounds live in the validation trigger above, so the table
+-- never exceeds 500 rows/day or 5,000 rows/30 days per owner, even between
+-- cleanups.
 create extension if not exists pg_cron;
 select cron.unschedule('usage-events-cleanup') where exists
   (select 1 from cron.job where jobname = 'usage-events-cleanup');

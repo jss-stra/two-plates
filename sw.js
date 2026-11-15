@@ -1453,7 +1453,7 @@ const ASSETS = [
   ],
   [
     "js/app.js",
-    "37190cf15df7e19ed5b0d32c458a9fb45b4a234b24f7e9e545d763cb4e8fe486"
+    "ffb3efe56632a7d15921b408be374d62fc22e817623edafe8ed8558f6207f85c"
   ],
   [
     "js/auth.js",

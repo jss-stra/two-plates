@@ -1678,6 +1678,7 @@ const JOURNAL_SKIP_ACTS = new Set([
   'water-answer', 'water-chip', 'water-add', 'water-later',
   'log-set', 'log-cheatday', 'log-uncheat',
   'goal-answer', 'goal-wrong', 'goal-pick', 'goal-skip',
+  'tab', // tab switches are recorded as tab events by setTab, not as acts
 ]);
 // Checkbox changes worth recording (occurrence only, never the value):
 const JOURNAL_CHANGE_ACTS = new Set(['check', 'carry', 'pantry-toggle']);
