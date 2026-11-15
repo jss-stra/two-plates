@@ -307,7 +307,7 @@ function renderWeek(s) {
     <div class="summary-head"><div><h2>${heading}</h2>
       <div class="muted">${range ? `${range} · ` : ''}${recipes.length} dishes · ${timeLabel}</div></div></div>
     <div class="glance-chips">${daily(s).map(glanceChip).join('')}</div>
-    <details class="nutrition-detail"><summary>Nutrition details</summary>
+    <details class="nutrition-detail"><summary>Nutrition details <span class="chev" aria-hidden="true">›</span></summary>
       <div class="people">${daily(s).map((d) => personSummary(d, s.rules)).join('')}</div>
       <p class="fine">Average day: ${s.rules.mealsPerDish === 2 ? 'lunch + dinner from these dishes' : 'dinner from these dishes'}, plus shake, breakfast &amp; snacks from Settings. Cook in any order.</p>
     </details>
@@ -1577,7 +1577,7 @@ document.addEventListener('pointerdown', (e) => {
   closeReveals(g.wrap);
   gest = {
     wrap: g.wrap, dish: g.dish, i: Number(g.wrap.dataset.i),
-    x0: e.clientX, y0: e.clientY, dx: 0, swiping: false, done: false, timer: 0,
+    x0: e.clientX, y0: e.clientY, dx: 0, rawDx: 0, swiping: false, done: false, timer: 0,
     interactive: !!e.target.closest('button, a, input, textarea, select, summary'),
   };
   if (!gest.interactive) {
@@ -1604,6 +1604,7 @@ document.addEventListener('pointerdown', (e) => {
 document.addEventListener('pointermove', (e) => {
   if (!gest || gest.done) return;
   const dx = e.clientX - gest.x0, dy = e.clientY - gest.y0;
+  gest.rawDx = dx; // unclamped travel, so a blocked swipe can still explain itself
   if (!gest.swiping) {
     if (Math.abs(dy) > 12 && Math.abs(dy) > Math.abs(dx)) { cancelGest(); return; } // vertical scroll
     if (Math.abs(dx) > 14 || Math.abs(dy) > 14) clearTimeout(gest.timer); // moved too far for a long-press
@@ -1615,7 +1616,7 @@ document.addEventListener('pointermove', (e) => {
   const final = !!getState().plan.finalizedAt;
   const lim = GEST.reveal + GEST.overdrag;
   let x = Math.max(-lim, Math.min(lim, dx));
-  if (final && x < 0) x = Math.max(x / 3, -24); // finalized: small nudge, then it snaps back (no Remove)
+  if (final && x < 0) x = Math.max(x / 3, -24); // finalized: small nudge, then it snaps back (no Remove) - release uses rawDx to say why
   gest.dx = x;
   gest.dish.classList.add('swiping');
   gest.dish.style.transform = `translateX(${x}px)`;
@@ -1624,7 +1625,7 @@ document.addEventListener('pointermove', (e) => {
 document.addEventListener('pointerup', () => {
   if (!gest) return;
   clearTimeout(gest.timer);
-  const { wrap, dish, dx, swiping, done } = gest;
+  const { wrap, dish, dx, swiping, done, rawDx = 0 } = gest;
   gest = null;
   dish.classList.remove('swiping');
   if (done) return;
@@ -1634,8 +1635,10 @@ document.addEventListener('pointerup', () => {
   }
   armSuppressClick();
   const final = !!getState().plan.finalizedAt;
-  if (dx <= -GEST.thresh && !final) revealCard(wrap, dish, -GEST.reveal, 'open-left');
-  else if (dx <= -GEST.thresh && final) { dish.style.transform = ''; toast('This week is finalized — tap “Edit week” first'); }
+  // On a finalized week the drag is clamped to a nudge, so judge the left
+  // swipe by its raw travel: far enough means "tried to remove" - explain it.
+  if (final && rawDx <= -GEST.thresh) { dish.style.transform = ''; toast('This week is finalized — tap “Edit week” first'); }
+  else if (dx <= -GEST.thresh) revealCard(wrap, dish, -GEST.reveal, 'open-left');
   else if (dx >= GEST.thresh) revealCard(wrap, dish, GEST.reveal, 'open-right');
   else dish.style.transform = '';
 });

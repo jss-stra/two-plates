@@ -151,8 +151,9 @@ main { max-width: 720px; margin: 0 auto; padding: 14px 16px 24px; }
 /* Dish cards */
 .dishes { list-style: none; margin: 0 0 14px; padding: 0; display: grid; gap: 10px; }
 /* Week cards live in a swipe wrap: the card slides aside to reveal the
-   Remove (swipe left) and Note (swipe right) buttons underneath. */
-.dish-wrap { position: relative; border-radius: var(--radius); }
+   Remove (swipe left) and Note (swipe right) buttons underneath. The wrap
+   clips the sliding card so a swipe never widens the page. */
+.dish-wrap { position: relative; border-radius: var(--radius); overflow: hidden; }
 .swipe-under { position: absolute; inset: 0; display: flex; border-radius: var(--radius); overflow: hidden; }
 .swipe-act { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; width: 92px; border: 0; font-size: .78rem; font-weight: 700; font-family: inherit; cursor: pointer; }
 .swipe-act .icon { width: 18px; height: 18px; }
@@ -405,7 +406,9 @@ label.btn.busy { opacity: .6; pointer-events: none; }
 .glance-chips { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0 2px; }
 .glance-chips .pill { font-size: .78rem; padding: 4px 10px; }
 .nutrition-detail { margin-top: 8px; border-top: 1px solid var(--line); padding-top: 6px; }
-.nutrition-detail summary { cursor: pointer; list-style: none; font-size: .82rem; font-weight: 600; color: var(--muted); padding: 4px 0; }
+.nutrition-detail summary { cursor: pointer; list-style: none; font-size: .82rem; font-weight: 600; color: var(--muted); padding: 4px 0; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.nutrition-detail summary .chev { font-size: 1.1rem; transition: transform .15s ease; }
+.nutrition-detail[open] summary .chev { transform: rotate(90deg); }
 .nutrition-detail summary::-webkit-details-marker { display: none; }
 .nutrition-detail[open] .people { margin: 8px 0; }
 .remix-row { display: flex; align-items: center; gap: 10px; margin: 0 2px 14px; flex-wrap: wrap; }
@@ -415,9 +418,10 @@ label.btn.busy { opacity: .6; pointer-events: none; }
 .mix-detail summary::-webkit-details-marker { display: none; }
 .mix-detail .toolbar { margin: 6px 0 0; }
 
-/* Dish card overflow menu: summary and items join the .actions flex row */
+/* Dish card overflow menu: summary and items join the .actions flex row.
+   The summary gets a chip outline so it reads as a tappable button. */
 .dish-more { display: contents; }
-.dish-more > summary { list-style: none; }
+.dish-more > summary { list-style: none; border: 1px solid var(--line); background: var(--soft); color: var(--ink); }
 .dish-more > summary::-webkit-details-marker { display: none; }
 .act.primary-act { color: var(--accent); }
 

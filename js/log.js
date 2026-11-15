@@ -76,10 +76,11 @@ export function renderToday(s, ui, icon) {
   </section>
 
   <section class="card log">
-    <h3>Water</h3>
+    <h3>Water check-in</h3>
     <div class="chips wrapchips water-slots">${slotChips || '<span class="muted">Check-ins start at 9am</span>'}</div>
     <p class="fine">${wCheck.answered ? `${wCheck.yes} yes · ${wCheck.no} no of ${wCheck.due} check-in${wCheck.due === 1 ? '' : 's'}${isToday ? ' so far' : ''} — tap a time to set or change its answer.` : isToday ? 'Answer the check-ins as they arrive, or tap a time above.' : 'No check-ins answered this day.'}</p>
-    <h3 class="water-glasses-head">Glasses <span class="muted">· the actual amount, if you want to track it</span></h3>
+    <h3 class="water-glasses-head">Glasses logged <span class="muted">· the actual amount, if you want to track it</span></h3>
+    <p class="fine">Check-ins and glasses are counted separately — answering Yes above doesn't add a glass here.</p>
     <div class="water-row">
       <button data-act="water-add" data-d="-1" ${wHad <= 0 ? 'disabled' : ''} aria-label="Remove a glass">${icon('minus')}</button>
       <div class="water-count"><b>${wHad}</b><span class="muted"> / ${wGoal} glasses</span></div>
