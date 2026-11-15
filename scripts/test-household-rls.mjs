@@ -78,11 +78,11 @@ async function makeUser(name) {
 
 async function makeHousehold(name) {
   const jwt = users[name].jwt;
-  const h = await db(jwt, 'households', { method: 'POST', body: {}, prefer: 'return=representation' });
+  const h = await db(jwt, 'households', { method: 'POST', body: { created_by: users[name].id }, prefer: 'return=representation' });
   if (h.status >= 300) throw new Error(`${name} household insert: ${h.status} ${JSON.stringify(h.data)}`);
   const hid = h.data[0].id;
   const m = await db(jwt, 'household_members', {
-    method: 'POST', body: { household_id: hid, user_id: users[name].id, role: 'owner' }, prefer: 'return=minimal',
+    method: 'POST', body: { household_id: hid, user_id: users[name].id, role: 'owner', added_by: users[name].id }, prefer: 'return=minimal',
   });
   if (m.status >= 300) throw new Error(`${name} membership insert: ${m.status} ${JSON.stringify(m.data)}`);
   return hid;
