@@ -2,6 +2,28 @@
 
 Order matters. Nothing below touches production before its gate says so.
 
+## Pressure-test matrix (what "tested" means for each safeguard)
+| Safeguard | Proven where |
+| --- | --- |
+| Members read/write only their own household | scripts/test-household-rls.mjs (Gate 1.5, live synthetic users) |
+| Cross-household read/update/insert denied | same |
+| Anon (public key alone) reads/writes nothing | same |
+| No client-side delete of household state | same |
+| Backup/claims tables refuse all clients | same |
+| Invites visible only to the invited email | same |
+| Accepting someone else's invite fails | same |
+| Re-used or expired invites fail | same |
+| Removed member loses read/write immediately (valid JWT or not) | same |
+| Plain member cannot remove the owner | same |
+| Migration copy byte-equal to backup before tombstone | same (dry-run on a synthetic legacy row) |
+| Migration rollback restores the legacy row exactly | same |
+| Realtime delivers only same-household changes | Gate 2 device test (two browsers/devices) |
+| Two devices sync edits both ways, conflicts keep food logs | Gate 2 device test (mergeDays unit-tested) |
+| Offline edits sync on reconnect; nothing lost on app kill | Gate 2 device test |
+| Tombstoned legacy clients stop pushing but receipts keep working | Gate 2/3 device test |
+| UI states (signed out, owner, invitee, fresh account) | stub-backend previews (done, 15 Nov) - not authenticated proof |
+| Merge logic (per-person food-log last-writer-wins) | tests/household-sync.test.mjs (unit, done) |
+
 ## Gate 1: schema (needs the Supabase Management API token)
 1. Apply `docs/auth-stage6.sql` (new objects only; nothing existing is modified).
 2. Run the synthetic-identity checks listed at the bottom of that file:
