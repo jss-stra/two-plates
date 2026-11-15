@@ -6,7 +6,6 @@
 // the old channel is retired.
 import { getState, addSyncHook, replaceState } from './state.js';
 import { authClient, authUser, authReady, onAuth } from './auth.js';
-import { getConfig, syncClient, flushSync, markMoved } from './sync.js';
 import { mergeDays } from './household-sync-core.js';
 
 const TABLE = 'household_state';
@@ -126,40 +125,6 @@ async function resolveMyHousehold() {
   return mems[0].household_id;
 }
 
-// Show the migration button when this device still has a legacy sync config,
-// the user is signed in, and they are not in a household yet.
-export function migrationOffered() {
-  if (!authReady() || !authUser() || householdId) return false;
-  return !!getConfig()?.household;
-}
-
-// Move this device's legacy shared-key sync into the signed-in account:
-// challenge the server, prove possession of the current shared row, then let
-// the server copy it into a new household this user owns.
-export async function migrateLegacySync() {
-  const cfg = getConfig();
-  const code = cfg?.household;
-  if (!code) throw new Error('This device has no old sync to move.');
-  if (!authUser() || !authClient()) throw new Error('Sign in first.');
-  await flushSync().catch(() => {}); // freshest local state lands in the shared row first
-  const { data: challenge, error: bErr } = await authClient().rpc('begin_legacy_claim', { code });
-  if (bErr) throw new Error('The move is not available right now.');
-  const lc = syncClient();
-  if (!lc) throw new Error('Old sync is not connected on this device.');
-  const { data: row, error: rErr } = await lc.from('meal_state').select('data').eq('id', code).maybeSingle();
-  if (rErr || !row?.data) throw new Error('Could not read the current shared plan.');
-  const { error: wErr } = await lc.from('meal_state').upsert({
-    id: code,
-    data: { ...row.data, _migrate_challenge: challenge },
-    updated_at: new Date().toISOString(),
-  });
-  if (wErr) throw new Error('Could not mark the shared plan for moving.');
-  const { data: hid, error: cErr } = await authClient().rpc('complete_legacy_claim', { code });
-  if (cErr) throw new Error('The move did not finish — nothing was lost; try again.');
-  markMoved(); // legacy plan pushes stop on this device; receipts keep working
-  await connectHousehold(hid);
-  return hid;
-}
 
 export function startHouseholdSync() {
   onAuth(async (u) => {

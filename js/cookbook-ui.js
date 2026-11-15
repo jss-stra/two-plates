@@ -9,7 +9,7 @@
 //   URL stays usable until expiry even if access is revoked - the TTL is the
 //   revocation delay bound, and it is not immediate.
 import { authUser, authReady, onAuth } from './auth.js';
-import { migrationOffered, householdSyncStatus } from './household-sync.js';
+import { householdSyncStatus } from './household-sync.js';
 import {
   uploadPhoto, saveEntry, deleteEntry, listEntries, publishEntry, signedPhotoUrl,
   readFeed, unpublish, hidePost, reportPost, feedPhotoUrl,
@@ -193,9 +193,6 @@ export function renderHousehold() {
     <div class="hh">
       <p class="fine">Start a household to share one week plan and grocery list with your family. Only household members can see or change it.</p>
       <button class="btn" data-act="hh-create" ${cb.busy ? 'disabled' : ''}>Start a household</button>
-      ${migrationOffered() ? `
-        <p class="fine" style="margin-top:0.6em">This device still syncs through the old shared-key setup.</p>
-        <button class="btn primary" data-act="hh-migrate" ${cb.busy ? 'disabled' : ''}>Move sync to my account</button>` : ''}
     </div>`;
 
   const inviteBlock = (p?.invites || []).length ? `

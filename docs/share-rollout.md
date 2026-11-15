@@ -17,15 +17,22 @@ Order matters. Nothing below touches production before its gate says so.
    by email, B signs in and accepts, plan edits sync both ways, B cannot see
    A's cookbook and no one outside the household can read the plan.
 
-## Gate 3: his household migration (his action, after Gate 2)
-6. He signs in on his phone and taps "Move sync to my account".
+## Gate 3: his household migration (operator procedure, after Gate 2 + his yes)
+There is no self-service migration in the app: the legacy channel is
+anonymously writable, so nothing a client presents through it can prove
+ownership. Migration runs as the privileged procedure in
+docs/operator-migration.sql, bound to his independently verified Google
+account, only after he approves the concrete transition.
+6. Run docs/operator-migration.sql with privileged access: verify the owner
+   account, snapshot, back up, create the household bound to his user id,
+   copy the plan, verify the copy matches the backup, tombstone the plan row.
 7. Verify: household_state has the plan, the legacy plan row is tombstoned,
    backup rows exist in legacy_state_backup, receipts still read on every
-   device that used them.
+   device that used them, his phone picks up household sync on next sign-in.
 8. He invites family by email; they sign in and accept; their devices adopt
    the household plan (their unsaved food-log entries merge in).
-9. Rollback if anything is wrong: restore from legacy_state_backup via the
-   service role, delete the created household, redeploy previous version.
+9. Rollback if anything is wrong: the rollback block in
+   docs/operator-migration.sql restores the row and removes the household.
 
 ## Gate 4: legacy retirement (separate owner decision, prepared after Gate 3)
 10. Present the concrete decision: what still uses the legacy channel
@@ -33,8 +40,11 @@ Order matters. Nothing below touches production before its gate says so.
     steps. Retirement = tighten/replace the permissive legacy policies.
     Only after his yes.
 
-## Sign-in availability check (before telling him it is share-ready)
-11. Confirm the Google consent screen state (console, read-only) or run the
-    empirical check: a non-allowlisted Google account signs in. If blocked,
-    publish the consent screen (his console action; privacy.html and
-    terms.html are ready to link, pending his wording review).
+## Sign-in availability check (release gate, before calling it share-ready)
+11. Confirm the Google consent screen config (console, read-only) AND run
+    fresh authenticated household tests with synthetic users. If sign-in is
+    limited, publish the consent screen (his console action).
+12. privacy.html / terms.html: DRAFTS UNDER REVIEW, not in the repo, not
+    linked anywhere. Publish only after his wording review and only when
+    every assertion matches live behavior (household isolation live, legacy
+    exposure closed, deletion path decided, contact route approved).
