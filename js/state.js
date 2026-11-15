@@ -78,11 +78,14 @@ function load() {
 
 let state = load();
 const listeners = new Set();
-let syncHook = null;
+// Several sync layers can listen for local changes at once (legacy sync,
+// household sync). A Set keeps them independent and registration idempotent.
+const syncHooks = new Set();
 
 export const getState = () => state;
 export const onChange = (fn) => listeners.add(fn);
-export const setSyncHook = (fn) => { syncHook = fn; };
+export const setSyncHook = (fn) => { if (fn) syncHooks.add(fn); };
+export const addSyncHook = (fn) => { if (fn) syncHooks.add(fn); };
 
 function persist() {
   try { localStorage.setItem(KEY, JSON.stringify(state)); } catch { /* ignore */ }
@@ -96,7 +99,7 @@ export function update(mutator) {
   state = next;
   persist();
   listeners.forEach((fn) => fn(state));
-  syncHook?.(state);
+  syncHooks.forEach((fn) => fn(state));
 }
 
 // Remote change from sync: replace without pushing back.

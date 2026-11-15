@@ -1,6 +1,7 @@
 // Live sync between phones through one row in a Supabase table.
 // Config (project URL, anon key, household code) lives only on each device.
 import { getState, setSyncHook, replaceState } from './state.js';
+import { isTombstone, mergeDays } from './household-sync-core.js';
 
 const CONFIG_KEY = 'twoplates.sync.v1';
 // Set while this phone has changes the shared plan hasn't received yet. Survives the
@@ -13,6 +14,9 @@ const deviceId = Math.random().toString(36).slice(2);
 let client = null;
 let channel = null;
 let pushTimer = null;
+// Set when the household moved to account sync: the plan row is tombstoned and
+// this layer stops pushing the plan, while the client stays up for receipts.
+let migrated = false;
 let status = { state: 'off', message: 'Not connected — this phone only' };
 const statusListeners = new Set();
 
@@ -20,6 +24,12 @@ export const onSyncStatus = (fn) => statusListeners.add(fn);
 // The connected Supabase client (null when this phone isn't synced), for receipts.
 export const syncClient = () => client;
 export const syncStatus = () => status;
+export const syncMoved = () => migrated;
+// Called by household-sync after a successful migration from this device.
+export function markMoved() {
+  migrated = true;
+  setStatus('moved', 'Sync moved to your account — receipts still use the old connection');
+}
 function setStatus(state, message) {
   status = { state, message };
   statusListeners.forEach((fn) => fn(status));
@@ -33,19 +43,6 @@ function saveConfig(cfg) {
 }
 
 const isDirty = () => { try { return localStorage.getItem(DIRTY_KEY) === '1'; } catch { return false; } };
-// Food-log entries are per person per day; keep whichever side edited each one last,
-// so two people logging the same evening don't overwrite each other.
-function mergeDays(local = {}, remote = {}) {
-  const out = structuredClone(remote || {});
-  for (const [day, people] of Object.entries(local || {})) {
-    out[day] ||= {};
-    for (const [p, e] of Object.entries(people)) {
-      if (!out[day][p] || (e.at || 0) > (out[day][p].at || 0)) out[day][p] = e;
-    }
-  }
-  return out;
-}
-
 function setDirty(v) {
   try { v ? localStorage.setItem(DIRTY_KEY, '1') : localStorage.removeItem(DIRTY_KEY); } catch { /* ignore */ }
 }
@@ -56,7 +53,7 @@ export function newHouseholdCode() {
 }
 
 async function push() {
-  if (!client) return;
+  if (!client || migrated) return;
   const cfg = getConfig();
   // Pull in the other phone's newest log entries before overwriting the shared copy.
   const { data: current } = await client.from(TABLE).select('data').eq('id', cfg.household).maybeSingle();
@@ -96,6 +93,7 @@ export async function flushSync() {
 function applyRemote(row) {
   const data = row?.data;
   if (!data || data._device === deviceId) return;
+  if (isTombstone(data)) { markMoved(); return; }
   if ((data.updatedAt || 0) <= (getState().updatedAt || 0)) return;
   const { _device, ...rest } = data;
   replaceState({ ...rest, days: mergeDays(getState().days, rest.days) });
@@ -114,7 +112,12 @@ export async function connect(cfg, { join = false } = {}) {
     client = createClient(cfg.url.trim(), cfg.key.trim());
     const { data, error } = await client.from(TABLE).select('data').eq('id', cfg.household).maybeSingle();
     if (error) throw error;
-    if (!data?.data) await push(); // brand-new household: seed it with this phone's plan
+    if (isTombstone(data?.data)) {
+      // The household moved to account sync: keep the connection for receipts,
+      // leave this device's local plan untouched, and stop pushing it back.
+      markMoved();
+    }
+    else if (!data?.data) await push(); // brand-new household: seed it with this phone's plan
     else if (join) {
       const { _device, ...rest } = data.data;
       replaceState(rest);

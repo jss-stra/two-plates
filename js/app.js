@@ -12,7 +12,8 @@ import { waterGoal, pendingWaterSlot, recordWaterAnswer, waterAnswer, slotLabel,
 import { renderHome } from './home.js';
 import { pushStatus, enablePush, disablePush } from './push.js';
 import { initAuth, signInWithGoogle, signOut, onAuth, authUser, authReady } from './auth.js';
-import { cb, bindCookbook, initCookbook, renderCookbook, renderCbSheet, cbActions, cbOnChange, renderFeed, renderPeople, refreshFeed, SHARING_ENABLED } from './cookbook-ui.js';
+import { cb, bindCookbook, initCookbook, renderCookbook, renderCbSheet, cbActions, cbOnChange, renderFeed, renderPeople, renderHousehold, refreshPeople, refreshFeed, SHARING_ENABLED } from './cookbook-ui.js';
+import { startHouseholdSync, migrateLegacySync, onHouseholdSyncStatus } from './household-sync.js';
 import { IMPORTED, importedList, importedAddStatus, isImported, importedMatches } from './imported.js';
 import { dishById, customDishList, customMatches, makeCustomDish, parseIngredientLines, customId } from './custom.js';
 import { IDEAS, IDEA_BY_ID, ideaMatches } from './ideas.js';
@@ -685,7 +686,7 @@ function renderAccount() {
   if (!authReady()) return `<section class="card"><h2>Account</h2><p class="fine">Checking sign-in…</p></section>`;
   const u = authUser();
   if (!u) return `<section class="card"><h2>Account</h2>
-    <p class="fine">Sign in to save dishes to your own cookbook, share with your household, and post to friends. Optional — everything else works without it.</p>
+    <p class="fine">Sign in to save dishes to your own cookbook and share one plan with your household. Optional — everything else works without it.</p>
     <button class="btn primary" data-act="google-signin">Sign in with Google</button></section>`;
   const name = u.user_metadata?.full_name || u.user_metadata?.name || u.email || 'Signed in';
   return `<section class="card"><h2>Account</h2>
@@ -702,6 +703,7 @@ function renderSettings(s) {
   const rated = Object.keys(s.ratings).filter((id) => ratingOf(s, id) !== null).length;
   return `
   ${renderAccount()}
+  ${renderHousehold()}
   ${renderCookbook()}
   ${renderPeople()}
   <section class="card">
@@ -1372,6 +1374,14 @@ const actions = {
   'google-signin': async () => {
     try { await signInWithGoogle(); } catch (e) { toast(e.message); }
   },
+  'hh-migrate': async () => {
+    cb.busy = true; render();
+    try {
+      await migrateLegacySync();
+      toast('Sync moved to your account');
+    } catch (e) { toast(e.message || 'The move did not finish — nothing was lost'); }
+    finally { cb.busy = false; await refreshPeople(); }
+  },
   signout: async () => {
     try { await signOut(); toast('Signed out'); } catch (e) { toast(e.message); }
   },
@@ -1858,7 +1868,9 @@ bindCookbook(render);
 initCookbook();
 initAuth().then(() => { if (ui.tab === 'settings') render(); });
 onAuth(() => { if (ui.tab === 'settings') render(); });
+onHouseholdSyncStatus(() => { if (ui.tab === 'settings') render(); });
 startSync();
+startHouseholdSync();
 pushStatus().then((st) => { const changed = ui.pushStatus !== st; ui.pushStatus = st; if (changed && ui.tab === 'settings') render(); });
 
 if ('serviceWorker' in navigator && location.protocol === 'https:') {
