@@ -688,7 +688,7 @@ function renderAccount() {
   if (!authReady()) return `<section class="card"><h2>Account</h2><p class="fine">Checking sign-in…</p></section>`;
   const u = authUser();
   if (!u) return `<section class="card"><h2>Account</h2>
-    <p class="fine">Sign in to save dishes to your own cookbook and share with your household. Optional — everything else works without it.</p>
+    <p class="fine">Sign in to save dishes to your own cookbook. Optional — everything else works without it.</p>
     <button class="btn primary" data-act="google-signin">Sign in with Google</button></section>`;
   const name = u.user_metadata?.full_name || u.user_metadata?.name || u.email || 'Signed in';
   return `<section class="card"><h2>Account</h2>
