@@ -16,6 +16,7 @@ import { cb, bindCookbook, initCookbook, renderCookbook, renderCbSheet, cbAction
 import { IMPORTED, importedList, importedAddStatus, isImported, importedMatches } from './imported.js';
 import { dishById, customDishList, customMatches, makeCustomDish, parseIngredientLines, customId } from './custom.js';
 import { IDEAS, IDEA_BY_ID, ideaMatches } from './ideas.js';
+import { recordEvent } from './journal.js';
 
 const $ = (sel, el = document) => el.querySelector(sel);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -737,6 +738,7 @@ function renderSettings(s) {
   <section class="card">
     <h2>Water reminders</h2>
     <label class="rule toggle"><span>Ask \"Did you drink water?\" at 9am, noon, 3pm, 6pm and 9pm while the app is open</span><input type="checkbox" data-set="rules.waterRemind" ${s.rules.waterRemind !== false ? 'checked' : ''}></label>
+    <label class="rule toggle"><span>Keep a private on-this-phone log of which screens and buttons get used - never typed text, answers or dish names</span><input type="checkbox" data-set="rules.usageJournal" ${s.rules.usageJournal !== false ? 'checked' : ''}></label>
     ${pushUi(s)}
   </section>
 
@@ -1056,6 +1058,7 @@ function renderHeader() {
 
 // ---------- Actions ----------
 function setTab(tab) {
+  recordEvent('tab', { t: tab });
   ui.tab = tab;
   if (tab === 'groceries') ui.gsection = '';
   store.set('twoplates.tab', tab);
@@ -1588,11 +1591,13 @@ document.addEventListener('pointerdown', (e) => {
       if (final) {
         // Locking is meaningless once the week is finalized (no more
         // shuffles) - say so instead of failing silently.
+        recordEvent('gesture', { g: 'long-press', result: 'blocked' });
         toast('This week is finalized — tap “Edit week” first');
       } else {
         const cur = getState().plan.slots[gest.i];
         if (!cur) return;
         update((d) => { const x = d.plan.slots[gest.i]; if (x) x.locked = !x.locked; });
+        recordEvent('gesture', { g: 'long-press', result: 'toggled' });
         toast(cur.locked ? 'Unlocked — Shuffle can swap it' : 'Locked — Shuffle keeps it');
       }
       armSuppressClick();
@@ -1637,10 +1642,10 @@ document.addEventListener('pointerup', () => {
   const final = !!getState().plan.finalizedAt;
   // On a finalized week the drag is clamped to a nudge, so judge the left
   // swipe by its raw travel: far enough means "tried to remove" - explain it.
-  if (final && rawDx <= -GEST.thresh) { dish.style.transform = ''; toast('This week is finalized — tap “Edit week” first'); }
-  else if (dx <= -GEST.thresh) revealCard(wrap, dish, -GEST.reveal, 'open-left');
-  else if (dx >= GEST.thresh) revealCard(wrap, dish, GEST.reveal, 'open-right');
-  else dish.style.transform = '';
+  if (final && rawDx <= -GEST.thresh) { dish.style.transform = ''; recordEvent('gesture', { g: 'swipe-left', result: 'blocked' }); toast('This week is finalized — tap “Edit week” first'); }
+  else if (dx <= -GEST.thresh) { recordEvent('gesture', { g: 'swipe-left', result: 'revealed' }); revealCard(wrap, dish, -GEST.reveal, 'open-left'); }
+  else if (dx >= GEST.thresh) { recordEvent('gesture', { g: 'swipe-right', result: 'revealed' }); revealCard(wrap, dish, GEST.reveal, 'open-right'); }
+  else { recordEvent('gesture', { g: rawDx < 0 ? 'swipe-left' : 'swipe-right', result: 'cancelled' }); dish.style.transform = ''; }
 });
 
 document.addEventListener('pointercancel', cancelGest);
@@ -1664,7 +1669,7 @@ document.addEventListener('click', (e) => {
   const el = e.target.closest('[data-act]');
   if (!el || el.tagName === 'INPUT' || el.disabled) return;
   const fn = actions[el.dataset.act];
-  if (fn) { e.preventDefault(); fn(el, e); }
+  if (fn) { e.preventDefault(); recordEvent('act', { a: el.dataset.act }); fn(el, e); }
 });
 
 document.addEventListener('change', (e) => {
@@ -1859,6 +1864,7 @@ initCookbook();
 initAuth().then(() => { if (ui.tab === 'settings') render(); });
 onAuth(() => { if (ui.tab === 'settings') render(); });
 startSync();
+recordEvent('app-open');
 pushStatus().then((st) => { const changed = ui.pushStatus !== st; ui.pushStatus = st; if (changed && ui.tab === 'settings') render(); });
 
 if ('serviceWorker' in navigator && location.protocol === 'https:') {
