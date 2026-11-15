@@ -16,7 +16,7 @@ import { cb, bindCookbook, initCookbook, renderCookbook, renderCbSheet, cbAction
 import { IMPORTED, importedList, importedAddStatus, isImported, importedMatches } from './imported.js';
 import { dishById, customDishList, customMatches, makeCustomDish, parseIngredientLines, customId } from './custom.js';
 import { IDEAS, IDEA_BY_ID, ideaMatches } from './ideas.js';
-import { recordEvent } from './journal.js';
+import { recordEvent, clearJournal } from './journal.js';
 import { startJournalSync, syncJournal } from './journal-sync.js';
 import { answerGoal } from './goalcheck.js';
 
@@ -740,7 +740,7 @@ function renderSettings(s) {
   <section class="card">
     <h2>Water reminders</h2>
     <label class="rule toggle"><span>Ask \"Did you drink water?\" at 9am, noon, 3pm, 6pm and 9pm while the app is open</span><input type="checkbox" data-set="rules.waterRemind" ${s.rules.waterRemind !== false ? 'checked' : ''}></label>
-    <label class="rule toggle"><span>Keep a private on-this-phone log of which screens and buttons get used - never typed text, answers or dish names</span><input type="checkbox" data-set="rules.usageJournal" ${s.rules.usageJournal !== false ? 'checked' : ''}></label>
+    <label class="rule toggle"><span>Keep a private on-this-phone log of which screens and buttons get used - never typed text, answers or dish names. Turning it off deletes what is on this phone</span><input type="checkbox" data-set="rules.usageJournal" ${s.rules.usageJournal !== false ? 'checked' : ''}></label>
     ${pushUi(s)}
   </section>
 
@@ -1671,16 +1671,27 @@ document.addEventListener('click', (e) => {
   }
 }, true);
 
+// Actions the journal never records: health logging (the boundary excludes
+// meal/water answers, and even these occurrences would reveal health habits)
+// and the goal-check controls themselves (captured as goal-check events).
+const JOURNAL_SKIP_ACTS = new Set([
+  'water-answer', 'water-chip', 'water-add', 'water-later',
+  'log-set', 'log-cheatday', 'log-uncheat',
+  'goal-answer', 'goal-wrong', 'goal-pick', 'goal-skip',
+]);
+// Checkbox changes worth recording (occurrence only, never the value):
+const JOURNAL_CHANGE_ACTS = new Set(['check', 'carry', 'pantry-toggle']);
+
 document.addEventListener('click', (e) => {
   const el = e.target.closest('[data-act]');
   if (!el || el.tagName === 'INPUT' || el.disabled) return;
   const fn = actions[el.dataset.act];
-  if (fn) { e.preventDefault(); recordEvent('act', { a: el.dataset.act }); fn(el, e); }
+  if (fn) { e.preventDefault(); if (!JOURNAL_SKIP_ACTS.has(el.dataset.act)) recordEvent('act', { a: el.dataset.act }); fn(el, e); }
 });
 
 document.addEventListener('change', (e) => {
   const el = e.target;
-  if (el.dataset.act && actions[el.dataset.act] && el.type === 'checkbox') { actions[el.dataset.act](el); return; }
+  if (el.dataset.act && actions[el.dataset.act] && el.type === 'checkbox') { if (JOURNAL_CHANGE_ACTS.has(el.dataset.act)) recordEvent('act', { a: el.dataset.act }); actions[el.dataset.act](el); return; }
   if (cbOnChange(el)) return;
   if (el.dataset.receipt !== undefined && el.files?.length) {
     const files = [...el.files];
@@ -1869,6 +1880,14 @@ bindCookbook(render);
 initCookbook();
 initAuth().then(() => { if (ui.tab === 'settings') render(); });
 onAuth(() => { if (ui.tab === 'settings') render(); });
+// Turning the journal off in Settings forgets the on-phone backlog too, so
+// nothing queued uploads later. Already-uploaded rows stay in his own table.
+let journalWasOn = true;
+onChange((s) => {
+  const on = s.rules?.usageJournal !== false;
+  if (journalWasOn && !on) clearJournal();
+  journalWasOn = on;
+});
 startSync();
 startJournalSync();
 syncJournal();

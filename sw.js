@@ -1453,11 +1453,11 @@ const ASSETS = [
   ],
   [
     "js/app.js",
-    "2860d24c01b9e3a844b979d3776b30bfe73eb75bf12a61075825ff229554cd04"
+    "37190cf15df7e19ed5b0d32c458a9fb45b4a234b24f7e9e545d763cb4e8fe486"
   ],
   [
     "js/auth.js",
-    "fa85d68bd66d656716e76367660bdcc1a624dc7756261b1b79cf223b3192c5e9"
+    "b0518fe03fc51ba4c1ebf5272a186e7d113fae0097571fb5d06cbb4d5cfc46c1"
   ],
   [
     "js/cookbook-ui.js",
@@ -1480,8 +1480,12 @@ const ASSETS = [
     "dee5d1ba700789dd2979d0b7bc19680f061c1f7c65e0e132bc23d51963d82ea7"
   ],
   [
+    "js/fixture.js",
+    "02abab011eaac7699af80b8c8dc4a6f336f71cb66d52df6a9c8424332097d3ee"
+  ],
+  [
     "js/goalcheck.js",
-    "0273b879f2ea5b94e387323f5d3ecdd2576b9b2da39763f8ab96d82b1132daff"
+    "8edb016fd369ace599c153e0cc736a99cb45f89f0957a88c07b1abd534f3383e"
   ],
   [
     "js/grocery-ui.js",
@@ -1509,11 +1513,11 @@ const ASSETS = [
   ],
   [
     "js/journal-sync.js",
-    "778fb4a05e0944b2b538ad78fc0dbf3c1fa9d4ae6898d93d61758a8fffdb4ba9"
+    "a10921879a5e08146b6cf65e6ff053a8b26fe0ae74dc2e0c15832df32d66d40f"
   ],
   [
     "js/journal.js",
-    "51573d13268cb8b9abfd015219394464556deb4497a85721c94763be4df475b0"
+    "172d343843603bcd0c2f7d0e2a90e3cab636c17b8125bfa8d87344e01bfea959"
   ],
   [
     "js/log.js",
@@ -1537,7 +1541,7 @@ const ASSETS = [
   ],
   [
     "js/push.js",
-    "e138fef756e8f0dcc3bd33fe317c6a0a38459059c42fc73ba2d3ccd8b50a0065"
+    "47d8301d92d656c261849770cf767061a665f2d4d5fc0d17d54ac68f111ef265"
   ],
   [
     "js/receipts.js",
@@ -1549,7 +1553,7 @@ const ASSETS = [
   ],
   [
     "js/sync.js",
-    "56dfe0af0f2b8046f500b0aa586e0fa3af205d6a1e83d0178d425a870205dd50"
+    "5ecec7d4b38947dbaaf9df4e79b6c96a3c39a68cdaf394e1a11a5d73a59343f6"
   ],
   [
     "js/water.js",

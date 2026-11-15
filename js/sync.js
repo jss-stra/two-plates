@@ -1,6 +1,7 @@
 // Live sync between phones through one row in a Supabase table.
 // Config (project URL, anon key, household code) lives only on each device.
 import { getState, setSyncHook, replaceState } from './state.js';
+import { FIXTURE } from './fixture.js';
 
 const CONFIG_KEY = 'twoplates.sync.v1';
 // Set while this phone has changes the shared plan hasn't received yet. Survives the
@@ -105,6 +106,7 @@ function applyRemote(row) {
 // join: true when you press Connect in Settings — this phone takes the household's
 // plan. On normal start-up, unsaved changes on this phone win instead of being lost.
 export async function connect(cfg, { join = false } = {}) {
+  if (FIXTURE) return; // fixture builds never touch the network
   await disconnect({ keepConfig: true });
   if (!cfg?.url || !cfg?.key || !cfg?.household) return;
   saveConfig(cfg);
@@ -141,6 +143,7 @@ export async function disconnect({ keepConfig = false } = {}) {
 }
 
 export function startSync() {
+  if (FIXTURE) return; // fixture builds never touch the network
   setSyncHook(onLocalChange);
   const cfg = getConfig();
   if (cfg) connect(cfg);

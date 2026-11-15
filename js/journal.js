@@ -21,6 +21,10 @@ const KINDS = {
 };
 const TOKEN = /^[\w-]{1,40}$/;
 
+// Stable per-event id, so a retried upload is ignored server-side instead of
+// stored twice. Slug-shaped on purpose.
+const newId = () => `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+
 let testStorage = null; // node tests inject a fake; browsers use localStorage
 export function _setStorageForTest(s) { testStorage = s; }
 function storage() {
@@ -30,7 +34,7 @@ function storage() {
 
 // Off only when the owner turned it off in Settings; missing/corrupt state
 // means the app never got past first run, so default to on.
-function enabled() {
+export function journalEnabled() {
   try {
     const raw = storage()?.getItem(STATE_KEY);
     if (!raw) return true;
@@ -50,7 +54,7 @@ function write(list) {
 
 export function recordEvent(kind, detail = {}) {
   const keys = KINDS[kind];
-  if (!keys || !enabled()) return false;
+  if (!keys || !journalEnabled()) return false;
   const clean = {};
   for (const k of keys) {
     const v = detail[k];
@@ -60,7 +64,7 @@ export function recordEvent(kind, detail = {}) {
   }
   const now = Date.now();
   const list = read().filter((e) => now - (e.ts || 0) <= MAX_AGE_MS);
-  list.push({ ts: now, k: kind, ...clean });
+  list.push({ id: newId(), ts: now, k: kind, ...clean });
   write(list.slice(-MAX_EVENTS));
   return true;
 }

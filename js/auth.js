@@ -3,6 +3,7 @@
 // ship); row-level security on the server decides what each signed-in user can
 // read or write. Auth is optional - the whole app keeps working signed out.
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/+esm';
+import { FIXTURE } from './fixture.js';
 
 const SUPABASE_URL = 'https://ggqfapcmxxhlgntmejgy.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_1ORW_K2uTBuc72s_O7kFdg_Exdbddvu';
@@ -24,6 +25,7 @@ function setUser(u) {
 }
 
 export async function initAuth() {
+  if (FIXTURE) { ready = true; listeners.forEach((fn) => fn(user)); return; } // fixture builds stay signed out, no network
   try {
     client = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
       auth: { flowType: 'pkce', detectSessionInUrl: true, persistSession: true },
@@ -39,6 +41,7 @@ export async function initAuth() {
 }
 
 export async function signInWithGoogle() {
+  if (FIXTURE) throw new Error('Sign-in is disabled in this test build.');
   if (!client) throw new Error('Sign-in is unavailable right now. Check your connection and try again.');
   const redirectTo = window.location.origin + window.location.pathname;
   const { error } = await client.auth.signInWithOAuth({

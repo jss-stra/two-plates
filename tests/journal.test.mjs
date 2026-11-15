@@ -26,7 +26,8 @@ const DAY = 24 * 60 * 60 * 1000;
   // Rogue keys and unknown kinds are dropped.
   assert.equal(recordEvent('act', { a: 'cooked', id: 'my-secret-dish', note: 'typed text' }), true);
   const acts = journalEvents().filter((e) => e.k === 'act');
-  assert.deepEqual(Object.keys(acts.at(-1)).sort(), ['a', 'k', 'ts'], 'only allowlisted keys survive');
+  assert.deepEqual(Object.keys(acts.at(-1)).sort(), ['a', 'id', 'k', 'ts'], 'only allowlisted keys survive');
+  assert.ok(/^[\w-]{8,40}$/.test(acts.at(-1).id), 'id is slug-shaped for server validation');
   assert.equal(recordEvent('keystroke', { a: 'x' }), false, 'unknown kind rejected');
   assert.equal(recordEvent('act', { a: 'what I cooked for dinner' }), true);
   assert.equal(journalEvents().filter((e) => e.k === 'act').at(-1).a, undefined, 'free text value dropped, event still counts');

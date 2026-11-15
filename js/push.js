@@ -3,6 +3,7 @@
 // scheduled sender (supabase/functions/water-reminders) does the rest.
 // The public VAPID key pairs with a private key held only by that function.
 import { getConfig } from './sync.js';
+import { FIXTURE } from './fixture.js';
 
 const VAPID_PUBLIC = 'BPSHtamWEf4YZZrsodo23o3S6-vy4D7ZgSZt5Siyo73cldPckKmJJ_7A5ITc0ycQYcsJsFZJJEKDRVAfOPsP7xM';
 const TABLE = 'push_subscriptions';
@@ -31,6 +32,7 @@ async function deleteRow(cfg, id) {
 }
 
 export async function enablePush(personIdx) {
+  if (FIXTURE) throw new Error('Push is disabled in this test build.');
   const cfg = getConfig();
   if (!cfg?.url || !cfg?.key || !cfg?.household) throw new Error('Set up Sync between phones first - reminders are sent through your household');
   if (!(await pushSupported())) throw new Error('This browser can\'t do push - on iPhone, install the app first (Share → Add to Home Screen)');

@@ -6,15 +6,33 @@
 import { journalEvents, recordEvent } from './journal.js';
 import { localISO } from './planner.js';
 
-// What the app is for, mapped to the fixed action names that point at it.
-// A goal is only asked about when it dominated the day; thin days ask nothing.
+// What the app is for, mapped to the fixed action names and tab views that
+// point at it. A goal is only asked about when it dominated the day; thin
+// days ask nothing. Health logging (meals, water) is never a signal: those
+// actions are not journaled at all.
 export const GOALS = [
-  { id: 'plan-week', label: 'planning the week', acts: ['shuffle', 'open-sheet', 'search-week', 'swap-random', 'add', 'lock', 'finalize', 'unfinalize', 'remove-slot', 'note-slot'] },
-  { id: 'groceries', label: 'getting the groceries', acts: ['check', 'pantry', 'del-extra', 'gsection', 'bought', 'receipt'] },
-  { id: 'cooking', label: 'cooking from the plan', acts: ['cooked', 'open-imported', 'checkin-open', 'finish-week', 'prep', 'carry'] },
-  { id: 'prep', label: 'prepping ahead', acts: ['prep-tick', 'prep-done'] },
+  {
+    id: 'plan-week', label: 'planning the week',
+    acts: ['shuffle', 'open-sheet', 'search-week', 'swap-random', 'add', 'lock', 'finalize', 'unfinalize', 'remove-slot', 'note-slot', 'choose', 'choose-custom', 'choose-imported', 'pick-replace'],
+    tabs: ['week'],
+  },
+  {
+    id: 'groceries', label: 'getting the groceries',
+    acts: ['check', 'pantry', 'pantry-toggle', 'del-extra', 'gsection', 'gview', 'uncheck-all', 'toggle-amounts', 'xadd', 'xdel', 'bought-week', 'receipt-remove', 'receipt-reread'],
+    tabs: ['groceries', 'bought'],
+  },
+  {
+    id: 'cooking', label: 'cooking from the plan',
+    acts: ['cooked', 'open-imported', 'checkin-open', 'finish-week', 'carry', 'open-idea'],
+    tabs: [],
+  },
+  {
+    id: 'prep', label: 'prepping ahead',
+    acts: [],
+    tabs: ['prep'],
+  },
 ];
-const MIN_SIGNAL = 2; // events in the leading goal before it is worth asking
+const MIN_SIGNAL = 2; // matching events in the leading goal before asking
 const ASK_AFTER_HOUR = 17; // local time; the question is about the day
 
 export function goalLabel(id) { return GOALS.find((g) => g.id === id)?.label || id; }
@@ -29,8 +47,10 @@ function dayStartMs() {
 export function inferGoal(events = journalEvents(dayStartMs())) {
   const counts = Object.fromEntries(GOALS.map((g) => [g.id, 0]));
   for (const e of events) {
-    if (e.k !== 'act' || !e.a) continue;
-    for (const g of GOALS) if (g.acts.includes(e.a)) { counts[g.id]++; break; }
+    for (const g of GOALS) {
+      if (e.k === 'act' && e.a && g.acts.includes(e.a)) { counts[g.id]++; break; }
+      if (e.k === 'tab' && e.t && g.tabs.includes(e.t)) { counts[g.id]++; break; }
+    }
   }
   const [top, n] = Object.entries(counts).sort((a, b) => b[1] - a[1])[0];
   return n >= MIN_SIGNAL ? top : null;
