@@ -1453,7 +1453,7 @@ const ASSETS = [
   ],
   [
     "js/app.js",
-    "34994586cf1e4cedd18b5b19451d9cd4d4022dcf1fb1ef4002da011710e179e9"
+    "2860d24c01b9e3a844b979d3776b30bfe73eb75bf12a61075825ff229554cd04"
   ],
   [
     "js/auth.js",
@@ -1480,6 +1480,10 @@ const ASSETS = [
     "dee5d1ba700789dd2979d0b7bc19680f061c1f7c65e0e132bc23d51963d82ea7"
   ],
   [
+    "js/goalcheck.js",
+    "0273b879f2ea5b94e387323f5d3ecdd2576b9b2da39763f8ab96d82b1132daff"
+  ],
+  [
     "js/grocery-ui.js",
     "a8d374a3ab07792d575b234e46b180d021ed087bf80e063f38f3f36e557b59bb"
   ],
@@ -1489,7 +1493,7 @@ const ASSETS = [
   ],
   [
     "js/home.js",
-    "c127acc913f184f881f4260f117952463749aef788271082613ec305fbc8959b"
+    "36aa432ea8260725fc31f36beb55e6f4c2a0854d38171c35cc462fecbcf01b28"
   ],
   [
     "js/ideas.js",
@@ -1504,8 +1508,12 @@ const ASSETS = [
     "7d5bef59a90bfdf87919966ac511971cf6c2429d1919f5691c828aaee7973053"
   ],
   [
+    "js/journal-sync.js",
+    "778fb4a05e0944b2b538ad78fc0dbf3c1fa9d4ae6898d93d61758a8fffdb4ba9"
+  ],
+  [
     "js/journal.js",
-    "0212737d8dd64cd0fe6ab4ee4b3740222dd8f5fca7d573da416fccecb877625d"
+    "51573d13268cb8b9abfd015219394464556deb4497a85721c94763be4df475b0"
   ],
   [
     "js/log.js",

@@ -17,6 +17,8 @@ import { IMPORTED, importedList, importedAddStatus, isImported, importedMatches 
 import { dishById, customDishList, customMatches, makeCustomDish, parseIngredientLines, customId } from './custom.js';
 import { IDEAS, IDEA_BY_ID, ideaMatches } from './ideas.js';
 import { recordEvent } from './journal.js';
+import { startJournalSync, syncJournal } from './journal-sync.js';
+import { answerGoal } from './goalcheck.js';
 
 const $ = (sel, el = document) => el.querySelector(sel);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -1036,7 +1038,7 @@ function render() {
   const feedBtn = document.querySelector('.tabbar [data-tab="feed"]');
   if (feedBtn) feedBtn.hidden = !SHARING_ENABLED;
   if (!SHARING_ENABLED && ui.tab === 'feed') ui.tab = 'home';
-  const views = { prep: (st) => renderPrep(st, ui), home: (st) => renderHome(st), week: renderWeek, today: (st) => renderLog(st, ui, icon), recipes: renderRecipes, groceries: renderGroceries, bought: (st) => renderBought(st, ui, icon), settings: renderSettings, feed: () => renderFeed() };
+  const views = { prep: (st) => renderPrep(st, ui), home: (st) => renderHome(st, ui), week: renderWeek, today: (st) => renderLog(st, ui, icon), recipes: renderRecipes, groceries: renderGroceries, bought: (st) => renderBought(st, ui, icon), settings: renderSettings, feed: () => renderFeed() };
   const scroll = window.scrollY;
   main.innerHTML = (views[ui.tab] || renderWeek)(s);
   if (ui.tab === 'recipes') renderRecipeList(s);
@@ -1161,6 +1163,10 @@ function startWeekPick(id) {
 
 const actions = {
   tab: (el) => setTab(el.dataset.tab),
+  'goal-answer': (el) => { answerGoal(el.dataset.g, el.dataset.v); ui.goalGoal = null; ui.goalPick = false; render(); },
+  'goal-wrong': () => { ui.goalPick = true; render(); },
+  'goal-pick': (el) => { ui.goalGoal = el.dataset.g; ui.goalPick = false; render(); },
+  'goal-skip': (el) => { answerGoal(el.dataset.g, 'skip'); ui.goalGoal = null; ui.goalPick = false; render(); },
   shuffle: () => {
     if (getState().plan.finalizedAt) return;
     update((d) => { d.plan.slots = generateSlots(d); });
@@ -1864,6 +1870,8 @@ initCookbook();
 initAuth().then(() => { if (ui.tab === 'settings') render(); });
 onAuth(() => { if (ui.tab === 'settings') render(); });
 startSync();
+startJournalSync();
+syncJournal();
 recordEvent('app-open');
 pushStatus().then((st) => { const changed = ui.pushStatus !== st; ui.pushStatus = st; if (changed && ui.tab === 'settings') render(); });
 

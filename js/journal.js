@@ -17,6 +17,7 @@ const KINDS = {
   tab: ['t'], // t: tab name (fixed set in app.js)
   act: ['a'], // a: data-act action name (fixed set in app.js)
   gesture: ['g', 'result'], // g: swipe-left | swipe-right | long-press
+  'goal-check': ['g', 'result'], // g: goal slug; result: shown | yes | no | skip
 };
 const TOKEN = /^[\w-]{1,40}$/;
 

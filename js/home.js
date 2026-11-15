@@ -4,6 +4,7 @@ import { entryFor, isLogged, shiftDay } from './log.js';
 import { localISO, planRecipes, currentWeekStart, weekRelation, weekRangeLabel } from './planner.js';
 import { displayKind, DISPLAY_GROUPS } from './data.js';
 import { waterGoal, waterCheckDay } from './water.js';
+import { goalCard } from './goalcheck.js';
 
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
@@ -48,7 +49,7 @@ function ratingLine(s, p, days) {
   return n ? `Day rating avg ${(Math.round((sum / n) * 10) / 10).toFixed(1)} ★ over ${n} day${n === 1 ? '' : 's'}` : null;
 }
 
-export function renderHome(s) {
+export function renderHome(s, ui = {}) {
   const today = localISO();
   const dateLabel = new Date(`${today}T12:00:00`).toLocaleDateString('en-AU', { weekday: 'long', day: 'numeric', month: 'short' });
   const people = s.people || [];
@@ -113,6 +114,7 @@ export function renderHome(s) {
   }).join('');
 
   return `
+  ${goalCard(ui)}
   <section class="card">
     <h2>Today · ${esc(dateLabel)}</h2>
     ${todayRows}
