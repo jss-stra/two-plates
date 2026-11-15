@@ -1,8 +1,10 @@
 -- OPERATOR PROCEDURE: migrate the ONE existing legacy household to account
 -- sync. Runs only in the Supabase SQL editor / Management API with privileged
--- access, only after explicit owner approval, and only for the independently
--- verified owner Google account. There is no client-callable equivalent:
--- the legacy channel is anonymously writable, so nothing a client presents
+-- access, only after the owner approves the concrete transition fresh (with
+-- the Mac/receipt/device effects known). The previously verified Google
+-- account is only a LEAD that identifies WHICH account to bind; it is not
+-- authorization to run this. There is no client-callable equivalent: the
+-- legacy channel is anonymously writable, so nothing a client presents
 -- through it can prove ownership.
 --
 -- Parameters (fill in before running):

@@ -38,6 +38,12 @@ create policy hs_member_updates on public.household_state
 -- Live updates between household members' devices.
 alter publication supabase_realtime add table public.household_state;
 
+-- Invites carry a snapshot of WHO invited, so the invitee can recognize what
+-- they are accepting (the owner chooses to share this with the person they
+-- invite, like the From line on an email). Existing rows keep NULL and the
+-- app falls back to a generic label.
+alter table public.household_invites add column if not exists invited_by_name text;
+
 -- Backups of migrated legacy rows (written only by the privileged operator
 -- procedure). RLS enabled with NO policies: no client (anon or authenticated)
 -- can read or write this table.
@@ -57,3 +63,6 @@ alter table public.legacy_state_backup enable row level security;
 --   as A and as B: select from legacy_state_backup -> permission denied.
 --   realtime: A subscribed to H1 receives changes; B subscribed to H2 does
 --   not receive H1 changes.
+--   as A: insert a household_invites row with invited_by_name set; as B (the
+--   invitee's account): reading own pending invite returns invited_by_name but
+--   no other household details beyond what the policy already allows.

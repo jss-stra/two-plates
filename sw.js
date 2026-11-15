@@ -1461,11 +1461,11 @@ const ASSETS = [
   ],
   [
     "js/cookbook-ui.js",
-    "b0579e7534e421ee19ee3979c292c747d129430ff09db8389f94e4a2f3cd9afb"
+    "c83f96edb417c2f27f797e9f43aa78dc38476213e052f4a268df8c6bdbaab320"
   ],
   [
     "js/cookbook.js",
-    "76171ff35f639e5fe02270474d748aa3aef6c0eabb97c83067563eeb7040e736"
+    "2b5319f4fa939d3a713a0686f840e7d80367410361dc6c483df11e2530fac361"
   ],
   [
     "js/custom.js",

@@ -240,7 +240,10 @@ export async function createHousehold() {
 
 export async function inviteToHousehold(householdId, email) {
   const u = requireUser();
-  const { error } = await client().from('household_invites').insert({ household_id: householdId, invited_email: email.trim().toLowerCase(), invited_by: u.id });
+  // Snapshot who is inviting so the invitee can recognize the invite. The
+  // inviter shares their own name/email with someone they chose to invite.
+  const invited_by_name = u.user_metadata?.full_name || u.user_metadata?.name || u.email || null;
+  const { error } = await client().from('household_invites').insert({ household_id: householdId, invited_email: email.trim().toLowerCase(), invited_by: u.id, invited_by_name });
   if (error) throw error;
 }
 
@@ -249,7 +252,7 @@ export async function listMyInvites() {
   // invites; keep only ones addressed to my email so owners don't see their
   // own outgoing invites here.
   const u = requireUser();
-  const { data, error } = await client().from('household_invites').select('id, household_id, invited_email, status, expires_at').eq('status', 'pending');
+  const { data, error } = await client().from('household_invites').select('id, household_id, invited_email, invited_by_name, status, expires_at').eq('status', 'pending');
   if (error) throw error;
   const mine = (u.email || '').toLowerCase();
   return (data || []).filter((i) => (i.invited_email || '').toLowerCase() === mine);

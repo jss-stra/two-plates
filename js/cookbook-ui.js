@@ -198,7 +198,7 @@ export function renderHousehold() {
   const inviteBlock = (p?.invites || []).length ? `
     <div class="hh-invites">
       <h3>Invites for you</h3>
-      ${p.invites.map((i) => `<div class="invite-row">Household invite (expires ${esc(new Date(i.expires_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' }))})
+      ${p.invites.map((i) => `<div class="invite-row"><b>${esc(i.invited_by_name || 'Someone')}</b> invited you to their household (expires ${esc(new Date(i.expires_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' }))})
         <button class="btn small primary" data-act="hh-accept" data-id="${esc(i.id)}" ${cb.busy ? 'disabled' : ''}>Accept</button></div>`).join('')}
     </div>` : '';
 
@@ -242,7 +242,7 @@ export function renderPeople() {
   const inviteBlock = (p.invites || []).length ? `
     <div class="hh-invites">
       <h3>Invites for you</h3>
-      ${p.invites.map((i) => `<div class="invite-row">Household invite (expires ${esc(new Date(i.expires_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' }))})
+      ${p.invites.map((i) => `<div class="invite-row"><b>${esc(i.invited_by_name || 'Someone')}</b> invited you to their household (expires ${esc(new Date(i.expires_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' }))})
         <button class="btn small primary" data-act="hh-accept" data-id="${esc(i.id)}" ${cb.busy ? 'disabled' : ''}>Accept</button></div>`).join('')}
     </div>` : '';
 

@@ -10,10 +10,17 @@ Order matters. Nothing below touches production before its gate says so.
    reject strangers and guessed challenges.
 3. Capacity check (database size vs plan limits) before calling anything free.
 
-## Gate 2: app deploy (needs Gate 1 green)
-4. Deploy the `household-sync` branch as the next version and verify the
+## Gate 1.5: sign-in + security proof (needs Gate 1 green; BEFORE any deploy)
+4. Verify the Google consent screen config (console, read-only). If sign-in
+   is limited to test users, publish it first (his console action).
+5. Run scripts/test-household-rls.mjs: synthetic two-household adversarial
+   tests (cross-household read/write/insert denied, anon denied, no client
+   delete, backup table locked). All must pass.
+
+## Gate 2: app deploy (needs Gate 1.5 green)
+6. Deploy the `household-sync` branch as the next version and verify the
    signed-out app is unchanged.
-5. Synthetic end-to-end: test user A starts a household, invites test user B
+7. Synthetic end-to-end: test user A starts a household, invites test user B
    by email, B signs in and accepts, plan edits sync both ways, B cannot see
    A's cookbook and no one outside the household can read the plan.
 
@@ -40,11 +47,8 @@ account, only after he approves the concrete transition.
     steps. Retirement = tighten/replace the permissive legacy policies.
     Only after his yes.
 
-## Sign-in availability check (release gate, before calling it share-ready)
-11. Confirm the Google consent screen config (console, read-only) AND run
-    fresh authenticated household tests with synthetic users. If sign-in is
-    limited, publish the consent screen (his console action).
-12. privacy.html / terms.html: DRAFTS UNDER REVIEW, not in the repo, not
+## Privacy/terms (release gate)
+11. privacy.html / terms.html: DRAFTS UNDER REVIEW, not in the repo, not
     linked anywhere. Publish only after his wording review and only when
     every assertion matches live behavior (household isolation live, legacy
     exposure closed, deletion path decided, contact route approved).
