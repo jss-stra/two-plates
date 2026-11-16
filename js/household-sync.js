@@ -7,13 +7,20 @@
 import { getState, addSyncHook, replaceState, defaultState } from './state.js';
 import { authClient, authUser, authReady, onAuth } from './auth.js';
 import { mergeDays } from './household-sync-core.js';
+import {
+  suspendLegacyPlanSync, resumeLegacyPlanSync,
+  getConfig as legacyGetConfig, connect as legacyConnect, disconnect as legacyDisconnect,
+} from './sync.js';
 
 const TABLE = 'household_state';
-const DIRTY_KEY = 'twoplates.dirty.v1';
+// Pending-edit flag for THIS layer only. The legacy shared-key layer keeps its
+// own ('twoplates.dirty.v1'): one flag per layer, so a successful push in one
+// layer can never discard the other layer's pending edit.
+const DIRTY_KEY = 'twoplates.household-dirty.v1';
 const PREJOIN_PREFIX = 'twoplates.prejoin-backup.v1.'; // per-account: one user's backup is never another's
 const LAST_USER_KEY = 'twoplates.lastuser.v1';
 const STASH_PREFIX = 'twoplates.stash.v1.';
-const prejoinKey = () => PREJOIN_PREFIX + (authUser()?.id || 'anon'); // shared with legacy sync: one flag, whichever layer pushes clears it
+const prejoinKey = () => PREJOIN_PREFIX + (authUser()?.id || 'anon');
 const deviceId = Math.random().toString(36).slice(2);
 
 let householdId = null;
@@ -43,6 +50,7 @@ export function restorePrejoinBackup() {
     replaceState(backup); // replaceState does not fire sync hooks: nothing is pushed
     setDirty(false); // no pending push may carry the restored private plan anywhere
     localStorage.removeItem(prejoinKey());
+    resumeLegacyPlanSync(); // personal plan again: the old channel may carry it once more
     return true;
   } catch { return false; }
 }
@@ -97,6 +105,10 @@ export async function flushHouseholdSync() {
 function applyRemote(row) {
   const data = row?.data;
   if (!data || data._device === deviceId) return;
+  // Another member's data is landing on this device: the old anonymous
+  // shared-key channel must never carry it. Writes by this same account
+  // (e.g. the user's other phone) are their own data and do not suspend it.
+  if (authUser()?.id && row.updated_by !== authUser().id) suspendLegacyPlanSync();
   const { _device, ...rest } = data;
   const local = getState();
   if ((data.updatedAt || 0) > (local.updatedAt || 0)) {
@@ -114,28 +126,51 @@ function applyRemote(row) {
 }
 
 // A device can be shared. When a DIFFERENT account signs in, the previous
-// account's local state is stashed under that account's id and the dirty
-// flag is cleared, so it can never be pushed into the new account's
-// household or cloud. The stash is device-local, keyed by account, and is
-// restored only when that same account signs back in. Anonymous local data
+// account's local state is stashed under that account's id and the pending-edit
+// flags are cleared, so they can never be pushed into the new account's
+// household or cloud. The keys that belong to the account rather than the
+// device (the old channel's connection details, its suspension flag, both
+// layers' pending-edit flags) are stashed with it: the next account can never
+// read or push through them. The stash is device-local, keyed by account, and
+// is restored only when that same account signs back in. Anonymous local data
 // on a first sign-in (no previous account) keeps the old behavior: preserved.
-export function partitionStateForUser(u) {
+const ACCOUNT_KEYS = ['twoplates.sync.v1', 'twoplates.legacy-suspended.v1', 'twoplates.dirty.v1', DIRTY_KEY];
+export async function partitionStateForUser(u) {
   if (!u) return; // sign-out leaves local state alone; the last-user marker persists
   let last = null;
   try { last = localStorage.getItem(LAST_USER_KEY); } catch { /* ignore */ }
   if (last && last !== u.id) {
-    try { localStorage.setItem(STASH_PREFIX + last, JSON.stringify(getState())); } catch { /* ignore */ }
-    setDirty(false);
+    const stashOut = { state: getState(), keys: {} };
+    try {
+      for (const k of ACCOUNT_KEYS) stashOut.keys[k] = localStorage.getItem(k);
+      localStorage.setItem(STASH_PREFIX + last, JSON.stringify(stashOut));
+    } catch { /* ignore */ }
+    // Tear the old channel down before wiping its keys: its realtime listener
+    // must not apply the previous account's rows into the new account's state.
+    await legacyDisconnect();
+    for (const k of ACCOUNT_KEYS) { try { localStorage.removeItem(k); } catch { /* ignore */ } }
     replaceState({ ...defaultState(), updatedAt: 0 });
     let stash = null;
     try { stash = localStorage.getItem(STASH_PREFIX + u.id); } catch { /* ignore */ }
     if (stash) {
       try {
-        const s = JSON.parse(stash);
+        const parsed = JSON.parse(stash);
+        const s = parsed?.state ?? parsed; // tolerate bare-state stashes from earlier builds
         if (s && typeof s === 'object' && Array.isArray(s.people)) replaceState(s);
+        if (parsed?.keys) {
+          for (const k of ACCOUNT_KEYS) {
+            try {
+              if (parsed.keys[k] == null) localStorage.removeItem(k);
+              else localStorage.setItem(k, parsed.keys[k]);
+            } catch { /* ignore */ }
+          }
+        }
       } catch { /* ignore */ }
       try { localStorage.removeItem(STASH_PREFIX + u.id); } catch { /* ignore */ }
     }
+    // Reconnect the old channel only if THIS account had it configured.
+    const cfg = legacyGetConfig();
+    if (cfg) legacyConnect(cfg);
   }
   try { localStorage.setItem(LAST_USER_KEY, u.id); } catch { /* ignore */ }
 }
@@ -150,7 +185,7 @@ export async function connectHousehold(hid, { join = false } = {}) {
   householdId = hid;
   setStatus('saving', 'Connecting…');
   try {
-    const { data, error } = await c.from(TABLE).select('data').eq('household_id', hid).maybeSingle();
+    const { data, error } = await c.from(TABLE).select('data, updated_by').eq('household_id', hid).maybeSingle();
     if (error) throw error;
     if (!data?.data) await push(); // brand-new household: seed it with this device's plan
     else if (join) {
@@ -161,11 +196,12 @@ export async function connectHousehold(hid, { join = false } = {}) {
       try {
         if (!localStorage.getItem(prejoinKey())) localStorage.setItem(prejoinKey(), JSON.stringify(getState()));
       } catch { /* ignore */ }
+      suspendLegacyPlanSync(); // the adopted plan belongs to the household, not to this device's old channel
       const { _device, ...rest } = data.data;
       replaceState(rest);
       setDirty(false);
     } else if (isDirty()) await push();
-    else applyRemote({ data: { ...data.data, _device: 'remote' } });
+    else applyRemote({ data: { ...data.data, _device: 'remote' }, updated_by: data.updated_by });
     channel = c.channel(`${TABLE}:${hid}`)
       .on('postgres_changes', { event: '*', schema: 'public', table: TABLE, filter: `household_id=eq.${hid}` },
         (payload) => applyRemote(payload.new))
@@ -175,8 +211,8 @@ export async function connectHousehold(hid, { join = false } = {}) {
           // Catch-up after a reconnect: live events that arrived while this
           // device was offline are never replayed, so pull the current row.
           if (isDirty()) { await push(); return; }
-          const { data: cur } = await c.from(TABLE).select('data').eq('household_id', hid).maybeSingle();
-          if (cur?.data) applyRemote({ data: { ...cur.data, _device: 'remote' } });
+          const { data: cur } = await c.from(TABLE).select('data, updated_by').eq('household_id', hid).maybeSingle();
+          if (cur?.data) applyRemote({ data: { ...cur.data, _device: 'remote' }, updated_by: cur.updated_by });
         }
       });
     addSyncHook(onLocalChange);
@@ -208,7 +244,7 @@ async function resolveMyHousehold() {
 export function startHouseholdSync() {
   onAuth(async (u) => {
     if (!u) { await disconnectHousehold(); return; }
-    partitionStateForUser(u);
+    await partitionStateForUser(u);
     const hid = await resolveMyHousehold();
     if (!hid) return;
     await connectHousehold(hid);
@@ -225,8 +261,8 @@ export function startHouseholdSync() {
     const c = authClient();
     if (!c || !householdId) return;
     if (isDirty()) { await push(); return; }
-    const { data } = await c.from(TABLE).select('data').eq('household_id', householdId).maybeSingle();
-    if (data) applyRemote({ data: { ...data.data, _device: 'remote' } });
+    const { data } = await c.from(TABLE).select('data, updated_by').eq('household_id', householdId).maybeSingle();
+    if (data) applyRemote({ data: { ...data.data, _device: 'remote' }, updated_by: data.updated_by });
   });
   window.addEventListener('pagehide', () => { flushHouseholdSync(); });
   // Connectivity restored: flush pending edits immediately instead of waiting
