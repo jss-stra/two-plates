@@ -23,3 +23,14 @@ export function mergeDays(local = {}, remote = {}) {
   }
   return out;
 }
+
+// The explicit, accurately-scoped seed for a brand-new household: the parts of
+// this device's personal state the user chose to share (week plan, people,
+// targets/rules, ratings, custom dishes, exclusions, pantry, occasions).
+// Food log/history and shopping progress are never part of a seed.
+const SEED_KEYS = ['people', 'rules', 'plan', 'ratings', 'favourites', 'customDishes', 'hidden', 'exclusions', 'pantry', 'occasions'];
+export function scopedSeed(state, base) {
+  const out = { ...(base || {}), updatedAt: Date.now() };
+  for (const k of SEED_KEYS) if (state && state[k] !== undefined) out[k] = structuredClone(state[k]);
+  return out;
+}

@@ -1,6 +1,8 @@
 // Live sync between phones through one row in a Supabase table.
 // Config (project URL, anon key, household code) lives only on each device.
-import { getState, setSyncHook, replaceState } from './state.js';
+// This layer is bound to the PERSONAL store only (see state.js): account
+// household data lives in a separate store and can never be pushed here.
+import { personalStore } from './state.js';
 import { FIXTURE } from './fixture.js';
 import { isTombstone, mergeDays } from './household-sync-core.js';
 
@@ -51,40 +53,22 @@ function setDirty(v) {
   try { v ? localStorage.setItem(DIRTY_KEY, '1') : localStorage.removeItem(DIRTY_KEY); } catch { /* ignore */ }
 }
 
-// Set when this device's local plan came from an account household (joining one,
-// or merging another member's changes). While set, this layer never pushes the
-// plan or food log to the old shared-key channel, because they may belong to
-// other people. Receipts are unaffected: they use the client directly, not push().
-const SUSPEND_KEY = 'twoplates.legacy-suspended.v1';
-export const legacyPlanSyncSuspended = () => { try { return localStorage.getItem(SUSPEND_KEY) === '1'; } catch { return false; } };
-// Local state is (or is about to become) household-derived. Any pending push is
-// dropped too: it must not carry other people's data onto the old channel.
-export function suspendLegacyPlanSync() {
-  try { localStorage.setItem(SUSPEND_KEY, '1'); } catch { /* ignore */ }
-  setDirty(false);
-}
-// Local state is personal again (the pre-join plan was restored on this device,
-// or this device deliberately re-adopted the old channel's plan).
-export function resumeLegacyPlanSync() {
-  try { localStorage.removeItem(SUSPEND_KEY); } catch { /* ignore */ }
-}
-
 export function newHouseholdCode() {
   const bytes = crypto.getRandomValues(new Uint8Array(12));
   return 'home-' + [...bytes].map((b) => b.toString(36).padStart(2, '0')).join('').slice(0, 18);
 }
 
 async function push() {
-  if (!client || migrated || legacyPlanSyncSuspended()) return;
+  if (!client || migrated) return;
   const cfg = getConfig();
   if (!cfg) return;
   // Pull in the other phone's newest log entries before overwriting the shared copy.
   const { data: current } = await client.from(TABLE).select('data').eq('id', cfg.household).maybeSingle();
   if (current?.data?.days) {
-    const merged = mergeDays(getState().days, current.data.days);
-    if (JSON.stringify(merged) !== JSON.stringify(getState().days)) replaceState({ ...getState(), days: merged });
+    const merged = mergeDays(personalStore.get().days, current.data.days);
+    if (JSON.stringify(merged) !== JSON.stringify(personalStore.get().days)) personalStore.replace({ ...personalStore.get(), days: merged });
   }
-  const s = getState();
+  const s = personalStore.get();
   const { error } = await client.from(TABLE).upsert({
     id: cfg.household, data: { ...s, _device: deviceId }, updated_at: new Date(s.updatedAt || Date.now()).toISOString(),
   });
@@ -100,7 +84,7 @@ function schedulePush() {
 
 // Every local change is remembered as unsaved until the shared plan has it.
 function onLocalChange() {
-  if (!getConfig() || legacyPlanSyncSuspended()) return;
+  if (!getConfig()) return;
   setDirty(true);
   if (client) schedulePush();
   else setStatus('saving', 'Not saved yet — will sync when online');
@@ -117,9 +101,9 @@ function applyRemote(row) {
   const data = row?.data;
   if (!data || data._device === deviceId) return;
   if (isTombstone(data)) { markMoved(); return; }
-  if ((data.updatedAt || 0) <= (getState().updatedAt || 0)) return;
+  if ((data.updatedAt || 0) <= (personalStore.get().updatedAt || 0)) return;
   const { _device, ...rest } = data;
-  replaceState({ ...rest, days: mergeDays(getState().days, rest.days) });
+  personalStore.replace({ ...rest, days: mergeDays(personalStore.get().days, rest.days) });
   setStatus('on', 'Synced — updated from the other phone');
 }
 
@@ -150,9 +134,10 @@ export async function connect(cfg, { join = false } = {}) {
     }
     else if (!data?.data) await push(); // brand-new household: seed it with this phone's plan
     else if (join) {
+      // Connect pressed in Settings: this device deliberately takes the old
+      // channel's plan into its personal store.
       const { _device, ...rest } = data.data;
-      replaceState(rest);
-      resumeLegacyPlanSync(); // this device deliberately re-adopted the old channel's plan
+      personalStore.replace(rest);
       setDirty(false);
     } else if (isDirty()) await push();
     else applyRemote({ data: { ...data.data, _device: 'remote' } });
@@ -160,7 +145,7 @@ export async function connect(cfg, { join = false } = {}) {
       .on('postgres_changes', { event: '*', schema: 'public', table: TABLE, filter: `id=eq.${cfg.household}` },
         (payload) => applyRemote(payload.new))
       .subscribe((s) => { if (s === 'CHANNEL_ERROR') setStatus('error', 'Live updates unavailable — will still save'); });
-    setSyncHook(onLocalChange);
+    personalStore.addSyncHook(onLocalChange);
     if (!isDirty()) setStatus('on', 'Synced');
   } catch (e) {
     client = null;
@@ -177,7 +162,7 @@ export async function disconnect({ keepConfig = false } = {}) {
 
 export function startSync() {
   if (FIXTURE) return; // fixture builds never touch the network
-  setSyncHook(onLocalChange);
+  personalStore.addSyncHook(onLocalChange);
   const cfg = getConfig();
   if (cfg) connect(cfg);
   // Save before iOS pauses the app; catch up when it comes back.

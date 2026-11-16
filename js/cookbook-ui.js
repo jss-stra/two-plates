@@ -9,8 +9,9 @@
 //   URL stays usable until expiry even if access is revoked - the TTL is the
 //   revocation delay bound, and it is not immediate.
 import { authUser, authReady, onAuth } from './auth.js';
-import { householdSyncStatus , hasPrejoinBackup, restorePrejoinBackup } from './household-sync.js';
+import { householdSyncStatus, clearHouseholdState } from './household-sync.js';
 import { connectHousehold, disconnectHousehold } from './household-sync.js';
+import { getMode, setMode } from './state.js';
 import {
   uploadPhoto, saveEntry, deleteEntry, listEntries, publishEntry, signedPhotoUrl,
   readFeed, unpublish, hidePost, reportPost, feedPhotoUrl,
@@ -175,9 +176,12 @@ export function renderHousehold() {
   const hh = p.household;
   const me = authUser().id;
   const st = householdSyncStatus();
+  const mode = getMode();
   const hhBlock = hh ? `
     <div class="hh">
       <p class="sync-status ${esc(st.state)}"><span class="dot"></span>${esc(st.message)}</p>
+      <p class="fine">On this device: <b>${mode === 'household' ? 'the household plan' : 'your own plan'}</b>
+        <button class="link" data-act="hh-mode">${mode === 'household' ? 'Show my own plan' : 'Show the household plan'}</button></p>
       <ul class="hh-members">
         ${hh.members.map((m) => `<li>${esc(m.name)}${m.role === 'owner' ? ' <span class="fine">(owner)</span>' : ''}
           ${(m.user_id !== me && hh.myRole === 'owner') ? `<button class="link" data-act="hh-remove" data-hh="${esc(hh.id)}" data-id="${esc(m.user_id)}">Remove</button>` : ''}
@@ -192,17 +196,16 @@ export function renderHousehold() {
         <p class="fine">They get the invite when they sign in with that email; it expires after 7 days. Everyone in the household shares the same week plan and grocery list.</p>` : ''}
     </div>` : `
     <div class="hh">
-      <p class="fine">Start a household to share one week plan and grocery list with your family. Only household members can see or change it.</p>
+      <p class="fine">Start a household to share one week plan and grocery list with your family. Only household members can see or change it. Your own plan stays on this device, unchanged.</p>
       <button class="btn" data-act="hh-create" ${cb.busy ? 'disabled' : ''}>Start a household</button>
-      ${hasPrejoinBackup() ? `<p class="fine">This device has the personal plan you had before joining a household.</p>
-      <button class="btn" data-act="hh-restore" ${cb.busy ? 'disabled' : ''}>Restore my previous plan</button>` : ''}
+      <button class="btn" data-act="hh-create-seed" ${cb.busy ? 'disabled' : ''}>Start from this device's current plan</button>
     </div>`;
 
   const inviteBlock = (p?.invites || []).length ? `
     <div class="hh-invites">
       <h3>Invites for you</h3>
       ${p.invites.map((i) => `<div class="invite-row"><b>${esc(i.invited_by_name || 'Someone')}</b> invited you to their household (expires ${esc(new Date(i.expires_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' }))})
-        <p class="fine">Joining won't upload your previous plan or food history. This device's week plan is replaced with the household's shared plan; your previous plan stays saved on this device only (clearing site data removes it) and you can restore it if you leave.</p>
+        <p class="fine">Joining switches this device to the household's shared week plan and food log - what you log there is visible to everyone in the household. Your own plan and food log stay on this device and keep syncing with your other devices exactly as today; nothing is uploaded to the household. You can switch views or leave at any time.</p>
         <button class="btn small primary" data-act="hh-accept" data-id="${esc(i.id)}" ${cb.busy ? 'disabled' : ''}>Accept</button></div>`).join('')}
     </div>` : '';
 
@@ -220,10 +223,13 @@ export function renderPeople() {
   if (p === null) return `<section class="card" id="people-card"><h2>Household &amp; friends</h2><p class="fine">Loading…</p></section>`;
   const hh = p.household;
   const me = authUser().id;
+  const mode = getMode();
 
   const hhBlock = hh ? `
     <div class="hh">
       <h3>Your household</h3>
+      <p class="fine">On this device: <b>${mode === 'household' ? 'the household plan' : 'your own plan'}</b>
+        <button class="link" data-act="hh-mode">${mode === 'household' ? 'Show my own plan' : 'Show the household plan'}</button></p>
       <ul class="hh-members">
         ${hh.members.map((m) => `<li>${esc(m.name)}${m.role === 'owner' ? ' <span class="fine">(owner)</span>' : ''}
           ${(m.user_id !== me && hh.myRole === 'owner') ? `<button class="link" data-act="hh-remove" data-hh="${esc(hh.id)}" data-id="${esc(m.user_id)}">Remove</button>` : ''}
@@ -239,15 +245,16 @@ export function renderPeople() {
     </div>` : `
     <div class="hh">
       <h3>Household</h3>
-      <p class="fine">A household is who "Family" posts go to.</p>
+      <p class="fine">A household is who "Family" posts go to. Starting or joining one never changes your own plan on this device.</p>
       <button class="btn" data-act="hh-create" ${cb.busy ? 'disabled' : ''}>Start a household</button>
+      <button class="btn" data-act="hh-create-seed" ${cb.busy ? 'disabled' : ''}>Start from this device's current plan</button>
     </div>`;
 
   const inviteBlock = (p.invites || []).length ? `
     <div class="hh-invites">
       <h3>Invites for you</h3>
       ${p.invites.map((i) => `<div class="invite-row"><b>${esc(i.invited_by_name || 'Someone')}</b> invited you to their household (expires ${esc(new Date(i.expires_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' }))})
-        <p class="fine">Joining won't upload your previous plan or food history. This device's week plan is replaced with the household's shared plan; your previous plan stays saved on this device only (clearing site data removes it) and you can restore it if you leave.</p>
+        <p class="fine">Joining switches this device to the household's shared week plan and food log - what you log there is visible to everyone in the household. Your own plan and food log stay on this device and keep syncing with your other devices exactly as today; nothing is uploaded to the household. You can switch views or leave at any time.</p>
         <button class="btn small primary" data-act="hh-accept" data-id="${esc(i.id)}" ${cb.busy ? 'disabled' : ''}>Accept</button></div>`).join('')}
     </div>` : '';
 
@@ -446,11 +453,23 @@ export const cbActions = {
 
   // Household
   'hh-create': async () => {
+    if (!window.confirm('Start a household with a blank shared week plan? This device switches to showing the household plan. Your own plan and food log stay on this device and keep syncing with your other devices exactly as today.')) return;
     cb.busy = true; rerender();
     try {
       const hid = await createHousehold();
-      await connectHousehold(hid); // seeds the shared plan from this device
+      await connectHousehold(hid, { activate: true });
       toastMsg('Household started - invite your people');
+    }
+    catch (e) { toastMsg(`Not created: ${e.message}`); }
+    finally { cb.busy = false; await refreshPeople(); }
+  },
+  'hh-create-seed': async () => {
+    if (!window.confirm("Start a household FROM THIS DEVICE'S CURRENT PLAN? This copies the week plan, people, targets, rules, ratings, custom dishes and pantry on this device into the shared household, where everyone you invite can see them. Your food log, history and shopping progress are NOT copied. Your own plan also stays on this device, unchanged.")) return;
+    cb.busy = true; rerender();
+    try {
+      const hid = await createHousehold();
+      await connectHousehold(hid, { seed: 'personal', activate: true });
+      toastMsg('Household started with your current plan - invite your people');
     }
     catch (e) { toastMsg(`Not created: ${e.message}`); }
     finally { cb.busy = false; await refreshPeople(); }
@@ -464,26 +483,24 @@ export const cbActions = {
     finally { cb.busy = false; await refreshPeople(); }
   },
   'hh-accept': async (el) => {
-    if (!confirm('Join this household? Joining won\'t upload your previous plan or food history. This device\'s week plan is replaced with the household\'s shared plan; your previous plan stays saved on this device only and can be restored if you leave.')) return;
+    if (!confirm('Join this household? This device switches to the household\'s shared week plan and food log - what you log there is visible to everyone in the household. Your own plan and food log stay on this device and keep syncing with your other devices exactly as today; nothing is uploaded to the household. You can switch views or leave at any time.')) return;
     cb.busy = true; rerender();
     try {
       await acceptInvite(el.dataset.id);
       await refreshPeople();
-      if (cb.people?.household?.id) await connectHousehold(cb.people.household.id, { join: true }); // adopt shared plan; pre-join plan stays local-only
+      if (cb.people?.household?.id) await connectHousehold(cb.people.household.id, { activate: true }); // show the shared plan; the personal store is untouched
       toastMsg('Joined the household');
     }
     catch (e) { toastMsg(`Could not join: ${e.message}`); }
     finally { cb.busy = false; await refreshPeople(); }
   },
-  'hh-restore': async () => {
-    if (!confirm('Restore the personal plan this device had before you joined a household? The household\'s shared plan stays with the household.')) return;
-    await disconnectHousehold(); // ensure no active household channel can receive the restored private plan
-    if (restorePrejoinBackup()) toastMsg('Your previous plan is back on this device');
-    else toastMsg('No saved plan found on this device');
+  'hh-mode': async () => {
+    setMode(getMode() === 'household' ? 'personal' : 'household');
     rerender();
   },
   'hh-leave': async (el) => {
-    try { await leaveHousehold(el.dataset.hh); await disconnectHousehold(); toastMsg('Left the household'); }
+    if (!confirm('Leave this household? This device switches back to your own plan. What you logged in the household stays visible to its members.')) return;
+    try { await leaveHousehold(el.dataset.hh); await disconnectHousehold(); clearHouseholdState(); toastMsg('Left the household - back to your own plan'); }
     catch (e) { toastMsg(`Could not leave: ${e.message}`); }
     finally { await refreshPeople(); }
   },

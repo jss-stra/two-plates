@@ -1,5 +1,20 @@
-// App state: one JSON document, saved to localStorage and (optionally) synced via Supabase.
-const KEY = 'twoplates.state.v1';
+// App state: TWO isolated JSON documents, each saved to its own localStorage key.
+//
+// - The personal store ('twoplates.state.v1') is the state this device has always
+//   had. It syncs (when configured) over the old shared-key channel with the other
+//   devices that know the code - so it may hold data from whoever shares that code.
+//   Household membership never reads or writes it.
+// - The household store ('twoplates.household-state.v1') is this device's cache of
+//   the account household's shared plan. It syncs over the authenticated household
+//   channel only, and is cleared when the account leaves the household or signs out.
+//
+// The two stores never merge into each other. A per-device mode flag chooses which
+// one the UI shows and edits; each sync layer binds to its own store directly, so
+// household data can never reach the old shared-key channel and the old channel's
+// data can never reach the household.
+const PERSONAL_KEY = 'twoplates.state.v1';
+const HOUSEHOLD_KEY = 'twoplates.household-state.v1';
+const MODE_KEY = 'twoplates.mode.v1';
 
 export function defaultState() {
   return {
@@ -69,43 +84,79 @@ function merge(base, saved) {
   return out;
 }
 
-function load() {
+function makeStore(storageKey) {
+  let state = (() => {
+    try {
+      const raw = localStorage.getItem(storageKey);
+      if (raw) return merge(defaultState(), JSON.parse(raw));
+    } catch { /* storage unavailable or corrupt — start fresh */ }
+    return defaultState();
+  })();
+  const listeners = new Set();
+  // Several sync layers can listen for local changes at once. A Set keeps them
+  // independent and registration idempotent.
+  const syncHooks = new Set();
+
+  function persist() {
+    try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch { /* ignore */ }
+  }
+
+  return {
+    get: () => state,
+    onChange: (fn) => listeners.add(fn),
+    addSyncHook: (fn) => { if (fn) syncHooks.add(fn); },
+    // Local change: mutate a copy, save, re-render, push to sync.
+    update(mutator) {
+      const next = structuredClone(state);
+      mutator(next);
+      next.updatedAt = Date.now();
+      state = next;
+      persist();
+      listeners.forEach((fn) => fn(state));
+      syncHooks.forEach((fn) => fn(state));
+    },
+    // Remote change from sync: replace without pushing back.
+    replace(remote) {
+      state = merge(defaultState(), remote);
+      persist();
+      listeners.forEach((fn) => fn(state));
+    },
+    // Drop this store's contents entirely (household cache on leave/sign-out).
+    clear() {
+      state = defaultState();
+      try { localStorage.removeItem(storageKey); } catch { /* ignore */ }
+      listeners.forEach((fn) => fn(state));
+    },
+  };
+}
+
+// The sync layers bind to these directly and never to the mode-routed API below.
+export const personalStore = makeStore(PERSONAL_KEY);
+export const householdStore = makeStore(HOUSEHOLD_KEY);
+
+export const getMode = () => {
+  try { return localStorage.getItem(MODE_KEY) === 'household' ? 'household' : 'personal'; } catch { return 'personal'; }
+};
+const modeListeners = new Set();
+export const onModeChange = (fn) => modeListeners.add(fn);
+export function setMode(mode) {
+  const next = mode === 'household' ? 'household' : 'personal';
+  if (next === getMode()) return;
   try {
-    const raw = localStorage.getItem(KEY);
-    if (raw) return merge(defaultState(), JSON.parse(raw));
-  } catch { /* storage unavailable or corrupt — start fresh */ }
-  return defaultState();
+    if (next === 'personal') localStorage.removeItem(MODE_KEY);
+    else localStorage.setItem(MODE_KEY, next);
+  } catch { /* ignore */ }
+  modeListeners.forEach((fn) => fn(next));
 }
 
-let state = load();
-const listeners = new Set();
-// Several sync layers can listen for local changes at once (legacy sync,
-// household sync). A Set keeps them independent and registration idempotent.
-const syncHooks = new Set();
+const active = () => (getMode() === 'household' ? householdStore : personalStore);
 
-export const getState = () => state;
-export const onChange = (fn) => listeners.add(fn);
-export const setSyncHook = (fn) => { if (fn) syncHooks.add(fn); };
-export const addSyncHook = (fn) => { if (fn) syncHooks.add(fn); };
-
-function persist() {
-  try { localStorage.setItem(KEY, JSON.stringify(state)); } catch { /* ignore */ }
-}
-
-// Local change: mutate a copy, save, re-render, push to sync.
-export function update(mutator) {
-  const next = structuredClone(state);
-  mutator(next);
-  next.updatedAt = Date.now();
-  state = next;
-  persist();
-  listeners.forEach((fn) => fn(state));
-  syncHooks.forEach((fn) => fn(state));
-}
-
-// Remote change from sync: replace without pushing back.
-export function replaceState(remote) {
-  state = merge(defaultState(), remote);
-  persist();
-  listeners.forEach((fn) => fn(state));
-}
+// UI-facing API: everything the screens do goes through the ACTIVE store.
+export const getState = () => active().get();
+export const update = (mutator) => active().update(mutator);
+export const replaceState = (remote) => active().replace(remote);
+// Re-render on any store change and on mode switches: the visible plan can
+// change under either.
+export const onChange = (fn) => { personalStore.onChange(fn); householdStore.onChange(fn); modeListeners.add(() => fn(active().get())); };
+export const setSyncHook = (fn) => active().addSyncHook(fn);
+export const addSyncHook = (fn) => active().addSyncHook(fn);
