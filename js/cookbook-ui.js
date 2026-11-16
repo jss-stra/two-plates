@@ -9,6 +9,7 @@
 //   URL stays usable until expiry even if access is revoked - the TTL is the
 //   revocation delay bound, and it is not immediate.
 import { authUser, authReady, onAuth } from './auth.js';
+import { householdSyncStatus } from './household-sync.js';
 import {
   uploadPhoto, saveEntry, deleteEntry, listEntries, publishEntry, signedPhotoUrl,
   readFeed, unpublish, hidePost, reportPost, feedPhotoUrl,
@@ -85,7 +86,7 @@ export async function refreshFeed() {
   }
 }
 
-async function refreshPeople() {
+export async function refreshPeople() {
   try {
     const [household, invites, links] = await Promise.all([listMyHousehold(), listMyInvites(), listFriendLinks()]);
     cb.people = { household, invites, links };
@@ -161,6 +162,52 @@ export function renderFeed() {
     <p class="fine feed-note">Photos load through links that expire about two minutes after they are issued. If sharing is turned off for a dish, no new photo links are issued; a link already issued may keep working until it expires, and anything already saved or screenshotted cannot be recalled.</p>`;
 }
 
+// ---------- Household card (Settings) ----------
+// Household-only card, always available to signed-in users (unlike the people
+// card, it has no feed or friends and is not gated by SHARING_ENABLED).
+export function renderHousehold() {
+  if (!authReady()) return `<section class="card" id="household-card"><h2>Household</h2><p class="fine">Checking sign-in…</p></section>`;
+  if (!authUser()) return `<section class="card" id="household-card"><h2>Household</h2>
+    <p class="fine">A household keeps one shared week plan and grocery list for your family. Sign in above to start or join one.</p></section>`;
+  const p = cb.people;
+  if (p === null) return `<section class="card" id="household-card"><h2>Household</h2><p class="fine">Loading…</p></section>`;
+  const hh = p.household;
+  const me = authUser().id;
+  const st = householdSyncStatus();
+  const hhBlock = hh ? `
+    <div class="hh">
+      <p class="sync-status ${esc(st.state)}"><span class="dot"></span>${esc(st.message)}</p>
+      <ul class="hh-members">
+        ${hh.members.map((m) => `<li>${esc(m.name)}${m.role === 'owner' ? ' <span class="fine">(owner)</span>' : ''}
+          ${(m.user_id !== me && hh.myRole === 'owner') ? `<button class="link" data-act="hh-remove" data-hh="${esc(hh.id)}" data-id="${esc(m.user_id)}">Remove</button>` : ''}
+          ${(m.user_id === me && hh.myRole !== 'owner') ? `<button class="link" data-act="hh-leave" data-hh="${esc(hh.id)}">Leave</button>` : ''}
+        </li>`).join('')}
+      </ul>
+      ${hh.myRole === 'owner' ? `
+        <div class="inline">
+          <input id="hh-invite-email" type="email" placeholder="Invite family by email" autocomplete="off">
+          <button class="btn small" data-act="hh-invite" data-hh="${esc(hh.id)}" ${cb.busy ? 'disabled' : ''}>Invite</button>
+        </div>
+        <p class="fine">They get the invite when they sign in with that email; it expires after 7 days. Everyone in the household shares the same week plan and grocery list.</p>` : ''}
+    </div>` : `
+    <div class="hh">
+      <p class="fine">Start a household to share one week plan and grocery list with your family. Only household members can see or change it.</p>
+      <button class="btn" data-act="hh-create" ${cb.busy ? 'disabled' : ''}>Start a household</button>
+    </div>`;
+
+  const inviteBlock = (p?.invites || []).length ? `
+    <div class="hh-invites">
+      <h3>Invites for you</h3>
+      ${p.invites.map((i) => `<div class="invite-row"><b>${esc(i.invited_by_name || 'Someone')}</b> invited you to their household (expires ${esc(new Date(i.expires_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' }))})
+        <button class="btn small primary" data-act="hh-accept" data-id="${esc(i.id)}" ${cb.busy ? 'disabled' : ''}>Accept</button></div>`).join('')}
+    </div>` : '';
+
+  return `<section class="card" id="household-card"><h2>Household</h2>
+    ${p?.error ? `<p class="fine">Could not load: ${esc(p.error)}</p>` : ''}
+    ${inviteBlock}${hhBlock}
+  </section>`;
+}
+
 // ---------- People card (Settings) ----------
 export function renderPeople() {
   if (!SHARING_ENABLED) return '';
@@ -195,7 +242,7 @@ export function renderPeople() {
   const inviteBlock = (p.invites || []).length ? `
     <div class="hh-invites">
       <h3>Invites for you</h3>
-      ${p.invites.map((i) => `<div class="invite-row">Household invite (expires ${esc(new Date(i.expires_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' }))})
+      ${p.invites.map((i) => `<div class="invite-row"><b>${esc(i.invited_by_name || 'Someone')}</b> invited you to their household (expires ${esc(new Date(i.expires_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' }))})
         <button class="btn small primary" data-act="hh-accept" data-id="${esc(i.id)}" ${cb.busy ? 'disabled' : ''}>Accept</button></div>`).join('')}
     </div>` : '';
 
