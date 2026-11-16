@@ -9,7 +9,7 @@
 //   URL stays usable until expiry even if access is revoked - the TTL is the
 //   revocation delay bound, and it is not immediate.
 import { authUser, authReady, onAuth } from './auth.js';
-import { householdSyncStatus } from './household-sync.js';
+import { householdSyncStatus , hasPrejoinBackup, restorePrejoinBackup } from './household-sync.js';
 import { connectHousehold, disconnectHousehold } from './household-sync.js';
 import {
   uploadPhoto, saveEntry, deleteEntry, listEntries, publishEntry, signedPhotoUrl,
@@ -194,12 +194,15 @@ export function renderHousehold() {
     <div class="hh">
       <p class="fine">Start a household to share one week plan and grocery list with your family. Only household members can see or change it.</p>
       <button class="btn" data-act="hh-create" ${cb.busy ? 'disabled' : ''}>Start a household</button>
+      ${hasPrejoinBackup() ? `<p class="fine">This device has the personal plan you had before joining a household.</p>
+      <button class="btn" data-act="hh-restore" ${cb.busy ? 'disabled' : ''}>Restore my previous plan</button>` : ''}
     </div>`;
 
   const inviteBlock = (p?.invites || []).length ? `
     <div class="hh-invites">
       <h3>Invites for you</h3>
       ${p.invites.map((i) => `<div class="invite-row"><b>${esc(i.invited_by_name || 'Someone')}</b> invited you to their household (expires ${esc(new Date(i.expires_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' }))})
+        <p class="fine">Joining replaces this device's week plan with the household's shared plan. Your current plan and food log stay private - saved only on this device, never uploaded - and you can restore them if you leave.</p>
         <button class="btn small primary" data-act="hh-accept" data-id="${esc(i.id)}" ${cb.busy ? 'disabled' : ''}>Accept</button></div>`).join('')}
     </div>` : '';
 
@@ -244,6 +247,7 @@ export function renderPeople() {
     <div class="hh-invites">
       <h3>Invites for you</h3>
       ${p.invites.map((i) => `<div class="invite-row"><b>${esc(i.invited_by_name || 'Someone')}</b> invited you to their household (expires ${esc(new Date(i.expires_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' }))})
+        <p class="fine">Joining replaces this device's week plan with the household's shared plan. Your current plan and food log stay private - saved only on this device, never uploaded - and you can restore them if you leave.</p>
         <button class="btn small primary" data-act="hh-accept" data-id="${esc(i.id)}" ${cb.busy ? 'disabled' : ''}>Accept</button></div>`).join('')}
     </div>` : '';
 
@@ -460,15 +464,22 @@ export const cbActions = {
     finally { cb.busy = false; await refreshPeople(); }
   },
   'hh-accept': async (el) => {
+    if (!confirm('Join this household? This device\'s week plan is replaced with the household\'s shared plan. Your current plan and food log stay saved only on this device and can be restored if you leave.')) return;
     cb.busy = true; rerender();
     try {
       await acceptInvite(el.dataset.id);
       await refreshPeople();
-      if (cb.people?.household?.id) await connectHousehold(cb.people.household.id, { join: true }); // adopt shared plan, merge unsaved local log entries
+      if (cb.people?.household?.id) await connectHousehold(cb.people.household.id, { join: true }); // adopt shared plan; pre-join plan stays local-only
       toastMsg('Joined the household');
     }
     catch (e) { toastMsg(`Could not join: ${e.message}`); }
     finally { cb.busy = false; await refreshPeople(); }
+  },
+  'hh-restore': async () => {
+    if (!confirm('Restore the personal plan this device had before you joined a household? The household\'s shared plan stays with the household.')) return;
+    if (restorePrejoinBackup()) toastMsg('Your previous plan is back on this device');
+    else toastMsg('No saved plan found on this device');
+    rerender();
   },
   'hh-leave': async (el) => {
     try { await leaveHousehold(el.dataset.hh); await disconnectHousehold(); toastMsg('Left the household'); }

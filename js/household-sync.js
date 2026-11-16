@@ -9,7 +9,8 @@ import { authClient, authUser, authReady, onAuth } from './auth.js';
 import { mergeDays } from './household-sync-core.js';
 
 const TABLE = 'household_state';
-const DIRTY_KEY = 'twoplates.dirty.v1'; // shared with legacy sync: one flag, whichever layer pushes clears it
+const DIRTY_KEY = 'twoplates.dirty.v1';
+const PREJOIN_KEY = 'twoplates.prejoin-backup.v1'; // shared with legacy sync: one flag, whichever layer pushes clears it
 const deviceId = Math.random().toString(36).slice(2);
 
 let householdId = null;
@@ -21,6 +22,24 @@ const statusListeners = new Set();
 export const onHouseholdSyncStatus = (fn) => statusListeners.add(fn);
 export const householdSyncStatus = () => status;
 export const currentHouseholdId = () => householdId;
+export function hasPrejoinBackup() {
+  try { return !!localStorage.getItem(PREJOIN_KEY); } catch { return false; }
+}
+// Restores the personal plan this device had before joining a household.
+// The shared plan copy stays on the server with the household; only this
+// device's local state changes. Returns true when a backup was restored.
+export function restorePrejoinBackup() {
+  let raw = null;
+  try { raw = localStorage.getItem(PREJOIN_KEY); } catch { /* ignore */ }
+  if (!raw) return false;
+  try {
+    const backup = JSON.parse(raw);
+    if (!backup || typeof backup !== 'object' || !Array.isArray(backup.people)) return false;
+    replaceState(backup);
+    localStorage.removeItem(PREJOIN_KEY);
+    return true;
+  } catch { return false; }
+}
 function setStatus(state, message) {
   status = { state, message };
   statusListeners.forEach((fn) => fn(status));
@@ -99,12 +118,15 @@ export async function connectHousehold(hid, { join = false } = {}) {
     if (error) throw error;
     if (!data?.data) await push(); // brand-new household: seed it with this device's plan
     else if (join) {
-      // Joining takes the household's plan; this device's unsaved food-log
-      // entries are merged in so they are not lost. The pre-join personal
-      // plan is kept on this device in case the join was a mistake.
-      try { localStorage.setItem('twoplates.prejoin-backup.v1', JSON.stringify(getState())); } catch { /* ignore */ }
+      // Joining takes the household's plan. This device's personal plan and
+      // food log are NOT merged in: pre-join history is private and stays
+      // only in the on-device backup, restorable after leaving. An earlier
+      // unrestored backup is never overwritten.
+      try {
+        if (!localStorage.getItem(PREJOIN_KEY)) localStorage.setItem(PREJOIN_KEY, JSON.stringify(getState()));
+      } catch { /* ignore */ }
       const { _device, ...rest } = data.data;
-      replaceState({ ...rest, days: mergeDays(getState().days, rest.days) });
+      replaceState(rest);
       setDirty(false);
     } else if (isDirty()) await push();
     else applyRemote({ data: { ...data.data, _device: 'remote' } });

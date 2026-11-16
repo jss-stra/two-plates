@@ -1461,7 +1461,7 @@ const ASSETS = [
   ],
   [
     "js/cookbook-ui.js",
-    "21c91c133f221eeac6598853ec4c4de4f82c9cc53c0de2c9702a331b2e9c170b"
+    "541413eb9d0157b8c9655d96521e899250dbe294398cf8c39429abbb0af895d1"
   ],
   [
     "js/cookbook.js",
@@ -1505,7 +1505,7 @@ const ASSETS = [
   ],
   [
     "js/household-sync.js",
-    "8135f19f5a7e7dd466db6927d398cd87999ce5920d064c9980a208838b1e0782"
+    "6a4cb9bc8011ddae7b38b5d0ca77474ce05dda708edf8d37423fdb9364a97ddc"
   ],
   [
     "js/ideas.js",
