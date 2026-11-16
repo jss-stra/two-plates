@@ -66,6 +66,8 @@ a { color: var(--accent); }
 .sync-dot { width: 28px; height: 28px; border: 0; background: transparent; position: relative; cursor: pointer; }
 .sync-dot::after { content: ""; position: absolute; inset: 9px; border-radius: 50%; background: var(--muted); opacity: .5; }
 .sync-dot.on::after { background: var(--ok); opacity: 1; }
+.mode-chip { font: inherit; font-size: 12px; font-weight: 600; line-height: 1; padding: 7px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); color: var(--muted); cursor: pointer; white-space: nowrap; }
+.mode-chip.hh { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
 .sync-dot.saving::after { background: var(--warn); opacity: 1; }
 .sync-dot.error::after { background: var(--nonveg); opacity: 1; }
 

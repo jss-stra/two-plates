@@ -1,7 +1,7 @@
 import { renderPrep, setupPrepEvents } from './prep.js';
 import { renderExtrasCard, renderPartiesCard, setupGroceryEvents } from './grocery-ui.js';
 import { RECIPES, RECIPE_BY_ID, GROUPS, INGREDIENTS, DIET_LABEL, PROTEIN_LABEL, youtubeUrl, isVeg, kindOf, DATA_ERRORS, exclusionHits, ALLERGEN_CATS, DISPLAY_GROUPS, displayKind } from './data.js';
-import { getState, update, onChange, defaultState, replaceState } from './state.js';
+import { getState, update, onChange, defaultState, replaceState, getMode } from './state.js';
 import { generateSlots, slotKind, planRecipes, alternatives, randomSwap, removeSlot, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes, localISO, weekRelation, weekRangeLabel } from './planner.js';
 import { renderLog, shiftDay, shiftMonth } from './log.js';
 import { buildGrocery, weeklyNoteText, scaleFactor, formatQty, qtyText } from './grocery.js';
@@ -13,7 +13,7 @@ import { renderHome } from './home.js';
 import { pushStatus, enablePush, disablePush } from './push.js';
 import { initAuth, signInWithGoogle, signOut, onAuth, authUser, authReady } from './auth.js';
 import { cb, bindCookbook, initCookbook, renderCookbook, renderCbSheet, cbActions, cbOnChange, renderFeed, renderPeople, renderHousehold, refreshFeed, refreshPeople, SHARING_ENABLED } from './cookbook-ui.js';
-import { startHouseholdSync, onHouseholdSyncStatus } from './household-sync.js';
+import { startHouseholdSync, onHouseholdSyncStatus, currentHouseholdId } from './household-sync.js';
 import { IMPORTED, importedList, importedAddStatus, isImported, importedMatches } from './imported.js';
 import { dishById, customDishList, customMatches, makeCustomDish, parseIngredientLines, customId } from './custom.js';
 import { IDEAS, IDEA_BY_ID, ideaMatches } from './ideas.js';
@@ -1058,6 +1058,20 @@ function renderHeader() {
   $('#sync-dot').className = `sync-dot ${st.state}`;
   $('#sync-dot').title = st.message;
   $('#settings-btn')?.classList.toggle('on', ui.tab === 'settings');
+  // Persistent plan-mode chip: whenever this device belongs to a household,
+  // name the plan the user is currently viewing/editing on every tab, so
+  // personal entries are not logged into the family view by accident.
+  const chip = $('#mode-chip');
+  if (chip) {
+    const inHH = !!currentHouseholdId();
+    chip.hidden = !inHH;
+    if (inHH) {
+      const hh = getMode() === 'household';
+      chip.textContent = hh ? 'Household plan' : 'Own plan';
+      chip.classList.toggle('hh', hh);
+      chip.title = hh ? 'Viewing the shared household plan - tap to view your own plan' : 'Viewing your own plan - tap to view the household plan';
+    }
+  }
 }
 
 // ---------- Actions ----------

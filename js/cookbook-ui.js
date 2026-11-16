@@ -196,10 +196,10 @@ export function renderHousehold() {
         <p class="fine">They get the invite when they sign in with that email; it expires after 7 days. Everyone in the household shares the same week plan and grocery list.</p>` : ''}
     </div>` : `
     <div class="hh">
-      <p class="fine">Start a household to share one week plan and grocery list with your family. Only household members can see or change it. Your own plan stays on this device, unchanged.</p>
+      <p class="fine">Start a household to share one week plan and grocery list with your family. Only household members can see or change the household's plan and list. Your own plan is not copied in and keeps syncing with your other devices exactly as today.</p>
       <button class="btn" data-act="hh-create" ${cb.busy ? 'disabled' : ''}>Start a household</button>
       <button class="btn" data-act="hh-create-seed" ${cb.busy ? 'disabled' : ''}>Start with this device's plan &amp; settings</button>
-      <p class="fine">The second choice shares this device's week plan, people, targets, rules, dish ratings and favourites, custom and hidden dishes, allergies and dislikes, pantry and occasions with everyone you invite. Food log, history and shopping progress are never shared.</p>
+      <p class="fine">The second choice shares this device's week plan, people, targets, rules, dish ratings and favourites, custom and hidden dishes, allergies and dislikes, pantry and occasions with everyone you invite. Your food log, history and shopping progress are not copied - but what you log while viewing the household plan is shared with its members.</p>
     </div>`;
 
   const inviteBlock = (p?.invites || []).length ? `
@@ -249,7 +249,7 @@ export function renderPeople() {
       <p class="fine">A household is who "Family" posts go to. Starting or joining one never changes your own plan on this device.</p>
       <button class="btn" data-act="hh-create" ${cb.busy ? 'disabled' : ''}>Start a household</button>
       <button class="btn" data-act="hh-create-seed" ${cb.busy ? 'disabled' : ''}>Start with this device's plan &amp; settings</button>
-      <p class="fine">The second choice shares this device's week plan, people, targets, rules, dish ratings and favourites, custom and hidden dishes, allergies and dislikes, pantry and occasions with everyone you invite. Food log, history and shopping progress are never shared.</p>
+      <p class="fine">The second choice shares this device's week plan, people, targets, rules, dish ratings and favourites, custom and hidden dishes, allergies and dislikes, pantry and occasions with everyone you invite. Your food log, history and shopping progress are not copied - but what you log while viewing the household plan is shared with its members.</p>
     </div>`;
 
   const inviteBlock = (p.invites || []).length ? `
