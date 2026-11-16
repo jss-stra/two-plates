@@ -1064,6 +1064,7 @@ function renderHeader() {
 function setTab(tab) {
   recordEvent('tab', { t: tab });
   ui.tab = tab;
+  if (tab === 'settings' && authUser()) refreshPeople(); // fresh invites/household state
   if (tab === 'groceries') ui.gsection = '';
   store.set('twoplates.tab', tab);
   window.scrollTo(0, 0);
@@ -1793,7 +1794,7 @@ function openFromLink() {
   const h = location.hash.slice(1);
   if (h === 'checkin') { ui.tab = 'week'; ui.checkin = true; }
   else if (h === 'today') { ui.tab = 'today'; ui.logView = 'day'; ui.logDate = localISO(); }
-  else if (['home', 'week', 'prep', 'recipes', 'groceries', 'bought', 'settings'].includes(h)) { ui.tab = h; ui.checkin = false; }
+  else if (['home', 'week', 'prep', 'recipes', 'groceries', 'bought', 'settings'].includes(h)) { ui.tab = h; ui.checkin = false; if (h === 'settings' && authUser()) refreshPeople(); }
   else return;
   history.replaceState(null, '', location.pathname);
   render();

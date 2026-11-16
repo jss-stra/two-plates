@@ -10,6 +10,7 @@
 //   revocation delay bound, and it is not immediate.
 import { authUser, authReady, onAuth } from './auth.js';
 import { householdSyncStatus } from './household-sync.js';
+import { connectHousehold, disconnectHousehold } from './household-sync.js';
 import {
   uploadPhoto, saveEntry, deleteEntry, listEntries, publishEntry, signedPhotoUrl,
   readFeed, unpublish, hidePost, reportPost, feedPhotoUrl,
@@ -442,7 +443,11 @@ export const cbActions = {
   // Household
   'hh-create': async () => {
     cb.busy = true; rerender();
-    try { await createHousehold(); toastMsg('Household started - invite your people'); }
+    try {
+      const hid = await createHousehold();
+      await connectHousehold(hid); // seeds the shared plan from this device
+      toastMsg('Household started - invite your people');
+    }
     catch (e) { toastMsg(`Not created: ${e.message}`); }
     finally { cb.busy = false; await refreshPeople(); }
   },
@@ -456,12 +461,17 @@ export const cbActions = {
   },
   'hh-accept': async (el) => {
     cb.busy = true; rerender();
-    try { await acceptInvite(el.dataset.id); toastMsg('Joined the household'); }
+    try {
+      await acceptInvite(el.dataset.id);
+      await refreshPeople();
+      if (cb.people?.household?.id) await connectHousehold(cb.people.household.id, { join: true }); // adopt shared plan, merge unsaved local log entries
+      toastMsg('Joined the household');
+    }
     catch (e) { toastMsg(`Could not join: ${e.message}`); }
     finally { cb.busy = false; await refreshPeople(); }
   },
   'hh-leave': async (el) => {
-    try { await leaveHousehold(el.dataset.hh); toastMsg('Left the household'); }
+    try { await leaveHousehold(el.dataset.hh); await disconnectHousehold(); toastMsg('Left the household'); }
     catch (e) { toastMsg(`Could not leave: ${e.message}`); }
     finally { await refreshPeople(); }
   },

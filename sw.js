@@ -1453,7 +1453,7 @@ const ASSETS = [
   ],
   [
     "js/app.js",
-    "316cbd2e14b570afdb1ff73dc66dd172a9419f9988ac1f9eb1e6591aa50d3695"
+    "e00f683472affd76fbcd9572a63b7e56d6cd80510889ccad9ca305e9b6569b14"
   ],
   [
     "js/auth.js",
@@ -1461,7 +1461,7 @@ const ASSETS = [
   ],
   [
     "js/cookbook-ui.js",
-    "c83f96edb417c2f27f797e9f43aa78dc38476213e052f4a268df8c6bdbaab320"
+    "21c91c133f221eeac6598853ec4c4de4f82c9cc53c0de2c9702a331b2e9c170b"
   ],
   [
     "js/cookbook.js",
