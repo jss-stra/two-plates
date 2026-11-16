@@ -35,7 +35,8 @@ export function restorePrejoinBackup() {
   try {
     const backup = JSON.parse(raw);
     if (!backup || typeof backup !== 'object' || !Array.isArray(backup.people)) return false;
-    replaceState(backup);
+    replaceState(backup); // replaceState does not fire sync hooks: nothing is pushed
+    setDirty(false); // no pending push may carry the restored private plan anywhere
     localStorage.removeItem(PREJOIN_KEY);
     return true;
   } catch { return false; }

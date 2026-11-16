@@ -202,7 +202,7 @@ export function renderHousehold() {
     <div class="hh-invites">
       <h3>Invites for you</h3>
       ${p.invites.map((i) => `<div class="invite-row"><b>${esc(i.invited_by_name || 'Someone')}</b> invited you to their household (expires ${esc(new Date(i.expires_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' }))})
-        <p class="fine">Joining replaces this device's week plan with the household's shared plan. Your current plan and food log stay private - saved only on this device, never uploaded - and you can restore them if you leave.</p>
+        <p class="fine">Joining won't upload your previous plan or food history. This device's week plan is replaced with the household's shared plan; your previous plan stays saved on this device only (clearing site data removes it) and you can restore it if you leave.</p>
         <button class="btn small primary" data-act="hh-accept" data-id="${esc(i.id)}" ${cb.busy ? 'disabled' : ''}>Accept</button></div>`).join('')}
     </div>` : '';
 
@@ -247,7 +247,7 @@ export function renderPeople() {
     <div class="hh-invites">
       <h3>Invites for you</h3>
       ${p.invites.map((i) => `<div class="invite-row"><b>${esc(i.invited_by_name || 'Someone')}</b> invited you to their household (expires ${esc(new Date(i.expires_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' }))})
-        <p class="fine">Joining replaces this device's week plan with the household's shared plan. Your current plan and food log stay private - saved only on this device, never uploaded - and you can restore them if you leave.</p>
+        <p class="fine">Joining won't upload your previous plan or food history. This device's week plan is replaced with the household's shared plan; your previous plan stays saved on this device only (clearing site data removes it) and you can restore it if you leave.</p>
         <button class="btn small primary" data-act="hh-accept" data-id="${esc(i.id)}" ${cb.busy ? 'disabled' : ''}>Accept</button></div>`).join('')}
     </div>` : '';
 
@@ -464,7 +464,7 @@ export const cbActions = {
     finally { cb.busy = false; await refreshPeople(); }
   },
   'hh-accept': async (el) => {
-    if (!confirm('Join this household? This device\'s week plan is replaced with the household\'s shared plan. Your current plan and food log stay saved only on this device and can be restored if you leave.')) return;
+    if (!confirm('Join this household? Joining won\'t upload your previous plan or food history. This device\'s week plan is replaced with the household\'s shared plan; your previous plan stays saved on this device only and can be restored if you leave.')) return;
     cb.busy = true; rerender();
     try {
       await acceptInvite(el.dataset.id);
@@ -477,6 +477,7 @@ export const cbActions = {
   },
   'hh-restore': async () => {
     if (!confirm('Restore the personal plan this device had before you joined a household? The household\'s shared plan stays with the household.')) return;
+    await disconnectHousehold(); // ensure no active household channel can receive the restored private plan
     if (restorePrejoinBackup()) toastMsg('Your previous plan is back on this device');
     else toastMsg('No saved plan found on this device');
     rerender();
