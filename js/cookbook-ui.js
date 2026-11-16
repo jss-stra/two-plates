@@ -199,7 +199,7 @@ export function renderHousehold() {
       <p class="fine">Start a household to share one week plan and grocery list with your family. Only household members can see or change it. Your own plan stays on this device, unchanged.</p>
       <button class="btn" data-act="hh-create" ${cb.busy ? 'disabled' : ''}>Start a household</button>
       <button class="btn" data-act="hh-create-seed" ${cb.busy ? 'disabled' : ''}>Start with this device's plan &amp; settings</button>
-      <p class="fine">The second choice shares this device's week plan, people, targets, rules, ratings, custom dishes and pantry with everyone you invite. Food log, history and shopping progress are never shared.</p>
+      <p class="fine">The second choice shares this device's week plan, people, targets, rules, dish ratings and favourites, custom and hidden dishes, allergies and dislikes, pantry and occasions with everyone you invite. Food log, history and shopping progress are never shared.</p>
     </div>`;
 
   const inviteBlock = (p?.invites || []).length ? `
@@ -249,7 +249,7 @@ export function renderPeople() {
       <p class="fine">A household is who "Family" posts go to. Starting or joining one never changes your own plan on this device.</p>
       <button class="btn" data-act="hh-create" ${cb.busy ? 'disabled' : ''}>Start a household</button>
       <button class="btn" data-act="hh-create-seed" ${cb.busy ? 'disabled' : ''}>Start with this device's plan &amp; settings</button>
-      <p class="fine">The second choice shares this device's week plan, people, targets, rules, ratings, custom dishes and pantry with everyone you invite. Food log, history and shopping progress are never shared.</p>
+      <p class="fine">The second choice shares this device's week plan, people, targets, rules, dish ratings and favourites, custom and hidden dishes, allergies and dislikes, pantry and occasions with everyone you invite. Food log, history and shopping progress are never shared.</p>
     </div>`;
 
   const inviteBlock = (p.invites || []).length ? `
