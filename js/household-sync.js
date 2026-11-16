@@ -72,9 +72,19 @@ export async function flushHouseholdSync() {
 function applyRemote(row) {
   const data = row?.data;
   if (!data || data._device === deviceId) return;
-  if ((data.updatedAt || 0) <= (getState().updatedAt || 0)) return;
   const { _device, ...rest } = data;
-  replaceState({ ...rest, days: mergeDays(getState().days, rest.days) });
+  const local = getState();
+  if ((data.updatedAt || 0) > (local.updatedAt || 0)) {
+    // Newer overall: take the remote plan/settings, keep each person's
+    // newest food-log entries from both sides.
+    replaceState({ ...rest, days: mergeDays(local.days, rest.days) });
+  } else {
+    // Older overall (we edited something else more recently): the top-level
+    // timestamp must not hide newer per-person log entries in this row.
+    const merged = mergeDays(local.days, rest.days);
+    if (JSON.stringify(merged) === JSON.stringify(local.days || {})) return;
+    replaceState({ ...local, days: merged });
+  }
   setStatus('on', 'Synced — updated from your household');
 }
 
