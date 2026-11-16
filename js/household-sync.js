@@ -90,7 +90,9 @@ export async function connectHousehold(hid, { join = false } = {}) {
     if (!data?.data) await push(); // brand-new household: seed it with this device's plan
     else if (join) {
       // Joining takes the household's plan; this device's unsaved food-log
-      // entries are merged in so they are not lost.
+      // entries are merged in so they are not lost. The pre-join personal
+      // plan is kept on this device in case the join was a mistake.
+      try { localStorage.setItem('twoplates.prejoin-backup.v1', JSON.stringify(getState())); } catch { /* ignore */ }
       const { _device, ...rest } = data.data;
       replaceState({ ...rest, days: mergeDays(getState().days, rest.days) });
       setDirty(false);
@@ -99,7 +101,16 @@ export async function connectHousehold(hid, { join = false } = {}) {
     channel = c.channel(`${TABLE}:${hid}`)
       .on('postgres_changes', { event: '*', schema: 'public', table: TABLE, filter: `household_id=eq.${hid}` },
         (payload) => applyRemote(payload.new))
-      .subscribe((s) => { if (s === 'CHANNEL_ERROR') setStatus('error', 'Live updates unavailable — will still save'); });
+      .subscribe(async (s) => {
+        if (s === 'CHANNEL_ERROR') setStatus('error', 'Live updates unavailable — will still save');
+        if (s === 'SUBSCRIBED') {
+          // Catch-up after a reconnect: live events that arrived while this
+          // device was offline are never replayed, so pull the current row.
+          if (isDirty()) { await push(); return; }
+          const { data: cur } = await c.from(TABLE).select('data').eq('household_id', hid).maybeSingle();
+          if (cur?.data) applyRemote({ data: { ...cur.data, _device: 'remote' } });
+        }
+      });
     addSyncHook(onLocalChange);
     if (!isDirty()) setStatus('on', 'Synced with your household');
   } catch (e) {

@@ -240,10 +240,18 @@ export async function createHousehold() {
 
 export async function inviteToHousehold(householdId, email) {
   const u = requireUser();
+  const target = email.trim().toLowerCase();
+  if (target === (u.email || '').toLowerCase()) throw new Error('You are already in your household');
+  const c = client();
+  // Member emails stay private, so an already-member target cannot be
+  // detected here; listMyInvites hides such invites from the member and the
+  // accept RPC is a no-op for them. Duplicates of a pending invite we can block.
+  const { data: pending } = await c.from('household_invites').select('id').eq('household_id', householdId).eq('invited_email', target).eq('status', 'pending');
+  if (pending?.length) throw new Error(`${target} already has a pending invite`);
   // Snapshot who is inviting so the invitee can recognize the invite. The
   // inviter shares their own name/email with someone they chose to invite.
   const invited_by_name = u.user_metadata?.full_name || u.user_metadata?.name || u.email || null;
-  const { error } = await client().from('household_invites').insert({ household_id: householdId, invited_email: email.trim().toLowerCase(), invited_by: u.id, invited_by_name });
+  const { error } = await c.from('household_invites').insert({ household_id: householdId, invited_email: target, invited_by: u.id, invited_by_name });
   if (error) throw error;
 }
 
@@ -255,7 +263,12 @@ export async function listMyInvites() {
   const { data, error } = await client().from('household_invites').select('id, household_id, invited_email, invited_by_name, status, expires_at').eq('status', 'pending');
   if (error) throw error;
   const mine = (u.email || '').toLowerCase();
-  return (data || []).filter((i) => (i.invited_email || '').toLowerCase() === mine);
+  const addressed = (data || []).filter((i) => (i.invited_email || '').toLowerCase() === mine);
+  // Hide invites to households I'm already in (owner cannot see member
+  // emails, so a member may be invited again; accepting is a safe no-op).
+  const { data: mems } = await client().from('household_members').select('household_id').eq('user_id', u.id);
+  const joined = new Set((mems || []).map((m) => m.household_id));
+  return addressed.filter((i) => !joined.has(i.household_id));
 }
 
 export async function acceptInvite(inviteId) {
