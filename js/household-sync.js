@@ -4,13 +4,16 @@
 // proves membership). This replaces the shared-key sync for migrated
 // households. The legacy sync keeps running alongside it for receipts until
 // the old channel is retired.
-import { getState, addSyncHook, replaceState } from './state.js';
+import { getState, addSyncHook, replaceState, defaultState } from './state.js';
 import { authClient, authUser, authReady, onAuth } from './auth.js';
 import { mergeDays } from './household-sync-core.js';
 
 const TABLE = 'household_state';
 const DIRTY_KEY = 'twoplates.dirty.v1';
-const PREJOIN_KEY = 'twoplates.prejoin-backup.v1'; // shared with legacy sync: one flag, whichever layer pushes clears it
+const PREJOIN_PREFIX = 'twoplates.prejoin-backup.v1.'; // per-account: one user's backup is never another's
+const LAST_USER_KEY = 'twoplates.lastuser.v1';
+const STASH_PREFIX = 'twoplates.stash.v1.';
+const prejoinKey = () => PREJOIN_PREFIX + (authUser()?.id || 'anon'); // shared with legacy sync: one flag, whichever layer pushes clears it
 const deviceId = Math.random().toString(36).slice(2);
 
 let householdId = null;
@@ -23,21 +26,23 @@ export const onHouseholdSyncStatus = (fn) => statusListeners.add(fn);
 export const householdSyncStatus = () => status;
 export const currentHouseholdId = () => householdId;
 export function hasPrejoinBackup() {
-  try { return !!localStorage.getItem(PREJOIN_KEY); } catch { return false; }
+  if (!authUser()) return false;
+  try { return !!localStorage.getItem(prejoinKey()); } catch { return false; }
 }
 // Restores the personal plan this device had before joining a household.
 // The shared plan copy stays on the server with the household; only this
 // device's local state changes. Returns true when a backup was restored.
 export function restorePrejoinBackup() {
+  if (!authUser()) return false;
   let raw = null;
-  try { raw = localStorage.getItem(PREJOIN_KEY); } catch { /* ignore */ }
+  try { raw = localStorage.getItem(prejoinKey()); } catch { /* ignore */ }
   if (!raw) return false;
   try {
     const backup = JSON.parse(raw);
     if (!backup || typeof backup !== 'object' || !Array.isArray(backup.people)) return false;
     replaceState(backup); // replaceState does not fire sync hooks: nothing is pushed
     setDirty(false); // no pending push may carry the restored private plan anywhere
-    localStorage.removeItem(PREJOIN_KEY);
+    localStorage.removeItem(prejoinKey());
     return true;
   } catch { return false; }
 }
@@ -108,8 +113,38 @@ function applyRemote(row) {
   setStatus('on', 'Synced — updated from your household');
 }
 
+// A device can be shared. When a DIFFERENT account signs in, the previous
+// account's local state is stashed under that account's id and the dirty
+// flag is cleared, so it can never be pushed into the new account's
+// household or cloud. The stash is device-local, keyed by account, and is
+// restored only when that same account signs back in. Anonymous local data
+// on a first sign-in (no previous account) keeps the old behavior: preserved.
+export function partitionStateForUser(u) {
+  if (!u) return; // sign-out leaves local state alone; the last-user marker persists
+  let last = null;
+  try { last = localStorage.getItem(LAST_USER_KEY); } catch { /* ignore */ }
+  if (last && last !== u.id) {
+    try { localStorage.setItem(STASH_PREFIX + last, JSON.stringify(getState())); } catch { /* ignore */ }
+    setDirty(false);
+    replaceState({ ...defaultState(), updatedAt: 0 });
+    let stash = null;
+    try { stash = localStorage.getItem(STASH_PREFIX + u.id); } catch { /* ignore */ }
+    if (stash) {
+      try {
+        const s = JSON.parse(stash);
+        if (s && typeof s === 'object' && Array.isArray(s.people)) replaceState(s);
+      } catch { /* ignore */ }
+      try { localStorage.removeItem(STASH_PREFIX + u.id); } catch { /* ignore */ }
+    }
+  }
+  try { localStorage.setItem(LAST_USER_KEY, u.id); } catch { /* ignore */ }
+}
+
+let connectSeq = 0;
 export async function connectHousehold(hid, { join = false } = {}) {
+  const seq = ++connectSeq; // newest call wins: stale racing connects bail out
   await disconnectHousehold({ keepHousehold: true });
+  if (seq !== connectSeq) return;
   const c = authClient();
   if (!c || !hid) return;
   householdId = hid;
@@ -124,7 +159,7 @@ export async function connectHousehold(hid, { join = false } = {}) {
       // only in the on-device backup, restorable after leaving. An earlier
       // unrestored backup is never overwritten.
       try {
-        if (!localStorage.getItem(PREJOIN_KEY)) localStorage.setItem(PREJOIN_KEY, JSON.stringify(getState()));
+        if (!localStorage.getItem(prejoinKey())) localStorage.setItem(prejoinKey(), JSON.stringify(getState()));
       } catch { /* ignore */ }
       const { _device, ...rest } = data.data;
       replaceState(rest);
@@ -173,8 +208,17 @@ async function resolveMyHousehold() {
 export function startHouseholdSync() {
   onAuth(async (u) => {
     if (!u) { await disconnectHousehold(); return; }
+    partitionStateForUser(u);
     const hid = await resolveMyHousehold();
-    if (hid) await connectHousehold(hid);
+    if (!hid) return;
+    await connectHousehold(hid);
+    if (!currentHouseholdId()) {
+      // A transient boot failure must not silently disconnect the household:
+      // one retry before giving up (further edits retry via the dirty flag).
+      await new Promise((r) => setTimeout(r, 3000));
+      const hid2 = await resolveMyHousehold();
+      if (hid2) await connectHousehold(hid2);
+    }
   });
   document.addEventListener('visibilitychange', async () => {
     if (document.visibilityState === 'hidden') { flushHouseholdSync(); return; }
@@ -185,4 +229,7 @@ export function startHouseholdSync() {
     if (data) applyRemote({ data: { ...data.data, _device: 'remote' } });
   });
   window.addEventListener('pagehide', () => { flushHouseholdSync(); });
+  // Connectivity restored: flush pending edits immediately instead of waiting
+  // for the realtime channel to resubscribe.
+  window.addEventListener('online', () => { flushHouseholdSync(); });
 }

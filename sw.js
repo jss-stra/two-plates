@@ -1505,7 +1505,7 @@ const ASSETS = [
   ],
   [
     "js/household-sync.js",
-    "b025f51bf3e0c9b0ecc64add0c41a29b36cfd7cd2c9234072b21f06a9610ecb2"
+    "438a330fd87e6af4f7b56db11ebcf42dfba6561dd39ba398c02a0339bd11c32f"
   ],
   [
     "js/ideas.js",
