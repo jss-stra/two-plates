@@ -19,10 +19,10 @@ export function shiftMonth(ym, n) {
 }
 export { shiftDay };
 
-function seg(field, value, options) {
-  return `<div class="seg wrap">${options.map(([v, l]) => `<button class="${value === v ? 'on' : ''}" data-act="log-set" data-field="${field}" data-value="${esc(v)}">${esc(l)}</button>`).join('')}</div>`;
+function seg(field, value, options, dis = '') {
+  return `<div class="seg wrap">${options.map(([v, l]) => `<button class="${value === v ? 'on' : ''}" data-act="log-set" data-field="${field}" data-value="${esc(v)}"${dis}>${esc(l)}</button>`).join('')}</div>`;
 }
-const text = (field, value, placeholder) => `<input class="log-input" data-log="${field}" value="${esc(value)}" placeholder="${esc(placeholder)}" autocomplete="off">`;
+const text = (field, value, placeholder, dis = '') => `<input class="log-input" data-log="${field}" value="${esc(value)}" placeholder="${esc(placeholder)}" autocomplete="off"${dis}>`;
 
 // Has anything been logged for this person on this day?
 export const isLogged = (e) => !!(e.rating || e.lunch || e.dinner || e.breakfast || e.snacks || e.cheats?.length);
@@ -31,14 +31,15 @@ export function renderToday(s, ui, icon) {
   const iso = ui.logDate;
   const p = ui.logPerson;
   const e = entryFor(s, iso, p);
+  const dis = e.done ? ' disabled' : '';
   const today = localISO();
   const planned = plannedFor(s, iso).map((id) => dishById(s, id)).filter(Boolean);
   const mealPicker = (field) => {
     const v = e[field];
-    return `<div class="chips wrapchips">${planned.map((r) => `<button class="chip ${v === r.id ? 'on' : ''}" data-act="log-set" data-field="${field}" data-value="${r.id}">${esc(r.name)}</button>`).join('')}
-      <button class="chip ${v === 'other' ? 'on' : ''}" data-act="log-set" data-field="${field}" data-value="other">Ate out / other</button>
-      <button class="chip ${v === 'skipped' ? 'on' : ''}" data-act="log-set" data-field="${field}" data-value="skipped">Skipped</button></div>
-      ${v === 'other' ? text(`${field}Text`, e[`${field}Text`], 'What did you have?') : ''}`;
+    return `<div class="chips wrapchips">${planned.map((r) => `<button class="chip ${v === r.id ? 'on' : ''}" data-act="log-set" data-field="${field}" data-value="${r.id}"${dis}>${esc(r.name)}</button>`).join('')}
+      <button class="chip ${v === 'other' ? 'on' : ''}" data-act="log-set" data-field="${field}" data-value="other"${dis}>Ate out / other</button>
+      <button class="chip ${v === 'skipped' ? 'on' : ''}" data-act="log-set" data-field="${field}" data-value="skipped"${dis}>Skipped</button></div>
+      ${v === 'other' ? text(`${field}Text`, e[`${field}Text`], 'What did you have?', dis) : ''}`;
   };
   const other = s.people[1 - p];
   const otherDone = isLogged(entryFor(s, iso, 1 - p));
@@ -50,7 +51,7 @@ export function renderToday(s, ui, icon) {
   const wCheck = waterCheckDay(e, isToday ? new Date() : new Date(`${iso}T21:30:00`));
   const slotChips = shownSlots.map((h) => {
     const a = waterAnswer(e, h);
-    return `<button class="chip water-chip ${a || ''}" data-act="water-chip" data-slot="${h}" aria-label="${slotLabel(h)} check-in: ${a || 'unanswered'}">${slotLabel(h)}${a === 'yes' ? ' ✓' : a === 'no' ? ' ✗' : ''}</button>`;
+    return `<button class="chip water-chip ${a || ''}" data-act="water-chip" data-slot="${h}" aria-label="${slotLabel(h)} check-in: ${a || 'unanswered'}"${dis}>${slotLabel(h)}${a === 'yes' ? ' ✓' : a === 'no' ? ' ✗' : ''}</button>`;
   }).join('');
   const wp = ui.waterPrompt;
   const promptCard = wp ? `<section class="card water-prompt">
@@ -82,9 +83,9 @@ export function renderToday(s, ui, icon) {
     <h3 class="water-glasses-head">Glasses logged <span class="muted">· the actual amount, if you want to track it</span></h3>
     <p class="fine">Check-ins and glasses are counted separately — answering Yes above doesn't add a glass here.</p>
     <div class="water-row">
-      <button data-act="water-add" data-d="-1" ${wHad <= 0 ? 'disabled' : ''} aria-label="Remove a glass">${icon('minus')}</button>
+      <button data-act="water-add" data-d="-1" ${wHad <= 0 || e.done ? 'disabled' : ''} aria-label="Remove a glass">${icon('minus')}</button>
       <div class="water-count"><b>${wHad}</b><span class="muted"> / ${wGoal} glasses</span></div>
-      <button data-act="water-add" data-d="1" aria-label="Add a glass">${icon('plus')}</button>
+      <button data-act="water-add" data-d="1"${dis} aria-label="Add a glass">${icon('plus')}</button>
     </div>
     <div class="water-bar"><i style="width:${wPct}%"></i></div>
     <p class="fine">${wHad >= wGoal ? 'Goal reached — nice one!' : `${wGoal - wHad} to go · a glass is about 250 ml`}</p>
@@ -92,26 +93,34 @@ export function renderToday(s, ui, icon) {
 
   <section class="card log">
     <h3>Breakfast &amp; shake</h3>
-    ${seg('breakfast', e.breakfast, [['usual', 'As usual'], ['other', 'Something else'], ['skipped', 'Skipped']])}
-    ${e.breakfast === 'other' ? text('breakfastText', e.breakfastText, 'What did you have?') : ''}
+    ${seg('breakfast', e.breakfast, [['usual', 'As usual'], ['other', 'Something else'], ['skipped', 'Skipped']], dis)}
+    ${e.breakfast === 'other' ? text('breakfastText', e.breakfastText, 'What did you have?', dis) : ''}
     ${MEALS.map(([f, label]) => `<h3>${label}</h3>${mealPicker(f)}`).join('')}
   </section>
 
   <details class="card log more-today" ${e.snacks || e.note || e.rating || e.cheatDay || e.cheats?.length ? 'open' : ''}>
     <summary>More about today <span class="muted">· snacks, cheats, rating, note</span></summary>
     <h3>Snacks</h3>
-    ${text('snacks', e.snacks, 'e.g. fruit, protein bar, chai')}
+    ${text('snacks', e.snacks, 'e.g. fruit, protein bar, chai', dis)}
     <h3>Cheats</h3>
-    <label class="toggle"><input type="checkbox" data-act="log-cheatday" ${e.cheatDay ? 'checked' : ''}><span>This was a cheat day</span></label>
-    <div class="chips wrapchips">${(e.cheats || []).map((c, i) => `<span class="chip on cheat">${esc(c)} <button class="x" data-act="log-uncheat" data-i="${i}" aria-label="Remove">×</button></span>`).join('')}</div>
-    <form class="addform" data-form="cheat"><input name="cheat" placeholder="Add a cheat (pizza, dessert, drinks…)" autocomplete="off"><button class="btn" type="submit" aria-label="Add">${icon('plus')}</button></form>
+    <label class="toggle"><input type="checkbox" data-act="log-cheatday" ${e.cheatDay ? 'checked' : ''}${dis}><span>This was a cheat day</span></label>
+    <div class="chips wrapchips">${(e.cheats || []).map((c, i) => `<span class="chip on cheat">${esc(c)} <button class="x" data-act="log-uncheat" data-i="${i}" aria-label="Remove"${dis}>×</button></span>`).join('')}</div>
+    <form class="addform" data-form="cheat"><input name="cheat" placeholder="Add a cheat (pizza, dessert, drinks…)" autocomplete="off"${dis}><button class="btn" type="submit" aria-label="Add"${dis}>${icon('plus')}</button></form>
 
     <h3>How healthy did you eat today?</h3>
-    <div class="rate-row big">${[1, 2, 3, 4, 5].map((v) => `<button class="star ${v <= (e.rating || 0) ? 'on' : ''}" data-act="log-set" data-field="rating" data-value="${v}" aria-label="${v} of 5">★</button>`).join('')}
+    <div class="rate-row big">${[1, 2, 3, 4, 5].map((v) => `<button class="star ${v <= (e.rating || 0) ? 'on' : ''}" data-act="log-set" data-field="rating" data-value="${v}" aria-label="${v} of 5"${dis}>★</button>`).join('')}
       <span class="fine">${['', 'Off track', 'Meh', 'Okay', 'Good', 'Spot on'][e.rating || 0]}</span></div>
     <h3>Note</h3>
-    ${text('note', e.note, 'Anything worth remembering (optional)')}
-  </details>`;
+    ${text('note', e.note, 'Anything worth remembering (optional)', dis)}
+  </details>
+
+  <section class="card day-done">
+    ${e.done
+      ? `<p class="fine"><b>Saved and locked.</b> Tap Edit to change anything - it saves automatically again.</p>
+      <button class="btn small" data-act="log-done">Edit</button>`
+      : `<p class="fine">Finished ${esc(s.people[p].name)}'s log for ${isToday ? 'today' : 'this day'}? Done saves and locks it so a stray tap changes nothing - Edit unlocks it again.</p>
+      <button class="btn primary" data-act="log-done">Done</button>`}
+  </section>`;
 }
 
 // ---------- Month report ----------

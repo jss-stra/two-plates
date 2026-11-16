@@ -1114,6 +1114,7 @@ function finalizeWeek() {
 // Edit one person's log entry for the day being viewed; 'at' lets sync merge
 // both people's evening logs instead of one overwriting the other.
 function setEntry(fn) {
+  if (getState().days?.[ui.logDate]?.[ui.logPerson]?.done) { toast('This day is saved and locked - tap Edit to change it'); return; }
   update((d) => {
     d.days ||= {};
     const day = (d.days[ui.logDate] ||= {});
@@ -1409,6 +1410,18 @@ const actions = {
     if (!confirm('Edit this week? Changing dishes also changes the grocery list — fine if you haven’t shopped yet.')) return;
     update((d) => { d.plan.finalizedAt = 0; });
   },
+  // Done/Edit: save and lock one person's day entry; the flag lives on the
+  // entry so it rides the existing per-person-per-day merge to other devices.
+  'log-done': () => {
+    update((d) => {
+      d.days ||= {};
+      const day = (d.days[ui.logDate] ||= {});
+      const e = (day[ui.logPerson] ||= {});
+      if (e.done) { delete e.done; toast('Unlocked - edit away, it saves automatically'); }
+      else { e.done = Date.now(); toast('Saved and locked'); }
+      e.at = Date.now();
+    });
+  },
   'log-set': (el) => setEntry((e) => {
     const f = el.dataset.field;
     const v = f === 'rating' ? Number(el.dataset.value) : el.dataset.value;
@@ -1677,6 +1690,7 @@ document.addEventListener('click', (e) => {
 const JOURNAL_SKIP_ACTS = new Set([
   'water-answer', 'water-chip', 'water-add', 'water-later',
   'log-set', 'log-cheatday', 'log-uncheat',
+  'log-done', // not in the server-side act vocabulary; recording it would fail the upload batch
   'goal-answer', 'goal-wrong', 'goal-pick', 'goal-skip',
   'tab', // tab switches are recorded as tab events by setTab, not as acts
 ]);
@@ -1808,6 +1822,7 @@ document.addEventListener('visibilitychange', () => {
 function recordCheckin(slot, answer, person, iso = localISO()) {
   const s = getState();
   const p = Math.min(Math.max(0, Number(person) || 0), (s.people.length || 1) - 1);
+  if (s.days?.[iso]?.[p]?.done) { toast('This day is saved and locked - tap Edit on the Today tab to change it'); return; }
   update((d) => {
     d.days ||= {};
     const day = (d.days[iso] ||= {});

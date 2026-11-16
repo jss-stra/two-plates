@@ -459,6 +459,10 @@ label.btn.busy { opacity: .6; pointer-events: none; }
 .water-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .water-row > button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--soft); color: var(--ink); display: inline-flex; align-items: center; justify-content: center; }
 .water-row > button:disabled { opacity: .4; }
+
+/* Today tab: dim everything while a day is saved and locked */
+#view-log .chips button:disabled, #view-log .seg button:disabled,
+#view-log input:disabled, #view-log textarea:disabled { opacity: .45; }
 .water-count { text-align: center; }
 .water-count b { font-size: 1.7rem; }
 .water-bar { height: 8px; border-radius: 999px; background: var(--line); overflow: hidden; margin-top: 10px; }
