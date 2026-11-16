@@ -12,7 +12,7 @@ import { waterGoal, pendingWaterSlot, recordWaterAnswer, waterAnswer, slotLabel,
 import { renderHome } from './home.js';
 import { pushStatus, enablePush, disablePush } from './push.js';
 import { initAuth, signInWithGoogle, signOut, onAuth, authUser, authReady } from './auth.js';
-import { cb, bindCookbook, initCookbook, renderCookbook, renderCbSheet, cbActions, cbOnChange, renderFeed, renderPeople, renderHousehold, refreshFeed, SHARING_ENABLED } from './cookbook-ui.js';
+import { cb, bindCookbook, initCookbook, renderCookbook, renderCbSheet, cbActions, cbOnChange, renderFeed, renderPeople, renderHousehold, refreshFeed, refreshPeople, SHARING_ENABLED } from './cookbook-ui.js';
 import { startHouseholdSync, onHouseholdSyncStatus } from './household-sync.js';
 import { IMPORTED, importedList, importedAddStatus, isImported, importedMatches } from './imported.js';
 import { dishById, customDishList, customMatches, makeCustomDish, parseIngredientLines, customId } from './custom.js';
