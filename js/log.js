@@ -71,11 +71,12 @@ export function renderToday(s, ui, icon) {
       <div class="day-title"><b>${iso === today ? 'Today' : iso === shiftDay(today, -1) ? 'Yesterday' : ''}</b> <span class="muted">${fmtDay(iso)}</span></div>
       <button class="act icon-only" data-act="log-day" data-d="1" ${iso >= today ? 'disabled' : ''} aria-label="Next day">${icon('up', 'rot-r')}</button>
     </div>
-    <div class="seg full">${s.people.map((pp, i) => `<button class="${p === i ? 'on' : ''}" data-act="log-person" data-p="${i}">${esc(pp.name)}${isLogged(entryFor(s, iso, i)) ? ' ✓' : ''}</button>`).join('')}</div>
-    <p class="fine">${isLogged(e) ? 'Saved automatically.' : `What did ${esc(s.people[p].name)} eat${iso === today ? ' today' : ''}? Tap what fits — it takes a minute.`}
+    <div class="seg full">${s.people.map((pp, i) => `<button class="${p === i ? 'on' : ''}" data-act="log-person" data-p="${i}">${esc(pp.name)}${entryFor(s, iso, i).done ? ` ${icon('lock', 'sm')}` : isLogged(entryFor(s, iso, i)) ? ' ✓' : ''}</button>`).join('')}</div>
+    <p class="fine">${e.done ? `<b>${icon('lock', 'sm')} Saved and locked.</b> Tap Edit at the bottom to change it.` : isLogged(e) ? 'Saved automatically.' : `What did ${esc(s.people[p].name)} eat${iso === today ? ' today' : ''}? Tap what fits — it takes a minute.`}
       ${otherDone ? '' : ` ${esc(other.name)} hasn't logged this day yet.`}</p>
   </section>
 
+  <div class="day-body${e.done ? ' day-locked' : ''}">
   <section class="card log">
     <h3>Water check-in</h3>
     <div class="chips wrapchips water-slots">${slotChips || '<span class="muted">Check-ins start at 9am</span>'}</div>
@@ -113,13 +114,14 @@ export function renderToday(s, ui, icon) {
     <h3>Note</h3>
     ${text('note', e.note, 'Anything worth remembering (optional)', dis)}
   </details>
+  </div>
 
   <section class="card day-done">
     ${e.done
-      ? `<p class="fine"><b>Saved and locked.</b> Tap Edit to change anything - it saves automatically again.</p>
-      <button class="btn small" data-act="log-done">Edit</button>`
-      : `<p class="fine">Finished ${esc(s.people[p].name)}'s log for ${isToday ? 'today' : 'this day'}? Done saves and locks it so a stray tap changes nothing - Edit unlocks it again.</p>
-      <button class="btn primary" data-act="log-done">Done</button>`}
+      ? `<p class="fine"><b>${esc(s.people[p].name)}'s log for ${isToday ? 'today' : 'this day'} is saved and locked.</b> Tap Edit to change anything.</p>
+      <button class="btn wide" data-act="log-done">${icon('note')} Edit</button>`
+      : `<p class="fine">Finished ${esc(s.people[p].name)}'s log for ${isToday ? 'today' : 'this day'}? Done locks it so a stray tap changes nothing. You can still tap Edit afterwards.</p>
+      <button class="btn primary wide" data-act="log-done">${icon('check')} Done</button>`}
   </section>`;
 }
 

@@ -2,7 +2,7 @@ import { renderPrep, setupPrepEvents } from './prep.js';
 import { renderExtrasCard, renderPartiesCard, setupGroceryEvents } from './grocery-ui.js';
 import { RECIPES, RECIPE_BY_ID, GROUPS, INGREDIENTS, DIET_LABEL, PROTEIN_LABEL, youtubeUrl, isVeg, kindOf, DATA_ERRORS, exclusionHits, ALLERGEN_CATS, DISPLAY_GROUPS, displayKind } from './data.js';
 import { getState, update, onChange, defaultState, replaceState } from './state.js';
-import { generateSlots, slotKind, planRecipes, alternatives, randomSwap, removeSlot, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes, localISO, weekRelation, weekRangeLabel } from './planner.js';
+import { generateSlots, slotKind, planRecipes, alternatives, randomSwap, removeSlot, restoreSlot, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes, localISO, weekRelation, weekRangeLabel } from './planner.js';
 import { renderLog, shiftDay, shiftMonth } from './log.js';
 import { buildGrocery, weeklyNoteText, scaleFactor, formatQty, qtyText } from './grocery.js';
 import { exportExcel } from './export.js';
@@ -87,13 +87,23 @@ function fmtWeek(iso) {
 const fmtDate = (ts) => new Date(ts).toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short' });
 const dietDot = (r) => `<span class="dot diet-${r.diet}" title="${DIET_LABEL[r.diet]}"></span>`;
 
+// A toast can carry one action (e.g. Undo); it then stays up long enough to tap.
 let toastTimer;
-function toast(msg) {
+function toast(msg, action = null) {
   const t = $('#toast');
   t.textContent = msg;
+  if (action) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'toast-act';
+    b.textContent = action.label;
+    b.addEventListener('click', () => { clearTimeout(toastTimer); t.classList.remove('show', 'has-act'); action.fn(); });
+    t.append(b);
+  }
+  t.classList.toggle('has-act', !!action);
   t.classList.add('show');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove('show'), 2600);
+  toastTimer = setTimeout(() => t.classList.remove('show', 'has-act'), action ? 6000 : 2600);
 }
 
 function setPath(obj, path, value) {
@@ -223,18 +233,24 @@ function personSummary(d, rules) {
 
 function dishCard(r, i, slot, s) {
   const final = !!s.plan.finalizedAt;
+  // Finalizing locks every dish. A finalized dish stays read-only until it is
+  // unlocked (long-press, or the Unlock button) - then it can be changed
+  // without un-finalizing the whole week.
+  const sealed = final && !!slot.locked;
+  const reopened = final && !slot.locked;
   const xActive = (s.exclusions?.allergies?.length || 0) + (s.exclusions?.dislikes?.length || 0) > 0;
-  // The card sits in a swipe wrap: swipe left reveals Remove, swipe right
-  // reveals Note, long-press toggles the lock (see the gesture handlers).
+  // The card sits in a swipe wrap: swipe left removes (a short swipe reveals
+  // Remove, a long one removes straight away), swipe right reveals Note,
+  // long-press toggles the lock (see the gesture handlers).
   return `<li class="dish-wrap" data-i="${i}">
     <div class="swipe-under" aria-hidden="true">
       <button class="swipe-act note-side" data-act="note-slot" data-i="${i}" tabindex="-1">${icon('note')}<span>Note</span></button>
-      ${final ? '' : `<button class="swipe-act remove-side" data-act="remove-slot" data-i="${i}" tabindex="-1">${icon('x')}<span>Remove</span></button>`}
+      <button class="swipe-act remove-side" data-act="remove-slot" data-i="${i}" tabindex="-1">${icon('x')}<span>Remove</span></button>
     </div>
-    <div class="dish ${slot.locked && !final ? 'locked' : ''}">
+    <div class="dish ${slot.locked && !final ? 'locked' : ''}${reopened ? ' reopened' : ''}">
     <div class="dish-top">
       <span class="badges">${ratingBadge(s, r)}${exclBadge(s, r)}${r.custom && xActive ? ' <span class="badge allerg">⚠ not allergy-checked</span>' : ''}</span>
-      ${slot.locked && !final ? `<span class="locked-tag">${icon('lock')} Locked</span>` : ''}
+      ${slot.locked && !final ? `<span class="locked-tag">${icon('lock')} Locked</span>` : ''}${reopened ? `<span class="locked-tag">${icon('unlock')} Unlocked</span>` : ''}
     </div>
     <h3>${esc(r.name)}</h3>
     <div class="meta">${dietDot(r)} ${esc(r.cuisine)}${r.custom ? ' · nutrition unknown' : r.imported ? ` · fixed ${r.baseServings}-serving batch${r.diet === 'unknown' ? ' · diet not classified' : ''}${r.limitation ? ` · ${esc(r.limitation.summary)}` : ''} · ${nutritionLabel(r)}` : ` · ${icon('clock', 'sm')} ${r.time} min · ${PROTEIN_LABEL[r.mainProtein] || ''}`}</div>
@@ -247,9 +263,11 @@ function dishCard(r, i, slot, s) {
     }).join('')}</div>
     ${slot.note ? `<div class="slot-note">${icon('note', 'sm')} ${esc(slot.note)}</div>` : ''}
     <div class="actions">
-      ${final ? (r.imported
+      ${sealed ? `${r.imported
         ? `<button class="act" data-act="open-imported" data-id="${r.id}">${icon('play')}<span>Recipe</span></button>`
-        : `<a class="act yt" href="${youtubeUrl(r)}" target="_blank" rel="noopener">${icon('play')}<span>YouTube</span></a>`) : r.custom ? `
+        : `<a class="act yt" href="${youtubeUrl(r)}" target="_blank" rel="noopener">${icon('play')}<span>YouTube</span></a>`}
+      <span class="act-spacer"></span>
+      <button class="act" data-act="lock" data-i="${i}" aria-label="Unlock ${esc(r.name)} to change it">${icon('unlock')}<span>Unlock</span></button>` : r.custom ? `
       <button class="act primary-act" data-act="open-sheet" data-i="${i}">${icon('list')}<span>Pick…</span></button>
       <span class="act-spacer"></span>
       <details class="dish-more"><summary class="act icon-only" aria-label="More actions for ${esc(r.name)}">${icon('dots')}</summary>
@@ -327,8 +345,8 @@ function renderWeek(s) {
   </section>` : ''}
 
   ${!s.plan.slots.length ? '' : s.plan.finalizedAt
-    ? `<p class="fine gesture-hint">Week finalized — tap “Edit week” above to change dishes · swipe right on a dish for a note</p>`
-    : `<p class="fine gesture-hint">Long-press a dish to lock it · swipe left to remove · swipe right for a note</p>`}
+    ? `<p class="fine gesture-hint">Long-press a dish to unlock and change it · swipe left to remove · swipe right for a note</p>`
+    : `<p class="fine gesture-hint">Long-press a dish to lock or unlock it · swipe left to remove · swipe right for a note</p>`}
 
   ${DISPLAY_GROUPS.map(([kind,label]) => section(kind, esc(label))).join('')}
 
@@ -1040,6 +1058,7 @@ function render() {
   if (!SHARING_ENABLED && ui.tab === 'feed') ui.tab = 'home';
   const views = { prep: (st) => renderPrep(st, ui), home: (st) => renderHome(st, ui), week: renderWeek, today: (st) => renderLog(st, ui, icon), recipes: renderRecipes, groceries: renderGroceries, bought: (st) => renderBought(st, ui, icon), settings: renderSettings, feed: () => renderFeed() };
   const scroll = window.scrollY;
+  renderDue = false;
   main.innerHTML = (views[ui.tab] || renderWeek)(s);
   if (ui.tab === 'recipes') renderRecipeList(s);
   if (ui.tab === 'settings') { renderXResults(s, 'allergies'); renderXResults(s, 'dislikes'); }
@@ -1162,6 +1181,40 @@ function startWeekPick(id) {
   renderSheet(s);
 }
 
+// Lock or unlock one week dish (long-press, or the Lock/Unlock button). In a
+// finalized week every dish starts locked; unlocking one opens just that dish
+// for Swap/Pick while the rest of the week stays as finalized.
+function toggleLock(i) {
+  const s = getState();
+  const cur = s.plan.slots[i];
+  if (!cur) return false;
+  update((d) => { const x = d.plan.slots[i]; if (x) x.locked = !x.locked; });
+  const final = !!s.plan.finalizedAt;
+  toast(cur.locked
+    ? (final ? 'Unlocked — swap it or pick another dish' : 'Unlocked — Shuffle can swap it')
+    : (final ? 'Locked again' : 'Locked — Shuffle keeps it'));
+  return true;
+}
+
+// Take a dish out of the week (swipe left, finalized or not). The toast's
+// Undo puts it straight back, so a stray swipe costs nothing.
+function removeDish(i) {
+  const s = getState();
+  const slot = s.plan.slots[i];
+  if (!slot) return;
+  const targets = { chickenDishes: s.rules.chickenDishes, vegDishes: s.rules.vegDishes };
+  let name = '';
+  update((d) => { name = removeSlot(d, i)?.name || ''; });
+  toast(name ? `Removed ${name}` : 'Removed', {
+    label: 'Undo',
+    fn: () => {
+      let ok = false;
+      update((d) => { ok = restoreSlot(d, i, slot, targets); });
+      toast(ok ? `${name || 'Dish'} is back in the week` : 'Couldn’t undo — add it again from Search');
+    },
+  });
+}
+
 const actions = {
   tab: (el) => setTab(el.dataset.tab),
   'goal-answer': (el) => { answerGoal(el.dataset.g, el.dataset.v); ui.goalGoal = null; ui.goalPick = false; render(); },
@@ -1181,7 +1234,7 @@ const actions = {
       resizePlan(d);
     });
   },
-  lock: (el) => update((d) => { const x = d.plan.slots[el.dataset.i]; x.locked = !x.locked; }),
+  lock: (el) => { toggleLock(Number(el.dataset.i)); },
   'swap-random': (el) => {
     const i = Number(el.dataset.i);
     const r = randomSwap(getState(), i);
@@ -1275,6 +1328,7 @@ const actions = {
   'pick-back': () => { if (ui.sheet) { ui.sheet.pick = null; renderSheet(getState()); $('#sq')?.focus(); } },
   // Swipe-right on a week card → note sheet; swipe-left → take the dish out
   // of the week (its chicken/veg target goes with it, so Shuffle won't refill).
+  // Removal works on a finalized week too - Undo is on the toast.
   'note-slot': (el) => {
     const i = Number(el.dataset.i);
     if (!getState().plan.slots[i]) return;
@@ -1303,13 +1357,7 @@ const actions = {
     renderSheet(getState());
     toast('Note removed');
   },
-  'remove-slot': (el) => {
-    const s = getState();
-    if (s.plan.finalizedAt) { toast('This week is finalized — tap “Edit week” first'); return; }
-    let name = '';
-    update((d) => { name = removeSlot(d, Number(el.dataset.i))?.name || ''; });
-    toast(name ? `Removed ${name} — re-add it any time from Search` : 'Removed');
-  },
+  'remove-slot': (el) => removeDish(Number(el.dataset.i)),
   rate: (el) => update((d) => {
     const id = el.dataset.id, p = Number(el.dataset.p), v = Number(el.dataset.v);
     const entry = d.ratings[id] || { r: [null, null], note: '' };
@@ -1417,8 +1465,8 @@ const actions = {
       d.days ||= {};
       const day = (d.days[ui.logDate] ||= {});
       const e = (day[ui.logPerson] ||= {});
-      if (e.done) { delete e.done; toast('Unlocked - edit away, it saves automatically'); }
-      else { e.done = Date.now(); toast('Saved and locked'); }
+      if (e.done) { delete e.done; toast('Unlocked — change anything, it saves as you go'); }
+      else { e.done = Date.now(); toast('Saved and locked — tap Edit to change it'); }
       e.at = Date.now();
     });
   },
@@ -1544,11 +1592,43 @@ const actions = {
   },
 };
 
+// ---------- Taps that survive a re-render ----------
+// Leaving a text field by tapping a button fires the field's change event
+// first; re-rendering there and then would replace the button under the
+// finger and the browser would drop the tap (type a snack, tap Done, nothing
+// happens). So while a press is in flight the state is saved straight away
+// but the screen refresh waits until the tap has landed.
+let pressing = false;
+let releasedAt = -1e9;
+let renderDue = false;
+let renderTimer = 0;
+function flushRender() {
+  clearTimeout(renderTimer);
+  if (renderDue) render();
+}
+function requestRender() {
+  if (!pressing && performance.now() - releasedAt >= 400) { render(); return; }
+  renderDue = true;
+  clearTimeout(renderTimer);
+  renderTimer = setTimeout(flushRender, pressing ? 1500 : 420); // safety net if no click follows
+}
+document.addEventListener('pointerdown', () => { pressing = true; }, true);
+document.addEventListener('pointerup', () => {
+  pressing = false;
+  releasedAt = performance.now();
+  if (renderDue) { clearTimeout(renderTimer); renderTimer = setTimeout(flushRender, 420); }
+}, true);
+document.addEventListener('pointercancel', () => { pressing = false; flushRender(); }, true); // became a scroll: no tap coming
+// The tap has arrived: whatever it triggers renders immediately again.
+document.addEventListener('click', () => { pressing = false; releasedAt = -1e9; }, true);
+
 // ---------- Week dish gestures ----------
-// Long-press a week card to lock/unlock it; swipe left to reveal Remove,
-// swipe right to reveal Note. Pointer events cover touch and mouse; the
-// cards are touch-action: pan-y so vertical scrolling stays native.
-const GEST = { longMs: 550, thresh: 56, reveal: 92, overdrag: 24 };
+// Long-press a week card to lock/unlock it - on a finalized week that opens
+// just that dish for changes. Swipe left to remove: a short swipe reveals the
+// Remove button, a long one removes straight away (Undo is on the toast).
+// Swipe right reveals Note. Pointer events cover touch and mouse; the cards
+// are touch-action: pan-y so vertical scrolling stays native.
+const GEST = { longMs: 550, thresh: 56, reveal: 92, overdrag: 24, commitFrac: 0.55, commitMin: 150 };
 let gest = null;
 let suppressClick = false;
 
@@ -1580,10 +1660,24 @@ function closeReveals(except = null) {
   });
 }
 
+// How far left a card must travel before letting go removes it outright.
+const commitAt = (g) => Math.max(GEST.commitMin, g.w * GEST.commitFrac);
+
+function setCommit(g, on) {
+  if (g.commit === on) return;
+  g.commit = on;
+  g.wrap.classList.toggle('commit', on);
+  const label = g.wrap.querySelector('.remove-side span');
+  if (label) label.textContent = on ? 'Release' : 'Remove';
+  if (on) { try { navigator.vibrate?.(8); } catch { /* no haptics here */ } }
+}
+
 function cancelGest() {
   if (!gest) return;
   clearTimeout(gest.timer);
   gest.dish.classList.remove('swiping');
+  gest.wrap.classList.remove('dir-left', 'dir-right');
+  setCommit(gest, false);
   if (gest.swiping) { gest.dish.style.transform = ''; armSuppressClick(); }
   gest = null;
 }
@@ -1598,27 +1692,16 @@ document.addEventListener('pointerdown', (e) => {
   }
   closeReveals(g.wrap);
   gest = {
-    wrap: g.wrap, dish: g.dish, i: Number(g.wrap.dataset.i),
-    x0: e.clientX, y0: e.clientY, dx: 0, rawDx: 0, swiping: false, done: false, timer: 0,
+    wrap: g.wrap, dish: g.dish, i: Number(g.wrap.dataset.i), w: g.dish.offsetWidth || 320,
+    x0: e.clientX, y0: e.clientY, dx: 0, swiping: false, done: false, commit: false, timer: 0,
     interactive: !!e.target.closest('button, a, input, textarea, select, summary'),
   };
   if (!gest.interactive) {
-    const final = !!getState().plan.finalizedAt;
     gest.timer = setTimeout(() => {
       if (!gest || gest.done || gest.swiping) return;
       gest.done = true;
-      if (final) {
-        // Locking is meaningless once the week is finalized (no more
-        // shuffles) - say so instead of failing silently.
-        recordEvent('gesture', { g: 'long-press', result: 'blocked' });
-        toast('This week is finalized — tap “Edit week” first');
-      } else {
-        const cur = getState().plan.slots[gest.i];
-        if (!cur) return;
-        update((d) => { const x = d.plan.slots[gest.i]; if (x) x.locked = !x.locked; });
-        recordEvent('gesture', { g: 'long-press', result: 'toggled' });
-        toast(cur.locked ? 'Unlocked — Shuffle can swap it' : 'Locked — Shuffle keeps it');
-      }
+      if (toggleLock(gest.i)) recordEvent('gesture', { g: 'long-press', result: 'toggled' });
+      flushRender(); // the finger is still down - show the change now, not on release
       armSuppressClick();
       try { navigator.vibrate?.(10); } catch { /* no haptics here */ }
     }, GEST.longMs);
@@ -1628,7 +1711,6 @@ document.addEventListener('pointerdown', (e) => {
 document.addEventListener('pointermove', (e) => {
   if (!gest || gest.done) return;
   const dx = e.clientX - gest.x0, dy = e.clientY - gest.y0;
-  gest.rawDx = dx; // unclamped travel, so a blocked swipe can still explain itself
   if (!gest.swiping) {
     if (Math.abs(dy) > 12 && Math.abs(dy) > Math.abs(dx)) { cancelGest(); return; } // vertical scroll
     if (Math.abs(dx) > 14 || Math.abs(dy) > 14) clearTimeout(gest.timer); // moved too far for a long-press
@@ -1637,19 +1719,22 @@ document.addEventListener('pointermove', (e) => {
       try { gest.dish.setPointerCapture?.(e.pointerId); } catch { /* capture unsupported */ }
     } else return;
   }
-  const final = !!getState().plan.finalizedAt;
-  const lim = GEST.reveal + GEST.overdrag;
-  let x = Math.max(-lim, Math.min(lim, dx));
-  if (final && x < 0) x = Math.max(x / 3, -24); // finalized: small nudge, then it snaps back (no Remove) - release uses rawDx to say why
+  // Right stops just past the Note button; left follows the finger all the
+  // way, so a long swipe can carry the card off and remove it.
+  const x = Math.max(-gest.w, Math.min(GEST.reveal + GEST.overdrag, dx));
   gest.dx = x;
   gest.dish.classList.add('swiping');
+  gest.wrap.classList.toggle('dir-left', x < 0);
+  gest.wrap.classList.toggle('dir-right', x > 0);
+  setCommit(gest, x <= -commitAt(gest));
   gest.dish.style.transform = `translateX(${x}px)`;
 });
 
 document.addEventListener('pointerup', () => {
   if (!gest) return;
   clearTimeout(gest.timer);
-  const { wrap, dish, dx, swiping, done, rawDx = 0 } = gest;
+  const g = gest;
+  const { wrap, dish, dx, swiping, done } = g;
   gest = null;
   dish.classList.remove('swiping');
   if (done) return;
@@ -1658,13 +1743,22 @@ document.addEventListener('pointerup', () => {
     return;
   }
   armSuppressClick();
-  const final = !!getState().plan.finalizedAt;
-  // On a finalized week the drag is clamped to a nudge, so judge the left
-  // swipe by its raw travel: far enough means "tried to remove" - explain it.
-  if (final && rawDx <= -GEST.thresh) { dish.style.transform = ''; recordEvent('gesture', { g: 'swipe-left', result: 'blocked' }); toast('This week is finalized — tap “Edit week” first'); }
-  else if (dx <= -GEST.thresh) { recordEvent('gesture', { g: 'swipe-left', result: 'revealed' }); revealCard(wrap, dish, -GEST.reveal, 'open-left'); }
+  if (g.commit) {
+    // Long swipe: slide the card off, then take the dish out. Looked up by
+    // id so a sync landing mid-animation can't remove the wrong dish.
+    const id = getState().plan.slots[g.i]?.id;
+    dish.style.transform = 'translateX(-105%)';
+    recordEvent('act', { a: 'remove-slot' });
+    setTimeout(() => {
+      const i = getState().plan.slots.findIndex((x) => x.id === id);
+      if (id != null && i >= 0) { removeDish(i); flushRender(); }
+    }, 170);
+    return;
+  }
+  wrap.classList.remove('dir-left', 'dir-right');
+  if (dx <= -GEST.thresh) { recordEvent('gesture', { g: 'swipe-left', result: 'revealed' }); revealCard(wrap, dish, -GEST.reveal, 'open-left'); }
   else if (dx >= GEST.thresh) { recordEvent('gesture', { g: 'swipe-right', result: 'revealed' }); revealCard(wrap, dish, GEST.reveal, 'open-right'); }
-  else { recordEvent('gesture', { g: rawDx < 0 ? 'swipe-left' : 'swipe-right', result: 'cancelled' }); dish.style.transform = ''; }
+  else { recordEvent('gesture', { g: dx < 0 ? 'swipe-left' : 'swipe-right', result: 'cancelled' }); dish.style.transform = ''; }
 });
 
 document.addEventListener('pointercancel', cancelGest);
@@ -1698,6 +1792,9 @@ const JOURNAL_SKIP_ACTS = new Set([
 const JOURNAL_CHANGE_ACTS = new Set(['check', 'carry', 'pantry-toggle']);
 
 document.addEventListener('click', (e) => {
+  // A saved-and-locked day: its controls are inert (see .day-locked), so a
+  // tap on them lands here - say why instead of looking broken.
+  if (e.target.closest?.('.day-locked') && !e.target.closest('summary')) { toast('This day is saved and locked — tap Edit to change it'); return; }
   const el = e.target.closest('[data-act]');
   if (!el || el.tagName === 'INPUT' || el.disabled) return;
   const fn = actions[el.dataset.act];
@@ -1786,8 +1883,11 @@ window.addEventListener('cb-toast', (e) => toast(e.detail));
 // ---------- Boot ----------
 setupGroceryEvents();
 setupPrepEvents(ui, render, getState);
+// Registered after every other click handler: the tap has done its work, so
+// catch up on any screen refresh that was held back for it.
+document.addEventListener('click', flushRender);
 if (DATA_ERRORS.length) console.warn('Recipe data problems:', DATA_ERRORS);
-onChange(() => render());
+onChange(() => requestRender());
 let receiptsTried = false;
 onSyncStatus((st) => {
   renderHeader();

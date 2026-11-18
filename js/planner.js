@@ -150,6 +150,25 @@ export function removeSlot(state, index) {
   return r;
 }
 
+// Undo for removeSlot: put the slot back where it was (lock and note intact)
+// and hand its chicken/veg target back. `targets` is the pair of counts from
+// just before the removal, so only what the removal took is restored. Refuses
+// (returns false) if the dish is already back or the week has since filled up.
+export function restoreSlot(state, index, slot, targets) {
+  if (!slot || state.plan.slots.some((x) => x.id === slot.id)) return false;
+  if (state.plan.slots.length >= 7) return false;
+  const r = dishById(state, slot.id);
+  if (!r) return false;
+  const k = slotKind(slot, r, state.rules);
+  const key = k === 'veg' ? 'vegDishes' : k === 'chicken' ? 'chickenDishes' : null;
+  if (key && targets?.[key] > state.rules[key]) {
+    if (targetDishes(state.rules) >= 7) return false;
+    state.rules[key]++;
+  }
+  state.plan.slots.splice(Math.max(0, Math.min(index, state.plan.slots.length)), 0, { ...slot });
+  return true;
+}
+
 // Candidates for swapping one slot (pass index null/-1 for a week-level
 // search that isn't replacing a specific slot yet): best first, taking turns
 // between cuisines so the list isn't six Italian dishes in a row.

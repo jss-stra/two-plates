@@ -161,6 +161,15 @@ main { max-width: 720px; margin: 0 auto; padding: 14px 16px 24px; }
 .swipe-act.remove-side { background: #c0392b; color: #fff; margin-left: auto; }
 .dish-wrap .dish { position: relative; z-index: 1; transition: transform .18s ease; touch-action: pan-y; -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
 .dish-wrap .dish.swiping { transition: none; }
+/* While a card is being dragged only the side it uncovers shows, filling the
+   whole gap - so a long left swipe reads as one red "remove" track. */
+.dish-wrap.dir-left .swipe-under { background: #c0392b; }
+.dish-wrap.dir-left .note-side, .dish-wrap.dir-right .remove-side { visibility: hidden; }
+.dish-wrap.dir-right .swipe-under { background: var(--accent-soft); }
+.dish-wrap.commit .swipe-under, .dish-wrap.commit .remove-side { background: #96281b; }
+.dish-wrap.commit .remove-side .icon { transform: scale(1.25); transition: transform .12s ease; }
+/* A dish unlocked inside a finalized week: open for Swap / Pick. */
+.dish.reopened { border-style: dashed; border-color: var(--accent); }
 .slot-note { display: flex; align-items: center; gap: 5px; font-size: .82rem; font-weight: 600; color: var(--accent); background: var(--accent-soft); border-radius: 8px; padding: 5px 8px; margin: 6px 0 2px; }
 .slot-note .icon { width: 13px; height: 13px; flex: none; }
 .gesture-hint { text-align: center; margin: 2px 0 10px; }
@@ -291,6 +300,8 @@ main { max-width: 720px; margin: 0 auto; padding: 14px 16px 24px; }
   transition: opacity .2s, transform .2s; z-index: 40; max-width: calc(100% - 32px); text-align: center;
 }
 #toast.show { opacity: 1; transform: translate(-50%, 0); }
+#toast.has-act.show { pointer-events: auto; display: flex; align-items: center; gap: 12px; text-align: left; }
+.toast-act { flex: none; border: 0; background: none; color: inherit; font: inherit; font-weight: 700; padding: 6px 4px; margin: -6px 0; cursor: pointer; text-decoration: underline; }
 
 /* Week mix counters, sections, ratings */
 .counter { display: inline-flex; align-items: center; gap: 6px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 4px 6px 4px 12px; font-weight: 600; font-size: .92rem; }
@@ -460,9 +471,16 @@ label.btn.busy { opacity: .6; pointer-events: none; }
 .water-row > button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--soft); color: var(--ink); display: inline-flex; align-items: center; justify-content: center; }
 .water-row > button:disabled { opacity: .4; }
 
-/* Today tab: dim everything while a day is saved and locked */
-#view-log .chips button:disabled, #view-log .seg button:disabled,
-#view-log input:disabled, #view-log textarea:disabled { opacity: .45; }
+/* Today tab: a saved-and-locked day. Controls go inert and fade; the answers
+   already given stay at full strength so the day still reads as a record.
+   Taps fall through to the wrapper, which explains the lock (see app.js). */
+.day-locked button, .day-locked input, .day-locked label, .day-locked form { pointer-events: none; }
+.day-locked .chip:not(.on):not(.yes):not(.no), .day-locked .seg button:not(.on), .day-locked .star:not(.on),
+.day-locked .water-row > button, .day-locked .addform, .day-locked .toggle,
+.day-locked .log-input:placeholder-shown { opacity: .4; }
+.day-locked .log-input:not(:placeholder-shown) { opacity: 1; color: var(--ink); -webkit-text-fill-color: var(--ink); }
+.day-locked .chip .x { display: none; }
+.day-done .btn .icon { width: 18px; height: 18px; }
 .water-count { text-align: center; }
 .water-count b { font-size: 1.7rem; }
 .water-bar { height: 8px; border-radius: 999px; background: var(--line); overflow: hidden; margin-top: 10px; }
