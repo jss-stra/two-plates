@@ -571,3 +571,44 @@ label.btn.busy { opacity: .6; pointer-events: none; }
 .nutrition-src dl div { display: flex; justify-content: space-between; gap: 8px; }
 .nutrition-src dt { font-weight: 600; }
 .nutrition-src dd { margin: 0; }
+
+/* Today: meals with portions and the day's nutrition */
+.day-totals h3 { margin-top: 0; }
+.nu-row { display: grid; grid-template-columns: 74px 1fr; column-gap: 10px; align-items: baseline; padding: 6px 0; }
+.nu-row + .nu-row { border-top: 1px solid var(--line); }
+.nu-label { font-weight: 700; font-size: .9rem; }
+.nu-val b { font-size: 1.15rem; }
+.nu-bar { grid-column: 2; position: relative; height: 8px; border-radius: 999px; background: var(--line); overflow: hidden; margin-top: 4px; }
+.nu-bar i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--muted, #8a7f76); border-radius: 999px; }
+.nu-bar .band { position: absolute; top: 0; bottom: 0; background: rgba(46, 160, 67, .22); }
+.nu-row.ok .nu-bar i { background: #2ea043; }
+.nu-row.under .nu-bar i { background: var(--accent); }
+.nu-row.over .nu-bar i { background: #c0392b; }
+.nu-note { grid-column: 2; margin-top: 2px; }
+.nu-row.ok .nu-note { color: #2a7d3a; }
+.nu-row.over .nu-note { color: #c0392b; }
+.meal + .meal { border-top: 1px solid var(--line); margin-top: 10px; padding-top: 2px; }
+.meal-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.meal-head h3 { margin-bottom: 4px; }
+.meal-sum { text-align: right; }
+.meal-items { list-style: none; margin: 4px 0 6px; padding: 0; display: grid; gap: 6px; }
+.meal-items li { display: flex; align-items: stretch; gap: 6px; }
+.meal-item { flex: 1; min-width: 0; text-align: left; display: grid; gap: 2px; border: 1px solid var(--line); background: var(--soft); color: var(--ink); border-radius: 12px; padding: 8px 10px; font: inherit; cursor: pointer; }
+.mi-name { font-weight: 600; }
+.meal-items .x { flex: none; width: 40px; border: 1px solid var(--line); background: var(--card); color: var(--ink); border-radius: 12px; font-size: 1.2rem; cursor: pointer; }
+.meal-actions { display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0 4px; }
+.meal-actions .btn.on { border-color: var(--accent); color: var(--accent); }
+.quick-dishes { margin: 2px 0 4px; }
+.portion-row { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+.field .portion-row input[type="number"] { flex: none; width: 84px; text-align: center; font-size: 1.15rem; font-weight: 700; }
+.portion-row select { flex: 1; min-width: 0; padding: 10px 8px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: var(--ink); font: inherit; }
+.unit-fixed { color: var(--muted, #8a7f76); font-weight: 600; }
+.nu-preview { background: var(--soft); border-radius: 12px; padding: 10px; }
+.nu-grid { display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; gap: 4px; }
+.nu-grid b { display: block; font-size: 1.3rem; }
+.nu-grid span { font-size: .75rem; color: var(--muted, #8a7f76); }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.own-pick { border-style: dashed; }
+.home-nu { margin: 2px 0 4px; font-size: .9rem; font-weight: 600; }
+.day-locked .meal-item, .day-locked .meal-items .x { pointer-events: none; }
+.day-locked .meal-items .x, .day-locked .meal-actions, .day-locked .quick-dishes { opacity: .4; }

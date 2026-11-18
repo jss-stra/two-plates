@@ -78,6 +78,14 @@ Privacy note: the anon key is designed to be public, and the policy above lets a
 - **Pantry staples:** Settings → Pantry staples, or tap "Have it" / "Need to buy" on the grocery list.
 - **A dish you don't like:** tap the eye-slash icon on the Recipes tab and it's never suggested again (undo under "Hidden").
 
+## Logging what you ate (Today tab)
+
+Each person's day has Breakfast, Lunch, Dinner and Snacks. **+ Add** searches this week's dishes, every Two Plates recipe and a list of everyday foods (roti, rice, oats, eggs, whey, fruit, nuts, chai, drinks; Hindi names work too). Pick one, say exactly how much (servings of a dish with your usual plate preselected, or the food's natural portion like "2 roti", or grams/ml if you weighed it) and the protein, calories, carbs and fibre update live before you add it. Lunch and dinner also offer this week's dishes as one-tap chips, and **Recent** remembers what you logged with its last portion.
+
+For a restaurant meal or packaged food, **Something else** takes a name and the label's numbers; blanks stay blank. The "Today so far" card adds everything up against each person's protein and calorie ranges (Settings → People), a fibre target (default 30 g / 25 g, editable) and carbs as a share of calories. Anything without nutrition info (your own dishes, most imported recipes, typed items with no numbers) is listed but not counted, and the totals say so.
+
+Where the numbers come from: dishes use the ingredient catalog (`data/ingredients.js`, carbs excluding fibre as on Australian labels) plus `data/fibre.js`; everyday foods live in `data/foods.js`. Both are typical reference values (USDA FoodData Central / FSANZ), so treat totals as ±10–15%. Days logged before portions existed still show up: a planned dish counts as your usual portion, free text as an item without numbers.
+
 ## Groceries beyond meals and guests
 
 Groceries now has editable extras with amounts and sections (drinks, snacks/breakfast, food, household, other). These persist across reshuffles and new weeks until explicitly deleted. Existing name-only extras still load.

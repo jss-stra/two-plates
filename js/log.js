@@ -2,9 +2,9 @@
 import { dishById } from './custom.js';
 import { localISO, plannedFor } from './planner.js';
 import { waterGoal, waterAnswer, waterCheckDay, slotLabel, slotsSoFar, WATER_SLOTS } from './water.js';
+import { MEAL_KEYS, mealsOf, hasMeals, dayTotals, itemNutrition, itemLabel, macroText, fibreTarget } from './nutrition.js';
 
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const MEALS = [['lunch', 'Lunch'], ['dinner', 'Dinner']];
 
 export const entryFor = (state, iso, p) => state.days?.[iso]?.[p] || {};
 
@@ -19,13 +19,82 @@ export function shiftMonth(ym, n) {
 }
 export { shiftDay };
 
-function seg(field, value, options, dis = '') {
-  return `<div class="seg wrap">${options.map(([v, l]) => `<button class="${value === v ? 'on' : ''}" data-act="log-set" data-field="${field}" data-value="${esc(v)}"${dis}>${esc(l)}</button>`).join('')}</div>`;
-}
 const text = (field, value, placeholder, dis = '') => `<input class="log-input" data-log="${field}" value="${esc(value)}" placeholder="${esc(placeholder)}" autocomplete="off"${dis}>`;
 
 // Has anything been logged for this person on this day?
-export const isLogged = (e) => !!(e.rating || e.lunch || e.dinner || e.breakfast || e.snacks || e.cheats?.length);
+export const isLogged = (e) => !!(e.rating || hasMeals(e) || e.cheats?.length);
+
+const r0 = (x) => Math.round(x).toLocaleString('en-AU');
+
+// One nutrient row: value, a bar against the target and a few words on where
+// it stands. Targets: protein and kcal ranges from Settings, fibre a minimum,
+// carbs shown without a target.
+function nuRow(label, value, unit, { min = null, max = null, note = '' } = {}) {
+  let cls = '', words = note;
+  const top = Math.max(max ?? min ?? value, value, 1) * 1.1;
+  if (min != null && value < min) { cls = 'under'; words = `${r0(min - value)} ${unit === 'kcal' ? 'kcal' : 'g'} to go`; }
+  else if (max != null && value > max) { cls = 'over'; words = `${r0(value - max)} ${unit === 'kcal' ? 'kcal' : 'g'} over`; }
+  else if (min != null) { cls = 'ok'; words = max != null ? 'in range' : 'target met'; }
+  const pct = (x) => `${Math.min(100, (x / top) * 100).toFixed(1)}%`;
+  return `<div class="nu-row ${cls}">
+    <div class="nu-label">${label}</div>
+    <div class="nu-val"><b>${r0(value)}</b> ${unit}${min != null ? ` <span class="muted">/ ${r0(min)}${max != null ? `–${r0(max)}` : '+'}</span>` : ''}</div>
+    <div class="nu-bar">${min != null ? `<span class="band" style="left:${pct(min)};width:${max != null ? `calc(${pct(max)} - ${pct(min)})` : `calc(100% - ${pct(min)})`}"></span>` : ''}<i style="width:${pct(value)}"></i></div>
+    <div class="nu-note fine">${words}</div>
+  </div>`;
+}
+
+function totalsCard(s, iso, p, e, isToday) {
+  const person = s.people[p];
+  const t = dayTotals(s, e, person);
+  if (!t.count) return '';
+  const counted = t.count - t.missing;
+  return `<section class="card day-totals">
+    <h3>${isToday ? 'Today so far' : 'This day'} <span class="muted">· ${esc(person.name)}</span></h3>
+    ${nuRow('Protein', t.protein, 'g', { min: person.proteinMin, max: person.proteinMax })}
+    ${nuRow('Calories', t.kcal, 'kcal', { min: person.kcalMin, max: person.kcalMax })}
+    ${nuRow('Fibre', t.fibre, 'g', { min: fibreTarget(person, p) })}
+    ${nuRow('Carbs', t.carbs, 'g', { note: t.kcal > 0 ? `${Math.round((t.carbs * 4 / t.kcal) * 100)}% of calories` : '' })}
+    <p class="fine">${t.missing ? `<b>${t.missing} item${t.missing === 1 ? ' has' : 's have'} no nutrition info</b> and ${t.missing === 1 ? "isn't" : "aren't"} counted, so these totals are a minimum. ` : ''}${t.partial ? 'Some typed-in items left a number blank. ' : ''}Estimates from ${counted} logged item${counted === 1 ? '' : 's'}: recipe and everyday-food values are typical figures, so expect ±10–15%.</p>
+  </section>`;
+}
+
+function mealsCard(s, iso, p, e, planned) {
+  const person = s.people[p];
+  const { meals, skip } = mealsOf(e, person);
+  const t = dayTotals(s, e, person);
+  const quick = (k) => {
+    // Lunch and dinner: this week's dishes one tap away.
+    // Only while the meal is still empty, so a logged day stays tidy.
+    if (k !== 'lunch' && k !== 'dinner' || !planned.length || meals[k].length) return '';
+    const inMeal = new Set(meals[k].filter((it) => it.t === 'dish').map((it) => it.id));
+    const opts = planned.filter((r) => !inMeal.has(r.id));
+    return opts.length ? `<div class="chips wrapchips quick-dishes">${opts.map((r) => `<button class="chip" data-act="food-quick" data-m="${k}" data-id="${esc(r.id)}">${esc(r.name)}</button>`).join('')}</div>` : '';
+  };
+  return `<section class="card log meals-card">
+    ${MEAL_KEYS.map(([k, label]) => {
+      const items = meals[k];
+      const sum = t.byMeal[k];
+      return `<div class="meal" data-meal="${k}">
+        <div class="meal-head"><h3>${label}</h3>
+          <span class="meal-sum fine">${skip[k] && !items.length ? 'Skipped' : items.length ? esc(macroText(sum, { short: true })) + (sum.missing ? ' +' : '') : ''}</span></div>
+        ${items.length ? `<ul class="meal-items">${items.map((it, i) => {
+          const { name, portion } = itemLabel(s, it);
+          const nu = itemNutrition(s, it);
+          return `<li><button class="meal-item" data-act="food-edit" data-m="${k}" data-k="${i}">
+              <span class="mi-name">${esc(name)}${portion ? ` <span class="muted">· ${esc(portion)}</span>` : ''}</span>
+              <span class="mi-nu fine">${nu.known ? esc(macroText(nu)) : 'no nutrition info - tap to add numbers'}</span></button>
+            <button class="x" data-act="food-del" data-m="${k}" data-k="${i}" aria-label="Remove ${esc(name)}">×</button></li>`;
+        }).join('')}</ul>` : ''}
+        ${skip[k] && !items.length ? '' : quick(k)}
+        <div class="meal-actions">
+          <button class="btn small" data-act="food-add" data-m="${k}">+ Add${items.length ? ' more' : ''}</button>
+          ${items.length ? '' : `<button class="btn small ghost ${skip[k] ? 'on' : ''}" data-act="meal-skip" data-m="${k}">${skip[k] ? 'Skipped ✓' : 'Skipped'}</button>`}
+        </div>
+      </div>`;
+    }).join('')}
+  </section>`;
+}
 
 export function renderToday(s, ui, icon) {
   const iso = ui.logDate;
@@ -33,14 +102,7 @@ export function renderToday(s, ui, icon) {
   const e = entryFor(s, iso, p);
   const dis = e.done ? ' disabled' : '';
   const today = localISO();
-  const planned = plannedFor(s, iso).map((id) => dishById(s, id)).filter(Boolean);
-  const mealPicker = (field) => {
-    const v = e[field];
-    return `<div class="chips wrapchips">${planned.map((r) => `<button class="chip ${v === r.id ? 'on' : ''}" data-act="log-set" data-field="${field}" data-value="${r.id}"${dis}>${esc(r.name)}</button>`).join('')}
-      <button class="chip ${v === 'other' ? 'on' : ''}" data-act="log-set" data-field="${field}" data-value="other"${dis}>Ate out / other</button>
-      <button class="chip ${v === 'skipped' ? 'on' : ''}" data-act="log-set" data-field="${field}" data-value="skipped"${dis}>Skipped</button></div>
-      ${v === 'other' ? text(`${field}Text`, e[`${field}Text`], 'What did you have?', dis) : ''}`;
-  };
+  const planned = [...new Set(plannedFor(s, iso))].map((id) => dishById(s, id)).filter(Boolean);
   const other = s.people[1 - p];
   const otherDone = isLogged(entryFor(s, iso, 1 - p));
   const wGoal = waterGoal(s.people[p]);
@@ -72,11 +134,14 @@ export function renderToday(s, ui, icon) {
       <button class="act icon-only" data-act="log-day" data-d="1" ${iso >= today ? 'disabled' : ''} aria-label="Next day">${icon('up', 'rot-r')}</button>
     </div>
     <div class="seg full">${s.people.map((pp, i) => `<button class="${p === i ? 'on' : ''}" data-act="log-person" data-p="${i}">${esc(pp.name)}${entryFor(s, iso, i).done ? ` ${icon('lock', 'sm')}` : isLogged(entryFor(s, iso, i)) ? ' ✓' : ''}</button>`).join('')}</div>
-    <p class="fine">${e.done ? `<b>${icon('lock', 'sm')} Saved and locked.</b> Tap Edit at the bottom to change it.` : isLogged(e) ? 'Saved automatically.' : `What did ${esc(s.people[p].name)} eat${iso === today ? ' today' : ''}? Tap what fits — it takes a minute.`}
+    <p class="fine">${e.done ? `<b>${icon('lock', 'sm')} Saved and locked.</b> Tap Edit at the bottom to change it.` : isLogged(e) ? 'Saved automatically.' : `What did ${esc(s.people[p].name)} eat${iso === today ? ' today' : ''}? Add each meal with its portion - protein, calories, carbs and fibre add up as you go.`}
       ${otherDone ? '' : ` ${esc(other.name)} hasn't logged this day yet.`}</p>
   </section>
 
   <div class="day-body${e.done ? ' day-locked' : ''}">
+  ${totalsCard(s, iso, p, e, isToday)}
+  ${mealsCard(s, iso, p, e, planned)}
+
   <section class="card log">
     <h3>Water check-in</h3>
     <div class="chips wrapchips water-slots">${slotChips || '<span class="muted">Check-ins start at 9am</span>'}</div>
@@ -92,17 +157,8 @@ export function renderToday(s, ui, icon) {
     <p class="fine">${wHad >= wGoal ? 'Goal reached — nice one!' : `${wGoal - wHad} to go · a glass is about 250 ml`}</p>
   </section>
 
-  <section class="card log">
-    <h3>Breakfast &amp; shake</h3>
-    ${seg('breakfast', e.breakfast, [['usual', 'As usual'], ['other', 'Something else'], ['skipped', 'Skipped']], dis)}
-    ${e.breakfast === 'other' ? text('breakfastText', e.breakfastText, 'What did you have?', dis) : ''}
-    ${MEALS.map(([f, label]) => `<h3>${label}</h3>${mealPicker(f)}`).join('')}
-  </section>
-
-  <details class="card log more-today" ${e.snacks || e.note || e.rating || e.cheatDay || e.cheats?.length ? 'open' : ''}>
-    <summary>More about today <span class="muted">· snacks, cheats, rating, note</span></summary>
-    <h3>Snacks</h3>
-    ${text('snacks', e.snacks, 'e.g. fruit, protein bar, chai', dis)}
+  <details class="card log more-today" ${e.note || e.rating || e.cheatDay || e.cheats?.length ? 'open' : ''}>
+    <summary>More about today <span class="muted">· cheats, rating, note</span></summary>
     <h3>Cheats</h3>
     <label class="toggle"><input type="checkbox" data-act="log-cheatday" ${e.cheatDay ? 'checked' : ''}${dis}><span>This was a cheat day</span></label>
     <div class="chips wrapchips">${(e.cheats || []).map((c, i) => `<span class="chip on cheat">${esc(c)} <button class="x" data-act="log-uncheat" data-i="${i}" aria-label="Remove"${dis}>×</button></span>`).join('')}</div>
@@ -130,14 +186,19 @@ export function monthStats(s, ym, p) {
   const days = Object.keys(s.days || {}).filter((d) => d.startsWith(ym)).sort();
   const entries = days.map((d) => ({ d, e: entryFor(s, d, p) })).filter((x) => isLogged(x.e));
   let fromPlan = 0, other = 0, skipped = 0, ratingSum = 0, rated = 0, cheatDays = 0;
+  const nu = { protein: 0, kcal: 0, fibre: 0, days: 0 };
   const cheats = {};
   for (const { e } of entries) {
+    const { meals, skip } = mealsOf(e, s.people?.[p]);
     for (const m of ['lunch', 'dinner']) {
-      if (!e[m]) continue;
-      if (e[m] === 'other') other++;
-      else if (e[m] === 'skipped') skipped++;
-      else fromPlan++;
+      if (meals[m].some((it) => it.t === 'dish')) fromPlan++;
+      else if (meals[m].length) other++;
+      else if (skip[m]) skipped++;
     }
+    // Daily averages only from days where everything logged had numbers, so
+    // an unknown item can't drag a day's protein down.
+    const t = dayTotals(s, e, s.people?.[p]);
+    if (t.count && !t.missing) { nu.protein += t.protein; nu.kcal += t.kcal; nu.fibre += t.fibre; nu.days++; }
     if (e.rating) { ratingSum += e.rating; rated++; }
     if (e.cheatDay || e.cheats?.length) cheatDays++;
     for (const c of e.cheats || []) { const k = c.trim().toLowerCase(); cheats[k] = (cheats[k] || 0) + 1; }
@@ -146,6 +207,10 @@ export function monthStats(s, ym, p) {
   return {
     entries, logged: entries.length, fromPlan, other, skipped, meals, cheatDays,
     avgRating: rated ? ratingSum / rated : null,
+    avgProtein: nu.days ? nu.protein / nu.days : null,
+    avgKcal: nu.days ? nu.kcal / nu.days : null,
+    avgFibre: nu.days ? nu.fibre / nu.days : null,
+    nuDays: nu.days,
     planPct: meals ? Math.round((fromPlan / meals) * 100) : null,
     topCheats: Object.entries(cheats).sort((a, b) => b[1] - a[1]).slice(0, 6),
   };
@@ -193,6 +258,7 @@ export function renderMonth(s, ui, icon) {
         <div><b>${st.planPct === null ? '–' : `${st.planPct}%`}</b><span>meals from plan</span></div>
       </div>
       ${st.meals ? `<p class="fine">Lunch &amp; dinner: ${st.fromPlan} from the plan · ${st.other} ate out / other · ${st.skipped} skipped</p>` : ''}
+      ${st.nuDays ? `<p class="fine">Average day (${st.nuDays} fully logged day${st.nuDays === 1 ? '' : 's'}): <b>${Math.round(st.avgProtein)} g protein</b> · ${Math.round(st.avgKcal).toLocaleString('en-AU')} kcal · ${Math.round(st.avgFibre)} g fibre</p>` : ''}
       ${st.topCheats.length ? `<p class="fine">Cheats: ${st.topCheats.map(([c, k]) => `${esc(c)}${k > 1 ? ` ×${k}` : ''}`).join(' · ')}</p>` : ''}
       <div class="cal-head">${['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((x) => `<span>${x}</span>`).join('')}</div>
       <div class="cal">${cells}</div>

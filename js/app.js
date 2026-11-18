@@ -19,6 +19,9 @@ import { IDEAS, IDEA_BY_ID, ideaMatches } from './ideas.js';
 import { recordEvent, clearJournal } from './journal.js';
 import { startJournalSync, syncJournal } from './journal-sync.js';
 import { answerGoal } from './goalcheck.js';
+import { mealsOf, setMeals, itemNutrition, itemLabel, macroText, fibreTarget } from './nutrition.js';
+import { renderFoodSheet, renderFoodList, refreshPreview, newItem } from './foodlog-ui.js';
+import { FOODS } from '../data/foods.js';
 
 const $ = (sel, el = document) => el.querySelector(sel);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -48,6 +51,7 @@ const ui = {
   gview: 'tobuy', // groceries filter: tobuy | have | bought
   gsection: '', // groceries sub-screen: '' | extras | parties
   noteSlot: null, // week slot index whose note sheet is open
+  food: null, // Today tab "Add food" sheet: { meal, step, query, item, edit }
   showAll: false, // recipes: show every match instead of the first page
   xq: { allergies: '', dislikes: '' }, // settings: ingredient search text for exclusions
 };
@@ -480,7 +484,7 @@ function recipeRow(r, s) {
       <span class="meta">${esc(r.cuisine)} · ${r.time} min · ${r.tags.includes('ip') ? 'Instant Pot · ' : ''}${r.tags.includes('af') ? 'air fryer · ' : ''}${PROTEIN_LABEL[r.mainProtein] || ''}</span>
       <span class="per">${r.protein == null
         ? `<span class="fine">nutrition unknown</span>`
-        : `<b>${r.nutritionApproximate ? '~' : ''}${r.protein} g</b> protein · ${r.nutritionApproximate ? '~' : ''}${r.kcal} kcal${r.nutritionApproximate ? ' <span class="fine">approx.</span>' : ''} <span class="fine">per standard serving</span>`}</span>
+        : `<b>${r.nutritionApproximate ? '~' : ''}${r.protein} g</b> protein · ${r.nutritionApproximate ? '~' : ''}${r.kcal} kcal${r.carbs != null ? ` · ${r.carbs} g carbs` : ''}${r.fibre != null ? ` · ${r.fibre} g fibre` : ''}${r.nutritionApproximate ? ' <span class="fine">approx.</span>' : ''} <span class="fine">per standard serving</span>`}</span>
     </button>
     <div class="rrow-actions">
       <button class="act icon-only ${hidden ? 'on' : ''}" data-act="hide" data-id="${r.id}" aria-label="${hidden ? 'Unhide' : 'Never suggest'}">${icon('hide')}</button>
@@ -743,6 +747,7 @@ function renderSettings(s) {
           <label class="field"><span>Protein outside plan</span>${num(`people.${i}.outsideProtein`, p.outsideProtein)}</label>
           <label class="field"><span>Calories outside plan</span>${num(`people.${i}.outsideKcal`, p.outsideKcal)}</label>
           <label class="field"><span>Water goal (glasses/day)</span>${num(`people.${i}.waterGlasses`, waterGoal(p))}</label>
+          <label class="field"><span>Fibre target (g/day)</span>${num(`people.${i}.fibreTarget`, fibreTarget(p, i))}</label>
         </div>
         <p class="fine">“Outside plan” = shake, breakfast and snacks on a normal day. What's left is split across lunch and dinner: <b>${goal.min}–${goal.max} g protein per meal</b>.</p>
         <label class="field"><span><span>Portion size: <b>${p.portion.toFixed(2)}×</b> a standard serving</span>
@@ -894,6 +899,12 @@ function renderIdeaSheet(el) {
 function renderSheet(s) {
   const el = $('#sheet');
   if (cb.sheet) { renderCbSheet(el); return; }
+  if (ui.food) {
+    el.hidden = false;
+    document.body.classList.add('sheet-open');
+    renderFoodSheet(el, s, ui, icon, localISO());
+    return;
+  }
   if (ui.idea) { renderIdeaSheet(el); return; }
   if (ui.imported) { renderImportedSheet(el, s); return; }
   // Note sheet for a week dish (swipe right → Note). The note lives on the
@@ -1215,8 +1226,110 @@ function removeDish(i) {
   });
 }
 
+// ---------- Today: meals with portions ----------
+// Change one meal of the viewed person's day. setEntry refuses while the day
+// is locked (Done); older single-field entries are converted on first edit.
+function editMeals(fn) {
+  const person = getState().people[ui.logPerson];
+  let ok = false;
+  setEntry((e) => {
+    const { meals, skip } = mealsOf(e, person);
+    fn(meals, skip);
+    setMeals(e, meals, skip);
+    ok = true;
+  });
+  return ok;
+}
+const dayLocked = () => !!getState().days?.[ui.logDate]?.[ui.logPerson]?.done;
+function openFood(food) {
+  if (dayLocked()) { toast('This day is saved and locked — tap Edit to change it'); return; }
+  ui.food = { query: '', edit: null, ...food };
+  renderSheet(getState());
+  if (ui.food.step === 'search') $('#fq')?.focus();
+}
+function closeFood() { ui.food = null; renderSheet(getState()); }
+const mealName = (k) => ({ breakfast: 'breakfast', lunch: 'lunch', dinner: 'dinner', snacks: 'snacks' }[k] || 'the meal');
+function saveFoodItem(item) {
+  const fo = ui.food;
+  if (!fo) return;
+  const { meal, edit } = fo;
+  const ok = editMeals((meals, skip) => {
+    if (edit != null && meals[meal][edit]) meals[meal][edit] = item;
+    else meals[meal].push(item);
+    delete skip[meal];
+  });
+  if (!ok) return;
+  ui.food = null;
+  renderSheet(getState());
+  const nu = itemNutrition(getState(), item);
+  toast(`${edit != null ? 'Updated' : `Added to ${mealName(meal)}`}${nu.known ? ` — ${macroText(nu, { short: true })}` : ''}`);
+}
+// Amount typed or stepped in the portion sheet.
+function setFoodAmount(v) {
+  const it = ui.food?.item;
+  if (!it || !Number.isFinite(v)) return;
+  const x = Math.max(0, Math.round(v * 100) / 100);
+  if (it.t === 'dish') it.s = x; else it.n = x;
+}
+
 const actions = {
   tab: (el) => setTab(el.dataset.tab),
+  'food-add': (el) => openFood({ meal: el.dataset.m, step: 'search' }),
+  'food-quick': (el) => openFood({ meal: el.dataset.m, step: 'portion', item: newItem('dish', el.dataset.id, getState().people[ui.logPerson]) }),
+  'food-edit': (el) => {
+    const s = getState();
+    const { meals } = mealsOf(s.days?.[ui.logDate]?.[ui.logPerson] || {}, s.people[ui.logPerson]);
+    const k = Number(el.dataset.k);
+    const it = meals[el.dataset.m]?.[k];
+    if (!it) return;
+    openFood({ meal: el.dataset.m, step: it.t === 'own' ? 'own' : 'portion', item: structuredClone(it), edit: k });
+  },
+  'food-del': (el) => {
+    const m = el.dataset.m, k = Number(el.dataset.k);
+    const s = getState();
+    const { meals } = mealsOf(s.days?.[ui.logDate]?.[ui.logPerson] || {}, s.people[ui.logPerson]);
+    const it = meals[m]?.[k];
+    if (!it) return;
+    const { name } = itemLabel(s, it);
+    if (!editMeals((ms) => { ms[m].splice(k, 1); })) return;
+    toast(`Removed ${name}`, { label: 'Undo', fn: () => { editMeals((ms) => { ms[m].splice(Math.min(k, ms[m].length), 0, it); }); } });
+  },
+  'meal-skip': (el) => editMeals((meals, skip) => { const m = el.dataset.m; if (skip[m]) delete skip[m]; else skip[m] = true; }),
+  'food-close': () => closeFood(),
+  'food-back': () => { if (!ui.food) return; ui.food.step = 'search'; ui.food.item = null; ui.food.edit = null; renderSheet(getState()); $('#fq')?.focus(); },
+  'food-pick': (el) => { if (!ui.food) return; ui.food.item = newItem(el.dataset.t, el.dataset.id, getState().people[ui.logPerson]); ui.food.step = 'portion'; renderSheet(getState()); },
+  'food-recent': (el) => {
+    const it = ui.food?.recent?.[Number(el.dataset.k)];
+    if (!it) return;
+    ui.food.item = structuredClone(it);
+    ui.food.step = it.t === 'own' ? 'own' : 'portion';
+    renderSheet(getState());
+  },
+  'food-own': () => { if (!ui.food) return; ui.food.item = null; ui.food.step = 'own'; renderSheet(getState()); $('#on')?.focus(); },
+  'food-preset': (el) => { setFoodAmount(Number(el.dataset.v)); const fa = $('#fa'); if (fa) fa.value = el.dataset.v; refreshPreview(getState(), ui); },
+  'food-step': (el) => {
+    const it = ui.food?.item;
+    if (!it) return;
+    const step = it.t === 'dish' ? 0.25 : (it.u === 'g' || it.u === 'ml') ? 10 : 0.5;
+    const cur = it.t === 'dish' ? it.s : it.n;
+    setFoodAmount(Math.max(step, cur + step * Number(el.dataset.d)));
+    const fa = $('#fa'); if (fa) fa.value = it.t === 'dish' ? it.s : it.n;
+    refreshPreview(getState(), ui);
+  },
+  'food-save': () => {
+    const it = ui.food?.item;
+    if (!it) return;
+    const v = Number($('#fa')?.value);
+    if (Number.isFinite(v)) setFoodAmount(v);
+    if (!((it.t === 'dish' ? it.s : it.n) > 0)) { toast('Enter how much you had'); $('#fa')?.focus(); return; }
+    saveFoodItem({ ...it });
+  },
+  'food-save-own': () => {
+    const name = ($('#on')?.value || '').trim();
+    if (!name) { toast('Give it a name first'); $('#on')?.focus(); return; }
+    const n = (id) => { const raw = $(id)?.value.trim(); if (!raw) return null; const v = Number(raw); return Number.isFinite(v) && v >= 0 ? v : null; };
+    saveFoodItem({ t: 'own', name: name.slice(0, 120), p: n('#op'), kcal: n('#ok'), c: n('#oc'), fi: n('#of') });
+  },
   'goal-answer': (el) => { answerGoal(el.dataset.g, el.dataset.v); ui.goalGoal = null; ui.goalPick = false; render(); },
   'goal-wrong': () => { ui.goalPick = true; render(); },
   'goal-pick': (el) => { ui.goalGoal = el.dataset.g; ui.goalPick = false; render(); },
@@ -1785,6 +1898,9 @@ const JOURNAL_SKIP_ACTS = new Set([
   'water-answer', 'water-chip', 'water-add', 'water-later',
   'log-set', 'log-cheatday', 'log-uncheat',
   'log-done', // not in the server-side act vocabulary; recording it would fail the upload batch
+  // Meal logging is health data and outside the server vocabulary too:
+  'food-add', 'food-quick', 'food-edit', 'food-del', 'meal-skip', 'food-close', 'food-back',
+  'food-pick', 'food-recent', 'food-own', 'food-preset', 'food-step', 'food-save', 'food-save-own',
   'goal-answer', 'goal-wrong', 'goal-pick', 'goal-skip',
   'tab', // tab switches are recorded as tab events by setTab, not as acts
 ]);
@@ -1803,6 +1919,17 @@ document.addEventListener('click', (e) => {
 
 document.addEventListener('change', (e) => {
   const el = e.target;
+  if (el.id === 'fu' && ui.food?.item?.t === 'food') {
+    // Switching unit keeps the same amount of food: 1 roti → 40 g, not 1 g.
+    const it = ui.food.item;
+    const f = FOODS[it.id];
+    const grams = (u, n) => (u === 'g' || u === 'ml' ? n : n * (f.portions.find(([l]) => l === u)?.[1] || f.portions[0][1]));
+    const g = grams(it.u, it.n);
+    it.u = el.value;
+    it.n = it.u === 'g' || it.u === 'ml' ? Math.round(g) : Math.round((g / grams(it.u, 1)) * 4) / 4 || 1;
+    renderSheet(getState());
+    return;
+  }
   if (el.dataset.act && actions[el.dataset.act] && el.type === 'checkbox') { if (JOURNAL_CHANGE_ACTS.has(el.dataset.act)) recordEvent('act', { a: el.dataset.act }); actions[el.dataset.act](el); return; }
   if (cbOnChange(el)) return;
   if (el.dataset.receipt !== undefined && el.files?.length) {
@@ -1850,6 +1977,8 @@ document.addEventListener('input', (e) => {
   }
   if (e.target.id === 'q') { ui.search = e.target.value; ui.showAll = false; renderRecipeList(getState()); }
   if (e.target.id === 'sq' && ui.sheet) { ui.sheet.query = e.target.value; renderSheetList(getState()); }
+  if (e.target.id === 'fq' && ui.food) { ui.food.query = e.target.value; renderFoodList(getState(), ui, localISO()); }
+  if (e.target.id === 'fa' && ui.food?.item) { setFoodAmount(Number(e.target.value)); refreshPreview(getState(), ui); }
   // Live label for portion sliders without re-rendering mid-drag.
   if (e.target.type === 'range') {
     const b = e.target.closest('.field')?.querySelector('b');
@@ -1877,7 +2006,10 @@ document.addEventListener('submit', (e) => {
   }
 });
 
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { if (ui.sheet || ui.noteSlot != null) actions['close-sheet'](); else if (cb.sheet) actions['cb-close'](); } });
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && ui.food && ['fa', 'op', 'ok', 'oc', 'of'].includes(e.target.id)) { e.preventDefault(); actions[ui.food.step === 'own' ? 'food-save-own' : 'food-save'](); return; }
+  if (e.key === 'Escape' && ui.food) { closeFood(); return; }
+  if (e.key === 'Escape') { if (ui.sheet || ui.noteSlot != null) actions['close-sheet'](); else if (cb.sheet) actions['cb-close'](); } });
 window.addEventListener('cb-toast', (e) => toast(e.detail));
 
 // ---------- Boot ----------

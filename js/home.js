@@ -5,6 +5,7 @@ import { localISO, planRecipes, currentWeekStart, weekRelation, weekRangeLabel }
 import { displayKind, DISPLAY_GROUPS } from './data.js';
 import { waterGoal, waterCheckDay } from './water.js';
 import { goalCard } from './goalcheck.js';
+import { dayTotals, macroText } from './nutrition.js';
 
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
@@ -69,6 +70,7 @@ export function renderHome(s, ui = {}) {
     const had = e.water || 0;
     const pct = Math.min(100, Math.round((had / goal) * 100));
     const mealsLogged = isLogged(e);
+    const tot = dayTotals(s, e, person);
     const waterLogged = hasWater(e);
     const checkins = checkinText(waterCheckDay(e));
     const water = `${waterLogged
@@ -78,6 +80,7 @@ export function renderHome(s, ui = {}) {
     return `<div class="home-row">
       <div class="home-head"><b>${esc(person?.name || `Person ${p + 1}`)}</b>
         <span class="${mealsLogged ? 'home-ok' : 'muted'}">${mealsLogged ? 'Meals logged ✓' : 'No meals logged yet'}</span></div>
+      ${tot.count > tot.missing ? `<p class="home-nu">${esc(macroText(tot))}${tot.missing ? ' <span class="muted">+ items without numbers</span>' : ''}</p>` : ''}
       <div class="water-count">${water}</div>
       ${waterLogged ? `<div class="water-bar"><i style="width:${pct}%"></i></div>` : ''}
     </div>`;

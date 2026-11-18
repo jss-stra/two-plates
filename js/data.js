@@ -1,5 +1,6 @@
 // Turns the compact recipe rows into full recipe objects with computed nutrition.
 import { INGREDIENTS, AISLES } from '../data/ingredients.js';
+import { FIBRE } from '../data/fibre.js';
 import indian from '../data/recipes/indian.js';
 import mexican from '../data/recipes/mexican.js';
 import italian from '../data/recipes/italian.js';
@@ -10,6 +11,14 @@ import grillWraps from '../data/recipes/grill-wraps.js';
 import { REGULARS } from '../data/regulars.js';
 
 export { INGREDIENTS, AISLES };
+
+// Fibre lives in its own table (data/fibre.js). Spices with 0 macros count as
+// 0 fibre too; anything else missing stays unknown (null), never 0.
+for (const [id, ing] of Object.entries(INGREDIENTS)) {
+  if (FIBRE[id] != null) ing.fi = FIBRE[id];
+  else if (ing.unit === 'tsp' && !ing.kcal) ing.fi = 0;
+  else ing.fi = null;
+}
 
 // Every recipe row is written for this many standard servings.
 export const BASE_SERVINGS = 4;
@@ -68,7 +77,7 @@ function buildRecipe(row, file) {
   const items = parseIngredients(ingStr, name);
   // Unknown macros stay unknown: any item with a null macro makes the dish's
   // macros null (never silently zero). Approximate items mark the dish approximate.
-  let kcal = 0, p = 0, c = 0, f = 0, unknown = false, approximate = false;
+  let kcal = 0, p = 0, c = 0, f = 0, fi = 0, unknown = false, fibreUnknown = false, approximate = false;
   let diet = 'veg';
   const proteinBySrc = {};
   for (const { id, qty } of items) {
@@ -76,6 +85,7 @@ function buildRecipe(row, file) {
     const g = gramsOf(ing, qty) / 100;
     if (ing.kcal == null || ing.p == null || ing.c == null || ing.f == null) unknown = true;
     else { kcal += ing.kcal * g; p += ing.p * g; c += ing.c * g; f += ing.f * g; }
+    if (ing.fi == null) fibreUnknown = true; else fi += ing.fi * g;
     if (ing.basis === 'approximate') approximate = true;
     if (ing.diet === 'meat') diet = 'nonveg';
     else if (ing.diet === 'egg' && diet === 'veg') diet = 'egg';
@@ -100,6 +110,7 @@ function buildRecipe(row, file) {
     nutritionApproximate: (!unknown && approximate) || undefined,
     // Per standard serving (null when any ingredient's macros are unknown)
     kcal: per(kcal), protein: per(p), carbs: per(c), fat: per(f),
+    fibre: unknown || fibreUnknown ? null : Math.round(fi / BASE_SERVINGS),
   };
 }
 
