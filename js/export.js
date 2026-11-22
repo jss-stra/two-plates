@@ -37,7 +37,7 @@ export async function exportExcel(state) {
   const menuRows = [['Type', 'Dish', 'Cuisine', 'Minutes', 'Rating',
     `${a.name} protein (g/meal)`, `${a.name} kcal/meal`, `${b.name} protein (g/meal)`, `${b.name} kcal/meal`, 'YouTube']];
   recipes.forEach((r) => {
-    const ma = mealFor(r, a), mb = mealFor(r, b);
+    const ma = mealFor(r, a, state.rules), mb = mealFor(r, b, state.rules);
     const rating = ratingOf(state, r.id);
     menuRows.push([DISPLAY_GROUPS.find(([kind]) => kind === displayKind(r, state.rules.eggsCountAsVeg))?.[1] || 'Not classified', r.name, r.cuisine, r.time ?? 'not listed',
       rating === null ? '' : `${rating.toFixed(1)} ★`, ma.protein, ma.kcal, mb.protein, mb.kcal, r.imported ? 'Recipe in app' : 'Watch']);

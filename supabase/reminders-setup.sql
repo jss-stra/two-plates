@@ -1,4 +1,8 @@
--- Two Plates reminders: one-time setup (water yes/no check-ins + 10pm beverage check-in).
+-- Two Plates reminders: one-time setup (water yes/no check-ins, 9:30pm meal-log reminder,
+-- 10pm beverage check-in).
+-- Already set up before the meal-log reminder? Re-run only the
+-- `create or replace function public.two_plates_reminder_check()` block below, with
+-- the same project URL and secret you used the first time. Nothing else changes.
 -- Phones insert/delete their own push subscriptions; only the database itself
 -- (the cron job) ever reads them, so push endpoints are never exposed via the API.
 
@@ -20,7 +24,7 @@ grant insert, delete on public.push_subscriptions to anon;
 -- One row per subscription + reminder kind: when the last one went out.
 create table if not exists public.reminder_log (
   id text not null references public.push_subscriptions(id) on delete cascade,
-  kind text not null,             -- 'water' | 'evening'
+  kind text not null,             -- 'water-<hour>' | 'meal-log' | 'evening'
   last_at timestamptz not null default now(),
   primary key (id, kind)
 );
@@ -34,6 +38,8 @@ create extension if not exists pg_net;
 --  * water: a "Did you drink water?" yes/no check-in at 9am, noon, 3pm, 6pm and
 --    9pm local, once per slot per day (the date guard on the per-slot log row
 --    keeps the 5-minute tick from sending twice). Nothing after 10pm.
+--  * meal-log: at 9:30pm local, once per day, "log today's meals" so the day's
+--    protein, carbs and fibre count.
 --  * evening: at 10pm local, once per day, the beverage check-in.
 create or replace function public.two_plates_reminder_check() returns void language plpgsql as $$
 declare
@@ -70,6 +76,21 @@ begin
         end if;
       end if;
     end loop;
+
+    -- Meal-log reminder, 9:30pm local, once per day (10-minute window, deduped by date).
+    if extract(hour from lt) = 21 and extract(minute from lt) >= 30 and extract(minute from lt) < 40 then
+      select r.last_at into last_nudge from public.reminder_log r where r.id = s.id and r.kind = 'meal-log';
+      if last_nudge is null or (last_nudge at time zone s.tz)::date < lt::date then
+        due := due || jsonb_build_object('id', s.id, 'subscription', s.subscription,
+          'title', 'Two Plates — log today''s meals',
+          'body', 'Log what you ate today' || case when pname is not null then ', ' || pname else '' end || ', so your protein, carbs and fibre add up.',
+          'tag', 'meal-log',
+          'kind', 'meal-log',
+          'person', s.person);
+        insert into public.reminder_log (id, kind, last_at) values (s.id, 'meal-log', now())
+          on conflict (id, kind) do update set last_at = now();
+      end if;
+    end if;
 
     -- Evening beverage check-in, 10pm local, once per day.
     if extract(hour from lt) = 22 then

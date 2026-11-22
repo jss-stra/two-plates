@@ -11,16 +11,18 @@ export function defaultState() {
     people: [
       {
         name: 'Person 1', proteinMin: 100, proteinMax: 130, kcalMin: 1800, kcalMax: 2100,
-        outsideProtein: 40, outsideKcal: 500, portion: 1.2, fixedMeals: [],
+        outsideProtein: 40, outsideKcal: 500, portion: 1.2, fixedMeals: [], fibreTarget: 30, supplements: [],
       },
       {
         name: 'Person 2', proteinMin: 70, proteinMax: 90, kcalMin: 1500, kcalMax: 1700,
-        outsideProtein: 30, outsideKcal: 500, portion: 0.9, fixedMeals: [],
+        outsideProtein: 30, outsideKcal: 500, portion: 0.9, fixedMeals: [], fibreTarget: 25, supplements: [],
       },
     ],
     rules: {
-      chickenDishes: 3,
-      vegDishes: 2,
+      // 7 dishes, one per day (each also covers the next day's lunch).
+      chickenDishes: 4,
+      vegDishes: 3,
+      autoPortion: true, // size each person's portion per dish to their protein goal
       indianVeg: 2, // how many of the veg dishes are Indian
       mealsPerDish: 2, // dinner + next-day lunch
       eggsCountAsVeg: false,
@@ -51,11 +53,17 @@ export function defaultState() {
     extras: [],
     occasions: [],
     prep: { dates: {}, tasks: {}, done: {}, minutes: {} },
+    // Ingredient ids you already have at home (Week tab → Cook from what we have).
+    onHand: [],
+    // One-off data migrations already applied (see migrate() in app.js).
+    migrations: {},
     // Daily food log: 'YYYY-MM-DD' -> { 0: entry for person 1, 1: entry for person 2 }.
     // entry: { breakfast: 'usual'|'other', breakfastText, lunch/dinner: recipe id|'other'|'skipped',
     //          lunchText, dinnerText, snacks, cheats: [], cheatDay, rating 1-5, note,
     //          water: glasses today, waterTs: [ms timestamps of each glass],
-    //          waterCheck: { '9'|'12'|'15'|'18'|'21': { a: 'yes'|'no', t: ms } } — check-in answers }
+    //          waterCheck: { '9'|'12'|'15'|'18'|'21': { a: 'yes'|'no', t: ms } } — check-in answers,
+    //          lunchFoods/dinnerFoods/snackFoods: [{ food: quick-food id, n: portions }] (what was eaten instead / extra),
+    //          lunchPhoto/dinnerPhoto: meal photo id for Claude to read, supps: { supplement id: true } }
     days: {},
   };
 }

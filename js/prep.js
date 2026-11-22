@@ -6,8 +6,9 @@ import { update } from './state.js';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const SAFETY='https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/poultry-and-raw-meat';
 export function prepTasks(s, day, selected = []) {
- const tasks=new Map(),factor=scaleFactor(s);
+ const tasks=new Map();
  for(const r of planRecipes(s).filter(r => selected.includes(r.id))){
+  const factor=scaleFactor(s,r);
   const guide=PREP_GUIDES[r.id];if(!guide)continue;
   for(const t of guide.tasks){
    const item=r.items.find(x=>x.id===t.ingredient);if(!item)continue;

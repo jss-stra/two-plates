@@ -33,9 +33,10 @@ const state = () => {
 // Removing a locked veg dish drops the veg target.
 {
   const s = state();
+  const before = { c: s.rules.chickenDishes, v: s.rules.vegDishes };
   removeSlot(s, 1);
-  assert.equal(s.rules.vegDishes, 1, 'veg target followed it down');
-  assert.equal(s.rules.chickenDishes, 3, 'chicken target untouched');
+  assert.equal(s.rules.vegDishes, before.v - 1, 'veg target followed it down');
+  assert.equal(s.rules.chickenDishes, before.c, 'chicken target untouched');
 }
 
 // An unknown-diet custom dish never filled a target, so none moves.
@@ -44,9 +45,10 @@ const state = () => {
   const rec = makeCustomDish({ name: 'Test Paneer Wrap', ingredients: ['paneer'], diet: 'unknown' });
   s.customDishes[rec.id] = rec;
   s.plan.slots.push({ id: rec.id, locked: true });
+  const before = { c: s.rules.chickenDishes, v: s.rules.vegDishes };
   removeSlot(s, 2);
-  assert.equal(s.rules.chickenDishes, 3, 'chicken target untouched');
-  assert.equal(s.rules.vegDishes, 2, 'veg target untouched');
+  assert.equal(s.rules.chickenDishes, before.c, 'chicken target untouched');
+  assert.equal(s.rules.vegDishes, before.v, 'veg target untouched');
   assert.equal(s.plan.slots.length, 2, 'custom slot gone');
 }
 
@@ -55,7 +57,7 @@ const state = () => {
   const s = state();
   assert.equal(removeSlot(s, 9), null);
   assert.equal(s.plan.slots.length, 2, 'plan unchanged');
-  assert.equal(s.rules.chickenDishes + s.rules.vegDishes, 5, 'targets unchanged');
+  assert.equal(s.rules.chickenDishes + s.rules.vegDishes, 7, 'targets unchanged');
 }
 
 // Slot notes survive a reshuffle/regeneration that keeps the dish.

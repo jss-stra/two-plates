@@ -1,6 +1,6 @@
 # Two Plates
 
-A weekly high-protein meal planner for two people. It picks 5–7 dinners (each one also covers the next day's lunch), shows protein and calories per person, and builds a combined grocery list you can export to Excel. Already decided what you want? The Week tab's Search (next to Shuffle) finds a dish by name, cuisine or ingredient and adds it to the week, or swaps it in place of a dish you pick; deliberate picks are locked so Shuffle keeps them. If the catalog doesn't have the dish, the same search offers "Add it as your own dish": write the name and ingredients yourself (kept under Your dishes for next time, groceries list them exactly as written, no invented nutrition or allergy clearance). The Today tab also tracks water per person: a "Did you drink water?" yes/no check-in at 9am, noon, 3pm, 6pm and 9pm (nothing after 10pm) plus an optional glass counter, and a 10pm check-in asking about coffees, teas, milks and shakes. Check-ins arrive as push notifications even when the app is closed (see `supabase/reminders-setup.sql`); tapping one opens the app on the Yes/No question and daily/weekly summaries keep check-in answers separate from glass counts.
+A weekly high-protein meal planner for two people. It plans a dinner for every day, Monday to Sunday (each one also covers the next day's lunch), with Saturday and Sunday each getting exactly one non-veg meal. It sizes each person's portion of every dish to their protein goal, shows protein, carbs, fibre and calories per person, and builds a combined grocery list you can export to Excel. Already decided what you want? The Week tab's Search (next to Shuffle) finds a dish by name, cuisine or ingredient and adds it to the week, or swaps it in place of a dish you pick; deliberate picks are locked so Shuffle keeps them. If the catalog doesn't have the dish, the same search offers "Add it as your own dish": write the name and ingredients yourself (kept under Your dishes for next time, groceries list them exactly as written, no invented nutrition or allergy clearance). The Today tab also tracks water per person: a "Did you drink water?" yes/no check-in at 9am, noon, 3pm, 6pm and 9pm (nothing after 10pm) plus an optional glass counter, and a 10pm check-in asking about coffees, teas, milks and shakes. Check-ins arrive as push notifications even when the app is closed (see `supabase/reminders-setup.sql`); tapping one opens the app on the Yes/No question and daily/weekly summaries keep check-in answers separate from glass counts.
 
 Allergies and dislikes can be excluded in Settings: dishes listing those ingredients (or direct forms of the same food, like peanut butter for peanuts) are skipped by shuffle, swaps and the dish picker, and anything already in the week gets a warning badge. The app checks its own recipe ingredient lists — it can't see inside packaged goods or track cross-contact.
 
@@ -18,6 +18,10 @@ There's no build step. It's plain HTML, CSS and JavaScript modules, and everythi
 | `js/grocery.js` | Combines and scales ingredients into the shopping list. |
 | `js/export.js` | Excel export (shopping list, pantry check, menu with YouTube links). |
 | `js/sync.js` | Optional live sync between phones through Supabase. |
+| `js/supplements.js` | Vitamins & supplements per person, ticked off on Today, with every-N-days items (e.g. monthly vitamin D). |
+| `js/quick-foods.js` | Household portions of common foods, for logging what you ate instead of the plan. |
+| `js/intake.js` | A person's eaten protein, carbs, fibre and calories for a day, from the Today log. |
+| `js/meal-photos.js` | Meal photos for Claude to read later (see `docs/meal-photos.md`). |
 | `js/fixed-meals.js` | Each person's fixed meals (breakfast, shakes, snacks with amounts), their totals, and the starting presets. |
 | `js/water.js` | Water goal helper and the fixed-time check-in slots, answers and summaries. |
 | `js/push.js` | Subscribe this phone for push reminders (even when the app is closed). |
@@ -75,6 +79,9 @@ Privacy note: the anon key is designed to be public, and the policy above lets a
 ## Changing the numbers
 
 - **Targets, shake/breakfast/snacks, portion sizes:** Settings → People. A portion of 1.25× means 1.25 standard servings per meal.
+- **Portions:** Settings → Portions. On by default: each person's servings of every dish are sized to land in the middle of their per-meal protein goal (between ½ and 2½ servings). Off: everyone uses their portion slider.
+- **Pin a dish to a day:** Week → Search (or "Add a dish" on an empty day), pick the dish, then pick the day. **Cook from what we have** on the Week tab ranks dishes by the ingredients you add.
+- **Vitamins & supplements:** Settings → People → Vitamins & supplements, then tick them off on the Today tab.
 - **Fixed meals:** Settings → People → Fixed meals. List breakfast, shakes and snacks with amounts, protein and calories (or load a starting plan). The totals replace the typed "outside plan" numbers, and the Today tab shows the list so the whole day is in one place.
 - **Veg quota, Indian veg count, time limit, cuisine mix:** Settings → Planning rules.
 - **Pantry staples:** Settings → Pantry staples, or tap "Have it" / "Need to buy" on the grocery list.

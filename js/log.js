@@ -1,7 +1,11 @@
 // Daily food log ("Today" tab) and the month report built from it.
 import { dishById } from './custom.js';
-import { localISO, plannedFor, perMealGoal } from './planner.js';
+import { localISO, plannedFor, perMealGoal, plannedOnDay, mealFor } from './planner.js';
 import { fixedMealsOf, fixedTotals } from './fixed-meals.js';
+import { QUICK_FOODS, QUICK_FOOD_BY_ID, foodsTotal } from './quick-foods.js';
+import { supplementsOf, supplementStatus } from './supplements.js';
+import { mealPhoto, photoEstimate } from './meal-photos.js';
+import { dayIntake } from './intake.js';
 import { waterGoal, waterAnswer, waterCheckDay, slotLabel, slotsSoFar, WATER_SLOTS } from './water.js';
 
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -26,7 +30,7 @@ function seg(field, value, options, dis = '') {
 const text = (field, value, placeholder, dis = '') => `<input class="log-input" data-log="${field}" value="${esc(value)}" placeholder="${esc(placeholder)}" autocomplete="off"${dis}>`;
 
 // Has anything been logged for this person on this day?
-export const isLogged = (e) => !!(e.rating || e.lunch || e.dinner || e.breakfast || e.snacks || e.cheats?.length);
+export const isLogged = (e) => !!(e.rating || e.lunch || e.dinner || e.breakfast || e.snacks || e.snackFoods?.length || e.cheats?.length);
 
 // The person's fixed meals (Settings → People) with amounts, so the whole day is in one place.
 function renderFixedToday(s, p) {
@@ -43,6 +47,69 @@ function renderFixedToday(s, p) {
   </div>`;
 }
 
+// Foods eaten instead of (or as well as) the plan, with portions, plus an
+// optional photo that Claude reads later and turns into an estimate.
+function foodPicker(e, field, dis, withPhoto = true) {
+  const list = e[`${field}Foods`] || [];
+  const t = foodsTotal(list);
+  const photoId = e[`${field}Photo`];
+  const ph = mealPhoto(photoId);
+  const est = photoEstimate(photoId);
+  const photo = !withPhoto ? '' : photoId
+    ? `<div class="meal-photo">${ph?.thumb ? `<img src="${ph.thumb}" alt="Meal photo">` : ''}
+        <div class="fine">${est ? `<b>Claude’s estimate:</b> ${est.protein ?? '?'} g protein · ${est.carbs ?? '?'} g carbs · ${est.fibre ?? '?'} g fibre · ${est.kcal ?? '?'} kcal${est.items.length ? `<br>${est.items.map((i) => esc(`${i.name}${i.qty ? ` (${i.qty})` : ''}`)).join(', ')}` : ''}${est.note ? `<br>${esc(est.note)}` : ''}<br>Used instead of the foods above.`
+          : ph?.status === 'unreadable' ? 'Claude couldn’t read this photo - the foods above are used.' : 'Photo saved. Claude will estimate it later; until then the foods above are used.'}</div>
+        <button class="link" data-act="meal-photo-remove" data-field="${field}"${dis}>Remove photo</button></div>`
+    : `<label class="btn small ghost photo-btn">Add a photo<input type="file" accept="image/*" capture="environment" data-mealphoto="${field}" hidden${dis}></label>
+       <span class="fine">Optional. Claude estimates what and how much from it, then corrects these numbers.</span>`;
+  return `<div class="food-picker">
+    ${list.map((x, i) => {
+      const f = QUICK_FOOD_BY_ID[x.food];
+      if (!f) return '';
+      return `<div class="food-row"><span><b>${esc(f.name)}</b><br><span class="fine">${x.n} × ${esc(f.unit)} · ${Math.round(f.protein * x.n)} g protein</span></span>
+        <span class="stepper"><button data-act="food-n" data-field="${field}" data-i="${i}" data-d="-0.5" aria-label="Less"${dis}>−</button><b>${x.n}</b><button data-act="food-n" data-field="${field}" data-i="${i}" data-d="0.5" aria-label="More"${dis}>+</button></span></div>`;
+    }).join('')}
+    <div class="inline"><select id="ff-${field}"${dis}><option value="">Add a food…</option>${QUICK_FOODS.map((f) => `<option value="${f.id}">${esc(f.name)} · ${esc(f.unit)}</option>`).join('')}</select>
+      <button class="btn small" data-act="food-add" data-field="${field}"${dis}>Add</button></div>
+    ${list.length ? `<p class="fine">${t.protein} g protein · ${t.carbs} g carbs · ${t.fibre} g fibre · ${t.kcal} kcal (approx.)</p>` : ''}
+    ${photo}
+  </div>`;
+}
+
+// Vitamins & supplements to tick off today (list from Settings → People).
+function renderSupps(s, p, iso, dis) {
+  const items = supplementsOf(s.people[p]);
+  if (!items.length) return `<section class="card log"><h3>Vitamins &amp; supplements</h3>
+    <p class="fine">Add what ${esc(s.people[p].name)} takes in Settings → People → Vitamins &amp; supplements, then tick them off here each day.</p></section>`;
+  const st = items.map((it) => ({ it, st: supplementStatus(s, p, it, iso) }));
+  const due = st.filter((x) => x.st.due || x.st.taken);
+  const taken = st.filter((x) => x.st.taken).length;
+  return `<section class="card log"><h3>Vitamins &amp; supplements <span class="muted">· ${taken} of ${due.length} taken</span></h3>
+    <div class="chips wrapchips">${st.map(({ it, st: x }) => (!x.due && !x.taken
+      ? `<span class="chip muted" title="${esc(it.when || '')}">${esc(it.name || 'Supplement')} · next in ${x.nextIn} day${x.nextIn === 1 ? '' : 's'}</span>`
+      : `<button class="chip ${x.taken ? 'on' : ''}" data-act="supp-toggle" data-id="${esc(it.id)}" title="${esc(it.when || '')}"${dis}>${x.taken ? '✓ ' : ''}${esc(it.name || 'Supplement')}${it.dose ? ` · ${esc(it.dose)}` : ''}</button>`)).join('')}</div>
+    <p class="fine">Tap what you’ve had. Monthly ones show up again when they’re due.</p></section>`;
+}
+
+// What's been eaten so far, against the goals.
+function renderIntake(s, p, e, isToday) {
+  const person = s.people[p];
+  const t = dayIntake(s, e, p);
+  const v = (k, unit = ' g') => `${t.partial[k] ? 'at least ' : ''}${t[k].toLocaleString()}${unit}`;
+  const fibreGoal = person.fibreTarget || 30;
+  const pst = t.protein < person.proteinMin ? `<span class="st warn">${person.proteinMin - t.protein} g to go</span>` : '<span class="st ok">goal met</span>';
+  return `<section class="card log intake">
+    <h3>${isToday ? 'Eaten so far today' : 'Eaten this day'} <span class="muted">· ${t.logged} of 3 meals logged</span></h3>
+    <div class="intake-grid">
+      <div><b>${v('protein')}</b><span class="fine">protein · goal ${person.proteinMin}–${person.proteinMax} g · ${pst}</span></div>
+      <div><b>${v('carbs')}</b><span class="fine">carbs</span></div>
+      <div><b>${v('fibre')}</b><span class="fine">fibre · goal ${fibreGoal} g${t.fibre >= fibreGoal ? ' · <span class="st ok">met</span>' : ''}</span></div>
+      <div><b>${v('kcal', '')}</b><span class="fine">kcal · ${person.kcalMin.toLocaleString()}–${person.kcalMax.toLocaleString()}</span></div>
+    </div>
+    ${Object.keys(t.partial).length ? '<p class="fine">“At least” = something logged has no numbers (your own dish, or a typed outside-plan amount with no carbs or fibre).</p>' : ''}
+  </section>`;
+}
+
 export function renderToday(s, ui, icon) {
   const iso = ui.logDate;
   const p = ui.logPerson;
@@ -50,12 +117,20 @@ export function renderToday(s, ui, icon) {
   const dis = e.done ? ' disabled' : '';
   const today = localISO();
   const planned = plannedFor(s, iso).map((id) => dishById(s, id)).filter(Boolean);
+  const onDay = plannedOnDay(s, iso);
   const mealPicker = (field) => {
     const v = e[field];
-    return `<div class="chips wrapchips">${planned.map((r) => `<button class="chip ${v === r.id ? 'on' : ''}" data-act="log-set" data-field="${field}" data-value="${r.id}"${dis}>${esc(r.name)}</button>`).join('')}
-      <button class="chip ${v === 'other' ? 'on' : ''}" data-act="log-set" data-field="${field}" data-value="other"${dis}>Ate out / other</button>
+    const want = onDay[field];
+    const order = [...planned].sort((a, b) => (b.id === want) - (a.id === want));
+    const label = (r) => {
+      if (r.id !== want) return esc(r.name);
+      const m = mealFor(r, s.people[p], s.rules);
+      return `Planned: ${esc(r.name)}${m.protein != null ? ` · ${m.protein} g protein` : ''}`;
+    };
+    return `<div class="chips wrapchips">${order.map((r) => `<button class="chip ${v === r.id ? 'on' : ''} ${r.id === want ? 'planned' : ''}" data-act="log-set" data-field="${field}" data-value="${r.id}"${dis}>${label(r)}</button>`).join('')}
+      <button class="chip ${v === 'other' ? 'on' : ''}" data-act="log-set" data-field="${field}" data-value="other"${dis}>Ate something else</button>
       <button class="chip ${v === 'skipped' ? 'on' : ''}" data-act="log-set" data-field="${field}" data-value="skipped"${dis}>Skipped</button></div>
-      ${v === 'other' ? text(`${field}Text`, e[`${field}Text`], 'What did you have?', dis) : ''}`;
+      ${v === 'other' ? `${text(`${field}Text`, e[`${field}Text`], 'What did you have? (optional)', dis)}${foodPicker(e, field, dis)}` : ''}`;
   };
   const other = s.people[1 - p];
   const otherDone = isLogged(entryFor(s, iso, 1 - p));
@@ -69,6 +144,12 @@ export function renderToday(s, ui, icon) {
     const a = waterAnswer(e, h);
     return `<button class="chip water-chip ${a || ''}" data-act="water-chip" data-slot="${h}" aria-label="${slotLabel(h)} check-in: ${a || 'unanswered'}"${dis}>${slotLabel(h)}${a === 'yes' ? ' ✓' : a === 'no' ? ' ✗' : ''}</button>`;
   }).join('');
+  const nowMins = new Date().getHours() * 60 + new Date().getMinutes();
+  const loggedMeals = ['breakfast', 'lunch', 'dinner'].filter((f) => e[f]).length;
+  const mealLogPrompt = isToday && nowMins >= 21 * 60 + 30 && loggedMeals < 3 && !e.done && ui.mealLogSnooze !== today
+    ? `<section class="card water-prompt"><h3>Time to log today’s meals</h3>
+      <p>${esc(s.people[p].name)} has ${loggedMeals} of 3 meals logged. Fill in the rest below so today’s protein, carbs and fibre count.</p>
+      <div class="row-btns"><button class="btn ghost" data-act="meallog-later">Later</button></div></section>` : '';
   const wp = ui.waterPrompt;
   const promptCard = wp ? `<section class="card water-prompt">
     <h3>Water check-in · ${slotLabel(wp.slot)}</h3>
@@ -92,6 +173,10 @@ export function renderToday(s, ui, icon) {
       ${otherDone ? '' : ` ${esc(other.name)} hasn't logged this day yet.`}</p>
   </section>
 
+  ${mealLogPrompt}
+  ${renderIntake(s, p, e, isToday)}
+  ${renderSupps(s, p, iso, dis)}
+
   <section class="card log">
     <h3>Water check-in</h3>
     <div class="chips wrapchips water-slots">${slotChips || '<span class="muted">Check-ins start at 9am</span>'}</div>
@@ -111,7 +196,7 @@ export function renderToday(s, ui, icon) {
     <h3>Breakfast &amp; shake</h3>
     ${renderFixedToday(s, p)}
     ${seg('breakfast', e.breakfast, [['usual', 'As usual'], ['other', 'Something else'], ['skipped', 'Skipped']], dis)}
-    ${e.breakfast === 'other' ? text('breakfastText', e.breakfastText, 'What did you have?', dis) : ''}
+    ${e.breakfast === 'other' ? `${text('breakfastText', e.breakfastText, 'What did you have? (optional)', dis)}${foodPicker(e, 'breakfast', dis)}` : ''}
     ${MEALS.map(([f, label]) => `<h3>${label}</h3>${mealPicker(f)}`).join('')}
   </section>
 
@@ -119,6 +204,7 @@ export function renderToday(s, ui, icon) {
     <summary>More about today <span class="muted">· snacks, cheats, rating, note</span></summary>
     <h3>Snacks</h3>
     ${text('snacks', e.snacks, 'e.g. fruit, protein bar, chai', dis)}
+    ${foodPicker({ ...e, snackFoods: e.snackFoods }, 'snack', dis, false)}
     <h3>Cheats</h3>
     <label class="toggle"><input type="checkbox" data-act="log-cheatday" ${e.cheatDay ? 'checked' : ''}${dis}><span>This was a cheat day</span></label>
     <div class="chips wrapchips">${(e.cheats || []).map((c, i) => `<span class="chip on cheat">${esc(c)} <button class="x" data-act="log-uncheat" data-i="${i}" aria-label="Remove"${dis}>×</button></span>`).join('')}</div>

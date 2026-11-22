@@ -20,7 +20,7 @@ console.log('PASS: party quantities, merged provenance, extras, active toggle, c
   const sx = defaultState();
   sx.exclusions = { allergies: ['cashews'], dislikes: ['mushrooms'] };
   sx.plan.slots = generateSlots(sx);
-  assert(sx.plan.slots.length === 5);
+  assert(sx.plan.slots.length === 7);
   for (const sl of sx.plan.slots) {
     const rr = RECIPE_BY_ID[sl.id];
     assert(rr && !rr.items.some((it) => it.id === 'cashews' || it.id === 'mushrooms'));

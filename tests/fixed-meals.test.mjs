@@ -9,13 +9,13 @@ const rules = { mealsPerDish: 2 };
 t('no list keeps typed outside numbers', () => {
   const p = { proteinMin: 100, proteinMax: 130, outsideProtein: 40, outsideKcal: 500 };
   assert.deepEqual(fixedMealsOf(p), []);
-  assert.deepEqual(outsideOf(p), { protein: 40, kcal: 500 });
+  assert.deepEqual(outsideOf(p), { protein: 40, kcal: 500, carbs: null, fibre: null });
   assert.deepEqual(perMealGoal(p, rules), { min: 30, max: 45 });
 });
 
 t('presets add up to the agreed daily numbers', () => {
-  assert.deepEqual(fixedTotals({ fixedMeals: presetItems('jatin') }), { protein: 58, kcal: 650 });
-  assert.deepEqual(fixedTotals({ fixedMeals: presetItems('divya') }), { protein: 37, kcal: 675 });
+  assert.deepEqual(fixedTotals({ fixedMeals: presetItems('jatin') }), { protein: 58, kcal: 650, carbs: 54, fibre: 3 });
+  assert.deepEqual(fixedTotals({ fixedMeals: presetItems('divya') }), { protein: 37, kcal: 675, carbs: 55, fibre: 11 });
 });
 
 t('presetItems returns a copy, never the shared preset', () => {
@@ -35,7 +35,7 @@ t('list totals drive the per-meal goal and sync into the typed fields', () => {
 
 t('blank, missing or bad numbers count as zero', () => {
   const p = { fixedMeals: [blankFixedMeal(), { protein: 'x', kcal: -5 }, { protein: '12', kcal: 100 }] };
-  assert.deepEqual(fixedTotals(p), { protein: 12, kcal: 100 });
+  assert.deepEqual(fixedTotals(p), { protein: 12, kcal: 100, carbs: 0, fibre: 0 });
 });
 
 console.log(`fixed-meals: ${n} passed`);

@@ -2,7 +2,7 @@ import { renderPrep, setupPrepEvents } from './prep.js';
 import { renderExtrasCard, renderPartiesCard, setupGroceryEvents } from './grocery-ui.js';
 import { RECIPES, RECIPE_BY_ID, GROUPS, INGREDIENTS, DIET_LABEL, PROTEIN_LABEL, youtubeUrl, isVeg, kindOf, DATA_ERRORS, exclusionHits, ALLERGEN_CATS, DISPLAY_GROUPS, displayKind } from './data.js';
 import { getState, update, onChange, defaultState, replaceState } from './state.js';
-import { generateSlots, slotKind, planRecipes, alternatives, randomSwap, removeSlot, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes, localISO, weekRelation, weekRangeLabel } from './planner.js';
+import { generateSlots, slotKind, planRecipes, alternatives, randomSwap, removeSlot, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes, localISO, weekRelation, weekRangeLabel, arrangeDays, WEEK_DAYS, dayISO, isWeekendISO, weekendMisses, cookFrom } from './planner.js';
 import { renderLog, shiftDay, shiftMonth } from './log.js';
 import { buildGrocery, weeklyNoteText, scaleFactor, formatQty, qtyText } from './grocery.js';
 import { exportExcel } from './export.js';
@@ -20,6 +20,8 @@ import { recordEvent, clearJournal } from './journal.js';
 import { startJournalSync, syncJournal } from './journal-sync.js';
 import { answerGoal } from './goalcheck.js';
 import { FIXED_MEAL_PRESETS, fixedMealsOf, fixedTotals, blankFixedMeal, presetItems, syncFixedTotals } from './fixed-meals.js';
+import { SUPPLEMENT_PRESETS, supplementsOf, presetSupplements, blankSupplement } from './supplements.js';
+import { addMealPhoto, removeMealPhoto, loadMealPhotos, onMealPhotos } from './meal-photos.js';
 
 const $ = (sel, el = document) => el.querySelector(sel);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -116,7 +118,7 @@ function resizePlan(d) {
   const locked = new Map(d.plan.slots.map((s) => [s.id, s.locked]));
   const ordered = [...d.plan.slots.filter((s) => s.locked), ...d.plan.slots.filter((s) => !s.locked)];
   const asLocked = { ...d, plan: { ...d.plan, slots: ordered.map((s) => ({ ...s, locked: true })) } };
-  d.plan.slots = generateSlots(asLocked).map((s) => ({ ...s, locked: locked.get(s.id) ?? false }));
+  d.plan.slots = arrangeDays(d, generateSlots(asLocked).map((s) => ({ ...s, locked: locked.get(s.id) ?? false })));
 }
 
 function ensurePlan() {
@@ -129,7 +131,8 @@ function ensurePlan() {
     return r && (x.locked || r.diet !== 'egg' || rules.eggsCountAsVeg);
   };
   const valid = s.plan.slots.every((x) => fits(x, s.rules));
-  if (!valid || c.chicken !== s.rules.chickenDishes || c.veg !== s.rules.vegDishes) {
+  const undated = s.plan.slots.some((x) => !Number.isInteger(x.day));
+  if (!valid || undated || c.chicken !== s.rules.chickenDishes || c.veg !== s.rules.vegDishes) {
     update((d) => {
       d.plan.slots = d.plan.slots.filter((x) => fits(x, d.rules));
       resizePlan(d);
@@ -140,6 +143,22 @@ function ensurePlan() {
 
 // Older saves used hearts; turn each favourite into 5 stars from both of you.
 function migrate() {
+  // 7-day week (one dish a day): older saves planned 5. Scale the chicken/veg
+  // targets up to 7 in the same proportion - but never under a finalized week,
+  // whose grocery list is already fixed; that waits for the next week.
+  const s0 = getState();
+  if (!s0.migrations?.sevenDay && !s0.plan.finalizedAt) {
+    update((d) => {
+      d.migrations ||= {};
+      const c = d.rules.chickenDishes, v = d.rules.vegDishes, t = c + v;
+      if (t < WEEK_DAYS) {
+        const nc = t ? Math.round((WEEK_DAYS * c) / t) : 4;
+        d.rules.chickenDishes = nc;
+        d.rules.vegDishes = WEEK_DAYS - nc;
+      }
+      d.migrations.sevenDay = true;
+    });
+  }
   const s = getState();
   if (!s.favourites?.length) return;
   update((d) => {
@@ -218,8 +237,19 @@ function personSummary(d, rules) {
       ${meter(d.kcal, p.kcalMin, p.kcalMax)}
       <div class="fine">${p.kcalMin.toLocaleString()}–${p.kcalMax.toLocaleString()} · <span class="st ${ks.cls}">${ks.text}</span></div>
     </div>
+    ${d.carbs != null ? `<div class="stat"><div class="stat-line"><b>${d.carbs} g</b> carbs · <b>${d.fibre} g</b> fibre</div>
+      <div class="fine">Fibre goal ${p.fibreTarget || 30} g · <span class="st ${d.fibre >= (p.fibreTarget || 30) ? 'ok' : 'warn'}">${d.fibre >= (p.fibreTarget || 30) ? 'on target' : `${(p.fibreTarget || 30) - d.fibre} g short`}</span></div></div>`
+      : '<div class="fine">Carbs and fibre: add carbs and fibre to your fixed meals in Settings to see a day estimate.</div>'}
     <div class="goal">Per meal: <b>${goal.min}–${goal.max} g</b> protein</div>
   </div>`;
+}
+
+// 1.25 -> "1¼ servings", 0.75 -> "¾ serving".
+function servingsText(x) {
+  const whole = Math.floor(x + 1e-9);
+  const frac = { 0: '', 0.25: '¼', 0.5: '½', 0.75: '¾' }[Math.round((x - whole) * 4) / 4] ?? '';
+  const n = `${whole || (frac ? '' : '0')}${frac}`;
+  return `${n} serving${x > 1 ? 's' : ''}`;
 }
 
 function dishCard(r, i, slot, s) {
@@ -240,11 +270,12 @@ function dishCard(r, i, slot, s) {
     <h3>${esc(r.name)}</h3>
     <div class="meta">${dietDot(r)} ${esc(r.cuisine)}${r.custom ? ' · nutrition unknown' : r.imported ? ` · fixed ${r.baseServings}-serving batch${r.diet === 'unknown' ? ' · diet not classified' : ''}${r.limitation ? ` · ${esc(r.limitation.summary)}` : ''} · ${nutritionLabel(r)}` : ` · ${icon('clock', 'sm')} ${r.time} min · ${PROTEIN_LABEL[r.mainProtein] || ''}`}</div>
     <div class="macros">${s.people.map((p) => {
-      const m = mealFor(r, p);
+      const m = mealFor(r, p, s.rules);
       if (m.protein == null) return `<span><b>${esc(p.name)}</b> <span class="fine">${nutritionLabel(r)}</span></span>`;
       const g = perMealGoal(p, s.rules);
       const cls = m.protein < g.min ? 'warn' : 'ok';
-      return `<span><b>${esc(p.name)}</b> <span class="st ${cls}">${r.nutritionApproximate ? '~' : ''}${m.protein} g</span> · ${r.nutritionApproximate ? '~' : ''}${m.kcal} kcal</span>`;
+      const ap = r.nutritionApproximate ? '~' : '';
+      return `<span><b>${esc(p.name)}</b> ${servingsText(m.portion)} · <span class="st ${cls}">${ap}${m.protein} g protein</span>${m.carbs != null ? ` · ${ap}${m.carbs} g carbs` : ''}${m.fibre != null ? ` · ${ap}${m.fibre} g fibre` : ''} · ${ap}${m.kcal} kcal</span>`;
     }).join('')}</div>
     ${slot.note ? `<div class="slot-note">${icon('note', 'sm')} ${esc(slot.note)}</div>` : ''}
     <div class="actions">
@@ -287,6 +318,27 @@ function glanceChip(d) {
   return `<span class="pill ${ps.cls}">${esc(p.name)} · ${ps.text}</span>`;
 }
 
+// "Cook from what we have": ingredients at home -> dishes that use them most.
+function renderOnHand(s) {
+  const have = s.onHand || [];
+  const matches = have.length ? cookFrom(s, have).slice(0, 8) : [];
+  const names = Object.values(INGREDIENTS).filter((i) => i.aisle !== 'spices').map((i) => i.name).sort();
+  return `<section class="card onhand">
+    <details ${have.length ? 'open' : ''}><summary><b>Cook from what we have</b> <span class="muted">· ${have.length ? `${have.length} ingredient${have.length === 1 ? '' : 's'} at home` : 'tell it what’s in the fridge'}</span></summary>
+      <p class="fine">Add what you already have (say paneer and spinach) and see the dishes that use the most of it. Tap one to put it on a day.</p>
+      <div class="chips wrapchips">${have.map((id) => `<span class="chip on">${esc(INGREDIENTS[id]?.name || id)} <button class="x" data-act="onhand-del" data-id="${id}" aria-label="Remove">×</button></span>`).join('')}</div>
+      <div class="searchbar">${icon('search')}<input id="oh-q" list="oh-list" placeholder="Add an ingredient, e.g. paneer" autocomplete="off"></div>
+      <datalist id="oh-list">${names.map((n) => `<option value="${esc(n)}">`).join('')}</datalist>
+      ${have.length && !matches.length ? '<p class="empty">No dishes use these yet. Try adding a protein like paneer, chicken or dal.</p>' : ''}
+      <div class="sheet-list">${matches.map(({ r, used }) => `<button class="pick" data-act="onhand-pick" data-id="${r.id}">
+        <span class="rname">${dietDot(r)} ${esc(r.name)}</span>
+        <span class="meta">Uses ${used.map((id) => esc(INGREDIENTS[id]?.name || id)).join(', ')} · ${r.time} min · ${r.protein} g protein</span>
+      </button>`).join('')}</div>
+      ${have.length ? '<button class="link" data-act="onhand-clear">Clear the list</button>' : ''}
+    </details>
+  </section>`;
+}
+
 function renderWeek(s) {
   const recipes = planRecipes(s);
   const totalTime = recipes.reduce((a, r) => a + (r.time || 0), 0);
@@ -295,12 +347,23 @@ function renderWeek(s) {
     ? `${fmtTime(totalTime)} cooking for the dishes with listed times · time not listed for ${noTimeCount}`
     : `${fmtTime(totalTime)} cooking in total`;
   const lockedCount = s.plan.slots.filter((x) => x.locked).length;
-  const section = (kind, title) => {
-    const items = s.plan.slots.map((slot, i) => ({ slot, i, r: dishById(s, slot.id) }))
-      .filter((x) => x.r && displayKind(x.r, s.rules.eggsCountAsVeg) === kind);
-    if (!items.length) return '';
-    return `<h2 class="sec-title">${title} <span class="muted">(${items.length})</span></h2>
-      <ol class="dishes">${items.map((x) => dishCard(x.r, x.i, x.slot, s)).join('')}</ol>`;
+  const weekOf = s.plan.weekOf || weekStart(s.rules.startDay ?? 0);
+  const byDay = new Map(s.plan.slots.map((slot, i) => [slot.day, { slot, i, r: dishById(s, slot.id) }]));
+  const kinds = [...Array(WEEK_DAYS).keys()].map((d) => { const x = byDay.get(d); return x?.r ? slotKind(x.slot, x.r, s.rules) : null; });
+  const weekendWarn = s.plan.slots.length && weekendMisses(kinds, weekOf)
+    ? `<p class="fine st warn day-warn">Saturday and Sunday should each have exactly one non-veg meal. Shuffle, or change the chicken/veg mix, to fix it.</p>` : '';
+  const dayBlock = (d) => {
+    const iso = dayISO(weekOf, d);
+    const date = new Date(`${iso}T12:00:00`);
+    const wd = date.toLocaleDateString('en-AU', { weekday: 'long' });
+    const label = `${wd} ${date.getDate()} ${date.toLocaleDateString('en-AU', { month: 'short' })}`;
+    const x = byDay.get(d);
+    const prev = byDay.get(d - 1)?.r;
+    const lunch = prev ? `Lunch: ${esc(prev.name)} (leftovers)` : d === 0 ? 'Lunch: your call' : 'Lunch: nothing planned';
+    const head = `<div class="day-head"><b>${label}</b>${isWeekendISO(iso) ? ' <span class="badge">Weekend</span>' : ''}${x?.slot.pinned ? ` <span class="badge">${icon('lock', 'sm')} Pinned</span>` : ''}<div class="fine">${lunch} · Dinner below, leftovers are tomorrow's lunch</div></div>`;
+    if (x?.r) return `<section class="day-block">${head}<ol class="dishes">${dishCard(x.r, x.i, x.slot, s)}</ol></section>`;
+    return `<section class="day-block">${head}<div class="dish empty-day"><p class="muted">No dinner planned</p>
+      ${s.plan.finalizedAt ? '' : `<button class="btn small" data-act="add-day" data-day="${d}">${icon('plus')} Add a dish for ${wd}</button>`}</div></section>`;
   };
   if (ui.checkin) return renderCheckin(s);
   // Name the week the plan is actually for (it's next week's after "Finish week"), with dates.
@@ -313,7 +376,7 @@ function renderWeek(s) {
     <div class="glance-chips">${daily(s).map(glanceChip).join('')}</div>
     <details class="nutrition-detail"><summary>Nutrition details <span class="chev" aria-hidden="true">›</span></summary>
       <div class="people">${daily(s).map((d) => personSummary(d, s.rules)).join('')}</div>
-      <p class="fine">Average day: ${s.rules.mealsPerDish === 2 ? 'lunch + dinner from these dishes' : 'dinner from these dishes'}, plus shake, breakfast &amp; snacks from Settings. Cook in any order.</p>
+      <p class="fine">Average day: ${s.rules.mealsPerDish === 2 ? 'lunch + dinner from these dishes' : 'dinner from these dishes'}, plus shake, breakfast &amp; snacks from Settings. ${s.rules.autoPortion === false ? 'Portions come from the sliders in Settings.' : 'Each person’s portion of every dish is sized to their protein goal.'}</p>
     </details>
   </section>
 
@@ -331,7 +394,8 @@ function renderWeek(s) {
     ? `<p class="fine gesture-hint">Week finalized — tap “Edit week” above to change dishes · swipe right on a dish for a note</p>`
     : `<p class="fine gesture-hint">Long-press a dish to lock it · swipe left to remove · swipe right for a note</p>`}
 
-  ${DISPLAY_GROUPS.map(([kind,label]) => section(kind, esc(label))).join('')}
+  ${weekendWarn}
+  ${[...Array(WEEK_DAYS).keys()].map(dayBlock).join('')}
 
   ${s.plan.finalizedAt ? '' : `<div class="remix-row">
     <span class="mix-count">Planner target: ${s.rules.chickenDishes} chicken · ${s.rules.vegDishes} veg</span>
@@ -344,6 +408,8 @@ function renderWeek(s) {
       </div>
     </details>
   </div>`}
+
+  ${s.plan.finalizedAt ? '' : renderOnHand(s)}
 
   <div class="stack">
     ${s.plan.finalizedAt
@@ -442,7 +508,7 @@ function filteredRecipes(s) {
 }
 
 function ingredientList(r, s) {
-  const factor = scaleFactor(s);
+  const factor = scaleFactor(s, r);
   const xa = new Set(s.exclusions?.allergies || []);
   const xd = new Set(s.exclusions?.dislikes || []);
   return `<ul class="ings">${r.items.map(({ id, qty }) => {
@@ -726,6 +792,28 @@ function renderFixedMeals(p, i) {
   </details>`;
 }
 
+// Vitamins & supplements list (ticked off on the Today tab).
+function renderSupplementsEditor(p, i) {
+  const items = supplementsOf(p);
+  const txt = (k, v, ph) => `<input type="text" data-set="people.${i}.supplements.${k}" value="${esc(v ?? '')}" placeholder="${esc(ph)}" autocomplete="off">`;
+  return `<details class="fixed-meals" ${items.length ? 'open' : ''}>
+    <summary>Vitamins &amp; supplements <span class="muted">· ${items.length ? `${items.length} to tick off on Today` : 'track what you take each day'}</span></summary>
+    ${items.map((m, j) => `<div class="fixed-item">
+      <div class="grid2">
+        <label class="field"><span>Name</span>${txt(`${j}.name`, m.name, 'e.g. Omega-3')}</label>
+        <label class="field"><span>Dose</span>${txt(`${j}.dose`, m.dose, 'e.g. 1 capsule')}</label>
+        <label class="field"><span>When</span>${txt(`${j}.when`, m.when, 'e.g. with lunch')}</label>
+        <label class="field"><span>Every (days)</span>${num(`people.${i}.supplements.${j}.every`, m.every ?? 1, 'min="1"')}</label>
+      </div>
+      <button class="btn ghost small" data-act="supp-remove" data-p="${i}" data-i="${j}">Remove</button>
+    </div>`).join('')}
+    <div class="btnrow">
+      <button class="btn small" data-act="supp-add" data-p="${i}">Add one</button>
+      ${items.length ? '' : Object.entries(SUPPLEMENT_PRESETS).map(([k, pr]) => `<button class="btn ghost small" data-act="supp-preset" data-p="${i}" data-preset="${k}">Load ${esc(pr.label)}</button>`).join('')}
+    </div>
+  </details>`;
+}
+
 function renderSettings(s) {
   const recipes = planRecipes(s);
   const cfg = getConfig() || {};
@@ -755,15 +843,23 @@ function renderSettings(s) {
           ${fixedMealsOf(p).length ? `<div class="field"><span>Outside plan (from fixed meals)</span><b>${fixedTotals(p).protein} g · ${fixedTotals(p).kcal} kcal</b></div>` : `<label class="field"><span>Protein outside plan</span>${num(`people.${i}.outsideProtein`, p.outsideProtein)}</label>
           <label class="field"><span>Calories outside plan</span>${num(`people.${i}.outsideKcal`, p.outsideKcal)}</label>`}
           <label class="field"><span>Water goal (glasses/day)</span>${num(`people.${i}.waterGlasses`, waterGoal(p))}</label>
+          <label class="field"><span>Fibre goal (g/day)</span>${num(`people.${i}.fibreTarget`, p.fibreTarget ?? 30)}</label>
         </div>
         <p class="fine">“Outside plan” = shake, breakfast and snacks on a normal day. What's left is split across lunch and dinner: <b>${goal.min}–${goal.max} g protein per meal</b>.</p>
         ${renderFixedMeals(p, i)}
-        <label class="field"><span><span>Portion size: <b>${p.portion.toFixed(2)}×</b> a standard serving</span>
+        ${renderSupplementsEditor(p, i)}
+        <label class="field"><span><span>${s.rules.autoPortion === false ? 'Portion size' : 'Portion when a dish’s protein is unknown'}: <b>${p.portion.toFixed(2)}×</b> a standard serving</span>
           <span class="fine">${avgP == null ? 'Meal average unknown - this week includes dishes with unknown nutrition.' : `≈ ${Math.round(avgP * p.portion)} g protein · ${Math.round(avgK * p.portion)} kcal per meal this week${avgPartial ? ' (known dishes only)' : ''}`}</span></span>
           <input type="range" min="0.5" max="2" step="0.05" data-set="people.${i}.portion" value="${p.portion}">
         </label>
       </div>`;
     }).join('')}
+  </section>
+
+  <section class="card">
+    <h2>Portions</h2>
+    <label class="rule toggle"><span>Size each person’s portion of every dish to their protein goal (Week tab shows how many servings each of you eats)</span><input type="checkbox" data-set="rules.autoPortion" ${s.rules.autoPortion !== false ? 'checked' : ''}></label>
+    <p class="fine">Off: everyone eats the same portion of every dish, set by the sliders above. Groceries scale either way.</p>
   </section>
 
   ${renderExclusions(s)}
@@ -964,17 +1060,22 @@ garam masala"></textarea></label>
   if (addMode && ui.sheet.pick != null) {
     const picked = dishById(s, ui.sheet.pick);
     if (!picked) { ui.sheet = null; renderSheet(s); return; }
+    const weekOf = s.plan.weekOf || weekStart(s.rules.startDay ?? 0);
     el.innerHTML = `<div class="backdrop" data-act="close-sheet"></div>
-  <div class="sheet" role="dialog" aria-label="Choose which dish it replaces">
-    <header><div><div class="fine">Adding ${esc(picked.name)}</div><h2>Which dish should it replace?</h2></div>
+  <div class="sheet" role="dialog" aria-label="Choose a day">
+    <header><div><div class="fine">Adding ${esc(picked.name)}</div><h2>Which day?</h2></div>
       <button class="act icon-only" data-act="close-sheet" aria-label="Close">${icon('x')}</button></header>
     <div class="sheet-list">
-      ${s.plan.slots.map((slot, i) => {
-        const cur = dishById(s, slot.id);
-        if (!cur) return '';
-        return `<button class="pick" data-act="pick-replace" data-i="${i}">
-        <span class="rname">${dietDot(cur)} ${esc(cur.name)}${slot.locked ? ' <span class="fine">(locked)</span>' : ''}</span>
-        <span class="meta">${esc(cur.cuisine)}${cur.time != null ? ` · ${cur.time} min` : ''}</span>
+      <p class="fine">It’s that day’s dinner, and the leftovers are the next day’s lunch. Pinned to the day, so Shuffle keeps it.</p>
+      ${[...Array(WEEK_DAYS).keys()].map((d) => {
+        const slot = s.plan.slots.find((x) => x.day === d);
+        const cur = slot && dishById(s, slot.id);
+        const date = new Date(`${dayISO(weekOf, d)}T12:00:00`);
+        const free = !cur;
+        const blocked = free && picked.imported;
+        return `<button class="pick" data-act="pick-day" data-day="${d}" ${blocked ? 'disabled' : ''}>
+        <span class="rname">${date.toLocaleDateString('en-AU', { weekday: 'long', day: 'numeric', month: 'short' })}</span>
+        <span class="meta">${cur ? `Replaces ${dietDot(cur)} ${esc(cur.name)}${slot.locked ? ' (locked)' : ''}` : blocked ? 'Free day - imported batches can only replace a dish' : 'Free day'}</span>
       </button>`;
       }).join('')}
       <button class="link" data-act="pick-back">&lsaquo; Back to search</button>
@@ -1098,6 +1199,7 @@ function setTab(tab) {
   window.scrollTo(0, 0);
   render();
   if (tab === 'bought') loadReceipts();
+  if (tab === 'today') loadMealPhotos();
   if (tab === 'feed' && authUser()) refreshFeed();
 }
 
@@ -1159,8 +1261,40 @@ function replaceSlot(i, id) {
   update((d) => {
     const old = d.plan.slots[i];
     const planKind = slotKind(old, dishById(d, old.id), d.rules);
-    d.plan.slots[i] = { id, locked: false, ...(IMPORTED.has(id) ? { planKind } : {}) };
+    d.plan.slots[i] = { id, locked: false, ...(Number.isInteger(old.day) ? { day: old.day } : {}), ...(old.pinned ? { pinned: true } : {}), ...(IMPORTED.has(id) ? { planKind } : {}) };
+    d.plan.slots = arrangeDays(d);
   });
+}
+
+// Put a chosen dish on a day: replaces that day's dish, or fills a free day.
+// Pinned + locked, so Shuffle and re-arranging leave it there. The chicken/veg
+// targets follow, so the next load doesn't drop or refill anything.
+function placeOnDay(id, day) {
+  const s = getState();
+  const picked = dishById(s, id);
+  if (!picked) return;
+  ui.sheet = null;
+  const weekOf = s.plan.weekOf || weekStart(s.rules.startDay ?? 0);
+  const wd = new Date(`${dayISO(weekOf, day)}T12:00:00`).toLocaleDateString('en-AU', { weekday: 'long' });
+  update((d) => {
+    const i = d.plan.slots.findIndex((x) => x.day === day);
+    const bump = (kind, by) => { if (kind === 'veg' || kind === 'chicken') { const k = kind === 'veg' ? 'vegDishes' : 'chickenDishes'; d.rules[k] = Math.max(0, d.rules[k] + by); } };
+    if (i >= 0) {
+      const old = d.plan.slots[i];
+      const planKind = slotKind(old, dishById(d, old.id), d.rules);
+      d.plan.slots[i] = { id, locked: true, pinned: true, day, ...(picked.imported ? { planKind } : {}) };
+      if (!picked.imported) {
+        const newKind = kindOf(picked, d.rules.eggsCountAsVeg);
+        if (newKind !== planKind) { bump(planKind, -1); bump(newKind, 1); }
+      }
+    } else {
+      d.plan.slots.push({ id, locked: true, pinned: true, day });
+      bump(kindOf(picked, d.rules.eggsCountAsVeg), 1);
+    }
+    d.plan.slots = arrangeDays(d);
+  });
+  render();
+  toast(`${picked.name} is ${wd}’s dinner - pinned, so Shuffle keeps it`);
 }
 
 // A deliberate pick from the Week tab search ("I've decided what I want to
@@ -1176,19 +1310,7 @@ function startWeekPick(id) {
     const gate = importedAddStatus(s, id);
     if (!gate.allowed) { toast(gate.reason); return; }
   }
-  if (!r.imported && targetDishes(s.rules) < 7) {
-    const kind = kindOf(r, s.rules.eggsCountAsVeg);
-    ui.sheet = null;
-    update((d) => {
-      d.plan.slots.push({ id, locked: true });
-      // Your own dish with no diet told to us grows the week without
-      // pretending to fill a chicken or veg target.
-      if (kind === 'veg' || kind === 'chicken') d.rules[kind === 'veg' ? 'vegDishes' : 'chickenDishes']++;
-      resizePlan(d);
-    });
-    toast(`Added ${r.name} — locked, so Shuffle keeps it`);
-    return;
-  }
+  if (ui.sheet?.day != null) { placeOnDay(id, ui.sheet.day); return; }
   ui.sheet = { ...ui.sheet, pick: id };
   renderSheet(s);
 }
@@ -1441,6 +1563,60 @@ const actions = {
     if (!confirm('Edit this week? Changing dishes also changes the grocery list — fine if you haven’t shopped yet.')) return;
     update((d) => { d.plan.finalizedAt = 0; });
   },
+  // Week by day: add a dish to an empty day / choose a day for a picked dish.
+  'add-day': (el) => {
+    if (getState().plan.finalizedAt) { toast('This week is finalized — tap “Edit week” first'); return; }
+    ui.sheet = { index: null, filter: 'any', query: '', pick: null, day: Number(el.dataset.day) };
+    renderSheet(getState());
+    $('#sq')?.focus();
+  },
+  'pick-day': (el) => {
+    const id = ui.sheet?.pick;
+    if (id == null) return;
+    placeOnDay(id, Number(el.dataset.day));
+  },
+  // Cook from what we have.
+  'onhand-del': (el) => update((d) => { d.onHand = (d.onHand || []).filter((x) => x !== el.dataset.id); }),
+  'onhand-clear': () => update((d) => { d.onHand = []; }),
+  'onhand-pick': (el) => {
+    if (getState().plan.finalizedAt) { toast('This week is finalized — tap “Edit week” first'); return; }
+    ui.sheet = { index: null, filter: 'any', query: '', pick: null };
+    startWeekPick(el.dataset.id);
+  },
+  // Vitamins & supplements list (Settings → People).
+  'supp-add': (el) => update((d) => { const p = d.people[Number(el.dataset.p)]; p.supplements = [...supplementsOf(p), blankSupplement()]; }),
+  'supp-remove': (el) => update((d) => { const p = d.people[Number(el.dataset.p)]; p.supplements = supplementsOf(p).filter((_, j) => j !== Number(el.dataset.i)); }),
+  'supp-preset': (el) => {
+    update((d) => { d.people[Number(el.dataset.p)].supplements = presetSupplements(el.dataset.preset); });
+    toast('Loaded - edit any line to match what you take');
+  },
+  // Today: tick a supplement, and log foods eaten instead of / besides the plan.
+  'supp-toggle': (el) => setEntry((e) => { e.supps = { ...(e.supps || {}) }; if (e.supps[el.dataset.id]) delete e.supps[el.dataset.id]; else e.supps[el.dataset.id] = true; }),
+  'food-add': (el) => {
+    const field = el.dataset.field;
+    const food = document.getElementById(`ff-${field}`)?.value;
+    if (!food) { toast('Pick a food first'); return; }
+    setEntry((e) => {
+      const list = [...(e[`${field}Foods`] || [])];
+      const hit = list.find((x) => x.food === food);
+      if (hit) hit.n += 1; else list.push({ food, n: 1 });
+      e[`${field}Foods`] = list;
+    });
+  },
+  'food-n': (el) => setEntry((e) => {
+    const list = [...(e[`${el.dataset.field}Foods`] || [])];
+    const it = list[Number(el.dataset.i)];
+    if (!it) return;
+    it.n = Math.max(0, Math.round((it.n + Number(el.dataset.d)) * 2) / 2);
+    e[`${el.dataset.field}Foods`] = list.filter((x) => x.n > 0);
+  }),
+  'meal-photo-remove': (el) => {
+    const field = el.dataset.field;
+    const id = getState().days?.[ui.logDate]?.[ui.logPerson]?.[`${field}Photo`];
+    setEntry((e) => { delete e[`${field}Photo`]; });
+    if (id) removeMealPhoto(id).catch(() => {});
+  },
+  'meallog-later': () => { ui.mealLogSnooze = localISO(); render(); },
   // Fixed meals (Settings → People). Totals are copied into outsideProtein/outsideKcal.
   'fixed-add': (el) => {
     update((d) => { const p = d.people[Number(el.dataset.p)]; p.fixedMeals = [...fixedMealsOf(p), blankFixedMeal()]; syncFixedTotals(d); });
@@ -1740,6 +1916,8 @@ const JOURNAL_SKIP_ACTS = new Set([
   'log-set', 'log-cheatday', 'log-uncheat',
   'log-done', // not in the server-side act vocabulary; recording it would fail the upload batch
   'fixed-add', 'fixed-remove', 'fixed-preset', // diet items are health habits, and not in the server act vocabulary
+  'supp-add', 'supp-remove', 'supp-preset', 'supp-toggle', 'food-add', 'food-n', 'meal-photo-remove', 'meallog-later', // health logging
+  'add-day', 'pick-day', 'onhand-del', 'onhand-clear', 'onhand-pick', // not in the server act vocabulary yet
   'goal-answer', 'goal-wrong', 'goal-pick', 'goal-skip',
   'tab', // tab switches are recorded as tab events by setTab, not as acts
 ]);
@@ -1762,6 +1940,26 @@ document.addEventListener('change', (e) => {
     ui.uploading = true; render();
     addReceipt(files, { by: ui.logPerson, weekOf: getState().plan.weekOf })
       .then(() => toast('Receipt saved — Claude will read it'), (err) => toast(`Not saved: ${err.message}`))
+      .finally(() => { ui.uploading = false; render(); });
+    return;
+  }
+  if (el.id === 'oh-q') {
+    const q = el.value.trim().toLowerCase();
+    if (!q) return;
+    const entries = Object.entries(INGREDIENTS).filter(([, i]) => i.aisle !== 'spices');
+    const hit = entries.find(([, i]) => i.name.toLowerCase() === q) || entries.find(([, i]) => i.name.toLowerCase().startsWith(q)) || entries.find(([, i]) => i.name.toLowerCase().includes(q));
+    if (!hit) { toast('Not in the ingredient list - try a simpler name'); return; }
+    update((d) => { d.onHand = [...new Set([...(d.onHand || []), hit[0]])]; });
+    return;
+  }
+  if (el.dataset.mealphoto && el.files?.[0]) {
+    const field = el.dataset.mealphoto;
+    const iso = ui.logDate, person = ui.logPerson;
+    const e0 = getState().days?.[iso]?.[person] || {};
+    ui.uploading = true; render();
+    addMealPhoto(el.files[0], { iso, person, meal: field, note: e0[`${field}Text`] || '', foods: e0[`${field}Foods`] || [] })
+      .then((id) => { setEntry((e) => { e[`${field}Photo`] = id; }); toast('Photo saved - Claude will estimate it'); },
+        (err) => toast(`Not saved: ${err.message}`))
       .finally(() => { ui.uploading = false; render(); });
     return;
   }
@@ -1841,14 +2039,15 @@ let receiptsTried = false;
 onSyncStatus((st) => {
   renderHeader();
   if (ui.tab === 'settings') render();
-  if (st.state === 'on' && !receiptsTried) { receiptsTried = true; loadReceipts(); }
+  if (st.state === 'on' && !receiptsTried) { receiptsTried = true; loadReceipts(); loadMealPhotos(); }
 });
 onReceipts(() => { if (ui.tab === 'bought' || ui.tab === 'groceries') render(); });
+onMealPhotos(() => { if (ui.tab === 'today' || ui.tab === 'home') render(); });
 // Re-check the plan whenever the shared state arrives from the other phone.
 onChange(() => {
   const s = getState();
   const c = kindCounts(s);
-  if (c.chicken !== s.rules.chickenDishes || c.veg !== s.rules.vegDishes) queueMicrotask(ensurePlan);
+  if (c.chicken !== s.rules.chickenDishes || c.veg !== s.rules.vegDishes || s.plan.slots.some((x) => !Number.isInteger(x.day))) queueMicrotask(ensurePlan);
 });
 function openFromLink() {
   const h = location.hash.slice(1);
@@ -1865,6 +2064,7 @@ document.addEventListener('visibilitychange', () => {
   if (document.visibilityState !== 'visible') return;
   if (localISO() !== lastDay) { ui.logDate = lastDay = localISO(); render(); }
   if (ui.tab === 'bought') loadReceipts();
+  if (ui.tab === 'today') loadMealPhotos();
   checkWaterReminder();
 });
 // Water check-ins: record a yes/no answer for a slot on a person's today entry.
