@@ -1,6 +1,7 @@
 // Daily food log ("Today" tab) and the month report built from it.
 import { dishById } from './custom.js';
-import { localISO, plannedFor } from './planner.js';
+import { localISO, plannedFor, perMealGoal } from './planner.js';
+import { fixedMealsOf, fixedTotals } from './fixed-meals.js';
 import { waterGoal, waterAnswer, waterCheckDay, slotLabel, slotsSoFar, WATER_SLOTS } from './water.js';
 
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -26,6 +27,21 @@ const text = (field, value, placeholder, dis = '') => `<input class="log-input" 
 
 // Has anything been logged for this person on this day?
 export const isLogged = (e) => !!(e.rating || e.lunch || e.dinner || e.breakfast || e.snacks || e.cheats?.length);
+
+// The person's fixed meals (Settings → People) with amounts, so the whole day is in one place.
+function renderFixedToday(s, p) {
+  const person = s.people[p];
+  const items = fixedMealsOf(person);
+  if (!items.length) return '';
+  const t = fixedTotals(person);
+  const goal = perMealGoal(person, s.rules);
+  return `<div class="fixed-today">
+    <p class="fine"><b>${esc(person.name)}'s fixed meals</b> · ${t.protein} g protein · ${t.kcal} kcal</p>
+    <ul class="fixed-list">${items.map((m) => `<li>${m.time ? `<span class="muted">${esc(m.time)}</span> ` : ''}<b>${esc(m.name || 'Item')}</b>${m.qty ? ` · ${esc(m.qty)}` : ''}
+      <span class="muted">· ${Number(m.protein) || 0} g · ${Number(m.kcal) || 0} kcal</span>${m.note ? `<br><span class="fine">${esc(m.note)}</span>` : ''}</li>`).join('')}</ul>
+    <p class="fine">Lunch and dinner each aim for ${goal.min}–${goal.max} g protein.</p>
+  </div>`;
+}
 
 export function renderToday(s, ui, icon) {
   const iso = ui.logDate;
@@ -93,6 +109,7 @@ export function renderToday(s, ui, icon) {
 
   <section class="card log">
     <h3>Breakfast &amp; shake</h3>
+    ${renderFixedToday(s, p)}
     ${seg('breakfast', e.breakfast, [['usual', 'As usual'], ['other', 'Something else'], ['skipped', 'Skipped']], dis)}
     ${e.breakfast === 'other' ? text('breakfastText', e.breakfastText, 'What did you have?', dis) : ''}
     ${MEALS.map(([f, label]) => `<h3>${label}</h3>${mealPicker(f)}`).join('')}

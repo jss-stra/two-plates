@@ -18,6 +18,7 @@ There's no build step. It's plain HTML, CSS and JavaScript modules, and everythi
 | `js/grocery.js` | Combines and scales ingredients into the shopping list. |
 | `js/export.js` | Excel export (shopping list, pantry check, menu with YouTube links). |
 | `js/sync.js` | Optional live sync between phones through Supabase. |
+| `js/fixed-meals.js` | Each person's fixed meals (breakfast, shakes, snacks with amounts), their totals, and the starting presets. |
 | `js/water.js` | Water goal helper and the fixed-time check-in slots, answers and summaries. |
 | `js/push.js` | Subscribe this phone for push reminders (even when the app is closed). |
 | `supabase/functions/water-reminders` | Edge function that sends the push notifications. |
@@ -74,6 +75,7 @@ Privacy note: the anon key is designed to be public, and the policy above lets a
 ## Changing the numbers
 
 - **Targets, shake/breakfast/snacks, portion sizes:** Settings → People. A portion of 1.25× means 1.25 standard servings per meal.
+- **Fixed meals:** Settings → People → Fixed meals. List breakfast, shakes and snacks with amounts, protein and calories (or load a starting plan). The totals replace the typed "outside plan" numbers, and the Today tab shows the list so the whole day is in one place.
 - **Veg quota, Indian veg count, time limit, cuisine mix:** Settings → Planning rules.
 - **Pantry staples:** Settings → Pantry staples, or tap "Have it" / "Need to buy" on the grocery list.
 - **A dish you don't like:** tap the eye-slash icon on the Recipes tab and it's never suggested again (undo under "Hidden").

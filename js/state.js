@@ -7,14 +7,15 @@ export function defaultState() {
     updatedAt: 0,
     // Placeholder people — enter your own names and targets in Settings.
     // "Outside" = breakfast, shakes and snacks: everything the plan doesn't cover.
+    // fixedMeals lists those items; when it has any, its totals replace the typed outside numbers.
     people: [
       {
         name: 'Person 1', proteinMin: 100, proteinMax: 130, kcalMin: 1800, kcalMax: 2100,
-        outsideProtein: 40, outsideKcal: 500, portion: 1.2,
+        outsideProtein: 40, outsideKcal: 500, portion: 1.2, fixedMeals: [],
       },
       {
         name: 'Person 2', proteinMin: 70, proteinMax: 90, kcalMin: 1500, kcalMax: 1700,
-        outsideProtein: 30, outsideKcal: 500, portion: 0.9,
+        outsideProtein: 30, outsideKcal: 500, portion: 0.9, fixedMeals: [],
       },
     ],
     rules: {

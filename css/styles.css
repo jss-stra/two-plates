@@ -553,3 +553,11 @@ label.btn.busy { opacity: .6; pointer-events: none; }
 .nutrition-src dl div { display: flex; justify-content: space-between; gap: 8px; }
 .nutrition-src dt { font-weight: 600; }
 .nutrition-src dd { margin: 0; }
+
+/* Fixed meals: Settings editor and Today list */
+.fixed-meals { margin-top: 12px; }
+.fixed-meals summary { cursor: pointer; font-weight: 600; }
+.fixed-item { border-top: 1px solid var(--line); padding-top: 10px; margin-top: 10px; }
+.fixed-today { margin-bottom: 10px; }
+.fixed-list { margin: 4px 0 6px; padding-left: 18px; }
+.fixed-list li { margin: 4px 0; }

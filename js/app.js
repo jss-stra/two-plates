@@ -19,6 +19,7 @@ import { IDEAS, IDEA_BY_ID, ideaMatches } from './ideas.js';
 import { recordEvent, clearJournal } from './journal.js';
 import { startJournalSync, syncJournal } from './journal-sync.js';
 import { answerGoal } from './goalcheck.js';
+import { FIXED_MEAL_PRESETS, fixedMealsOf, fixedTotals, blankFixedMeal, presetItems, syncFixedTotals } from './fixed-meals.js';
 
 const $ = (sel, el = document) => el.querySelector(sel);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -696,6 +697,35 @@ function renderAccount() {
     <button class="btn" data-act="signout">Sign out</button></section>`;
 }
 
+// Fixed meals editor: breakfast, shakes and snacks with quantities. Its totals
+// replace the typed "outside plan" numbers (see js/fixed-meals.js).
+function renderFixedMeals(p, i) {
+  const items = fixedMealsOf(p);
+  const t = fixedTotals(p);
+  const txt = (k, v, ph) => `<input type="text" data-set="people.${i}.fixedMeals.${k}" value="${esc(v ?? '')}" placeholder="${esc(ph)}" autocomplete="off">`;
+  return `<details class="fixed-meals" ${items.length ? 'open' : ''}>
+    <summary>Fixed meals <span class="muted">· ${items.length ? `${items.length} item${items.length === 1 ? '' : 's'}, ${t.protein} g protein · ${t.kcal} kcal a day` : 'breakfast, shakes and snacks with amounts'}</span></summary>
+    <p class="fine">List what ${esc(p.name)} has every day outside lunch and dinner. The totals become “outside plan”, and the Today tab shows the list with amounts.</p>
+    ${items.map((m, j) => `<div class="fixed-item">
+      <div class="grid2">
+        <label class="field"><span>When</span>${txt(`${j}.time`, m.time, 'e.g. 10:30 am')}</label>
+        <label class="field"><span>What</span>${txt(`${j}.name`, m.name, 'e.g. Boiled eggs')}</label>
+      </div>
+      <label class="field"><span>Amount</span>${txt(`${j}.qty`, m.qty, 'e.g. 2 eggs + 30 g oats')}</label>
+      <div class="grid2">
+        <label class="field"><span>Protein (g)</span>${num(`people.${i}.fixedMeals.${j}.protein`, m.protein ?? 0)}</label>
+        <label class="field"><span>Calories</span>${num(`people.${i}.fixedMeals.${j}.kcal`, m.kcal ?? 0)}</label>
+      </div>
+      <label class="field"><span>Note</span>${txt(`${j}.note`, m.note, 'Optional, e.g. rest-day swap')}</label>
+      <button class="btn ghost small" data-act="fixed-remove" data-p="${i}" data-i="${j}">Remove</button>
+    </div>`).join('')}
+    <div class="btnrow">
+      <button class="btn small" data-act="fixed-add" data-p="${i}">Add item</button>
+      ${items.length ? '' : Object.entries(FIXED_MEAL_PRESETS).map(([k, pr]) => `<button class="btn ghost small" data-act="fixed-preset" data-p="${i}" data-preset="${k}">Load ${esc(pr.label)}</button>`).join('')}
+    </div>
+  </details>`;
+}
+
 function renderSettings(s) {
   const recipes = planRecipes(s);
   const cfg = getConfig() || {};
@@ -722,11 +752,12 @@ function renderSettings(s) {
           <label class="field"><span>Protein max</span>${num(`people.${i}.proteinMax`, p.proteinMax)}</label>
           <label class="field"><span>Calories min</span>${num(`people.${i}.kcalMin`, p.kcalMin)}</label>
           <label class="field"><span>Calories max</span>${num(`people.${i}.kcalMax`, p.kcalMax)}</label>
-          <label class="field"><span>Protein outside plan</span>${num(`people.${i}.outsideProtein`, p.outsideProtein)}</label>
-          <label class="field"><span>Calories outside plan</span>${num(`people.${i}.outsideKcal`, p.outsideKcal)}</label>
+          ${fixedMealsOf(p).length ? `<div class="field"><span>Outside plan (from fixed meals)</span><b>${fixedTotals(p).protein} g · ${fixedTotals(p).kcal} kcal</b></div>` : `<label class="field"><span>Protein outside plan</span>${num(`people.${i}.outsideProtein`, p.outsideProtein)}</label>
+          <label class="field"><span>Calories outside plan</span>${num(`people.${i}.outsideKcal`, p.outsideKcal)}</label>`}
           <label class="field"><span>Water goal (glasses/day)</span>${num(`people.${i}.waterGlasses`, waterGoal(p))}</label>
         </div>
         <p class="fine">“Outside plan” = shake, breakfast and snacks on a normal day. What's left is split across lunch and dinner: <b>${goal.min}–${goal.max} g protein per meal</b>.</p>
+        ${renderFixedMeals(p, i)}
         <label class="field"><span><span>Portion size: <b>${p.portion.toFixed(2)}×</b> a standard serving</span>
           <span class="fine">${avgP == null ? 'Meal average unknown - this week includes dishes with unknown nutrition.' : `≈ ${Math.round(avgP * p.portion)} g protein · ${Math.round(avgK * p.portion)} kcal per meal this week${avgPartial ? ' (known dishes only)' : ''}`}</span></span>
           <input type="range" min="0.5" max="2" step="0.05" data-set="people.${i}.portion" value="${p.portion}">
@@ -1410,6 +1441,23 @@ const actions = {
     if (!confirm('Edit this week? Changing dishes also changes the grocery list — fine if you haven’t shopped yet.')) return;
     update((d) => { d.plan.finalizedAt = 0; });
   },
+  // Fixed meals (Settings → People). Totals are copied into outsideProtein/outsideKcal.
+  'fixed-add': (el) => {
+    update((d) => { const p = d.people[Number(el.dataset.p)]; p.fixedMeals = [...fixedMealsOf(p), blankFixedMeal()]; syncFixedTotals(d); });
+  },
+  'fixed-remove': (el) => {
+    update((d) => {
+      const p = d.people[Number(el.dataset.p)];
+      const keep = fixedMealsOf(p).filter((_, j) => j !== Number(el.dataset.i));
+      // Removing the last item hands control back to the typed numbers, starting from the current totals.
+      p.fixedMeals = keep;
+      syncFixedTotals(d);
+    });
+  },
+  'fixed-preset': (el) => {
+    update((d) => { d.people[Number(el.dataset.p)].fixedMeals = presetItems(el.dataset.preset); syncFixedTotals(d); });
+    toast('Loaded - edit any item to match what you really have');
+  },
   // Done/Edit: save and lock one person's day entry; the flag lives on the
   // entry so it rides the existing per-person-per-day merge to other devices.
   'log-done': () => {
@@ -1691,6 +1739,7 @@ const JOURNAL_SKIP_ACTS = new Set([
   'water-answer', 'water-chip', 'water-add', 'water-later',
   'log-set', 'log-cheatday', 'log-uncheat',
   'log-done', // not in the server-side act vocabulary; recording it would fail the upload batch
+  'fixed-add', 'fixed-remove', 'fixed-preset', // diet items are health habits, and not in the server act vocabulary
   'goal-answer', 'goal-wrong', 'goal-pick', 'goal-skip',
   'tab', // tab switches are recorded as tab events by setTab, not as acts
 ]);
@@ -1741,7 +1790,7 @@ document.addEventListener('change', (e) => {
     const path = el.dataset.set;
     const value = el.type === 'checkbox' ? el.checked : el.type === 'text' ? el.value.trim() : Number(el.value);
     if (typeof value === 'number' && !Number.isFinite(value)) return;
-    update((d) => setPath(d, path, value));
+    update((d) => { setPath(d, path, value); if (path.includes('.fixedMeals.')) syncFixedTotals(d); });
   }
 });
 

@@ -1,6 +1,7 @@
 // Picks the week's mix of chicken and veg dishes and works out per-person nutrition.
 import { RECIPES, RECIPE_BY_ID, INGREDIENTS, isVeg, kindOf, hasExclusions } from './data.js';
 import { dishById } from './custom.js';
+import { outsideOf } from './fixed-meals.js';
 
 const isIndianVeg = (r, rules) => r.group === 'Indian' && isVeg(r, rules.eggsCountAsVeg);
 const kindFilter = (kind, rules) => (kind === 'veg'
@@ -205,8 +206,8 @@ export function mealFor(recipe, person) {
 export function perMealGoal(person, rules) {
   const meals = rules.mealsPerDish;
   return {
-    min: Math.max(0, Math.round((person.proteinMin - person.outsideProtein) / meals)),
-    max: Math.max(0, Math.round((person.proteinMax - person.outsideProtein) / meals)),
+    min: Math.max(0, Math.round((person.proteinMin - outsideOf(person).protein) / meals)),
+    max: Math.max(0, Math.round((person.proteinMax - outsideOf(person).protein) / meals)),
   };
 }
 
@@ -215,7 +216,7 @@ export function dailyEstimate(state) {
   const recipes = planRecipes(state);
   const meals = state.rules.mealsPerDish;
   return state.people.map((p) => {
-    if (!recipes.length) return { person: p, protein: p.outsideProtein, kcal: p.outsideKcal };
+    if (!recipes.length) return { person: p, protein: outsideOf(p).protein, kcal: outsideOf(p).kcal };
     // No imputation: when any planned dish has unknown nutrition the day
     // estimate is unavailable - never fabricated from averages of other dishes.
     const unknownCount = recipes.filter((r) => r.protein == null || r.kcal == null).length;
@@ -224,8 +225,8 @@ export function dailyEstimate(state) {
     const avgK = recipes.reduce((s, r) => s + r.kcal, 0) / recipes.length;
     return {
       person: p,
-      protein: Math.round(p.outsideProtein + meals * avgP * p.portion),
-      kcal: Math.round(p.outsideKcal + meals * avgK * p.portion),
+      protein: Math.round(outsideOf(p).protein + meals * avgP * p.portion),
+      kcal: Math.round(outsideOf(p).kcal + meals * avgK * p.portion),
     };
   });
 }
