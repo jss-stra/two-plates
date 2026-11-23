@@ -68,14 +68,14 @@ function buildRecipe(row, file) {
   const items = parseIngredients(ingStr, name);
   // Unknown macros stay unknown: any item with a null macro makes the dish's
   // macros null (never silently zero). Approximate items mark the dish approximate.
-  let kcal = 0, p = 0, c = 0, f = 0, unknown = false, approximate = false;
+  let kcal = 0, p = 0, c = 0, f = 0, fb = 0, unknown = false, approximate = false;
   let diet = 'veg';
   const proteinBySrc = {};
   for (const { id, qty } of items) {
     const ing = INGREDIENTS[id];
     const g = gramsOf(ing, qty) / 100;
     if (ing.kcal == null || ing.p == null || ing.c == null || ing.f == null) unknown = true;
-    else { kcal += ing.kcal * g; p += ing.p * g; c += ing.c * g; f += ing.f * g; }
+    else { kcal += ing.kcal * g; p += ing.p * g; c += ing.c * g; f += ing.f * g; fb += (ing.fb ?? 0) * g; }
     if (ing.basis === 'approximate') approximate = true;
     if (ing.diet === 'meat') diet = 'nonveg';
     else if (ing.diet === 'egg' && diet === 'veg') diet = 'egg';
@@ -99,7 +99,7 @@ function buildRecipe(row, file) {
     nutritionUnknown: unknown || undefined,
     nutritionApproximate: (!unknown && approximate) || undefined,
     // Per standard serving (null when any ingredient's macros are unknown)
-    kcal: per(kcal), protein: per(p), carbs: per(c), fat: per(f),
+    kcal: per(kcal), protein: per(p), carbs: per(c), fat: per(f), fibre: per(fb),
   };
 }
 

@@ -54,7 +54,8 @@ export async function loadReceipts() {
 }
 
 // Shrink a photo to a size that's still easy to read (long receipts stay sharp enough).
-function compress(file, maxSide, quality) {
+// Also used for meal photos (meal-photos.js).
+export function compress(file, maxSide, quality) {
   return new Promise((resolve, reject) => {
     const img = new Image();
     const url = URL.createObjectURL(file);
@@ -75,7 +76,7 @@ function compress(file, maxSide, quality) {
   });
 }
 
-async function save(kind, id, data) {
+export async function save(kind, id, data) {
   const { error } = await syncClient().from(TABLE).upsert({ id: rowId(kind, id), data, updated_at: new Date().toISOString() });
   if (error) throw new Error(error.message);
 }

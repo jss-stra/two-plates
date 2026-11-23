@@ -3,7 +3,7 @@ import { INGREDIENTS, AISLES, BASE_SERVINGS, DISPLAY_GROUPS, displayKind } from 
 import { IMPORTED, importedShoppingRows } from './imported.js';
 import { customDishRows } from './custom.js';
 import { occasionTotals, customOccasionRows } from './occasions.js';
-import { planRecipes } from './planner.js';
+import { planRecipes, portionFor } from './planner.js';
 import { HABITS, WEEKLY_STAPLES } from '../data/shopping-habits.js';
 import { kindOf, youtubeUrl } from './data.js';
 
@@ -11,9 +11,11 @@ import { kindOf, youtubeUrl } from './data.js';
 let learned = { habits: {}, staples: [], prices: {} };
 export function setLearned(l) { learned = { habits: l?.habits || {}, staples: l?.staples || [], prices: l?.prices || {} }; }
 
-// How much to scale each recipe: meals per dish × everyone's portion size.
-export function scaleFactor(state) {
-  const portions = state.people.reduce((s, p) => s + p.portion, 0);
+// How much to scale a recipe: meals per dish × everyone's portion of it. With
+// auto portions each person's portion depends on the dish (see portionFor), so
+// pass the recipe; without one it falls back to the portion sliders.
+export function scaleFactor(state, recipe = null) {
+  const portions = state.people.reduce((s, p) => s + (recipe ? portionFor(p, recipe, state.rules) : (Number(p.portion) || 1)), 0);
   return (state.rules.mealsPerDish * portions) / BASE_SERVINGS;
 }
 
@@ -47,9 +49,9 @@ export function qtyText({ amount, unit }) {
 }
 
 export function buildGrocery(state) {
-  const factor = scaleFactor(state);
   const totals = new Map();
   for (const r of planRecipes(state)) {
+    const factor = scaleFactor(state, r);
     for (const { id, qty } of r.items) {
       const t = totals.get(id) || { id, qty: 0, dishes: [] };
       t.qty += qty * factor;
@@ -114,7 +116,7 @@ export function buildGrocery(state) {
   // Rough cost from the last price you paid for each item (only items seen on receipts).
   const priced = shop.filter((r) => r.id && learned.prices[r.id]?.price);
   const cost = priced.reduce((a, r) => a + learned.prices[r.id].price, 0);
-  return { factor, shop, pantry, shopGroups: group(shop), pantryGroups: group(pantry), cost, pricedCount: priced.length };
+  return { factor: scaleFactor(state), shop, pantry, shopGroups: group(shop), pantryGroups: group(pantry), cost, pricedCount: priced.length };
 }
 
 export function groceryText(state, { amounts = false } = {}) {

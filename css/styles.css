@@ -553,3 +553,36 @@ label.btn.busy { opacity: .6; pointer-events: none; }
 .nutrition-src dl div { display: flex; justify-content: space-between; gap: 8px; }
 .nutrition-src dt { font-weight: 600; }
 .nutrition-src dd { margin: 0; }
+
+/* Fixed meals: Settings editor and Today list */
+.fixed-meals { margin-top: 12px; }
+.fixed-meals summary { cursor: pointer; font-weight: 600; }
+.fixed-item { border-top: 1px solid var(--line); padding-top: 10px; margin-top: 10px; }
+.fixed-today { margin-bottom: 10px; }
+.fixed-list { margin: 4px 0 6px; padding-left: 18px; }
+.fixed-list li { margin: 4px 0; }
+
+/* Week by day */
+.day-block { margin: 14px 0 0; }
+.day-head { margin: 0 4px 6px; }
+.day-head .badge { margin-left: 6px; }
+.day-block .dishes { margin-top: 0; }
+.empty-day { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.day-warn { margin: 10px 4px 0; }
+.onhand .searchbar { margin: 8px 0; }
+
+/* Today: intake, foods, photos */
+.intake-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; margin-top: 6px; }
+.intake-grid > div { display: flex; flex-direction: column; }
+.intake-grid b { font-size: 1.15rem; }
+.food-picker { margin: 8px 0 4px; }
+.food-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 6px 0; border-top: 1px solid var(--line); }
+.stepper { display: inline-flex; align-items: center; gap: 8px; }
+.stepper button { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line); background: transparent; font-size: 1.1rem; }
+.food-picker .inline { display: flex; gap: 8px; margin: 8px 0 4px; }
+.food-picker select { flex: 1; min-width: 0; }
+.photo-btn { margin-top: 6px; }
+.meal-photo { display: flex; gap: 10px; align-items: flex-start; margin-top: 8px; flex-wrap: wrap; }
+.meal-photo img { width: 72px; height: 72px; object-fit: cover; border-radius: 10px; }
+.chip.planned { font-weight: 600; }
+.chip.muted { opacity: 0.6; }

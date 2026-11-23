@@ -1,6 +1,7 @@
 // Picks the week's mix of chicken and veg dishes and works out per-person nutrition.
 import { RECIPES, RECIPE_BY_ID, INGREDIENTS, isVeg, kindOf, hasExclusions } from './data.js';
 import { dishById } from './custom.js';
+import { outsideOf } from './fixed-meals.js';
 
 const isIndianVeg = (r, rules) => r.group === 'Indian' && isVeg(r, rules.eggsCountAsVeg);
 const kindFilter = (kind, rules) => (kind === 'veg'
@@ -133,7 +134,7 @@ export function generateSlots(state, { keepLocked = true } = {}) {
   for (let i = counts.chicken; i < rules.chickenDishes; i++) {
     add(pickOne(state, chosen, [kindFilter('chicken', rules)], longLeft));
   }
-  return sortSlots(kept, rules, state);
+  return arrangeDays(state, sortSlots(kept, rules, state));
 }
 
 // Swipe-left on a week card: take the dish out of the week and drop the
@@ -194,39 +195,54 @@ export function randomSwap(state, index) {
   return pickOne(withoutCurrent, others, filters, longLeft);
 }
 
+// How many standard servings one person eats per meal of a dish. With auto
+// portions on (the default) it's sized so the dish lands in the middle of the
+// person's per-meal protein goal, in quarter servings between 0.5 and 2.5;
+// otherwise, or when the dish's protein is unknown, it's their portion slider.
+export function portionFor(person, recipe, rules) {
+  const manual = Number(person?.portion) || 1;
+  if (!rules || rules.autoPortion === false || !(recipe?.protein > 0)) return manual;
+  const g = perMealGoal(person, rules);
+  const target = (g.min + g.max) / 2;
+  if (!(target > 0)) return manual;
+  return Math.min(2.5, Math.max(0.5, Math.round((target / recipe.protein) * 4) / 4));
+}
+
 // Per-person nutrition for one meal of a dish. Null when the dish's macros are
 // unknown - callers must render "unknown", never a number.
-export function mealFor(recipe, person) {
-  if (recipe.protein == null || recipe.kcal == null) return { protein: null, kcal: null };
-  return { protein: Math.round(recipe.protein * person.portion), kcal: Math.round(recipe.kcal * person.portion) };
+export function mealFor(recipe, person, rules) {
+  const portion = portionFor(person, recipe, rules);
+  if (recipe.protein == null || recipe.kcal == null) return { portion, protein: null, kcal: null, carbs: null, fibre: null };
+  const x = (v) => (v == null ? null : Math.round(v * portion));
+  return { portion, protein: x(recipe.protein), kcal: x(recipe.kcal), carbs: x(recipe.carbs), fibre: x(recipe.fibre) };
 }
 
 // The daily target minus shake/breakfast/snacks, split across the planned meals.
 export function perMealGoal(person, rules) {
   const meals = rules.mealsPerDish;
   return {
-    min: Math.max(0, Math.round((person.proteinMin - person.outsideProtein) / meals)),
-    max: Math.max(0, Math.round((person.proteinMax - person.outsideProtein) / meals)),
+    min: Math.max(0, Math.round((person.proteinMin - outsideOf(person).protein) / meals)),
+    max: Math.max(0, Math.round((person.proteinMax - outsideOf(person).protein) / meals)),
   };
 }
 
-// Estimated average day: outside-the-plan intake + planned meals.
+// Estimated average day: outside-the-plan intake + planned meals, each dish at
+// that person's portion. Carbs and fibre are null when anything feeding them is
+// unknown (typed outside numbers carry none) - never filled in with a guess.
 export function dailyEstimate(state) {
   const recipes = planRecipes(state);
   const meals = state.rules.mealsPerDish;
   return state.people.map((p) => {
-    if (!recipes.length) return { person: p, protein: p.outsideProtein, kcal: p.outsideKcal };
+    const out = outsideOf(p);
+    if (!recipes.length) return { person: p, protein: out.protein, kcal: out.kcal, carbs: out.carbs, fibre: out.fibre };
     // No imputation: when any planned dish has unknown nutrition the day
     // estimate is unavailable - never fabricated from averages of other dishes.
     const unknownCount = recipes.filter((r) => r.protein == null || r.kcal == null).length;
-    if (unknownCount) return { person: p, protein: null, kcal: null, unavailable: true, unknownCount };
-    const avgP = recipes.reduce((s, r) => s + r.protein, 0) / recipes.length;
-    const avgK = recipes.reduce((s, r) => s + r.kcal, 0) / recipes.length;
-    return {
-      person: p,
-      protein: Math.round(p.outsideProtein + meals * avgP * p.portion),
-      kcal: Math.round(p.outsideKcal + meals * avgK * p.portion),
-    };
+    if (unknownCount) return { person: p, protein: null, kcal: null, carbs: null, fibre: null, unavailable: true, unknownCount };
+    const ms = recipes.map((r) => mealFor(r, p, state.rules));
+    const avg = (k) => (ms.some((m) => m[k] == null) ? null : ms.reduce((a, m) => a + m[k], 0) / ms.length);
+    const day = (k) => { const a = avg(k); return a == null || out[k] == null ? null : Math.round(out[k] + meals * a); };
+    return { person: p, protein: day('protein'), kcal: day('kcal'), carbs: day('carbs'), fibre: day('fibre') };
   });
 }
 
@@ -295,4 +311,130 @@ export function plannedFor(state, iso) {
   const past = [...state.history].reverse().find((h) => inWeek(h.weekOf));
   if (past && !inWeek(state.plan.weekOf)) return past.ids;
   return state.plan.slots.map((x) => x.id);
+}
+
+// ---------- Days of the week ----------
+// The week runs from plan.weekOf for 7 days. Each dish is cooked on its day
+// for dinner and also covers the next day's lunch (cook once, eat twice).
+export const WEEK_DAYS = 7;
+
+export function dayISO(weekOf, i) {
+  const d = new Date(`${weekOf}T12:00:00`);
+  d.setDate(d.getDate() + i);
+  return localISO(d);
+}
+export const isWeekendISO = (iso) => { const g = new Date(`${iso}T12:00:00`).getDay(); return g === 0 || g === 6; };
+
+// Weekend rule: on Saturday and Sunday exactly one of the day's two meals
+// (lunch from the day before, dinner from that day) is non-veg. kinds[i] is
+// the kind of day i's dish ('chicken' | 'veg' | 'unknown') or null for none.
+// Returns how far the arrangement is from the rule (0 = met).
+export function weekendMisses(kinds, weekOf) {
+  // An all-veg week has no non-veg meal to place, so the rule doesn't apply.
+  if (!kinds.includes('chicken')) return 0;
+  let miss = 0;
+  for (let i = 0; i < WEEK_DAYS; i++) {
+    if (!isWeekendISO(dayISO(weekOf, i))) continue;
+    const meals = [i > 0 ? kinds[i - 1] : null, kinds[i]].filter(Boolean);
+    const nonveg = meals.filter((k) => k === 'chicken').length;
+    miss += meals.length === 2 ? Math.abs(nonveg - 1) : Math.max(0, nonveg - 1);
+  }
+  return miss;
+}
+
+// Gives every slot a day (0-6) and returns them in day order. A dish you
+// pinned to a day, or locked, keeps its day. The rest are placed to meet the
+// weekend rule first, then to stay where they were (so a swap doesn't reshuffle
+// the week), keep long cooks on the weekend, and avoid three of a kind in a row.
+export function arrangeDays(state, slots = state.plan.slots) {
+  const weekOf = state.plan.weekOf || weekStart(state.rules.startDay ?? 0);
+  const kindOfSlot = (x) => { const r = dishById(state, x.id); return r ? slotKind(x, r, state.rules) : 'unknown'; };
+  const fixed = new Array(WEEK_DAYS).fill(null);
+  const free = [];
+  for (const x of slots) {
+    const d = x.day;
+    if ((x.pinned || x.locked) && Number.isInteger(d) && d >= 0 && d < WEEK_DAYS && !fixed[d]) fixed[d] = x;
+    else free.push(x);
+  }
+  const open = [...Array(WEEK_DAYS).keys()].filter((d) => !fixed[d]);
+  const movable = free.slice(0, open.length);
+  const overflow = free.slice(open.length);
+  const weekend = [...Array(WEEK_DAYS).keys()].map((d) => isWeekendISO(dayISO(weekOf, d)));
+  const kinds = new Map(slots.map((x) => [x, kindOfSlot(x)]));
+  const long = new Map(slots.map((x) => [x, (dishById(state, x.id)?.time || 0) > state.rules.maxTime]));
+  const cur = [...fixed];
+  const cost = () => {
+    const k = cur.map((x) => (x ? kinds.get(x) : null));
+    let c = weekendMisses(k, weekOf) * 100;
+    for (let d = 0; d < WEEK_DAYS; d++) {
+      const x = cur[d];
+      if (!x) continue;
+      if (Number.isInteger(x.day) && x.day !== d) c += 3;
+      if (long.get(x) && !weekend[d]) c += 2;
+      if (d >= 2 && k[d] && k[d] === k[d - 1] && k[d] === k[d - 2]) c += 1;
+    }
+    return c;
+  };
+  let best = null;
+  let bestCost = Infinity;
+  const used = new Array(open.length).fill(false);
+  const place = (i) => {
+    if (bestCost === 0) return;
+    if (i === movable.length) {
+      const c = cost();
+      if (c < bestCost) { bestCost = c; best = [...cur]; }
+      return;
+    }
+    for (let j = 0; j < open.length; j++) {
+      if (used[j]) continue;
+      used[j] = true; cur[open[j]] = movable[i];
+      place(i + 1);
+      used[j] = false; cur[open[j]] = null;
+    }
+  };
+  place(0);
+  const out = [];
+  (best || cur).forEach((x, d) => { if (x) out.push({ ...x, day: d }); });
+  for (const x of overflow) { const { day, ...rest } = x; out.push(rest); }
+  return out;
+}
+
+// Which planned dishes feed a date: lunch is the previous day's dish, dinner
+// that day's. Only for the current plan's week; null where nothing is planned.
+export function plannedOnDay(state, iso) {
+  const weekOf = state.plan.weekOf;
+  if (!weekOf) return { lunch: null, dinner: null };
+  const start = new Date(`${weekOf}T12:00:00`);
+  const idx = Math.round((new Date(`${iso}T12:00:00`) - start) / 86400000);
+  const at = (d) => state.plan.slots.find((x) => x.day === d)?.id || null;
+  if (idx < 0 || idx > WEEK_DAYS) return { lunch: null, dinner: null };
+  return { lunch: idx > 0 ? at(idx - 1) : null, dinner: idx < WEEK_DAYS ? at(idx) : null };
+}
+
+// "Cook from what we have": dishes ranked by how much of what's at home they
+// use. Only real ingredients count (not spices or pantry basics like oil), a
+// dish must use at least one of them, and using a protein you have (paneer,
+// chicken, dal...) ranks it higher. Hidden and excluded dishes are left out.
+// Forms of the same food you'd swap in without thinking twice.
+const KIN = [
+  ['spinach', 'frozen_spinach'], ['tomato', 'cherry_tomatoes', 'diced_tomatoes', 'passata'],
+  ['onion', 'red_onion', 'shallot'], ['chicken_breast', 'chicken_thigh'], ['chickpeas', 'kala_chana'],
+  ['tofu', 'silken_tofu'], ['basmati', 'jasmine', 'brown_rice'], ['red_lentils', 'lentils_can'],
+  ['peas', 'snow_peas'], ['capsicum', 'roasted_capsicum'], ['wraps', 'tortillas', 'lebanese_bread'],
+  ['cauliflower', 'cauli_rice'], ['lime', 'lemon'],
+];
+export function cookFrom(state, have) {
+  const want = new Set(have);
+  for (const group of KIN) if (group.some((id) => want.has(id))) group.forEach((id) => want.add(id));
+  const counts = (id) => INGREDIENTS[id] && INGREDIENTS[id].aisle !== 'spices' && !INGREDIENTS[id].pantry;
+  return RECIPES
+    .filter((r) => !state.hidden.includes(r.id) && !hasExclusions(r, state.exclusions))
+    .map((r) => {
+      const real = [...new Set(r.items.map((it) => it.id).filter(counts))];
+      const used = real.filter((id) => want.has(id));
+      const protein = used.some((id) => INGREDIENTS[id].src);
+      return { r, used, missing: real.filter((id) => !want.has(id)), score: (protein ? 10 : 0) + used.length * 2 + used.length / Math.max(1, real.length) };
+    })
+    .filter((x) => x.used.length)
+    .sort((a, b) => b.score - a.score || (b.r.protein ?? 0) - (a.r.protein ?? 0));
 }

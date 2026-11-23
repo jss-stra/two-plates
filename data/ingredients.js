@@ -1,7 +1,7 @@
 // Ingredient catalog. Every recipe's macros are computed from these numbers,
 // so fixing a value here fixes it in every dish that uses it.
 //
-// Nutrition is per 100 g (or 100 ml): kcal, protein, carbs, fat.
+// Nutrition is per 100 g (or 100 ml): kcal, protein, carbs, fat; fibre (fb) is added from FIBRE below.
 // unit: how recipes and the grocery list count it — g, ml, pc, can, bunch, clove, sprig, tsp.
 // g: grams per unit for anything that isn't g/ml (used for nutrition maths).
 // diet: 'meat' or 'egg' — decides whether a dish is veg / egg / non-veg.
@@ -288,4 +288,39 @@ for (const [cat, ids] of Object.entries(ALLERGEN_POSSIBLE_TAGS)) {
     if (!INGREDIENTS[id]) throw new Error(`possibleCats tag for unknown ingredient: ${id}`);
     INGREDIENTS[id].possibleCats = [...(INGREDIENTS[id].possibleCats || []), cat];
   }
+}
+
+// Dietary fibre, g per 100 g (or 100 ml) as bought, in the same state as the
+// catalog's other numbers (dry rice/dal/pasta, tinned beans as packed). Typical
+// values from standard food tables, rounded; spices and herbs used by the
+// teaspoon count as 0, as their other macros already do. Missing ids count as 0
+// and are reported by tools/validate.mjs.
+export const FIBRE = {
+  chicken_breast: 0, chicken_thigh: 0, chicken_mince: 0, turkey_mince: 0, egg: 0, egg_whites: 0,
+  paneer: 0, greek_yogurt: 0, light_milk: 0, light_cream: 0, cottage_cheese: 0, ricotta: 0, mozzarella: 0,
+  parmesan: 0, feta: 0, cheddar: 0, halloumi: 0, butter: 0, tofu: 1.2, silken_tofu: 0.3, tempeh: 5, kimchi: 1.6,
+  onion: 1.7, red_onion: 1.7, spring_onion: 2.6, shallot: 3.2, garlic: 2.1, ginger: 2, green_chilli: 1.5,
+  red_chilli: 1.5, jalapeno: 2.8, tomato: 1.2, cherry_tomatoes: 1.2, capsicum: 2.1, spinach: 2.2, rocket: 1.6,
+  broccoli: 2.6, cauliflower: 2, carrot: 2.8, zucchini: 1, eggplant: 3, mushrooms: 1, potato: 2.2,
+  sweet_potato: 3, pumpkin: 2, green_beans: 2.7, okra: 3.2, asparagus: 2.1, bok_choy: 1, cabbage: 2.5,
+  red_cabbage: 2.1, snow_peas: 2.6, bean_sprouts: 1.8, celery: 1.6, cos_lettuce: 2.1, cucumber: 0.5,
+  avocado: 6.7, lime: 2.8, lemon: 2.8, pineapple: 1.4, coriander: 2.8, mint: 6.8, basil: 1.6, thai_basil: 1.6,
+  parsley: 3.3, dill: 2.1, lemongrass: 0, lime_leaves: 0, curry_leaves: 0, peas: 4.5, corn: 2.4, edamame: 5.2,
+  frozen_spinach: 2.9, cauli_rice: 2, wraps: 6, tortillas: 5, bread: 7, buns: 6, lebanese_bread: 2.5,
+  hummus: 6, basmati: 1.3, brown_rice: 3.5, jasmine: 1, arborio: 1, quinoa: 7, atta: 11, plain_flour: 2.7,
+  besan: 10.8, wm_pasta: 9, protein_pasta: 8, lasagne: 3, orzo: 3, gnocchi: 1.5, panko: 3.5, cornflour: 0.9,
+  chickpeas: 5.5, black_beans: 6.5, kidney_beans: 6, cannellini: 5.5, lentils_can: 4, refried_beans: 5,
+  diced_tomatoes: 1.2, passata: 1.5, tomato_paste: 4.1, coconut_milk: 0.5, veg_stock: 0, chicken_stock: 0,
+  red_lentils: 11, moong_dal: 8, toor_dal: 15, chana_dal: 17, urad_whole: 18.3, soya_chunks: 13,
+  kala_chana: 17, lobia: 10.6, oil: 0, ghee: 0, sesame_oil: 0, soy_sauce: 0.8, oyster_sauce: 0.3,
+  fish_sauce: 0, hoisin: 2.8, sriracha: 2.2, gochujang: 2, miso: 5.4, rice_vinegar: 0, mirin: 0,
+  red_curry: 3, green_curry: 3, massaman: 3, tom_yum_paste: 2, laksa_paste: 3, chilli_garlic: 2,
+  chilli_bean_paste: 3, chilli_crisp: 2, sambal: 2, tamarind: 5.1, schezwan: 2, rice_noodles: 1.6,
+  hokkien: 1.5, udon: 1, soba: 3, ramen: 2.5, rice_paper: 1, dumpling_wrappers: 1.5, nori: 0, salsa: 1.5,
+  enchilada_sauce: 1.5, chipotle: 4, pickled_jalapenos: 2.6, olives: 3.3, capers: 3.2, pesto: 1.5,
+  roasted_capsicum: 1.5, balsamic: 0, vinegar: 0, dijon: 4, light_mayo: 0, peri_peri: 1, peanut_butter: 7,
+  peanuts: 8, cashews: 3.3, sesame_seeds: 11.8, gochugaru: 0,
+};
+for (const [id, ing] of Object.entries(INGREDIENTS)) {
+  ing.fb = FIBRE[id] ?? (ing.aisle === 'spices' ? 0 : null);
 }
