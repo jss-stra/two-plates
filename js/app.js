@@ -2,7 +2,7 @@ import { renderPrep, setupPrepEvents } from './prep.js';
 import { renderExtrasCard, renderPartiesCard, setupGroceryEvents } from './grocery-ui.js';
 import { RECIPES, RECIPE_BY_ID, GROUPS, INGREDIENTS, DIET_LABEL, PROTEIN_LABEL, youtubeUrl, isVeg, kindOf, DATA_ERRORS, exclusionHits, ALLERGEN_CATS, DISPLAY_GROUPS, displayKind } from './data.js';
 import { getState, update, onChange, defaultState, replaceState } from './state.js';
-import { generateSlots, slotKind, planRecipes, alternatives, randomSwap, removeSlot, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes, localISO, weekRelation, weekRangeLabel, arrangeDays, WEEK_DAYS, dayISO, isWeekendISO, weekendMisses, cookFrom } from './planner.js';
+import { generateSlots, slotKind, planRecipes, alternatives, randomSwap, removeSlot, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes, localISO, weekRelation, weekRangeLabel, arrangeDays, rollOverPastWeek, WEEK_DAYS, dayISO, isWeekendISO, weekendMisses, cookFrom } from './planner.js';
 import { renderLog, shiftDay, shiftMonth } from './log.js';
 import { buildGrocery, weeklyNoteText, scaleFactor, formatQty, qtyText } from './grocery.js';
 import { exportExcel } from './export.js';
@@ -142,6 +142,15 @@ function ensurePlan() {
 }
 
 // Older saves used hearts; turn each favourite into 5 stars from both of you.
+// An old week's plan (e.g. 2-8 Nov still showing on 24 Nov) moves on to the
+// current week by itself, with the old week saved to history.
+function rollOver() {
+  const s = getState();
+  if (!s.plan.weekOf || weekRelation(s.plan.weekOf, s.rules.startDay ?? 0) !== 'past') return false;
+  update((d) => { rollOverPastWeek(d); });
+  return true;
+}
+
 function migrate() {
   // 7-day week (one dish a day): older saves planned 5. Scale the chicken/veg
   // targets up to 7 in the same proportion - but never under a finalized week,
@@ -2062,7 +2071,11 @@ window.addEventListener('hashchange', openFromLink);
 let lastDay = localISO();
 document.addEventListener('visibilitychange', () => {
   if (document.visibilityState !== 'visible') return;
-  if (localISO() !== lastDay) { ui.logDate = lastDay = localISO(); render(); }
+  if (localISO() !== lastDay) {
+    ui.logDate = lastDay = localISO();
+    if (rollOver()) { migrate(); ensurePlan(); }
+    render();
+  }
   if (ui.tab === 'bought') loadReceipts();
   if (ui.tab === 'today') loadMealPhotos();
   checkWaterReminder();
@@ -2135,8 +2148,10 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+const rolled = rollOver();
 migrate();
 ensurePlan();
+if (rolled) queueMicrotask(() => toast('New week planned: Monday to Sunday'));
 applyLaunchParams();
 render();
 checkWaterReminder();

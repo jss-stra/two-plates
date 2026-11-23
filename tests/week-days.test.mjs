@@ -130,3 +130,24 @@ t('monthly supplements come back when due', () => {
 });
 
 console.log(`week-days: ${n} passed`);
+
+// Runs after the summary line above; kept separate so the count stays honest.
+{
+  const { rollOverPastWeek } = await import('../js/planner.js');
+  const s = defaultState();
+  s.plan = { weekOf: '2026-11-02', slots: [{ id: RECIPES[0].id, locked: true }], cooked: { [RECIPES[0].id]: true }, carry: {}, startedAt: 1, finalizedAt: 5 };
+  const now = new Date('2026-11-24T10:34:00');
+  assert.equal(rollOverPastWeek(s, now), true);
+  assert.equal(s.plan.weekOf, '2026-11-23', 'current week, Monday 23 Nov');
+  assert.equal(s.plan.finalizedAt, 0);
+  assert.equal(s.plan.slots.length, s.rules.chickenDishes + s.rules.vegDishes);
+  assert.ok(s.plan.slots.every((x) => Number.isInteger(x.day)), 'every dish has a day');
+  assert.equal(s.history.at(-1).weekOf, '2026-11-02');
+  assert.equal(s.history.at(-1).autoClosed, true);
+  const s2 = defaultState();
+  s2.plan.weekOf = '2026-11-30';
+  assert.equal(rollOverPastWeek(s2, now), false, 'next week is left alone');
+  s2.plan.weekOf = '2026-11-23';
+  assert.equal(rollOverPastWeek(s2, now), false, 'this week is left alone');
+  console.log('week-days: roll-over passed');
+}
