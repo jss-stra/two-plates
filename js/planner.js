@@ -438,3 +438,21 @@ export function cookFrom(state, have) {
     .filter((x) => x.used.length)
     .sort((a, b) => b.score - a.score || (b.r.protein ?? 0) - (a.r.protein ?? 0));
 }
+
+// A plan for a week that has already ended moves on by itself: the old week
+// goes into history (as "Finish week" would, cooked marks as they were) and a
+// fresh plan starts for the current week. Returns true when it rolled over.
+// Plans for this week or a future week are never touched.
+export function rollOverPastWeek(state, now = new Date()) {
+  const startDay = state.rules.startDay ?? 0;
+  if (!state.plan.weekOf || weekRelation(state.plan.weekOf, startDay, now) !== 'past') return false;
+  state.history = [...(state.history || []), {
+    weekOf: state.plan.weekOf, finalizedAt: state.plan.finalizedAt || null,
+    ids: state.plan.slots.map((x) => x.id), cooked: state.plan.cooked || {}, bought: state.bought, autoClosed: true,
+  }].slice(-26);
+  state.plan = { weekOf: currentWeekStart(startDay, now), slots: [], cooked: {}, carry: {}, startedAt: now.getTime(), finalizedAt: 0 };
+  state.plan.slots = generateSlots(state);
+  state.checked = {};
+  state.bought = {};
+  return true;
+}
