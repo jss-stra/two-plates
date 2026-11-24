@@ -2,7 +2,7 @@ import { renderPrep, setupPrepEvents } from './prep.js';
 import { renderExtrasCard, renderPartiesCard, setupGroceryEvents } from './grocery-ui.js';
 import { RECIPES, RECIPE_BY_ID, GROUPS, INGREDIENTS, DIET_LABEL, PROTEIN_LABEL, youtubeUrl, isVeg, kindOf, DATA_ERRORS, exclusionHits, ALLERGEN_CATS, DISPLAY_GROUPS, displayKind } from './data.js';
 import { getState, update, onChange, defaultState, replaceState } from './state.js';
-import { generateSlots, slotKind, planRecipes, alternatives, randomSwap, removeSlot, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes, localISO, weekRelation, weekRangeLabel, arrangeDays, rollOverPastWeek, WEEK_DAYS, dayISO, isWeekendISO, weekendMisses, cookFrom } from './planner.js';
+import { generateSlots, slotKind, planRecipes, alternatives, randomSwap, removeSlot, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes, localISO, weekRelation, weekRangeLabel, arrangeDays, rollOverPastWeek, nextWeekStart, isShopWindow, asNextWeek, planNextWeek, ensureNextPlan, swapNextDay, WEEK_DAYS, dayISO, isWeekendISO, weekendMisses, cookFrom } from './planner.js';
 import { renderLog, shiftDay, shiftMonth } from './log.js';
 import { buildGrocery, weeklyNoteText, scaleFactor, formatQty, qtyText } from './grocery.js';
 import { exportExcel } from './export.js';
@@ -50,6 +50,7 @@ const ui = {
   uploading: false,
   gview: 'tobuy', // groceries filter: tobuy | have | bought
   gsection: '', // groceries sub-screen: '' | extras | parties
+  gweek: null, // groceries: 'this' | 'next' week's list; null = next week's on Fri-Sun when it's planned
   noteSlot: null, // week slot index whose note sheet is open
   showAll: false, // recipes: show every match instead of the first page
   xq: { allergies: '', dislikes: '' }, // settings: ingredient search text for exclusions
@@ -149,6 +150,68 @@ function rollOver() {
   if (!s.plan.weekOf || weekRelation(s.plan.weekOf, s.rules.startDay ?? 0) !== 'past') return false;
   update((d) => { rollOverPastWeek(d); });
   return true;
+}
+
+// From Friday, suggest next week's menu (once) so it's ready for shopping.
+// Runs after migrate(), so it plans with the current chicken/veg targets.
+function ensureNext() {
+  const s2 = getState();
+  const nw = nextWeekStart(s2.rules.startDay ?? 0);
+  if ((s2.nextPlan && s2.nextPlan.weekOf !== nw) || (!s2.nextPlan && isShopWindow() && s2.plan.weekOf && s2.plan.weekOf < nw)) {
+    update((d) => { ensureNextPlan(d); });
+  }
+}
+
+// Which week the grocery list is for: next week's from Friday to Sunday when
+// it's planned (that's when you shop), unless you picked one.
+function groceryWeek(s) {
+  const want = ui.gweek ?? (s.nextPlan && isShopWindow() ? 'next' : 'this');
+  return want === 'next' && s.nextPlan ? 'next' : 'this';
+}
+const groceryView = (s) => (groceryWeek(s) === 'next' ? asNextWeek(s) : s);
+// Where grocery ticks are saved: next week's list keeps its own.
+const tickTarget = (d) => (groceryWeek(d) === 'next' && d.nextPlan ? d.nextPlan : d);
+
+function finalizeNextWeek() {
+  update((d) => {
+    if (!d.nextPlan) return;
+    d.nextPlan.finalizedAt = Date.now();
+    d.nextPlan.slots = d.nextPlan.slots.map((x) => ({ ...x, locked: true }));
+  });
+  flushSync().catch(() => {});
+}
+
+// Next week's menu, at the end of the Week tab.
+function renderNextWeek(s) {
+  const nw = nextWeekStart(s.rules.startDay ?? 0);
+  const range = weekRangeLabel(nw);
+  const n = s.nextPlan?.weekOf === nw ? s.nextPlan : null;
+  if (s.plan.weekOf && s.plan.weekOf >= nw) return '';
+  if (!n) {
+    return `<section class="card next-week"><h2>Next week <span class="muted">· ${range}</span></h2>
+      <p class="fine">Next week’s menu is suggested here on Friday, in time for Friday or Saturday shopping.</p>
+      <button class="btn" data-act="plan-next">${icon('list')} Plan next week now</button></section>`;
+  }
+  const final = !!n.finalizedAt;
+  const rows = [...Array(WEEK_DAYS).keys()].map((d) => {
+    const slot = n.slots.find((x) => x.day === d);
+    const r = slot && dishById(s, slot.id);
+    const date = new Date(`${dayISO(nw, d)}T12:00:00`);
+    const label = `${date.toLocaleDateString('en-AU', { weekday: 'short' })} ${date.getDate()}`;
+    if (!r) return `<div class="next-row"><span class="nd">${label}</span><span class="nn muted">Nothing planned</span></div>`;
+    const who = s.people.map((p) => { const m = mealFor(r, p, s.rules); return m.protein == null ? '' : `${esc(p.name)} ${servingsText(m.portion)} · ${m.protein} g`; }).filter(Boolean).join(' · ');
+    return `<div class="next-row"><span class="nd">${label}</span>
+      <span class="nn">${dietDot(r)} ${esc(r.name)}<br><span class="fine">${r.time} min${who ? ` · ${who}` : ''}</span></span>
+      ${final ? '' : `<button class="act icon-only" data-act="next-swap" data-day="${d}" aria-label="Swap ${esc(r.name)}">${icon('shuffle')}</button>`}</div>`;
+  }).join('');
+  return `<section class="card next-week"><h2>Next week <span class="muted">· ${range}</span></h2>
+    <p class="fine">${final ? 'Finalized - this is the menu you shop for. It becomes this week’s plan on Monday.' : 'Suggested for shopping on Friday or Saturday. Swap any dish, then finalize before you shop. It becomes this week’s plan on Monday.'}</p>
+    ${rows}
+    <div class="btnrow">
+      <button class="btn primary" data-act="next-shop">${icon('cart')} Shop for next week</button>
+      ${final ? '<button class="link" data-act="next-unfinalize">Edit next week</button>' : `<button class="btn small" data-act="next-shuffle">${icon('shuffle')} Shuffle</button>`}
+    </div>
+  </section>`;
 }
 
 function migrate() {
@@ -369,7 +432,9 @@ function renderWeek(s) {
     const x = byDay.get(d);
     const prev = byDay.get(d - 1)?.r;
     const lunch = prev ? `Lunch: ${esc(prev.name)} (leftovers)` : d === 0 ? 'Lunch: your call' : 'Lunch: nothing planned';
-    const head = `<div class="day-head"><b>${label}</b>${isWeekendISO(iso) ? ' <span class="badge">Weekend</span>' : ''}${x?.slot.pinned ? ` <span class="badge">${icon('lock', 'sm')} Pinned</span>` : ''}<div class="fine">${lunch} · Dinner below, leftovers are tomorrow's lunch</div></div>`;
+    const today = iso === localISO();
+    const logLink = iso <= localISO() ? ` <button class="link" data-act="week-log-day" data-date="${iso}">${today ? 'Log what you’re eating' : 'Log what you ate'}</button>` : '';
+    const head = `<div class="day-head"><b>${label}</b>${today ? ' <span class="badge">Today</span>' : ''}${isWeekendISO(iso) ? ' <span class="badge">Weekend</span>' : ''}${x?.slot.pinned ? ` <span class="badge">${icon('lock', 'sm')} Pinned</span>` : ''}${logLink}<div class="fine">${lunch} · Dinner below, leftovers are tomorrow's lunch</div></div>`;
     if (x?.r) return `<section class="day-block">${head}<ol class="dishes">${dishCard(x.r, x.i, x.slot, s)}</ol></section>`;
     return `<section class="day-block">${head}<div class="dish empty-day"><p class="muted">No dinner planned</p>
       ${s.plan.finalizedAt ? '' : `<button class="btn small" data-act="add-day" data-day="${d}">${icon('plus')} Add a dish for ${wd}</button>`}</div></section>`;
@@ -425,8 +490,9 @@ function renderWeek(s) {
       ? `<button class="btn primary wide" data-act="tab" data-tab="groceries">${icon('cart')} Grocery list</button>`
       : `<button class="btn primary wide" data-act="finalize">${icon('check')} Finalize these ${recipes.length} dishes → grocery list</button>`}
     <button class="btn wide ghost" data-act="tab" data-tab="prep">${icon('clock')} Plan my prep</button>
-    <button class="btn wide ghost" data-act="checkin-open">${icon('check')} Weekly check-in &amp; plan next week</button>
+    <button class="btn wide ghost" data-act="checkin-open">${icon('check')} Weekly check-in</button>
   </div>
+  ${renderNextWeek(s)}
   ${pastWeeks(s)}`;
 }
 
@@ -644,15 +710,19 @@ function groceryNavRows(s) {
   </section>`;
 }
 
-function renderGroceries(s) {
-  if (ui.gsection === 'extras') return renderExtrasCard(s);
-  if (ui.gsection === 'parties') return renderPartiesCard(s);
+function renderGroceries(s0) {
+  if (ui.gsection === 'extras') return renderExtrasCard(s0);
+  if (ui.gsection === 'parties') return renderPartiesCard(s0);
+  const next = groceryWeek(s0) === 'next';
+  const s = next ? asNextWeek(s0) : s0;
+  const weekSwitch = s0.nextPlan ? `<div class="chips gview week-switch">${[['this', `This week · ${fmtWeek(s0.plan.weekOf)}`], ['next', `Next week · ${fmtWeek(s0.nextPlan.weekOf)}`]]
+    .map(([v, l]) => `<button class="chip ${(next ? 'next' : 'this') === v ? 'on' : ''}" data-act="gweek" data-v="${v}">${l}</button>`).join('')}</div>` : '';
   const g = buildGrocery(s);
   const done = g.shop.filter((i) => i.checked).length;
   const logged = g.shop.filter((i) => i.bought).length;
   const draft = s.plan.finalizedAt ? '' : `<section class="card banner"><div><b>Draft list</b>
-    <div class="muted">Finalize this week's dishes so the list doesn't change after you shop.</div></div>
-    <button class="btn primary" data-act="finalize">Finalize</button></section>`;
+    <div class="muted">Finalize ${next ? 'next' : 'this'} week's dishes so the list doesn't change after you shop.</div></div>
+    <button class="btn primary" data-act="finalize" ${next ? 'data-week="next"' : ''}>Finalize</button></section>`;
   const view = ui.gview;
   const shopGroups = g.shopGroups
     .map((grp) => ({ ...grp, items: grp.items.filter((i) => view === 'bought' ? i.checked : !i.checked) }))
@@ -665,9 +735,9 @@ function renderGroceries(s) {
     : (shopGroups.length
       ? shopGroups.map((grp) => `<section class="gsec"><h3>${esc(grp.label)}</h3>${grp.items.map((i) => gItem(i, false)).join('')}</section>`).join('')
       : `<p class="empty">${view === 'bought' ? 'Nothing ticked off yet.' : 'Everything is ticked off — nice one.'}</p>`);
-  return `${draft}
+  return `${weekSwitch}${draft}
   <section class="card">
-    <h2>Shopping list</h2>
+    <h2>Shopping list${next ? ' · next week' : ''}</h2>
     <div class="muted">${planRecipes(s).length} dishes · ${done} of ${g.shop.length} ticked${logged ? ` · ${logged} amount${logged === 1 ? '' : 's'} logged` : ''}</div>
     ${g.pricedCount ? `<div class="fine">About $${Math.round(g.cost)} for the ${g.pricedCount} items with prices from your receipts</div>` : ''}
     <div class="chips gview">${[['tobuy', 'To buy'], ['have', 'Already have'], ['bought', `Bought${done ? ` (${done})` : ''}`]]
@@ -1509,7 +1579,7 @@ const actions = {
   gview: (el) => { ui.gview = el.dataset.v; render(); },
   gsection: (el) => { ui.gsection = el.dataset.v; window.scrollTo(0, 0); render(); },
   group: (el) => { ui.group = el.dataset.g; ui.showAll = false; render(); },
-  check: (el) => update((d) => { d.checked[el.dataset.key] = el.checked; }),
+  check: (el) => update((d) => { const t = tickTarget(d); t.checked = { ...(t.checked || {}), [el.dataset.key]: el.checked }; }),
   'toggle-amounts': (el) => { ui.showAmounts = el.checked; store.set('twoplates.amounts', el.checked ? '1' : '0'); render(); },
   'toggle-log': (el) => { ui.logBought = el.checked; render(); },
   pantry: (el) => update((d) => { d.pantry[el.dataset.id] = el.dataset.v === 'true'; }),
@@ -1537,9 +1607,9 @@ const actions = {
     if (d.exclusions?.[kind]) d.exclusions[kind] = d.exclusions[kind].filter((x) => x !== el.dataset.id);
   }),
   'del-extra': (el) => update((d) => { d.extras = d.extras.filter((x) => x.id !== el.dataset.id); }),
-  'uncheck-all': () => update((d) => { d.checked = {}; }),
+  'uncheck-all': () => update((d) => { tickTarget(d).checked = {}; }),
   export: async () => {
-    try { toast('Preparing Excel file…'); await exportExcel(getState()); } catch (e) { toast(e.message); }
+    try { toast('Preparing Excel file…'); await exportExcel(groceryView(getState())); } catch (e) { toast(e.message); }
   },
   'google-signin': async () => {
     try { await signInWithGoogle(); } catch (e) { toast(e.message); }
@@ -1550,20 +1620,22 @@ const actions = {
   share: async () => {
     // Sending the list means these are the week's dishes: finalize and save first,
     // so nothing can change them while the share sheet is open.
-    if (!getState().plan.finalizedAt) { finalizeWeek(); toast('Week finalized'); }
+    const nextList = ui.tab === 'groceries' && groceryWeek(getState()) === 'next';
+    if (!groceryView(getState()).plan.finalizedAt) { if (nextList) finalizeNextWeek(); else finalizeWeek(); toast('Week finalized'); }
     await flushSync().catch(() => {});
-    const s = getState();
+    const s = nextList ? asNextWeek(getState()) : getState();
     const title = `Two Plates — week of ${fmtWeek(s.plan.weekOf)}`;
     const text = weeklyNoteText(s, { amounts: ui.showAmounts });
     if (navigator.share) { try { await navigator.share({ title, text }); } catch { /* cancelled */ } }
     else actions.copy();
   },
   copy: async () => {
-    const s = getState();
+    const s = ui.tab === 'groceries' ? groceryView(getState()) : getState();
     const text = `Two Plates — week of ${fmtWeek(s.plan.weekOf)}\n\n${weeklyNoteText(s, { amounts: ui.showAmounts })}`;
     try { await navigator.clipboard.writeText(text); toast('Copied — paste it into a new Keep note'); } catch { toast('Couldn’t copy on this browser'); }
   },
-  finalize: () => {
+  finalize: (el) => {
+    if (el?.dataset?.week === 'next') { finalizeNextWeek(); render(); toast('Next week finalized — shop from this list'); return; }
     finalizeWeek();
     setTab('groceries');
     toast('Week finalized — here’s your grocery list');
@@ -1572,6 +1644,21 @@ const actions = {
     if (!confirm('Edit this week? Changing dishes also changes the grocery list — fine if you haven’t shopped yet.')) return;
     update((d) => { d.plan.finalizedAt = 0; });
   },
+  // Next week's menu.
+  'plan-next': () => { update((d) => { planNextWeek(d); }); toast('Next week planned — swap anything you like'); },
+  'next-shuffle': () => update((d) => { planNextWeek(d); }),
+  'next-swap': (el) => {
+    let pick = null;
+    update((d) => { pick = swapNextDay(d, Number(el.dataset.day)); });
+    toast(pick ? `Swapped in ${pick.name}` : 'No other dish fits that day');
+  },
+  'next-shop': () => { ui.gweek = 'next'; ui.gsection = ''; setTab('groceries'); },
+  'next-unfinalize': () => {
+    if (!confirm('Edit next week? Changing dishes also changes its grocery list — fine if you haven’t shopped yet.')) return;
+    update((d) => { if (d.nextPlan) d.nextPlan.finalizedAt = 0; });
+  },
+  gweek: (el) => { ui.gweek = el.dataset.v; render(); },
+  'week-log-day': (el) => { ui.logDate = el.dataset.date; ui.logView = 'day'; setTab('today'); },
   // Week by day: add a dish to an empty day / choose a day for a picked dish.
   'add-day': (el) => {
     if (getState().plan.finalizedAt) { toast('This week is finalized — tap “Edit week” first'); return; }
@@ -1743,10 +1830,19 @@ const actions = {
       // Uncooked dishes you chose to keep start next week locked in place.
       const kept = d.plan.slots.filter((x) => cooked[x.id] === false && carry[x.id] !== false)
         .map((x) => ({ id: x.id, locked: true }));
-      d.plan = { weekOf: weekStart(d.rules.startDay), slots: kept, cooked: {}, carry: {}, startedAt: Date.now(), finalizedAt: 0 };
-      d.plan.slots = generateSlots(d);
-      d.checked = {};
-      d.bought = {};
+      const nw = weekStart(d.rules.startDay);
+      if (d.nextPlan?.weekOf === nw && d.nextPlan.slots?.length) {
+        // Next week's menu (and its shopping ticks) was already planned: use it.
+        d.plan = { weekOf: nw, slots: d.nextPlan.slots, cooked: {}, carry: {}, startedAt: Date.now(), finalizedAt: d.nextPlan.finalizedAt || 0 };
+        d.checked = d.nextPlan.checked || {};
+        d.bought = d.nextPlan.bought || {};
+      } else {
+        d.plan = { weekOf: nw, slots: kept, cooked: {}, carry: {}, startedAt: Date.now(), finalizedAt: 0 };
+        d.plan.slots = generateSlots(d);
+        d.checked = {};
+        d.bought = {};
+      }
+      d.nextPlan = null;
       // Extras and occasions survive a new meal plan. Remove them explicitly in Groceries.
     });
     ui.checkin = false;
@@ -1927,6 +2023,7 @@ const JOURNAL_SKIP_ACTS = new Set([
   'fixed-add', 'fixed-remove', 'fixed-preset', // diet items are health habits, and not in the server act vocabulary
   'supp-add', 'supp-remove', 'supp-preset', 'supp-toggle', 'food-add', 'food-n', 'meal-photo-remove', 'meallog-later', // health logging
   'add-day', 'pick-day', 'onhand-del', 'onhand-clear', 'onhand-pick', // not in the server act vocabulary yet
+  'plan-next', 'next-shuffle', 'next-swap', 'next-shop', 'next-unfinalize', 'gweek', 'week-log-day',
   'goal-answer', 'goal-wrong', 'goal-pick', 'goal-skip',
   'tab', // tab switches are recorded as tab events by setTab, not as acts
 ]);
@@ -1977,7 +2074,7 @@ document.addEventListener('change', (e) => {
     return;
   }
   if (el.dataset.bought !== undefined) {
-    update((d) => { d.bought[el.dataset.bought] = el.value.trim(); });
+    update((d) => { const t = tickTarget(d); t.bought = { ...(t.bought || {}), [el.dataset.bought]: el.value.trim() }; });
     return;
   }
   if (el.dataset.act === 'restore' && el.files?.[0]) {
@@ -2074,6 +2171,7 @@ document.addEventListener('visibilitychange', () => {
   if (localISO() !== lastDay) {
     ui.logDate = lastDay = localISO();
     if (rollOver()) { migrate(); ensurePlan(); }
+    ensureNext();
     render();
   }
   if (ui.tab === 'bought') loadReceipts();
@@ -2151,6 +2249,7 @@ if ('serviceWorker' in navigator) {
 const rolled = rollOver();
 migrate();
 ensurePlan();
+ensureNext();
 if (rolled) queueMicrotask(() => toast('New week planned: Monday to Sunday'));
 applyLaunchParams();
 render();

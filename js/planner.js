@@ -450,9 +450,80 @@ export function rollOverPastWeek(state, now = new Date()) {
     weekOf: state.plan.weekOf, finalizedAt: state.plan.finalizedAt || null,
     ids: state.plan.slots.map((x) => x.id), cooked: state.plan.cooked || {}, bought: state.bought, autoClosed: true,
   }].slice(-26);
-  state.plan = { weekOf: currentWeekStart(startDay, now), slots: [], cooked: {}, carry: {}, startedAt: now.getTime(), finalizedAt: 0 };
-  state.plan.slots = generateSlots(state);
-  state.checked = {};
-  state.bought = {};
+  const weekOf = currentWeekStart(startDay, now);
+  const next = state.nextPlan;
+  if (next?.weekOf === weekOf && next.slots?.length) {
+    // Next week's menu was already planned (and maybe shopped for): it becomes this week's.
+    state.plan = { weekOf, slots: next.slots, cooked: {}, carry: {}, startedAt: now.getTime(), finalizedAt: next.finalizedAt || 0 };
+    state.checked = next.checked || {};
+    state.bought = next.bought || {};
+  } else {
+    state.plan = { weekOf, slots: [], cooked: {}, carry: {}, startedAt: now.getTime(), finalizedAt: 0 };
+    state.plan.slots = generateSlots(state);
+    state.checked = {};
+    state.bought = {};
+  }
+  state.nextPlan = null;
   return true;
+}
+
+// ---------- Next week ----------
+// Next week's menu lives beside this week's plan (state.nextPlan), so you can
+// shop for it on Friday or Saturday while still eating this week's food. It has
+// its own ticks (checked/bought) and its own finalize, and becomes the plan when
+// that week starts (see rollOverPastWeek).
+export function nextWeekStart(startDay, now = new Date()) {
+  const d = new Date(`${currentWeekStart(startDay, now)}T12:00:00`);
+  d.setDate(d.getDate() + 7);
+  return localISO(d);
+}
+
+// Friday, Saturday or Sunday: when next week's menu is suggested on its own.
+export const isShopWindow = (now = new Date()) => [5, 6, 0].includes(now.getDay());
+
+// The state with next week's menu standing in as "the plan", so the planner,
+// grocery list and share text work on it unchanged.
+export function asNextWeek(state) {
+  const n = state.nextPlan;
+  if (!n) return state;
+  return { ...state, plan: { weekOf: n.weekOf, slots: n.slots, cooked: {}, carry: {}, startedAt: 0, finalizedAt: n.finalizedAt || 0 },
+    checked: n.checked || {}, bought: n.bought || {} };
+}
+
+// Plan (or re-plan) next week's 7 dishes. Locked/pinned dishes stay; this
+// week's dishes are avoided where the rules allow, so the two weeks differ.
+export function planNextWeek(state, now = new Date()) {
+  const weekOf = nextWeekStart(state.rules.startDay ?? 0, now);
+  const same = state.nextPlan?.weekOf === weekOf ? state.nextPlan : null;
+  const keep = same ? same.slots.filter((x) => x.locked || x.pinned) : [];
+  const thisWeek = new Set(state.plan.slots.map((x) => x.id));
+  const shadow = {
+    ...state,
+    hidden: [...state.hidden, ...[...thisWeek].filter((id) => !keep.some((x) => x.id === id))],
+    plan: { weekOf, slots: keep, cooked: {}, carry: {}, startedAt: now.getTime(), finalizedAt: 0 },
+  };
+  let slots = generateSlots(shadow);
+  // If hiding this week's dishes left too few to fill the week, allow repeats.
+  if (slots.length < targetDishes(state.rules)) slots = generateSlots({ ...shadow, hidden: state.hidden });
+  state.nextPlan = { weekOf, slots, finalizedAt: 0, checked: same?.checked || {}, bought: same?.bought || {} };
+  return state.nextPlan;
+}
+
+// Suggest next week's menu from Friday on (once), and drop a stale one.
+export function ensureNextPlan(state, now = new Date()) {
+  const weekOf = nextWeekStart(state.rules.startDay ?? 0, now);
+  if (state.nextPlan && state.nextPlan.weekOf !== weekOf) state.nextPlan = null;
+  if (!state.nextPlan && isShopWindow(now) && state.plan.weekOf && state.plan.weekOf < weekOf) { planNextWeek(state, now); return true; }
+  return false;
+}
+
+// Swap next week's dish on one day for another of the same kind.
+export function swapNextDay(state, day) {
+  const shadow = asNextWeek(state);
+  const i = shadow.plan.slots.findIndex((x) => x.day === day);
+  if (i < 0) return null;
+  const pick = randomSwap({ ...shadow, hidden: [...state.hidden, ...state.plan.slots.map((x) => x.id)] }, i) || randomSwap(shadow, i);
+  if (!pick) return null;
+  state.nextPlan.slots = state.nextPlan.slots.map((x, j) => (j === i ? { id: pick.id, locked: false, day } : x));
+  return pick;
 }
