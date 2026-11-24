@@ -151,3 +151,43 @@ console.log(`week-days: ${n} passed`);
   assert.equal(rollOverPastWeek(s2, now), false, 'this week is left alone');
   console.log('week-days: roll-over passed');
 }
+
+// Next week: suggested from Friday, swappable, promoted on Monday with its ticks.
+{
+  const { planNextWeek, ensureNextPlan, swapNextDay, rollOverPastWeek, asNextWeek, nextWeekStart } = await import('../js/planner.js');
+  const { buildGrocery } = await import('../js/grocery.js');
+  const s = defaultState();
+  const tue = new Date('2026-11-24T10:55:00');
+  const fri = new Date('2026-11-27T09:00:00');
+  s.plan.weekOf = '2026-11-23';
+  s.plan.slots = arrangeDays(s, RECIPES.filter((r) => kindOf(r, false) === 'chicken').slice(0, 4).concat(RECIPES.filter((r) => kindOf(r, false) === 'veg').slice(0, 3)).map((r) => ({ id: r.id, locked: false })));
+  assert.equal(nextWeekStart(0, tue), '2026-11-30');
+  assert.equal(ensureNextPlan(s, tue), false, 'not suggested before Friday');
+  assert.equal(s.nextPlan, null);
+  assert.equal(ensureNextPlan(s, fri), true, 'suggested on Friday');
+  assert.equal(s.nextPlan.weekOf, '2026-11-30');
+  assert.equal(s.nextPlan.slots.length, 7);
+  assert.ok(s.nextPlan.slots.every((x) => !s.plan.slots.some((y) => y.id === x.id)), 'no repeats from this week');
+  assert.equal(ensureNextPlan(s, fri), false, 'only once');
+  const before = s.nextPlan.slots.find((x) => x.day === 2).id;
+  const pick = swapNextDay(s, 2);
+  assert.ok(pick && s.nextPlan.slots.find((x) => x.day === 2).id === pick.id && pick.id !== before);
+  // Next week's list is its own: ticks don't leak into this week's
+  const g = buildGrocery(asNextWeek(s));
+  assert.ok(g.shop.length > 0);
+  s.nextPlan.checked = { [g.shop[0].key]: true };
+  assert.equal(buildGrocery(asNextWeek(s)).shop.find((i) => i.key === g.shop[0].key).checked, true);
+  assert.ok(!s.checked[g.shop[0].key]);
+  // Monday: next week becomes the plan, ticks and all
+  const ids = s.nextPlan.slots.map((x) => x.id);
+  assert.equal(rollOverPastWeek(s, new Date('2026-11-30T08:00:00')), true);
+  assert.equal(s.plan.weekOf, '2026-11-30');
+  assert.deepEqual(s.plan.slots.map((x) => x.id), ids);
+  assert.equal(s.checked[g.shop[0].key], true);
+  assert.equal(s.nextPlan, null);
+  // planNextWeek on demand (Tuesday) works too
+  const s2 = defaultState(); s2.plan.weekOf = '2026-11-23';
+  planNextWeek(s2, tue);
+  assert.equal(s2.nextPlan.weekOf, '2026-11-30');
+  console.log('week-days: next week passed');
+}

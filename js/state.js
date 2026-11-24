@@ -53,6 +53,9 @@ export function defaultState() {
     extras: [],
     occasions: [],
     prep: { dates: {}, tasks: {}, done: {}, minutes: {} },
+    // Next week's menu, planned from Friday so you can shop for it (see planner.js).
+    // { weekOf, slots, finalizedAt, checked, bought } or null.
+    nextPlan: null,
     // Ingredient ids you already have at home (Week tab → Cook from what we have).
     onHand: [],
     // One-off data migrations already applied (see migrate() in app.js).
