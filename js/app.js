@@ -2,7 +2,7 @@ import { renderPrep, setupPrepEvents } from './prep.js';
 import { renderExtrasCard, renderPartiesCard, setupGroceryEvents } from './grocery-ui.js';
 import { RECIPES, RECIPE_BY_ID, GROUPS, INGREDIENTS, DIET_LABEL, PROTEIN_LABEL, youtubeUrl, isVeg, kindOf, DATA_ERRORS, exclusionHits, ALLERGEN_CATS, DISPLAY_GROUPS, displayKind } from './data.js';
 import { getState, update, onChange, defaultState, replaceState } from './state.js';
-import { generateSlots, slotKind, planRecipes, alternatives, randomSwap, removeSlot, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes, localISO, weekRelation, weekRangeLabel, arrangeDays, rollOverPastWeek, nextWeekStart, isShopWindow, asNextWeek, planNextWeek, ensureNextPlan, swapNextDay, WEEK_DAYS, dayISO, isWeekendISO, weekendMisses, cookFrom } from './planner.js';
+import { generateSlots, slotKind, planRecipes, alternatives, randomSwap, removeSlot, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes, localISO, weekRelation, weekRangeLabel, arrangeDays, rollOverPastWeek, currentWeekStart, plannedOnDay, nextWeekStart, isShopWindow, asNextWeek, planNextWeek, ensureNextPlan, swapNextDay, WEEK_DAYS, dayISO, isWeekendISO, weekendMisses, cookFrom } from './planner.js';
 import { renderLog, shiftDay, shiftMonth } from './log.js';
 import { buildGrocery, weeklyNoteText, scaleFactor, formatQty, qtyText } from './grocery.js';
 import { exportExcel } from './export.js';
@@ -50,6 +50,7 @@ const ui = {
   uploading: false,
   gview: 'tobuy', // groceries filter: tobuy | have | bought
   gsection: '', // groceries sub-screen: '' | extras | parties
+  calDay: null, // Week tab calendar: the selected date (null = today)
   gweek: null, // groceries: 'this' | 'next' week's list; null = next week's on Fri-Sun when it's planned
   noteSlot: null, // week slot index whose note sheet is open
   showAll: false, // recipes: show every match instead of the first page
@@ -411,6 +412,61 @@ function renderOnHand(s) {
   </section>`;
 }
 
+// Calendar for the current week: pick a day to see what's planned (lunch is
+// the day before's dish, dinner that day's), what each of you logged, and
+// change it or log what you ate.
+function renderCalendar(s) {
+  const startDay = s.rules.startDay ?? 0;
+  const cur = currentWeekStart(startDay);
+  const today = localISO();
+  const end = dayISO(cur, WEEK_DAYS);
+  const sel = ui.calDay && ui.calDay >= cur && ui.calDay < end ? ui.calDay : today;
+  const planIsThis = s.plan.weekOf === cur;
+  const pills = [...Array(WEEK_DAYS).keys()].map((i) => {
+    const iso = dayISO(cur, i);
+    const d = new Date(`${iso}T12:00:00`);
+    return `<button class="cal-day ${iso === sel ? 'on' : ''} ${iso === today ? 'today' : ''}" data-act="cal-day" data-date="${iso}" aria-pressed="${iso === sel}">
+      <span>${d.toLocaleDateString('en-AU', { weekday: 'short' })}</span><b>${d.getDate()}</b></button>`;
+  }).join('');
+  const selDate = new Date(`${sel}T12:00:00`);
+  const selLabel = `${selDate.toLocaleDateString('en-AU', { weekday: 'long' })} ${selDate.getDate()} ${selDate.toLocaleDateString('en-AU', { month: 'short' })}${sel === today ? ' · today' : ''}`;
+  let body;
+  if (!planIsThis) {
+    const rel = weekRelation(s.plan.weekOf, startDay);
+    body = rel === 'past' || !s.plan.weekOf
+      ? `<p class="fine">Your plan is still for ${esc(weekRangeLabel(s.plan.weekOf) || 'an old week')}.</p>
+         <button class="btn primary" data-act="start-this-week">${icon('list')} Plan this week (${esc(weekRangeLabel(cur))})</button>`
+      : `<p class="fine">The plan below is for ${esc(weekRangeLabel(s.plan.weekOf))}. This week wasn’t planned in the app - log what you eat each day.</p>
+         <button class="btn" data-act="week-log-day" data-date="${sel}">${sel <= today ? 'Log what you ate' : 'Open the log'}</button>`;
+  } else {
+    const idx = Math.round((selDate - new Date(`${cur}T12:00:00`)) / 86400000);
+    const on = plannedOnDay(s, sel);
+    const meal = (label, id) => {
+      const r = id && dishById(s, id);
+      if (!r) return `<div class="cal-meal"><span class="muted">${label}</span><span class="muted">Nothing planned</span></div>`;
+      const who = s.people.map((p) => { const m = mealFor(r, p, s.rules); return m.protein == null ? esc(p.name) : `${esc(p.name)} ${servingsText(m.portion)} · ${m.protein} g`; }).join(' · ');
+      return `<div class="cal-meal"><span class="muted">${label}</span><span>${dietDot(r)} <b>${esc(r.name)}</b><br><span class="fine">${who}</span></span></div>`;
+    };
+    const logged = s.people.map((p, pi) => {
+      const e = s.days?.[sel]?.[pi] || {};
+      const name = (v, field) => (!v ? null : v === 'skipped' ? 'skipped' : v === 'other' ? (e[`${field}Text`] || 'something else') : dishById(s, v)?.name || 'a dish');
+      const parts = [['Lunch', name(e.lunch, 'lunch')], ['Dinner', name(e.dinner, 'dinner')]].filter(([, v]) => v);
+      return parts.length ? `<div class="fine">${esc(p.name)} logged: ${parts.map(([k, v]) => `${k} ${esc(v)}`).join(' · ')}</div>` : '';
+    }).join('');
+    body = `${meal('Lunch', on.lunch)}${meal('Dinner', on.dinner)}${logged}
+      <div class="btnrow">
+        ${sel <= today ? `<button class="btn small primary" data-act="week-log-day" data-date="${sel}">${sel === today ? 'Log what I’m eating' : 'Log what I ate'}</button>` : ''}
+        ${s.plan.finalizedAt ? '' : `<button class="btn small" data-act="add-day" data-day="${idx}">${icon('search')} ${on.dinner ? 'Change dinner' : 'Add a dinner'}</button>`}
+      </div>`;
+  }
+  return `<section class="card calendar">
+    <h2>What we’re eating</h2>
+    <div class="cal-strip">${pills}</div>
+    <h3 class="cal-title">${selLabel}</h3>
+    ${body}
+  </section>`;
+}
+
 function renderWeek(s) {
   const recipes = planRecipes(s);
   const totalTime = recipes.reduce((a, r) => a + (r.time || 0), 0);
@@ -444,7 +500,8 @@ function renderWeek(s) {
   const rel = weekRelation(s.plan.weekOf, s.rules.startDay ?? 0);
   const range = weekRangeLabel(s.plan.weekOf);
   const heading = rel === 'this' ? 'This week' : rel === 'next' ? 'Next week' : `Week of ${fmtWeek(s.plan.weekOf)}`;
-  return `<section class="card summary">
+  return `${renderCalendar(s)}
+  <section class="card summary">
     <div class="summary-head"><div><h2>${heading}</h2>
       <div class="muted">${range ? `${range} · ` : ''}${recipes.length} dishes · ${timeLabel}</div></div></div>
     <div class="glance-chips">${daily(s).map(glanceChip).join('')}</div>
@@ -1644,6 +1701,14 @@ const actions = {
     if (!confirm('Edit this week? Changing dishes also changes the grocery list — fine if you haven’t shopped yet.')) return;
     update((d) => { d.plan.finalizedAt = 0; });
   },
+  // Week-tab calendar.
+  'cal-day': (el) => { ui.calDay = el.dataset.date; render(); },
+  'start-this-week': () => {
+    if (rollOver()) { migrate(); ensurePlan(); }
+    ensureNext();
+    render();
+    toast('This week planned: Monday to Sunday');
+  },
   // Next week's menu.
   'plan-next': () => { update((d) => { planNextWeek(d); }); toast('Next week planned — swap anything you like'); },
   'next-shuffle': () => update((d) => { planNextWeek(d); }),
@@ -2023,7 +2088,7 @@ const JOURNAL_SKIP_ACTS = new Set([
   'fixed-add', 'fixed-remove', 'fixed-preset', // diet items are health habits, and not in the server act vocabulary
   'supp-add', 'supp-remove', 'supp-preset', 'supp-toggle', 'food-add', 'food-n', 'meal-photo-remove', 'meallog-later', // health logging
   'add-day', 'pick-day', 'onhand-del', 'onhand-clear', 'onhand-pick', // not in the server act vocabulary yet
-  'plan-next', 'next-shuffle', 'next-swap', 'next-shop', 'next-unfinalize', 'gweek', 'week-log-day',
+  'plan-next', 'next-shuffle', 'next-swap', 'next-shop', 'next-unfinalize', 'gweek', 'week-log-day', 'cal-day', 'start-this-week',
   'goal-answer', 'goal-wrong', 'goal-pick', 'goal-skip',
   'tab', // tab switches are recorded as tab events by setTab, not as acts
 ]);
@@ -2150,8 +2215,14 @@ onSyncStatus((st) => {
 onReceipts(() => { if (ui.tab === 'bought' || ui.tab === 'groceries') render(); });
 onMealPhotos(() => { if (ui.tab === 'today' || ui.tab === 'home') render(); });
 // Re-check the plan whenever the shared state arrives from the other phone.
+// A phone still on an older version can send back an old week's plan; this
+// moves it on to the current week again instead of showing the old one.
 onChange(() => {
   const s = getState();
+  if (s.plan.weekOf && weekRelation(s.plan.weekOf, s.rules.startDay ?? 0) === 'past') {
+    queueMicrotask(() => { if (rollOver()) { migrate(); ensurePlan(); } ensureNext(); });
+    return;
+  }
   const c = kindCounts(s);
   if (c.chicken !== s.rules.chickenDishes || c.veg !== s.rules.vegDishes || s.plan.slots.some((x) => !Number.isInteger(x.day))) queueMicrotask(ensurePlan);
 });
