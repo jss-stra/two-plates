@@ -604,3 +604,19 @@ label.btn.busy { opacity: .6; pointer-events: none; }
 .cal-title { margin: 0 0 6px; }
 .cal-meal { display: grid; grid-template-columns: 64px 1fr; gap: 10px; padding: 8px 0; border-top: 1px solid var(--line); }
 .calendar .btnrow { margin-top: 10px; }
+
+/* Today: one-tap quick log */
+.quick-log h2 { margin: 0 0 2px; }
+.qm { padding: 12px 0; border-top: 1px solid var(--line); }
+.quick-log .fine + .qm { border-top: 0; }
+.qm-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.qm-meal { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.qm-dish { font-weight: 600; text-align: right; }
+.qm-btns { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+.qm-btns .btn { flex: 1 1 auto; min-height: 46px; }
+.qm-who { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.qm-who-chip { cursor: default; font-size: .78rem; }
+.home-next { margin: 10px 0 8px; }
+.other-dishes { margin-top: 8px; }
+.other-dishes summary { cursor: pointer; padding: 6px 0; }
+.details-card .log-block { margin-top: 4px; }

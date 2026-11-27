@@ -110,6 +110,79 @@ function renderIntake(s, p, e, isToday) {
   </section>`;
 }
 
+
+// ---------- One-tap logging for the whole household ----------
+export const QUICK_MEALS = [['breakfast', 'Breakfast'], ['lunch', 'Lunch'], ['dinner', 'Dinner']];
+
+// The value "we had the plan" means for a meal: breakfast is "as usual", lunch
+// and dinner are the dish planned for that day (null when nothing is planned).
+export const plannedValue = (meal, onDay) => (meal === 'breakfast' ? 'usual' : onDay?.[meal] || null);
+
+// Set one meal for everyone whose day isn't locked. Tapping the same answer
+// again clears it. Returns how many people were changed.
+export function applyQuickMeal(d, iso, meal, value, now = Date.now()) {
+  d.days ||= {};
+  const day = (d.days[iso] ||= {});
+  const open = d.people.map((_, p) => p).filter((p) => !day[p]?.done);
+  const clearing = open.length > 0 && open.every((p) => day[p]?.[meal] === value);
+  for (const p of open) {
+    const e = (day[p] ||= {});
+    e[meal] = clearing ? null : value;
+    e.at = now;
+  }
+  return open.length;
+}
+
+// The next meal still worth logging right now, for the Home shortcut: breakfast
+// until 11am, lunch until 4pm, dinner after. Null when everyone has logged it
+// or there is nothing planned to tap.
+export function nextMealToLog(s, now = new Date()) {
+  const iso = localISO(now);
+  const h = now.getHours();
+  const meal = h < 11 ? 'breakfast' : h < 16 ? 'lunch' : 'dinner';
+  const value = plannedValue(meal, plannedOnDay(s, iso));
+  if (!value) return null;
+  const everyone = s.people.every((_, p) => entryFor(s, iso, p)[meal]);
+  if (everyone) return null;
+  const dish = meal === 'breakfast' ? null : dishById(s, value);
+  return { iso, meal, label: QUICK_MEALS.find(([m]) => m === meal)[1], value, name: dish ? dish.name : 'your usual' };
+}
+
+const answerText = (s, v) => {
+  if (!v) return 'not logged';
+  if (v === 'usual') return 'had it';
+  if (v === 'other') return 'something else';
+  if (v === 'skipped') return 'skipped';
+  return dishById(s, v)?.name || 'logged';
+};
+
+// The simple path: one row per meal, one tap for both of you.
+function renderQuickLog(s, iso, onDay) {
+  const names = s.people.map((p, i) => p.name || `Person ${i + 1}`);
+  const both = s.people.length > 1;
+  const rows = QUICK_MEALS.map(([meal, label]) => {
+    const planned = plannedValue(meal, onDay);
+    const vals = s.people.map((_, p) => entryFor(s, iso, p)[meal] || null);
+    const locked = s.people.every((_, p) => entryFor(s, iso, p).done);
+    const dis = locked ? ' disabled' : '';
+    const dish = meal === 'breakfast' ? null : planned && dishById(s, planned);
+    const title = meal === 'breakfast' ? 'Your usual breakfast' : dish ? dish.name : 'No dish planned. Tap Something else.';
+    const hadOn = planned && vals.every((v) => v === planned);
+    const who = vals.map((v, i) => `<span class="chip qm-who-chip ${v ? 'on' : ''}">${esc(names[i])}: ${esc(answerText(s, v))}</span>`).join('');
+    return `<div class="qm">
+      <div class="qm-head"><span class="qm-meal">${label}</span><span class="qm-dish">${esc(title)}</span></div>
+      <div class="qm-btns">
+        ${planned ? `<button class="btn ${hadOn ? 'primary' : ''}" data-act="quick-meal" data-meal="${meal}" data-choice="had" data-date="${iso}"${dis}>${hadOn ? '✓ ' : ''}${both ? 'We both had it' : 'I had it'}</button>` : ''}
+        <button class="btn ${vals.every((v) => v === 'other') ? 'primary' : ''}" data-act="quick-meal" data-meal="${meal}" data-choice="other" data-date="${iso}"${dis}>Something else</button>
+        <button class="btn ${vals.every((v) => v === 'skipped') ? 'primary' : ''}" data-act="quick-meal" data-meal="${meal}" data-choice="skipped" data-date="${iso}"${dis}>Skipped</button>
+      </div>
+      ${both ? `<div class="qm-who">${who}</div>` : ''}
+    </div>`;
+  }).join('');
+  return `<section class="card quick-log"><h2>What did you eat?</h2>
+    <p class="fine">Tap once for both of you. Different meals, snacks or a rating? Use “Details” below.</p>${rows}</section>`;
+}
+
 export function renderToday(s, ui, icon) {
   const iso = ui.logDate;
   const p = ui.logPerson;
@@ -127,9 +200,13 @@ export function renderToday(s, ui, icon) {
       const m = mealFor(r, s.people[p], s.rules);
       return `Planned: ${esc(r.name)}${m.protein != null ? ` · ${m.protein} g protein` : ''}`;
     };
-    return `<div class="chips wrapchips">${order.map((r) => `<button class="chip ${v === r.id ? 'on' : ''} ${r.id === want ? 'planned' : ''}" data-act="log-set" data-field="${field}" data-value="${r.id}"${dis}>${label(r)}</button>`).join('')}
+    const chip = (r) => `<button class="chip ${v === r.id ? 'on' : ''} ${r.id === want ? 'planned' : ''}" data-act="log-set" data-field="${field}" data-value="${r.id}"${dis}>${label(r)}</button>`;
+    const primary = order.filter((r) => r.id === want || r.id === v);
+    const rest = order.filter((r) => !primary.includes(r));
+    return `<div class="chips wrapchips">${primary.map(chip).join('')}
       <button class="chip ${v === 'other' ? 'on' : ''}" data-act="log-set" data-field="${field}" data-value="other"${dis}>Ate something else</button>
       <button class="chip ${v === 'skipped' ? 'on' : ''}" data-act="log-set" data-field="${field}" data-value="skipped"${dis}>Skipped</button></div>
+      ${rest.length ? `<details class="other-dishes"><summary class="fine">A different dish from this week</summary><div class="chips wrapchips">${rest.map(chip).join('')}</div></details>` : ''}
       ${v === 'other' ? `${text(`${field}Text`, e[`${field}Text`], 'What did you have? (optional)', dis)}${foodPicker(e, field, dis)}` : ''}`;
   };
   const other = s.people[1 - p];
@@ -144,12 +221,6 @@ export function renderToday(s, ui, icon) {
     const a = waterAnswer(e, h);
     return `<button class="chip water-chip ${a || ''}" data-act="water-chip" data-slot="${h}" aria-label="${slotLabel(h)} check-in: ${a || 'unanswered'}"${dis}>${slotLabel(h)}${a === 'yes' ? ' ✓' : a === 'no' ? ' ✗' : ''}</button>`;
   }).join('');
-  const nowMins = new Date().getHours() * 60 + new Date().getMinutes();
-  const loggedMeals = ['breakfast', 'lunch', 'dinner'].filter((f) => e[f]).length;
-  const mealLogPrompt = isToday && nowMins >= 21 * 60 + 30 && loggedMeals < 3 && !e.done && ui.mealLogSnooze !== today
-    ? `<section class="card water-prompt"><h3>Time to log today’s meals</h3>
-      <p>${esc(s.people[p].name)} has ${loggedMeals} of 3 meals logged. Fill in the rest below so today’s protein, carbs and fibre count.</p>
-      <div class="row-btns"><button class="btn ghost" data-act="meallog-later">Later</button></div></section>` : '';
   const wp = ui.waterPrompt;
   const promptCard = wp ? `<section class="card water-prompt">
     <h3>Water check-in · ${slotLabel(wp.slot)}</h3>
@@ -160,6 +231,42 @@ export function renderToday(s, ui, icon) {
       <button class="btn ghost" data-act="water-later" data-slot="${wp.slot}" data-p="${wp.person}">Later</button>
     </div>
   </section>` : '';
+  const personSeg = `<div class="seg full">${s.people.map((pp, i) => `<button class="${p === i ? 'on' : ''}" data-act="log-person" data-p="${i}">${esc(pp.name)}${isLogged(entryFor(s, iso, i)) ? ' ✓' : ''}</button>`).join('')}</div>`;
+  const anyOther = s.people.some((_, i) => ['breakfast', 'lunch', 'dinner'].some((m) => entryFor(s, iso, i)[m] === 'other'));
+  const detailsOpen = !!ui.logDetails || anyOther;
+  const supps = supplementsOf(s.people[p]).length ? renderSupps(s, p, iso, dis) : '';
+  const details = detailsOpen ? `
+    <p class="fine">Details for one person at a time. Pick who:</p>
+    ${personSeg}
+    ${renderIntake(s, p, e, isToday)}
+    ${supps}
+    <div class="log-block">
+      <h3>${esc(s.people[p].name)}’s breakfast</h3>
+      ${renderFixedToday(s, p)}
+      ${seg('breakfast', e.breakfast, [['usual', 'As usual'], ['other', 'Something else'], ['skipped', 'Skipped']], dis)}
+      ${e.breakfast === 'other' ? `${text('breakfastText', e.breakfastText, 'What did you have? (optional)', dis)}${foodPicker(e, 'breakfast', dis)}` : ''}
+      ${MEALS.map(([f, label]) => `<h3>${label}</h3>${mealPicker(f)}`).join('')}
+    </div>
+    <h3>Snacks</h3>
+    ${text('snacks', e.snacks, 'e.g. fruit, protein bar, chai', dis)}
+    ${foodPicker({ ...e, snackFoods: e.snackFoods }, 'snack', dis, false)}
+    <h3>Cheats</h3>
+    <label class="toggle"><input type="checkbox" data-act="log-cheatday" ${e.cheatDay ? 'checked' : ''}${dis}><span>This was a cheat day</span></label>
+    <div class="chips wrapchips">${(e.cheats || []).map((c, i) => `<span class="chip on cheat">${esc(c)} <button class="x" data-act="log-uncheat" data-i="${i}" aria-label="Remove"${dis}>×</button></span>`).join('')}</div>
+    <form class="addform" data-form="cheat"><input name="cheat" placeholder="Add a cheat (pizza, dessert, drinks…)" autocomplete="off"${dis}><button class="btn" type="submit" aria-label="Add"${dis}>${icon('plus')}</button></form>
+    <h3>How healthy did you eat today?</h3>
+    <div class="rate-row big">${[1, 2, 3, 4, 5].map((v) => `<button class="star ${v <= (e.rating || 0) ? 'on' : ''}" data-act="log-set" data-field="rating" data-value="${v}" aria-label="${v} of 5"${dis}>★</button>`).join('')}
+      <span class="fine">${['', 'Off track', 'Meh', 'Okay', 'Good', 'Spot on'][e.rating || 0]}</span></div>
+    <h3>Note</h3>
+    ${text('note', e.note, 'Anything worth remembering (optional)', dis)}
+    <h3>Water check-ins</h3>
+    <div class="chips wrapchips water-slots">${slotChips || '<span class="muted">Check-ins start at 9am</span>'}</div>
+    <p class="fine">${wCheck.answered ? `${wCheck.yes} yes · ${wCheck.no} no so far. Tap a time to change its answer.` : 'Tap a time to answer it, or answer the reminder when it arrives.'}</p>
+    <div class="day-done">
+      ${e.done
+        ? `<p class="fine"><b>This day is locked.</b> Tap Edit to change it.</p><button class="btn small" data-act="log-done">Edit</button>`
+        : `<p class="fine">Lock this day so a stray tap can’t change it (optional).</p><button class="btn small" data-act="log-done">Lock ${esc(s.people[p].name)}’s day</button>`}
+    </div>` : '';
   return `
   ${promptCard}
   <section class="card">
@@ -168,61 +275,25 @@ export function renderToday(s, ui, icon) {
       <div class="day-title"><b>${iso === today ? 'Today' : iso === shiftDay(today, -1) ? 'Yesterday' : ''}</b> <span class="muted">${fmtDay(iso)}</span></div>
       <button class="act icon-only" data-act="log-day" data-d="1" ${iso >= today ? 'disabled' : ''} aria-label="Next day">${icon('up', 'rot-r')}</button>
     </div>
-    <div class="seg full">${s.people.map((pp, i) => `<button class="${p === i ? 'on' : ''}" data-act="log-person" data-p="${i}">${esc(pp.name)}${isLogged(entryFor(s, iso, i)) ? ' ✓' : ''}</button>`).join('')}</div>
-    <p class="fine">${isLogged(e) ? 'Saved automatically.' : `What did ${esc(s.people[p].name)} eat${iso === today ? ' today' : ''}? Tap what fits — it takes a minute.`}
-      ${otherDone ? '' : ` ${esc(other.name)} hasn't logged this day yet.`}</p>
   </section>
 
-  ${mealLogPrompt}
-  ${renderIntake(s, p, e, isToday)}
-  ${renderSupps(s, p, iso, dis)}
+  ${renderQuickLog(s, iso, onDay)}
 
   <section class="card log">
-    <h3>Water check-in</h3>
-    <div class="chips wrapchips water-slots">${slotChips || '<span class="muted">Check-ins start at 9am</span>'}</div>
-    <p class="fine">${wCheck.answered ? `${wCheck.yes} yes · ${wCheck.no} no of ${wCheck.due} check-in${wCheck.due === 1 ? '' : 's'}${isToday ? ' so far' : ''} — tap a time to set or change its answer.` : isToday ? 'Answer the check-ins as they arrive, or tap a time above.' : 'No check-ins answered this day.'}</p>
-    <h3 class="water-glasses-head">Glasses logged <span class="muted">· the actual amount, if you want to track it</span></h3>
-    <p class="fine">Check-ins and glasses are counted separately — answering Yes above doesn't add a glass here.</p>
+    <h3>Water</h3>
+    ${s.people.length > 1 ? personSeg : ''}
     <div class="water-row">
       <button data-act="water-add" data-d="-1" ${wHad <= 0 || e.done ? 'disabled' : ''} aria-label="Remove a glass">${icon('minus')}</button>
       <div class="water-count"><b>${wHad}</b><span class="muted"> / ${wGoal} glasses</span></div>
       <button data-act="water-add" data-d="1"${dis} aria-label="Add a glass">${icon('plus')}</button>
     </div>
     <div class="water-bar"><i style="width:${wPct}%"></i></div>
-    <p class="fine">${wHad >= wGoal ? 'Goal reached — nice one!' : `${wGoal - wHad} to go · a glass is about 250 ml`}</p>
+    <p class="fine">${wHad >= wGoal ? 'Goal reached — nice one!' : `Tap + for each glass (about 250 ml). ${wGoal - wHad} to go.`}</p>
   </section>
 
-  <section class="card log">
-    <h3>Breakfast &amp; shake</h3>
-    ${renderFixedToday(s, p)}
-    ${seg('breakfast', e.breakfast, [['usual', 'As usual'], ['other', 'Something else'], ['skipped', 'Skipped']], dis)}
-    ${e.breakfast === 'other' ? `${text('breakfastText', e.breakfastText, 'What did you have? (optional)', dis)}${foodPicker(e, 'breakfast', dis)}` : ''}
-    ${MEALS.map(([f, label]) => `<h3>${label}</h3>${mealPicker(f)}`).join('')}
-  </section>
-
-  <details class="card log more-today" ${e.snacks || e.note || e.rating || e.cheatDay || e.cheats?.length ? 'open' : ''}>
-    <summary>More about today <span class="muted">· snacks, cheats, rating, note</span></summary>
-    <h3>Snacks</h3>
-    ${text('snacks', e.snacks, 'e.g. fruit, protein bar, chai', dis)}
-    ${foodPicker({ ...e, snackFoods: e.snackFoods }, 'snack', dis, false)}
-    <h3>Cheats</h3>
-    <label class="toggle"><input type="checkbox" data-act="log-cheatday" ${e.cheatDay ? 'checked' : ''}${dis}><span>This was a cheat day</span></label>
-    <div class="chips wrapchips">${(e.cheats || []).map((c, i) => `<span class="chip on cheat">${esc(c)} <button class="x" data-act="log-uncheat" data-i="${i}" aria-label="Remove"${dis}>×</button></span>`).join('')}</div>
-    <form class="addform" data-form="cheat"><input name="cheat" placeholder="Add a cheat (pizza, dessert, drinks…)" autocomplete="off"${dis}><button class="btn" type="submit" aria-label="Add"${dis}>${icon('plus')}</button></form>
-
-    <h3>How healthy did you eat today?</h3>
-    <div class="rate-row big">${[1, 2, 3, 4, 5].map((v) => `<button class="star ${v <= (e.rating || 0) ? 'on' : ''}" data-act="log-set" data-field="rating" data-value="${v}" aria-label="${v} of 5"${dis}>★</button>`).join('')}
-      <span class="fine">${['', 'Off track', 'Meh', 'Okay', 'Good', 'Spot on'][e.rating || 0]}</span></div>
-    <h3>Note</h3>
-    ${text('note', e.note, 'Anything worth remembering (optional)', dis)}
-  </details>
-
-  <section class="card day-done">
-    ${e.done
-      ? `<p class="fine"><b>Saved and locked.</b> Tap Edit to change anything - it saves automatically again.</p>
-      <button class="btn small" data-act="log-done">Edit</button>`
-      : `<p class="fine">Finished ${esc(s.people[p].name)}'s log for ${isToday ? 'today' : 'this day'}? Done saves and locks it so a stray tap changes nothing - Edit unlocks it again.</p>
-      <button class="btn primary" data-act="log-done">Done</button>`}
+  <section class="card log details-card">
+    <button class="btn wide ${detailsOpen ? '' : 'ghost'}" data-act="log-details" aria-expanded="${detailsOpen}">${detailsOpen ? 'Hide details' : 'Details: snacks, rating, vitamins, who ate what'}</button>
+    ${details}
   </section>`;
 }
 

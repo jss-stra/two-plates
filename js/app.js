@@ -3,7 +3,7 @@ import { renderExtrasCard, renderPartiesCard, setupGroceryEvents } from './groce
 import { RECIPES, RECIPE_BY_ID, GROUPS, INGREDIENTS, DIET_LABEL, PROTEIN_LABEL, youtubeUrl, isVeg, kindOf, DATA_ERRORS, exclusionHits, ALLERGEN_CATS, DISPLAY_GROUPS, displayKind } from './data.js';
 import { getState, update, onChange, defaultState, replaceState } from './state.js';
 import { generateSlots, slotKind, planRecipes, alternatives, randomSwap, removeSlot, mealFor, perMealGoal, dailyEstimate, weekStart, ratingOf, targetDishes, localISO, weekRelation, weekRangeLabel, arrangeDays, rollOverPastWeek, currentWeekStart, plannedOnDay, nextWeekStart, isShopWindow, asNextWeek, planNextWeek, ensureNextPlan, swapNextDay, WEEK_DAYS, dayISO, isWeekendISO, weekendMisses, cookFrom } from './planner.js';
-import { renderLog, shiftDay, shiftMonth } from './log.js';
+import { renderLog, shiftDay, shiftMonth, applyQuickMeal, plannedValue } from './log.js';
 import { buildGrocery, weeklyNoteText, scaleFactor, formatQty, qtyText } from './grocery.js';
 import { exportExcel } from './export.js';
 import { renderBought, loadReceipts, onReceipts, addReceipt, removeReceipt, rereadReceipt, shiftWeek } from './receipts.js';
@@ -33,6 +33,7 @@ const store = {
 // Per-device view preferences (not synced).
 const ui = {
   tab: 'home', // Home is the default landing screen on every open
+  logDetails: false, // Today: the per-person details panel is closed until asked for
   search: '', group: 'All', vegOnly: false, quick: false, sort: 'smart', expanded: null,
   sheet: null, // { index, filter, query }
   imported: null, // imported recipe id while its detail sheet is open
@@ -1825,6 +1826,20 @@ const actions = {
   },
   'receipt-reread': (el) => { rereadReceipt(el.dataset.id).then(() => toast('Claude will read it again'), (e) => toast(e.message)); },
   'log-view': (el) => { ui.logView = el.dataset.v; render(); },
+  // One tap logs a meal for everyone: "had it" = the planned dish (or the usual breakfast).
+  'quick-meal': (el) => {
+    const iso = el.dataset.date || ui.logDate;
+    const meal = el.dataset.meal;
+    const choice = el.dataset.choice;
+    const value = choice === 'had' ? plannedValue(meal, plannedOnDay(getState(), iso)) : choice;
+    if (!value) { toast('Nothing is planned for this meal - tap Something else'); return; }
+    let n = 0;
+    update((d) => { n = applyQuickMeal(d, iso, meal, value); });
+    if (!n) { toast('This day is locked - open Details and tap Edit'); return; }
+    if (choice === 'other') { ui.logDetails = true; render(); toast('What did you have? Add it under Details'); }
+    else toast(`${meal[0].toUpperCase()}${meal.slice(1)} saved`);
+  },
+  'log-details': () => { ui.logDetails = !ui.logDetails; render(); },
   'water-add': (el) => {
     const d = Number(el.dataset.d);
     setEntry((e) => {
@@ -2083,7 +2098,7 @@ document.addEventListener('click', (e) => {
 // and the goal-check controls themselves (captured as goal-check events).
 const JOURNAL_SKIP_ACTS = new Set([
   'water-answer', 'water-chip', 'water-add', 'water-later',
-  'log-set', 'log-cheatday', 'log-uncheat',
+  'log-set', 'log-cheatday', 'log-uncheat', 'quick-meal', 'log-details',
   'log-done', // not in the server-side act vocabulary; recording it would fail the upload batch
   'fixed-add', 'fixed-remove', 'fixed-preset', // diet items are health habits, and not in the server act vocabulary
   'supp-add', 'supp-remove', 'supp-preset', 'supp-toggle', 'food-add', 'food-n', 'meal-photo-remove', 'meallog-later', // health logging

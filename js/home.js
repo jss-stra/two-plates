@@ -1,6 +1,6 @@
 // Home tab: a quick daily and weekly overview built from the food and water logs.
 // Days with no log are called out as "not logged" — never counted as a missed goal.
-import { entryFor, isLogged, shiftDay } from './log.js';
+import { entryFor, isLogged, shiftDay, nextMealToLog } from './log.js';
 import { localISO, planRecipes, currentWeekStart, weekRelation, weekRangeLabel } from './planner.js';
 import { displayKind, DISPLAY_GROUPS } from './data.js';
 import { waterGoal, waterCheckDay } from './water.js';
@@ -24,8 +24,7 @@ const hasWater = (e) => e.water != null || (e.waterTs?.length ?? 0) > 0;
 // Check-in answers say whether water was had around each reminder time; they are
 // not glass counts, so they are summarised separately from the glass counter.
 const checkinText = (dc) => {
-  if (!dc.due) return null;
-  if (!dc.answered) return `${dc.due} check-in${dc.due === 1 ? '' : 's'} so far, none answered`;
+  if (!dc.due || !dc.answered) return null; // unanswered check-ins are not worth a line
   return `Check-ins: ${dc.yes} yes · ${dc.no} no of ${dc.due}`;
 };
 
@@ -38,9 +37,8 @@ function waterLine(s, p, days) {
     recorded++;
     if (e.water >= goal) atGoal++;
   }
-  const notLogged = unrecorded ? ` · ${unrecorded} day${unrecorded === 1 ? '' : 's'} not logged` : '';
-  if (!recorded) return `Water: no days logged yet${notLogged}`;
-  return `Water at goal ${atGoal} of ${recorded} logged day${recorded === 1 ? '' : 's'}${notLogged}`;
+  if (!recorded) return null; // no water logged yet: say nothing rather than list gaps
+  return `Water at goal ${atGoal} of ${recorded} logged day${recorded === 1 ? '' : 's'}`;
 }
 
 function ratingLine(s, p, days) {
@@ -73,7 +71,7 @@ export function renderHome(s, ui = {}) {
     const checkins = checkinText(waterCheckDay(e));
     const water = `${waterLogged
       ? `<b>${had}</b><span class="muted"> / ${goal} glasses</span>${had >= goal ? ' · goal reached' : ''}`
-      : checkins ? '' : `<span class="muted">Water not logged yet</span>`}
+      : ''}
       ${checkins ? `${waterLogged ? '<br>' : ''}<span class="muted">${esc(checkins)}</span>` : ''}`;
     return `<div class="home-row">
       <div class="home-head"><b>${esc(person?.name || `Person ${p + 1}`)}</b>
@@ -82,6 +80,13 @@ export function renderHome(s, ui = {}) {
       ${waterLogged ? `<div class="water-bar"><i style="width:${pct}%"></i></div>` : ''}
     </div>`;
   }).join('');
+
+  const next = nextMealToLog(s);
+  const shortcut = next
+    ? `<p class="home-next"><b>${esc(next.label)}</b> · ${esc(next.name)}</p>
+    <button class="btn primary wide" data-act="quick-meal" data-meal="${next.meal}" data-choice="had" data-date="${next.iso}">${(s.people.length > 1) ? 'We both had it' : 'I had it'} ✓</button>
+    <button class="btn wide" data-act="tab" data-tab="today">Something else, or log more</button>`
+    : `<button class="btn primary wide" data-act="tab" data-tab="today">Log today</button>`;
 
   const recipes = planRecipes(s);
   const kinds = Object.fromEntries(DISPLAY_GROUPS.map(([kind]) => [kind,0]));
@@ -118,7 +123,7 @@ export function renderHome(s, ui = {}) {
   <section class="card">
     <h2>Today · ${esc(dateLabel)}</h2>
     ${todayRows}
-    <button class="btn primary wide" data-act="tab" data-tab="today">Log today</button>
+    ${shortcut}
   </section>
   <section class="card">
     <h2>This week <span class="muted">\u00b7 ${esc(weekRangeLabel(currentWeekStart(startDay)))}</span></h2>
