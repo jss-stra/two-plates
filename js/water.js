@@ -1,13 +1,13 @@
 // Water tracking: yes/no check-ins at fixed times, plus the optional glass counter.
-// Rule (Jatin, 13 Nov 2026): a "Did you drink water?" check-in at 9am, noon, 3pm,
-// 6pm and 9pm. Push check-ins arrive even when the app is closed (the tap opens the
+// Rule (Jatin, 27 Nov 2026, down from five a day at 9am, noon, 3pm, 6pm and 9pm):
+// a "Did you drink water?" check-in at noon and 6pm. Push check-ins arrive even when the app is closed (the tap opens the
 // app on Yes/No buttons); while the app is open the same question shows as an
 // in-app prompt. Nothing after 10pm. A check-in answer says whether water was had
 // around that time — it is not a glass count, and daily/weekly summaries keep
 // check-ins and the optional glass counter apart.
 import { localISO } from './planner.js';
 
-export const WATER_SLOTS = [9, 12, 15, 18, 21]; // local hours: 9am, noon, 3pm, 6pm, 9pm
+export const WATER_SLOTS = [12, 18]; // local hours: noon and 6pm (keep in step with supabase/reminders-setup.sql)
 export const WATER_LAST_PROMPT_HOUR = 22; // no new prompts at or after 10pm
 const DISMISS_KEY = 'twoplates.waterDismissed.v1';
 
@@ -15,7 +15,7 @@ export const waterGoal = (person) => person?.waterGlasses ?? 8;
 
 export const slotLabel = (h) => `${h % 12 === 0 ? 12 : h % 12}${h < 12 ? 'am' : 'pm'}`;
 
-// The latest slot whose time has come right now. null before 9am and from 10pm.
+// The latest slot whose time has come right now. null before noon and from 10pm.
 export function dueWaterSlot(now = new Date()) {
   const mins = now.getHours() * 60 + now.getMinutes();
   if (mins < WATER_SLOTS[0] * 60 || mins >= WATER_LAST_PROMPT_HOUR * 60) return null;

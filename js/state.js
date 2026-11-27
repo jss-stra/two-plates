@@ -31,7 +31,7 @@ export function defaultState() {
       minProtein: 20,
       maxSameProtein: 3,
       startDay: 0, // 0 = Monday
-      waterRemind: true, // 3-hourly water nudges, 9am-9pm, while the app is open
+      waterRemind: true, // noon and 6pm water nudges while the app is open
       usageJournal: true, // private on-device log of screens/buttons used - off stops recording
       cuisineWeights: { Indian: 1, Mexican: 3, Italian: 3, 'Grill & Wraps': 3, 'Indo-Chinese': 2, Thai: 2, 'Explore Asian': 2 },
     },
