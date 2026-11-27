@@ -837,7 +837,7 @@ function pushUi(s) {
   if (ui.pushStatus === 'on') return `<p class="fine">Reminders are on for ${esc(name)} on this phone — they arrive even when the app is closed.</p>
     <button class="btn ghost" data-act="push-disable">Stop reminders on this phone</button>`;
   return `<button class="btn wide wrap" data-act="push-enable">Remind ${esc(name)} on this phone, even when the app is closed</button>
-    <p class="fine">Sends a \"Did you drink water?\" check-in at 9am, noon, 3pm, 6pm and 9pm — tap it and answer Yes or No — plus a 10pm check-in asking how many coffees, teas, milks and shakes you had. Nothing after 10pm.</p>`;
+    <p class="fine">Sends a \"Did you drink water?\" check-in at noon and 6pm — tap it and answer Yes or No — plus a 10pm check-in asking how many coffees, teas, milks and shakes you had. Nothing after 10pm.</p>`;
 }
 
 // ---------- Exclusions (allergies & dislikes) ----------
@@ -1003,7 +1003,7 @@ function renderSettings(s) {
 
   <section class="card">
     <h2>Water reminders</h2>
-    <label class="rule toggle"><span>Ask \"Did you drink water?\" at 9am, noon, 3pm, 6pm and 9pm while the app is open</span><input type="checkbox" data-set="rules.waterRemind" ${s.rules.waterRemind !== false ? 'checked' : ''}></label>
+    <label class="rule toggle"><span>Ask \"Did you drink water?\" at noon and 6pm while the app is open</span><input type="checkbox" data-set="rules.waterRemind" ${s.rules.waterRemind !== false ? 'checked' : ''}></label>
     <label class="rule toggle"><span>Keep a private on-this-phone log of which screens and buttons get used - never typed text, answers or dish names. Turning it off deletes what is on this phone</span><input type="checkbox" data-set="rules.usageJournal" ${s.rules.usageJournal !== false ? 'checked' : ''}></label>
     ${pushUi(s)}
   </section>

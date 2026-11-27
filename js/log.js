@@ -260,7 +260,7 @@ export function renderToday(s, ui, icon) {
     <h3>Note</h3>
     ${text('note', e.note, 'Anything worth remembering (optional)', dis)}
     <h3>Water check-ins</h3>
-    <div class="chips wrapchips water-slots">${slotChips || '<span class="muted">Check-ins start at 9am</span>'}</div>
+    <div class="chips wrapchips water-slots">${slotChips || '<span class="muted">Check-ins start at noon</span>'}</div>
     <p class="fine">${wCheck.answered ? `${wCheck.yes} yes · ${wCheck.no} no so far. Tap a time to change its answer.` : 'Tap a time to answer it, or answer the reminder when it arrives.'}</p>
     <div class="day-done">
       ${e.done

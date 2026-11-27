@@ -35,8 +35,7 @@ create extension if not exists pg_net;
 
 -- Every 5 minutes (cron runs in-database, no billable invocations; the edge
 -- function is only called when a reminder is actually due):
---  * water: a "Did you drink water?" yes/no check-in at 9am, noon, 3pm, 6pm and
---    9pm local, once per slot per day (the date guard on the per-slot log row
+--  * water: a "Did you drink water?" yes/no check-in at noon and 6pm local, once per slot per day (the date guard on the per-slot log row
 --    keeps the 5-minute tick from sending twice). Nothing after 10pm.
 --  * meal-log: at 9:30pm local, once per day, "log today's meals" so the day's
 --    protein, carbs and fibre count.
@@ -55,9 +54,9 @@ begin
     select m.data #>> array['people', s.person::text, 'name'] into pname
       from public.meal_state m where m.id = s.household;
 
-    -- Water check-ins at 9am, noon, 3pm, 6pm and 9pm local, once per slot per day.
+    -- Water check-ins at noon and 6pm local, once per slot per day.
     -- The 10-minute window covers a delayed tick; the log row's date guard dedupes.
-    for slot_h in select h from (values (9),(12),(15),(18),(21)) as v(h) loop
+    for slot_h in select h from (values (12),(18)) as v(h) loop
       if extract(hour from lt) = slot_h and extract(minute from lt) < 10 then
         select r.last_at into last_nudge from public.reminder_log r where r.id = s.id and r.kind = 'water-' || slot_h;
         if last_nudge is null or (last_nudge at time zone s.tz)::date < lt::date then

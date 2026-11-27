@@ -14,6 +14,7 @@ const deviceId = Math.random().toString(36).slice(2);
 let client = null;
 let channel = null;
 let pushTimer = null;
+let pollTimer = null;
 let status = { state: 'off', message: 'Not connected — this phone only' };
 const statusListeners = new Set();
 
@@ -113,7 +114,9 @@ export async function connect(cfg, { join = false } = {}) {
   setStatus('saving', 'Connecting…');
   try {
     const { createClient } = await import(SUPABASE);
-    client = createClient(cfg.url.trim(), cfg.key.trim());
+    // The household code rides on every request so the database can show this
+    // household its own rows and nobody else's (see docs/household-lockdown.sql).
+    client = createClient(cfg.url.trim(), cfg.key.trim(), { global: { headers: { 'x-household': cfg.household.trim() } } });
     const { data, error } = await client.from(TABLE).select('data').eq('id', cfg.household).maybeSingle();
     if (error) throw error;
     if (!data?.data) await push(); // brand-new household: seed it with this phone's plan
@@ -127,6 +130,14 @@ export async function connect(cfg, { join = false } = {}) {
       .on('postgres_changes', { event: '*', schema: 'public', table: TABLE, filter: `id=eq.${cfg.household}` },
         (payload) => applyRemote(payload.new))
       .subscribe((s) => { if (s === 'CHANNEL_ERROR') setStatus('error', 'Live updates unavailable — will still save'); });
+    // Live pushes don't reach a household-scoped connection, so also check for the
+    // other phone's changes every 30 s while the app is open.
+    clearInterval(pollTimer);
+    pollTimer = setInterval(async () => {
+      if (!client || document.visibilityState !== 'visible' || isDirty()) return;
+      const { data: row } = await client.from(TABLE).select('data').eq('id', cfg.household).maybeSingle();
+      if (row?.data) applyRemote({ data: { ...row.data, _device: 'remote' } });
+    }, 30000);
     setSyncHook(onLocalChange);
     if (!isDirty()) setStatus('on', 'Synced');
   } catch (e) {
@@ -136,6 +147,8 @@ export async function connect(cfg, { join = false } = {}) {
 }
 
 export async function disconnect({ keepConfig = false } = {}) {
+  clearInterval(pollTimer);
+  pollTimer = null;
   if (channel) await client?.removeChannel(channel);
   channel = null;
   client = null;
